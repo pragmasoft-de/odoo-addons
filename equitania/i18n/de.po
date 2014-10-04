@@ -1,0 +1,401 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* equitania
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0rc1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-08-06 08:46+0000\n"
+"PO-Revision-Date: 2014-08-06 08:46+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: equitania
+#: view:product.pricelist.item:0
+msgid " ) + "
+msgstr " ) + "
+
+#. module: equitania
+#: view:product.pricelist.item:0
+msgid "* ( 1 + "
+msgstr "* ( 1 + "
+
+#. module: equitania
+#: view:product.pricelist.item:0
+msgid "Base Price"
+msgstr "Basispreis"
+
+#. module: equitania
+#: field:res.partner,eq_birthday:0
+msgid "Birthday"
+msgstr "Geburtstag"
+
+#. module: equitania
+#: view:eq_pricelist_item_search:0
+#: view:product.pricelist.item:0
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_res_company
+msgid "Companies"
+msgstr "Unternehmen"
+
+#. module: equitania
+#: field:res.company,eq_report_logo:0
+msgid "Company Report Logo"
+msgstr "Firmenlogo Reports"
+
+#. module: equitania
+#: field:account.invoice,eq_contact_person_id:0
+#: field:purchase.order,eq_contact_person_id:0
+#: field:sale.order,eq_contact_person_id:0
+msgid "Contact Person"
+msgstr "Kontaktperson"
+
+#. module: equitania
+#: field:eq_install_func,create_uid:0
+#: field:eq_pricelist_item_search,create_uid:0
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: equitania
+#: field:eq_install_func,create_date:0
+#: field:eq_pricelist_item_search,create_date:0
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: equitania
+#: field:res.partner,eq_creditor_ref:0
+msgid "Creditor Number"
+msgstr "Kreditorennummer"
+
+#. module: equitania
+#: field:res.company,eq_custom_1:0
+msgid "Custom 1"
+msgstr "Zusatz 1"
+
+#. module: equitania
+#: field:res.company,eq_custom_2:0
+msgid "Custom 2"
+msgstr "Zusatz 2"
+
+#. module: equitania
+#: field:res.company,eq_custom_3:0
+msgid "Custom 3"
+msgstr "Zusatz 3"
+
+#. module: equitania
+#: field:res.company,eq_custom_4:0
+msgid "Custom 4"
+msgstr "Zusatz 4"
+
+#. module: equitania
+#: view:res.partner:0
+#: field:res.partner,eq_customer_ref:0
+msgid "Customer Number"
+msgstr "Kundennummer"
+
+#. module: equitania
+#: sql_constraint:product.template:0
+msgid "This Product No. is already in use!"
+msgstr "Diese Produktnummer ist bereits vorhanden!"
+
+#. module: equitania
+#: field:product.product,eq_drawing_number:0
+#: field:product.template,eq_drawing_number:0
+msgid "Drawing Number"
+msgstr "Zeichnungsnummer"
+
+#. module: equitania
+#: code:addons/equitania/eq_contact_person.py:51
+#, python-format
+msgid "Error!"
+msgstr "Fehler!"
+
+#. module: equitania
+#: view:res.partner:0
+#: field:res.partner,eq_firstname:0
+msgid "Firstname"
+msgstr "Vorname"
+
+#. module: equitania
+#: field:eq_install_func,id:0
+#: field:eq_pricelist_item_search,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: equitania
+#: field:product.product,eq_index:0
+#: field:product.template,eq_index:0
+msgid "Index"
+msgstr "Index"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_account_invoice
+msgid "Invoice"
+msgstr "Rechnung"
+
+#. module: equitania
+#: field:eq_pricelist_item_search,eq_items_id:0
+msgid "Item"
+msgstr "Position"
+
+#. module: equitania
+#: view:eq_pricelist_item_search:0
+#: model:ir.actions.act_window,name:equitania.eq_pricelist_item_search_action
+#: model:ir.ui.menu,name:equitania.menu_eq_pricelist_item_search_action
+msgid "Itemsearch for Pricelist Version"
+msgstr "Positionssuche"
+
+#. module: equitania
+#: field:eq_install_func,write_uid:0
+#: field:eq_pricelist_item_search,write_uid:0
+msgid "Last Updated by"
+msgstr "Zuletzt bearbeitet von"
+
+#. module: equitania
+#: field:eq_install_func,write_date:0
+#: field:eq_pricelist_item_search,write_date:0
+msgid "Last Updated on"
+msgstr "Zuletzt bearbeitet am"
+
+#. module: equitania
+#: view:product.pricelist.item:0
+msgid "Max. Margin"
+msgstr "Max. Spanne"
+
+#. module: equitania
+#: view:product.pricelist.item:0
+msgid "Min. Margin"
+msgstr "Min. Spanne"
+
+#. module: equitania
+#: view:res.partner:0
+msgid "Name"
+msgstr "Name"
+
+#. module: equitania
+#: view:product.pricelist.item:0
+msgid "New Price ="
+msgstr "Neuer Preis ="
+
+#. module: equitania
+#: view:eq_pricelist_item_search:0
+msgid "Open"
+msgstr "Öffnen"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_res_partner
+msgid "Partner"
+msgstr "Partner"
+
+#. module: equitania
+#: code:addons/equitania/eq_contact_person.py:52
+#, python-format
+msgid "Please define sales journal for this company: \"%s\" (id:%d)."
+msgstr "Bitte legen Sie ein Verkaufsjournal für dieses Unternehmen fest: \"%s\" (id:%d)."
+
+#. module: equitania
+#: view:product.pricelist.item:0
+msgid "Price Computation"
+msgstr "Preisberechnung"
+
+#. module: equitania
+#: field:sale.order,eq_pricelist_change:0
+msgid "Pricelist Default"
+msgstr "Preisliste Standart"
+
+#. module: equitania
+#: field:eq_pricelist_item_search,eq_pricelist_version_id:0
+msgid "Pricelist Version"
+msgstr "Preisliste Version"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_product_product
+msgid "Product"
+msgstr "Produktvariante"
+
+#. module: equitania
+#: view:product.product:0
+#: view:product.template:0
+msgid "Product No."
+msgstr "Produktnummer"
+
+#. module: equitania
+#: field:product.template,eq_default_code:0
+msgid "Product Number"
+msgstr "Produktnummer"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: equitania
+#: view:product.pricelist.item:0
+msgid "Products Listprices Items"
+msgstr "Elemente in Produktpreisliste"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_purchase_order
+msgid "Purchase Order"
+msgstr "Beschaffungsauftrag"
+
+#. module: equitania
+#: view:product.pricelist.item:0
+msgid "Rounding Method"
+msgstr "Rundungsverfahren"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_sale_order
+msgid "Sales Order"
+msgstr "Verkaufsauftrag"
+
+#. module: equitania
+#: view:product.pricelist.item:0
+msgid "Save"
+msgstr "Speichern"
+
+#. module: equitania
+#: view:eq_pricelist_item_search:0
+msgid "Search Item"
+msgstr "Positionssuche"
+
+#. module: equitania
+#: help:res.company,eq_custom_1:0
+#: help:res.company,eq_custom_2:0
+#: help:res.company,eq_custom_3:0
+#: help:res.company,eq_custom_4:0
+msgid "The content of this field may be used in the header or footer of reports."
+msgstr "Der Inhalt dieser Felder kann für die Reports benutzt werden."
+
+#. module: equitania
+#: sql_constraint:res.partner:0
+msgid "This Creditor Number is already used!"
+msgstr "Diese Kreditorennummer ist bereits vorhanden!"
+
+#. module: equitania
+#: sql_constraint:res.partner:0
+msgid "This Customer Number is already used!"
+msgstr "Diese Kundennummer ist bereits vorhanden"
+
+#. module: equitania
+#: view:res.partner:0
+msgid "Titel"
+msgstr "Titel"
+
+#. module: equitania
+#: view:res.partner:0
+msgid "Type:"
+msgstr "Typ:"
+
+#. module: equitania
+#: view:product.template:0
+#: view:res.partner:0
+msgid "Update"
+msgstr "Aktuallisieren"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_eq_install_func
+msgid "eq_install_func"
+msgstr "eq_install_func"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_eq_pricelist_item_search
+msgid "eq_pricelist_item_search"
+msgstr "eq_pricelist_item_search"
+
+#. module: equitania
+#: view:eq_pricelist_item_search:0
+#: view:product.pricelist.item:0
+msgid "or"
+msgstr "oder"
+
+#. module: equitania
+#: field:product.template,eq_drawing_number_dub:0
+#: field:product.template,eq_state_dup:0
+msgid "unknown"
+msgstr "unknown"
+
+#. modules: purchase, product, base, stock
+#: model:ir.actions.act_window,name:product.product_template_action
+#: model:ir.ui.menu,name:product.menu_product_template_action
+#: field:product.template,product_variant_ids:0
+#: model:ir.actions.act_window,name:purchase.product_normal_action_puchased
+#: model:ir.ui.menu,name:purchase.menu_procurement_management_product
+#: model:ir.ui.menu,name:purchase.menu_procurement_partner_contact_form
+#: model:ir.ui.menu,name:purchase.menu_product_in_config_purchase
+#: view:purchase.order:purchase.purchase_order_form
+#: model:ir.ui.menu,name:stock.menu_product_in_config_stock
+#: model:ir.ui.menu,name:stock.menu_product_template_config_stock
+#: model:ir.ui.menu,name:stock.menu_stock_product
+#: model:ir.ui.menu,name:stock.menu_stock_products_menu
+#: view:product.template:stock.product_template_search_form_view_stock
+#: view:stock.config.settings:stock.view_stock_config_settings
+#: view:stock.location.route:stock.stock_location_route_form_view
+#: view:stock.picking:stock.view_picking_form
+#: view:stock.production.lot:stock.view_production_lot_form
+msgid "Products"
+msgstr "Hauptprodukte"
+
+#. modules: product, stock
+#: model:ir.actions.act_window,name:product.product_normal_actionf
+#: model:ir.actions.act_window,name:product.product_normal_action_sell
+#: model:ir.actions.act_window,name:product.product_normal_action_tree
+#: model:ir.actions.act_window,name:product.product_variant_action
+#: model:ir.ui.menu,name:product.menu_products
+#: view:product.product:0
+#: model:ir.ui.menu,name:stock.menu_product_variant_config_stock
+msgid "Product Variants"
+msgstr "Produktvarianten"
+
+#. module: base
+#: model:ir.ui.menu,name:base.next_id_5
+msgid "Sequences & Identifiers"
+msgstr "Nummerngenerator und Identifizierung"
+
+#. module: equitania
+#: view:account.invoice:0
+#: view:purchase.order:0
+#: view:sale.order:0
+msgid "Dear Sir or Madam,"
+msgstr "Sehr geehrte Damen und Herren,"
+
+#. module: equitania
+#: code:addons/equitania/eq_report_extension.py:52
+#, python-format
+msgid "Error!"
+msgstr "Fehler!"
+
+#. module: equitania
+#: field:account.invoice,eq_head_text:0
+#: field:purchase.order,eq_head_text:0
+#: field:sale.order,eq_head_text:0
+msgid "Head Text"
+msgstr "Kopftext"
+
+#. module: equitania
+#: view:account.invoice:0
+#: view:purchase.order:0
+#: view:sale.order:0
+msgid "Headtext"
+msgstr "Kopftext"
+
+#. module: equitania
+#: field:product.product,eq_internal_text:0
+#: field:product.template,eq_internal_text:0
+msgid "Internal Info"
+msgstr "Interne Info"
+
+#. module: equitania
+#: field:product.product,eq_internal_number:0
+#: field:product.template,eq_internal_number:0
+msgid "Internal Number"
+msgstr "Interne Nummer"
+

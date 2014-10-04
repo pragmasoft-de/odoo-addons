@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_eq_pricelist_item_search,eq_pricelist_item_search,model_eq_pricelist_item_search,base.group_user,1,1,1,1
+access_eq_install_func,eq_install_func,model_eq_install_func,base.group_user,0,0,0,0

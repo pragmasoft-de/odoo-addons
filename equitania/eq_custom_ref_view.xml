@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">base.view_partner_form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <field name="ref" position="replace">
+                    <field name="ref" attrs="{'invisible':True}" colspan="3"/>
+                </field>
+                <field name="lang" position="before">
+                    <label for="eq_customer_ref" string="Customer Number" attrs="{'invisible':[('customer', '=', False)]}"/>
+                    <div attrs="{'invisible':[('customer', '=', False)]}" it="eq_customer_ref">
+                        <field name="eq_customer_ref" attrs="{'invisible':[('customer', '=', False)]}" class="oe_inline" on_change="on_change_customer_ref(eq_customer_ref)"/>
+                        <button name="eq_customer_update" string="Update" type="object" attrs="{'invisible':[('customer', '=', False)]}" class="oe_edit_only oe_link oe_inline"/>
+                    </div>
+                    <label for="eq_creditor_ref" attrs="{'invisible':[('supplier', '=', False)]}" />
+                    <div attrs="{'invisible':[('supplier', '=', False)]}" it="eq_creditor_ref">
+                        <field name="eq_creditor_ref" attrs="{'invisible':[('supplier', '=', False)]}"   colspan="3" class="oe_inline"/>
+                        <button name="eq_creditor_update" string="Update" type="object"  attrs="{'invisible':[('supplier', '=', False)]}"  colspan="1" class="oe_edit_only oe_link oe_inline"/>
+                    </div>
+                </field>
+            </field>
+        </record>
+        
+        <record id="eq_product_product_template_only_form_view" model="ir.ui.view">
+            <field name="name">eq.product.product_template_only_form_view.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//group//field[@name='default_code']" position="replace">
+                	<field name="default_code" attrs="{'invisible':True}"/>
+                    <label for="default_code" string="Product No."/>
+                    <div>
+                        <field name="default_code" class="oe_inline"/>
+                        <button name="eq_product_number_update" string="Update" type="object" class="oe_edit_only oe_link oe_inline"/>
+                        <newline/>
+                    </div>
+                    <field name="eq_drawing_number"/>
+                    <field name="eq_index"/>
+                </xpath>
+                <xpath expr="//div[@class='oe_title']" position="replace">
+	                <div class="oe_title" style="width: 390px;">
+						<h3>
+							<field name="eq_default_code_dub"/>
+							<field name="name" class="oe_inline" modifiers="{'required': true}"/>
+						</h3>
+					</div>
+                </xpath>
+                <label for="purchase_ok" position="after">
+                	<div>
+	                	<label for="eq_state_dup" string="State"/>
+						<field name="eq_state_dup" class="oe_inline"/>
+					</div>
+                </label>
+                <xpath expr="//field[@name='list_price']" position="after">
+                	<field name="eq_internal_number"/>
+                	<field name="eq_internal_text"/>
+                </xpath>
+            </field>
+        </record>  
+        
+        <record id="eq_product_template_search_view" model="ir.ui.view">
+            <field name="name">eq.product.template.product.search</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_search_view" />
+            <field name="arch" type="xml">
+                <field name="name" position="replace">
+                   <field name="name" string="Product" filter_domain="['|','|',('default_code','ilike',self),('default_code','ilike',self),('name','ilike',self)]"/>
+                </field>            	
+            	<field name="product_variant_ids" position="after">
+            		<field name="default_code"/>
+            		<field name="eq_drawing_number"/>
+            		<field name="eq_internal_number"/>
+            		<field name="eq_index"/>
+            	</field>
+            </field>
+        </record>
+        
+        <record id="eq_product_template_tree_view" model="ir.ui.view">
+            <field name="name">eq.product.template.product.tree</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view" />
+            <field name="arch" type="xml">
+            	<field name="name" position="before">
+            		<field name="default_code"/>
+            	</field>
+            	<field name="categ_id" position="before">
+            		<field name="list_price"/>
+            		<field name="qty_available"/>
+            		<field name="eq_internal_number"/>
+            		<field name="eq_index"/>
+            	</field>
+            </field>
+        </record>
+        
+        <record id="eq_product_template_kanban_view" model="ir.ui.view">
+            <field name="name">eq.product.template.kanban.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_kanban_view" />
+            <field name="arch" type="xml">
+            	<xpath expr="//kanban/templates/t/div/div[@class='oe_kanban_details']/a[@type='action']" position="replace">
+            		<field name="default_code"/>
+            	</xpath>
+            </field>
+        </record>
+        
+        <record id="eq_product_product_form_view" model="ir.ui.view">
+            <field name="name">eq.product.product.form.view.inherit</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='default_code']" position="after">
+                    <label for="default_code" string="Product No."/>
+                    <div>
+                        <field name="default_code" class="oe_inline"/>
+                        <button name="eq_product_number_update" string="Update" type="object" class="oe_edit_only oe_link oe_inline"/>
+                        <newline/>
+                    </div>
+                    <field name="eq_drawing_number"/>
+                    <field name="eq_index"/>
+                </xpath>
+                <xpath expr="//div[@class='oe_title']" position="replace">
+	                <div class="oe_title" style="width: 390px;">
+						<h3>
+							<div><field name="eq_default_code_dub" class="oe_inline"/></div>
+							<field name="name" class="oe_inline" modifiers="{'required': true}"/>
+						</h3>
+					</div>
+                </xpath>
+                <label for="purchase_ok" position="after">
+                	<div>
+	                	<label for="eq_state_dup" string="State"/>
+						<field name="eq_state_dup"/>
+					</div>
+                </label>
+                <xpath expr="//field[@name='lst_price']" position="after">
+                	<field name="eq_internal_number"/>
+                	<field name="eq_internal_text"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="eq_product_product_tree_view" model="ir.ui.view">
+            <field name="name">eq.product.product.tree</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view" />
+            <field name="arch" type="xml">
+            <!-- 
+            	<field name="default_code" position="replace">
+            		<field name="eq_default_code"/>
+            	</field> -->
+            	<field name="lst_price" position="after">
+            		<field name="qty_available"/>
+            		<field name="eq_internal_number"/>
+            		<field name="eq_index"/>
+            	</field> 
+            </field>
+        </record>
+        <record id="eq_product_kanban_view" model="ir.ui.view">
+            <field name="name">eq.product.kanban.view</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_kanban_view" />
+            <field name="arch" type="xml">
+            	<xpath expr="//ul" position="before">
+            		<field name="default_code"/>
+            	</xpath>
+            </field>
+        </record>
+        <record id="eq_product_search_form_view" model="ir.ui.view">
+            <field name="name">eq.product.product.search</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_search_form_view" />
+            <field name="arch" type="xml">
+                <field name="name" position="replace">
+                   <field name="name" string="Product" filter_domain="['|','|',('default_code','ilike',self),('default_code','ilike',self),('name','ilike',self)]"/>
+                </field> 
+            </field>
+        </record>
+        <record id="eq_seq_creditor_ref" model="ir.sequence.type">
+            <field name="name">Creditor Number</field>
+            <field name="code">eq_creditor_ref</field>
+        </record>
+        <record id="seq_kreditpr_ref" model="ir.sequence">
+            <field name="name">Creditor Number</field>
+            <field name="code">eq_creditor_ref</field>
+            <field name="number_next">70000</field>
+            <field name="padding">5</field>
+            <field eval="1" name="number_increment"/>
+        </record>
+
+        <record id="eq_seq_customer_ref" model="ir.sequence.type">
+            <field name="name">Customer Number</field>
+            <field name="code">eq_customer_ref</field>
+        </record>
+        <record id="seq_customer_ref" model="ir.sequence">
+            <field name="name">Customer Number</field>
+            <field name="code">eq_customer_ref</field>
+            <field name="number_next">10000</field>
+            <field name="padding">5</field>
+            <field eval="1" name="number_increment"/>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="eq_company_custom_fields_form_view" model="ir.ui.view">
+            <field name="name">equitania.company.form.view</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form" />
+            <field name="arch" type="xml">
+	            <xpath expr="//field[@name='company_registry']" position="after">
+                   	<field name="eq_custom_1"/>
+                   	<field name="eq_custom_2"/>
+                   	<field name="eq_custom_3"/>
+                   	<field name="eq_custom_4"/>
+            	</xpath>
+	            <xpath expr="//field[@name='custom_footer']" position="before">
+                   	<field name="eq_report_logo"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
