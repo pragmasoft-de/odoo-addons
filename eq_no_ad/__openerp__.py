@@ -26,8 +26,12 @@
         Equitania Software GmbH
     """,
     'author': 'Equitania Software GmbH',
-    'website': 'www.equitania.de',
+    'website': 'www.myodoo.de',
     'depends': ['base_setup', 'mail',],
+    'category' : 'General Improvements',
+    'summary': 'Ad-Blocker',
+   
+    
     #'init': [
     #         'eq_install_func.xml', 
     #         ],

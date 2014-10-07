@@ -26,8 +26,10 @@
         Equitania Software GmbH
     """,
     'author': 'Equitania Software GmbH',
-    'website': 'www.equitania.de',
+    'website': 'www.myodoo.de',
     'depends': ['base_setup', 'purchase', 'sale',  'account', 'product', 'mail', 'report', 'hr', 'crm',],
+    'category' : 'General Improvements',
+    'summary': 'Sale, Account, Product, Mail, Report, CRM, Purchase',
     #'init': [
     #         'eq_install_func.xml', 
     #         ],
