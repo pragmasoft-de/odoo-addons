@@ -80,7 +80,7 @@
                                             <span>Angebotsdatum</span>
                                         </td>	
                                         <td class="text-right">
-                                            <span t-field="o.date_order"/>
+                                            <span t-esc="o.date_order.split(' ')[0]"/>
                                         </td>
                                     </tr>
                                     <tr>
@@ -130,7 +130,7 @@
                         </div>
                     </div>
                     <h2  style="margin-bottom:25px; margin-top:25px">
-                	<span t-if="o.state not in ['draft','sent']">Auftrag </span>
+                	<span t-if="o.state not in ['draft','sent']">Auftragsbestätigung </span>
                 	<span t-if="o.state in ['draft','sent']">Angebot </span>
                         <span t-field="o.name"/>
                     </h2>

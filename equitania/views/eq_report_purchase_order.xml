@@ -57,7 +57,7 @@
                                             <span>Bestelldatum</span>
                                         </td>
                                         <td class="text-right">
-                                            <span t-field="o.date_order"/>
+                                            <span t-esc="o.date_order.split(' ')[0]"/>
                                         </td>
                                     </tr>
                                     <tr>
