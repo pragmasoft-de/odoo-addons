@@ -2,6 +2,7 @@
 <openerp>
     <data>
 
+		<!-- Customer Form -->
         <record id="view_partner_form" model="ir.ui.view">
             <field name="name">base.view_partner_form</field>
             <field name="model">res.partner</field>
@@ -25,6 +26,7 @@
             </field>
         </record>
         
+        <!-- Product Template -->
         <record id="eq_product_product_template_only_form_view" model="ir.ui.view">
             <field name="name">eq.product.product_template_only_form_view.inherit</field>
             <field name="model">product.template</field>
@@ -107,6 +109,7 @@
             </field>
         </record>
         
+        <!-- Product Product -->
         <record id="eq_product_product_form_view" model="ir.ui.view">
             <field name="name">eq.product.product.form.view.inherit</field>
             <field name="model">product.product</field>
@@ -178,6 +181,8 @@
                 </field> 
             </field>
         </record>
+        
+        <!-- Creditor Sequence -->
         <record id="eq_seq_creditor_ref" model="ir.sequence.type">
             <field name="name">Creditor Number</field>
             <field name="code">eq_creditor_ref</field>
@@ -190,6 +195,7 @@
             <field eval="1" name="number_increment"/>
         </record>
 
+        <!-- Customer Sequence -->
         <record id="eq_seq_customer_ref" model="ir.sequence.type">
             <field name="name">Customer Number</field>
             <field name="code">eq_customer_ref</field>

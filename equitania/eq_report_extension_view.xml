@@ -41,12 +41,29 @@
 	            <field name="account_id" position="after">
                     <field name="eq_contact_person_id"/>
                 </field>
+                <field name="origin" positione="after">
+                    <field name="eq_customer_ref"/>
+                </field>
                 <xpath expr="//notebook" position="before">
 					<label for="eq_head_text" string="Headtext"/>
 					<div colspan="4">
 						<field name="eq_head_text" placeholder="Dear Sir or Madam," nolabel="1"/>
 					</div>
                 </xpath>
+                <xpath expr="//page/group/group/field[@name='origin']" position="after">
+                    <field name="eq_ref_number"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="eq_picking_form_rep" model="ir.ui.view">
+            <field name="name">stock.picking.form.eq</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form" />
+            <field name="arch" type="xml">
+            	<field name="priority" position="after">
+                    <field name="eq_ref_number"/>
+            	</field>
             </field>
         </record>
     </data>

@@ -24,11 +24,11 @@ from openerp.osv import fields, osv, orm
 class eq_report_extension_sale_order(osv.osv):
     _inherit = "sale.order"
     _columns = {
-                'eq_contact_person_id': fields.many2one('res.users', 'Contact Person', size=100),
+                'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person', size=100),
                 'eq_head_text': fields.text('Head Text'),
                 }
     _defaults = {
-                'eq_contact_person_id': lambda obj, cr, uid, context: uid,
+                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]), 
                 }
     
     def _prepare_invoice(self, cr, uid, order, lines, context=None):
@@ -73,23 +73,50 @@ class eq_report_extension_sale_order(osv.osv):
         }
         return invoice_vals
     
+    #Method which creates an invoice out of the sale order.
+    def _make_invoice(self, cr, uid, order, lines, context=None):
+        # get the invoice
+        inv_obj = self.pool.get('account.invoice')
+        # create the invoice
+        inv_id = super(eq_sale_order_ref, self)._make_invoice(cr, uid, order, lines, context)
+        # modify the invoice
+        inv_obj.write(cr, uid, [inv_id], {'eq_customer_ref': order.origin}, context)
+        inv_obj.button_compute(cr, uid, [inv_id])
+        return inv_id
+    
+    def action_invoice_create(self, cr, uid, ids, grouped=False, states=None, date_invoice = False, context=None):
+        inv_id = super(eq_sale_order_ref, self).action_invoice_create(cr, uid, ids, grouped, states,date_invoice, context)
+        for inv in Inv_id:
+            self.pool.get('account.invoice').writer,(cr, uid, inv, {'eq_ref_number': self.browse(cr, uid, ids, context).eq_re_number})
+        return inv_id
+        
+    
 class eq_report_extension_purchase_order(osv.osv):
     _inherit = "purchase.order"
     _columns = {
-                'eq_contact_person_id': fields.many2one('res.users', 'Contact Person', size=100),
+                'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person', size=100),
                 'eq_head_text': fields.text('Head Text'),
                 }
     _defaults = {
-                'eq_contact_person_id': lambda obj, cr, uid, context: uid,
+                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]), 
                 }
     
 class eq_report_extension_invoice(osv.osv):
     _inherit = "account.invoice"
+    
     _columns = {
-                'eq_contact_person_id': fields.many2one('res.users', 'Contact Person', size=100),
+                'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person', size=100),
                 'eq_head_text': fields.text('Head Text'),
+                'eq_ref_number': fields.char('Reference Number', size=64),
                 }
     _defaults = {
-                'eq_contact_person_id': lambda obj, cr, uid, context: uid,
+                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]), 
                 }
-      
+    
+        
+class eq_report_extension_stock_picking(osv.osv):
+    _inherit = "stock.picking"
+    
+    _columns = {
+                'eq_ref_number': fields.char('Reference Number', size=64),
+                }

@@ -19,12 +19,24 @@
 #
 ##############################################################################
 
-import eq_install_func
-import eq_address_extension
-import eq_custom_ref
-import eq_pricelist_item_search
-import eq_company_custom_fields
-import eq_sale_order_seq
-import eq_partner_extension
-import eq_report_extension
-import eq_lead_referred
+from openerp.osv import fields, osv, orm
+
+class eq_lead(osv.osv):
+    _inherit = 'crm.lead'
+    
+    _columns = {
+        'eq_lead_referred_id': fields.many2one('eq.lead.referred', 'Referred By'),
+    }
+        
+eq_lead()
+
+
+class eq_lead_referred(osv.osv):
+    _name = "eq.lead.referred"
+    _rec_name = "eq_description"
+    
+    _columns = {
+        'eq_description': fields.char('Description'),        
+    }
+
+eq_lead_referred()

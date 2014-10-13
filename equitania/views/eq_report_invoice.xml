@@ -67,6 +67,14 @@
                                     </tr>
                                     <tr>
                                         <td>
+                                            <span>Ihre Belegnr.</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.eq_ref_number" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
                                             <span>Rechnungsnr.</span>
                                         </td>
                                         <td class="text-right">
@@ -104,15 +112,7 @@
                                             <span>Tel</span>
                                         </td>
                                         <td class="text-right">
-                                            <span t-field="o.eq_contact_person_id.phone"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span>Fax</span>
-                                        </td>
-                                        <td class="text-right">
-                                            <span t-field="o.eq_contact_person_id.fax"/>
+                                            <span t-field="o.eq_contact_person_id.work_phone"/>
                                         </td>
                                     </tr>
                                     <tr>
@@ -120,7 +120,7 @@
                                             <span>E-Mail</span>
                                         </td>
                                         <td class="text-right">
-                                            <span t-field="o.eq_contact_person_id.login"/>
+                                            <span t-field="o.eq_contact_person_id.work_email"/>
                                         </td>
                                     </tr>
                                 </tbody>

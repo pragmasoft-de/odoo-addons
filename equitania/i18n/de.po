@@ -399,3 +399,18 @@ msgstr "Interne Info"
 msgid "Internal Number"
 msgstr "Interne Nummer"
 
+#. module: equitania
+#: field:stock.picking,eq_ref_number:0
+#: field:account.invoice,eq_ref_number:0
+msgid "Reference Number"
+msgstr "Belegnr. des Kunden"
+
+#. module: crm
+#: field:crm.lead,eq_lead_referred_id:0
+msgid "Referred By"
+msgstr "Vermittelt durch"
+
+#. module: equitania
+#: field:eq.lead.referred,eq_description:0
+msgid "Description"
+msgstr "Beschreibung"

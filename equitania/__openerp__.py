@@ -53,6 +53,7 @@
         'views/eq_report_invoice.xml',
         'views/eq_report_style.xml',
         'views/eq_report_internal_layout.xml',
+        'eq_lead_referred_view.xml',
 
     ],
     'demo': [],
