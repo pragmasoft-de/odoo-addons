@@ -28,7 +28,7 @@ class eq_report_extension_sale_order(osv.osv):
                 'eq_head_text': fields.text('Head Text'),
                 }
     _defaults = {
-                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]), 
+                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if isinstance(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]), list) else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]), 
                 }
     
     def _prepare_invoice(self, cr, uid, order, lines, context=None):
@@ -78,16 +78,16 @@ class eq_report_extension_sale_order(osv.osv):
         # get the invoice
         inv_obj = self.pool.get('account.invoice')
         # create the invoice
-        inv_id = super(eq_sale_order_ref, self)._make_invoice(cr, uid, order, lines, context)
+        inv_id = super(eq_report_extension_sale_order, self)._make_invoice(cr, uid, order, lines, context)
         # modify the invoice
         inv_obj.write(cr, uid, [inv_id], {'eq_customer_ref': order.origin}, context)
         inv_obj.button_compute(cr, uid, [inv_id])
         return inv_id
     
     def action_invoice_create(self, cr, uid, ids, grouped=False, states=None, date_invoice = False, context=None):
-        inv_id = super(eq_sale_order_ref, self).action_invoice_create(cr, uid, ids, grouped, states,date_invoice, context)
-        for inv in Inv_id:
-            self.pool.get('account.invoice').writer,(cr, uid, inv, {'eq_ref_number': self.browse(cr, uid, ids, context).eq_re_number})
+        inv_id = super(eq_report_extension_sale_order, self).action_invoice_create(cr, uid, ids, grouped, states,date_invoice, context)
+        for inv in inv_id if isinstance(inv_id, list) else [inv_id]:
+            self.pool.get('account.invoice').write,(cr, uid, inv, {'eq_ref_number': self.browse(cr, uid, ids, context).origin})
         return inv_id
         
     
@@ -98,7 +98,7 @@ class eq_report_extension_purchase_order(osv.osv):
                 'eq_head_text': fields.text('Head Text'),
                 }
     _defaults = {
-                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]), 
+                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if isinstance(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]), list) else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]), 
                 }
     
 class eq_report_extension_invoice(osv.osv):
@@ -110,7 +110,7 @@ class eq_report_extension_invoice(osv.osv):
                 'eq_ref_number': fields.char('Reference Number', size=64),
                 }
     _defaults = {
-                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]), 
+                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if isinstance(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]), list) else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]), 
                 }
     
         
