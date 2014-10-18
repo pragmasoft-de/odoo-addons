@@ -30,6 +30,14 @@
 	                    <field name="name" placeholder="Name"/>
                     </h2>
                 </xpath>
+                <xpath expr="//field[@name='child_ids']/form/sheet/group" position="replace">
+					<group>
+					    <field name="function" attrs="{'invisible': [('type', '=', 'pobox')]}" placeholder="e.g. Sales Director"/>
+					    <field name="email" attrs="{'invisible': [('type', '=', 'pobox')]}"/>
+					    <field name="phone" attrs="{'invisible': [('type', '=', 'pobox')]}"/>
+					    <field name="mobile" attrs="{'invisible': [('type', '=', 'pobox')]}"/>
+					</group>
+                </xpath>
                 <xpath expr="//field[@name='child_ids']/form/sheet/group/field[@name='mobile']" position="after" >
                     <field name="eq_birthday" attrs="{'invisible': [('type', '!=', 'contact')]}"/>
                 </xpath>

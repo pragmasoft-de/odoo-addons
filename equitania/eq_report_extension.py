@@ -28,7 +28,7 @@ class eq_report_extension_sale_order(osv.osv):
                 'eq_head_text': fields.text('Head Text'),
                 }
     _defaults = {
-                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if isinstance(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]), list) else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]), 
+                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
                 }
     
     def _prepare_invoice(self, cr, uid, order, lines, context=None):
@@ -98,7 +98,7 @@ class eq_report_extension_purchase_order(osv.osv):
                 'eq_head_text': fields.text('Head Text'),
                 }
     _defaults = {
-                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if isinstance(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]), list) else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]), 
+                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
                 }
     
 class eq_report_extension_invoice(osv.osv):
@@ -110,7 +110,7 @@ class eq_report_extension_invoice(osv.osv):
                 'eq_ref_number': fields.char('Reference Number', size=64),
                 }
     _defaults = {
-                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if isinstance(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]), list) else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]), 
+                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
                 }
     
         

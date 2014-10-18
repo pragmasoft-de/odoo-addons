@@ -20,6 +20,7 @@
 ##############################################################################
 
 from openerp.osv import fields, osv, orm
+from openerp.tools.translate import _
 
 class eq_pricelist_item_search(osv.osv):
     _name = "eq_pricelist_item_search"
@@ -47,5 +48,22 @@ class eq_pricelist_item_search(osv.osv):
             'target': 'new',
             'res_id': context['item'] or False,
         }
-
+        
 eq_pricelist_item_search()
+        
+class eq_product_pricelist_item_search_item(osv.osv):
+    _inherit = 'product.pricelist.item'
+    
+    _columns = {}
+
+    
+    def name_get(self, cr, uid, ids, context=None):
+        if context is None:
+            context = {}
+        if isinstance(ids, (int, long)):
+            ids = [ids]
+        res = []
+        for record in self.browse(cr, uid, ids, context=context):
+            name = _("%s, Min. %s New Price %s") % (record.name, record.min_quantity, record.price_surcharge)
+            res.append((record.id, name))
+        return res

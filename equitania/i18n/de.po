@@ -414,3 +414,14 @@ msgstr "Vermittelt durch"
 #: field:eq.lead.referred,eq_description:0
 msgid "Description"
 msgstr "Beschreibung"
+
+#. module: equitania
+#: code:addons/equitania/eq_pricelist_item_search.py:67
+#, python-format
+msgid "%s, Min. %s New Price %s"
+msgstr "%s, Mindestmenge %s, Neuer Preis %s"
+
+#. module: equitania
+#: selection:res.partner,type:0
+msgid "P.O. box"
+msgstr "Postfach"

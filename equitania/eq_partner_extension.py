@@ -20,6 +20,7 @@
 ##############################################################################
 
 from openerp.osv import fields, osv, orm
+from openerp.tools.translate import _
 
 class eq_partner_extension(osv.osv):
     _inherit = "res.partner"
@@ -68,6 +69,10 @@ class eq_partner_extension(osv.osv):
         'display_name': fields.function(_display_name, type='char', string='Name', store=_display_name_store_triggers, select=True),
         'title': fields.many2one('res.partner.title', 'Title'),
         'eq_custom01': fields.char(size=64),
+        'type': fields.selection([('default', 'Default'), ('invoice', 'Invoice'),
+                                   ('delivery', 'Shipping'), ('contact', 'Contact'),
+                                   ('pobox', 'P.O. box'), ('other', 'Other')], 'Address Type',
+            help="Used to select automatically the right address according to the context in sales and purchases documents."),
         }
 
     _default = {
