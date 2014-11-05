@@ -21,15 +21,34 @@
 
 from openerp.osv import fields, osv, orm
 
+#Adds fields to forms that are used in the reports. Contact person and Head text
+
+class eq_report_extension_sale_settings(osv.osv_memory):
+    _inherit = 'sale.config.settings'
+    
+    _columns = {
+                'default_eq_use_sale_person': fields.boolean('Sale Person as Contact Person', help='Sets the Sale Person as the Contact Person in the Sale Order, only when creating.', default_model='sale.order'),
+                }
+
 class eq_report_extension_sale_order(osv.osv):
     _inherit = "sale.order"
     _columns = {
                 'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person', size=100),
                 'eq_head_text': fields.text('Head Text'),
+                'eq_use_sale_person': fields.boolean('Use sale person')
                 }
     _defaults = {
-                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
+                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
                 }
+    
+    def create(self, cr, uid, values, context=None):
+        use_sale_person = self.default_get(cr, uid, ['eq_use_sale_person'])
+        
+        if use_sale_person and values.get('user_id', False):
+            emp_search = self.pool.get('hr.employee').search(cr, uid, [('user_id', '=', values['user_id'])])
+            values['eq_contact_person_id'] = emp_search[0] if isinstance(emp_search, list) else emp_search
+        
+        return super(eq_report_extension_sale_order, self).create(cr, uid, values, context)
     
     def _prepare_invoice(self, cr, uid, order, lines, context=None):
          
@@ -98,7 +117,7 @@ class eq_report_extension_purchase_order(osv.osv):
                 'eq_head_text': fields.text('Head Text'),
                 }
     _defaults = {
-                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
+                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
                 }
     
 class eq_report_extension_invoice(osv.osv):
@@ -110,7 +129,7 @@ class eq_report_extension_invoice(osv.osv):
                 'eq_ref_number': fields.char('Reference Number', size=64),
                 }
     _defaults = {
-                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
+                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
                 }
     
         

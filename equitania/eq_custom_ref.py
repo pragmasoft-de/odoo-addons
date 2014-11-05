@@ -23,6 +23,8 @@ from openerp.osv import fields, osv, orm
 from datetime import datetime
 from string import replace
 
+#The customer and creditor number with the appropriate sequence
+
 class eq_custom_ref(osv.osv):
     _name = 'res.partner'
     _inherit = 'res.partner'

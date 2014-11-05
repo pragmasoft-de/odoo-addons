@@ -57,7 +57,7 @@
                                             <span>Bestelldatum</span>
                                         </td>
                                         <td class="text-right">
-                                            <span t-esc="o.date_order.split(' ')[0]"/>
+                                            <span t-esc="o.date_order.split(' ')[0].split('-')[2] + '.' + o.date_order.split(' ')[0].split('-')[1] + '.' + o.date_order.split(' ')[0].split('-')[0]"/>
                                         </td>
                                     </tr>
                                     <tr>

@@ -21,6 +21,10 @@
 
 from openerp.osv import fields, osv, orm
 
+#Adds custom fields to the objects res.company, product.category, product.pricelist.version and res.users.
+#The custom fields of res.company can be used in the header and footer of the reports and is shown in the form. 
+#The rest is for dataimport and won't be shown.
+
 class eq_company_custom_fields(osv.osv):
     _name = 'res.company'
     _inherit = 'res.company'

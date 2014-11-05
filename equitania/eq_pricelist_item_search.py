@@ -22,6 +22,8 @@
 from openerp.osv import fields, osv, orm
 from openerp.tools.translate import _
 
+#Adds a Search for the Positions of a pricelist.
+
 class eq_pricelist_item_search(osv.osv):
     _name = "eq_pricelist_item_search"
 

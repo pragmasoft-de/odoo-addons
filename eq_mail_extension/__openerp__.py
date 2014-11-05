@@ -19,32 +19,18 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, osv, orm
-
-#Shows the sequence of the sale.order.line
-
-class eq_sale_order_seq(osv.osv):
-    _inherit = "sale.order"
-    
-    _columns = {
-    }
-
-eq_sale_order_seq()
-
-class eq_product_name_is_ref(osv.osv):
-    _inherit = "product.product"
-    
-    _columns = {
-    }
-    
-    def name_get(self, cr, uid, ids, context={}):
-        if context.get('eq_only_ref'):
-            res = []
-            for id in ids:
-                elmt = super(eq_product_name_is_ref, self).browse(cr, uid, id, context)
-                res.append((id, str(elmt.default_code)))
-            return res
-        else:
-            return super(eq_product_name_is_ref, self).name_get(cr, uid, ids, context=context)
-    
-eq_product_name_is_ref()
+{
+    'name': "Equitania E-Mail-Erweiterung",
+    'version': '1.0.0',
+    'category': 'Mail',
+    'description': """Using different smptp settings for user's outgoing emails""",
+    'author': 'Equitania Software GmbH',
+    'category' : 'General Improvements',
+    'summary': 'E-Mail Extension',
+    'website': 'www.myodoo.de',
+    'license': 'AGPL-3',
+    "depends" : ['base', 'mail', 'base_setup', 'fetchmail'],
+    'data': ["eq_mail_extension_view.xml"],
+    "active": False,
+    "installable": True
+}

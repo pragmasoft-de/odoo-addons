@@ -299,7 +299,7 @@ msgstr "Typ:"
 #: view:product.template:0
 #: view:res.partner:0
 msgid "Update"
-msgstr "Aktuallisieren"
+msgstr "Aktualisieren"
 
 #. module: equitania
 #: model:ir.model,name:equitania.model_eq_install_func
@@ -425,3 +425,14 @@ msgstr "%s, Mindestmenge %s, Neuer Preis %s"
 #: selection:res.partner,type:0
 msgid "P.O. box"
 msgstr "Postfach"
+
+#. module: equitania
+#: field:res.partner,eq_incoterms:0
+msgid "Incoterm"
+msgstr "Incoterm"
+
+#. module: equitania
+#: field:res.partner,eq_deliver_condition_id:0
+#: field:sale.order,eq_deliver_condition_id:0
+msgid "Delivery Condition"
+msgstr "Lieferbedingungen"

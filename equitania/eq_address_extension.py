@@ -50,7 +50,7 @@ class res_partner(osv.osv):
                 if partner_id.is_company:
                     new_res.append((partner_id.id, company_name + partner_id.name + ' / ' + 'Company'))
                 else:
-                    new_res.append((partner_id.id, "%s, %s %s %s" % ( company_name, (partner_id.title.name if partner_id.title else ''), (partner_id.eq_firstname if partner_id.eq_firstname else ''), partner_id.name + ' / ' + str(partner_id.type))))
+                    new_res.append((partner_id.id, "%s %s %s %s" % ( company_name, (partner_id.title.name if partner_id.title else ''), (partner_id.eq_firstname if partner_id.eq_firstname else ''), partner_id.name + ' / ' + str(partner_id.type))))
             return new_res
         return res
 

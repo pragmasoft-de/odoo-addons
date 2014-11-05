@@ -60,8 +60,14 @@
 	    	<field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <field name="partner_id" position="replace">
-                    <field name="partner_id" on_change="onchange_partner_id(partner_id, context)" domain="[('customer','=',True)]" context="{'search_default_customer':1, 'show_address': 1,'active_model':'sale.order'}" options='{"always_reload": True}'/>
+                    <field name="partner_id" on_change="onchange_partner_id(partner_id, context)" domain="[('customer','=', True), ('is_company', '=', True)]" context="{'search_default_customer':1, 'show_address': 1,'active_model':'sale.order'}" options='{"always_reload": True}'/>
                 </field>
+            	<xpath expr="//field[@name='partner_invoice_id']" position="replace">          	
+            		<field name="partner_invoice_id" domain="['|', ('id', '=', partner_id), ('parent_id', '=', partner_id)]" groups="sale.group_delivery_invoice_address" context="{'default_type':'invoice','active_model':'sale.order'}"/>
+				</xpath>
+            	<xpath expr="//field[@name='partner_shipping_id']" position="replace">
+            		<field name="partner_shipping_id" domain="['|', ('id', '=', partner_id), ('parent_id', '=', partner_id)]" on_change="onchange_delivery_id(company_id, partner_id, partner_shipping_id, fiscal_position)" groups="sale.group_delivery_invoice_address" context="{'default_type':'delivery','active_model':'sale.order'}"/>    	
+            	</xpath>
             </field>
 	    </record>
     </data>

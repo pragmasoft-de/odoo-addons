@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data>		
+    <data>
+    	<!-- Sale -->
         <record id="eq_sale_order_form" model="ir.ui.view">
             <field name="name">sale.order.form.eq</field>
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form" />
             <field name="arch" type="xml">
+                <field name="invoiced" postion="replace">
+                <field name="partner_shipping_id" position="after">
+                	<fild name="invoiced"/>
+                </field>
+                </field>
 	            <field name="pricelist_id" position="after">
                     <field name="eq_contact_person_id"/>
-                </field>
+				</field>
                 <xpath expr="//notebook" position="before">
 					<label for="eq_head_text" string="Headtext"/>
 					<div colspan="4">
@@ -17,6 +23,22 @@
                 </xpath>
             </field>
         </record>
+        
+		<record id="eq_view_sale_config_settings" model="ir.ui.view">
+		     <field name="name">Contact Person</field>
+		     <field name="model">sale.config.settings</field>
+		     <field name="inherit_id" ref="base_setup.view_sale_config_settings"/>
+		     <field name="arch" type="xml">
+                <div name="Sale Features" position="inside">
+                    <div>
+                        <field name="default_eq_use_sale_person"/>
+                        <label for="default_eq_use_sale_person"/>
+                    </div>
+				</div>
+		     </field>
+		</record>
+        
+        <!-- Purchase -->
         <record id="eq_purchase_order_form" model="ir.ui.view">
             <field name="name">purchase.order.form.eq</field>
             <field name="model">purchase.order</field>
@@ -33,6 +55,8 @@
                 </xpath>
             </field>
         </record>
+        
+        <!-- Account -->
         <record id="eq_invoice_form" model="ir.ui.view">
             <field name="name">account.invoice.form.eq</field>
             <field name="model">account.invoice</field>
@@ -56,6 +80,7 @@
             </field>
         </record>
         
+        <!-- Stock -->
         <record id="eq_picking_form_rep" model="ir.ui.view">
             <field name="name">stock.picking.form.eq</field>
             <field name="model">stock.picking</field>

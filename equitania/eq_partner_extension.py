@@ -22,6 +22,41 @@
 from openerp.osv import fields, osv, orm
 from openerp.tools.translate import _
 
+#Adds the fields first name and birthday to the contact form and shows the first name in the search of that object.
+#Adds the address type post box.
+
+class eq_deliver_conditions(osv.osv):
+    _name = 'eq.delivery.conditions'
+    _rec_name = 'eq_name'
+    
+    _columns = {
+                'eq_name': fields.char('Name', size=128)
+                }
+
+class eq_partner_sale_order_extension(osv.osv):
+    _inherit = 'sale.order'
+    _name = _inherit
+    
+    _columns = {
+                'eq_deliver_condition_id': fields.many2one('eq.delivery.conditions', 'Delivery Condition'),
+                'partner_id': fields.many2one('res.partner', 'Customer', readonly=True, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]}, required=True, change_default=True, select=True, track_visibility='always'),
+                }
+    
+    def onchange_partner_id(self, cr, uid, ids, part, context=None):
+        result = super(eq_partner_sale_order_extension, self).onchange_partner_id(cr, uid, ids, part, context=context)
+        
+        partner = self.pool.get('res.partner').browse(cr, uid, part, context)
+        if partner:
+            if partner.eq_incoterm:
+                result['value']['incoterm'] = partner.eq_incoterm.id
+            else:
+                result['value']['incoterm'] = False
+            if partner.eq_deliver_condition_id:
+                result['value']['eq_deliver_condition_id'] = partner.eq_deliver_condition_id.id
+            else:
+                result['value']['eq_deliver_condition_id'] = False
+        return result
+
 class eq_partner_extension(osv.osv):
     _inherit = "res.partner"
     _name = "res.partner"
@@ -73,6 +108,8 @@ class eq_partner_extension(osv.osv):
                                    ('delivery', 'Shipping'), ('contact', 'Contact'),
                                    ('pobox', 'P.O. box'), ('other', 'Other')], 'Address Type',
             help="Used to select automatically the right address according to the context in sales and purchases documents."),
+        'eq_incoterm': fields.many2one('stock.incoterms', 'Incoterm'),
+        'eq_deliver_condition_id': fields.many2one('eq.delivery.conditions', 'Delivery Condition'),
         }
 
     _default = {

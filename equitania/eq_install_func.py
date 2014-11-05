@@ -21,6 +21,9 @@
 
 from openerp.osv import fields, osv
 
+#This is for methods that will be executed at startup.
+#Used to initiate the paper format of the reports.
+
 class eq_install_func(osv.osv):
     _name = "eq_install_func"
     

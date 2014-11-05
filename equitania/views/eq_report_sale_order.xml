@@ -86,9 +86,9 @@
                                         </td>
                                         <td t-if="o.state in ['draft','sent']">
                                             <span>Angebotsdatum</span>
-                                        </td>	
+                                        </td>
                                         <td class="text-right">
-                                            <span t-esc="o.date_order.split(' ')[0]"/>
+                                            <span t-esc="o.date_order.split(' ')[0].split('-')[2] + '.' + o.date_order.split(' ')[0].split('-')[1] + '.' + o.date_order.split(' ')[0].split('-')[0]"/>
                                         </td>
                                     </tr>
                                     <tr>
@@ -181,7 +181,7 @@
                                 <td class="text-right">
                                     <span t-field="line.price_unit"/>
                                 </td>
-								<td t-if="line.discount" class="text-right">
+								<td t-if="any([line.discount for line in o.order_line])" class="text-right">
 									<span t-field="line.discount"/>
 								</td>
                                 <td class="text-right">
