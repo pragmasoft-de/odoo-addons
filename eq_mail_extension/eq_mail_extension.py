@@ -26,6 +26,7 @@ from imaplib import IMAP4
 from imaplib import IMAP4_SSL
 from poplib import POP3
 from poplib import POP3_SSL
+from openerp.tools import frozendict
 try:
     import cStringIO as StringIO
 except ImportError:
@@ -300,7 +301,8 @@ class eq_mail_followers(osv.Model):
         if context and context.get('mail_notify_noemail', False):
             return True
         
-        context['user_id'] = uid
+        if not isinstance(context, frozendict):
+            context['user_id'] = uid
 
         # browse as SUPERUSER_ID because of access to res_partner not necessarily allowed
         self._notify_email(cr, SUPERUSER_ID, new_notif_ids, message_id, force_send, user_signature, context=context)
