@@ -27,7 +27,7 @@
     """,
     'author': 'Equitania Software GmbH',
     'website': 'www.myodoo.de',
-    'depends': ['base_setup', 'purchase', 'sale',  'account', 'product', 'mail', 'report', 'hr', 'crm', 'stock', 'sale_stock'],
+    'depends': ['base_setup', 'purchase', 'sale',  'account', 'product', 'mail', 'report', 'hr', 'crm', 'stock', 'sale_stock', 'delivery'],
     'category' : 'General Improvements',
     'summary': 'Sale, Account, Product, Mail, Report, CRM, Purchase',
     #'init': [
@@ -54,7 +54,7 @@
         'views/eq_report_style.xml',
         'views/eq_report_internal_layout.xml',
         'eq_lead_referred_view.xml',
-
+        'views/eq_report_stockpicking.xml',
     ],
     'demo': [],
     'css': ['base.css'],

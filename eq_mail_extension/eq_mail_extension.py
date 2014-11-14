@@ -132,7 +132,16 @@ class eq_ir_mail_server(osv.Model):
 class eq_mail_mail(osv.Model):
     _inherit = 'mail.mail'
     
-
+    _columns = {
+        'default_mail_server_id': fields.many2one('ir.mail_server', "Default Mail Server"),
+        'default_mail_server_address': fields.char('Default Mail Server Address'),
+    }
+    
+    _default = {
+                lambda self, cr, uid, context: self.pool.get('ir.values').get_default(cr, uid, 'mail.mail', 'default_mail_server_id'),
+                lambda self, cr, uid, context: self.pool.get('ir.values').get_default(cr, uid, 'mail.mail', 'default_mail_server_address'),
+                }
+    
     def send(self, cr, uid, ids, auto_commit=False, raise_exception=False, context=None):
         """ Sends the selected emails immediately, ignoring their current
             state (mails that have already been sent should not be passed
@@ -151,6 +160,11 @@ class eq_mail_mail(osv.Model):
         context = dict(context or {})
         ir_mail_server = self.pool.get('ir.mail_server')
         ir_attachment = self.pool['ir.attachment']
+        ir_values = self.pool.get('ir.values')
+        
+        default_mail_server = ir_values.get_default(cr, uid, 'mail.mail', 'default_mail_server_id')
+        default_mail_address = ir_values.get_default(cr, uid, 'mail.mail', 'default_mail_server_address')
+        
         for mail in self.browse(cr, SUPERUSER_ID, ids, context=context):
             try:
                 # TDE note: remove me when model_id field is present on mail.message - done here to avoid doing it multiple times in the sub method
@@ -200,15 +214,15 @@ class eq_mail_mail(osv.Model):
                 # build an RFC2822 email.message.Message object and send it without queuing
                 res = None
                 mail_server = False
+                user = context.get('user_id', SUPERUSER_ID)
 
-                if context.get('user_id', False):
-                    mail_server = self.pool.get('ir.mail_server').search(cr, uid, [('user_id', '=', context['user_id'])], context=context)
-                standard_mail_server = self.pool.get('ir.mail_server').search(cr, uid, [('user_id', '=', SUPERUSER_ID)], context=context)
-                adminData = self.pool.get('res.users').browse(cr, SUPERUSER_ID, SUPERUSER_ID, context=context)
+                if user != SUPERUSER_ID:
+                    mail_server = ir_mail_server.search(cr, uid, [('user_id', '=', user)], context=context)
+                
                 for email in email_list:
                     if not mail_server:
                         msg = ir_mail_server.build_email(
-                            email_from=adminData.partner_id.email,
+                            email_from=default_mail_address,
                             email_to=email.get('email_to'),
                             subject=email.get('subject'),
                             body=email.get('body'),
@@ -223,7 +237,7 @@ class eq_mail_mail(osv.Model):
                             subtype_alternative='plain',
                             headers=headers)
                         res = ir_mail_server.send_email(cr, uid, msg,
-                                                        mail_server_id=standard_mail_server[0],
+                                                        mail_server_id=default_mail_server,
                                                         context=context)
                     else:
                         msg = ir_mail_server.build_email(

@@ -59,8 +59,10 @@ class eq_custom_ref(osv.osv):
         #If the field isn't filled, it should do this
         if not partner[0].eq_customer_ref:
                 #Gets the sequence and sets it in the apropriate field
+                ref = self.pool.get('ir.sequence').get(cr, uid, 'eq_customer_ref')
                 vals = {
-                    'eq_customer_ref': self.pool.get('ir.sequence').get(cr, uid, 'eq_customer_ref')
+                    'eq_customer_ref': ref,
+                    'ref': ref,
                 }
 
                 super(eq_custom_ref, self).write(cr, uid, ids, vals, context=context)

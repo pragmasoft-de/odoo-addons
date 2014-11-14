@@ -19,4 +19,5 @@
 #
 ##############################################################################
 
-import eq_mail_extension 
+import eq_mail_extension
+import eq_mail_config

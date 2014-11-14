@@ -44,9 +44,9 @@ class eq_report_extension_sale_order(osv.osv):
     def create(self, cr, uid, values, context=None):
         use_sale_person = self.default_get(cr, uid, ['eq_use_sale_person'])
         
-        if use_sale_person and values.get('user_id', False):
+        if use_sale_person['eq_use_sale_person'] and values.get('user_id', False):
             emp_search = self.pool.get('hr.employee').search(cr, uid, [('user_id', '=', values['user_id'])])
-            values['eq_contact_person_id'] = emp_search[0] if isinstance(emp_search, list) else emp_search
+            values['eq_contact_person_id'] = emp_search[0] if len(emp_search) >= 1 else emp_search
         
         return super(eq_report_extension_sale_order, self).create(cr, uid, values, context)
     
