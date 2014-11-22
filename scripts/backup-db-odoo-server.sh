@@ -37,7 +37,7 @@ read mydb
 
 if [ "$mydb" != "" ]; then
   echo "$mydb backup in progress..."
-  now=$(date +"%Y-%m-%d-%S.%N")
+  now=$(date +"%Y-%m-%d_%H-%M-%S")
   filename="$mydb.$now.gz"
   mybackup=$mybackuppath"/"$filename
   pg_dump $mydb | gzip > $mybackup

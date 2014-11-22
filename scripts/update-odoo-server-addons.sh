@@ -50,7 +50,7 @@ read mydb
 
 if [ "$mydb" != "" ]; then
   echo "$mydb wird jetzt gesichert..."
-  now=$(date +"%Y-%m-%d-%S.%N")
+  now=$(date +"%Y-%m-%d_%H-%M-%S")
   filename="$mydb.$now.gz"
   mybackup=$mybackuppath"/"$filename
   pg_dump $mydb | gzip > $mybackup
