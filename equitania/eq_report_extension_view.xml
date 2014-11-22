@@ -31,8 +31,8 @@
 		     <field name="arch" type="xml">
                 <div name="Sale Features" position="inside">
                     <div>
-                        <field name="default_eq_use_sale_person"/>
-                        <label for="default_eq_use_sale_person"/>
+                        <field name="default_use_sales_person_as_contact"/>
+                        <label for="default_use_sales_person_as_contact"/>
                     </div>
 				</div>
 		     </field>

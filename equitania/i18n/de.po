@@ -436,3 +436,39 @@ msgstr "Incoterm"
 #: field:sale.order,eq_deliver_condition_id:0
 msgid "Delivery Condition"
 msgstr "Lieferbedingungen"
+
+#. module: eq_datev
+#: code:addons/equitania/eq_address_extension.py:53
+#, python-format
+msgid "Company"
+msgstr "Firma"
+
+#. module: eq_datev
+#: code:addons/equitania/eq_address_extension.py:57
+#, python-format
+msgid "contact"
+msgstr "Kontakt"
+
+#. module: eq_datev
+#: code:addons/equitania/eq_address_extension.py:59
+#, python-format
+msgid "default"
+msgstr "Standard"
+
+#. module: eq_datev
+#: code:addons/equitania/eq_address_extension.py:61
+#, python-format
+msgid "delivery"
+msgstr "Liefer"
+
+#. module: eq_datev
+#: code:addons/equitania/eq_address_extension.py:63
+#, python-format
+msgid "invoice"
+msgstr "Rechnung"
+
+#. module: eq_datev
+#: code:addons/equitania/eq_address_extension.py:65
+#, python-format
+msgid "other"
+msgstr "Andere"

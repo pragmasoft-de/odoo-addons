@@ -26,8 +26,19 @@ from openerp.osv import fields, osv, orm
 class eq_report_extension_sale_settings(osv.osv_memory):
     _inherit = 'sale.config.settings'
     
+    def set_default_use_sale_person(self, cr, uid, ids, context=None):
+        ir_values = self.pool.get('ir.values')
+        config = self.browse(cr, uid, ids[0], context)
+        ir_values.set_default(cr, uid, 'sale.order', 'default_use_sales_person_as_contact', config.default_use_sales_person_as_contact and config.default_use_sales_person_as_contact.id or False)
+    
+    def get_default_use_sale_person(self, cr, uid, fields, context=None):
+        salesperson = self.pool.get('ir.values').get_default(cr, uid, 'sale.order', 'default_use_sales_person_as_contact')
+        return {
+                'default_use_sales_person_as_contact': salesperson,
+                }
+    
     _columns = {
-                'default_eq_use_sale_person': fields.boolean('Sale Person as Contact Person', help='Sets the Sale Person as the Contact Person in the Sale Order, only when creating.', default_model='sale.order'),
+                'default_use_sales_person_as_contact': fields.boolean('Sale Person as Contact Person', help='Sets the Sale Person as the Contact Person in the Sale Order, only when creating.', default_model='sale.order'),
                 }
 
 class eq_report_extension_sale_order(osv.osv):
@@ -35,16 +46,15 @@ class eq_report_extension_sale_order(osv.osv):
     _columns = {
                 'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person', size=100),
                 'eq_head_text': fields.text('Head Text'),
-                'eq_use_sale_person': fields.boolean('Use sale person')
                 }
     _defaults = {
                 'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
                 }
     
     def create(self, cr, uid, values, context=None):
-        use_sale_person = self.default_get(cr, uid, ['eq_use_sale_person'])
+        use_sale_person = self.pool.get('ir.values').get_default(cr, uid, 'sale.order', 'default_use_sales_person_as_contact')
         
-        if use_sale_person['eq_use_sale_person'] and values.get('user_id', False):
+        if use_sale_person or False and values.get('user_id', False):
             emp_search = self.pool.get('hr.employee').search(cr, uid, [('user_id', '=', values['user_id'])])
             values['eq_contact_person_id'] = emp_search[0] if len(emp_search) >= 1 else emp_search
         

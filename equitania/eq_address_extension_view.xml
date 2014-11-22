@@ -70,5 +70,21 @@
             	</xpath>
             </field>
 	    </record>
+	    
+        <record id="view_sale_config_settings" model="ir.ui.view">
+            <field name="name">crm settings</field>
+            <field name="model">sale.config.settings</field>
+            <field name="inherit_id" ref="sale.view_sales_config"/>
+            <field name="arch" type="xml">
+                <data>
+		            <label for="group_sale_delivery_address" position="after">
+		            	<div attrs="{'invisible': [('group_sale_delivery_address','=', False)]}">
+		                    <field name="default_show_address" class="oe_inline"/>
+		                	<label for="default_show_address" string="Show street and city in the partner search of the saleorder"/>
+		            	</div>
+		            </label>
+                </data>
+            </field>
+        </record>
     </data>
 </openerp>

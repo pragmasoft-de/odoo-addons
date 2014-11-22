@@ -20,6 +20,7 @@
 ##############################################################################
 
 from openerp.osv import fields, osv, orm
+from openerp.tools.translate import _
 
 class sale_order(osv.osv):
     _inherit = 'sale.order'
@@ -44,14 +45,54 @@ class res_partner(osv.osv):
         if context.has_key('active_model'):
             partner_ids = [r[0] for r in res]
             new_res = []
+            show_address = self.pool.get('ir.values').get_default(cr, uid, 'sale.order', 'default_show_address')
 
             for partner_id in self.browse(cr, uid, partner_ids):
                 company_name = partner_id.parent_id and partner_id.parent_id.name + ' ; ' or ''
                 if partner_id.is_company:
-                    new_res.append((partner_id.id, company_name + partner_id.name + ' / ' + 'Company'))
+                    eq_customer_ref = '[' + str(partner_id.eq_customer_ref) + '] ' if partner_id.eq_customer_ref else ''
+                    new_res.append((partner_id.id, eq_customer_ref + company_name + partner_id.name + ' / ' + _('Company')))
                 else:
-                    new_res.append((partner_id.id, "%s %s %s %s" % ( company_name, (partner_id.title.name if partner_id.title else ''), (partner_id.eq_firstname if partner_id.eq_firstname else ''), partner_id.name + ' / ' + str(partner_id.type))))
+                    type = partner_id.type
+                    if partner_id.type == 'contact':
+                        type = _('contact')
+                    elif partner_id.type == 'invoice':
+                        type = _('invoice')
+                    elif partner_id.type == 'delivery':
+                        type = _('delivery')
+                    elif partner_id.type == 'default':
+                        type = _('default')
+                    elif partner_id.type == 'other':
+                        type = _('other')
+                    if show_address:
+                        new_res.append((partner_id.id, "%s %s %s %s" % ( company_name, (partner_id.title.name if partner_id.title else ''), (partner_id.eq_firstname if partner_id.eq_firstname else ''), partner_id.name + ' / ' + type + ' // ' + partner_id.street + ', ' + partner_id.city)))
+                    else:
+                        new_res.append((partner_id.id, "%s %s %s %s" % ( company_name, (partner_id.title.name if partner_id.title else ''), (partner_id.eq_firstname if partner_id.eq_firstname else ''), partner_id.name + ' / ' + type)))
             return new_res
         return res
 
 res_partner()
+
+class eq_sale_configuration_address(osv.TransientModel):
+    _name = 'sale.config.settings'
+    _inherit = _name
+    
+    def set_default_values_eq(self, cr, uid, ids, context=None):
+        ir_values = self.pool.get('ir.values')
+        config = self.browse(cr, uid, ids[0], context)
+        if config.group_sale_delivery_address:
+            ir_values.set_default(cr, uid, 'sale.order', 'default_show_address', config.default_show_address or False)
+        else:
+            ir_values.set_default(cr, uid, 'sale.order', 'default_show_address', False)
+            
+                
+    
+    def get_default_values_eq(self, cr, uid, fields, context=None):
+        notification = self.pool.get('ir.values').get_default(cr, uid, 'sale.order', 'default_show_address')
+        return {
+                'default_show_address': notification,
+                }
+    
+    _columns = {
+                'default_show_address': fields.boolean('Show street and city in the partner search of the saleorder', help="This adds the street and the city to the results of the partner search of the sale order"),
+                }

@@ -65,7 +65,8 @@
 								                     <span>Lieferschein vom</span>
 								                 </td>
 								                 <td class="text-right">
-								                    <span t-esc="o.date.split(' ')[0]"/>
+								                 	<span t-esc="o.date.split(' ')[0].split('-')[2] + '.' + o.date.split(' ')[0].split('-')[1] + '.' + o.date.split(' ')[0].split('-')[0]"/>
+								                    <!-- <span t-esc="o.date.split(' ')[0]"/>-->
 								                 </td>
 								             </tr>
 								             <tr>
@@ -245,6 +246,19 @@
 		                                    </td>
 		                                </tr>
 		                            </tbody>
+		                        </table>
+		                    </div>
+		                    <div style="display:inline-block;">
+		                        <table style="margin-top:0.5cm;">
+		                            <tr>
+		                                <td>Ware erhalten am:</td>
+		                            </tr>
+		                            <tr>
+		                                <td style="width:5cm; height:1.5cm; border-bottom: 1px solid #000;"></td>
+		                            </tr>
+		                            <tr>
+		                                <td>Unterschrift</td>
+		                            </tr>
 		                        </table>
 		                    </div>
 		                </div>
