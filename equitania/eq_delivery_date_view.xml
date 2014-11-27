@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+        <record id="eq_sale_order_form_view_delivery_date" model="ir.ui.view">
+            <field name="name">eq.sale.order.form.delivery.date</field>
+            <field name="model">sale.order</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="sale_stock.view_order_form_inherit"/>
+            <field name="arch" type="xml">
+                <data>
+	                <xpath expr="//field[@name='order_line']/form//field[@name='delay']" position="replace">
+	                    <field name="delay" class="oe_inline" on_change="on_change_delay(parent.date_order, delay)"/>
+	                </xpath>
+	                <xpath expr="//field[@name='order_line']/form//label[@for='delay']" position="before">
+	                    <field name="eq_delivery_date" on_change="on_change_delivery_date(parent.date_order, eq_delivery_date)"/>
+	                </xpath>
+                </data>
+           </field>
+        </record>
+  </data>
+</openerp>

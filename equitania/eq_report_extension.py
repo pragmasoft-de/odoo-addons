@@ -51,6 +51,14 @@ class eq_report_extension_sale_order(osv.osv):
                 'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
                 }
     
+
+    def action_ship_create(self, cr, uid, ids, context=None):
+        client_order_ref = {}
+        for order in self.browse(cr, uid, ids, context):
+            client_order_ref[order.name] = order.client_order_ref
+        new_context = {'eq_ref_number': client_order_ref}
+        return super(eq_report_extension_sale_order, self).action_ship_create(cr, uid, ids, context=new_context)
+        
     def create(self, cr, uid, values, context=None):
         use_sale_person = self.pool.get('ir.values').get_default(cr, uid, 'sale.order', 'default_use_sales_person_as_contact')
         
@@ -81,8 +89,8 @@ class eq_report_extension_sale_order(osv.osv):
             raise osv.except_osv(_('Error!'),
                 _('Please define sales journal for this company: "%s" (id:%d).') % (order.company_id.name, order.company_id.id))
         invoice_vals = {
-            'name': order.client_order_ref or '',
-            'origin': order.name,
+            'name': order.name,
+            'origin': order.client_order_ref or False,
             'type': 'out_invoice',
             'reference': order.client_order_ref or order.name,
             'account_id': order.partner_id.property_account_receivable.id,
@@ -102,14 +110,14 @@ class eq_report_extension_sale_order(osv.osv):
         }
         return invoice_vals
     
-    #Method which creates an invoice out of the sale order.
+    #Method which creates an invoice out of the sale order. Sets the customer ref number
     def _make_invoice(self, cr, uid, order, lines, context=None):
         # get the invoice
         inv_obj = self.pool.get('account.invoice')
         # create the invoice
         inv_id = super(eq_report_extension_sale_order, self)._make_invoice(cr, uid, order, lines, context)
         # modify the invoice
-        inv_obj.write(cr, uid, [inv_id], {'eq_customer_ref': order.origin}, context)
+        inv_obj.write(cr, uid, [inv_id], {'eq_ref_number': order.client_order_ref}, context)
         inv_obj.button_compute(cr, uid, [inv_id])
         return inv_id
     
@@ -118,7 +126,13 @@ class eq_report_extension_sale_order(osv.osv):
         for inv in inv_id if isinstance(inv_id, list) else [inv_id]:
             self.pool.get('account.invoice').write,(cr, uid, inv, {'eq_ref_number': self.browse(cr, uid, ids, context).origin})
         return inv_id
-        
+            
+class eq_report_extension_purchase_order(osv.osv):
+    _inherit = "procurement.order"
+    
+    _columns = {
+                'eq_ref_number': fields.char('Sale Order Referenc', size=64),
+                }
     
 class eq_report_extension_purchase_order(osv.osv):
     _inherit = "purchase.order"
@@ -136,7 +150,7 @@ class eq_report_extension_invoice(osv.osv):
     _columns = {
                 'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person', size=100),
                 'eq_head_text': fields.text('Head Text'),
-                'eq_ref_number': fields.char('Reference Number', size=64),
+                'eq_ref_number': fields.char('Sale Order Referenc', size=64),
                 }
     _defaults = {
                 'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
@@ -147,5 +161,16 @@ class eq_report_extension_stock_picking(osv.osv):
     _inherit = "stock.picking"
     
     _columns = {
-                'eq_ref_number': fields.char('Reference Number', size=64),
+                'eq_ref_number': fields.char('Sale Order Referenc', size=64),
                 }
+    
+    #Adds the customer ref number to the picking list. Gets data from context which is set in the method action_ship_create of the sale.order
+    def create(self, cr, user, vals, context={}):
+        if context.get('eq_ref_number', False):
+            vals['eq_ref_number'] = context['eq_ref_number'].get(vals['origin'], False)
+        return super(eq_report_extension_stock_picking, self).create(cr, user, vals, context)
+    
+    #Adds the customer ref number to the invoice
+    def _create_invoice_from_picking(self, cr, uid, picking, vals, context=None):
+        vals['eq_ref_number'] = picking.eq_ref_number
+        return super(eq_report_extension_stock_picking, self)._create_invoice_from_picking(cr, uid, picking, vals, context)

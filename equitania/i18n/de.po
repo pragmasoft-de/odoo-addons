@@ -438,37 +438,53 @@ msgid "Delivery Condition"
 msgstr "Lieferbedingungen"
 
 #. module: eq_datev
-#: code:addons/equitania/eq_address_extension.py:53
+#: code:addons/equitania/eq_address_extension.py:55
 #, python-format
 msgid "Company"
 msgstr "Firma"
 
 #. module: eq_datev
-#: code:addons/equitania/eq_address_extension.py:57
+#: code:addons/equitania/eq_address_extension.py:58
 #, python-format
 msgid "contact"
 msgstr "Kontakt"
 
 #. module: eq_datev
-#: code:addons/equitania/eq_address_extension.py:59
+#: code:addons/equitania/eq_address_extension.py:60
 #, python-format
 msgid "default"
 msgstr "Standard"
 
 #. module: eq_datev
-#: code:addons/equitania/eq_address_extension.py:61
+#: code:addons/equitania/eq_address_extension.py:62
 #, python-format
 msgid "delivery"
 msgstr "Liefer"
 
 #. module: eq_datev
-#: code:addons/equitania/eq_address_extension.py:63
+#: code:addons/equitania/eq_address_extension.py:64
 #, python-format
 msgid "invoice"
 msgstr "Rechnung"
 
 #. module: eq_datev
-#: code:addons/equitania/eq_address_extension.py:65
+#: code:addons/equitania/eq_address_extension.py:66
 #, python-format
 msgid "other"
 msgstr "Andere"
+
+#. module: equitania
+#: view:sale.config.settings:equitania.view_sale_config_settings
+#: field:sale.config.settings,default_show_address:0
+msgid "Show street and city in the partner search of the saleorder"
+msgstr "Zeige die Straße und den Ort der Partner Suche des Angebotes/Verkaufsauftrages an."
+
+#. module: equitania
+#: help:sale.config.settings,default_show_address:0
+msgid "This adds the street and the city to the results of the partner search of the sale order"
+msgstr "Zeigt die Straße und den Ort in den Ergebnissen der Partnersuche des Angebotes/Verkaufsauftrages an."
+
+#. module: equitania
+#: field:sale.order.line,eq_delivery_date:0
+msgid "Delivery Date"
+msgstr "Lieferdatum"

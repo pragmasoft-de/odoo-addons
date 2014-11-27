@@ -210,7 +210,7 @@
                         </div>
                         <table class="col-xs-3" style="width:auto!important; max-width:50%;">
                             <tbody>
-                                <tr>
+                                <tr t-if="o.payment_term">
                                     <td style="padding-right:0.5cm;">
                                         Zahlungsbedingung:
                                     </td>
@@ -218,11 +218,11 @@
                                         <span t-field="o.payment_term"/>
                                     </td>
                                 </tr>
-								<tr>
-									<td style="padding:0 0.5cm 0.5cm 0;">
+								<tr t-if="o.comment">
+									<td style="padding:0 0.5cm 0.5cm 0; vertical-align:top;">
                                         Kommentar:
                                     </td>
-                                    <td>
+                                    <td style=" vertical-align:top;">
                                         <span t-field="o.comment"/>
                                     </td>
 								</tr>

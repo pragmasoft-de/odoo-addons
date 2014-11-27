@@ -24,17 +24,33 @@ from openerp.tools.translate import _
 
 class sale_order(osv.osv):
     _inherit = 'sale.order'
+    
+    def _compute_invoice_address(self, cr, uid, ids, field_name, arg, context):
+        res = {}
+        for person in self.browse(cr, uid, ids):
+            res[person.id] = person.partner_invoice_id.street + ', ' + person.partner_invoice_id.city
+        return res
+    
+    def _compute_delivery_address(self, cr, uid, ids, field_name, arg, context):
+        res = {}
+        for person in self.browse(cr, uid, ids):
+            res[person.id] = person.partner_shipping_id.street + ', ' + person.partner_shipping_id.city
+        return res  
 
     _columns = {
-        'eq_pricelist_change': fields.boolean('Pricelist Default')
+        'eq_pricelist_change': fields.boolean('Pricelist Default'),
+        'eq_invoice_address': fields.function(_compute_invoice_address, string=" ", sotre=False, type="char"),
+        'eq_delivery_address': fields.function(_compute_delivery_address, string=" ", sotre=False, type="char"),
         }
 
 sale_order()
 
 class res_partner(osv.osv):
     _name = 'res.partner'
-    _inherit = 'res.partner'
-    _columns = {}
+    _inherit = 'res.partner'  
+    
+    _columns = {
+                }
 
     #Extends the standard name_search method, which is used by the many2one field. Adds a backslash plus the address type
     #at the end of the name.
@@ -51,7 +67,7 @@ class res_partner(osv.osv):
                 company_name = partner_id.parent_id and partner_id.parent_id.name + ' ; ' or ''
                 if partner_id.is_company:
                     eq_customer_ref = '[' + str(partner_id.eq_customer_ref) + '] ' if partner_id.eq_customer_ref else ''
-                    new_res.append((partner_id.id, eq_customer_ref + company_name + partner_id.name + ' / ' + _('Company')))
+                    new_res.append((partner_id.id, eq_customer_ref + company_name + partner_id.name + ' / ' + _('Company') + ' // ' + partner_id.street + ', ' + partner_id.city))
                 else:
                     type = partner_id.type
                     if partner_id.type == 'contact':

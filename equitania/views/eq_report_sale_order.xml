@@ -225,7 +225,7 @@
                         </div>
                         <table class="col-xs-3" style="width:auto!important; max-width:50%;">
                             <tbody>
-                                <tr>
+                                <tr t-if="o.payment_term">
                                     <td style="padding-right:0.5cm;">
                                         Zahlungsbedingung:
                                     </td>
@@ -241,12 +241,12 @@
                                         <span t-field="o.incoterm.name"/>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td style="padding:0 0.5cm 0.5cm 0;">
+                                <tr t-if="o.note">
+                                    <td style="padding-right:0.5cm; vertical-align:top;">
                                         Kommentar:
                                     </td>
-                                    <td>
-                    					<p t-field="o.note"/>
+                                    <td styles=" vertical-align:top;">
+                                        <p t-field="o.note"/>
                                     </td>
                                 </tr>
                                 <tr t-if="o.partner_invoice_id != o.partner_id and o.partner_invoice_id != False">
