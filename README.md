@@ -1,6 +1,6 @@
 # README #
 
-Dieses Repository bietet Erweiterungen für das Open Source System odoo http://www.odoo.com
+Dieses Repository bietet Erweiterungen für das Open Source ERP System odoo http://www.odoo.com
 Es enthält Pakete basierend auf dem Open Source System Odoo (früher auch als OpenERP bekannt). 
 Die Benutzung erfolgt OHNE GEWÄHR und auf eigene Gefahr.
 
@@ -21,7 +21,7 @@ Die Benutzung erfolgt OHNE GEWÄHR und auf eigene Gefahr.
 
 ### Installation ###
 
-* Siehe Installation www.odoo.com
+* Siehe Installation www.myodoo.de
 
 ### Kontaktdaten ###
 
@@ -31,7 +31,7 @@ Die Benutzung erfolgt OHNE GEWÄHR und auf eigene Gefahr.
 * Germany
 * Telefon +49 7231 16604 0
 * E-Mail: info@equitania.de
-* Homepage http://www.equitania.de bzw. http://www.openerp24.de
+* Homepage http://www.equitania.de bzw. http://www.myodoo.de
 
 ### Copyrights and Warranty ###
 
