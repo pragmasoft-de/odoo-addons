@@ -172,7 +172,7 @@
                                     <br/>
                                     <span t-field="line.name"/>
                                     <br/>
-                                    <strong t-if="o.show_delivery_date">Liefertermin: <span t-field="line.get_delivery_date"/></strong>
+                                    <strong t-if="any([line.show_delivery_date for line in o.order_line])">Liefertermin: <span t-field="line.get_delivery_date"/></strong>
                                 </td>
                                 <td class="text-right">
                                     <span t-field="line.product_uom_qty"/>
