@@ -35,8 +35,41 @@
                         <label for="default_use_sales_person_as_contact"/>
                     </div>
 				</div>
+                <form string="Configure Sales" position="inside">
+                    <separator string="Reports"/>
+		     		<group>
+                    	<label for="id" string="Delivery Date"/>
+	                	<div>
+	                		<div>
+		                        <field name="default_show_delivery_date"/>
+		                        <label for="default_show_delivery_date"/>
+	                        </div>
+	                        <div>
+		                        <field name="default_use_calendar_week"/>
+		                        <label for="default_use_calendar_week"/>                		
+	                		</div>
+	                    </div>
+	                </group>
+                </form>
 		     </field>
 		</record>
+		<!-- Sale Order Stock -->
+        <record id="eq_sale_order_form_view_delivery_date" model="ir.ui.view">
+            <field name="name">eq.sale.order.form.delivery.date</field>
+            <field name="model">sale.order</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="sale_stock.view_order_form_inherit"/>
+            <field name="arch" type="xml">
+                <data>
+	                <xpath expr="//field[@name='order_line']/form//field[@name='delay']" position="replace">
+	                    <field name="delay" class="oe_inline" on_change="on_change_delay(parent.date_order, delay)"/>
+	                </xpath>
+	                <xpath expr="//field[@name='order_line']/form//label[@for='delay']" position="before">
+	                    <field name="eq_delivery_date" on_change="on_change_delivery_date(parent.date_order, eq_delivery_date)"/>
+	                </xpath>
+                </data>
+           </field>
+        </record>
         
         <!-- Purchase -->
         <record id="eq_purchase_order_form" model="ir.ui.view">
@@ -55,6 +88,30 @@
                 </xpath>
             </field>
         </record>
+        
+		<record id="eq_view_purchase_config_settings_delivery" model="ir.ui.view">
+		     <field name="name">purchase settings delivery</field>
+		     <field name="model">purchase.config.settings</field>
+		     <field name="inherit_id" ref="purchase.view_purchase_configuration"/>
+		     <field name="arch" type="xml">
+		     	<form string="Configure Purchases" position="inside">
+                    <separator string="Reports"/>
+		     		<group>
+                    	<label for="id" string="Delivery Date"/>
+		     			<div>
+		     				<div>
+		                        <field name="default_show_delivery_date"/>
+		                        <label for="default_show_delivery_date"/>
+		                  	</div>
+		                  	<div>
+		                        <field name="default_use_calendar_week"/>
+		                        <label for="default_use_calendar_week"/>
+		                    </div>
+                        </div>
+		     		</group>
+		     	</form>
+		     </field>
+		</record>
         
         <!-- Account -->
         <record id="eq_invoice_form" model="ir.ui.view">

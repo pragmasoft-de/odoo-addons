@@ -20,35 +20,73 @@
 ##############################################################################
 
 from openerp.osv import fields, osv, orm
+from datetime import datetime, timedelta
+from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DFORMAT
 
 #Adds fields to forms that are used in the reports. Contact person and Head text
 
 class eq_report_extension_sale_settings(osv.osv_memory):
     _inherit = 'sale.config.settings'
     
-    def set_default_use_sale_person(self, cr, uid, ids, context=None):
+    def set_default_sale_settings_eq(self, cr, uid, ids, context=None):
         ir_values = self.pool.get('ir.values')
         config = self.browse(cr, uid, ids[0], context)
-        ir_values.set_default(cr, uid, 'sale.order', 'default_use_sales_person_as_contact', config.default_use_sales_person_as_contact and config.default_use_sales_person_as_contact.id or False)
+        ir_values.set_default(cr, uid, 'sale.order', 'default_use_sales_person_as_contact', config.default_use_sales_person_as_contact)
+        ir_values.set_default(cr, uid, 'sale.order', 'show_delivery_date', config.default_show_delivery_date)
+        ir_values.set_default(cr, uid, 'sale.order', 'use_calendar_week', config.default_use_calendar_week)
     
-    def get_default_use_sale_person(self, cr, uid, fields, context=None):
-        salesperson = self.pool.get('ir.values').get_default(cr, uid, 'sale.order', 'default_use_sales_person_as_contact')
+    def get_default_use_sale_settings_eq(self, cr, uid, fields, context=None):
+        ir_values = self.pool.get('ir.values')
+        salesperson = ir_values.get_default(cr, uid, 'sale.order', 'default_use_sales_person_as_contact')
+        show_delivery_date = ir_values.get_default(cr, uid, 'sale.order', 'show_delivery_date')
+        use_calendar_week = ir_values.get_default(cr, uid, 'sale.order', 'use_calendar_week')
         return {
                 'default_use_sales_person_as_contact': salesperson,
+                'default_show_delivery_date': show_delivery_date,
+                'default_use_calendar_week': use_calendar_week,
                 }
     
     _columns = {
                 'default_use_sales_person_as_contact': fields.boolean('Sale Person as Contact Person', help='Sets the Sale Person as the Contact Person in the Sale Order, only when creating.', default_model='sale.order'),
+                'default_show_delivery_date': fields.boolean('Show the Delivery Date on the Sale Order [equitania]', help='The delivery date will be shown in the Sale Order', default_model='sale.order'),
+                'default_use_calendar_week': fields.boolean('Show Calendar Week for Delivery Date [equitania]', help='The delivery date will be shown as a calendar week', default_model='sale.order'),
                 }
 
+class eq_report_extension_purchase_settings(osv.osv_memory):
+    _inherit = 'purchase.config.settings'   
+     
+    def set_default_sale_settings_eq(self, cr, uid, ids, context=None):
+        ir_values = self.pool.get('ir.values')
+        config = self.browse(cr, uid, ids[0], context)
+        ir_values.set_default(cr, uid, 'purchase.order', 'show_delivery_date', config.default_show_delivery_date)
+        ir_values.set_default(cr, uid, 'purchase.order', 'use_calendar_week', config.default_use_calendar_week)
+    
+    def get_default_use_sale_settings_eq(self, cr, uid, fields, context=None):
+        ir_values = self.pool.get('ir.values')
+        show_delivery_date = ir_values.get_default(cr, uid, 'purchase.order', 'show_delivery_date')
+        use_calendar_week = ir_values.get_default(cr, uid, 'purchase.order', 'use_calendar_week')
+        return {
+                'default_show_delivery_date': show_delivery_date,
+                'default_use_calendar_week': use_calendar_week,
+                }
+    
+    _columns = {
+                'default_show_delivery_date': fields.boolean('Show the Delivery Date on the Purchase Order [equitania]', help='The delivery date will be shown in the Purchase Order', default_model='purchase.order'),
+                'default_use_calendar_week': fields.boolean('Show Calendar Week for Delivery Date [equitania]', help='The delivery date will be shown as a calendar week ', default_model='purchase.order'),
+                }
+    
+    
 class eq_report_extension_sale_order(osv.osv):
     _inherit = "sale.order"
+        
     _columns = {
                 'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person', size=100),
                 'eq_head_text': fields.text('Head Text'),
+                'show_delivery_date': fields.boolean('Show Delivery Date'),
+                'use_calendar_week': fields.boolean('Use Calendar Week for Delivery Date'),
                 }
     _defaults = {
-                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
+                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False, 
                 }
     
 
@@ -126,22 +164,113 @@ class eq_report_extension_sale_order(osv.osv):
         for inv in inv_id if isinstance(inv_id, list) else [inv_id]:
             self.pool.get('account.invoice').write,(cr, uid, inv, {'eq_ref_number': self.browse(cr, uid, ids, context).origin})
         return inv_id
-            
-class eq_report_extension_purchase_order(osv.osv):
-    _inherit = "procurement.order"
+
+class eq_report_extension_sale_order_line(osv.osv):
+    _inherit = "sale.order.line"
+    
+    def _get_delivery_date(self, cr, uid, ids, field_name, arg, context):
+        result = {}
+        
+        for order_line in self.browse(cr, uid, ids, context):
+            if order_line.order_id.show_delivery_date:
+                delivery_date = datetime.strptime(order_line.eq_delivery_date, OE_DFORMAT)
+                if order_line.order_id.use_calendar_week:
+                    result[order_line.id] = 'KW ' + delivery_date.strftime('%W/%Y')
+                else:
+                    result[order_line.id] = delivery_date.strftime('%d.%m.%Y')
+        
+        return result
     
     _columns = {
-                'eq_ref_number': fields.char('Sale Order Referenc', size=64),
+                'get_delivery_date': fields.function(_get_delivery_date, string="Delivery", type='char', methode=True, store={ 
+                                                                                                      'sale.order.line': ((lambda self, cr, uid, ids, c={}: ids, ['delay', 'eq_delivery_date'], 10)),
+                                                                                                      'sale.order': ((lambda self, cr, uid, ids, c={}: ids, ['show_delivery_date', 'use_calendar_week'], 10)),
+                                                                                                      }),
+                'eq_delivery_date': fields.date('Delivery Date'),
                 }
+    
+    def on_change_delivery_date(self, cr, uid, ids, date_order, eq_delivery_date, context={}):
+        values = {}
+        if date_order and eq_delivery_date:
+            date_order = datetime.strptime(date_order.split(' ')[0], OE_DFORMAT)
+            eq_delivery_date = datetime.strptime(eq_delivery_date, OE_DFORMAT)
+            
+            delay = (eq_delivery_date - date_order).days
+            
+            values = {'delay': delay}
+        return {'value': values,}
+    
+    def on_change_delay(self, cr, uid, ids, date_order, delay, context={}):
+        values = {}
+        if date_order and delay:
+            date_order = datetime.strptime(date_order.split(' ')[0], OE_DFORMAT)
+            eq_delivery_date = date_order + timedelta(days=int(delay))
+            values = {
+                      'eq_delivery_date': eq_delivery_date
+                      }
+        return {'value': values,}
+    
+    def product_id_change(self, cr, uid, ids, pricelist, product, qty=0,
+            uom=False, qty_uos=0, uos=False, name='', partner_id=False,
+            lang=False, update_tax=True, date_order=False, packaging=False, fiscal_position=False, flag=False, context=None):
+        
+        vals = super(eq_report_extension_sale_order_line, self).product_id_change(cr, uid, ids, pricelist, product, qty, uom, qty_uos, uos, name, partner_id, lang, update_tax, date_order, packaging, fiscal_position, flag, context)
+        
+        product_id = self.pool.get('product.product').browse(cr, uid, product, context)
+        vals['value']['name'] = product_id.description_sale
+        vals['value']['delay'] = product_id.sale_delay
+        return vals
     
 class eq_report_extension_purchase_order(osv.osv):
     _inherit = "purchase.order"
     _columns = {
                 'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person', size=100),
                 'eq_head_text': fields.text('Head Text'),
+                'show_delivery_date': fields.boolean('Show the Delivery Date'),
+                'use_calendar_week': fields.boolean('Use Calendar Week for Delivery Date'),
                 }
     _defaults = {
-                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
+                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False
+                }
+    
+class eq_report_extension_purchase_order_line(osv.osv):
+    _inherit = "purchase.order.line"
+
+    def onchange_product_id(self, cr, uid, ids, pricelist_id, product_id, qty, uom_id,
+            partner_id, date_order=False, fiscal_position_id=False, date_planned=False,
+            name=False, price_unit=False, state='draft', context=None):
+        
+        vals = super(eq_report_extension_purchase_order_line, self).onchange_product_id(cr, uid, ids, pricelist_id, product_id, qty, uom_id, partner_id, date_order, fiscal_position_id, date_planned, name, price_unit, state, context)
+    
+        product = self.pool.get('product.product').browse(cr, uid, product_id, context)
+        vals['value']['name'] = product.description_purchase
+        return vals
+    
+    def _get_delivery_date(self, cr, uid, ids, field_name, arg, context):
+        result = {}
+        
+        for purchase_line in self.browse(cr, uid, ids, context):
+            if purchase_line.order_id.show_delivery_date:
+                delivery_date = datetime.strptime(purchase_line.date_planned, OE_DFORMAT)
+                if purchase_line.order_id.use_calendar_week:
+                    result[purchase_line.id] = 'KW ' + delivery_date.strftime('%W/%Y')
+                else:
+                    result[purchase_line.id] = delivery_date.strftime('%d.%m.%Y')
+        
+        return result
+        
+    _columns = {
+                'get_delivery_date': fields.function(_get_delivery_date, string="Delivery", type='char', methode=True, store={ 
+                                                                                                      'purchase.order.line': ((lambda self, cr, uid, ids, c={}: ids, ['date_planned'], 10)),
+                                                                                                      'purchase.order': ((lambda self, cr, uid, ids, c={}: ids, ['show_delivery_date', 'use_calendar_week'], 10)),
+                                                                                                      }),
+                }
+            
+class eq_report_extension_purchase_order(osv.osv):
+    _inherit = "procurement.order"
+    
+    _columns = {
+                'eq_ref_number': fields.char('Sale Order Referenc', size=64),
                 }
     
 class eq_report_extension_invoice(osv.osv):
@@ -154,6 +283,13 @@ class eq_report_extension_invoice(osv.osv):
                 }
     _defaults = {
                 'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
+                }
+    
+class eq_report_extension_invoice(osv.osv):
+    _inherit = "account.invoice.line"
+    
+    _columns = {
+                'eq_delivery_date': fields.date('Delivery Date'),
                 }
     
         

@@ -98,7 +98,7 @@
                                 <th>
                                     <strong>Beschreibung</strong>
                                 </th>
-                                <th class="text-center">
+                                <th class="text-center" t-if="o.show_delivery_date">
                                     <strong>Liefertermin</strong>
                                 </th>
                                 <th class="text-right">
@@ -111,10 +111,10 @@
                                 <td>
                                     <strong><span t-field="order_line.product_id.name"/></strong>
                                     <br/>
-                                    <span t-field="order_line.product_id.description_sale"/>
+                                    <span t-field="order_line.name"/>
                                 </td>
-                                <td class="text-center">
-                                    <span t-field="order_line.date_planned"/>
+                                <td class="text-center" t-if="o.show_delivery_date">
+                                    <span t-field="order_line.get_delivery_date"/>
                                 </td>
                                 <td class="text-right">
                                     <span t-field="order_line.product_qty"/>

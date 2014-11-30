@@ -45,7 +45,6 @@
         'eq_install_func.xml',
         'eq_partner_extension_view.xml',
         'eq_report_extension_view.xml',
-        'eq_delivery_date_view.xml',
         'views/eq_footer.xml',
         'views/eq_header.xml',
         'views/eq_report_purchase_order.xml',
