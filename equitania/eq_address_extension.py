@@ -65,9 +65,11 @@ class res_partner(osv.osv):
 
             for partner_id in self.browse(cr, uid, partner_ids):
                 company_name = partner_id.parent_id and partner_id.parent_id.name + ' ; ' or ''
+                street = partner_id.street if partner_id.street else ''
+                city = partner_id.city if partner_id.city else ''
                 if partner_id.is_company:
                     eq_customer_ref = '[' + str(partner_id.eq_customer_ref) + '] ' if partner_id.eq_customer_ref else ''
-                    new_res.append((partner_id.id, eq_customer_ref + company_name + partner_id.name + ' / ' + _('Company') + ' // ' + partner_id.street + ', ' + partner_id.city))
+                    new_res.append((partner_id.id, eq_customer_ref + company_name + partner_id.name + ' / ' + _('Company') + ' // ' + street + ', ' + city))
                 else:
                     type = partner_id.type
                     if partner_id.type == 'contact':
@@ -81,7 +83,7 @@ class res_partner(osv.osv):
                     elif partner_id.type == 'other':
                         type = _('other')
                     if show_address:
-                        new_res.append((partner_id.id, "%s %s %s %s" % ( company_name, (partner_id.title.name if partner_id.title else ''), (partner_id.eq_firstname if partner_id.eq_firstname else ''), partner_id.name + ' / ' + type + ' // ' + partner_id.street + ', ' + partner_id.city)))
+                        new_res.append((partner_id.id, "%s %s %s %s" % ( company_name, (partner_id.title.name if partner_id.title else ''), (partner_id.eq_firstname if partner_id.eq_firstname else ''), partner_id.name + ' / ' + type + ' // ' + street + ', ' + city)))
                     else:
                         new_res.append((partner_id.id, "%s %s %s %s" % ( company_name, (partner_id.title.name if partner_id.title else ''), (partner_id.eq_firstname if partner_id.eq_firstname else ''), partner_id.name + ' / ' + type)))
             return new_res
