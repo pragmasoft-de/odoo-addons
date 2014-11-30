@@ -74,3 +74,26 @@ class eq_install_func(osv.osv):
             eu_a4_intern_id = self.pool.get('report.paperformat').create(cr, uid, eu_a4_intern)
         
         return True
+    
+    def _create_report_price_precision(self, cr, uid, ids=None, context=None):
+        dp = self.pool.get('decimal.precision')
+        product_price_id = dp.search(cr, uid, [('name', '=', 'Product Price')])
+        product_price = dp.browse(cr, uid, product_price_id[0])
+        
+        values_sale = {
+                       'name': 'Report Product Price Sales',
+                       'digits': product_price.digits,
+                       
+                       }
+        
+        dp.create(cr, uid, values_sale)
+        
+        values_purchase = {
+                       'name': 'Report Product Price Purchase',
+                       'digits': product_price.digits,
+                       
+                       }
+        
+        dp.create(cr, uid, values_purchase)
+        
+        return True

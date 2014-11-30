@@ -2,5 +2,6 @@
 <openerp>
   <data noupdate="1">
     <function model="eq_install_func" name="_set_paper_format"/>
+    <function model="eq_install_func" name="_create_report_price_precision"/>
   </data>
 </openerp>
