@@ -32,11 +32,6 @@ class eq_custom_ref(osv.osv):
         'eq_creditor_ref': fields.char('Creditor Number', size=64),
         'eq_customer_ref': fields.char('Customer Number', size=64)
     }
-    _sql_constraints = [
-                        ('eq_creditor_ref_unique', 'unique(eq_creditor_ref)', "This Creditor Number is already used!"),
-                        ('eq_customer_ref_unique', 'unique(eq_customer_ref)', "This Customer Number is already used!")
-                        ]
-
 
     def eq_creditor_update(self, cr, uid, ids, context=None):
         #Gets the Partner
