@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+    	<!-- Partner Search -->
+        <record id="eq_partner_search_form_view" model="ir.ui.view">
+            <field name="name">eq.res.partner.search</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter" />
+            <field name="arch" type="xml">
+                <field name="name" position="replace">
+                   <field name="name" filter_domain="['|','|','|','|',('display_name','ilike',self),('ref','=',self),('email','ilike',self),('eq_customer_ref','ilike',self),('eq_creditor_ref','ilike',self)]"/>
+                </field> 
+            </field>
+        </record>
+        
+        <!-- Kunden Kanban -->
+        <record model="ir.ui.view" id="eq_datev_partner_kanban_view">
+            <field name="name">res.partner.kanban.datev.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <xpath expr="//li[@t-if='record.email.raw_value']" position="replace">
+					<field name="eq_customer_ref"/>
+                </xpath>
+            </field>
+        </record>
+        
+    	<!-- Kunden Liste -->
+    	<record id="eq_inox_compatibility_partner_tree" model="ir.ui.view">
+            <field name="name">base.view_partner_tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree" />
+            <field name="arch" type="xml">
+            	<field name="name" position="after">
+            		<field name="eq_customer_ref" string="Nummer"/>
+            	</field>
+            </field>
+        </record>
+        
     	<!-- Sale -->
         <record id="eq_sale_order_form" model="ir.ui.view">
             <field name="name">sale.order.form.eq</field>
@@ -24,6 +61,7 @@
             </field>
         </record>
         
+        <!-- Config Settings -->
 		<record id="eq_view_sale_config_settings" model="ir.ui.view">
 		     <field name="name">Contact Person</field>
 		     <field name="model">sale.config.settings</field>
@@ -53,6 +91,7 @@
                 </form>
 		     </field>
 		</record>
+		
 		<!-- Sale Order Stock -->
         <record id="eq_sale_order_form_view_delivery_date" model="ir.ui.view">
             <field name="name">eq.sale.order.form.delivery.date</field>
@@ -89,6 +128,7 @@
             </field>
         </record>
         
+        <!-- Purchase Settings -->
 		<record id="eq_view_purchase_config_settings_delivery" model="ir.ui.view">
 		     <field name="name">purchase settings delivery</field>
 		     <field name="model">purchase.config.settings</field>
