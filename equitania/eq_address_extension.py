@@ -44,7 +44,7 @@ class sale_order(osv.osv):
         }
 
 sale_order()
-
+"""
 class res_partner(osv.osv):
     _name = 'res.partner'
     _inherit = 'res.partner'  
@@ -55,7 +55,7 @@ class res_partner(osv.osv):
     #Extends the standard name_search method, which is used by the many2one field. Adds a backslash plus the address type
     #at the end of the name.
     def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):
-        res = super(res_partner, self).name_search(cr, uid, name, args, operator, context, limit)
+        res = super(res_partner, self).name_search(cr, uid, name, ['|', ['eq_customer_ref', 'ilike', name]] + args, operator, context, limit)
         if context is None:
             context = {}
         if context.has_key('active_model'):
@@ -90,7 +90,7 @@ class res_partner(osv.osv):
         return res
 
 res_partner()
-
+"""
 class eq_sale_configuration_address(osv.TransientModel):
     _name = 'sale.config.settings'
     _inherit = _name
