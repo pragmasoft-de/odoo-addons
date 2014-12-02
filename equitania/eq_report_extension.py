@@ -179,12 +179,12 @@ class eq_report_extension_sale_order_line(osv.osv):
                 result[order_line.id] = False
         
         return result
-    
-    _columns = {
+    """
                 'get_delivery_date': fields.function(_get_delivery_date, string="Delivery", type='char', methode=True, store={ 
                                                                                                       'sale.order.line': ((lambda self, cr, uid, ids, c={}: ids, ['delay', 'eq_delivery_date'], 10)),
                                                                                                       'sale.order': ((lambda self, cr, uid, ids, c={}: ids, ['show_delivery_date', 'use_calendar_week'], 10)),
-                                                                                                      }),
+                                                                                                      }),"""
+    _columns = {
                 'eq_delivery_date': fields.date('Delivery Date'),
                 'show_delivery_date': fields.boolean('Show Delivery Date'),
                 'use_calendar_week': fields.boolean('Use Calendar Week for Delivery Date'),
@@ -261,12 +261,12 @@ class eq_report_extension_purchase_order_line(osv.osv):
                 result[purchase_line.id] = False
         
         return result
-        
-    _columns = {
+        """
                 'get_delivery_date': fields.function(_get_delivery_date, string="Delivery", type='char', methode=True, store={ 
                                                                                                       'purchase.order.line': ((lambda self, cr, uid, ids, c={}: ids, ['date_planned'], 10)),
                                                                                                       'purchase.order': ((lambda self, cr, uid, ids, c={}: ids, ['show_delivery_date', 'use_calendar_week'], 10)),
-                                                                                                      }),
+                                                                                                      }),"""
+    _columns = {
                 }
 
 class eq_report_extension_purchase_order(osv.osv):

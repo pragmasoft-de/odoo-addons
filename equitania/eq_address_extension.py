@@ -41,7 +41,7 @@ class sale_order(osv.osv):
                 'eq_pricelist_change': fields.boolean('Pricelist Default'),
                 'eq_invoice_address': fields.function(_compute_invoice_address, string=" ", sotre=False, type="char"),
                 'eq_delivery_address': fields.function(_compute_delivery_address, string=" ", sotre=False, type="char"),
-                'eq_customer_ref': fields.related('partner_id', 'customer_number', type="char", string="Customer Number", store={'sale.order': (lambda self, cr, uid, ids, c={}: ids, ['partner_id'], 10)}),
+                'eq_customer_ref': fields.related('partner_id', 'customer_number', type="char", string="Customer Number"),
                 }
 
 sale_order()

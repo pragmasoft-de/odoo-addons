@@ -70,6 +70,9 @@
             		<field name="partner_shipping_id" domain="['|', ('id', '=', partner_id), ('parent_id', '=', partner_id)]" on_change="onchange_delivery_id(company_id, partner_id, partner_shipping_id, fiscal_position)" groups="sale.group_delivery_invoice_address" context="{'default_type':'delivery','active_model':'sale.order'}"/>
             		<field name="eq_delivery_address"/>
             	</xpath>
+            	<field name="partner_id" position="after">
+            		<field name="eq_customer_ref" readonly="True"/>
+            	</field>
             </field>
 	    </record>
 	    
