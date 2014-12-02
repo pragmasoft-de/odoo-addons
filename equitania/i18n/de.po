@@ -476,8 +476,8 @@ msgstr "Andere"
 #. module: equitania
 #: view:sale.config.settings:equitania.view_sale_config_settings
 #: field:sale.config.settings,default_show_address:0
-msgid "Show street and city in the partner search of the saleorder"
-msgstr "Zeige die Straße und den Ort der Partner Suche des Angebotes/Verkaufsauftrages an."
+msgid "Show street and city in the partner search of the saleorder [equitania]"
+msgstr "Zeige die Straße und den Ort der Partner Suche des Angebotes/Verkaufsauftrages an [equitania]"
 
 #. module: equitania
 #: help:sale.config.settings,default_show_address:0
