@@ -50,7 +50,10 @@ class res_partner(models.Model):
                 city = partner_id.city if partner_id.city else ''
                 deb_num = ('[' + str(partner_id.eq_customer_ref) + '] ') if partner_id.eq_customer_ref else ''
                 if partner_id.is_company:
-                    new_res.append((partner_id.id, deb_num + company_name + partner_id.name + ' / ' + _('Company') + ' // ' + street + ', ' + city))
+                    if show_address:
+                        new_res.append((partner_id.id, deb_num + company_name + partner_id.name + ' / ' + _('Company') + ' // ' + street + ', ' + city))
+                    else:
+                        new_res.append((partner_id.id, deb_num + company_name + partner_id.name + ' / ' + _('Company')))
                 else:
                     type = partner_id.type
                     if partner_id.type == 'contact':
