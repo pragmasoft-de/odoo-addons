@@ -241,7 +241,10 @@ class eq_report_extension_purchase_order_line(osv.osv):
         vals = super(eq_report_extension_purchase_order_line, self).onchange_product_id(cr, uid, ids, pricelist_id, product_id, qty, uom_id, partner_id, date_order, fiscal_position_id, date_planned, name, price_unit, state, context)
     
         product = self.pool.get('product.product').browse(cr, uid, product_id, context)
-        vals['value']['name'] = product.description_purchase
+        if product.description_purchase:
+            vals['value']['name'] = product.description_purchase
+        else:
+            vals['value']['name'] = product.name
         return vals
     
     def _get_delivery_date(self, cr, uid, ids, field_name, arg, context):
@@ -342,5 +345,5 @@ class eq_compatibility_equitania_inox(osv.osv):
         return result
         
     _columns = {
-                'eq_deb_cred_number': fields.function(_show_deb_cred_number, type='char', store={'res.partner': (lambda self, cr, uid, ids, c={}: ids, ['eq_creditor_ref', 'eq_customer_ref'], 10)})
+                'eq_deb_cred_number': fields.function(_show_deb_cred_number, type='char', store=False)
                 }
