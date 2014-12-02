@@ -82,7 +82,7 @@
 		            <label for="group_sale_delivery_address" position="after">
 		            	<div attrs="{'invisible': [('group_sale_delivery_address','=', False)]}">
 		                    <field name="default_show_address" class="oe_inline"/>
-		                	<label for="default_show_address" string="Show street and city in the partner search of the saleorder"/>
+		                	<label for="default_show_address" string="Show street and city in the partner search of the saleorder [equitania]"/>
 		            	</div>
 		            </label>
                 </data>

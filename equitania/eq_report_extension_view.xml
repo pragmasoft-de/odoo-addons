@@ -14,14 +14,14 @@
         </record>
         
         <!-- Kunden Kanban -->
-        <record model="ir.ui.view" id="eq_datev_partner_kanban_view">
+        <record model="ir.ui.view" id="eq_equitania_partner_kanban_view">
             <field name="name">res.partner.kanban.datev.inherit</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.res_partner_kanban_view"/>
             <field name="priority" eval="20"/>
             <field name="arch" type="xml">
                 <xpath expr="//li[@t-if='record.email.raw_value']" position="replace">
-					<field name="eq_customer_ref"/>
+					<field name="eq_deb_cred_number"/>
                 </xpath>
             </field>
         </record>
@@ -58,6 +58,12 @@
 						<field name="eq_head_text" placeholder="Dear Sir or Madam," nolabel="1"/>
 					</div>
                 </xpath>
+            	<field name="partner_id" position="after">
+            		<field name="eq_customer_ref" readonly="True"/>
+            	</field>
+            	<xpath expr="//field[@name='partner_id']" position="replace">
+            		<field name="partner_id" on_change="onchange_partner_id(partner_id, context)" domain="[('customer','=',True), ('is_company', '=', True)]" context="{'search_default_customer':1, 'show_address': 1}" options='{"always_reload": True}'/>
+            	</xpath>
             </field>
         </record>
         

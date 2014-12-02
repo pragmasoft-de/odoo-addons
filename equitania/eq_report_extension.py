@@ -275,7 +275,20 @@ class eq_report_extension_purchase_order(osv.osv):
     _columns = {
                 'eq_ref_number': fields.char('Sale Order Referenc', size=64),
                 }
+    
+    def make_mo(self, cr, uid, ids, context=None):
+        res = super(eq_mrp_procurement_extension, self).make_mo(cr, uid, ids, context=context)
+        
+        #Writes the customer number into the manufactoring order.
+        for key, value in res.iteritems():
+            procurement = self.browse(cr, uid, key, context=context)
+            if procurement.group_id.partner_id:
+                vals = {'eq_customer_ref': procurement.group_id.partner_id.customer_number}
+                self.pool.get('mrp.production').write(cr, uid, value, vals, context=context)
+        
+        return res
 
+    
 class eq_report_extension_invoice(osv.osv):
     _inherit = "account.invoice"
     
@@ -313,3 +326,25 @@ class eq_report_extension_stock_picking(osv.osv):
     def _create_invoice_from_picking(self, cr, uid, picking, vals, context=None):
         vals['eq_ref_number'] = picking.eq_ref_number
         return super(eq_report_extension_stock_picking, self)._create_invoice_from_picking(cr, uid, picking, vals, context)
+    
+class eq_compatibility_equitania_inox(osv.osv):
+    _inherit = 'res.partner'
+    _name = _inherit
+    
+    def _show_deb_cred_number(self, cr, uid, ids, name, arg, context={}):
+        result = {}
+        for partner in self.browse(cr, uid, ids, context):
+            deb_cred = False
+            if partner.eq_customer_ref and partner.eq_creditor_ref:
+                deb_cred = partner.eq_customer_ref + ' / ' + partner.eq_creditor_ref
+            elif partner.eq_customer_ref:
+                deb_cred = partner.eq_customer_ref
+            elif partner.eq_creditor_ref:
+                deb_cred = partner.eq_creditor_ref
+            result[partner.id] = deb_cred
+            
+        return result
+        
+    _columns = {
+                'eq_deb_cred_number': fields.function(_show_deb_cred_number, type='char', store={'res.partner': (lambda self, cr, uid, ids, c={}: ids, ['eq_creditor_ref', 'eq_customer_ref'], 10)})
+                }
