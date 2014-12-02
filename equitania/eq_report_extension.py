@@ -38,8 +38,8 @@ class eq_report_extension_sale_settings(osv.osv_memory):
     def get_default_use_sale_settings_eq(self, cr, uid, fields, context=None):
         ir_values = self.pool.get('ir.values')
         salesperson = ir_values.get_default(cr, uid, 'sale.order', 'default_use_sales_person_as_contact')
-        show_delivery_date = ir_values.get_default(cr, uid, 'sale.order.line', 'show_delivery_date')
-        use_calendar_week = ir_values.get_default(cr, uid, 'sale.order.line', 'use_calendar_week')
+        show_delivery_date = ir_values.get_default(cr, uid, 'sale.order', 'show_delivery_date')
+        use_calendar_week = ir_values.get_default(cr, uid, 'sale.order', 'use_calendar_week')
         return {
                 'default_use_sales_person_as_contact': salesperson,
                 'default_show_delivery_date': show_delivery_date,
@@ -82,6 +82,8 @@ class eq_report_extension_sale_order(osv.osv):
     _columns = {
                 'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person', size=100),
                 'eq_head_text': fields.text('Head Text'),
+                'show_delivery_date': fields.boolean('Show Delivery Date'),
+                'use_calendar_week': fields.boolean('Use Calendar Week for Delivery Date'),
                 }
     _defaults = {
                 'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False,
@@ -169,25 +171,20 @@ class eq_report_extension_sale_order_line(osv.osv):
     def _get_delivery_date(self, cr, uid, ids, field_name, arg, context):
         result = {}
         for order_line in self.browse(cr, uid, ids, context):
-            if order_line.show_delivery_date:
+            if order_line.order_id.show_delivery_date:
                 delivery_date = datetime.strptime(order_line.eq_delivery_date, OE_DFORMAT)
                 if order_line.order_id.use_calendar_week:
                     result[order_line.id] = 'KW ' + delivery_date.strftime('%W/%Y')
                 else:
                     result[order_line.id] = delivery_date.strftime('%d.%m.%Y')
-            else:
-                result[order_line.id] = False
         
         return result
-    """
+
+    _columns = {
                 'get_delivery_date': fields.function(_get_delivery_date, string="Delivery", type='char', methode=True, store={ 
                                                                                                       'sale.order.line': ((lambda self, cr, uid, ids, c={}: ids, ['delay', 'eq_delivery_date'], 10)),
-                                                                                                      'sale.order': ((lambda self, cr, uid, ids, c={}: ids, ['show_delivery_date', 'use_calendar_week'], 10)),
-                                                                                                      }),"""
-    _columns = {
+                                                                                                      }),
                 'eq_delivery_date': fields.date('Delivery Date'),
-                'show_delivery_date': fields.boolean('Show Delivery Date'),
-                'use_calendar_week': fields.boolean('Use Calendar Week for Delivery Date'),
                 }
     
     def on_change_delivery_date(self, cr, uid, ids, date_order, eq_delivery_date, context={}):
@@ -261,12 +258,11 @@ class eq_report_extension_purchase_order_line(osv.osv):
                 result[purchase_line.id] = False
         
         return result
-        """
-                'get_delivery_date': fields.function(_get_delivery_date, string="Delivery", type='char', methode=True, store={ 
+
+    _columns = {'get_delivery_date': fields.function(_get_delivery_date, string="Delivery", type='char', methode=True, store={ 
                                                                                                       'purchase.order.line': ((lambda self, cr, uid, ids, c={}: ids, ['date_planned'], 10)),
                                                                                                       'purchase.order': ((lambda self, cr, uid, ids, c={}: ids, ['show_delivery_date', 'use_calendar_week'], 10)),
-                                                                                                      }),"""
-    _columns = {
+                                                                                                      }),
                 }
 
 class eq_report_extension_purchase_order(osv.osv):
