@@ -215,7 +215,10 @@ class eq_report_extension_sale_order_line(osv.osv):
         vals = super(eq_report_extension_sale_order_line, self).product_id_change(cr, uid, ids, pricelist, product, qty, uom, qty_uos, uos, name, partner_id, lang, update_tax, date_order, packaging, fiscal_position, flag, context)
         
         product_id = self.pool.get('product.product').browse(cr, uid, product, context)
-        vals['value']['name'] = product_id.description_sale
+        if product.description_purchase:
+            vals['value']['name'] = product.description_purchase
+        else:
+            vals['value']['name'] = product.name
         vals['value']['delay'] = product_id.sale_delay
         return vals
     
