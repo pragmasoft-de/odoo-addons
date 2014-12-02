@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0rc1\n"
+"Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-06 08:46+0000\n"
-"PO-Revision-Date: 2014-08-06 08:46+0000\n"
+"POT-Creation-Date: 2014-12-02 13:38+0000\n"
+"PO-Revision-Date: 2014-12-02 13:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,17 +16,13 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: equitania
-#: view:product.pricelist.item:0
-msgid " ) + "
-msgstr " ) + "
+#: code:addons/equitania/eq_pricelist_item_search.py:69
+#, python-format
+msgid "%s, Min. %s New Price %s"
+msgstr "%s, Mindestmenge %s, Neuer Preis %s"
 
 #. module: equitania
-#: view:product.pricelist.item:0
-msgid "* ( 1 + "
-msgstr "* ( 1 + "
-
-#. module: equitania
-#: view:product.pricelist.item:0
+#: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
 msgid "Base Price"
 msgstr "Basispreis"
 
@@ -36,8 +32,8 @@ msgid "Birthday"
 msgstr "Geburtstag"
 
 #. module: equitania
-#: view:eq_pricelist_item_search:0
-#: view:product.pricelist.item:0
+#: view:eq_pricelist_item_search:equitania.eq_pricelist_item_search_form_view
+#: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -47,9 +43,26 @@ msgid "Companies"
 msgstr "Unternehmen"
 
 #. module: equitania
+#: code:addons/equitania/eq_address_extension_new_api.py:54
+#: code:addons/equitania/eq_address_extension_new_api.py:56
+#, python-format
+msgid "Company"
+msgstr "Company"
+
+#. module: equitania
 #: field:res.company,eq_report_logo:0
 msgid "Company Report Logo"
 msgstr "Firmenlogo Reports"
+
+#. module: equitania
+#: view:purchase.config.settings:equitania.eq_view_purchase_config_settings_delivery
+msgid "Configure Purchases"
+msgstr "Konfiguriere Einkauf"
+
+#. module: equitania
+#: view:sale.config.settings:equitania.eq_view_sale_config_settings
+msgid "Configure Sales"
+msgstr "Konfiguriere Verkauf"
 
 #. module: equitania
 #: field:account.invoice,eq_contact_person_id:0
@@ -59,12 +72,16 @@ msgid "Contact Person"
 msgstr "Kontaktperson"
 
 #. module: equitania
+#: field:eq.delivery.conditions,create_uid:0
+#: field:eq.lead.referred,create_uid:0
 #: field:eq_install_func,create_uid:0
 #: field:eq_pricelist_item_search,create_uid:0
 msgid "Created by"
 msgstr "Erstellt von"
 
 #. module: equitania
+#: field:eq.delivery.conditions,create_date:0
+#: field:eq.lead.referred,create_date:0
 #: field:eq_install_func,create_date:0
 #: field:eq_pricelist_item_search,create_date:0
 msgid "Created on"
@@ -96,15 +113,42 @@ msgid "Custom 4"
 msgstr "Zusatz 4"
 
 #. module: equitania
-#: view:res.partner:0
+#: view:res.partner:equitania.view_partner_form
 #: field:res.partner,eq_customer_ref:0
 msgid "Customer Number"
 msgstr "Kundennummer"
 
 #. module: equitania
-#: sql_constraint:product.template:0
-msgid "This Product No. is already in use!"
-msgstr "Diese Produktnummer ist bereits vorhanden!"
+#: view:account.invoice:equitania.eq_invoice_form
+#: view:purchase.order:equitania.eq_purchase_order_form
+#: view:sale.order:equitania.eq_sale_order_form
+msgid "Dear Sir or Madam,"
+msgstr "Sehr geehrte Damen und Herren,"
+
+#. module: equitania
+#: field:purchase.order.line,get_delivery_date:0
+#: field:sale.order.line,get_delivery_date:0
+msgid "Delivery"
+msgstr "Delivery"
+
+#. module: equitania
+#: field:res.partner,eq_deliver_condition_id:0
+#: field:sale.order,eq_deliver_condition_id:0
+msgid "Delivery Condition"
+msgstr "Lieferbedingungen"
+
+#. module: equitania
+#: field:account.invoice.line,eq_delivery_date:0
+#: view:purchase.config.settings:equitania.eq_view_purchase_config_settings_delivery
+#: view:sale.config.settings:equitania.eq_view_sale_config_settings
+#: field:sale.order.line,eq_delivery_date:0
+msgid "Delivery Date"
+msgstr "Lieferdatum"
+
+#. module: equitania
+#: field:eq.lead.referred,eq_description:0
+msgid "Description"
+msgstr "Beschreibung"
 
 #. module: equitania
 #: field:product.product,eq_drawing_number:0
@@ -113,265 +157,16 @@ msgid "Drawing Number"
 msgstr "Zeichnungsnummer"
 
 #. module: equitania
-#: code:addons/equitania/eq_contact_person.py:51
+#: code:addons/equitania/eq_report_extension.py:127
 #, python-format
 msgid "Error!"
 msgstr "Fehler!"
 
 #. module: equitania
-#: view:res.partner:0
+#: view:res.partner:equitania.eq_partner_extension_form_view
 #: field:res.partner,eq_firstname:0
 msgid "Firstname"
 msgstr "Vorname"
-
-#. module: equitania
-#: field:eq_install_func,id:0
-#: field:eq_pricelist_item_search,id:0
-msgid "ID"
-msgstr "ID"
-
-#. module: equitania
-#: field:product.product,eq_index:0
-#: field:product.template,eq_index:0
-msgid "Index"
-msgstr "Index"
-
-#. module: equitania
-#: model:ir.model,name:equitania.model_account_invoice
-msgid "Invoice"
-msgstr "Rechnung"
-
-#. module: equitania
-#: field:eq_pricelist_item_search,eq_items_id:0
-msgid "Item"
-msgstr "Position"
-
-#. module: equitania
-#: view:eq_pricelist_item_search:0
-#: model:ir.actions.act_window,name:equitania.eq_pricelist_item_search_action
-#: model:ir.ui.menu,name:equitania.menu_eq_pricelist_item_search_action
-msgid "Itemsearch for Pricelist Version"
-msgstr "Positionssuche"
-
-#. module: equitania
-#: field:eq_install_func,write_uid:0
-#: field:eq_pricelist_item_search,write_uid:0
-msgid "Last Updated by"
-msgstr "Zuletzt bearbeitet von"
-
-#. module: equitania
-#: field:eq_install_func,write_date:0
-#: field:eq_pricelist_item_search,write_date:0
-msgid "Last Updated on"
-msgstr "Zuletzt bearbeitet am"
-
-#. module: equitania
-#: view:product.pricelist.item:0
-msgid "Max. Margin"
-msgstr "Max. Spanne"
-
-#. module: equitania
-#: view:product.pricelist.item:0
-msgid "Min. Margin"
-msgstr "Min. Spanne"
-
-#. module: equitania
-#: view:res.partner:0
-msgid "Name"
-msgstr "Name"
-
-#. module: equitania
-#: view:product.pricelist.item:0
-msgid "New Price ="
-msgstr "Neuer Preis ="
-
-#. module: equitania
-#: view:eq_pricelist_item_search:0
-msgid "Open"
-msgstr "Öffnen"
-
-#. module: equitania
-#: model:ir.model,name:equitania.model_res_partner
-msgid "Partner"
-msgstr "Partner"
-
-#. module: equitania
-#: code:addons/equitania/eq_contact_person.py:52
-#, python-format
-msgid "Please define sales journal for this company: \"%s\" (id:%d)."
-msgstr "Bitte legen Sie ein Verkaufsjournal für dieses Unternehmen fest: \"%s\" (id:%d)."
-
-#. module: equitania
-#: view:product.pricelist.item:0
-msgid "Price Computation"
-msgstr "Preisberechnung"
-
-#. module: equitania
-#: field:sale.order,eq_pricelist_change:0
-msgid "Pricelist Default"
-msgstr "Preisliste Standart"
-
-#. module: equitania
-#: field:eq_pricelist_item_search,eq_pricelist_version_id:0
-msgid "Pricelist Version"
-msgstr "Preisliste Version"
-
-#. module: equitania
-#: model:ir.model,name:equitania.model_product_product
-msgid "Product"
-msgstr "Produktvariante"
-
-#. module: equitania
-#: view:product.product:0
-#: view:product.template:0
-msgid "Product No."
-msgstr "Produktnummer"
-
-#. module: equitania
-#: field:product.template,eq_default_code:0
-msgid "Product Number"
-msgstr "Produktnummer"
-
-#. module: equitania
-#: model:ir.model,name:equitania.model_product_template
-msgid "Product Template"
-msgstr "Produktvorlage"
-
-#. module: equitania
-#: view:product.pricelist.item:0
-msgid "Products Listprices Items"
-msgstr "Elemente in Produktpreisliste"
-
-#. module: equitania
-#: model:ir.model,name:equitania.model_purchase_order
-msgid "Purchase Order"
-msgstr "Beschaffungsauftrag"
-
-#. module: equitania
-#: view:product.pricelist.item:0
-msgid "Rounding Method"
-msgstr "Rundungsverfahren"
-
-#. module: equitania
-#: model:ir.model,name:equitania.model_sale_order
-msgid "Sales Order"
-msgstr "Verkaufsauftrag"
-
-#. module: equitania
-#: view:product.pricelist.item:0
-msgid "Save"
-msgstr "Speichern"
-
-#. module: equitania
-#: view:eq_pricelist_item_search:0
-msgid "Search Item"
-msgstr "Positionssuche"
-
-#. module: equitania
-#: help:res.company,eq_custom_1:0
-#: help:res.company,eq_custom_2:0
-#: help:res.company,eq_custom_3:0
-#: help:res.company,eq_custom_4:0
-msgid "The content of this field may be used in the header or footer of reports."
-msgstr "Der Inhalt dieser Felder kann für die Reports benutzt werden."
-
-#. module: equitania
-#: sql_constraint:res.partner:0
-msgid "This Creditor Number is already used!"
-msgstr "Diese Kreditorennummer ist bereits vorhanden!"
-
-#. module: equitania
-#: sql_constraint:res.partner:0
-msgid "This Customer Number is already used!"
-msgstr "Diese Kundennummer ist bereits vorhanden"
-
-#. module: equitania
-#: view:res.partner:0
-msgid "Titel"
-msgstr "Titel"
-
-#. module: equitania
-#: view:res.partner:0
-msgid "Type:"
-msgstr "Typ:"
-
-#. module: equitania
-#: view:product.template:0
-#: view:res.partner:0
-msgid "Update"
-msgstr "Aktualisieren"
-
-#. module: equitania
-#: model:ir.model,name:equitania.model_eq_install_func
-msgid "eq_install_func"
-msgstr "eq_install_func"
-
-#. module: equitania
-#: model:ir.model,name:equitania.model_eq_pricelist_item_search
-msgid "eq_pricelist_item_search"
-msgstr "eq_pricelist_item_search"
-
-#. module: equitania
-#: view:eq_pricelist_item_search:0
-#: view:product.pricelist.item:0
-msgid "or"
-msgstr "oder"
-
-#. module: equitania
-#: field:product.template,eq_drawing_number_dub:0
-#: field:product.template,eq_state_dup:0
-msgid "unknown"
-msgstr "unknown"
-
-#. modules: purchase, product, base, stock
-#: model:ir.actions.act_window,name:product.product_template_action
-#: model:ir.ui.menu,name:product.menu_product_template_action
-#: field:product.template,product_variant_ids:0
-#: model:ir.actions.act_window,name:purchase.product_normal_action_puchased
-#: model:ir.ui.menu,name:purchase.menu_procurement_management_product
-#: model:ir.ui.menu,name:purchase.menu_procurement_partner_contact_form
-#: model:ir.ui.menu,name:purchase.menu_product_in_config_purchase
-#: view:purchase.order:purchase.purchase_order_form
-#: model:ir.ui.menu,name:stock.menu_product_in_config_stock
-#: model:ir.ui.menu,name:stock.menu_product_template_config_stock
-#: model:ir.ui.menu,name:stock.menu_stock_product
-#: model:ir.ui.menu,name:stock.menu_stock_products_menu
-#: view:product.template:stock.product_template_search_form_view_stock
-#: view:stock.config.settings:stock.view_stock_config_settings
-#: view:stock.location.route:stock.stock_location_route_form_view
-#: view:stock.picking:stock.view_picking_form
-#: view:stock.production.lot:stock.view_production_lot_form
-msgid "Products"
-msgstr "Hauptprodukte"
-
-#. modules: product, stock
-#: model:ir.actions.act_window,name:product.product_normal_actionf
-#: model:ir.actions.act_window,name:product.product_normal_action_sell
-#: model:ir.actions.act_window,name:product.product_normal_action_tree
-#: model:ir.actions.act_window,name:product.product_variant_action
-#: model:ir.ui.menu,name:product.menu_products
-#: view:product.product:0
-#: model:ir.ui.menu,name:stock.menu_product_variant_config_stock
-msgid "Product Variants"
-msgstr "Produktvarianten"
-
-#. module: base
-#: model:ir.ui.menu,name:base.next_id_5
-msgid "Sequences & Identifiers"
-msgstr "Nummerngenerator und Identifizierung"
-
-#. module: equitania
-#: view:account.invoice:0
-#: view:purchase.order:0
-#: view:sale.order:0
-msgid "Dear Sir or Madam,"
-msgstr "Sehr geehrte Damen und Herren,"
-
-#. module: equitania
-#: code:addons/equitania/eq_report_extension.py:52
-#, python-format
-msgid "Error!"
-msgstr "Fehler!"
 
 #. module: equitania
 #: field:account.invoice,eq_head_text:0
@@ -381,11 +176,30 @@ msgid "Head Text"
 msgstr "Kopftext"
 
 #. module: equitania
-#: view:account.invoice:0
-#: view:purchase.order:0
-#: view:sale.order:0
+#: view:account.invoice:equitania.eq_invoice_form
+#: view:purchase.order:equitania.eq_purchase_order_form
+#: view:sale.order:equitania.eq_sale_order_form
 msgid "Headtext"
 msgstr "Kopftext"
+
+#. module: equitania
+#: field:eq.delivery.conditions,id:0
+#: field:eq.lead.referred,id:0
+#: field:eq_install_func,id:0
+#: field:eq_pricelist_item_search,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: equitania
+#: field:res.partner,eq_incoterm:0
+msgid "Incoterm"
+msgstr "Incoterm"
+
+#. module: equitania
+#: field:product.product,eq_index:0
+#: field:product.template,eq_index:0
+msgid "Index"
+msgstr "Index"
 
 #. module: equitania
 #: field:product.product,eq_internal_text:0
@@ -400,84 +214,281 @@ msgid "Internal Number"
 msgstr "Interne Nummer"
 
 #. module: equitania
-#: field:stock.picking,eq_ref_number:0
-#: field:account.invoice,eq_ref_number:0
-msgid "Reference Number"
-msgstr "Belegnr. des Kunden"
+#: model:ir.model,name:equitania.model_account_invoice
+msgid "Invoice"
+msgstr "Rechnung"
 
-#. module: crm
+#. module: equitania
+#: model:ir.model,name:equitania.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Rechungsposition"
+
+#. module: equitania
+#: field:eq_pricelist_item_search,eq_items_id:0
+msgid "Item"
+msgstr "Position"
+
+#. module: equitania
+#: view:eq_pricelist_item_search:equitania.eq_pricelist_item_search_form_view
+#: model:ir.actions.act_window,name:equitania.eq_pricelist_item_search_action
+#: model:ir.ui.menu,name:equitania.menu_eq_pricelist_item_search_action
+msgid "Itemsearch for Pricelist Version"
+msgstr "Positionssuche"
+
+#. module: equitania
+#: field:eq.delivery.conditions,write_uid:0
+#: field:eq.lead.referred,write_uid:0
+#: field:eq_install_func,write_uid:0
+#: field:eq_pricelist_item_search,write_uid:0
+msgid "Last Updated by"
+msgstr "Zuletzt bearbeitet von"
+
+#. module: equitania
+#: field:eq.delivery.conditions,write_date:0
+#: field:eq.lead.referred,write_date:0
+#: field:eq_install_func,write_date:0
+#: field:eq_pricelist_item_search,write_date:0
+msgid "Last Updated on"
+msgstr "Zuletzt bearbeitet am"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Interessent / Chance"
+
+#. module: equitania
+#: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
+msgid "Max. Margin"
+msgstr "Max. Spanne"
+
+#. module: equitania
+#: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
+msgid "Min. Margin"
+msgstr "Min. Spanne"
+
+#. module: equitania
+#: field:eq.delivery.conditions,eq_name:0
+#: view:res.partner:equitania.eq_partner_extension_form_view
+msgid "Name"
+msgstr "Name"
+
+#. module: equitania
+#: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
+msgid "New Price ="
+msgstr "Neuer Preis ="
+
+#. module: equitania
+#: view:res.partner:equitania.eq_inox_compatibility_partner_tree
+msgid "Nummer"
+msgstr "Nummer"
+
+#. module: equitania
+#: view:eq_pricelist_item_search:equitania.eq_pricelist_item_search_form_view
+msgid "Open"
+msgstr "Öffnen"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_res_partner
+msgid "Partner"
+msgstr "Partner"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_stock_picking
+msgid "Picking List"
+msgstr "Pickliste"
+
+#. module: equitania
+#: code:addons/equitania/eq_report_extension.py:128
+#, python-format
+msgid "Please define sales journal for this company: \"%s\" (id:%d)."
+msgstr "Setzen sie das Verkaufsjournal für das Unternehmen: \"%s\" (id:%d)."
+
+#. module: equitania
+#: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
+msgid "Price Computation"
+msgstr "Preisberechnung"
+
+#. module: equitania
+#: field:sale.order,eq_pricelist_change:0
+msgid "Pricelist Default"
+msgstr "Preisliste Standart"
+
+#. module: equitania
+#: field:eq_pricelist_item_search,eq_pricelist_version_id:0
+#: model:ir.model,name:equitania.model_product_pricelist_version
+msgid "Pricelist Version"
+msgstr "Preisliste Version"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_product_pricelist_item
+msgid "Pricelist item"
+msgstr "Preisliste Einzelposition"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_procurement_order
+msgid "Procurement"
+msgstr "Beschaffung"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_product_product
+#: view:product.product:equitania.eq_product_search_form_view
+#: view:product.template:equitania.eq_product_template_search_view
+msgid "Product"
+msgstr "Produkt"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_product_category
+msgid "Product Category"
+msgstr "Produktkategorie"
+
+#. module: equitania
+#: view:product.product:equitania.eq_product_product_form_view
+#: view:product.template:equitania.eq_product_product_template_only_form_view
+msgid "Product No."
+msgstr "Produktnummer"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: equitania
+#: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
+msgid "Products Listprices Items"
+msgstr "Elemente in Produktpreisliste"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_purchase_order
+msgid "Purchase Order"
+msgstr "Bestellung"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Bestellposition"
+
+#. module: equitania
 #: field:crm.lead,eq_lead_referred_id:0
 msgid "Referred By"
 msgstr "Vermittelt durch"
 
 #. module: equitania
-#: field:eq.lead.referred,eq_description:0
-msgid "Description"
-msgstr "Beschreibung"
+#: view:purchase.config.settings:equitania.eq_view_purchase_config_settings_delivery
+#: view:sale.config.settings:equitania.eq_view_sale_config_settings
+msgid "Reports"
+msgstr "Reports"
 
 #. module: equitania
-#: code:addons/equitania/eq_pricelist_item_search.py:67
-#, python-format
-msgid "%s, Min. %s New Price %s"
-msgstr "%s, Mindestmenge %s, Neuer Preis %s"
+#: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
+msgid "Rounding Method"
+msgstr "Rundungsverfahren"
 
 #. module: equitania
-#: selection:res.partner,type:0
-msgid "P.O. box"
-msgstr "Postfach"
+#: field:account.invoice,eq_ref_number:0
+#: field:procurement.order,eq_ref_number:0
+#: field:stock.picking,eq_ref_number:0
+msgid "Sale Order Referenc"
+msgstr "Sale Order Referenc"
 
 #. module: equitania
-#: field:res.partner,eq_incoterms:0
-msgid "Incoterm"
-msgstr "Incoterm"
+#: field:sale.config.settings,default_use_sales_person_as_contact:0
+msgid "Sale Person as Contact Person"
+msgstr "Verkäufer ist Kontaktperson"
 
 #. module: equitania
-#: field:res.partner,eq_deliver_condition_id:0
-#: field:sale.order,eq_deliver_condition_id:0
-msgid "Delivery Condition"
-msgstr "Lieferbedingungen"
+#: model:ir.model,name:equitania.model_sale_order
+msgid "Sales Order"
+msgstr "Verkaufsauftrag"
 
-#. module: eq_datev
-#: code:addons/equitania/eq_address_extension.py:55
-#, python-format
-msgid "Company"
-msgstr "Firma"
+#. module: equitania
+#: model:ir.model,name:equitania.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Auftragsposition"
 
-#. module: eq_datev
-#: code:addons/equitania/eq_address_extension.py:58
-#, python-format
-msgid "contact"
-msgstr "Kontakt"
+#. module: equitania
+#: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
+msgid "Save"
+msgstr "Speichern"
 
-#. module: eq_datev
-#: code:addons/equitania/eq_address_extension.py:60
-#, python-format
-msgid "default"
-msgstr "Standard"
+#. module: equitania
+#: view:eq_pricelist_item_search:equitania.eq_pricelist_item_search_form_view
+msgid "Search Item"
+msgstr "Positionssuche"
 
-#. module: eq_datev
-#: code:addons/equitania/eq_address_extension.py:62
-#, python-format
-msgid "delivery"
-msgstr "Liefer"
+#. module: equitania
+#: help:sale.config.settings,default_use_sales_person_as_contact:0
+msgid "Sets the Sale Person as the Contact Person in the Sale Order, only when creating."
+msgstr "Setzt den Verkäufer als Kontaktperson."
 
-#. module: eq_datev
-#: code:addons/equitania/eq_address_extension.py:64
-#, python-format
-msgid "invoice"
-msgstr "Rechnung"
+#. module: equitania
+#: field:purchase.config.settings,default_use_calendar_week:0
+#: field:sale.config.settings,default_use_calendar_week:0
+msgid "Show Calendar Week for Delivery Date [equitania]"
+msgstr "Liefertermin als Kalenderwoche anzeigen [equitania]"
 
-#. module: eq_datev
-#: code:addons/equitania/eq_address_extension.py:66
-#, python-format
-msgid "other"
-msgstr "Andere"
+#. module: equitania
+#: field:sale.order,show_delivery_date:0
+msgid "Show Delivery Date"
+msgstr "Liefertermin Anzeige"
+
+#. module: equitania
+#: field:sale.config.settings,default_show_address:0
+msgid "Show street and city in the partner search of the saleorder"
+msgstr "Zeige die Straße und den Ort der Partner Suche des Angebotes/Verkaufsauftrages an."
 
 #. module: equitania
 #: view:sale.config.settings:equitania.view_sale_config_settings
-#: field:sale.config.settings,default_show_address:0
 msgid "Show street and city in the partner search of the saleorder [equitania]"
 msgstr "Zeige die Straße und den Ort der Partner Suche des Angebotes/Verkaufsauftrages an [equitania]"
+
+#. module: equitania
+#: field:purchase.order,show_delivery_date:0
+msgid "Show the Delivery Date"
+msgstr "Liefertermin Anzeige"
+
+#. module: equitania
+#: field:purchase.config.settings,default_show_delivery_date:0
+msgid "Show the Delivery Date on the Purchase Order [equitania]"
+msgstr "Liefertermin auf Anfrage und Bestellung anzeigen [equitania]"
+
+#. module: equitania
+#: field:sale.config.settings,default_show_delivery_date:0
+msgid "Show the Delivery Date on the Sale Order [equitania]"
+msgstr "Liefertermin auf Angebot und Auftragsbestätigung anzeigen [equitania]"
+
+#. module: equitania
+#: view:product.product:equitania.eq_product_product_form_view
+#: view:product.template:equitania.eq_product_product_template_only_form_view
+msgid "State"
+msgstr "Status"
+
+#. module: equitania
+#: help:res.company,eq_custom_1:0
+#: help:res.company,eq_custom_2:0
+#: help:res.company,eq_custom_3:0
+#: help:res.company,eq_custom_4:0
+msgid "The content of this field may be used in the header or footer of reports."
+msgstr "Der Inhalt dieser Felder kann für die Reports benutzt werden."
+
+#. module: equitania
+#: help:sale.config.settings,default_use_calendar_week:0
+msgid "The delivery date will be shown as a calendar week"
+msgstr "Der Liefertermin wird als Kalenderwoche angezeigt."
+
+#. module: equitania
+#: help:purchase.config.settings,default_use_calendar_week:0
+msgid "The delivery date will be shown as a calendar week "
+msgstr "Der Liefertermin wird als Kalenderwoche angezeigt."
+
+#. module: equitania
+#: help:purchase.config.settings,default_show_delivery_date:0
+msgid "The delivery date will be shown in the Purchase Order"
+msgstr "Der Liefertermin wird in der Anfrage/Bestellung angezeigt."
+
+#. module: equitania
+#: help:sale.config.settings,default_show_delivery_date:0
+msgid "The delivery date will be shown in the Sale Order"
+msgstr "Der Liefertermin wird im Angebot/Verkaufsauftrag angezeigt."
 
 #. module: equitania
 #: help:sale.config.settings,default_show_address:0
@@ -485,6 +496,78 @@ msgid "This adds the street and the city to the results of the partner search of
 msgstr "Zeigt die Straße und den Ort in den Ergebnissen der Partnersuche des Angebotes/Verkaufsauftrages an."
 
 #. module: equitania
-#: field:sale.order.line,eq_delivery_date:0
-msgid "Delivery Date"
-msgstr "Lieferdatum"
+#: view:res.partner:equitania.eq_partner_extension_form_view
+msgid "Titel"
+msgstr "Titel"
+
+#. module: equitania
+#: view:res.partner:equitania.view_partner_form_inherited1
+msgid "Type:"
+msgstr "Typ:"
+
+#. module: equitania
+#: view:product.product:equitania.eq_product_product_form_view
+#: view:product.template:equitania.eq_product_product_template_only_form_view
+#: view:res.partner:equitania.view_partner_form
+msgid "Update"
+msgstr "Aktualisieren"
+
+#. module: equitania
+#: field:purchase.order,use_calendar_week:0
+#: field:sale.order,use_calendar_week:0
+msgid "Use Calendar Week for Delivery Date [equitania]"
+msgstr "Kalenderwoche anzeigen [equitania]"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_res_users
+msgid "Users"
+msgstr "Benutzer"
+
+#. module: equitania
+#: code:addons/equitania/eq_address_extension_new_api.py:60
+#, python-format
+msgid "contact"
+msgstr "Kontakt"
+
+#. module: equitania
+#: code:addons/equitania/eq_address_extension_new_api.py:66
+#, python-format
+msgid "default"
+msgstr "Standard"
+
+#. module: equitania
+#: code:addons/equitania/eq_address_extension_new_api.py:64
+#, python-format
+msgid "delivery"
+msgstr "Lieferung"
+
+#. module: equitania
+#: view:res.partner:equitania.eq_partner_extension_form_view
+msgid "e.g. Sales Director"
+msgstr "z.B. Verkaufsleiter"
+
+#. module: equitania
+#: code:addons/equitania/eq_address_extension_new_api.py:62
+#, python-format
+msgid "invoice"
+msgstr "Rechnung"
+
+#. module: equitania
+#: code:addons/equitania/eq_address_extension_new_api.py:68
+#, python-format
+msgid "other"
+msgstr "Andere"
+
+#. module: equitania
+#: field:product.category,eq_custom01:0
+#: field:product.pricelist.version,eq_custom01:0
+#: field:product.product,eq_default_code_dub:0
+#: field:product.product,eq_state_dup:0
+#: field:product.template,eq_default_code_dub:0
+#: field:product.template,eq_state_dup:0
+#: field:res.partner,eq_custom01:0
+#: field:res.users,eq_custom01:0
+msgid "unknown"
+msgstr "unknown"
+
+

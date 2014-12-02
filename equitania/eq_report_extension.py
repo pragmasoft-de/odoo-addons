@@ -83,7 +83,7 @@ class eq_report_extension_sale_order(osv.osv):
                 'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person', size=100),
                 'eq_head_text': fields.text('Head Text'),
                 'show_delivery_date': fields.boolean('Show Delivery Date'),
-                'use_calendar_week': fields.boolean('Use Calendar Week for Delivery Date'),
+                'use_calendar_week': fields.boolean('Use Calendar Week for Delivery Date [equitania]'),
                 }
     _defaults = {
                 'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False,
@@ -225,7 +225,7 @@ class eq_report_extension_purchase_order(osv.osv):
                 'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person', size=100),
                 'eq_head_text': fields.text('Head Text'),
                 'show_delivery_date': fields.boolean('Show the Delivery Date'),
-                'use_calendar_week': fields.boolean('Use Calendar Week for Delivery Date'),
+                'use_calendar_week': fields.boolean('Use Calendar Week for Delivery Date [equitania]'),
                 }
     _defaults = {
                 'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False
