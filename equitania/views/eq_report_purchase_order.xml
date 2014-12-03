@@ -46,6 +46,14 @@
                                     </tr>
                                     <tr>
                                         <td>
+                                            <span>Unsere Referenznummer</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="o.partner_ref"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
                                             <span>Bestellnr.</span>
                                         </td>
                                         <td class="text-right">
@@ -261,14 +269,6 @@
                                     </td>
                                     <td>
                                         <span t-field="o.incoterm_id.name"/>
-                                    </td>
-                                </tr>
-                                <tr t-if="o.minimum_planned_date">
-                                    <td style="padding-right:0.5cm;">
-                                        Vereinbarter Liefertermin:
-                                    </td>
-                                    <td>
-                                    	<span t-esc="o.minimum_planned_date.split(' ')[0].split('-')[2] + '.' + o.minimum_planned_date.split(' ')[0].split('-')[1] + '.' + o.minimum_planned_date.split(' ')[0].split('-')[0]"/>
                                     </td>
                                 </tr>
                                 <tr t-if="o.notes">
