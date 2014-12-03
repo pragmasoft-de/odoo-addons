@@ -35,6 +35,8 @@ class sale_order(osv.osv):
                 res[person.id] = person.partner_invoice_id.street
             elif person.partner_invoice_id.city:
                 res[person.id] = person.partner_invoice_id.city
+            else:
+                res[person.id] = False
         return res
     
     def _compute_delivery_address(self, cr, uid, ids, field_name, arg, context):
@@ -47,6 +49,8 @@ class sale_order(osv.osv):
                 res[person.id] = person.partner_shipping_id.street
             elif person.partner_shipping_id.city:
                 res[person.id] = person.partner_shipping_id.city
+            else:
+                res[person.id] = False
         return res  
 
     _columns = {
