@@ -32,7 +32,7 @@ class res_partner(models.Model):
         if name:
             # Be sure name_search is symetric to name_get
             name = name.split(' / ')[-1]
-            args = ['|',('name', operator, name),('eq_customer_ref', 'ilike', name)]
+            args = ['|',('name', operator, name),('eq_customer_ref', 'ilike', name)] + args
         categories = self.search(args, limit=limit)
         res = categories.name_get()
         
