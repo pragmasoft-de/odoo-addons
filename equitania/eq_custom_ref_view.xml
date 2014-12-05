@@ -182,6 +182,8 @@
             </field>
         </record>
         
+    </data>
+    <data noupdate="1">
         <!-- Creditor Sequence -->
         <record id="eq_seq_creditor_ref" model="ir.sequence.type">
             <field name="name">Creditor Number</field>
