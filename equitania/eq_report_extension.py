@@ -279,7 +279,7 @@ class eq_report_extension_purchase_order(osv.osv):
                 }
     
     def make_mo(self, cr, uid, ids, context=None):
-        res = super(eq_mrp_procurement_extension, self).make_mo(cr, uid, ids, context=context)
+        res = super(eq_report_extension_purchase_order, self).make_mo(cr, uid, ids, context=context)
         
         #Writes the customer number into the manufactoring order.
         for key, value in res.iteritems():
