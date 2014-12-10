@@ -80,20 +80,26 @@ class eq_install_func(osv.osv):
         product_price_id = dp.search(cr, uid, [('name', '=', 'Product Price')])
         product_price = dp.browse(cr, uid, product_price_id[0])
         
-        values_sale = {
-                       'name': 'Report Product Price Sales',
-                       'digits': product_price.digits,
-                       
-                       }
+        search_price_sale = dp.search(cr, uid, [('name', '=', 'Report Product Price Sales')])
         
-        dp.create(cr, uid, values_sale)
+        if len(search_price_sale) == 0:
+            values_sale = {
+                           'name': 'Report Product Price Sales',
+                           'digits': product_price.digits,
+                           
+                           }
+            
+            dp.create(cr, uid, values_sale)
         
-        values_purchase = {
-                       'name': 'Report Product Price Purchase',
-                       'digits': product_price.digits,
-                       
-                       }
+        search_price_purchase = dp.search(cr, uid, [('name', '=', 'Report Product Price Purchase')])
         
-        dp.create(cr, uid, values_purchase)
+        if len(search_price_purchase) == 0:
+            values_purchase = {
+                           'name': 'Report Product Price Purchase',
+                           'digits': product_price.digits,
+                           
+                           }
+            
+            dp.create(cr, uid, values_purchase)
         
         return True
