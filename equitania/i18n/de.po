@@ -558,6 +558,112 @@ msgstr "Rechnung"
 msgid "other"
 msgstr "Andere"
 
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Supplier no."
+msgstr "Lieferantennummer"
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Your order reference"
+msgstr "Unsere Referenznummer"
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Our order reference"
+msgstr "Bestellnr."
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Order date"
+msgstr "Bestelldatum"
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "For further information, please contact"
+msgstr "Bei Rückfragen wenden Sie sich bitte an"
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Contact person"
+msgstr "Kontaktperson"
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Phone"
+msgstr "Tel"
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Purchase Order"
+msgstr "Bestellung"
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Item no."
+msgstr "Artikelnr."
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Item description"
+msgstr "Beschreibung"
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Qty."
+msgstr "Menge"
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Unit"
+msgstr "Einheit"
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Unit price"
+msgstr "Preis"
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Net price"
+msgstr "Preis Netto"
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Delivery date:"
+msgstr "Liefertermin:"
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Total without taxes"
+msgstr "Summe Netto"
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Total sum"
+msgstr "Summe Brutto"
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Term of payment:"
+msgstr "Zahlungsbedingungen:"
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Incoterm:"
+msgstr "Lieferbedingungen:"
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Notes:"
+msgstr "Kommentar:"
+
 #. module: equitania
 #: field:product.category,eq_custom01:0
 #: field:product.pricelist.version,eq_custom01:0
@@ -569,5 +675,3 @@ msgstr "Andere"
 #: field:res.users,eq_custom01:0
 msgid "unknown"
 msgstr "unknown"
-
-
