@@ -34,9 +34,13 @@ class res_partner(models.Model):
         if name:
             # Be sure name_search is symetric to name_get
             name = name.split(' / ')[-1]
-            args = ['|',('name', operator, name),('eq_customer_ref', 'ilike', name)] + args
+            args = ['|','|',('name', operator, name),('eq_customer_ref', 'ilike', name),('eq_creditor_ref', 'ilike', name)] + args
         if ir_values_obj.get_default('sale.order', 'default_search_only_company'):
-            args += [('is_company', '=', True)]
+            if self.env.context.has_key('main_address'):
+                args += [('is_company', '=', True)]
+            elif self.env.context.has_key('default_type'):
+                if self.env.context['default_type'] in ['delivery', 'invoice']:
+                    args += [('type', '!=', 'contact')]
         categories = self.search(args, limit=limit)
         res = categories.name_get()
         
@@ -49,10 +53,19 @@ class res_partner(models.Model):
             show_address = ir_values_obj.get_default('sale.order', 'default_show_address')
 
             for partner_id in self.browse(partner_ids):
+                #Company name
                 company_name = partner_id.parent_id and partner_id.parent_id.name + ' ; ' or ''
+                #Street City
                 street = partner_id.street if partner_id.street else ''
                 city = partner_id.city if partner_id.city else ''
-                deb_num = ('[' + str(partner_id.eq_customer_ref) + '] ') if partner_id.eq_customer_ref else ''
+                #customer/creditor number
+                deb_num = ''
+                if partner_id.eq_customer_ref and partner_id.eq_creditor_ref:
+                    deb_num = '[' + partner_id.eq_customer_ref + '/' + partner_id.eq_creditor_ref + '] '
+                elif partner_id.eq_customer_ref:
+                    deb_num = '[' + partner_id.eq_customer_ref + '] '
+                elif partner_id.eq_creditor_ref:
+                    deb_num = '[' + partner_id.eq_creditor_ref + '] '
                 if partner_id.is_company:
                     if show_address:
                         new_res.append((partner_id.id, deb_num + company_name + partner_id.name + ' / ' + _('Company') + ' // ' + street + ', ' + city))
