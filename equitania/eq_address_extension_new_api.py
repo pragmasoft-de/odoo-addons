@@ -28,11 +28,15 @@ class res_partner(models.Model):
     @api.model
     def name_search(self, name, args=None, operator='ilike', limit=100):
         
+        ir_values_obj = self.env['ir.values']
+        
         args = args or []
         if name:
             # Be sure name_search is symetric to name_get
             name = name.split(' / ')[-1]
             args = ['|',('name', operator, name),('eq_customer_ref', 'ilike', name)] + args
+        if ir_values_obj.get_default('sale.order', 'default_search_only_company'):
+            args += [('is_company', '=', True)]
         categories = self.search(args, limit=limit)
         res = categories.name_get()
         
@@ -42,7 +46,7 @@ class res_partner(models.Model):
             partner_ids = [r[0] for r in res]
             new_res = []
             
-            show_address = self.env['ir.values'].get_default('sale.order', 'default_show_address')
+            show_address = ir_values_obj.get_default('sale.order', 'default_show_address')
 
             for partner_id in self.browse(partner_ids):
                 company_name = partner_id.parent_id and partner_id.parent_id.name + ' ; ' or ''

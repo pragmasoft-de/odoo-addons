@@ -675,3 +675,18 @@ msgstr "Kommentar:"
 #: field:res.users,eq_custom01:0
 msgid "unknown"
 msgstr "unknown"
+
+#. module: equitania
+#: help:sale.config.settings,default_search_only_company:0
+msgid "Only Companies will be shown in the Customer search of the Sale Order/Quotation."
+msgstr "Nur Unternehmen werden in der Kundensuche des Angebotes/Verkaufsauftrages angezeigt."
+
+#. module: equitania
+#: field:sale.config.settings,default_search_only_company:0
+msgid "Only Search for Companies"
+msgstr "Suche auf Unternehmen beschränken."
+
+#. module: equitania
+#: view:sale.config.settings:equitania.view_sale_config_settings
+msgid "Only search for Companies in the Sale Order/Quotation [equitania]"
+msgstr "Im Angebot/Verkaufsauftrag nur nach Unternehmen suchen [equitania]"
