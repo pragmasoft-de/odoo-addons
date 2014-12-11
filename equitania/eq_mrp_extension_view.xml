@@ -13,6 +13,9 @@
             	<button string="Produce" position="attributes">                
                     <attribute name="class"/>
                 </button>
+                <field name="date_planned" position="after">
+                	<field name="eq_finished_work_preperation"/>
+                </field>
 			</field>
 		</record>
 	</data>

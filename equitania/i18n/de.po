@@ -685,3 +685,8 @@ msgstr "Suche auf Unternehmen beschränken [equitania]"
 #: view:sale.config.settings:equitania.view_sale_config_settings
 msgid "Only search for Companies in the Sale Order/Quotation [equitania]"
 msgstr "Im Angebot/Verkaufsauftrag nur nach Unternehmen suchen [equitania]"
+
+#. module: equitania
+#: field:mrp.production,eq_finished_work_preperation:0
+msgid "Finished Work Preperation"
+msgstr "Arbeitsvorbereitungen abgeschlossen"
