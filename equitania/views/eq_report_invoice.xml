@@ -154,7 +154,7 @@
                 <tbody class="invoice_tbody">
                     <tr t-foreach="o.invoice_line" t-as="l">
 						<td><span t-field="l.product_id.default_code"/></td>
-                        <td><span t-field="l.product_id.name"/></td>
+                        <td><strong><span t-field="l.product_id.name"/></strong><br/><span t-field="l.name"/></td>
                         <td>
                             <span t-field="l.quantity"/>
                             <span t-field="l.uos_id"  groups="product.group_uom"/>
