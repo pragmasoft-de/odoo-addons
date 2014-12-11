@@ -66,22 +66,25 @@ class eq_sale_configuration_address(osv.TransientModel):
     _name = 'sale.config.settings'
     _inherit = _name
     
-    def set_default_values_eq(self, cr, uid, ids, context=None):
-        ir_values = self.pool.get('ir.values')
+    def set_default_values_eq_address(self, cr, uid, ids, context=None):
+        ir_values_obj = self.pool.get('ir.values')
         config = self.browse(cr, uid, ids[0], context)
-        if config.group_sale_delivery_address:
-            ir_values.set_default(cr, uid, 'sale.order', 'default_show_address', config.default_show_address or False)
-        else:
-            ir_values.set_default(cr, uid, 'sale.order', 'default_show_address', False)
+        
+        ir_values_obj.set_default(cr, uid, 'sale.order', 'default_show_address', config.default_show_address or False)
+        ir_values_obj.set_default(cr, uid, 'sale.order', 'default_search_only_company', config.default_search_only_company or False)
             
                 
     
-    def get_default_values_eq(self, cr, uid, fields, context=None):
-        notification = self.pool.get('ir.values').get_default(cr, uid, 'sale.order', 'default_show_address')
+    def get_default_values_eq_address(self, cr, uid, fields, context=None):
+        ir_values_obj = self.pool.get('ir.values')
+        notification = ir_values_obj.get_default(cr, uid, 'sale.order', 'default_show_address')
+        only_company = ir_values_obj.get_default(cr, uid, 'sale.order', 'default_search_only_company')
         return {
                 'default_show_address': notification,
+                'default_search_only_company': only_company,
                 }
     
     _columns = {
-                'default_show_address': fields.boolean('Show street and city in the partner search of the saleorder', help="This adds the street and the city to the results of the partner search of the sale order"),
+                'default_show_address': fields.boolean('Show street and city in the partner search of the Sale and Purchase Order [equitania]', help="This adds the street and the city to the results of the partner search of the Sale and Purchase Order."),
+                'default_search_only_company': fields.boolean('Only Search for Companies [equitania]', help="Only Companies will be shown in the Customer search of the Sale and Purchase Order.")
                 }

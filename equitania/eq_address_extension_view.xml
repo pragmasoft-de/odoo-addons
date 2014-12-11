@@ -60,7 +60,7 @@
 	    	<field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <field name="partner_id" position="replace">
-                    <field name="partner_id" on_change="onchange_partner_id(partner_id, context)" domain="[('customer','=', True), ('is_company', '=', True)]" context="{'search_default_customer':1, 'show_address': 1,'active_model':'sale.order'}" options='{"always_reload": True}'/>
+                    <field name="partner_id" on_change="onchange_partner_id(partner_id, context)" domain="[('customer','=', True)]" context="{'search_default_customer':1, 'show_address': 1,'active_model':'sale.order','main_address': True}" options='{"always_reload": True}'/>
                 </field>
             	<xpath expr="//field[@name='partner_invoice_id']" position="replace">          	
             		<field name="partner_invoice_id" domain="['|', ('id', '=', partner_id), ('parent_id', '=', partner_id)]" groups="sale.group_delivery_invoice_address" context="{'default_type':'invoice','active_model':'sale.order'}"/>
@@ -70,6 +70,17 @@
             		<field name="partner_shipping_id" domain="['|', ('id', '=', partner_id), ('parent_id', '=', partner_id)]" on_change="onchange_delivery_id(company_id, partner_id, partner_shipping_id, fiscal_position)" groups="sale.group_delivery_invoice_address" context="{'default_type':'delivery','active_model':'sale.order'}"/>
             		<field name="eq_delivery_address" groups="sale.group_delivery_invoice_address"/>
             	</xpath>
+            </field>
+	    </record>
+	    
+        <record id="view_purchase_order_form_address_extension" model="ir.ui.view">
+            <field name="name">purchase.order.form.address.extension</field>
+            <field name="model">purchase.order</field>
+	    	<field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="attributes">
+					<attribute name="context">{'search_default_supplier':1, 'default_supplier':1, 'default_customer':0, 'show_address': 1,'main_address': True ,'active_model':'purchase.order',}</attribute>
+                </field>
             </field>
 	    </record>
 	    
@@ -83,6 +94,10 @@
 		            	<div attrs="{'invisible': [('group_sale_delivery_address','=', False)]}">
 		                    <field name="default_show_address" class="oe_inline"/>
 		                	<label for="default_show_address" string="Show street and city in the partner search of the saleorder [equitania]"/>
+		            	</div>
+		            	<div>
+		                    <field name="default_search_only_company" class="oe_inline"/>
+		                	<label for="default_search_only_company" string="Only search for Companies in the Sale Order/Quotation [equitania]"/>
 		            	</div>
 		            </label>
                 </data>

@@ -19,14 +19,12 @@
 #
 ##############################################################################
 
-import eq_install_func
-import eq_address_extension
-import eq_address_extension_new_api
-import eq_custom_ref
-import eq_pricelist_item_search
-import eq_company_custom_fields
-import eq_sale_order_seq
-import eq_partner_extension
-import eq_report_extension
-import eq_lead_referred
-import eq_mrp_extension
+from openerp.osv import fields, osv, orm
+
+
+class eq_mrp_extension_production(osv.osv):
+    _inherit = 'mrp.production'
+    
+    _columns = {
+                'eq_finished_work_preperation': fields.boolean('Finished Work Preperation'),
+                }
