@@ -285,7 +285,7 @@ class eq_report_extension_purchase_order(osv.osv):
         for key, value in res.iteritems():
             procurement = self.browse(cr, uid, key, context=context)
             if procurement.group_id.partner_id:
-                vals = {'eq_customer_ref': procurement.group_id.partner_id.customer_number}
+                vals = {'eq_customer_ref': procurement.group_id.partner_id.eq_customer_ref}
                 self.pool.get('mrp.production').write(cr, uid, value, vals, context=context)
         
         return res
