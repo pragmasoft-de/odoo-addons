@@ -64,8 +64,6 @@ class eq_custom_ref(osv.osv):
     
     def on_change_customer_ref(self, cr, uid, ids, eq_customer_ref, context=None):
         vals = {}
-        print '================================================='
-        print eq_customer_ref
         vals['ref'] = eq_customer_ref
         return {'value': vals}
 
