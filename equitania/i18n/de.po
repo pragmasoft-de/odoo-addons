@@ -659,6 +659,11 @@ msgstr "Lieferbedingungen:"
 msgid "Notes:"
 msgstr "Kommentar:"
 
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Deliver to:"
+msgstr "Bitte liefern Sie an unser Auslieferungslager:"
+
 #. module: equitania
 #: field:product.category,eq_custom01:0
 #: field:product.pricelist.version,eq_custom01:0

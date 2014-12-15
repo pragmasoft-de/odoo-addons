@@ -213,34 +213,65 @@
 	                    </tbody>
 	                </table>
 	            </div>
-	            <table class="col-xs-3" style="width:auto!important; max-width:50%;">
-	                <tbody>
-	                    <tr t-if="o.payment_term_id">
-	                        <td style="padding-right:0.5cm;">
-	                            Term of payment:
-	                        </td>
-	                        <td>
-	                            <span t-field="o.payment_term_id"/>
-	                        </td>
-	                    </tr>
-	                    <tr t-if="o.incoterm_id">
-	                        <td style="padding-right:0.5cm;">
-	                            Incoterm:
-	                        </td>
-	                        <td>
-	                            <span t-field="o.incoterm_id.name"/>
-	                        </td>
-	                    </tr>
-	                    <tr t-if="o.notes">
-	                        <td style="padding-right:0.5cm; vertical-align:top;">
-	                            Notes:
-	                        </td>
-	                        <td styles=" vertical-align:top;">
-	                            <p t-field="o.notes"/>
-	                        </td>
-	                    </tr>
-	                </tbody>
+	            <table class="col-xs-3" style="width:90%;">
+	            	<tr>
+	            		<td style="vertical-align:top; width:50%;">
+	            			<table class="col-xs-3" style="width:auto!important; max-width:90%; min-width:8cm;">
+				                <tbody>
+				                    <tr style="vertical-align:top;">
+				                        <td t-if="o.payment_term_id" style="padding-right:0.5cm;">
+				                            Term of payment:
+				                        </td>
+				                        <td t-if="o.payment_term_id">
+				                            <span t-field="o.payment_term_id"/>
+				                        </td>
+				                    </tr>
+				                    <tr style="vertical-align:top;">
+				                        <td t-if="o.incoterm_id" style="padding-right:0.5cm;">
+				                            Incoterm:
+				                        </td>
+				                        <td t-if="o.incoterm_id">
+				                            <span t-field="o.incoterm_id.name"/>
+				                        </td>
+				                    </tr>
+				                    <tr t-if="o.notes" style="vertical-align:top;">
+				                        <td style="padding-right:0.5cm;">
+				                            Notes: 
+				                        </td>
+				                        <td styles=" vertical-align:top;">
+				                            <p t-field="o.notes"/>
+				                        </td>
+				                    </tr>
+				                </tbody>
+				            </table>
+	            		</td>
+	            		<td style="vertical-align:top; width:50%;">
+	            			<table t-if="o.picking_type_id.warehouse_id.partner_id" class="col-xs-3" style="width:auto!important; max-width:90%; min-width:8cm;">
+				                <tbody>
+				                    <tr style="vertical-align:top;">
+				                    	<td style="padding-right:0.5cm;">
+				                    		Deliver to:
+				                    	</td>
+				                    	<td>
+				                    		<div t-field="o.picking_type_id.warehouse_id.partner_id.name"/>
+				                            <div t-field="o.picking_type_id.warehouse_id.partner_id.street"/>
+							                <div t-if="o.picking_type_id.warehouse_id.partner_id.street2">
+							                    <div t-field="o.picking_type_id.warehouse_id.partner_id.street2"/>
+							                </div>
+							                <h t-if="o.picking_type_id.warehouse_id.partner_id.zip">
+							                    <h t-field="o.picking_type_id.warehouse_id.partner_id.zip"/>
+							                    <h t-field="o.picking_type_id.warehouse_id.partner_id.city"/>
+							                </h>
+				                            <div t-field="o.picking_type_id.warehouse_id.partner_id.state_id"/>
+				                            <div t-field="o.picking_type_id.warehouse_id.partner_id.country_id"/>
+				                    	</td>
+				                    </tr>
+				                </tbody>
+				            </table>
+                        </td>
+	            	</tr>
 	            </table>
+	            
 	        </div>
 	        <div class="oe_structure"/></div>
 </xpath>
