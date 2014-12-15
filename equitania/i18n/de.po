@@ -650,7 +650,7 @@ msgid "Term of payment:"
 msgstr "Zahlungsbedingungen:"
 
 #. module: purchase
-#: view:purchase.report_purchasequotation_document
+#: view:website:purchase.report_purchasequotation_document
 msgid "Term of payment:"
 msgstr "Zahlungsbedingungen2"
 
