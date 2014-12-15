@@ -673,7 +673,7 @@ msgstr "unknown"
 
 #. module: equitania
 #: help:sale.config.settings,default_search_only_company:0
-msgid "Only Companies will be shown in the Customer search of the Sale and Purchase Order."f
+msgid "Only Companies will be shown in the Customer search of the Sale and Purchase Order."
 msgstr "Nur Unternehmen werden in der Partnersuche der Einkaufs- und Verkaufsaufträgen angezeigt."
 
 #. module: equitania
@@ -690,3 +690,13 @@ msgstr "Im Angebot/Verkaufsauftrag nur nach Unternehmen suchen [equitania]"
 #: field:mrp.production,eq_finished_work_preperation:0
 msgid "Finished Work Preperation"
 msgstr "Arbeitsvorbereitungen abgeschlossen"
+
+#. module: equitania
+#: view:base.config.settings:equitania.view_sale_config_settings
+msgid "The creator of the partner is automatically the Saleperson"
+msgstr "Den Ersteller eines Partners als Verkäufer erfassen."
+
+#. module: equitania
+#: field:base.config.settings,default_creator_saleperson:0
+msgid "Use the creator of the Partner as the Saleperson [equitania]"
+msgstr "Den Ersteller eines Partners als Verkäufer erfassen [equitania]"
