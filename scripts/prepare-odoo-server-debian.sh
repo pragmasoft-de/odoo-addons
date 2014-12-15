@@ -21,7 +21,7 @@
 #
 ##############################################################################
 
-echo "Prepare Ubuntu"
+echo "Prepare Debian/Ubuntu"
 apt-get update && apt-get dist-upgrade && apt-get autoremove
 
 echo "Tools zip, unzip, mc(Midnight Comander) and htop will be install.."
@@ -32,7 +32,12 @@ read mypsql
 
 if [ "$mypsql" = "Y" ]; then
   echo "PostgreSQL will be install..."
-  apt-get install postgresql
+  sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+  apt-get install wget ca-certificates
+  wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+  apt-get update
+  apt-get upgrade
+  apt-get install postgresql-9.3 pgadmin3
 else
   echo "PostgreSQL is not installed!"
 fi
@@ -73,9 +78,9 @@ read mypdf
 
 if [ "$mypdf" = "Y" ]; then
   echo "HTML2PDF will be install..."
-  wget http://downloads.sourceforge.net/project/wkhtmltopdf/0.12.1/wkhtmltox-0.12.1_linux-trusty-amd64.deb
-  dpkg -i wkhtmltox-0.12.1_linux-trusty-amd64.deb
-  rm wkhtmltox-0.12.1_linux-trusty-amd64.deb
+  wget http://downloads.sourceforge.net/project/wkhtmltopdf/0.12.1/wkhtmltox-0.12.1_linux-wheezy-amd64.deb
+  dpkg -i wkhtmltox-0.12.1_linux-wheezy-amd64.deb
+  rm wkhtmltox-0.12.1_linux-wheezy-amd64.deb
 else
   echo "HTML2PDF is not installed!"
 fi
@@ -97,12 +102,12 @@ read mysql
 if [ "$mysql" = "Y" ]; then
   echo "PostgreSQL will be optimized..."
   apt-get install pgtune
-  sudo pgtune -i /etc/postgresql/9.3/main/postgresql.conf -o /etc/postgresql/9.3/main/postgresql.conf.tuned
-  sudo mv /etc/postgresql/9.3/main/postgresql.conf  /etc/postgresql/9.3/main/postgresql.conf.old
-  sudo mv /etc/postgresql/9.3/main/postgresql.conf.tuned  /etc/postgresql/9.3/main/postgresql.conf
-  sudo /etc/init.d/postgresql stop
-  sudo /etc/init.d/postgresql start 
-  sudo cat /etc/postgresql/9.3/main/postgresql.conf
+  pgtune -i /etc/postgresql/9.3/main/postgresql.conf -o /etc/postgresql/9.3/main/postgresql.conf.tuned
+  mv /etc/postgresql/9.3/main/postgresql.conf  /etc/postgresql/9.3/main/postgresql.conf.old
+  mv /etc/postgresql/9.3/main/postgresql.conf.tuned  /etc/postgresql/9.3/main/postgresql.conf
+  /etc/init.d/postgresql stop
+  /etc/init.d/postgresql start 
+  cat /etc/postgresql/9.3/main/postgresql.conf
 else
   echo "PostgreSQL is not optimized!"
 fi
