@@ -650,6 +650,11 @@ msgid "Term of payment:"
 msgstr "Zahlungsbedingungen:"
 
 #. module: purchase
+#: view:website:purchase.report_purchasequotation_document
+msgid "Term of payment:"
+msgstr "Zahlungsbedingungen2"
+
+#. module: purchase
 #: view:website:purchase.report_purchaseorder_document
 msgid "Incoterm:"
 msgstr "Lieferbedingungen:"
@@ -658,6 +663,11 @@ msgstr "Lieferbedingungen:"
 #: view:website:purchase.report_purchaseorder_document
 msgid "Notes:"
 msgstr "Kommentar:"
+
+#. module: purchase
+#: view:website:purchase.report_purchaseorder_document
+msgid "Deliver to:"
+msgstr "Bitte liefern Sie an unser Auslieferungslager:"
 
 #. module: equitania
 #: field:product.category,eq_custom01:0

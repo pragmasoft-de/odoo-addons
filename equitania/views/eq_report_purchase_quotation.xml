@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data>
+
+
+<template id="eq_purchasequotation_extension" inherit_id="purchase.report_purchasequotation_document" active="True">
+    <xpath expr="//div[@class='page']" position="replace">
+	    <div class="page">
+	        <div class="oe_structure"/>
+
+<!-- 
 <template id="purchase.report_purchasequotation">
     <t t-call="report.html_container">
         <t t-foreach="docs" t-as="o">
             <t t-call="report.external_layout">
-                <div class="page">
-                    <div class="oe_structure"/>
+                <div class="page">-->
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     <div class="row">
                         <div class="col-xs-7 addressmargin">
                             <div class="row col-xs-12 returnaddress" >
@@ -132,6 +146,67 @@
                         </tbody>
                     </table>
                     <div>
+                    	<table class="col-xs-3" style="width:90%;">
+			            	<tr>
+			            		<td style="vertical-align:top; width:50%;">
+			            			<table class="col-xs-3" style="width:auto!important; max-width:90%; min-width:8cm;">
+						                <tbody>
+						                    <tr style="vertical-align:top;">
+						                        <td t-if="o.payment_term_id" style="padding-right:0.5cm;">
+						                            Term of payment:
+						                        </td>
+						                        <td t-if="o.payment_term_id">
+						                            <span t-field="o.payment_term_id"/>
+						                        </td>
+						                    </tr>
+						                    <tr style="vertical-align:top;">
+						                        <td t-if="o.incoterm_id" style="padding-right:0.5cm;">
+						                            Incoterm:
+						                        </td>
+						                        <td t-if="o.incoterm_id">
+						                            <span t-field="o.incoterm_id.name"/>
+						                        </td>
+						                    </tr>
+						                    <tr t-if="o.notes" style="vertical-align:top;">
+						                        <td style="padding-right:0.5cm;">
+						                            Notes: 
+						                        </td>
+						                        <td styles=" vertical-align:top;">
+						                            <p t-field="o.notes"/>
+						                        </td>
+						                    </tr>
+						                </tbody>
+						            </table>
+			            		</td>
+			            		<td style="vertical-align:top; width:50%;">
+			            			<table t-if="o.picking_type_id.warehouse_id.partner_id" class="col-xs-3" style="width:auto!important; max-width:90%; min-width:8cm;">
+						                <tbody>
+						                    <tr style="vertical-align:top;">
+						                    	<td style="padding-right:0.5cm;">
+						                    		Deliver to:
+						                    	</td>
+						                    </tr>
+						                    <tr>
+						                    	<td>
+						                    		<div t-field="o.picking_type_id.warehouse_id.partner_id.name"/>
+						                            <div t-field="o.picking_type_id.warehouse_id.partner_id.street"/>
+									                <div t-if="o.picking_type_id.warehouse_id.partner_id.street2">
+									                    <div t-field="o.picking_type_id.warehouse_id.partner_id.street2"/>
+									                </div>
+									                <h t-if="o.picking_type_id.warehouse_id.partner_id.zip">
+									                    <h t-field="o.picking_type_id.warehouse_id.partner_id.zip"/>
+									                    <h t-field="o.picking_type_id.warehouse_id.partner_id.city"/>
+									                </h>
+						                            <div t-field="o.picking_type_id.warehouse_id.partner_id.state_id"/>
+						                            <div t-field="o.picking_type_id.warehouse_id.partner_id.country_id"/>
+						                    	</td>
+						                    </tr>
+						                </tbody>
+						            </table>
+		                        </td>
+			            	</tr>
+			            </table>
+                        <!-- Tabelle vor der Übersetzung und Lageradressen-Anpassung
                         <table style="width:auto!important; max-width:50%;">
                             <tbody>
                                 <tr t-if="o.payment_term_id">
@@ -159,12 +234,15 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table>-->
                     </div>
+                    <div class="oe_structure"/>
                 </div>
-            </t>
+                
+		<!--</t>
         </t>
-    </t>
+    </t>-->
+    </xpath>
 </template>
 </data>
 </openerp>
