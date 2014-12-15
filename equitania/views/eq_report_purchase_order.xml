@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data>
 <template id="eq_purchaseorder_extension" inherit_id="purchase.report_purchaseorder_document" active="True">
@@ -252,6 +252,8 @@
 				                    	<td style="padding-right:0.5cm;">
 				                    		Deliver to:
 				                    	</td>
+				                    </tr>
+				                    <tr>
 				                    	<td>
 				                    		<div t-field="o.picking_type_id.warehouse_id.partner_id.name"/>
 				                            <div t-field="o.picking_type_id.warehouse_id.partner_id.street"/>
@@ -271,10 +273,10 @@
                         </td>
 	            	</tr>
 	            </table>
-	            
 	        </div>
-	        <div class="oe_structure"/></div>
-</xpath>
+	    <div class="oe_structure"/>
+        </div>
+	</xpath>
 </template>
 </data>
 </openerp>
