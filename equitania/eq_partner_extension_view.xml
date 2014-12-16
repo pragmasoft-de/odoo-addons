@@ -75,7 +75,7 @@
                         <div>
                             <div>
                                 <field name="default_creator_saleperson"/>
-                                <label for="default_creator_saleperson" string="The creator of the partner is automatically the Saleperson"/>
+                                <label for="default_creator_saleperson"/>
                             </div>
                         </div>
                     </group>
