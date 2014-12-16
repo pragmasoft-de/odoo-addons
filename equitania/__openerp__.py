@@ -27,7 +27,7 @@
     """,
     'author': 'Equitania Software GmbH',
     'website': 'www.myodoo.de',
-    'depends': ['base_setup', 'purchase', 'sale',  'account', 'product', 'mail', 'report', 'hr', 'crm', 'stock', 'sale_stock', 'delivery', 'mrp'],
+    'depends': ['base_setup', 'purchase', 'sale',  'account', 'product', 'mail', 'report', 'hr', 'crm', 'stock', 'sale_stock', 'delivery'],
     'category' : 'General Improvements',
     'summary': 'Sale, Account, Product, Mail, Report, CRM, Purchase',
     #'init': [
