@@ -111,6 +111,27 @@ class eq_partner_extension(osv.osv):
         'eq_incoterm': fields.many2one('stock.incoterms', 'Incoterm'),
         'eq_deliver_condition_id': fields.many2one('eq.delivery.conditions', 'Delivery Condition'),
         }
-
-    _default = {
+    
+    _defaults = {
+                'user_id': lambda self, cr, uid, context: uid if self.pool.get('ir.values').get_default(cr, uid, 'res.partner', 'default_creator_saleperson') else False,
+                }
+    
+class eq_partner_extension_base_config_settings(osv.osv):
+    _inherit = "base.config.settings"
+    
+    def set_default_creator(self, cr, uid, ids, context):
+        ir_values_obj = self.pool.get('ir.values')
+        config = self.browse(cr, uid, ids[0], context)
+        
+        ir_values_obj.set_default(cr, uid, 'res.partner', 'default_creator_saleperson', config.default_creator_saleperson or False)
+        
+    def get_default_creator(self, cr, uid, ids, context):
+        ir_values_obj = self.pool.get('ir.values')
+        creator = ir_values_obj.get_default(cr, uid, 'res.partner', 'default_creator_saleperson')
+        return {
+                'default_creator_saleperson': creator,
+                }    
+    
+    _columns = {
+                'default_creator_saleperson': fields.boolean('Use the creator of the Partner as the Saleperson [equitania]')
                 }
