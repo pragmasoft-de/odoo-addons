@@ -130,18 +130,16 @@ class eq_install_func(osv.osv):
                                     'state': 'translated',
                                     }
                             ir_translation_obj.write(cr, uid, translation_id[0], vals)
-                            print entry.msgstr
                         else:
-                            comment = entry.comment.split(' ')
                             vals = {
                                     'lang': 'de_DE',
                                     'src': entry.msgid,
                                     'name': 'website',
                                     'res_id': view_id,
-                                    'module': comment[-1],
+                                    'module': occurence_split[2].split('.')[0],
                                     'state': 'translated',
                                     'values': entry.msgstr,
                                     'type': occurence_split[0],
                                     }
-                            print ir_translation_obj.create(cr, uid, vals)
+                            ir_translation_obj.create(cr, uid, vals)
         return True
