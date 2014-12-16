@@ -9,11 +9,7 @@
 	            <div class="col-xs-7 addressmargin">
 	                <div class="row col-xs-12 returnaddress">
 	                    <h t-field="o.company_id.partner_id.name"/> -
-	        
-	                    
 	                    <h t-field="o.company_id.partner_id.street"/> -
-	        
-	                    
 	                    <h t-field="o.company_id.partner_id.zip"/>
 	                    <h t-field="o.company_id.partner_id.city"/>
 	                </div>

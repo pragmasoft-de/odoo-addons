@@ -1,318 +1,324 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data>
+<!-- ALTER EINTRAG 
 <template id="sale.report_saleorder_document">
-            <t t-call="report.external_layout">
-                <div class="page">
-                    <div class="oe_structure"/>
-                    <div class="row">
-                        <div class="col-xs-7 addressmargin">
-                            <div class="row col-xs-12 returnaddress">
-                                <h t-field="o.company_id.partner_id.name"/> -
-                    
-                                <h t-field="o.company_id.partner_id.street"/> -
-                    
-                                <h t-field="o.company_id.partner_id.zip"/>
-                                <h t-field="o.company_id.partner_id.city"/>
-                            </div>
-							<div t-if="o.partner_id.type != 'contact'">
-								<div t-field="o.partner_id.name" style="clear:left;"/>
-	   	                        <div t-field="o.partner_id.street"/>
-	                            <div t-if="o.partner_id.street2">
-	                       	        <div t-field="o.partner_id.street2"/>
-	                   	        </div>
-	               	            <h>
-	           	                    <h t-field="o.partner_id.zip"/>
-	       	                        <h t-field="o.partner_id.city"/>
-	   	                        </h>
-	                            <div t-field="o.partner_id.country_id.name"/>
-                            </div>
-							<div t-if="o.partner_id.type == 'contact'">
-								<div t-field="o.partner_id.parent_id.name" style="clear:left;"/>
-	       	                    <span t-field="o.partner_id.title.name"/> <span t-field="o.partner_id.eq_firstname" style="clear:left;"/> <span t-field="o.partner_id.name" style="clear:left;"/>
-	   	                        <div t-field="o.partner_id.street"/>
-	                            <div t-if="o.partner_id.street2">
-	                       	        <div t-field="o.partner_id.street2"/>
-	                   	        </div>
-	               	            <h>
-	           	                    <h t-field="o.partner_id.zip"/>
-	       	                        <h t-field="o.partner_id.city"/>
-	   	                        </h>
-	                            <div t-field="o.partner_id.country_id.name"/>
-                            </div>
-							
-                        </div>
-                        <div class="col-xs-5">
-                            <table style="width:100%;float:right;">
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <span>Kundennummer</span>
-                                        </td>
-                                        <td class="text-right">
-                                            <span t-field="o.partner_id.eq_customer_ref" id="eq_customer_ref"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span>Ihre Belegnr.</span>
-                                        </td>
-                                        <td class="text-right">
-                                            <span t-field="o.client_order_ref" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td t-if="o.state not in ['draft','sent']">
-                                            <span>Auftrags Nr.</span>
-                                        </td>
-                                        <td t-if="o.state in ['draft','sent']">
-                                            <span>Angebots Nr.</span>
-                                        </td>					
-                                        <td class="text-right">
-                                            <span t-field="o.name"/>
-                                        </td>
-                                    </tr>
-                                    <tr t-if="o.origin">
-                                        <td>
-                                            <span>Referenznummer</span>
-                                        </td>
-                                        <td class="text-right">
-                                            <span t-field="o.origin"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td t-if="o.state not in ['draft','sent']">
-                                            <span>Bestelldatum</span>
-                                        </td>
-                                        <td t-if="o.state in ['draft','sent']">
-                                            <span>Angebotsdatum</span>
-                                        </td>
-                                        <td class="text-right">
-                                            <span t-esc="o.date_order.split(' ')[0].split('-')[2] + '.' + o.date_order.split(' ')[0].split('-')[1] + '.' + o.date_order.split(' ')[0].split('-')[0]"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <h style="line-height:3em" t-if="o.eq_contact_person_id">
-                                <strong>Bei Rückfragen wenden Sie sich bitte an</strong>
-                            </h>
-                            <table style="width:100%;" t-if="o.eq_contact_person_id">
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <span>Kontaktperson</span>
-                                        </td>
-                                        <td class="text-right">
-                                            <span t-field="o.eq_contact_person_id.name"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span>Tel</span>
-                                        </td>
-                                        <td class="text-right">
-                                            <span t-field="o.eq_contact_person_id.work_phone"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span>E-Mail</span>
-                                        </td>
-                                        <td class="text-right">
-                                            <span t-field="o.eq_contact_person_id.work_email"/>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+	<t t-call="report.external_layout">
+		<div class="page">
+		    <div class="oe_structure"/>
+		    <div class="row"> EINTRAG ENDE-->
+		    
+<template id="eq_saleorder_extension" inherit_id="sale.report_saleorder_document" active="True">
+    <xpath expr="//div[@class='page']" position="replace">
+	    <div class="page">
+	        <div class="oe_structure"/>
+            <div class="row">
+				<div class="col-xs-7 addressmargin">
+					<div class="row col-xs-12 returnaddress">
+						<h t-field="o.company_id.partner_id.name"/> -
+						
+						<h t-field="o.company_id.partner_id.street"/> -
+						
+						<h t-field="o.company_id.partner_id.zip"/>
+						<h t-field="o.company_id.partner_id.city"/>
+					</div>
+					<div t-if="o.partner_id.type != 'contact'">
+						<div t-field="o.partner_id.name" style="clear:left;"/>
+                        <div t-field="o.partner_id.street"/>
+                        <div t-if="o.partner_id.street2">
+               	        	<div t-field="o.partner_id.street2"/>
+               	        </div>
+           	            <h>
+       	                    <h t-field="o.partner_id.zip"/>
+   	                        <h t-field="o.partner_id.city"/>
+                        </h>
+                        <div t-field="o.partner_id.country_id.name"/>
                     </div>
-                    <h2  style="margin-bottom:25px; margin-top:25px">
-                	<span t-if="o.state not in ['draft','sent']">Auftragsbestätigung </span>
-                	<span t-if="o.state in ['draft','sent']">Angebot </span>
-                        <span t-field="o.name"/>
-                    </h2>
-            		<p t-if="o.eq_head_text" style="margin-bottom:0.3cm!important;"><span t-field="o.eq_head_text"/></p>
-                    
-                    <table class="table table-condensed">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <strong>Artikelnr.</strong>
-                                </th>
-                                <th>
-                                    <strong>Beschreibung</strong>
-                                </th>
-                                <th class="text-right">
-                                    <strong>Anzahl</strong>
-                                </th>
-                                <th class="text-right">
-                                    <strong>Einheit</strong>
-                                </th>
-                                <th class="text-right">
-                                    <strong>Preis</strong>
-                                </th>
-								<th t-if="any([line.discount for line in o.order_line])" class="text-right">
-									<strong>Rabatt (%)</strong>
-								</th>
-                                <th class="text-right">
-                                    <strong>Preis Netto</strong>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody class="sale_tbody">
-                            <tr t-foreach="o.order_line" t-as="line">
-                                <td>
-                                    <span t-field="line.product_id.default_code"/>
-                                </td>
-                                <td>
-                                    <strong><span t-field="line.product_id.name"/></strong>
-                                    <br/>
-                                    <span t-field="line.name"/>
-                                    <br/>
-                                    <strong t-if="o.show_delivery_date">Liefertermin: <span t-field="line.get_delivery_date"/></strong>
+					<div t-if="o.partner_id.type == 'contact'">
+						<div t-field="o.partner_id.parent_id.name" style="clear:left;"/>
+   	                    <span t-field="o.partner_id.title.name"/> <span t-field="o.partner_id.eq_firstname" style="clear:left;"/> <span t-field="o.partner_id.name" style="clear:left;"/>
+	                    <div t-field="o.partner_id.street"/>
+                        <div t-if="o.partner_id.street2">
+                    		<div t-field="o.partner_id.street2"/>
+               	        </div>
+           	            <h>
+       	                    <h t-field="o.partner_id.zip"/>
+   	                        <h t-field="o.partner_id.city"/>
+                        </h>
+                        <div t-field="o.partner_id.country_id.name"/>
+					</div>
+				</div>
+                <div class="col-xs-5">
+                	<table style="width:100%;float:right;">
+                    	<tbody>
+                        	<tr>
+                            	<td>
+                                	<span>Kundennummer</span>
                                 </td>
                                 <td class="text-right">
-                                    <span t-field="line.product_uom_qty"/>
-                                </td>
-                                <td class="text-right">
-                                    <span t-field="line.product_uom.name"/>
-                                </td>
-                                <td class="text-right">
-                                    <span t-field="line.price_unit"/>
-                                </td>
-								<td t-if="any([line.discount for line in o.order_line])" class="text-right">
-									<span t-field="line.discount"/>
+                                	<span t-field="o.partner_id.eq_customer_ref" id="eq_customer_ref"/>
+                               	</td>
+							</tr>
+							<tr>
+								<td>
+									<span>Ihre Belegnr.</span>
 								</td>
+								<td class="text-right">
+									<span t-field="o.client_order_ref" />
+								</td>
+							</tr>
+							<tr>
+                                <td t-if="o.state not in ['draft','sent']">
+                                    <span>Auftrags Nr.</span>
+                                </td>
+                                <td t-if="o.state in ['draft','sent']">
+                                    <span>Angebots Nr.</span>
+                                </td>					
                                 <td class="text-right">
-                                    <span t-field="line.price_subtotal" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
+                                    <span t-field="o.name"/>
+                                </td>
+                            </tr>
+                            <tr t-if="o.origin">
+                                <td>
+                                    <span>Referenznummer</span>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="o.origin"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td t-if="o.state not in ['draft','sent']">
+                                    <span>Bestelldatum</span>
+                                </td>
+                                <td t-if="o.state in ['draft','sent']">
+                                    <span>Angebotsdatum</span>
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="o.date_order.split(' ')[0].split('-')[2] + '.' + o.date_order.split(' ')[0].split('-')[1] + '.' + o.date_order.split(' ')[0].split('-')[0]"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h style="line-height:3em" t-if="o.eq_contact_person_id">
+                        <strong>Bei Rückfragen wenden Sie sich bitte an</strong>
+                    </h>
+                    <table style="width:100%;" t-if="o.eq_contact_person_id">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span>Kontaktperson</span>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="o.eq_contact_person_id.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Tel</span>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="o.eq_contact_person_id.work_phone"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>E-Mail</span>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="o.eq_contact_person_id.work_email"/>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <div class="row padding-fix">
-                        <div>
-                            <table class="table" rules="none" style=" border: 1px solid #999999;">
-                                <thead>
-                                    <tr><!-- class="border-black"-->
-                                        <td class="text-right" id="price_netto">
-                                            <strong>Preis Netto</strong>
-                                        </td>
-                                        <td class="text-right" t-if="o.order_line[0].tax_id">
-                                            <strong>
-                                                <span t-esc="', '.join(map(lambda x: x.name, o.order_line[0].tax_id))"/>
-                                            </strong>
-                                        </td>
-                                        <td class="text-right">
-                                            <strong>Preis Brutto</strong>
-                                        </td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-right" id="price_netto_amount">
-                                            <span t-field="o.amount_untaxed" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
-                                        </td>
-                                        <td class="text-right" t-if="o.order_line[0].tax_id">
-                                            <span t-field="o.amount_tax" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
-                                        </td>
-                                        <td class="text-right">
-                                            <span t-field="o.amount_total" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <table class="col-xs-3" style="width:auto!important; max-width:50%;">
-                            <tbody>
-                                <tr t-if="o.payment_term">
-                                    <td style="padding-right:0.5cm;">
-                                        Zahlungsbedingung:
-                                    </td>
-                                    <td>
-                                        <span t-field="o.payment_term"/>
-                                    </td>
-                                </tr>
-                                <tr t-if="o.incoterm">
-                                    <td style="padding-right:0.5cm;">
-                                        Inco:
-                                    </td>
-                                    <td>
-                                        <span t-field="o.incoterm.name"/>
-                                    </td>
-                                </tr>
-                                <tr t-if="o.note">
-                                    <td style="padding-right:0.5cm; vertical-align:top;">
-                                        Kommentar:
-                                    </td>
-                                    <td styles=" vertical-align:top;">
-                                        <p t-field="o.note"/>
-                                    </td>
-                                </tr>
-                                <tr t-if="o.partner_invoice_id != o.partner_id and o.partner_invoice_id != False">
-                                    <td style="padding-right:0.5cm; font-weight:bold;" valign="top">
-                                        Rechnungsanschrift:
-                                    </td>
-                                    <td style="padding-bottom:0.5cm;">
-										<div>
-											<!-- wenn keine Person (Rechnungsadresse ist kein Kontakt) -->
-											<div t-if="o.partner_invoice_id.type != 'contact'">
-												<div t-field="o.partner_invoice_id.name" style="clear:left;"/>
-					   	                        <div t-field="o.partner_invoice_id.street"/>
-					                            <div t-if="o.partner_invoice_id.street2">
-					                       	        <div t-field="o.partner_invoice_id.street2"/>
-					                   	        </div>
-					               	            <h>
-					           	                    <h t-field="o.partner_invoice_id.zip"/>
-					       	                        <h t-field="o.partner_invoice_id.city"/>
-					   	                        </h>
-					                            <div t-field="o.partner_invoice_id.country_id.name"/>
-				                            </div>
-											<!-- Rechnungsadresse IST Kontakt -->
-											<div t-if="o.partner_invoice_id.type == 'contact'">
-												<div t-field="o.partner_invoice_id.parent_id.name" style="clear:left;"/>
-					       	                    <span t-field="o.partner_invoice_id.title.name"/> <span t-field="o.partner_invoice_id.eq_firstname" style="clear:left;"/> <span t-field="o.partner_invoice_id.name" style="clear:left;"/>
-					   	                        <div t-field="o.partner_invoice_id.street"/>
-					                            <div t-if="o.partner_invoice_id.street2">
-					                       	        <div t-field="o.partner_invoice_id.street2"/>
-					                   	        </div>
-					               	            <h>
-					           	                    <h t-field="o.partner_invoice_id.zip"/>
-					       	                        <h t-field="o.partner_invoice_id.city"/>
-					   	                        </h>
-					                            <div t-field="o.partner_invoice_id.country_id.name"/>
-				                            </div>
-										</div>
-                                    </td>
-                                </tr>
-                                <tr t-if="o.partner_shipping_id != o.partner_id and o.partner_shipping_id != False">
-                                    <td style="padding-right:0.5cm; font-weight:bold;" valign="top">
-                                        Lieferanschrift:
-                                    </td>
-                                    <td>
-			                            <div>
-											<div t-field="o.partner_shipping_id.name" style="clear:left;"/>
-				   	                        <div t-field="o.partner_shipping_id.street"/>
-				                            <div t-if="o.partner_shipping_id.street2">
-				                       	        <div t-field="o.partner_shipping_id.street2"/>
-				                   	        </div>
-				               	            <h>
-				           	                    <h t-field="o.partner_shipping_id.zip"/>
-				       	                        <h t-field="o.partner_shipping_id.city"/>
-				   	                        </h>
-				                            <div t-field="o.partner_shipping_id.country_id.name"/>
-										</div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div></div>
-                    </div>
-                    <div id="informations" class="col-xs-12"/>
-                    <div class="oe_structure"/></div>
-            </t>
+                </div>
+            </div>
+            <h2  style="margin-bottom:25px; margin-top:25px">
+				<span t-if="o.state not in ['draft','sent']">Sale order </span>
+				<span t-if="o.state in ['draft','sent']">Angebot </span>
+				<span t-field="o.name"/>
+            </h2>
+			<p t-if="o.eq_head_text" style="margin-bottom:0.3cm!important;"><span t-field="o.eq_head_text"/></p>
+            <table class="table table-condensed">
+				<thead>
+					<tr>
+						<th>
+							<strong>Item no.</strong>
+						</th>
+                        <th>
+                            <strong>Item description</strong>
+                        </th>
+                        <th class="text-right">
+                            <strong>Qty.</strong>
+                        </th>
+                        <th class="text-right">
+                            <strong>Unit</strong>
+                        </th>
+                        <th class="text-right">
+                            <strong>Unit price</strong>
+                        </th>
+						<th t-if="any([line.discount for line in o.order_line])" class="text-right">
+							<strong>Discount (%)</strong>
+						</th>
+                        <th class="text-right">
+                            <strong>Net price</strong>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="sale_tbody">
+                    <tr t-foreach="o.order_line" t-as="line">
+                        <td>
+                            <span t-field="line.product_id.default_code"/>
+                        </td>
+                        <td>
+                            <strong><span t-field="line.product_id.name"/></strong>
+                            <br/>
+                            <span t-field="line.name"/>
+                            <br/>
+                            <strong t-if="o.show_delivery_date">Delivery date: <span t-field="line.get_delivery_date"/></strong>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="line.product_uom_qty"/>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="line.product_uom.name"/>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="line.price_unit"/>
+                        </td>
+						<td t-if="any([line.discount for line in o.order_line])" class="text-right">
+							<span t-field="line.discount"/>
+						</td>
+                        <td class="text-right">
+                            <span t-field="line.price_subtotal" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row padding-fix">
+                <div>
+                    <table class="table" rules="none" style=" border: 1px solid #999999;">
+                        <thead>
+                            <tr><!-- class="border-black"-->
+                                <td class="text-right" id="price_netto">
+                                    <strong>Total without taxes</strong>
+                                </td>
+                                <td class="text-right" t-if="o.order_line[0].tax_id">
+                                    <strong>
+                                        <span t-esc="', '.join(map(lambda x: x.name, o.order_line[0].tax_id))"/>
+                                    </strong>
+                                </td>
+                                <td class="text-right">
+                                    <strong>Total sum</strong>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-right" id="price_netto_amount">
+                                    <span t-field="o.amount_untaxed" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
+                                </td>
+                                <td class="text-right" t-if="o.order_line[0].tax_id">
+                                    <span t-field="o.amount_tax" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="o.amount_total" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <table class="col-xs-3" style="width:auto!important; max-width:50%;">
+                    <tbody>
+                        <tr t-if="o.payment_term">
+                            <td style="padding-right:0.5cm;">
+                                Term of payment:
+                            </td>
+                            <td>
+                                <span t-field="o.payment_term"/>
+                            </td>
+                        </tr>
+                        <tr t-if="o.incoterm">
+                            <td style="padding-right:0.5cm;">
+                                Incoterm:
+                            </td>
+                            <td>
+                                <span t-field="o.incoterm.name"/>
+                            </td>
+                        </tr>
+                        <tr t-if="o.note">
+                            <td style="padding-right:0.5cm; vertical-align:top;">
+                                Notes:
+                            </td>
+                            <td styles=" vertical-align:top;">
+                                <p t-field="o.note"/>
+                            </td>
+                        </tr>
+                        <tr t-if="o.partner_invoice_id != o.partner_id and o.partner_invoice_id != False">
+                            <td style="padding-right:0.5cm; font-weight:bold;" valign="top">
+                                Invoice address:
+                            </td>
+                            <td style="padding-bottom:0.5cm;">
+								<div>
+									<!-- wenn keine Person (Rechnungsadresse ist kein Kontakt) -->
+									<div t-if="o.partner_invoice_id.type != 'contact'">
+										<div t-field="o.partner_invoice_id.name" style="clear:left;"/>
+							            <div t-field="o.partner_invoice_id.street"/>
+				                        <div t-if="o.partner_invoice_id.street2">
+				                    		<div t-field="o.partner_invoice_id.street2"/>
+				                	    </div>
+			            	            <h>
+			        	                    <h t-field="o.partner_invoice_id.zip"/>
+			    	                        <h t-field="o.partner_invoice_id.city"/>
+				                        </h>
+			                         	<div t-field="o.partner_invoice_id.country_id.name"/>
+			                        </div>
+									<!-- Rechnungsadresse IST Kontakt -->
+									<div t-if="o.partner_invoice_id.type == 'contact'">
+										<div t-field="o.partner_invoice_id.parent_id.name" style="clear:left;"/>
+		    	                    	<span t-field="o.partner_invoice_id.title.name"/> <span t-field="o.partner_invoice_id.eq_firstname" style="clear:left;"/> <span t-field="o.partner_invoice_id.name" style="clear:left;"/>
+				                        <div t-field="o.partner_invoice_id.street"/>
+				                        <div t-if="o.partner_invoice_id.street2">
+				                    		<div t-field="o.partner_invoice_id.street2"/>
+				                	    </div>
+			            	            <h>
+			        	                    <h t-field="o.partner_invoice_id.zip"/>
+			    	                        <h t-field="o.partner_invoice_id.city"/>
+				                        </h>
+			                        	<div t-field="o.partner_invoice_id.country_id.name"/>
+			                        </div>
+								</div>
+                            </td>
+                        </tr>
+                        <tr t-if="o.partner_shipping_id != o.partner_id and o.partner_shipping_id != False">
+                            <td style="padding-right:0.5cm; font-weight:bold;" valign="top">
+                                Shipping address:
+                            </td>
+                            <td>
+								<div>
+									<div t-field="o.partner_shipping_id.name" style="clear:left;"/>
+									<div t-field="o.partner_shipping_id.street"/>
+									<div t-if="o.partner_shipping_id.street2">
+										<div t-field="o.partner_shipping_id.street2"/>
+									</div>
+									<h>
+										<h t-field="o.partner_shipping_id.zip"/>
+										<h t-field="o.partner_shipping_id.city"/>
+									</h>
+									<div t-field="o.partner_shipping_id.country_id.name"/>
+								</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div></div>
+			</div>
+			<div id="informations" class="col-xs-12"/>
+			<div class="oe_structure"/>
+		</div>
+	</xpath>
 </template>
 
 <template id="report_saleorder">
