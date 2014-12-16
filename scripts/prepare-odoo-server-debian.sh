@@ -57,7 +57,7 @@ apt-get install python-dateutil python-pypdf python-requests \
  python-imaging python-reportlab-accel \
  python-paramiko python-software-properties
 
-pip install passlib beautifulsoup4 evdev reportlab qrcode
+pip install passlib beautifulsoup4 evdev reportlab qrcode polib
 
 echo "Do you want install barcodes? / Wollen Sie die Barcodes installieren (Y/n):"
 read myfonts
