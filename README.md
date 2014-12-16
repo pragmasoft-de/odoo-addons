@@ -17,7 +17,15 @@ Die Benutzung erfolgt OHNE GEWÄHR und auf eigene Gefahr.
 * Erweiterung um Zeichnungsnummer bei Produkten
 * Produktsuche in den Preislisten-Versionen 
 
+**GIT Commits werden mit folgenden Präfixes zu versehen:**
 
+* [ADD] -> Für neue Erweiterungen
+* [CHG] -> Für Änderungen
+* [FIX] -> Für Bugfixes und Fehlerbeseitigungen
+* [IMP] -> Für Funktionserweiterungen
+* [REV] -> Für Revues
+
+Bei mehreren die Commits nichts zusammenfassen, sondern separieren.
 
 ### Installation ###
 
