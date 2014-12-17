@@ -122,24 +122,25 @@ class eq_install_func(osv.osv):
                     #website reports
                     if occurence_split[1] == 'website':
                         report_id = occurence_split[2].split('.')[-1]
-                        view_id = ir_ui_view_obj.search(cr, uid, [('name', '=', report_id)])[0]
-                        translation_id = ir_translation_obj.search(cr, uid, [('src', '=', entry.msgid), ('res_id', '=', view_id), ('name', '=', occurence_split[1])])
-                        if len(translation_id) != 0:
-                            vals = {
-                                    'value': entry.msgstr,
-                                    'state': 'translated',
-                                    }
-                            ir_translation_obj.write(cr, uid, translation_id[0], vals)
-                        else:
-                            vals = {
-                                    'lang': 'de_DE',
-                                    'src': entry.msgid,
-                                    'name': 'website',
-                                    'res_id': view_id,
-                                    'module': occurence_split[2].split('.')[0],
-                                    'state': 'translated',
-                                    'values': entry.msgstr,
-                                    'type': occurence_split[0],
-                                    }
-                            ir_translation_obj.create(cr, uid, vals)
+                        if len(ir_ui_view_obj.search(cr, uid, [('name', '=', report_id)])) != 0:
+                            view_id = ir_ui_view_obj.search(cr, uid, [('name', '=', report_id)])[0]
+                            translation_id = ir_translation_obj.search(cr, uid, [('src', '=', entry.msgid), ('res_id', '=', view_id), ('name', '=', occurence_split[1])])
+                            if len(translation_id) != 0:
+                                vals = {
+                                        'value': entry.msgstr,
+                                        'state': 'translated',
+                                        }
+                                ir_translation_obj.write(cr, uid, translation_id[0], vals)
+                            else:
+                                vals = {
+                                        'lang': 'de_DE',
+                                        'src': entry.msgid,
+                                        'name': 'website',
+                                        'res_id': view_id,
+                                        'module': occurence_split[2].split('.')[0],
+                                        'state': 'translated',
+                                        'value': entry.msgstr,
+                                        'type': occurence_split[0],
+                                        }
+                                ir_translation_obj.create(cr, uid, vals)
         return True
