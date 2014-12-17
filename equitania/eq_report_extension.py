@@ -270,26 +270,6 @@ class eq_report_extension_purchase_order_line(osv.osv):
                                                                                                       'purchase.order': ((lambda self, cr, uid, ids, c={}: ids, ['show_delivery_date', 'use_calendar_week'], 10)),
                                                                                                       }),
                 }
-
-class eq_report_extension_purchase_order(osv.osv):
-    _inherit = "procurement.order"
-    
-    _columns = {
-                'eq_ref_number': fields.char('Sale Order Referenc', size=64),
-                }
-    
-    def make_mo(self, cr, uid, ids, context=None):
-        res = super(eq_report_extension_purchase_order, self).make_mo(cr, uid, ids, context=context)
-        
-        #Writes the customer number into the manufactoring order.
-        for key, value in res.iteritems():
-            procurement = self.browse(cr, uid, key, context=context)
-            if procurement.group_id.partner_id:
-                vals = {'eq_customer_ref': procurement.group_id.partner_id.eq_customer_ref}
-                self.pool.get('mrp.production').write(cr, uid, value, vals, context=context)
-        
-        return res
-
     
 class eq_report_extension_invoice(osv.osv):
     _inherit = "account.invoice"

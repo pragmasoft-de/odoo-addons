@@ -756,16 +756,11 @@ msgid "Only search for Companies in the Sale Order/Quotation [equitania]"
 msgstr "Im Angebot/Verkaufsauftrag nur nach Unternehmen suchen [equitania]"
 
 #. module: equitania
-#: field:mrp.production,eq_finished_work_preperation:0
-msgid "Finished Work Preperation"
-msgstr "Arbeitsvorbereitungen abgeschlossen"
-
-#. module: equitania
 #: view:base.config.settings:equitania.view_sale_config_settings
 msgid "The creator of the partner is automatically the Saleperson"
 msgstr "Den Ersteller eines Partners als Verkäufer erfassen."
 
 #. module: equitania
 #: field:base.config.settings,default_creator_saleperson:0
-msgid "Use the creator of the Partner as the Saleperson [equitania]"
-msgstr "Den Ersteller eines Partners als Verkäufer erfassen [equitania]"
+msgid "The creator of the address dataset will be set automatically as sales person. [equitania]"
+msgstr "Der Ersteller eines Adressdatensatzes wird automatisch als Verkäufer gesetzt. [equitania]"
