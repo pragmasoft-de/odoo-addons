@@ -553,6 +553,10 @@ msgstr "Rechnung"
 msgid "other"
 msgstr "Andere"
 
+#. module: sale
+#: view:website:sale.report_saleorder_document
+msgid "Customer no."
+msgstr "Kundennummer"
 
 #. module: purchase
 #: view:website:purchase.report_purchaseorder_document
@@ -562,7 +566,7 @@ msgstr "Lieferantennummer"
 #. module: purchase
 #: view:website:purchase.report_purchasequotation_document
 msgid "Your request no."
-msgstr "Anfrage Nr."
+msgstr "Ihre Anfragenr."
 
 #. module: purchase
 #: view:website:purchase.report_purchaseorder_document
@@ -578,34 +582,64 @@ msgstr "Ihre Nachricht"
 #. module: purchase
 #: view:website:purchase.report_purchaseorder_document
 msgid "Our order reference"
-msgstr "Bestellnr."
+msgstr "Unsere Bestellnr."
 
-#. module: purchase
+#. module: sale
+#: view:website:sale.report_saleorder_document
+msgid "Your reference no."
+msgstr "Referenz des Kunden"
+
+#. module: sale
+#: view:website:sale.report_saleorder_document
+msgid "Order no."
+msgstr "Auftrags Nr."
+
+#. module: sale
+#: view:website:sale.report_saleorder_document
+msgid "Quotation no."
+msgstr "Angebots Nr."
+
+#. module: sale
+#: view:website:sale.report_saleorder_document
+msgid "Our reference no."
+msgstr "Belegreferenz"
+
+#. module: purchase,sale
 #: view:website:purchase.report_purchaseorder_document
+#: view:website:sale.report_saleorder_document
 msgid "Order date"
 msgstr "Bestelldatum"
 
-#. module: purchase
+#. module: sale
+#: view:website:sale.report_saleorder_document
+msgid "Quotation date"
+msgstr "Angebotsdatum"
+
+#. module: purchase,sale
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
+#: view:website:sale.report_saleorder_document
 msgid "For further information, please contact"
 msgstr "Bei Rückfragen wenden Sie sich bitte an"
 
-#. module: purchase
+#. module: purchase,sale
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
+#: view:website:sale.report_saleorder_document
 msgid "Contact person"
 msgstr "Kontaktperson"
 
-#. module: purchase
+#. module: purchase,sale
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
+#: view:website:sale.report_saleorder_document
 msgid "Phone"
 msgstr "Tel"
 
-#. module: purchase
+#. module: purchase,sale
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
+#: view:website:sale.report_saleorder_document
 msgid "E-Mail"
 msgstr "E-Mail"
 
