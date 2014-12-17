@@ -53,7 +53,7 @@
                     	<tbody>
                         	<tr>
                             	<td>
-                                	<span>Kundennummer</span>
+                                	<span>Customer no.</span>
                                 </td>
                                 <td class="text-right">
                                 	<span t-field="o.partner_id.eq_customer_ref" id="eq_customer_ref"/>
@@ -61,7 +61,7 @@
 							</tr>
 							<tr>
 								<td>
-									<span>Ihre Belegnr.</span>
+									<span>Your reference no.</span>
 								</td>
 								<td class="text-right">
 									<span t-field="o.client_order_ref" />
@@ -69,10 +69,10 @@
 							</tr>
 							<tr>
                                 <td t-if="o.state not in ['draft','sent']">
-                                    <span>Auftrags Nr.</span>
+                                    <span>Order no.</span>
                                 </td>
                                 <td t-if="o.state in ['draft','sent']">
-                                    <span>Angebots Nr.</span>
+                                    <span>Quotation no.</span>
                                 </td>					
                                 <td class="text-right">
                                     <span t-field="o.name"/>
@@ -80,7 +80,7 @@
                             </tr>
                             <tr t-if="o.origin">
                                 <td>
-                                    <span>Referenznummer</span>
+                                    <span>Our reference no.</span>
                                 </td>
                                 <td class="text-right">
                                     <span t-field="o.origin"/>
@@ -88,10 +88,10 @@
                             </tr>
                             <tr>
                                 <td t-if="o.state not in ['draft','sent']">
-                                    <span>Bestelldatum</span>
+                                    <span>Order date</span>
                                 </td>
                                 <td t-if="o.state in ['draft','sent']">
-                                    <span>Angebotsdatum</span>
+                                    <span>Quotation date</span>
                                 </td>
                                 <td class="text-right">
                                     <span t-esc="o.date_order.split(' ')[0].split('-')[2] + '.' + o.date_order.split(' ')[0].split('-')[1] + '.' + o.date_order.split(' ')[0].split('-')[0]"/>
@@ -103,13 +103,13 @@
                         </tbody>
                     </table>
                     <h style="line-height:3em" t-if="o.eq_contact_person_id">
-                        <strong>Bei Rückfragen wenden Sie sich bitte an</strong>
+                        <strong>For further information, please contact</strong>
                     </h>
                     <table style="width:100%;" t-if="o.eq_contact_person_id">
                         <tbody>
                             <tr>
                                 <td>
-                                    <span>Kontaktperson</span>
+                                    <span>Contact person</span>
                                 </td>
                                 <td class="text-right">
                                     <span t-field="o.eq_contact_person_id.name"/>
@@ -117,7 +117,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <span>Tel</span>
+                                    <span>Phone</span>
                                 </td>
                                 <td class="text-right">
                                     <span t-field="o.eq_contact_person_id.work_phone"/>
@@ -137,7 +137,7 @@
             </div>
             <h2  style="margin-bottom:25px; margin-top:25px">
 				<span t-if="o.state not in ['draft','sent']">Sale order </span>
-				<span t-if="o.state in ['draft','sent']">Angebot </span>
+				<span t-if="o.state in ['draft','sent']">Quotation </span>
 				<span t-field="o.name"/>
             </h2>
 			<p t-if="o.eq_head_text" style="margin-bottom:0.3cm!important;"><span t-field="o.eq_head_text"/></p>
