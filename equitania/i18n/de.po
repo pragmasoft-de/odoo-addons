@@ -624,6 +624,11 @@ msgstr "Auftragsbestätigung"
 msgid "Quotation"
 msgstr "Angebot"
 
+#. module: purchase
+#: view:website:purchase.report_purchasequotation_document
+msgid "Purchase quotation"
+msgstr "Anfrage für ein Angebot"
+
 #. module: purchase,sale
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:sale.report_saleorder_document
