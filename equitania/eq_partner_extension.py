@@ -133,5 +133,5 @@ class eq_partner_extension_base_config_settings(osv.osv):
                 }    
     
     _columns = {
-                'default_creator_saleperson': fields.boolean('Use the creator of the Partner as the Saleperson [equitania]')
+                'default_creator_saleperson': fields.boolean('The creator of the address dataset will be set automatically as sales person. [equitania]')
                 }
