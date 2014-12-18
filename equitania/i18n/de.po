@@ -553,15 +553,17 @@ msgstr "Rechnung"
 msgid "other"
 msgstr "Andere"
 
-#. module: sale
+#. module: sale,account
 #: view:website:sale.report_saleorder_document
+#: view:website:account.report_invoice_document
 msgid "Customer no."
-msgstr "Kundennummer"
+msgstr "Kundennr."
 
-#. module: purchase
+#. module: purchase,account
 #: view:website:purchase.report_purchaseorder_document
+#: view:website:account.report_invoice_document
 msgid "Supplier no."
-msgstr "Lieferantennummer"
+msgstr "Lieferantennr."
 
 #. module: purchase
 #: view:website:purchase.report_purchasequotation_document
@@ -572,7 +574,7 @@ msgstr "Ihre Anfragenr."
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "Your order reference"
-msgstr "Unsere Referenznummer"
+msgstr "Unsere Referenznr."
 
 #. module: purchase
 #: view:website:purchase.report_purchasequotation_document
@@ -584,13 +586,15 @@ msgstr "Ihre Nachricht"
 msgid "Our order reference"
 msgstr "Unsere Bestellnr."
 
-#. module: sale
+#. module: sale,account
 #: view:website:sale.report_saleorder_document
+#: view:website:account.report_invoice_document
 msgid "Your reference no."
 msgstr "Referenz des Kunden"
 
-#. module: sale
+#. module: sale,account
 #: view:website:sale.report_saleorder_document
+#: view:website:account.report_invoice_document
 msgid "Order no."
 msgstr "Auftrags Nr."
 
@@ -598,6 +602,11 @@ msgstr "Auftrags Nr."
 #: view:website:sale.report_saleorder_document
 msgid "Quotation no."
 msgstr "Angebots Nr."
+
+#. module: account
+#: view:website:account.report_invoice_document
+msgid "Invoice no."
+msgstr "Rechnungsnr."
 
 #. module: sale
 #: view:website:sale.report_saleorder_document
@@ -615,31 +624,40 @@ msgstr "Bestelldatum"
 msgid "Quotation date"
 msgstr "Angebotsdatum"
 
-#. module: purchase,sale
+#. module: account
+#: view:website:account.report_invoice_document
+msgid "Invoice date"
+msgstr "Rechnungsdatum"
+
+#. module: purchase,sale,account
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:sale.report_saleorder_document
+#: view:website:account.report_invoice_document
 msgid "For further information, please contact"
 msgstr "Bei Rückfragen wenden Sie sich bitte an"
 
-#. module: purchase,sale
+#. module: purchase,sale,account
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:sale.report_saleorder_document
+#: view:website:account.report_invoice_document
 msgid "Contact person"
 msgstr "Kontaktperson"
 
-#. module: purchase,sale
+#. module: purchase,sale,account
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:sale.report_saleorder_document
+#: view:website:account.report_invoice_document
 msgid "Phone"
 msgstr "Tel"
 
-#. module: purchase,sale
+#. module: purchase,sale,account
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:sale.report_saleorder_document
+#: view:website:account.report_invoice_document
 msgid "E-Mail"
 msgstr "E-Mail"
 
@@ -658,28 +676,66 @@ msgstr "Auftragsbestätigung"
 msgid "Quotation"
 msgstr "Angebot"
 
+#. module: account
+#: view:website:account.report_invoice_document
+msgid "Invoice"
+msgstr "Rechnung"
+
+#. module: account
+#: view:website:account.report_invoice_document
+msgid "Pro-forma invoice"
+msgstr "Proforma-Rechnung"
+
+#. module: account
+#: view:website:account.report_invoice_document
+msgid "Draft invoice"
+msgstr "Rechnungsentwurf"
+
+#. module: account
+#: view:website:account.report_invoice_document
+msgid "Cancelled invoice"
+msgstr "Stornierte Rechnung"
+
+#. module: account
+#: view:website:account.report_invoice_document
+msgid "Refund"
+msgstr "Rückerstattung"
+
+#. module: account
+#: view:website:account.report_invoice_document
+msgid "Supplier Refund"
+msgstr "Rückerstattung Lieferant"
+
+#. module: account
+#: view:website:account.report_invoice_document
+msgid "Supplier Invoice"
+msgstr "Rechnung Lieferant"
+
 #. module: purchase
 #: view:website:purchase.report_purchasequotation_document
 msgid "Purchase quotation"
 msgstr "Anfrage für ein Angebot"
 
-#. module: purchase,sale
+#. module: purchase,sale,account
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:sale.report_saleorder_document
+#: view:website:account.report_invoice_document
 msgid "Item no."
 msgstr "Artikelnr."
 
-#. module: purchase,sale
+#. module: purchase,sale,account
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:sale.report_saleorder_document
+#: view:website:account.report_invoice_document
 msgid "Item description"
 msgstr "Beschreibung"
 
-#. module: purchase,sale
+#. module: purchase,sale,account
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:sale.report_saleorder_document
+#: view:website:account.report_invoice_document
 msgid "Qty."
 msgstr "Menge"
 
@@ -689,20 +745,23 @@ msgstr "Menge"
 msgid "Unit"
 msgstr "Einheit"
 
-#. module: purchase,sale
+#. module: purchase,sale,account
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:sale.report_saleorder_document
+#: view:website:account.report_invoice_document
 msgid "Unit price"
 msgstr "Preis"
 
-#. module: purchase,sale
+#. module: purchase,sale,account
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:sale.report_saleorder_document
+#: view:website:account.report_invoice_document
 msgid "Net price"
 msgstr "Preis Netto"
 
-#. module: sale
+#. module: sale,account
 #: view:website:sale.report_saleorder_document
+#: view:website:account.report_invoice_document
 msgid "Discount"
 msgstr "Rabatt"
 
@@ -713,22 +772,25 @@ msgstr "Rabatt"
 msgid "Delivery date"
 msgstr "Liefertermin"
 
-#. module: purchase,sale
+#. module: purchase,sale,account
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:sale.report_saleorder_document
+#: view:website:account.report_invoice_document
 msgid "Total without taxes"
 msgstr "Summe Netto"
 
-#. module: purchase,sale
+#. module: purchase,sale,account
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:sale.report_saleorder_document
+#: view:website:account.report_invoice_document
 msgid "Total sum"
 msgstr "Summe Brutto"
 
-#. module: purchase,sale
+#. module: purchase,sale,account
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:sale.report_saleorder_document
+#: view:website:account.report_invoice_document
 msgid "Term of payment:"
 msgstr "Zahlungsbedingungen:"
 
@@ -739,10 +801,11 @@ msgstr "Zahlungsbedingungen:"
 msgid "Incoterm:"
 msgstr "Lieferbedingungen:"
 
-#. module: purchase,sale
+#. module: purchase,sale,account
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:sale.report_saleorder_document
+#: view:website:account.report_invoice_document
 msgid "Notes:"
 msgstr "Kommentar:"
 
