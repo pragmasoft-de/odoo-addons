@@ -252,6 +252,7 @@
 				</table>
 				<div></div>
 			</div><!-- <p t-field="o.comment"/> -->
+			<div class="oe_structure"/>
         </div>
     </xpath>
 </template>

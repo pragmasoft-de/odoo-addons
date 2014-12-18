@@ -553,7 +553,8 @@ msgstr "Rechnung"
 msgid "other"
 msgstr "Andere"
 
-#. module: sale,account
+#. module: sale,account,stock
+#: view:website:stock.report_picking
 #: view:website:sale.report_saleorder_document
 #: view:website:account.report_invoice_document
 msgid "Customer no."
@@ -574,7 +575,7 @@ msgstr "Ihre Anfragenr."
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "Your order reference"
-msgstr "Unsere Referenznr."
+msgstr "Ihre Bestellnr."
 
 #. module: purchase
 #: view:website:purchase.report_purchasequotation_document
@@ -586,7 +587,8 @@ msgstr "Ihre Nachricht"
 msgid "Our order reference"
 msgstr "Unsere Bestellnr."
 
-#. module: sale,account
+#. module: sale,account,stock
+#: view:website:stock.report_picking
 #: view:website:sale.report_saleorder_document
 #: view:website:account.report_invoice_document
 msgid "Your reference no."
@@ -608,7 +610,14 @@ msgstr "Angebots Nr."
 msgid "Invoice no."
 msgstr "Rechnungsnr."
 
-#. module: sale
+#. module: sale,stock
+#: view:website:stock.report_picking
+#: view:website:sale.report_saleorder_document
+msgid "Our reference no."
+msgstr "Belegreferenz"
+
+#. module: sale,stock
+#: view:website:stock.report_picking
 #: view:website:sale.report_saleorder_document
 msgid "Our reference no."
 msgstr "Belegreferenz"
@@ -723,7 +732,8 @@ msgstr "Anfrage für ein Angebot"
 msgid "Item no."
 msgstr "Artikelnr."
 
-#. module: purchase,sale,account
+#. module: purchase,sale,account,stock
+#: view:website:stock.report_picking
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:sale.report_saleorder_document
@@ -731,7 +741,8 @@ msgstr "Artikelnr."
 msgid "Item description"
 msgstr "Beschreibung"
 
-#. module: purchase,sale,account
+#. module: purchase,sale,account,stock
+#: view:website:stock.report_picking
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:sale.report_saleorder_document
@@ -771,6 +782,11 @@ msgstr "Rabatt"
 #: view:website:sale.report_saleorder_document
 msgid "Delivery date"
 msgstr "Liefertermin"
+
+#. module: stock
+#: view:website:stock.report_picking
+msgid "Delivery note:"
+msgstr "Lieferschein:"
 
 #. module: purchase,sale,account
 #: view:website:purchase.report_purchaseorder_document
@@ -820,10 +836,51 @@ msgstr "Bitte liefern Sie an unser Auslieferungslager:"
 msgid "Shipping address:"
 msgstr "Lieferanschrift:"
 
-#. module: sale
+#. module: sale,stock
+#: view:website:stock.report_picking
 #: view:website:sale.report_saleorder_document
 msgid "Invoice address:"
 msgstr "Rechnungsanschrift:"
+
+#. module: stock
+#: view:website:stock.report_picking
+msgid "Status"
+msgstr "Status"
+
+#. module: stock
+#: view:website:stock.report_picking
+msgid "Commitment Date"
+msgstr "Bestelldatum"
+
+#. module: stock
+#: view:website:stock.report_picking
+msgid "Scheduled date"
+msgstr "Geplante Lieferung"
+
+#. module: stock
+#: view:website:stock.report_picking
+msgid "Source"
+msgstr "Aus Lager"
+
+#. module: stock
+#: view:website:stock.report_picking
+msgid "Barcode"
+msgstr "Barcode"
+
+#. module: stock
+#: view:website:stock.report_picking
+msgid "Destination"
+msgstr "Zielort"
+
+#. module: stock
+#: view:website:stock.report_picking
+msgid "Goods received on date:"
+msgstr "Ware erhalten am:"
+
+#. module: stock
+#: view:website:stock.report_picking
+msgid "Signature"
+msgstr "Unterschrift"
 
 #. module: equitania
 #: field:product.category,eq_custom01:0
