@@ -213,8 +213,13 @@ class eq_report_extension_sale_order_line(osv.osv):
             lang=False, update_tax=True, date_order=False, packaging=False, fiscal_position=False, flag=False, context=None):
         
         vals = super(eq_report_extension_sale_order_line, self).product_id_change(cr, uid, ids, pricelist, product, qty, uom, qty_uos, uos, name, partner_id, lang, update_tax, date_order, packaging, fiscal_position, flag, context)
+        #Creates new dict for if not present and sets the customer language. The frozendict context can't be edited.
+        context_new = {}
+        if context:
+            context_new = dict(context)
+        context_new['lang'] = self.pool.get('res.partner').browse(cr, uid, partner_id, context).lang
+        product_id = self.pool.get('product.product').browse(cr, uid, product, context_new)
         
-        product_id = self.pool.get('product.product').browse(cr, uid, product, context)
         if product_id.description_sale:
             vals['value']['name'] = product_id.description_sale
         else:
@@ -242,8 +247,12 @@ class eq_report_extension_purchase_order_line(osv.osv):
             name=False, price_unit=False, state='draft', context=None):
         
         vals = super(eq_report_extension_purchase_order_line, self).onchange_product_id(cr, uid, ids, pricelist_id, product_id, qty, uom_id, partner_id, date_order, fiscal_position_id, date_planned, name, price_unit, state, context)
-    
-        product = self.pool.get('product.product').browse(cr, uid, product_id, context)
+        #Creates new dict for if not present and sets the customer language. The frozendict context can't be edited.
+        context_new = {}
+        if context:
+            context_new = dict(context)
+        context_new['lang'] = self.pool.get('res.partner').browse(cr, uid, partner_id, context).lang
+        product = self.pool.get('product.product').browse(cr, uid, product_id, context_new)
         if product.description_purchase:
             vals['value']['name'] = product.description_purchase
         else:
