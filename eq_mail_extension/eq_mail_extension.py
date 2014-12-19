@@ -36,6 +36,7 @@ import zipfile
 import base64
 from openerp import addons
 
+from openerp.addons.base.ir.ir_mail_server import MailDeliveryException
 from openerp.osv import fields, osv
 from openerp import tools, api
 from openerp.tools.translate import _
