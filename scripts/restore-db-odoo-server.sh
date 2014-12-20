@@ -31,6 +31,14 @@ echo "Backup path: "$mybackuppath
 echo "Name of the new db:"
 read mydb
 
+echo "Delete the old version of $mydb [Y/n]:"
+read mydel
+
+if [ "$mydel" == "Y" ]; then
+  dropdb -U odoo $mydb
+  echo "Delete is done."
+fi
+
 echo "Name of the backupfile without .gz an (path: $mybackuppath):"
 read mybackup
 
