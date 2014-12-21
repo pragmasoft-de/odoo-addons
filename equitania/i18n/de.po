@@ -783,6 +783,13 @@ msgstr "Rabatt"
 msgid "Delivery date"
 msgstr "Liefertermin"
 
+#. module: purchase,sale
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:purchase.report_purchasequotation_document
+#: view:website:sale.report_saleorder_document
+msgid "Delivery date:"
+msgstr "Liefertermin:"
+
 #. module: stock
 #: view:website:stock.report_picking
 msgid "Delivery note:"
