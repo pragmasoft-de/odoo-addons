@@ -124,7 +124,7 @@ class eq_install_func(osv.osv):
                         report_id = occurence_split[2].split('.')[-1]
                         if len(ir_ui_view_obj.search(cr, uid, [('name', '=', report_id)])) != 0:
                             view_id = ir_ui_view_obj.search(cr, uid, [('name', '=', report_id)])[0]
-                            translation_id = ir_translation_obj.search(cr, uid, [('src', '=', entry.msgid), ('res_id', '=', view_id), ('name', '=', occurence_split[1])])
+                            translation_id = ir_translation_obj.search(cr, uid, [('src', '=', entry.msgid), ('res_id', '=', view_id), ('name', '=', occurence_split[1]), ('lang', '=', 'de_DE')])
                             if len(translation_id) != 0:
                                 vals = {
                                         'value': entry.msgstr,
