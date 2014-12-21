@@ -32,8 +32,10 @@ class eq_report_extension_sale_settings(osv.osv_memory):
         ir_values = self.pool.get('ir.values')
         config = self.browse(cr, uid, ids[0], context)
         ir_values.set_default(cr, uid, 'sale.order', 'default_use_sales_person_as_contact', config.default_use_sales_person_as_contact)
-        ir_values.set_default(cr, uid, 'sale.order.line', 'show_delivery_date', config.default_show_delivery_date)
-        ir_values.set_default(cr, uid, 'sale.order.line', 'use_calendar_week', config.default_use_calendar_week)
+        ir_values.set_default(cr, uid, 'sale.order', 'show_delivery_date', config.default_show_delivery_date)
+        ir_values.set_default(cr, uid, 'sale.order', 'use_calendar_week', config.default_use_calendar_week)
+            
+        
     
     def get_default_use_sale_settings_eq(self, cr, uid, fields, context=None):
         ir_values = self.pool.get('ir.values')
@@ -276,7 +278,6 @@ class eq_report_extension_purchase_order_line(osv.osv):
 
     _columns = {'get_delivery_date': fields.function(_get_delivery_date, string="Delivery", type='char', methode=True, store={ 
                                                                                                       'purchase.order.line': ((lambda self, cr, uid, ids, c={}: ids, ['date_planned'], 10)),
-                                                                                                      'purchase.order': ((lambda self, cr, uid, ids, c={}: ids, ['show_delivery_date', 'use_calendar_week'], 10)),
                                                                                                       }),
                 }
     
