@@ -27,7 +27,6 @@ echo "Do you want to modify your system? | Wollen Sie Ihr System anpassen (Y/n):
 read myip
 
 if [ "$myip" == "Y" ]; then
-  echo "$mydb backup in progress..."
   cp get-ip-address /usr/local/bin/
   cp show-ip-address /etc/network/if-up.d/
   echo "Your system will now display ip at start ..."
