@@ -1,5 +1,6 @@
 #!/bin/bash
 # Mit diesem Skript wird ein Restore einer Odoo Datenbank durchgeführt
+# Verwenden Sie den Benutzer odoo > sudo su odoo
 # With this script you can restore a odoo db on postgresql
 ##############################################################################
 #

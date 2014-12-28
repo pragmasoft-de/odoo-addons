@@ -40,6 +40,7 @@ read myodoopwd
 if [ "$myodoopwd" != "" ]; then
   echo "PostgreSQL Passwort odoo wird gesetzt..."
   su postgres -c "psql --command \"CREATE USER odoo WITH PASSWORD '$myodoopwd'\""
+  su postgres -c "psql --command \"ALTER USER odoo CREATEDB\""
 fi
 
 echo "Geben Sie das Passwort für den User postgres innerhalb der PostgreSQL an:"

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mit diesem Skript werden alle Pakete für den Odoo Betrieb unter Ubuntu installiert
+# Mit diesem Skript werden alle Pakete für den Odoo Betrieb unter Debian installiert
 # Skript muss mit root-Rechten ausgeführt werden
 ##############################################################################
 #
