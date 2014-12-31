@@ -114,6 +114,14 @@ if [ "$myport" = "Y" ]; then
   sudo cp $mysourcepath/debian/odoo.nginx /etc/nginx/sites-available/odoo.nginx
   sudo rm /etc/nginx/sites-enabled/default 
   sudo ln -s /etc/nginx/sites-available/odoo.nginx /etc/nginx/sites-enabled/odoo.nginx
+  old1=";xmlrpc_interface = 127.0.0.1"
+  new1="xmlrpc_interface = 127.0.0.1"
+  old2=";netrpc_interface = 127.0.0.1"
+  new2="netrpc_interface = 127.0.0.1"
+  sudo sed -i "s/$old1/$new1/g" /etc/odoo-server.conf
+  sudo sed -i "s/$old2/$new2/g" /etc/odoo-server.conf
+  sudo /etc/nginx/nginx.conf /etc/nginx/nginx.conf.old
+  sudo cp $mysourcepath/debian/nginx.conf /etc/nginx/nginx.conf
 else
   echo "nginx is not installed!"
 fi
