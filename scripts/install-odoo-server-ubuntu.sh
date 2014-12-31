@@ -74,16 +74,21 @@ cp  $mysourcepath/openerp-wsgi.py $myserverpath
 cp  $mysourcepath/setup.py $myserverpath
 cp  $mysourcepath/setup.cfg $myserverpath
 
-echo "Geben Sie das Passwort für den Databasemanager ein:"
+echo "Insert the password for the databasemanager | Geben Sie das Passwort für den Databasemanager ein:"
 read myadminpwd
 
 old="'admin_passwd': 'admin'"
 new="'admin_passwd': '$myadminpwd'"
 
+echo "Changing databasemanager password.."
 cp  $myserverpath/openerp/tools/config.py $mybasepath/config.py
 sed -i "s/$old/$new/g" $mybasepath/config.py
 cp  $mybasepath/config.py $myserverpath/openerp/tools
 
+echo "Preparing favicon for later exchange.."
+cp  $myserverpath/addons/web/static/src/img/favicon.ico $mybasepath/ 
+
+echo "Changing rights.."
 sudo chown -R odoo:odoo $myserverpath 
 sudo chown -R odoo:odoo $mysourcepath 
 sudo chown -R odoo:odoo $mybasepath 
@@ -98,5 +103,19 @@ chmod 755 /etc/logrotate.d/odoo-server
 sudo cp $mysourcepath/debian/openerp.init.d /etc/init.d/openerp-server
 sudo chmod +x /etc/init.d/openerp-server
 sudo update-rc.d openerp-server defaults
+
+echo "Do you want to use standard port 80 against 8069 and install nginx | Wollen Sie eine Port-Umleitung auf Standard Port 80 und nginx installieren [Y/n]:"
+read myport
+
+if [ "$myport" = "Y" ]; then
+  echo "nginx will be install..."
+  sudo apt-get update
+  sudo apt-get install nginx
+  sudo cp $mysourcepath/debian/odoo.nginx /etc/nginx/sites-available/odoo.nginx
+  sudo rm /etc/nginx/sites-enabled/default 
+  sudo ln -s /etc/nginx/sites-available/odoo.nginx /etc/nginx/sites-enabled/odoo.nginx
+else
+  echo "nginx is not installed!"
+fi
 
 echo "Finished!"
