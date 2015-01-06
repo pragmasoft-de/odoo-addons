@@ -40,6 +40,7 @@ read myodoopwd
 if [ "$myodoopwd" != "" ]; then
   echo "PostgreSQL Passwort odoo wird gesetzt..."
   su postgres -c "psql --command \"CREATE USER odoo WITH PASSWORD '$myodoopwd'\""
+  su postgres -c "psql --command \"ALTER USER odoo CREATEDB\""
 fi
 
 echo "Geben Sie das Passwort für den User postgres innerhalb der PostgreSQL an:"
@@ -85,18 +86,21 @@ cp -r $myaddpath/eq_no_ad $myserverpath/addons
 cp -r $myaddpath/equitania $myserverpath/addons
 cp -r $myaddpath/eq_mail_extension $myserverpath/addons
 
-echo "Geben Sie das Passwort für den Databasemanager ein:"
+echo "Insert the password for the databasemanager | Geben Sie das Passwort für den Databasemanager ein:"
 read myadminpwd
 
 old="'admin_passwd': 'admin'"
 new="'admin_passwd': '$myadminpwd'"
 
+echo "Changing databasemanager password.."
 cp  $myserverpath/openerp/tools/config.py $mybasepath/config.py
 sed -i "s/$old/$new/g" $mybasepath/config.py
 cp  $mybasepath/config.py $myserverpath/openerp/tools
 
+echo "Preparing favicon for later exchange.."
 cp  $myserverpath/addons/web/static/src/img/favicon.ico $mybasepath/ 
 
+echo "Changing rights.."
 chown -R odoo:odoo $myserverpath 
 chown -R odoo:odoo $mysourcepath 
 chown -R odoo:odoo $mybasepath 
@@ -111,5 +115,27 @@ chmod 755 /etc/logrotate.d/odoo-server
 cp $mysourcepath/debian/openerp.init.d /etc/init.d/openerp-server
 chmod +x /etc/init.d/openerp-server
 update-rc.d openerp-server defaults
+
+echo "Do you want to use standard port 80 against 8069 and install nginx | Wollen Sie eine Port-Umleitung auf Standard Port 80 und nginx installieren [Y/n]:"
+read myport
+
+if [ "$myport" = "Y" ]; then
+  echo "nginx will be install..."
+  apt-get update
+  apt-get install nginx
+  cp $mysourcepath/debian/odoo.nginx /etc/nginx/sites-available/odoo.nginx
+  rm /etc/nginx/sites-enabled/default 
+  ln -s /etc/nginx/sites-available/odoo.nginx /etc/nginx/sites-enabled/odoo.nginx
+  old1=";xmlrpc_interface = 127.0.0.1"
+  new1="xmlrpc_interface = 127.0.0.1"
+  old2=";netrpc_interface = 127.0.0.1"
+  new2="netrpc_interface = 127.0.0.1"
+  sed -i "s/$old1/$new1/g" /etc/odoo-server.conf
+  sed -i "s/$old2/$new2/g" /etc/odoo-server.conf
+  mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.old
+  cp $mysourcepath/debian/nginx.conf /etc/nginx/nginx.conf
+else
+  echo "nginx is not installed!"
+fi
 
 echo "Finished!"

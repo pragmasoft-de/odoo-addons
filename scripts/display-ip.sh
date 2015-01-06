@@ -1,10 +1,11 @@
 #!/bin/bash
-# Mit diesem Skript wird ein Restore einer Odoo Datenbank durchgeführt
-# Verwenden Sie den Benutzer odoo > sudo su odoo
-# With this script you can restore a odoo db on postgresql
+# Mit diesem Skript wird das System so erweitert, 
+# dass die IP-Adresse beim Login angezeigt wird
+# Verwenden Sie den Benutzer root
+# With this script you can display the server ip address at start screen
 ##############################################################################
 #
-#    Shell Script for Odoo, Open Source Management Solution
+#    Shell Script for Debian / Ubuntu
 #    Copyright (C) 2014-now Equitania Software GmbH(<http://www.equitania.de>).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,34 +23,15 @@
 #
 ##############################################################################
 
-mybasepath="/opt/odoo"
-mybackuppath=$mybasepath"/backup"
+echo "Do you want to modify your system? | Wollen Sie Ihr System anpassen (Y/n):"
+read myip
 
-echo "Basepath: "$mybasepath
-echo "Backup path: "$mybackuppath
-
-
-echo "Name of the new db:"
-read mydb
-
-echo "Delete the old version of $mydb [Y/n]:"
-read mydel
-
-if [ "$mydel" == "Y" ]; then
-  dropdb -U odoo $mydb
-  echo "Delete is done."
-fi
-
-echo "Name of the backupfile without .gz an (path: $mybackuppath):"
-read mybackup
-
-if [ "$mydb" != "" ]; then
-  gunzip $mybackuppath/$mybackup".gz"
-  createdb -U odoo -T template0 $mydb
-  psql -f $mybackuppath/$mybackup -d $mydb -h localhost -p 5432
-  echo "Restore is done."
+if [ "$myip" == "Y" ]; then
+  cp get-ip-address /usr/local/bin/
+  cp show-ip-address /etc/network/if-up.d/
+  echo "Your system will now display ip at start ..."
 else
-  echo "No restore."
+  echo "No changes!"
 fi
 
 echo "Finished!"

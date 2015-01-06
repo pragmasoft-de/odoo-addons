@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mit diesem Skript werden alle Pakete für den Odoo Betrieb unter Ubuntu installiert
+# Mit diesem Skript werden alle Pakete für den Odoo Betrieb unter Debian installiert
 # Skript muss mit root-Rechten ausgeführt werden
 ##############################################################################
 #
@@ -90,8 +90,8 @@ read mypos
 
 if [ "$mypos" = "Y" ]; then
   echo "PoS will be install..."
-  sudo pip install pyserial
-  sudo pip install --pre pyusb
+  pip install pyserial
+  pip install --pre pyusb
 else
   echo "PoS is not prepared!"
 fi

@@ -1,5 +1,6 @@
 #!/bin/bash
 # Mit diesem Skript wird ein Backup einer Odoo Datenbank erstellt
+# Verwenden Sie den Benutzer odoo > sudo su odoo
 # With this script a backup for your odoo db will create
 ##############################################################################
 #
