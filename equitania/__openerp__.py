@@ -56,6 +56,7 @@
         'views/eq_report_stockpicking.xml',
         'eq_install_func.xml',
         'eq_install_func_no_update.xml',
+        'eq_stock_valuation_history_view.xml',
     ],
     'demo': [],
     'css': ['base.css'],

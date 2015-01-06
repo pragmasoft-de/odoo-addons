@@ -19,14 +19,11 @@
 #
 ##############################################################################
 
-import eq_install_func
-import eq_address_extension
-import eq_address_extension_new_api
-import eq_custom_ref
-import eq_pricelist_item_search
-import eq_company_custom_fields
-import eq_sale_order_seq
-import eq_partner_extension
-import eq_report_extension
-import eq_lead_referred
-import eq_stock_valuation_history
+from openerp.osv import fields, osv, orm
+
+class eq_stock_history(osv.osv):
+    _inherit = 'stock.history'
+    
+    _columns = {
+                'eq_uom_name': fields.related('product_id', 'uom_id', 'name', type='char', string='Unit', size=128, readonly=True),
+                }
