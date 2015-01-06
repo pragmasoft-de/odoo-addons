@@ -195,6 +195,11 @@ msgstr "ID"
 msgid "Incoterm"
 msgstr "Incoterm"
 
+#. module: sale_stock
+#: field:sale.order,incoterm:0
+msgid "Incoterm"
+msgstr "Incoterm"
+
 #. module: equitania
 #: field:product.product,eq_index:0
 #: field:product.template,eq_index:0
