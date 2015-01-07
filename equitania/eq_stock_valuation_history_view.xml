@@ -28,7 +28,6 @@
                 	<field name="eq_purchase_price" type="col"/>
                 </field>
                 <field name="location_id" position="replace">
-                	<field name="location_id" type="col"/>
                 </field>
             </field>
        	</record>
