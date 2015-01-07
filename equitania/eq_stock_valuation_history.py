@@ -20,10 +20,12 @@
 ##############################################################################
 
 from openerp.osv import fields, osv, orm
+import openerp.addons.decimal_precision as dp
 
 class eq_stock_history(osv.osv):
     _inherit = 'stock.history'
     
     _columns = {
                 'eq_uom_name': fields.related('product_id', 'uom_id', 'name', type='char', string='Unit', size=128, readonly=True),
+                'price_unit_on_quant': fields.float('Price per Unit', digits_compute=dp.get_precision('Product Price')),
                 }

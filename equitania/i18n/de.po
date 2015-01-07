@@ -931,3 +931,8 @@ msgstr "Den Ersteller eines Partners als Verkäufer erfassen."
 #: field:base.config.settings,default_creator_saleperson:0
 msgid "The creator of the address dataset will be set automatically as sales person. [equitania]"
 msgstr "Der Ersteller eines Adressdatensatzes wird automatisch als Verkäufer gesetzt. [equitania]"
+
+#. module: stock_account
+#: field:stock.history,price_unit_on_quant:0
+msgid "Price per Unit"
+msgstr "Preis pro Einheit"
