@@ -135,21 +135,23 @@ class eq_stock_history(osv.osv):
             )""")
         
     def read_group(self, cr, uid, domain, fields, groupby, offset=0, limit=None, context=None, orderby=False, lazy=True):
-        if 'eq_uom_name' in fields:
-            fields.remove('eq_uom_name')
-            if 'eq_uom_name' in groupby:
-                groupby.remove('eq_uom_name')
-        if 'eq_sale_price' in fields:
-            fields.remove('eq_sale_price')
-            if 'eq_sale_price' in groupby:
-                groupby.remove('eq_sale_price')
-        if 'eq_purchase_price' in fields:
-            fields.remove('eq_purchase_price')
-            if 'eq_purchase_price' in groupby:
-                groupby.remove('eq_purchase_price')
         res = super(eq_stock_history, self).read_group(cr, uid, domain, fields, groupby, offset=offset, limit=limit, context=context, orderby=orderby, lazy=lazy)
+        
+        for line in res:
+            print 'test'
         if context is None:
             context = {}
-        date = context.get('history_date')
-        prod_dict = {}
         return res
+    
+    def _read_group_fill_results(self, cr, uid, domain, groupby, remaining_groupbys,
+                             aggregated_fields, count_field,
+                             read_group_result, read_group_order=None, context=None):
+        if 'eq_uom_name' in aggregated_fields:
+            aggregated_fields.remove('eq_uom_name')
+        if 'eq_sale_price' in aggregated_fields:
+            aggregated_fields.remove('eq_sale_price')
+        if 'eq_purchase_price' in aggregated_fields:
+            aggregated_fields.remove('eq_purchase_price')
+        res = super(eq_stock_history, self)._read_group_fill_results(self, cr, uid, domain, groupby, remaining_groupbys,
+                             aggregated_fields, count_field,
+                             read_group_result, read_group_order=None, context=None)
