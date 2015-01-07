@@ -934,5 +934,10 @@ msgstr "Der Ersteller eines Adressdatensatzes wird automatisch als Verkäufer ge
 
 #. module: stock_account
 #: field:stock.history,price_unit_on_quant:0
-msgid "Price per Unit"
-msgstr "Preis pro Einheit"
+msgid "Price per Unit (Purchase)"
+msgstr "Preis pro Einheit (Einkauf)"
+
+#. module: stock_account
+#: field:stock.history,price_unit_on_quant:0
+msgid "Price per Unit (Sale)"
+msgstr "Preis pro Einheit (Verkauf)"

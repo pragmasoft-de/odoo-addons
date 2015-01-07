@@ -2,17 +2,36 @@
 <openerp>
     <data>
 
-		<!-- Customer Form -->
+		<!-- Stock History Form -->
         <record id="view_stock_history_report_tree_extension" model="ir.ui.view">
             <field name="name">view.stock.history.report.tree.extension</field>
             <field name="model">stock.history</field>
             <field name="inherit_id" ref="stock_account.view_stock_history_report_tree" />
             <field name="arch" type="xml">
-                <field name="product_id" position="after">
-                	<field name="eq_uom_name"/>
+                <field name="quantity" position="after">
+                	<field name="eq_lst_price"/>
                 	<field name="price_unit_on_quant"/>
+                	<field name="eq_uom_name"/>
                 </field>
             </field>
        	</record>
+
+		<!-- Stock History Graph -->
+        <record id="view_stock_history_report_graph_extension" model="ir.ui.view">
+            <field name="name">view.stock.history.report.graph.extension</field>
+            <field name="model">stock.history</field>
+            <field name="inherit_id" ref="stock_account.view_stock_history_report_graph" />
+            <field name="arch" type="xml">
+                <field name="quantity" position="after">
+                	<field name="eq_lst_price" type="measure"/>
+                	<field name="price_unit_on_quant" type="measure"/>
+                	<field name="eq_uom_name" type="col"/>
+                </field>
+                <field name="location_id" position="replace">
+                	<field name="location_id" type="col"/>
+                </field>
+            </field>
+       	</record>
+       	
 	</data>
 </openerp>
