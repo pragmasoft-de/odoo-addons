@@ -178,6 +178,7 @@
                             <span t-field="line.name"/>
                             <br/>
                             <strong t-if="o.show_delivery_date">Delivery date: <span t-field="line.get_delivery_date"/></strong>
+                            <div id="agreement_id"/>
                         </td>
                         <td class="text-right">
                             <span t-field="line.product_uom_qty"/>
