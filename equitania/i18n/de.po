@@ -933,11 +933,11 @@ msgid "The creator of the address dataset will be set automatically as sales per
 msgstr "Der Ersteller eines Adressdatensatzes wird automatisch als Verkäufer gesetzt. [equitania]"
 
 #. module: stock_account
-#: field:stock.history,price_unit_on_quant:0
+#: field:stock.history,eq_purchase_price:0
 msgid "Price per Unit (Purchase)"
 msgstr "Preis pro Einheit (Einkauf)"
 
 #. module: stock_account
-#: field:stock.history,price_unit_on_quant:0
+#: field:stock.history,eq_sale_price:0
 msgid "Price per Unit (Sale)"
 msgstr "Preis pro Einheit (Verkauf)"

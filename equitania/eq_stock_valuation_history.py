@@ -22,6 +22,7 @@
 from openerp.osv import fields, osv, orm
 import openerp.addons.decimal_precision as dp
 from openerp import tools
+from openerp.tools.translate import _
 
 class eq_wizard_valuation_history(osv.osv_memory):
     _inherit = 'wizard.valuation.history'
@@ -43,14 +44,14 @@ class eq_wizard_valuation_history(osv.osv_memory):
             'type': 'ir.actions.act_window',
             'context': ctx,
         }
-
+        
 class eq_stock_history(osv.osv):
     _inherit = 'stock.history'
     
     _columns = {
                 'eq_uom_name': fields.char(string='Unit', readonly=True),
-                'eq_lst_price': fields.float(string='Price per Unit (Sale)', readonly=True),
-                'price_unit_on_quant': fields.float('Price per Unit (Purchase)', digits_compute=dp.get_precision('Product Price')),
+                'eq_sale_price': fields.float(string='Price per Unit (Sale)', digits_compute=dp.get_precision('Product Price'), readonly=True),
+                'eq_purchase_price': fields.float(string='Price per Unit (Purchase)', digits_compute=dp.get_precision('Product Price'), readonly=True),
                 }
 
     def init(self, cr):
@@ -67,8 +68,9 @@ class eq_stock_history(osv.osv):
                 date,
                 price_unit_on_quant,
                 source,
-        eq_lst_price,
-        (SELECT name FROM product_uom WHERE id = uom_id) as eq_uom_name
+                eq_sale_price,
+                (SELECT prop.value_float FROM ir_property AS prop WHERE prop.res_id = 'product.template,' || to_char(product_template_id, 'FM9999999')) AS eq_purchase_price,
+                (SELECT name FROM product_uom WHERE id = uom_id) as eq_uom_name
                 FROM
                 ((SELECT
                     stock_move.id::text || '-' || quant.id::text AS id,
@@ -82,8 +84,9 @@ class eq_stock_history(osv.osv):
                     stock_move.date AS date,
                     quant.cost as price_unit_on_quant,
                     stock_move.origin AS source,
-            product_template.list_price as eq_lst_price,
-            product_template.uom_id as uom_id
+                    product_template.list_price as eq_sale_price,
+                    product_template.id as product_template_id,
+                    product_template.uom_id as uom_id
                 FROM
                     stock_quant as quant, stock_quant_move_rel, stock_move
                 LEFT JOIN
@@ -110,8 +113,9 @@ class eq_stock_history(osv.osv):
                     stock_move.date AS date,
                     quant.cost as price_unit_on_quant,
                     stock_move.origin AS source,
-            product_template.list_price as eq_lst_price,
-            product_template.uom_id as uom_id
+                    product_template.list_price as eq_sale_price,
+                    product_template.id as product_template_id,
+                    product_template.uom_id as uom_id
                 FROM
                     stock_quant as quant, stock_quant_move_rel, stock_move
                 LEFT JOIN
@@ -127,5 +131,5 @@ class eq_stock_history(osv.osv):
                 (dest_location.company_id is not null and source_location.company_id is null) or dest_location.company_id != source_location.company_id)
                 ))
                 AS foo
-                GROUP BY move_id, location_id, company_id, product_id, product_categ_id, date, price_unit_on_quant, source, eq_lst_price, uom_id
+                GROUP BY move_id, location_id, company_id, product_id, product_categ_id, date, price_unit_on_quant, source, eq_sale_price, eq_purchase_price, uom_id
             )""")
