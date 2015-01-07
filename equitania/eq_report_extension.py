@@ -176,16 +176,16 @@ class eq_report_extension_sale_order_line(osv.osv):
             if order_line.order_id.show_delivery_date:
                 delivery_date = datetime.strptime(order_line.eq_delivery_date, OE_DFORMAT)
                 if order_line.order_id.use_calendar_week:
-                    result[order_line.id] = 'KW ' + delivery_date.strftime('%W/%Y')
+                    result[order_line.id] = 'KW ' + delivery_date.strftime('%V/%Y')
                 else:
                     result[order_line.id] = delivery_date.strftime('%d.%m.%Y')
+            else:
+                result[purchase_line.id] = False
         
         return result
 
     _columns = {
-                'get_delivery_date': fields.function(_get_delivery_date, string="Delivery", type='char', methode=True, store={ 
-                                                                                                      'sale.order.line': ((lambda self, cr, uid, ids, c={}: ids, ['delay', 'eq_delivery_date'], 10)),
-                                                                                                      }),
+                'get_delivery_date': fields.function(_get_delivery_date, string="Delivery", type='char', methode=True, store=False),
                 'eq_delivery_date': fields.date('Delivery Date'),
                 }
     
@@ -268,7 +268,7 @@ class eq_report_extension_purchase_order_line(osv.osv):
             if purchase_line.order_id.show_delivery_date:
                 delivery_date = datetime.strptime(purchase_line.date_planned, OE_DFORMAT)
                 if purchase_line.order_id.use_calendar_week:
-                    result[purchase_line.id] = 'KW ' + delivery_date.strftime('%W/%Y')
+                    result[purchase_line.id] = 'KW ' + delivery_date.strftime('%V/%Y')
                 else:
                     result[purchase_line.id] = delivery_date.strftime('%d.%m.%Y')
             else:
@@ -276,9 +276,8 @@ class eq_report_extension_purchase_order_line(osv.osv):
         
         return result
 
-    _columns = {'get_delivery_date': fields.function(_get_delivery_date, string="Delivery", type='char', methode=True, store={ 
-                                                                                                      'purchase.order.line': ((lambda self, cr, uid, ids, c={}: ids, ['date_planned'], 10)),
-                                                                                                      }),
+    _columns = {
+                'get_delivery_date': fields.function(_get_delivery_date, string="Delivery", type='char', methode=True, store=False),
                 }
     
 class eq_report_extension_invoice(osv.osv):
