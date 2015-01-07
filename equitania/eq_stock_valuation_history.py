@@ -137,10 +137,16 @@ class eq_stock_history(osv.osv):
     def read_group(self, cr, uid, domain, fields, groupby, offset=0, limit=None, context=None, orderby=False, lazy=True):
         if 'eq_uom_name' in fields:
             fields.remove('eq_uom_name')
+            if 'eq_uom_name' in groupby:
+                groupby.remove('eq_uom_name')
         if 'eq_sale_price' in fields:
             fields.remove('eq_sale_price')
+            if 'eq_sale_price' in groupby:
+                groupby.remove('eq_sale_price')
         if 'eq_purchase_price' in fields:
             fields.remove('eq_purchase_price')
+            if 'eq_purchase_price' in groupby:
+                groupby.remove('eq_purchase_price')
         res = super(eq_stock_history, self).read_group(cr, uid, domain, fields, groupby, offset=offset, limit=limit, context=context, orderby=orderby, lazy=lazy)
         if context is None:
             context = {}
