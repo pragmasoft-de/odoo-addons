@@ -5,6 +5,10 @@
     body {
         color: #000 !important;
     }
+    
+    td {
+        vertical-align:top;
+    }
     .border-black td {
         border-top: 1px solid black !important;
     }
