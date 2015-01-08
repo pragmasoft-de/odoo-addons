@@ -108,39 +108,41 @@ class eq_install_func(osv.osv):
     
     def _load_translation(self, cr, uid, ids=None, context=None):
         addon_folder = get_module_path('equitania')
-
-        po = polib.pofile(addon_folder + '/i18n/de.po')
-        valid_entries = [e for e in po if not e.obsolete]
-        ir_translation_obj = self.pool.get('ir.translation')
-        ir_ui_view_obj = self.pool.get('ir.ui.view')
-        ir_translation_obj.clear_caches()
-        for entry in valid_entries:
-            for occurence in entry.occurrences:
-                occurence_split = occurence[0].split(':')
-                #Views
-                if occurence_split[0] == 'view':
-                    #website reports
-                    if occurence_split[1] == 'website':
-                        report_id = occurence_split[2].split('.')[-1]
-                        if len(ir_ui_view_obj.search(cr, uid, [('name', '=', report_id)])) != 0:
-                            view_id = ir_ui_view_obj.search(cr, uid, [('name', '=', report_id)])[0]
-                            translation_id = ir_translation_obj.search(cr, uid, [('src', '=', entry.msgid), ('res_id', '=', view_id), ('name', '=', occurence_split[1]), ('lang', '=', 'de_DE')])
-                            if len(translation_id) != 0:
-                                vals = {
-                                        'value': entry.msgstr,
-                                        'state': 'translated',
-                                        }
-                                ir_translation_obj.write(cr, uid, translation_id[0], vals)
-                            else:
-                                vals = {
-                                        'lang': 'de_DE',
-                                        'src': entry.msgid,
-                                        'name': 'website',
-                                        'res_id': view_id,
-                                        'module': occurence_split[2].split('.')[0],
-                                        'state': 'translated',
-                                        'value': entry.msgstr,
-                                        'type': occurence_split[0],
-                                        }
-                                ir_translation_obj.create(cr, uid, vals)
+        
+        german_lang = self.pool.get('res.lang').search(cr, uid, [('code', '=', 'de_DE')])
+        if len(german_lang) != 0:
+            po = polib.pofile(addon_folder + '/i18n/de.po')
+            valid_entries = [e for e in po if not e.obsolete]
+            ir_translation_obj = self.pool.get('ir.translation')
+            ir_ui_view_obj = self.pool.get('ir.ui.view')
+            ir_translation_obj.clear_caches()
+            for entry in valid_entries:
+                for occurence in entry.occurrences:
+                    occurence_split = occurence[0].split(':')
+                    #Views
+                    if occurence_split[0] == 'view':
+                        #website reports
+                        if occurence_split[1] == 'website':
+                            report_id = occurence_split[2].split('.')[-1]
+                            if len(ir_ui_view_obj.search(cr, uid, [('name', '=', report_id)])) != 0:
+                                view_id = ir_ui_view_obj.search(cr, uid, [('name', '=', report_id)])[0]
+                                translation_id = ir_translation_obj.search(cr, uid, [('src', '=', entry.msgid), ('res_id', '=', view_id), ('name', '=', occurence_split[1]), ('lang', '=', 'de_DE')])
+                                if len(translation_id) != 0:
+                                    vals = {
+                                            'value': entry.msgstr,
+                                            'state': 'translated',
+                                            }
+                                    ir_translation_obj.write(cr, uid, translation_id[0], vals)
+                                else:
+                                    vals = {
+                                            'lang': 'de_DE',
+                                            'src': entry.msgid,
+                                            'name': 'website',
+                                            'res_id': view_id,
+                                            'module': occurence_split[2].split('.')[0],
+                                            'state': 'translated',
+                                            'value': entry.msgstr,
+                                            'type': occurence_split[0],
+                                            }
+                                    ir_translation_obj.create(cr, uid, vals)
         return True
