@@ -29,4 +29,3 @@ import eq_sale_order_seq
 import eq_partner_extension
 import eq_report_extension
 import eq_lead_referred
-import eq_stock_valuation_history

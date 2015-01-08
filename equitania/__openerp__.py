@@ -45,7 +45,6 @@
         'eq_partner_extension_view.xml',
         'eq_report_extension_view.xml',
         'eq_lead_referred_view.xml',
-        'eq_stock_valuation_history_view.xml',
         'views/eq_footer.xml',
         'views/eq_header.xml',
         'views/eq_report_purchase_order.xml',
