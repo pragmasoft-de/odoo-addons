@@ -131,6 +131,9 @@
 			<table class="table table-condensed" t-if="not o.pack_operation_ids">
 				<thead>
 					<tr>
+                        <th>
+    						<strong>Product</strong>
+						</th>
 						<th>
 							<strong>Item description</strong>
 						</th>
@@ -154,8 +157,11 @@
 				</thead>
 				<tbody>
 					<tr t-foreach="o.move_lines" t-as="move">
-						<td>
+    					<td>
 							<span t-field="move.product_id"/>
+						</td>
+						<td>
+							<span t-field="move.name"/>
 						</td>
 						<td class="text-right">
 							<span t-field="move.product_uom_qty"/>
