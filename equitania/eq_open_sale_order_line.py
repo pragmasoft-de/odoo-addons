@@ -27,6 +27,8 @@ from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DFORMAT
 class eq_open_sale_order_line(models.Model):
     _auto = False
     _name = 'eq_open_sale_order_line'
+    _order = 'eq_delivery_date'
+    _rec_name = 'eq_product_no'
     
     # Felder
     eq_order_id = fields.Many2one('sale.order', string="Sale Order")
@@ -58,4 +60,5 @@ class eq_open_sale_order_line(models.Model):
             (select description_sale from product_template where id = (select product_tmpl_id from product_product where id = product_id)) as eq_description,
             (select eq_drawing_number from product_template where id = (select product_tmpl_id from product_product where id = product_id)) as eq_drawing_no
             FROM sale_order_line as main
-            Group by eq_order_id, eq_agreement_id, eq_customer_no, eq_customer, eq_delivery_date, eq_pos, eq_quantity, eq_product_no, eq_description, eq_drawing_no, main.id))""")
+            Group by eq_order_id, eq_agreement_id, eq_customer_no, eq_customer, eq_delivery_date, eq_pos, eq_quantity, eq_product_no, eq_description, eq_drawing_no, main.id
+            ))""")
