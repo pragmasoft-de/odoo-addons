@@ -19,7 +19,7 @@
                                         <br/>Zuständig
                                 </th>
                                 <th style="vertical-align:top!important;">
-                                    <strong>K-Nr.</strong>
+                                    <strong>KD-Nr.</strong>
                                 </th>
                                 <th style="vertical-align:top!important;">
                                     <strong>Kunde</strong>
@@ -35,7 +35,7 @@
                                     <strong>Menge</strong>
                                 </th>
                                 <th class="text-right" style="vertical-align:top!important;">
-                                    <strong>RestMenge</strong>
+                                    <strong>Restmenge</strong>
                                 </th>
                                 <th style="vertical-align:top!important;">
                                     <strong>Produktnummer</strong>
