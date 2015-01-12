@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-02 13:38+0000\n"
-"PO-Revision-Date: 2014-12-02 13:38+0000\n"
+"POT-Creation-Date: 2015-01-12 15:53+0000\n"
+"PO-Revision-Date: 2015-01-12 15:53+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,6 +20,11 @@ msgstr ""
 #, python-format
 msgid "%s, Min. %s New Price %s"
 msgstr "%s, Mindestmenge %s, Neuer Preis %s"
+
+#. module: equitania
+#: view:website:stock.report_picking
+msgid "Barcode"
+msgstr "Barcode"
 
 #. module: equitania
 #: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
@@ -38,13 +43,23 @@ msgid "Cancel"
 msgstr "Abbrechen"
 
 #. module: equitania
+#: view:website:account.report_invoice_document
+msgid "Cancelled invoice"
+msgstr "Stornierte Rechnung"
+
+#. module: equitania
+#: view:website:stock.report_picking
+msgid "Commitment Date"
+msgstr "Bestelldatum"
+
+#. module: equitania
 #: model:ir.model,name:equitania.model_res_company
 msgid "Companies"
 msgstr "Unternehmen"
 
 #. module: equitania
-#: code:addons/equitania/eq_address_extension_new_api.py:54
-#: code:addons/equitania/eq_address_extension_new_api.py:56
+#: code:addons/equitania/eq_address_extension_new_api.py:71
+#: code:addons/equitania/eq_address_extension_new_api.py:73
 #, python-format
 msgid "Company"
 msgstr "Company"
@@ -72,9 +87,18 @@ msgid "Contact Person"
 msgstr "Kontaktperson"
 
 #. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:purchase.report_purchasequotation_document
+#: view:website:sale.report_saleorder_document
+msgid "Contact person"
+msgstr "Kontaktperson"
+
+#. module: equitania
 #: field:eq.delivery.conditions,create_uid:0
 #: field:eq.lead.referred,create_uid:0
 #: field:eq_install_func,create_uid:0
+#: field:eq_inventorylist,create_uid:0
 #: field:eq_pricelist_item_search,create_uid:0
 msgid "Created by"
 msgstr "Erstellt von"
@@ -83,6 +107,7 @@ msgstr "Erstellt von"
 #: field:eq.delivery.conditions,create_date:0
 #: field:eq.lead.referred,create_date:0
 #: field:eq_install_func,create_date:0
+#: field:eq_inventorylist,create_date:0
 #: field:eq_pricelist_item_search,create_date:0
 msgid "Created on"
 msgstr "Erstellt am"
@@ -113,10 +138,28 @@ msgid "Custom 4"
 msgstr "Zusatz 4"
 
 #. module: equitania
+#: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
+#: field:eq_open_sale_order_line,eq_customer:0
+msgid "Customer"
+msgstr "Kunde"
+
+#. module: equitania
+#: field:eq_open_sale_order_line,eq_customer_no:0
+msgid "Customer No"
+msgstr "K.-Nr."
+
+#. module: equitania
 #: view:res.partner:equitania.view_partner_form
 #: field:res.partner,eq_customer_ref:0
 msgid "Customer Number"
 msgstr "Kundennummer"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:sale.report_saleorder_document
+#: view:website:stock.report_picking
+msgid "Customer no."
+msgstr "Kundennr."
 
 #. module: equitania
 #: view:account.invoice:equitania.eq_invoice_form
@@ -124,6 +167,12 @@ msgstr "Kundennummer"
 #: view:sale.order:equitania.eq_sale_order_form
 msgid "Dear Sir or Madam,"
 msgstr "Sehr geehrte Damen und Herren,"
+
+#. module: equitania
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:purchase.report_purchasequotation_document
+msgid "Deliver to:"
+msgstr "Bitte liefern Sie an unser Auslieferungslager:"
 
 #. module: equitania
 #: field:purchase.order.line,get_delivery_date:0
@@ -146,9 +195,43 @@ msgid "Delivery Date"
 msgstr "Lieferdatum"
 
 #. module: equitania
+#: field:eq_open_sale_order_line,eq_delivery_date:0
+#: view:website:purchase.report_purchasequotation_document
+msgid "Delivery date"
+msgstr "Liefertermin"
+
+#. module: equitania
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:sale.report_saleorder_document
+msgid "Delivery date:"
+msgstr "Liefertermin:"
+
+#. module: equitania
+#: view:website:stock.report_picking
+msgid "Delivery note:"
+msgstr "Lieferschein:"
+
+#. module: equitania
 #: field:eq.lead.referred,eq_description:0
+#: field:eq_open_sale_order_line,eq_description:0
 msgid "Description"
 msgstr "Beschreibung"
+
+#. module: equitania
+#: view:website:stock.report_picking
+msgid "Destination"
+msgstr "Zielort"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:sale.report_saleorder_document
+msgid "Discount (%)"
+msgstr "Rabatt (%)"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+msgid "Draft invoice"
+msgstr "Rechnungsentwurf"
 
 #. module: equitania
 #: field:product.product,eq_drawing_number:0
@@ -157,16 +240,62 @@ msgid "Drawing Number"
 msgstr "Zeichnungsnummer"
 
 #. module: equitania
-#: code:addons/equitania/eq_report_extension.py:127
+#: field:eq_open_sale_order_line,eq_drawing_no:0
+msgid "Drawing number"
+msgstr "Zeichnungsnummer"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:purchase.report_purchasequotation_document
+#: view:website:sale.report_saleorder_document
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#. module: equitania
+#: code:addons/equitania/eq_report_extension.py:129
 #, python-format
 msgid "Error!"
 msgstr "Fehler!"
+
+#. module: equitania
+#: field:mrp.production,eq_finished_work_preperation:0
+msgid "Finished Work Preperation"
+msgstr "Arbeitsvorbereitungen abgeschlossen"
 
 #. module: equitania
 #: view:res.partner:equitania.eq_partner_extension_form_view
 #: field:res.partner,eq_firstname:0
 msgid "Firstname"
 msgstr "Vorname"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:purchase.report_purchasequotation_document
+#: view:website:sale.report_saleorder_document
+msgid "For further information, please contact"
+msgstr "Bei Rückfragen wenden Sie sich bitte an"
+
+#. module: equitania
+#: field:eq_open_sale_order_line,eq_framework_agreement_id:0
+msgid "Framework Agreement"
+msgstr "Rahmenauftrag"
+
+#. module: equitania
+#: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
+msgid "Frameworkagreement"
+msgstr "Rahmenauftrag"
+
+#. module: equitania
+#: view:website:stock.report_picking
+msgid "Goods received on date:"
+msgstr "Ware erhalten am:"
+
+#. module: equitania
+#: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
+msgid "Group By"
+msgstr "Group By"
 
 #. module: equitania
 #: field:account.invoice,eq_head_text:0
@@ -186,6 +315,8 @@ msgstr "Kopftext"
 #: field:eq.delivery.conditions,id:0
 #: field:eq.lead.referred,id:0
 #: field:eq_install_func,id:0
+#: field:eq_inventorylist,id:0
+#: field:eq_open_sale_order_line,id:0
 #: field:eq_pricelist_item_search,id:0
 msgid "ID"
 msgstr "ID"
@@ -195,10 +326,12 @@ msgstr "ID"
 msgid "Incoterm"
 msgstr "Incoterm"
 
-#. module: sale_stock
-#: field:sale.order,incoterm:0
-msgid "Incoterm"
-msgstr "Incoterm"
+#. module: equitania
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:purchase.report_purchasequotation_document
+#: view:website:sale.report_saleorder_document
+msgid "Incoterm:"
+msgstr "Lieferbedingungen:"
 
 #. module: equitania
 #: field:product.product,eq_index:0
@@ -220,18 +353,51 @@ msgstr "Interne Nummer"
 
 #. module: equitania
 #: model:ir.model,name:equitania.model_account_invoice
+#: view:website:account.report_invoice_document
 msgid "Invoice"
 msgstr "Rechnung"
 
 #. module: equitania
 #: model:ir.model,name:equitania.model_account_invoice_line
 msgid "Invoice Line"
-msgstr "Rechungsposition"
+msgstr "Rechnungszeile"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+#: view:website:stock.report_picking
+msgid "Invoice address:"
+msgstr "Rechnungsanschrift:"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+msgid "Invoice date"
+msgstr "Rechnungsdatum"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+msgid "Invoice no."
+msgstr "Rechnungsnr."
 
 #. module: equitania
 #: field:eq_pricelist_item_search,eq_items_id:0
 msgid "Item"
 msgstr "Position"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:purchase.report_purchasequotation_document
+#: view:website:sale.report_saleorder_document
+#: view:website:stock.report_picking
+msgid "Item description"
+msgstr "Beschreibung"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:sale.report_saleorder_document
+msgid "Item no."
+msgstr "Artikelnr."
 
 #. module: equitania
 #: view:eq_pricelist_item_search:equitania.eq_pricelist_item_search_form_view
@@ -244,6 +410,7 @@ msgstr "Positionssuche"
 #: field:eq.delivery.conditions,write_uid:0
 #: field:eq.lead.referred,write_uid:0
 #: field:eq_install_func,write_uid:0
+#: field:eq_inventorylist,write_uid:0
 #: field:eq_pricelist_item_search,write_uid:0
 msgid "Last Updated by"
 msgstr "Zuletzt bearbeitet von"
@@ -252,6 +419,7 @@ msgstr "Zuletzt bearbeitet von"
 #: field:eq.delivery.conditions,write_date:0
 #: field:eq.lead.referred,write_date:0
 #: field:eq_install_func,write_date:0
+#: field:eq_inventorylist,write_date:0
 #: field:eq_pricelist_item_search,write_date:0
 msgid "Last Updated on"
 msgstr "Zuletzt bearbeitet am"
@@ -260,6 +428,11 @@ msgstr "Zuletzt bearbeitet am"
 #: model:ir.model,name:equitania.model_crm_lead
 msgid "Lead/Opportunity"
 msgstr "Interessent / Chance"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_mrp_production
+msgid "Manufacturing Order"
+msgstr "Fertigungsauftrag"
 
 #. module: equitania
 #: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
@@ -278,9 +451,24 @@ msgid "Name"
 msgstr "Name"
 
 #. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:sale.report_saleorder_document
+msgid "Net price"
+msgstr "Preis Netto"
+
+#. module: equitania
 #: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
 msgid "New Price ="
 msgstr "Neuer Preis ="
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:purchase.report_purchasequotation_document
+#: view:website:sale.report_saleorder_document
+msgid "Notes:"
+msgstr "Kommentar:"
 
 #. module: equitania
 #: view:res.partner:equitania.eq_inox_compatibility_partner_tree
@@ -288,14 +476,72 @@ msgid "Nummer"
 msgstr "Nummer"
 
 #. module: equitania
+#: help:sale.config.settings,default_search_only_company:0
+msgid "Only Companies will be shown in the Customer search of the Sale and Purchase Order."
+msgstr "Nur Unternehmen werden in der Partnersuche der Einkaufs- und Verkaufsaufträgen angezeigt."
+
+#. module: equitania
+#: field:sale.config.settings,default_search_only_company:0
+msgid "Only Search for Companies [equitania]"
+msgstr "Suche auf Unternehmen beschränken [equitania]"
+
+#. module: equitania
 #: view:eq_pricelist_item_search:equitania.eq_pricelist_item_search_form_view
 msgid "Open"
 msgstr "Öffnen"
 
 #. module: equitania
+#: model:ir.actions.report.xml,name:equitania.report_open_sale_order_line_action
+msgid "Open Sale Order Lines"
+msgstr "Auftragspositionen"
+
+#. module: equitania
+#: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_tree_view
+msgid "Open order lines"
+msgstr "Auftragspositionen"
+
+#. module: equitania
+#: model:ir.actions.act_window,name:equitania.eq_open_sale_order_line_action
+#: model:ir.ui.menu,name:equitania.eq_open_sale_order_line_menu
+msgid "Open sale order line"
+msgstr "Auftragspositionen"
+
+#. module: equitania
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:sale.report_saleorder_document
+msgid "Order date"
+msgstr "Bestelldatum"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:sale.report_saleorder_document
+msgid "Order no."
+msgstr "Auftrags Nr."
+
+#. module: equitania
+#: view:website:purchase.report_purchaseorder_document
+msgid "Our order reference"
+msgstr "Unsere Bestellnr."
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+#: view:website:stock.report_picking
+msgid "Our reference no."
+msgstr "Belegreferenz"
+
+#. module: equitania
+#: view:base.config.settings:equitania.view_sale_config_settings
 #: model:ir.model,name:equitania.model_res_partner
 msgid "Partner"
 msgstr "Partner"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:purchase.report_purchasequotation_document
+#: view:website:sale.report_saleorder_document
+msgid "Phone"
+msgstr "Tel"
 
 #. module: equitania
 #: model:ir.model,name:equitania.model_stock_picking
@@ -303,7 +549,7 @@ msgid "Picking List"
 msgstr "Pickliste"
 
 #. module: equitania
-#: code:addons/equitania/eq_report_extension.py:128
+#: code:addons/equitania/eq_report_extension.py:130
 #, python-format
 msgid "Please define sales journal for this company: \"%s\" (id:%d)."
 msgstr "Setzen sie das Verkaufsjournal für das Unternehmen: \"%s\" (id:%d)."
@@ -330,21 +576,28 @@ msgid "Pricelist item"
 msgstr "Preisliste Einzelposition"
 
 #. module: equitania
+#: view:website:account.report_invoice_document
+msgid "Pro-forma invoice"
+msgstr "Proforma-Rechnung"
+
+#. module: equitania
 #: model:ir.model,name:equitania.model_procurement_order
 msgid "Procurement"
 msgstr "Beschaffung"
 
 #. module: equitania
+#: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
 #: model:ir.model,name:equitania.model_product_product
 #: view:product.product:equitania.eq_product_search_form_view
 #: view:product.template:equitania.eq_product_template_search_view
+#: view:website:stock.report_picking
 msgid "Product"
 msgstr "Produkt"
 
 #. module: equitania
 #: model:ir.model,name:equitania.model_product_category
 msgid "Product Category"
-msgstr "Produktkategorie"
+msgstr "Produkt Kategorie"
 
 #. module: equitania
 #: view:product.product:equitania.eq_product_product_form_view
@@ -358,12 +611,18 @@ msgid "Product Template"
 msgstr "Produktvorlage"
 
 #. module: equitania
+#: field:eq_open_sale_order_line,eq_product_no:0
+msgid "Product number"
+msgstr "Produktnummer"
+
+#. module: equitania
 #: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
 msgid "Products Listprices Items"
 msgstr "Elemente in Produktpreisliste"
 
 #. module: equitania
 #: model:ir.model,name:equitania.model_purchase_order
+#: view:website:purchase.report_purchaseorder_document
 msgid "Purchase Order"
 msgstr "Bestellung"
 
@@ -373,9 +632,53 @@ msgid "Purchase Order Line"
 msgstr "Bestellposition"
 
 #. module: equitania
+#: view:website:purchase.report_purchasequotation_document
+msgid "Purchase quotation"
+msgstr "Anfrage für ein Angebot"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:purchase.report_purchasequotation_document
+#: view:website:sale.report_saleorder_document
+#: view:website:stock.report_picking
+msgid "Qty."
+msgstr "Menge"
+
+#. module: equitania
+#: field:eq_open_sale_order_line,eq_quantity:0
+msgid "Quantity"
+msgstr "Menge"
+
+#. module: equitania
+#: field:eq_open_sale_order_line,eq_quantity_left:0
+msgid "Quantity left"
+msgstr "RestMenge"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Quotation"
+msgstr "Angebot"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Quotation date"
+msgstr "Angebotsdatum"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Quotation no."
+msgstr "Angebots Nr."
+
+#. module: equitania
 #: field:crm.lead,eq_lead_referred_id:0
 msgid "Referred By"
 msgstr "Vermittelt durch"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+msgid "Refund"
+msgstr "Rückerstattung"
 
 #. module: equitania
 #: view:purchase.config.settings:equitania.eq_view_purchase_config_settings_delivery
@@ -389,8 +692,12 @@ msgid "Rounding Method"
 msgstr "Rundungsverfahren"
 
 #. module: equitania
+#: field:eq_open_sale_order_line,eq_order_id:0
+msgid "Sale Order"
+msgstr "Auftrag"
+
+#. module: equitania
 #: field:account.invoice,eq_ref_number:0
-#: field:procurement.order,eq_ref_number:0
 #: field:stock.picking,eq_ref_number:0
 msgid "Sale Order Referenc"
 msgstr "Sale Order Referenc"
@@ -399,6 +706,16 @@ msgstr "Sale Order Referenc"
 #: field:sale.config.settings,default_use_sales_person_as_contact:0
 msgid "Sale Person as Contact Person"
 msgstr "Verkäufer ist Kontaktperson"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Sale order"
+msgstr "Auftragsbestätigung"
+
+#. module: equitania
+#: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
+msgid "Saleorder"
+msgstr "Verkaufsauftrag"
 
 #. module: equitania
 #: model:ir.model,name:equitania.model_sale_order
@@ -416,14 +733,34 @@ msgid "Save"
 msgstr "Speichern"
 
 #. module: equitania
+#: view:website:stock.report_picking
+msgid "Scheduled date"
+msgstr "Geplante Lieferung"
+
+#. module: equitania
 #: view:eq_pricelist_item_search:equitania.eq_pricelist_item_search_form_view
 msgid "Search Item"
 msgstr "Positionssuche"
 
 #. module: equitania
+#: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
+msgid "Search Partner"
+msgstr "Search Partner"
+
+#. module: equitania
+#: field:eq_open_sale_order_line,eq_pos:0
+msgid "Seq"
+msgstr "Pos."
+
+#. module: equitania
 #: help:sale.config.settings,default_use_sales_person_as_contact:0
 msgid "Sets the Sale Person as the Contact Person in the Sale Order, only when creating."
 msgstr "Setzt den Verkäufer als Kontaktperson."
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Shipping address:"
+msgstr "Lieferanschrift:"
 
 #. module: equitania
 #: field:purchase.config.settings,default_use_calendar_week:0
@@ -437,9 +774,9 @@ msgid "Show Delivery Date"
 msgstr "Liefertermin Anzeige"
 
 #. module: equitania
-#: view:sale.config.settings:equitania.view_sale_config_settings
-msgid "Show street and city in the partner search of the saleorder [equitania]"
-msgstr "Zeige die Straße und den Ort der Partner Suche des Angebotes/Verkaufsauftrages an [equitania]"
+#: field:sale.config.settings,default_show_address:0
+msgid "Show street and city in the partner search of the Sale and Purchase Order [equitania]"
+msgstr "Zeige die Straße und den Ort in den Verkaufs- und Einkaufsaufträgen an [equitania]"
 
 #. module: equitania
 #: field:purchase.order,show_delivery_date:0
@@ -457,10 +794,54 @@ msgid "Show the Delivery Date on the Sale Order [equitania]"
 msgstr "Liefertermin auf Angebot und Auftragsbestätigung anzeigen [equitania]"
 
 #. module: equitania
+#: view:website:stock.report_picking
+msgid "Signature"
+msgstr "Unterschrift"
+
+#. module: equitania
+#: view:website:stock.report_picking
+msgid "Source"
+msgstr "Aus Lager"
+
+#. module: equitania
 #: view:product.product:equitania.eq_product_product_form_view
 #: view:product.template:equitania.eq_product_product_template_only_form_view
 msgid "State"
 msgstr "Status"
+
+#. module: equitania
+#: view:website:stock.report_picking
+msgid "Status"
+msgstr "Status"
+
+#. module: equitania
+#: view:website:stock.report_picking
+msgid "Supplier Address:"
+msgstr "Lieferanten Anschrift"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+msgid "Supplier Invoice"
+msgstr "Rechnung Lieferant"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+msgid "Supplier Refund"
+msgstr "Rückerstattung Lieferant"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:purchase.report_purchaseorder_document
+msgid "Supplier no."
+msgstr "Lieferantennr."
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:purchase.report_purchasequotation_document
+#: view:website:sale.report_saleorder_document
+msgid "Term of payment:"
+msgstr "Zahlungsbedingungen:"
 
 #. module: equitania
 #: help:res.company,eq_custom_1:0
@@ -469,6 +850,11 @@ msgstr "Status"
 #: help:res.company,eq_custom_4:0
 msgid "The content of this field may be used in the header or footer of reports."
 msgstr "Der Inhalt dieser Felder kann für die Reports benutzt werden."
+
+#. module: equitania
+#: field:base.config.settings,default_creator_saleperson:0
+msgid "The creator of the address dataset will be set automatically as sales person. [equitania]"
+msgstr "Der Ersteller eines Adressdatensatzes wird automatisch als Verkäufer gesetzt. [equitania]"
 
 #. module: equitania
 #: help:sale.config.settings,default_use_calendar_week:0
@@ -491,9 +877,9 @@ msgid "The delivery date will be shown in the Sale Order"
 msgstr "Der Liefertermin wird im Angebot/Verkaufsauftrag angezeigt."
 
 #. module: equitania
-#: field:sale.config.settings,default_show_address:0
-msgid "Show street and city in the partner search of the Sale and Purchase Order [equitania]"
-msgstr "Zeige die Straße und den Ort in den Verkaufs- und Einkaufsaufträgen an [equitania]"
+#: help:sale.config.settings,default_show_address:0
+msgid "This adds the street and the city to the results of the partner search of the Sale and Purchase Order."
+msgstr "This adds the street and the city to the results of the partner search of the Sale and Purchase Order."
 
 #. module: equitania
 #: view:res.partner:equitania.eq_partner_extension_form_view
@@ -501,9 +887,36 @@ msgid "Titel"
 msgstr "Titel"
 
 #. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:sale.report_saleorder_document
+msgid "Total sum"
+msgstr "Summe Brutto"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:sale.report_saleorder_document
+msgid "Total without taxes"
+msgstr "Summe Netto"
+
+#. module: equitania
 #: view:res.partner:equitania.view_partner_form_inherited1
 msgid "Type:"
 msgstr "Typ:"
+
+#. module: equitania
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:sale.report_saleorder_document
+msgid "Unit"
+msgstr "Einheit"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:sale.report_saleorder_document
+msgid "Unit price"
+msgstr "Preis"
 
 #. module: equitania
 #: view:product.product:equitania.eq_product_product_form_view
@@ -524,19 +937,52 @@ msgid "Users"
 msgstr "Benutzer"
 
 #. module: equitania
-#: code:addons/equitania/eq_address_extension_new_api.py:60
+#: view:website:stock.report_picking
+msgid "Warehouse Address:"
+msgstr "Lager Anschrift:"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_wizard_valuation_history
+msgid "Wizard that opens the stock valuation history table"
+msgstr "Dieser Assistent öffnet die Übersicht für die Lagerbestandshistorie"
+
+#. module: equitania
+#: view:website:purchase.report_purchasequotation_document
+msgid "Your message"
+msgstr "Ihre Nachricht"
+
+#. module: equitania
+#: view:website:purchase.report_purchaseorder_document
+#: view:website:purchase.report_purchasequotation_document
+msgid "Your order reference"
+msgstr "Ihre Bestellnr."
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:sale.report_saleorder_document
+#: view:website:stock.report_picking
+msgid "Your reference no."
+msgstr "Referenz des Kunden"
+
+#. module: equitania
+#: view:website:purchase.report_purchasequotation_document
+msgid "Your request no."
+msgstr "Ihre Anfragenr."
+
+#. module: equitania
+#: code:addons/equitania/eq_address_extension_new_api.py:77
 #, python-format
 msgid "contact"
 msgstr "Kontakt"
 
 #. module: equitania
-#: code:addons/equitania/eq_address_extension_new_api.py:66
+#: code:addons/equitania/eq_address_extension_new_api.py:83
 #, python-format
 msgid "default"
 msgstr "Standard"
 
 #. module: equitania
-#: code:addons/equitania/eq_address_extension_new_api.py:64
+#: code:addons/equitania/eq_address_extension_new_api.py:81
 #, python-format
 msgid "delivery"
 msgstr "Lieferung"
@@ -547,397 +993,25 @@ msgid "e.g. Sales Director"
 msgstr "z.B. Verkaufsleiter"
 
 #. module: equitania
-#: code:addons/equitania/eq_address_extension_new_api.py:62
+#: code:addons/equitania/eq_address_extension_new_api.py:79
 #, python-format
 msgid "invoice"
 msgstr "Rechnung"
 
 #. module: equitania
-#: code:addons/equitania/eq_address_extension_new_api.py:68
+#: view:eq_pricelist_item_search:equitania.eq_pricelist_item_search_form_view
+#: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
+msgid "or"
+msgstr "oder"
+
+#. module: equitania
+#: code:addons/equitania/eq_address_extension_new_api.py:85
 #, python-format
 msgid "other"
 msgstr "Andere"
 
-#. module: sale,account,stock
-#: view:website:stock.report_picking
-#: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
-msgid "Customer no."
-msgstr "Kundennr."
-
-#. module: purchase,account
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:account.report_invoice_document
-msgid "Supplier no."
-msgstr "Lieferantennr."
-
-#. module: purchase
-#: view:website:purchase.report_purchasequotation_document
-msgid "Your request no."
-msgstr "Ihre Anfragenr."
-
-#. module: purchase
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:purchase.report_purchasequotation_document
-msgid "Your order reference"
-msgstr "Ihre Bestellnr."
-
-#. module: purchase
-#: view:website:purchase.report_purchasequotation_document
-msgid "Your message"
-msgstr "Ihre Nachricht"
-
-#. module: purchase
-#: view:website:purchase.report_purchaseorder_document
-msgid "Our order reference"
-msgstr "Unsere Bestellnr."
-
-#. module: sale,account,stock
-#: view:website:stock.report_picking
-#: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
-msgid "Your reference no."
-msgstr "Referenz des Kunden"
-
-#. module: sale,account
-#: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
-msgid "Order no."
-msgstr "Auftrags Nr."
-
-#. module: sale
-#: view:website:sale.report_saleorder_document
-msgid "Quotation no."
-msgstr "Angebots Nr."
-
-#. module: account
-#: view:website:account.report_invoice_document
-msgid "Invoice no."
-msgstr "Rechnungsnr."
-
-#. module: sale,stock
-#: view:website:stock.report_picking
-#: view:website:sale.report_saleorder_document
-msgid "Our reference no."
-msgstr "Belegreferenz"
-
-#. module: sale,stock
-#: view:website:stock.report_picking
-#: view:website:sale.report_saleorder_document
-msgid "Our reference no."
-msgstr "Belegreferenz"
-
-#. module: purchase,sale
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:sale.report_saleorder_document
-msgid "Order date"
-msgstr "Bestelldatum"
-
-#. module: sale
-#: view:website:sale.report_saleorder_document
-msgid "Quotation date"
-msgstr "Angebotsdatum"
-
-#. module: account
-#: view:website:account.report_invoice_document
-msgid "Invoice date"
-msgstr "Rechnungsdatum"
-
-#. module: purchase,sale,account
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:purchase.report_purchasequotation_document
-#: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
-msgid "For further information, please contact"
-msgstr "Bei Rückfragen wenden Sie sich bitte an"
-
-#. module: purchase,sale,account
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:purchase.report_purchasequotation_document
-#: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
-msgid "Contact person"
-msgstr "Kontaktperson"
-
-#. module: purchase,sale,account
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:purchase.report_purchasequotation_document
-#: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
-msgid "Phone"
-msgstr "Tel"
-
-#. module: purchase,sale,account
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:purchase.report_purchasequotation_document
-#: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
-msgid "E-Mail"
-msgstr "E-Mail"
-
-#. module: purchase
-#: view:website:purchase.report_purchaseorder_document
-msgid "Purchase Order"
-msgstr "Bestellung"
-
-#. module: sale
-#: view:website:sale.report_saleorder_document
-msgid "Sale order"
-msgstr "Auftragsbestätigung"
-
-#. module: sale
-#: view:website:sale.report_saleorder_document
-msgid "Quotation"
-msgstr "Angebot"
-
-#. module: account
-#: view:website:account.report_invoice_document
-msgid "Invoice"
-msgstr "Rechnung"
-
-#. module: account
-#: view:website:account.report_invoice_document
-msgid "Pro-forma invoice"
-msgstr "Proforma-Rechnung"
-
-#. module: account
-#: view:website:account.report_invoice_document
-msgid "Draft invoice"
-msgstr "Rechnungsentwurf"
-
-#. module: account
-#: view:website:account.report_invoice_document
-msgid "Cancelled invoice"
-msgstr "Stornierte Rechnung"
-
-#. module: account
-#: view:website:account.report_invoice_document
-msgid "Refund"
-msgstr "Rückerstattung"
-
-#. module: account
-#: view:website:account.report_invoice_document
-msgid "Supplier Refund"
-msgstr "Rückerstattung Lieferant"
-
-#. module: account
-#: view:website:account.report_invoice_document
-msgid "Supplier Invoice"
-msgstr "Rechnung Lieferant"
-
-#. module: purchase
-#: view:website:purchase.report_purchasequotation_document
-msgid "Purchase quotation"
-msgstr "Anfrage für ein Angebot"
-
-#. module: purchase,sale,account
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
-msgid "Item no."
-msgstr "Artikelnr."
-
-#. module: purchase,sale,account,stock
-#: view:website:stock.report_picking
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:purchase.report_purchasequotation_document
-#: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
-msgid "Item description"
-msgstr "Beschreibung"
-
-#. module: purchase,sale,account,stock
-#: view:website:stock.report_picking
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:purchase.report_purchasequotation_document
-#: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
-msgid "Qty."
-msgstr "Menge"
-
-#. module: purchase,sale
-#: field:stock.history,eq_uom_name:0
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:sale.report_saleorder_document
-msgid "Unit"
-msgstr "Einheit"
-
-#. module: purchase,sale,account
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
-msgid "Unit price"
-msgstr "Preis"
-
-#. module: purchase,sale,account
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
-msgid "Net price"
-msgstr "Preis Netto"
-
-#. module: sale,account
-#: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
-msgid "Discount"
-msgstr "Rabatt"
-
-#. module: purchase,sale
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:purchase.report_purchasequotation_document
-#: view:website:sale.report_saleorder_document
-msgid "Delivery date"
-msgstr "Liefertermin"
-
-#. module: purchase,sale
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:purchase.report_purchasequotation_document
-#: view:website:sale.report_saleorder_document
-msgid "Delivery date:"
-msgstr "Liefertermin:"
-
-#. module: stock
-#: view:website:stock.report_picking
-msgid "Delivery note:"
-msgstr "Lieferschein:"
-
-#. module: purchase,sale,account
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
-msgid "Total without taxes"
-msgstr "Summe Netto"
-
-#. module: purchase,sale,account
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
-msgid "Total sum"
-msgstr "Summe Brutto"
-
-#. module: purchase,sale,account
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:purchase.report_purchasequotation_document
-#: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
-msgid "Term of payment:"
-msgstr "Zahlungsbedingungen:"
-
-#. module: purchase,sale
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:purchase.report_purchasequotation_document
-#: view:website:sale.report_saleorder_document
-msgid "Incoterm:"
-msgstr "Lieferbedingungen:"
-
-#. module: purchase,sale,account
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:purchase.report_purchasequotation_document
-#: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
-msgid "Notes:"
-msgstr "Kommentar:"
-
-#. module: purchase
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:purchase.report_purchasequotation_document
-msgid "Deliver to:"
-msgstr "Bitte liefern Sie an unser Auslieferungslager:"
-
-#. module: sale
-#: view:website:sale.report_saleorder_document
-msgid "Shipping address:"
-msgstr "Lieferanschrift:"
-
-#. module: sale,stock
-#: view:website:stock.report_picking
-#: view:website:sale.report_saleorder_document
-msgid "Invoice address:"
-msgstr "Rechnungsanschrift:"
-
-#. module: stock
-#: view:website:stock.report_picking
-msgid "Status"
-msgstr "Status"
-
-#. module: stock
-#: view:website:stock.report_picking
-msgid "Commitment Date"
-msgstr "Bestelldatum"
-
-#. module: stock
-#: view:website:stock.report_picking
-msgid "Scheduled date"
-msgstr "Geplante Lieferung"
-
-#. module: stock
-#: view:website:stock.report_picking
-msgid "Source"
-msgstr "Aus Lager"
-
-#. module: stock
-#: view:website:stock.report_picking
-msgid "Barcode"
-msgstr "Barcode"
-
-#. module: stock
-#: view:website:stock.report_picking
-msgid "Destination"
-msgstr "Zielort"
-
-#. module: stock
-#: view:website:stock.report_picking
-msgid "Goods received on date:"
-msgstr "Ware erhalten am:"
-
-#. module: stock
-#: view:website:stock.report_picking
-msgid "Signature"
-msgstr "Unterschrift"
-
 #. module: equitania
-#: field:product.category,eq_custom01:0
-#: field:product.pricelist.version,eq_custom01:0
-#: field:product.product,eq_default_code_dub:0
-#: field:product.product,eq_state_dup:0
-#: field:product.template,eq_default_code_dub:0
-#: field:product.template,eq_state_dup:0
-#: field:res.partner,eq_custom01:0
-#: field:res.users,eq_custom01:0
-msgid "unknown"
-msgstr "unknown"
+#: model:ir.actions.report.xml,name:equitania.report_open_sale_order_line_action
+msgid "Open Sale Order Lines"
+msgstr "Offene Auftragspositionen"
 
-#. module: equitania
-#: help:sale.config.settings,default_search_only_company:0
-msgid "Only Companies will be shown in the Customer search of the Sale and Purchase Order."
-msgstr "Nur Unternehmen werden in der Partnersuche der Einkaufs- und Verkaufsaufträgen angezeigt."
-
-#. module: equitania
-#: field:sale.config.settings,default_search_only_company:0
-msgid "Only Search for Companies [equitania]"
-msgstr "Suche auf Unternehmen beschränken [equitania]"
-
-#. module: equitania
-#: view:sale.config.settings:equitania.view_sale_config_settings
-msgid "Only search for Companies in the Sale Order/Quotation [equitania]"
-msgstr "Im Angebot/Verkaufsauftrag nur nach Unternehmen suchen [equitania]"
-
-#. module: equitania
-#: view:base.config.settings:equitania.view_sale_config_settings
-msgid "The creator of the partner is automatically the Saleperson"
-msgstr "Den Ersteller eines Partners als Verkäufer erfassen."
-
-#. module: equitania
-#: field:base.config.settings,default_creator_saleperson:0
-msgid "The creator of the address dataset will be set automatically as sales person. [equitania]"
-msgstr "Der Ersteller eines Adressdatensatzes wird automatisch als Verkäufer gesetzt. [equitania]"
-
-#. module: stock_account
-#: field:stock.history,eq_purchase_price:0
-msgid "Price per Unit (Purchase)"
-msgstr "Preis pro Einheit (Einkauf)"
-
-#. module: stock_account
-#: field:stock.history,eq_sale_price:0
-msgid "Price per Unit (Sale)"
-msgstr "Preis pro Einheit (Verkauf)"
