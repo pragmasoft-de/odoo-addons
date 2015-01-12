@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report 
+            id="report_open_sale_order_line_action"
+            string="Open Sale Order Lines"
+            model="eq_open_sale_order_line" 
+            report_type="qweb-pdf"
+            file="equitania.report_open_sale_order_line" 
+            name="equitania.report_open_sale_order_line" 
+        />
+    </data>
+</openerp>
