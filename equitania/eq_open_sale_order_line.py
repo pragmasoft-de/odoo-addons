@@ -37,7 +37,7 @@ class eq_open_sale_order_line(models.Model):
     eq_quantity = fields.Integer(string="Quantity")
     eq_quantity_left = fields.Integer(string="Quantity left")    
     eq_product_no = fields.Many2one('product.product', string="Product number")    
-    eq_description = fields.Char(size=300, string="Description")
+    eq_description = fields.Text(string="Description")
     eq_drawing_no = fields.Char(size=100, string="Drawing number")
     
     def generate_statement(self):

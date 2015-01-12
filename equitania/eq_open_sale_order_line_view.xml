@@ -2,11 +2,9 @@
 <openerp>
     <data>    	
     	<!-- Defaultansicht zusammen mit den Feldern, die wir anzeigen -->
-	    <record id="eq_open_sale_order_line_form_view" model="ir.ui.view">
-	            <field name="name">eq.open.sale.order.line.form.view</field>
-	            <field name="model">eq_open_sale_order_line</field>	
-				<field name="view_type">tree</field>
-				<field name="view_mode">tree</field>	
+	    <record id="eq_open_sale_order_line_tree_view" model="ir.ui.view">
+	            <field name="name">eq.open.sale.order.line.tree.view</field>
+	            <field name="model">eq_open_sale_order_line</field>
 				<field name="arch" type="xml">				
                 <tree string="Open order lines">
 					<field name="eq_order_id"/>
@@ -27,8 +25,8 @@
         <record id="eq_open_sale_order_line_action" model="ir.actions.act_window">
             <field name="name">Open sale order line</field>
             <field name="res_model">eq_open_sale_order_line</field>
-            <field name="view_type">tree</field>
-            <field name="view_mode">tree</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
         </record>
         
     	<!-- Erweiterung der Menuleiste LINKS -->
