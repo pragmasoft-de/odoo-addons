@@ -2,7 +2,96 @@
 <openerp>
 <data>
 <template id="report_open_sale_order_line">
-
+    <t t-call="report.html_container">
+        <t t-call="report.internal_layout">
+            <div class="page">
+                <div class="oe_structure"/>
+                <div style="margin-bottom:0cm; border:0px solid black; ">
+                    <h2>Auftragspositionen</h2>
+                </div>
+                <div>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th style="vertical-align:top!important;">
+                                    <!-- class="text-center"    class="text-right"-->
+                                    <strong>Auftrag</strong>
+                                        <br/>Zuständig
+                                </th>
+                                <th style="vertical-align:top!important;">
+                                    <strong>K-Nr.</strong>
+                                </th>
+                                <th style="vertical-align:top!important;">
+                                    <strong>Kunde</strong>
+                                        <br/>Kundenreferenz
+                                </th>
+                                <th style="vertical-align:top!important;">
+                                    <strong>Lieferdatum</strong>
+                                </th>
+                                <th style="vertical-align:top!important;">
+                                    <strong>Pos.</strong>
+                                </th>
+                                <th class="text-right" style="vertical-align:top!important;">
+                                    <strong>Menge</strong>
+                                </th>
+                                <th class="text-right" style="vertical-align:top!important;">
+                                    <strong>RestMenge</strong>
+                                </th>
+                                <th style="vertical-align:top!important;">
+                                    <strong>Produktnummer</strong>
+                                        <br/>Produktbezeichnung
+                                        <br/>Zeichnungsnummer
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="docs" t-as="o">
+                                <td>
+                                    <strong><span t-field="o.eq_order_id"/></strong>
+                                    <br/>
+	                                   <span t-field="o.eq_order_id.eq_contact_person_id.name"/>
+	                                
+                                </td>
+                                <td>
+                                    <strong><span t-field="o.eq_customer_no"/></strong>
+                                </td>
+                                <td>
+                                    <strong><span t-field="o.eq_customer"/></strong>
+                                    <br/>
+	                                    <span t-field="o.eq_order_id.client_order_ref"/>
+                                    <br/>
+	                                    Rahmenauftragsnr. <span t-field="o.eq_framework_agreement_id"/>
+	                                
+                                </td>
+                                <td>
+                                    <strong><span t-field="o.eq_delivery_date"/></strong>
+                                </td>
+                                <td>
+                                    <strong>
+                                        <span t-field="o.eq_pos"/>
+                                    </strong>
+                                </td>
+                                <td class="text-right">
+                                    <strong><span t-field="o.eq_quantity"/></strong>
+                                </td>
+                                <td class="text-right">
+                                    <strong><span t-field="o.eq_quantity_left"/></strong>
+                                </td>
+                                <td>
+                                    <strong><span t-field="o.eq_product_no"/></strong>
+                                    <br/>
+	                                    <span t-field="o.eq_description"/>
+                                    <br/>
+	                                    <span t-field="o.eq_drawing_no"/>
+	                                
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="oe_structure"/></div>
+        </t>
+    </t>
 </template>
 </data>
 </openerp>
