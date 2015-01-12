@@ -644,7 +644,7 @@ msgstr "Anfrage für ein Angebot"
 #: view:website:stock.report_picking
 msgid "Qty."
 msgstr "Menge"
-
+re
 #. module: equitania
 #: field:eq_open_sale_order_line,eq_quantity:0
 msgid "Quantity"
@@ -653,7 +653,7 @@ msgstr "Menge"
 #. module: equitania
 #: field:eq_open_sale_order_line,eq_quantity_left:0
 msgid "Quantity left"
-msgstr "RestMenge"
+msgstr "Restmenge"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
