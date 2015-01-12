@@ -8,6 +8,7 @@
 				<field name="arch" type="xml">				
                 <tree string="Open order lines">
 					<field name="eq_order_id"/>
+					<field name="eq_framework_agreement_id"/>
 					<field name="eq_customer_no"/>
 					<field name="eq_customer"/>
 					<field name="eq_delivery_date"/>
