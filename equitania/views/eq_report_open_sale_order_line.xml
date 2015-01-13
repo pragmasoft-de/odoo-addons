@@ -58,9 +58,8 @@
                                 <td>
                                     <strong><span t-field="o.eq_customer"/></strong>
                                     <br/>
-	                                    <span t-field="o.eq_order_id.client_order_ref"/>
-                                        <p  t-if="o.eq_framework_agreement_id">
-	                                    Rahmenauftragsnr. <span t-field="o.eq_framework_agreement_id"/>
+                                    	<p>
+	                                    <span t-field="o.eq_client_order_ref"/>
                                         </p>
 	                                
                                 </td>
@@ -80,8 +79,6 @@
                                 </td>
                                 <td>
                                     <strong><span t-field="o.eq_product_no"/></strong>
-                                    <br/>
-	                                    <span t-field="o.eq_description"/>
                                     <br/>
 	                                    <span t-field="o.eq_drawing_no"/>
 	                                
