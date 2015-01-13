@@ -212,6 +212,11 @@ msgid "Delivery note:"
 msgstr "Lieferschein:"
 
 #. module: equitania
+#: view:website:stock.report_picking
+msgid "Seq."
+msgstr "Pos."
+
+#. module: equitania
 #: field:eq.lead.referred,eq_description:0
 #: field:eq_open_sale_order_line,eq_description:0
 msgid "Description"
