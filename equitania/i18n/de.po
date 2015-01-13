@@ -218,7 +218,6 @@ msgstr "Pos."
 
 #. module: equitania
 #: field:eq.lead.referred,eq_description:0
-#: field:eq_open_sale_order_line,eq_description:0
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -283,14 +282,10 @@ msgid "For further information, please contact"
 msgstr "Bei Rückfragen wenden Sie sich bitte an"
 
 #. module: equitania
-#: field:eq_open_sale_order_line,eq_framework_agreement_id:0
-msgid "Framework Agreement"
-msgstr "Rahmenauftrag"
-
-#. module: equitania
 #: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
-msgid "Frameworkagreement"
-msgstr "Rahmenauftrag"
+#: field:eq_open_sale_order_line,eq_client_order_ref:0
+msgid "Client Order Reference"
+msgstr "Referenz des Kunden"
 
 #. module: equitania
 #: view:website:stock.report_picking

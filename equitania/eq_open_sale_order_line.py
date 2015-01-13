@@ -32,15 +32,14 @@ class eq_open_sale_order_line(models.Model):
     
     # Felder
     eq_order_id = fields.Many2one('sale.order', string="Sale Order")
-    eq_framework_agreement_id = fields.Many2one('eq_framework_agreement', string="Framework Agreement")
+    eq_client_order_ref = fields.Char(string="Client Order Reference")
     eq_customer_no = fields.Char(size=64, string="Customer No")
     eq_customer = fields.Many2one('res.partner', string="Customer")    
     eq_delivery_date = fields.Date(string="Delivery date")
     eq_pos = fields.Integer(string="Seq")
     eq_quantity = fields.Integer(string="Quantity")
     eq_quantity_left = fields.Integer(string="Quantity left")
-    eq_product_no = fields.Many2one('product.product', string="Product number")    
-    eq_description = fields.Text(string="Description")
+    eq_product_no = fields.Many2one('product.product', string="Product number")
     eq_drawing_no = fields.Char(size=100, string="Drawing number")
     
     def init(self, cr):
@@ -49,7 +48,7 @@ class eq_open_sale_order_line(models.Model):
             CREATE OR REPLACE VIEW eq_open_sale_order_line AS (
             (SELECT MIN(id) as id,
             order_id as eq_order_id,
-            eq_agreement_id as eq_framework_agreement_id,
+            (select client_order_ref from sale_order where id = order_id) as eq_client_order_ref,
             (select eq_customer_ref from res_partner where id = (select partner_id from sale_order where id = order_id)) as eq_customer_no,
             (select partner_id from sale_order where id = order_id) as eq_customer,
             eq_delivery_date,
@@ -57,8 +56,7 @@ class eq_open_sale_order_line(models.Model):
             product_uom_qty as eq_quantity,
             (select SUM(product_qty) from stock_move where procurement_id = (select id from procurement_order where sale_line_id = main.id) and state != 'done') as eq_quantity_left,
             product_id as eq_product_no,
-            (select description_sale from product_template where id = (select product_tmpl_id from product_product where id = product_id)) as eq_description,
             (select eq_drawing_number from product_template where id = (select product_tmpl_id from product_product where id = product_id)) as eq_drawing_no
             FROM sale_order_line as main
-            Group by eq_order_id, eq_agreement_id, eq_customer_no, eq_customer, eq_delivery_date, eq_pos, eq_quantity, eq_product_no, eq_description, eq_drawing_no, main.id
+            Group by eq_order_id, eq_client_order_ref, eq_customer_no, eq_customer, eq_delivery_date, eq_pos, eq_quantity, eq_product_no, eq_drawing_no, main.id
             ))""")
