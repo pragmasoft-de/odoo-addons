@@ -1015,3 +1015,37 @@ msgstr "Andere"
 msgid "Open Sale Order Lines"
 msgstr "Offene Auftragspositionen"
 
+#. module: equitania
+#: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
+#: selection:eq_open_sale_order_line,eq_state:0
+msgid "Done"
+msgstr "Erledigt"
+
+#. module: equitania
+#: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
+#: selection:eq_open_sale_order_line,eq_state:0
+msgid "Draft"
+msgstr "Entwurf"
+
+#. module: equitania
+#: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
+#: selection:eq_open_sale_order_line,eq_state:0
+msgid "Confirmed"
+msgstr "Bestätigt"
+
+#. module: equitania
+#: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
+#: selection:eq_open_sale_order_line,eq_state:0
+msgid "Exception"
+msgstr "Sonderfall"
+
+#. module: equitania
+#: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
+#: selection:eq_open_sale_order_line,eq_state:0
+msgid "Cancelled"
+msgstr "Abgebrochen"
+
+#. module: equitania
+#: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
+msgid "Remaining Quantity left"
+msgstr "Restmenge übrig"

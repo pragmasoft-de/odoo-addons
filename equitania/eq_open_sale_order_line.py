@@ -41,6 +41,9 @@ class eq_open_sale_order_line(models.Model):
     eq_quantity_left = fields.Integer(string="Quantity left")
     eq_product_no = fields.Many2one('product.product', string="Product number")
     eq_drawing_no = fields.Char(size=100, string="Drawing number")
+    eq_state = fields.Selection(
+                [('cancel', 'Cancelled'),('draft', 'Draft'),('confirmed', 'Confirmed'),('exception', 'Exception'),('done', 'Done')],
+                'Status')
     
     def init(self, cr):
         tools.drop_view_if_exists(cr, 'eq_open_sale_order_line')
@@ -54,9 +57,10 @@ class eq_open_sale_order_line(models.Model):
             eq_delivery_date,
             sequence as eq_pos,
             product_uom_qty as eq_quantity,
-            (select SUM(product_qty) from stock_move where procurement_id = (select id from procurement_order where sale_line_id = main.id) and state != 'done') as eq_quantity_left,
+            (select SUM(product_qty) from stock_move where procurement_id = (select id from procurement_order where sale_line_id = main.id) and state != 'done' and state != 'cancel') as eq_quantity_left,
             product_id as eq_product_no,
-            (select eq_drawing_number from product_template where id = (select product_tmpl_id from product_product where id = product_id)) as eq_drawing_no
+            (select eq_drawing_number from product_template where id = (select product_tmpl_id from product_product where id = product_id)) as eq_drawing_no,
+            state as eq_state
             FROM sale_order_line as main
-            Group by eq_order_id, eq_client_order_ref, eq_customer_no, eq_customer, eq_delivery_date, eq_pos, eq_quantity, eq_product_no, eq_drawing_no, main.id
+            Group by eq_order_id, eq_client_order_ref, eq_customer_no, eq_customer, eq_delivery_date, eq_pos, eq_quantity, eq_product_no, eq_drawing_no, eq_state, main.id
             ))""")
