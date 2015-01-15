@@ -74,7 +74,7 @@
 								<td>
 									<span>Commitment Date</span>
 								</td>
-								<td class="text-right">
+								<td class="text-right" t-if="o.date">
 									<span t-esc="o.date.split(' ')[0].split('-')[2] + '.' + o.date.split(' ')[0].split('-')[1] + '.' + o.date.split(' ')[0].split('-')[0]"/>
 									<!-- <span t-esc="o.date.split(' ')[0]"/>-->
 								</td>
@@ -115,14 +115,16 @@
 						<td>
 							<span t-field="o.state"/>
 						</td>
-						<td>
+						<td t-if="o.date">
 							<span t-esc="o.date.split(' ')[0].split('-')[2] + '.' + o.date.split(' ')[0].split('-')[1] + '.' + o.date.split(' ')[0].split('-')[0]"/>
 							<!-- <span t-field="o.date"/>-->
 						</td>
+						<td t-if="not o.date"/>
 						<td name="td_sched_date" t-if="o.min_date">
 							<span t-esc="o.min_date.split(' ')[0].split('-')[2] + '.' + o.min_date.split(' ')[0].split('-')[1] + '.' + o.min_date.split(' ')[0].split('-')[0]"/>
 							<!-- <span t-field="o.min_date"/>-->
 						</td>
+						<td t-if="not o.min_date"/>
 					</tr>
 				</tbody>
 			</table>
