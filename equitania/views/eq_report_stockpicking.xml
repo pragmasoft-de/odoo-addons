@@ -119,7 +119,7 @@
 							<span t-esc="o.date.split(' ')[0].split('-')[2] + '.' + o.date.split(' ')[0].split('-')[1] + '.' + o.date.split(' ')[0].split('-')[0]"/>
 							<!-- <span t-field="o.date"/>-->
 						</td>
-						<td name="td_sched_date">
+						<td name="td_sched_date" t-if="o.min_date">
 							<span t-esc="o.min_date.split(' ')[0].split('-')[2] + '.' + o.min_date.split(' ')[0].split('-')[1] + '.' + o.min_date.split(' ')[0].split('-')[0]"/>
 							<!-- <span t-field="o.min_date"/>-->
 						</td>
