@@ -172,7 +172,7 @@ msgstr "Sehr geehrte Damen und Herren,"
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "Deliver to:"
-msgstr "Bitte liefern Sie an unser Auslieferungslager:"
+msgstr "Bitte liefern Sie an unser Lager:"
 
 #. module: equitania
 #: field:purchase.order.line,get_delivery_date:0

@@ -21,7 +21,7 @@
 #
 ##############################################################################
 
-echo "Prepare Debian/Ubuntu"
+echo "Prepare Debian"
 apt-get update && apt-get dist-upgrade && apt-get autoremove
 
 echo "Tools zip, unzip, mc(Midnight Comander) and htop will be install.."
@@ -42,8 +42,9 @@ else
   echo "PostgreSQL is not installed!"
 fi
 
+echo "apt-get packages will be install.."
 apt-get install ghostscript graphviz antiword git libpq-dev poppler-utils \
- python-pip build-essential libfreetype6-dev 
+ python-pip build-essential libfreetype6-dev npm
 
 apt-get install python-dateutil python-pypdf python-requests \
  python-feedparser python-gdata python-ldap python-libxslt1 \
@@ -57,7 +58,12 @@ apt-get install python-dateutil python-pypdf python-requests \
  python-imaging python-reportlab-accel \
  python-paramiko python-software-properties
 
+echo "pip packages will be install.."
 pip install passlib beautifulsoup4 evdev reportlab qrcode polib
+
+echo "npm packages will be install.."
+npm install -g less less-plugin-clean-css
+ln -s /usr/bin/nodejs /usr/bin/node
 
 echo "Do you want install barcodes? / Wollen Sie die Barcodes installieren (Y/n):"
 read myfonts
