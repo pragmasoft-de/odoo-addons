@@ -128,7 +128,7 @@
 			</table>
 			<br/>
 			<br/>
-			<table class="table table-condensed">
+			<table class="table table-condensed" id="move_lines">
 				<thead>
 					<tr>
                         <th>
