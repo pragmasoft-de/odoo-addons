@@ -1049,3 +1049,10 @@ msgstr "Abgebrochen"
 #: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
 msgid "Remaining Quantity left"
 msgstr "Restmenge übrig"
+
+#. module: product
+#: field:product.product,code:0
+#: field:product.product,default_code:0
+#: field:product.template,default_code:0
+msgid "Internal Reference"
+msgstr "Produktnr."
