@@ -35,18 +35,21 @@ read mydb
 echo "Delete the old version of $mydb [Y/n]:"
 read mydel
 
-if [ "$mydel" == "Y" ]; then
+if [ "$mydel" == "Y" ] || [ "$mydel" == "y" ]; then
   dropdb -U odoo $mydb
-  echo "Delete is done."
+  echo "Drop is done."
 fi
 
-echo "Name of the backupfile without .gz an (path: $mybackuppath):"
+echo "Name of the backupfile (path: $mybackuppath):"
 read mybackup
 
 if [ "$mydb" != "" ]; then
-  gunzip $mybackuppath/$mybackup".gz"
+  gunzip $mybackuppath/$mybackupgz
+  mybackup=`echo $mybackupgz | cut -d"." -f1,2`
+  echo "Create DB $mydb with $mybackup file.."
   createdb -U odoo -T template0 $mydb
-  psql -f $mybackuppath/$mybackup -d $mydb -h localhost -p 5432
+  echo "Restore DB $mydb" 
+  psql -U odoo -f $mybackuppath/$mybackup -d $mydb -h localhost -p 5432
   echo "Restore is done."
 else
   echo "No restore."

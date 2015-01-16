@@ -21,6 +21,8 @@
 #
 ##############################################################################
 
+#export PGPASSWORD=mypostgrespw
+
 mybasepath="/home/odoo/Desktop"
 mybackuppath=$mybasepath
 
@@ -34,18 +36,35 @@ read mydb
 echo "Delete the old version of $mydb [Y/n]:"
 read mydel
 
-if [ "$mydel" == "Y" ]; then
+if [ "$mydel" == "Y" ] || [ "$mydel" == "y" ]; then
   dropdb -U odoo $mydb
-  echo "Delete is done."
+  echo "Drop is done."
 fi
 
-echo "Name of the backupfile without .gz an (path: $mybackuppath):"
-read mybackup
+echo "Name of the backupfile an (path: $mybackuppath):"
+read mybackupgz
 
 if [ "$mydb" != "" ]; then
-  gunzip $mybackuppath/$mybackup".gz"
+  echo "Unzip $mybackuppath/$mybackupgz.."
+  gunzip $mybackuppath/$mybackupgz
+  mybackup=`echo $mybackupgz | cut -d"." -f1,2`
+  echo "Create DB $mydb with $mybackup file.."
   createdb -U odoo -T template0 $mydb
-  psql -f $mybackuppath/$mybackup -d $mydb -h localhost -p 5432
+  echo "Restore DB $mydb" 
+  psql -U odoo -f $mybackuppath/$mybackup -d $mydb -h localhost -p 5432
+  rm $mybackuppath/$mybackup
+  echo "Do you want to deactivate mailserver functions in $mydb [Y/n]:"
+  read mymail
+  if [ "$mymail" == "Y" ] || [ "$mymail" == "y" ]; then 
+    psql -d $mydb -U odoo -c $'UPDATE ir_cron SET active = FALSE WHERE ("name" = \'Fetchmail Service\' OR "name" = \'Garbage Collect Mail Attachments\' OR "name" = \'Email Queue Manager\');'
+    psql -d $mydb -U odoo -c $'DELETE FROM ir_mail_server;'
+    psql -d $mydb -U odoo -c $'DELETE FROM fetchmail_server;'
+  fi  
+  echo "Do you want to delete local odoo store at /opt/odoo/.local/share/Odoo [Y/n]:"
+  read myodoo
+  if [ "$myodoo" == "Y" ] || [ "$myodoo" == "y" ]; then 
+    rm -rf /home/odoo/.local/share/Odoo/
+  fi
   echo "Restore is done."
 else
   echo "No restore."
