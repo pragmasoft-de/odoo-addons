@@ -160,7 +160,14 @@
 				<tbody class="invoice_tbody">
 					<tr t-foreach="o.invoice_line" t-as="l">
 						<td><span t-field="l.product_id.default_code"/></td>
-						<td><strong><span t-field="l.product_id.name"/></strong><br/><span t-field="l.name"/></td>
+						<td><strong><span t-field="l.product_id.name"/></strong><br/><span t-field="l.name"/>
+							<t t-if="l.product_id.eq_drawing_number">
+								<p>Drawing No.: <span t-field="l.product_id.eq_drawing_number"/></p><!-- Zeigt die Zeichnungsnummer der Produktvariante an -->
+							</t>
+							<t t-if="not l.product_id.eq_drawing_number">
+								<p>Drawing No.: <span t-field="l.product_id.product_tmpl_id.eq_drawing_number"/></p><!-- Zeigt die Zeichnungsnummer des Hauptprodukts an, wenn für die Variante keine Nummer hinterlegt ist -->
+							</t>
+						</td>
 						<td>
 							<span t-field="l.quantity"/>
 							<span t-field="l.uos_id"  groups="product.group_uom"/>

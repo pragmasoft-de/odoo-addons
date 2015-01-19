@@ -174,10 +174,14 @@
                         </td>
                         <td>
                             <strong><span t-field="line.product_id.name"/></strong>
-                            <br/>
-                            <span t-field="line.name"/>
-                            <br/>
-                            <strong t-if="o.show_delivery_date">Delivery date: <span t-field="line.get_delivery_date"/></strong>
+                            <t t-if="line.name"><br/><span t-field="line.name"/></t>
+							<t t-if="line.product_id.eq_drawing_number">
+								<br/>Drawing No.: <span t-field="line.product_id.eq_drawing_number"/><!-- Zeigt die Zeichnungsnummer der Produktvariante an -->
+							</t>
+							<t t-if="not line.product_id.eq_drawing_number">
+								<br/>Drawing No.: <span t-field="line.product_id.product_tmpl_id.eq_drawing_number"/><!-- Zeigt die Zeichnungsnummer des Hauptprodukts an, wenn für die Variante keine Nummer hinterlegt ist -->
+							</t>
+                            <t t-if="o.show_delivery_date"><span><strong><br/>Delivery date: <span t-field="line.get_delivery_date"/></strong></span></t>
 	                        <div id="agreement_id"/>
                         </td>
                         <td class="text-right">

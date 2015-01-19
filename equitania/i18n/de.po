@@ -250,6 +250,13 @@ msgstr "Zeichnungsnummer"
 
 #. module: equitania
 #: view:website:account.report_invoice_document
+#: view:website:sale.report_saleorder_document
+#: view:website:stock.report_picking
+msgid "Drawing No.:"
+msgstr "Zeichnungsnr.:"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:sale.report_saleorder_document
