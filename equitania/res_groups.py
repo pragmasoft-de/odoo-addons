@@ -19,16 +19,21 @@
 #
 ##############################################################################
 
-import eq_install_func
-import eq_address_extension
-import eq_address_extension_new_api
-import eq_custom_ref
-import eq_pricelist_item_search
-import eq_company_custom_fields
-import eq_sale_order_seq
-import eq_partner_extension
-import eq_report_extension
-import eq_lead_referred
-import eq_inventorylist
-import eq_open_sale_order_line
-import res_groups
+from openerp.osv import fields, osv, orm
+from openerp.tools.translate import _
+
+class eq_res_groups_copy(osv.osv):
+    _inherit = 'res.groups'
+    
+    def copy(self, cr, uid, id, default=None, context=None):
+        
+        if context is None:
+            context = {}
+        
+        group_name = self.read(cr, uid, [id], ['name'])[0]['name']
+        default.update({'name': _('%s (copy)')%group_name, 'users': False})
+            
+        context = context.copy()
+        data = self.copy_data(cr, uid, id, default, context)
+        new_id = self.create(cr, uid, data, context)
+        return new_id
