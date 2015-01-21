@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data>
-<!-- ALTER CONTENT ANFANG
-<template id="stock.report_picking">
-    <t t-call="report.html_container">
-        <t t-foreach="docs" t-as="o">
-            <t t-call="report.external_layout">
-          <div class="page">
-              <div class="row">
-              ALTER CONTENT ENDE (kopfinfos)-->
-              
 <template id="eq_report_picking_extension" inherit_id="stock.report_picking" active="True">
 	<xpath expr="//div[@class='page']" position="replace">
 		<div class="page">
@@ -64,10 +55,10 @@
 							</tr>
 							<tr>
 								<td>
-									<span>Your reference no.</span>
+									<strong><span>Your reference no.</span></strong>
 								</td>
 								<td class="text-right">
-									<span t-field="o.eq_ref_number" />
+									<strong><span t-field="o.eq_ref_number" /></strong>
 								</td>
 							</tr>
 							<tr>
@@ -77,6 +68,14 @@
 								<td class="text-right" t-if="o.date">
 									<span t-esc="o.date.split(' ')[0].split('-')[2] + '.' + o.date.split(' ')[0].split('-')[1] + '.' + o.date.split(' ')[0].split('-')[0]"/>
 									<!-- <span t-esc="o.date.split(' ')[0]"/>-->
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>Delivery Date</span>
+								</td>
+								<td class="text-right" t-if="o.min_date">
+									<span t-esc="o.min_date.split(' ')[0].split('-')[2] + '.' + o.min_date.split(' ')[0].split('-')[1] + '.' + o.min_date.split(' ')[0].split('-')[0]"/>
 								</td>
 							</tr>
 							<tr>

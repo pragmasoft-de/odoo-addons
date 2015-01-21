@@ -190,6 +190,7 @@ msgstr "Lieferbedingungen"
 #: field:account.invoice.line,eq_delivery_date:0
 #: view:purchase.config.settings:equitania.eq_view_purchase_config_settings_delivery
 #: view:sale.config.settings:equitania.eq_view_sale_config_settings
+#: view:website:stock.report_picking
 #: field:sale.order.line,eq_delivery_date:0
 msgid "Delivery Date"
 msgstr "Lieferdatum"
