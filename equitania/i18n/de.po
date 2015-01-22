@@ -214,6 +214,11 @@ msgstr "Lieferschein:"
 
 #. module: equitania
 #: view:website:stock.report_picking
+msgid "Packing list:"
+msgstr "Packliste:"
+
+#. module: equitania
+#: view:website:stock.report_picking
 msgid "Seq."
 msgstr "Pos."
 

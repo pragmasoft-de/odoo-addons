@@ -70,7 +70,7 @@
 									<!-- <span t-esc="o.date.split(' ')[0]"/>-->
 								</td>
 							</tr>
-							<tr>
+							<tr t-if="o.min_date and o.state == 'done'">
 								<td>
 									<span>Delivery Date</span>
 								</td>
@@ -87,7 +87,8 @@
 			</div>
 			<h2  style="margin-bottom:25px; margin-top:25px">
 				<!--<span t-field="o.picking_type_id"/>-->
-				<span>Delivery note:</span> <span t-field="o.name"/>
+				<span t-if="o.state == 'done'">Delivery note:</span><span t-if="not o.state == 'done'">Packing list:</span> <span t-field="o.name"/>
+				
 			</h2>
 			<table class="table table-condensed">
 				<thead>
@@ -98,10 +99,10 @@
 						<th>
 							<strong>Status</strong>
 						</th>
-						<th>
-							<strong>Commitment Date<!--Bestelldatum--></strong>
-						</th>
-						<th name="td_sched_date_h">
+						<!-- <th>
+							<strong>Commitment Date--><!--Bestelldatum--><!-- </strong>
+						</th> -->
+						<th name="td_sched_date_h" t-if="not o.state == 'done'">
 							<strong>Scheduled date<!--Geplante Lieferung--></strong>
 						</th>
 					</tr>
@@ -114,12 +115,12 @@
 						<td>
 							<span t-field="o.state"/>
 						</td>
-						<td t-if="o.date">
+						<!-- <td t-if="o.date and not o.state == 'done'"> ## Bestelldatum ausgeblendet da es schon im Header angezeigt wird
 							<span t-esc="o.date.split(' ')[0].split('-')[2] + '.' + o.date.split(' ')[0].split('-')[1] + '.' + o.date.split(' ')[0].split('-')[0]"/>
-							<!-- <span t-field="o.date"/>-->
-						</td>
+							
+						</td>-->
 						<td t-if="not o.date"/>
-						<td name="td_sched_date" t-if="o.min_date">
+						<td name="td_sched_date" t-if="o.min_date and not o.state == 'done'">
 							<span t-esc="o.min_date.split(' ')[0].split('-')[2] + '.' + o.min_date.split(' ')[0].split('-')[1] + '.' + o.min_date.split(' ')[0].split('-')[0]"/>
 							<!-- <span t-field="o.min_date"/>-->
 						</td>
