@@ -54,6 +54,7 @@
                 </xpath>
             </field>
         </record>
+        
         <record id="eq_partner_extension_sale_stock_form_view" model="ir.ui.view">
             <field name="name">eq_partner_extension.sale_stock.form</field>
             <field name="model">sale.order</field>
@@ -67,7 +68,8 @@
 					<field name="partner_id" on_change="onchange_partner_id(partner_id, context)" domain="[('customer','=',True)]" context="{'search_default_customer':1, 'show_address': 1}" options='{"always_reload": True}'/>
             	</field>
             </field>
-        </record>>        
+        </record>
+        
         <record id="view_sale_config_settings" model="ir.ui.view">
             <field name="name">eq_partner_extension.base.config.settings</field>
             <field name="model">base.config.settings</field>
@@ -85,6 +87,19 @@
                     </group>
             	</form>
             </field>
+        </record>
+        
+        <!-- Partner Tree -->
+    	<record id="eq_inox_compatibility_partner_tree_view" model="ir.ui.view">
+            <field name="name">eq_ibf.view_partner_tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree" />
+            <field name="arch" type="xml">
+            <field name="name" position="after">
+            	<field name="street"/>
+            	<field name="city"/>
+            </field>
+            </field>    
         </record>
     </data>
 </openerp>
