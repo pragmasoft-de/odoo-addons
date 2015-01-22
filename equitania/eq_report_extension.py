@@ -173,7 +173,7 @@ class eq_report_extension_sale_order_line(osv.osv):
     def _get_delivery_date(self, cr, uid, ids, field_name, arg, context):
         result = {}
         for order_line in self.browse(cr, uid, ids, context):
-            if order_line.order_id.show_delivery_date:
+            if order_line.order_id.show_delivery_date and order_line.eq_delivery_date:
                 delivery_date = datetime.strptime(order_line.eq_delivery_date, OE_DFORMAT)
                 if order_line.order_id.use_calendar_week:
                     result[order_line.id] = 'KW ' + delivery_date.strftime('%V/%Y')
@@ -265,7 +265,7 @@ class eq_report_extension_purchase_order_line(osv.osv):
         result = {}
         
         for purchase_line in self.browse(cr, uid, ids, context):
-            if purchase_line.order_id.show_delivery_date:
+            if purchase_line.order_id.show_delivery_date and purchase_line.date_planned:
                 delivery_date = datetime.strptime(purchase_line.date_planned, OE_DFORMAT)
                 if purchase_line.order_id.use_calendar_week:
                     result[purchase_line.id] = 'KW ' + delivery_date.strftime('%V/%Y')
