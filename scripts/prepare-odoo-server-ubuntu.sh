@@ -39,7 +39,7 @@ fi
 
 echo "apt-get packages will be install.."
 apt-get install ghostscript graphviz antiword git libpq-dev poppler-utils \
- python-pip build-essential libfreetype6-dev npm xfonts-75dpi
+ python-pip build-essential libfreetype6-dev npm
 
 apt-get install python-dateutil python-pypdf python-requests \
  python-feedparser python-gdata python-ldap python-libxslt1 \
@@ -79,9 +79,9 @@ read mypdf
 
 if [ "$mypdf" = "Y" ]; then
   echo "HTML2PDF will be install..."
-  wget http://downloads.sourceforge.net/project/wkhtmltopdf/0.12.2.1/wkhtmltox-0.12.2.1_linux-trusty-amd64.deb
-  dpkg -i wkhtmltox-0.12.2.1_linux-trusty-amd64.deb
-  rm wkhtmltox-0.12.2.1_linux-trusty-amd64.deb
+  wget http://downloads.sourceforge.net/project/wkhtmltopdf/0.12.1/wkhtmltox-0.12.1_linux-trusty-amd64.deb
+  dpkg -i wkhtmltox-0.12.1_linux-trusty-amd64.deb
+  rm wkhtmltox-0.12.1_linux-trusty-amd64.deb
 else
   echo "HTML2PDF is not installed!"
 fi
