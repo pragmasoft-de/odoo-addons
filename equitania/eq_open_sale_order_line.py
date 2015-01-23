@@ -57,7 +57,7 @@ class eq_open_sale_order_line(models.Model):
             eq_delivery_date,
             sequence as eq_pos,
             product_uom_qty as eq_quantity,
-            (select SUM(product_qty) from stock_move where procurement_id in (select id from procurement_order where sale_line_id = main.id) and state != 'done' and state != 'cancel' and production_id is null) as eq_quantity_left,
+            (select SUM(product_qty) from stock_move where procurement_id in (select id from procurement_order where sale_line_id = main.id) and state != 'done' and state != 'cancel') as eq_quantity_left,
             product_id as eq_product_no,
             (select eq_drawing_number from product_template where id = (select product_tmpl_id from product_product where id = product_id)) as eq_drawing_no,
             state as eq_state
