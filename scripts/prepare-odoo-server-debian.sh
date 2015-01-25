@@ -44,8 +44,9 @@ fi
 
 echo "apt-get packages will be install.."
 apt-get install ghostscript graphviz antiword git libpq-dev poppler-utils \
- python-pip build-essential libfreetype6-dev npm
+ python-pip build-essential libfreetype6-dev curl
 
+echo "apt-get python packages will be install.."
 apt-get install python-dateutil python-pypdf python-requests \
  python-feedparser python-gdata python-ldap python-libxslt1 \
  python-lxml python-mako python-openid python-psycopg2 \
@@ -57,6 +58,12 @@ apt-get install python-dateutil python-pypdf python-requests \
  python-pdftools python-decorator python-openssl python-babel \
  python-imaging python-reportlab-accel \
  python-paramiko python-software-properties
+
+echo "apt-get npm packages will be install.."
+echo "deb http://ftp.us.debian.org/debian wheezy-backports main" >> /etc/apt/sources.list
+apt-get update
+apt-get install nodejs-legacy
+curl -L --insecure https://www.npmjs.org/install.sh | bash
 
 echo "pip packages will be install.."
 pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode
