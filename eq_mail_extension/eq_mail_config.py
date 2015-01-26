@@ -29,18 +29,18 @@ class eq_mail_config_settings(osv.osv_memory):
     def set_default_mail_server(self, cr, uid, ids, context=None):
         ir_values = self.pool.get('ir.values')
         config = self.browse(cr, uid, ids[0], context)
-        ir_values.set_default(cr, uid, 'mail.mail', 'default_mail_server_id', config.default_mail_server_id and config.default_mail_server_id.id or False)
-        ir_values.set_default(cr, uid, 'mail.mail', 'default_mail_server_address', config.default_mail_server_address or False)
+        ir_values.set_default(cr, uid, 'mail.mail', 'mail_server_id', config.mail_server_id and config.mail_server_id.id or False)
+        ir_values.set_default(cr, uid, 'mail.mail', 'mail_server_address', config.mail_server_address or False)
                 
     def get_default_mail_server(self, cr, uid, fields, context=None):
-        receivable = self.pool.get('ir.values').get_default(cr, uid, 'mail.mail', 'default_mail_server_id')
-        address = self.pool.get('ir.values').get_default(cr, uid, 'mail.mail', 'default_mail_server_address')
-        return {'default_mail_server_id': receivable,
-                'default_mail_server_address': address,
+        receivable = self.pool.get('ir.values').get_default(cr, uid, 'mail.mail', 'mail_server_id')
+        address = self.pool.get('ir.values').get_default(cr, uid, 'mail.mail', 'mail_server_address')
+        return {'mail_server_id': receivable,
+                'mail_server_address': address,
                 }
 
     _columns = {
-                'default_mail_server_id': fields.many2one('ir.mail_server', 'Default Mail Server',
+                'mail_server_id': fields.many2one('ir.mail_server', 'Default Mail Server',
                                                         help="""The outgoing mail server that the system should user for sending e-mails."""),
-                'default_mail_server_address': fields.char('Default Mails Server Address'),
+                'mail_server_address': fields.char('Default Mails Server Address'),
                 }

@@ -134,13 +134,13 @@ class eq_mail_mail(osv.Model):
     _inherit = 'mail.mail'
     
     _columns = {
-        'default_mail_server_id': fields.many2one('ir.mail_server', "Default Mail Server"),
-        'default_mail_server_address': fields.char('Default Mail Server Address'),
+        'mail_server_id': fields.many2one('ir.mail_server', "Default Mail Server"),
+        'mail_server_address': fields.char('Default Mail Server Address'),
     }
     
     _default = {
-                lambda self, cr, uid, context: self.pool.get('ir.values').get_default(cr, uid, 'mail.mail', 'default_mail_server_id'),
-                lambda self, cr, uid, context: self.pool.get('ir.values').get_default(cr, uid, 'mail.mail', 'default_mail_server_address'),
+                lambda self, cr, uid, context: self.pool.get('ir.values').get_default(cr, uid, 'mail.mail', 'mail_server_id'),
+                lambda self, cr, uid, context: self.pool.get('ir.values').get_default(cr, uid, 'mail.mail', 'mail_server_address'),
                 }
     
     def send(self, cr, uid, ids, auto_commit=False, raise_exception=False, context=None):
@@ -163,8 +163,8 @@ class eq_mail_mail(osv.Model):
         ir_attachment = self.pool['ir.attachment']
         ir_values = self.pool.get('ir.values')
         
-        default_mail_server = ir_values.get_default(cr, uid, 'mail.mail', 'default_mail_server_id')
-        default_mail_address = ir_values.get_default(cr, uid, 'mail.mail', 'default_mail_server_address')
+        default_mail_server = ir_values.get_default(cr, uid, 'mail.mail', 'mail_server_id')
+        default_mail_address = ir_values.get_default(cr, uid, 'mail.mail', 'mail_server_address')
         
         for mail in self.browse(cr, SUPERUSER_ID, ids, context=context):
             try:

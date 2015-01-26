@@ -18,8 +18,8 @@
                         </p>
                     </div>
                     <group>
-						<field name="default_mail_server_id"/>
-						<field name="default_mail_server_address"/>
+						<field name="mail_server_id"/>
+						<field name="mail_server_address"/>
                     </group>
                 </form>
             </field>
