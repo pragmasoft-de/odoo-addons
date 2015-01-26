@@ -772,6 +772,7 @@ msgstr "Setzt den Verkäufer als Kontaktperson."
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
+#: view:website:account.report_invoice_document
 msgid "Shipping address:"
 msgstr "Lieferanschrift:"
 
