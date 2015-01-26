@@ -44,8 +44,9 @@ fi
 
 echo "apt-get packages will be install.."
 apt-get install ghostscript graphviz antiword git libpq-dev poppler-utils \
- python-pip build-essential libfreetype6-dev npm
+ python-pip build-essential libfreetype6-dev curl
 
+echo "apt-get python packages will be install.."
 apt-get install python-dateutil python-pypdf python-requests \
  python-feedparser python-gdata python-ldap python-libxslt1 \
  python-lxml python-mako python-openid python-psycopg2 \
@@ -57,6 +58,12 @@ apt-get install python-dateutil python-pypdf python-requests \
  python-pdftools python-decorator python-openssl python-babel \
  python-imaging python-reportlab-accel \
  python-paramiko python-software-properties
+
+echo "apt-get npm packages will be install.."
+echo "deb http://ftp.us.debian.org/debian wheezy-backports main" >> /etc/apt/sources.list
+apt-get update
+apt-get install nodejs-legacy
+curl -L --insecure https://www.npmjs.org/install.sh | bash
 
 echo "pip packages will be install.."
 pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode
@@ -84,7 +91,7 @@ read mypdf
 
 if [ "$mypdf" = "Y" ]; then
   echo "HTML2PDF will be install..."
-  wget http://downloads.sourceforge.net/project/wkhtmltopdf/0.12.1/wkhtmltox-0.12.1_linux-wheezy-amd64.deb
+  wget http://www.openerp24.de/fileadmin/content/dateien/wkhtmltox-0.12.1_linux-wheezy-amd64.deb
   dpkg -i wkhtmltox-0.12.1_linux-wheezy-amd64.deb
   rm wkhtmltox-0.12.1_linux-wheezy-amd64.deb
 else
