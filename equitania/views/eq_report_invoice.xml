@@ -218,7 +218,7 @@
 						</tbody>
 					</table>
 				</div>
-				<table class="col-xs-3" style="width:auto!important; max-width:50%;">
+				<table id="additional-invoice-info" class="col-xs-3" style="width:auto!important; max-width:50%;">
 					<tbody>
 						<tr t-if="o.payment_term">
 							<td style="padding-right:0.5cm;">
@@ -236,28 +236,27 @@
 								<span t-field="o.comment"/>
 							</td>
 						</tr>
-                                <!-- <tr t-if="o.eq_order.partner_shipping_id != o.eq_order.partner_id and o.eq_order.partner_shipping_id != False">
-                                    <td style="padding-right:0.5cm; font-weight:bold;" valign="top">
-                                        Lieferanschrift:
-                                    </td>
-                                    <td>
-			                            <div>
-											<div t-field="o.eq_order.partner_shipping_id.name" style="clear:left;"/>
-				   	                        <div t-field="o.eq_order.partner_shipping_id.street"/>
-				                            <div t-if="o.eq_order.partner_shipping_id.street2">
-				                       	        <div t-field="o.eq_order.partner_shipping_id.street2"/>
-				                   	        </div>
-				               	            <h>
-				           	                    <h t-field="o.eq_order.partner_shipping_id.zip"/>
-				       	                        <h t-field="o.eq_order.partner_shipping_id.city"/>
-				   	                        </h>
-				                            <div t-field="o.eq_order.partner_shipping_id.country_id.name"/>
-										</div>
-                                    </td>
-                                </tr> -->
+						<!-- <tr t-if="o.eq_order.partner_shipping_id != o.eq_order.partner_id and o.eq_order.partner_shipping_id != False">
+							<td style="padding-right:0.5cm; font-weight:bold;" valign="top">
+								Lieferanschrift:
+							</td>
+							<td>
+								<div>
+								<div t-field="o.eq_order.partner_shipping_id.name" style="clear:left;"/>
+								<div t-field="o.eq_order.partner_shipping_id.street"/>
+								<div t-if="o.eq_order.partner_shipping_id.street2">
+									<div t-field="o.eq_order.partner_shipping_id.street2"/>
+								</div>
+								<h>
+									<h t-field="o.eq_order.partner_shipping_id.zip"/>
+									<h t-field="o.eq_order.partner_shipping_id.city"/>
+								</h>
+								<div t-field="o.eq_order.partner_shipping_id.country_id.name"/>
+							</div>
+						</td>
+                      </tr>-->
 					</tbody>
 				</table>
-				<div></div>
 			</div><!-- <p t-field="o.comment"/> -->
 			<div class="oe_structure"/>
         </div>
