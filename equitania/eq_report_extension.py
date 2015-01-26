@@ -102,7 +102,7 @@ class eq_report_extension_sale_order(osv.osv):
     def create(self, cr, uid, values, context=None):
         use_sale_person = self.pool.get('ir.values').get_default(cr, uid, 'sale.order', 'default_use_sales_person_as_contact')
         
-        if use_sale_person or False and values.get('user_id', False):
+        if use_sale_person and values.get('user_id', False) and not values.get('eq_contact_person_id', False):
             emp_search = self.pool.get('hr.employee').search(cr, uid, [('user_id', '=', values['user_id'])])
             values['eq_contact_person_id'] = emp_search[0] if len(emp_search) >= 1 else emp_search
         
