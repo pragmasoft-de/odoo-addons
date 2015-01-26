@@ -1069,3 +1069,8 @@ msgstr "Restmenge übrig"
 #: field:product.template,default_code:0
 msgid "Internal Reference"
 msgstr "Produktnr."
+
+#. module: stock_account
+#: field:stock.invoice.onshipping,group:0
+msgid "Group by partner"
+msgstr "Lieferscheine eines Kunden zusammenfassen"
