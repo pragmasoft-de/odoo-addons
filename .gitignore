@@ -12,6 +12,7 @@ _build/
 # hg stuff
 *.orig
 status
+*.pyc
 # odoo filestore
 openerp/filestore
 # maintenance migration scripts
