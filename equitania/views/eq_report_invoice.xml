@@ -236,25 +236,26 @@
 								<span t-field="o.comment"/>
 							</td>
 						</tr>
+						<tr t-if="o.eq_delivery_address"><td><p> <!-- Keep this line for Spacing --></p></td><td></td></tr>
 						<tr t-if="o.eq_delivery_address">
 							<td style="padding-right:0.5cm;" valign="top">
 								Shipping address:
 							</td>
 							<td>
 								<div>
-								<div t-field="o.eq_delivery_address.name" style="clear:left;"/>
-								<div t-field="o.eq_delivery_address.street"/>
-								<div t-if="o.eq_delivery_address.street2">
-									<div t-field="o.eq_delivery_address.street2"/>
+									<div t-field="o.eq_delivery_address.name" style="clear:left;"/>
+									<div t-field="o.eq_delivery_address.street"/>
+									<div t-if="o.eq_delivery_address.street2">
+										<div t-field="o.eq_delivery_address.street2"/>
+									</div>
+									<h>
+										<h t-field="o.eq_delivery_address.zip"/>
+										<h t-field="o.eq_delivery_address.city"/>
+									</h>
+									<div t-field="o.eq_delivery_address.country_id.name"/>
 								</div>
-								<h>
-									<h t-field="o.eq_delivery_address.zip"/>
-									<h t-field="o.eq_delivery_address.city"/>
-								</h>
-								<div t-field="o.eq_delivery_address.country_id.name"/>
-							</div>
-						</td>
-                      </tr>
+							</td>
+	                      </tr>
 						<!-- <tr t-if="o.eq_order.partner_shipping_id != o.eq_order.partner_id and o.eq_order.partner_shipping_id != False">
 							<td style="padding-right:0.5cm; font-weight:bold;" valign="top">
 								Lieferanschrift:
