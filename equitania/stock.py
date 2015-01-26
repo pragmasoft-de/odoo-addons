@@ -38,6 +38,7 @@ class stock_picking_extension(osv.osv):
         
         stock_move_obj = self.pool.get('stock.move')
         same_move_id = stock_move_obj.search(cr, uid, [('price_unit', '=', res['price_unit']), ('product_id', '=', res['product_id']), ('picking_id', '=', res['picking_id'])])[0]
-        procurement_id = stock_move_obj.browse(cr, uid, same_move_id).procurement_id.id
-        res['procurement_id'] = procurement_id
+        same_move = stock_move_obj.browse(cr, uid, same_move_id).procurement_id.id
+        res['procurement_id'] = same_move.procurement_id.id
+        res['name'] = same_move.name
         return res
