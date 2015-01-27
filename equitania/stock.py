@@ -42,3 +42,13 @@ class stock_picking_extension(osv.osv):
         res['procurement_id'] = same_move.procurement_id.id
         res['name'] = same_move.name
         return res
+
+class stock_move_extension(osv.osv):
+    _inherit = ['stock.move']
+    def _get_invoice_line_vals(self, cr, uid, move, partner, inv_type, context=None):
+        
+        res = super(stock_move_extension, self)._get_invoice_line_vals(cr, uid, move, partner, inv_type, context)
+        
+        res.update({'eq_move_id': move.id})
+        
+        return res

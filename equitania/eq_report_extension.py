@@ -299,6 +299,7 @@ class eq_report_extension_invoice(osv.osv):
     
     _columns = {
                 'eq_delivery_date': fields.date('Delivery Date'),
+                'eq_move_id': fields.many2one('stock.move'),
                 }
     
         
