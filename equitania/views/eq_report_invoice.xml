@@ -148,6 +148,7 @@
 			<table class="table table-condensed">
 				<thead>
 					<tr>
+                       	<th>Seq.</th>
 						<th>Item no.</th>
 						<th>Item description</th>
 						<th>Qty.</th>
@@ -163,13 +164,14 @@
 			            <t t-call="equitania.category_template"/>
 			
 			            <!-- Lines associated -->
+						<tr t-foreach="o.invoice_line" t-as="l">
+							<td colspan="10">
+								<p style="font-weight:bold;">Delivery No. <span t-field="l.eq_move_id.picking_id"/> from <span t-esc="l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[2] + '.' + l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[1] + '.' + l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[0]"/> / Delivery Date (the date of service)</p>
+							</td>
+						</tr>
 			            <t t-foreach="p['lines']" t-as="l">
-								<tr t-foreach="o.invoice_line" t-as="l">
-									<td colspan="10">
-										<p style="font-weight:bold;">Delivery No. <span t-field="l.eq_move_id.picking_id"/> from <span t-esc="l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[2] + '.' + l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[1] + '.' + l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[0]"/> / Delivery Date (the date of service)</p>
-									</td>
-								</tr>
 								<tr>
+                                	<td><span t-field="l.sequence"/></td>
 									<td><span t-field="l.product_id.default_code"/></td>
 									<td><strong><span t-field="l.product_id.name"/></strong><br/><span t-field="l.name"/>
 										<t t-if="l.product_id.eq_drawing_number">
@@ -213,13 +215,25 @@
 			                    ]]>
 			                    <thead>
 			                        <tr>
-			                            <th>Description</th>
+                                		<th>Seq.</th>
+			                        	<th>Item no.</th>
+				                        <th>Item description</th>
+				                        <th class="text-right">Qty.</th>
+				                        <!-- <th class="text-right">Unit</th>-->
+				                        <th class="text-right">Unit price</th>
+	                                	<th t-if="any([line.discount for line in o.invoice_line])" class="text-right">Discount (%)</th>
+				                        <th class="text-right">Net price</th>
+			                        
+			                        
+			                        
+			                        
+			                            <!-- <th>Description</th>
 			                            <th>Quantity</th>
 			                            <th groups="product.group_uom">Unit of measure</th>
 			                            <th class="text-right">Unit Price</th>
 			                            <th class="text-right" groups="sale.group_discount_per_so_line">Discount (%)</th>
 			                            <th class="text-right">Taxes</th>
-			                            <th class="text-right">Amount</th>
+			                            <th class="text-right">Amount</th>-->
 			                        </tr>
 			                    </thead>
 			                    <![CDATA[

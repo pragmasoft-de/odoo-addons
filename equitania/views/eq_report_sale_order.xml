@@ -144,6 +144,7 @@
             <table class="table table-condensed">
 				<thead>
 					<tr>
+						<th><strong>Seq.</strong></th>
 						<th>
 							<strong>Item no.</strong>
 						</th>
@@ -153,9 +154,9 @@
                         <th class="text-right">
                             <strong>Qty.</strong>
                         </th>
-                        <th class="text-right">
+                        <!-- <th class="text-right">
                             <strong>Unit</strong>
-                        </th>
+                        </th>-->
                         <th class="text-right">
                             <strong>Unit price</strong>
                         </th>
@@ -174,11 +175,14 @@
 
                     <!-- Lines associated -->
                     <t t-foreach="p['lines']" t-as="line">
-                        <tr>
-                        <td>
-                            <span t-field="line.product_id.default_code"/>
-                        </td>
-                        <td>
+                    	<tr>
+	                        <td>
+	                            <span t-field="line.sequence"/>
+	                        </td>
+	                        <td>
+	                            <span t-field="line.product_id.default_code"/>
+	                        </td>
+                        	<td>
                             <strong><span t-field="line.product_id.name"/></strong>
                             <t t-if="line.name"><br/><span t-field="line.name"/></t>
 							<t t-if="line.product_id.eq_drawing_number">
@@ -191,11 +195,11 @@
 	                        <div id="agreement_id"/>
                         </td>
                         <td class="text-right">
-                            <span t-field="line.product_uom_qty"/>
+                            <span t-field="line.product_uom_qty"/> <span t-field="line.product_uom.name"/>
                         </td>
-                        <td class="text-right">
+                        <!-- <td class="text-right">
                             <span t-field="line.product_uom.name"/>
-                        </td>
+                        </td>-->
                         <td class="text-right">
                             <span t-field="line.price_unit"/>
                         </td>
@@ -225,10 +229,11 @@
                             ]]>
                             <thead>
                                 <tr>
+                                	<th>Seq.</th>
                                 	<th>Item no.</th>
 			                        <th>Item description</th>
 			                        <th class="text-right">Qty.</th>
-			                        <th class="text-right">Unit</th>
+			                        <!-- <th class="text-right">Unit</th>-->
 			                        <th class="text-right">Unit price</th>
                                 	<th t-if="any([line.discount for line in o.order_line])" class="text-right">Discount (%)</th>
 			                        <th class="text-right">Net price</th>
