@@ -53,6 +53,21 @@ msgid "Commitment Date"
 msgstr "Bestelldatum"
 
 #. module: equitania
+#: view:website:account.report_invoice_document
+msgid "Delivery No."
+msgstr "Lieferschein-Nr."
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+msgid "from"
+msgstr "vom"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+msgid "/ Delivery Date (the date of service)"
+msgstr "/ Lieferdatum (Leistungstag)"
+
+#. module: equitania
 #: model:ir.model,name:equitania.model_res_company
 msgid "Companies"
 msgstr "Unternehmen"
