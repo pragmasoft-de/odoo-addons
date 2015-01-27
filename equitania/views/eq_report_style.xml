@@ -9,12 +9,22 @@
     td {
         vertical-align:top;
     }
+    
+    td.active {
+		background-color: #ddd !important;
+    	color: black;
+    }
+    
+    .subtotal td {
+    	border-bottom: 4px double #ccc !important;
+    }
     .border-black td {
         border-top: 1px solid black !important;
     }
     .table-condensed &gt; thead &gt; tr &gt; th {
         border-bottom: 1px solid black !important;
     }
+    
     .zero_min_height {
         min-height: 0px !important;
     }

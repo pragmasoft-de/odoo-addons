@@ -225,12 +225,20 @@
                             ]]>
                             <thead>
                                 <tr>
-                                    <th>Description</th>
+                                	<th>Item no.</th>
+			                        <th>Item description</th>
+			                        <th class="text-right">Qty.</th>
+			                        <th class="text-right">Unit</th>
+			                        <th class="text-right">Unit price</th>
+                                	<th t-if="any([line.discount for line in o.order_line])" class="text-right">Discount (%)</th>
+			                        <th class="text-right">Net price</th>
+			                        
+                                    <!-- <th>Description</th>
                                     <th>Taxes</th>
                                     <th class="text-right">Quantity</th>
                                     <th class="text-right">Unit Price</th>
                                     <th groups="sale.group_discount_per_so_line">Disc.(%)</th>
-                                    <th class="text-right">Price</th>
+                                    <th class="text-right">Price</th>-->
                                 </tr>
                            </thead>
                             <![CDATA[
