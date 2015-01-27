@@ -1090,3 +1090,220 @@ msgstr "Produktnr."
 #: field:stock.invoice.onshipping,group:0
 msgid "Group by partner"
 msgstr "Lieferscheine eines Kunden zusammenfassen"
+
+#. module: equitania
+#: view:website:sale_layout.category_template
+msgid "&bull;"
+msgstr "&bull;"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid ""
+"</tbody>\n"
+"                            </table>\n"
+"                            <p style=\"page-break-before:always;\"> </p>\n"
+"                            <table class=\"table table-condensed\">"
+msgstr ""
+"</tbody>\n"
+"                            </table>\n"
+"                            <p style=\"page-break-before:always;\"> </p>\n"
+"                            <table class=\"table table-condensed\">"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+msgid ""
+"</tbody>\n"
+"                    </table>\n"
+"                    <p style=\"page-break-before:always;\"> </p>\n"
+"                    <table class=\"table table-condensed\">"
+msgstr ""
+"</tbody>\n"
+"                    </table>\n"
+"                    <p style=\"page-break-before:always;\"> </p>\n"
+"                    <table class=\"table table-condensed\">"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:sale.report_saleorder_document
+msgid "<tbody>"
+msgstr "<tbody>"
+
+#. module: equitania
+#: field:sale_layout.category,pagebreak:0
+msgid "Add pagebreak"
+msgstr "Seitenwechsel hinzufügen"
+
+#. module: equitania
+#: field:sale_layout.category,separator:0
+msgid "Add separator"
+msgstr "Trennlinie hinzufügen"
+
+#. module: equitania
+#: field:sale_layout.category,subtotal:0
+msgid "Add subtotal"
+msgstr "Zwischensumme hinzufügen"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+msgid "Amount"
+msgstr "Betrag"
+
+#. module: equitania
+#: view:sale_layout.category:sale_layout.report_configuration_search_view
+msgid "Break"
+msgstr "Trennen"
+
+#. module: equitania
+#: field:sale_layout.category,create_uid:0
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: equitania
+#: field:sale_layout.category,create_date:0
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:sale.report_saleorder_document
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Disc.(%)"
+msgstr "Rabatt (%)"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+msgid "Discount (%)"
+msgstr "Rabatt (%)"
+
+#. module: equitania
+#: view:sale_layout.category:sale_layout.report_configuration_search_view
+msgid "Group By Name"
+msgstr "Gruppiere nach Name"
+
+#. module: equitania
+#: field:sale_layout.category,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: equitania
+#: model:ir.model,name:sale_layout.model_account_invoice
+msgid "Invoice"
+msgstr "Rechnung"
+
+#. module: equitania
+#: model:ir.model,name:sale_layout.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Rechnungszeile"
+
+#. module: equitania
+#: field:sale_layout.category,write_uid:0
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: equitania
+#: field:sale_layout.category,write_date:0
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: equitania
+#: field:account.invoice.line,categ_sequence:0
+#: field:sale.order.line,categ_sequence:0
+msgid "Layout Sequence"
+msgstr "Reihenfolge Auftragszeilen"
+
+#. module: equitania
+#: view:sale_layout.category:sale_layout.report_configuration_search_view
+#: field:sale_layout.category,name:0
+msgid "Name"
+msgstr "Bezeichnung"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Price"
+msgstr "Preis"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:sale.report_saleorder_document
+msgid "Quantity"
+msgstr "Menge"
+
+#. module: equitania
+#: model:ir.actions.act_window,name:sale_layout.report_configuration_action
+#: view:sale_layout.category:sale_layout.report_configuration_form_view
+#: view:sale_layout.category:sale_layout.report_configuration_tree_view
+msgid "Report Configuration"
+msgstr "Reportkonfiguration"
+
+#. module: equitania
+#: model:ir.ui.menu,name:sale_layout.Report_configuration
+msgid "Report Layout Categories"
+msgstr "Reportlayout Kategorien"
+
+#. module: equitania
+#: model:ir.model,name:sale_layout.model_sale_order
+msgid "Sales Order"
+msgstr "Verkaufsauftrag"
+
+#. module: equitania
+#: model:ir.model,name:sale_layout.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Auftragsposition"
+
+#. module: equitania
+#: view:sale_layout.category:sale_layout.report_configuration_search_view
+msgid "Search Name"
+msgstr "Namen suchen"
+
+#. module: equitania
+#: field:account.invoice.line,sale_layout_cat_id:0
+#: field:sale.order.line,sale_layout_cat_id:0
+msgid "Section"
+msgstr "Sektion"
+
+#. module: equitania
+#: view:sale_layout.category:sale_layout.report_configuration_search_view
+msgid "Separator"
+msgstr "Trennlinie"
+
+#. module: equitania
+#: field:sale_layout.category,sequence:0
+msgid "Sequence"
+msgstr "Reihenfolge"
+
+#. module: equitania
+#: view:website:sale_layout.subtotal_template
+msgid "Subtotal:"
+msgstr "Zwischensumme:"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:sale.report_saleorder_document
+msgid "Taxes"
+msgstr "Steuern"
+
+#. module: equitania
+#: view:sale_layout.category:sale_layout.report_configuration_search_view
+msgid "Total"
+msgstr "Gesamt"
+
+#. module: equitania
+#: view:website:sale_layout.category_template
+msgid "Uncategorized"
+msgstr "Nicht kategorisiert"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:sale.report_saleorder_document
+msgid "Unit Price"
+msgstr "Einzelpreis"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+msgid "Unit of measure"
+msgstr "Mengeneinheit"
+

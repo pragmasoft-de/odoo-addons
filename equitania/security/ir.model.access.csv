@@ -4,3 +4,7 @@ access_eq_install_func,eq_install_func,model_eq_install_func,base.group_user,0,0
 access_eq_lead_referred,eq_lead_referred,model_eq_lead_referred,base.group_sale_salesman,1,1,1,1
 access_eq_delivery_conditions,access_eq_delivery_conditions,model_eq_delivery_conditions,base.group_sale_salesman,1,1,1,1
 access_eq_open_sale_order_line,access_eq_open_sale_order_line,model_eq_open_sale_order_line,,1,1,1,1
+report_layout_category_1,report_layout_category_1,model_sale_layout_category,base.group_sale_manager,1,1,1,1
+report_layout_category_2,report_layout_category_2,model_sale_layout_category,account.group_account_manager,1,1,1,1
+report_layout_category_3,report_layout_category_3,model_sale_layout_category,base.group_sale_salesman,1,1,1,0
+report_layout_category_4,report_layout_category_4,model_sale_layout_category,base.group_sale_salesman_all_leads,1,1,1,0

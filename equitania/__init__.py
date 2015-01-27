@@ -33,3 +33,4 @@ import eq_lead_referred
 import eq_open_sale_order_line
 import res_groups
 import stock
+import sale_layout

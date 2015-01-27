@@ -168,7 +168,13 @@
                     </tr>
                 </thead>
                 <tbody class="sale_tbody">
-                    <tr t-foreach="o.order_line" t-as="line">
+                <t t-foreach="o.sale_layout_lines(order_id = o.id)" t-as="p">
+                    <!-- Name of the category -->
+                    <t t-call="equitania.category_template" />
+
+                    <!-- Lines associated -->
+                    <t t-foreach="p['lines']" t-as="line">
+                        <tr>
                         <td>
                             <span t-field="line.product_id.default_code"/>
                         </td>
@@ -200,6 +206,39 @@
                             <span t-field="line.price_subtotal" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
                         </td>
                     </tr>
+                    </t>
+
+                    <!-- Subtotal -->
+                    <t t-call="equitania.subtotal_template" />
+
+                    <!-- Separator -->
+                    <t t-call="equitania.separator_template" />
+
+                    <!-- Pagebreak -->
+                    <t t-if="'pagebreak' in p['category'] and p['category'].pagebreak is True">
+                        <t t-if="p_index &lt; p_size - 1">
+                            <![CDATA[
+                                </tbody>
+                            </table>
+                            <p style="page-break-before:always;"> </p>
+                            <table class="table table-condensed">
+                            ]]>
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Taxes</th>
+                                    <th class="text-right">Quantity</th>
+                                    <th class="text-right">Unit Price</th>
+                                    <th groups="sale.group_discount_per_so_line">Disc.(%)</th>
+                                    <th class="text-right">Price</th>
+                                </tr>
+                           </thead>
+                            <![CDATA[
+                                <tbody>
+                            ]]>
+                        </t>
+                    </t>
+                </t>
                 </tbody>
             </table>
             <div class="row padding-fix">
