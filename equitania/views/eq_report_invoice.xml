@@ -159,16 +159,15 @@
 					</tr>
 				</thead>
 				<tbody class="invoice_tbody">
+		            <!-- Lines associated -->
+					<tr t-foreach="get_pickings(o.invoice_line)" t-as="l">
+						<td colspan="10">
+							<p style="font-weight:bold;">Delivery No. <span t-field="l.name"/> from <span t-esc="l.date_done.split(' ')[0].split('-')[2] + '.' + l.date_done.split(' ')[0].split('-')[1] + '.' + l.date_done.split(' ')[0].split('-')[0]"/> / Delivery Date (the date of service)</p>
+						</td>
+					</tr>
 			        <t t-foreach="o.sale_layout_lines(invoice_id=o.id)" t-as="p">
 			            <!-- Name of the category -->
 			            <t t-call="equitania.category_template"/>
-			
-			            <!-- Lines associated -->
-						<tr t-foreach="o.invoice_line" t-as="l">
-							<td colspan="10" t-if="l.eq_move_id.picking_id">
-								<p style="font-weight:bold;">Delivery No. <span t-field="l.eq_move_id.picking_id"/> from <span t-esc="l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[2] + '.' + l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[1] + '.' + l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[0]"/> / Delivery Date (the date of service)</p>
-							</td>
-						</tr>
 			            <t t-foreach="p['lines']" t-as="l">
 								<tr>
                                 	<td><span t-field="l.sequence"/></td>
