@@ -120,6 +120,8 @@ class eq_report_extension_sale_order(osv.osv):
                                   attached to the invoice
            :return: dict of value to create() the invoice
         """
+        
+        invoice_vals = super(_prepare_invoice, self)._prepare_invoice(cr, uid, order, lines, context)
         if context is None:
             context = {}
         journal_ids = self.pool.get('account.journal').search(cr, uid,
@@ -130,7 +132,8 @@ class eq_report_extension_sale_order(osv.osv):
                 _('Please define sales journal for this company: "%s" (id:%d).') % (order.company_id.name, order.company_id.id))
         invoice_vals = {
             'name': order.name,
-            'origin': order.client_order_ref or False,
+            'origin': order.name or False,
+            'eq_sale_order': order.name,
             'type': 'out_invoice',
             'reference': order.client_order_ref or order.name,
             'account_id': order.partner_id.property_account_receivable.id,
@@ -181,7 +184,7 @@ class eq_report_extension_sale_order_line(osv.osv):
                 else:
                     result[order_line.id] = delivery_date.strftime('%d.%m.%Y')
             else:
-                result[purchase_line.id] = False
+                result[order_line.id] = False
         
         return result
 
@@ -289,6 +292,7 @@ class eq_report_extension_invoice(osv.osv):
                 'eq_head_text': fields.text('Head Text'),
                 'eq_ref_number': fields.char('Sale Order Referenc', size=64),
                 'eq_delivery_address': fields.many2one('res.partner', 'Delivery Address'),
+                'eq_sale_order': fields.char('Sale Order', size=64),
                 }
     _defaults = {
                 'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
@@ -321,6 +325,11 @@ class eq_report_extension_stock_picking(osv.osv):
         vals['eq_ref_number'] = picking.eq_ref_number
         vals['eq_delivery_address'] = picking.partner_id.id
         return super(eq_report_extension_stock_picking, self)._create_invoice_from_picking(cr, uid, picking, vals, context)
+    
+    def _get_invoice_vals(self, cr, uid, key, inv_type, journal_id, move, context=None):
+        res = super(eq_report_extension_stock_picking, self)._get_invoice_vals(cr, uid, key, inv_type, journal_id, move, context)
+        res['eq_sale_order'] = move.picking_id.origin
+        return res
     
 class eq_compatibility_equitania_inox(osv.osv):
     _inherit = 'res.partner'

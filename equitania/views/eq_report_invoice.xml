@@ -53,7 +53,7 @@
 									<span>Order no.</span>
 								</td>
 								<td class="text-right">
-									<span t-field="o.name"/>
+									<span t-field="o.eq_sale_order"/>
 								</td>
 							</tr>
 							<tr t-if="o.type == 'in_invoice'">

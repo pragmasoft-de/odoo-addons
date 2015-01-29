@@ -730,7 +730,12 @@ msgstr "Auftrag"
 #: field:account.invoice,eq_ref_number:0
 #: field:stock.picking,eq_ref_number:0
 msgid "Sale Order Referenc"
-msgstr "Sale Order Referenc"
+msgstr "Belegnr. des Kunden"
+
+#. module: equitania
+#: field:account.invoice,eq_sale_order:0
+msgid "Sale Order"
+msgstr "Verkaufsauftrag"
 
 #. module: equitania
 #: field:sale.config.settings,default_use_sales_person_as_contact:0
