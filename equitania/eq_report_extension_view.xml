@@ -176,7 +176,6 @@
                 </xpath>
                 <xpath expr="//page/group/group/field[@name='origin']" position="after">
                     <field name="eq_ref_number"/>
-                    <field name="eq_sale_order"/>
                 </xpath>
             </field>
         </record>
