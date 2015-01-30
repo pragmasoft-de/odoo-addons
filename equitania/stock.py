@@ -37,7 +37,13 @@ class stock_picking_extension(osv.osv):
         res['group_id'] = op.picking_id.group_id.id
         
         stock_move_obj = self.pool.get('stock.move')
-        same_move_id = stock_move_obj.search(cr, uid, [('price_unit', '>=', res['price_unit'] - 0.01), ('price_unit', '<=', res['price_unit'] + 0.01), ('product_id', '=', res['product_id']), ('picking_id', '=', res['picking_id'])])
+        same_move_id = False
+        if 'price_unit' in res:
+            same_move_id = stock_move_obj.search(cr, uid, [('price_unit', '>=', res['price_unit'] - 0.01), ('price_unit', '<=', res['price_unit'] + 0.01), ('product_id', '=', res['product_id']), ('picking_id', '=', res['picking_id'])])
+        else:
+            same_move_id = stock_move_obj.search(cr, uid, [('picking_id', '=', res['picking_id'])])
+            if len(same_move_id) > 1:
+                same_move_id = same_move_id[0]
         same_move = stock_move_obj.browse(cr, uid, same_move_id)
         res['procurement_id'] = same_move.procurement_id.id
         res['name'] = same_move.name
