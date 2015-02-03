@@ -19,7 +19,7 @@
                     </div>
                     <label for="eq_creditor_ref" attrs="{'invisible':[('supplier', '=', False)]}" />
                     <div attrs="{'invisible':[('supplier', '=', False)]}" it="eq_creditor_ref">
-                        <field name="eq_creditor_ref" attrs="{'invisible':[('supplier', '=', False)]}"   colspan="3" class="oe_inline"/>
+                        <field name="eq_creditor_ref" attrs="{'invisible':[('supplier', '=', False)]}" colspan="3" class="oe_inline"/>
                         <button name="eq_creditor_update" string="Update" type="object"  attrs="{'invisible':[('supplier', '=', False)]}"  colspan="1" class="oe_edit_only oe_link oe_inline"/>
                     </div>
                 </field>

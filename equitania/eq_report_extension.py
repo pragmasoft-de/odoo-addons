@@ -121,7 +121,7 @@ class eq_report_extension_sale_order(osv.osv):
            :return: dict of value to create() the invoice
         """
         
-        invoice_vals = super(_prepare_invoice, self)._prepare_invoice(cr, uid, order, lines, context)
+        invoice_vals = super(eq_report_extension_sale_order, self)._prepare_invoice(cr, uid, order, lines, context)
         if context is None:
             context = {}
         journal_ids = self.pool.get('account.journal').search(cr, uid,
