@@ -54,14 +54,24 @@
 						</h3>
 					</div>
                 </xpath>
-                                
+                
+                <!-- remove state dropdownlist -->
+                <xpath expr="//field[@name='state']" position="replace">
+                </xpath>
+                
                 <label for="purchase_ok" position="after">
                 	<div>
+                		<!-- we don't need it anymore 
 	                	<label for="eq_state_dup" string="State"/>
-						<field name="eq_state_dup" class="oe_inline"/>
+						<field name="eq_state_dup"/>
+						 -->
+						 
+						 <!-- add state -->
+						<label for="state" string="State"/>
+						<field name="state"/>
 					</div>
                 </label>
-                
+                              
                 <!-- remove category dropdownlist -->
                 <xpath expr="//field[@name='categ_id']" position="replace">
                 </xpath>
@@ -76,7 +86,7 @@
                 	<field name="eq_internal_text"/>
                 	<label for="categ_id" string="Internal Category"/>
                 	<div><field name="categ_id" colspan="3" nolabel="1"/></div>
-                </xpath>
+                </xpath>                               
             </field>
         </record>  
         
@@ -134,7 +144,7 @@
             <field name="name">eq.product.product.form.view.inherit</field>
             <field name="model">product.product</field>            
             <field name="inherit_id" ref="product.product_normal_form_view" />
-            <field name="arch" type="xml">
+            <field name="arch" type="xml">            	
             	<!-- add only our 2 main fields and remove default_code..will be added below -->
             	<xpath expr="//group//field[@name='default_code']" position="replace">
                     <field name="eq_drawing_number"/>
@@ -156,10 +166,23 @@
 					</div>
                 </xpath>
                                 
+                <!-- remove state dropdownlist -->
+                <xpath expr="//field[@name='state']" position="replace">
+                </xpath>
+
                 <label for="purchase_ok" position="after">
                 	<div>
+                		<!-- we don't need it anymore 
 	                	<label for="eq_state_dup" string="State"/>
 						<field name="eq_state_dup"/>
+						 -->
+						 
+						 <!-- add state -->
+						<label for="state" string="State"/>
+						<field name="state"/>						
+						<!-- 
+						<div><field name="categ_id" colspan="3" nolabel="1"/></div>
+						 -->
 					</div>
                 </label>
                                 
