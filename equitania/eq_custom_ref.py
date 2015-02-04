@@ -88,6 +88,7 @@ class eq_product_template(osv.osv):
         return res
     
     
+    # changed default_code to required field
     _columns = {
                 'eq_drawing_number': fields.char('Drawing Number', size=50),
                 'eq_index': fields.char('Index', size=64),
@@ -95,6 +96,7 @@ class eq_product_template(osv.osv):
                 'eq_state_dup': fields.function(_set_eq_state_dup, type='char', arg='context', method=True),
                 'eq_internal_number': fields.char('Internal Number', size=64),
                 'eq_internal_text': fields.char('Internal Info', size=255),
+                'default_code': fields.related('product_variant_ids', 'default_code', type='char', string='Internal Reference', required=True),
     }
     def eq_product_number_update(self, cr, uid, ids, context=None):
         #Gets the product
@@ -233,9 +235,9 @@ class eq_product_product(osv.osv):
         res = {'code': product.default_code,'default_code': product.default_code, 'name': product.name}
         return res
     
-    
+    # changed default_code to required field
     _columns = {
-                'default_code' : fields.char('Product Number', select=True),
+                'default_code' : fields.char('Product Number', select=True, required=True),
                 'eq_drawing_number': fields.char('Drawing Number', size=50),
                 'eq_index': fields.char('Index', size=64),
                 'eq_default_code_dub': fields.function(_set_eq_default_code_dup, type='char', arg='context', method=True),

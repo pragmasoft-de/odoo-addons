@@ -43,12 +43,9 @@
                 <xpath expr="//div[@class='oe_title']" position="replace">
 	                <div class="oe_title" style="width: 390px;">
 						<h3>						
-							 <field name="default_code" attrs="{'invisible':True}" required="True"/>
+							 <field name="default_code" attrs="{'invisible':True}" required="True" />
 							 <div>
-		                        <!-- 
-		                        <field name="default_code" class="oe_inline"/>
-		                         -->
-		                         <field name="default_code" class="oe_title"/>
+		                        <field name="default_code"/>
 		                        <button name="eq_product_number_update" string="Update" type="object" class="oe_edit_only oe_link oe_inline"/>
 		                        <newline/>
                     		</div>
@@ -139,7 +136,7 @@
 						<h3>						
 							 <field name="default_code" attrs="{'invisible':True}"/>
 							 <div>
-		                        <field name="default_code"/>
+		                        <field name="default_code" class="oe_form_required"/>
 		                        <button name="eq_product_number_update" string="Update" type="object" class="oe_edit_only oe_link oe_inline"/>
 		                        <newline/>
                     		</div>
