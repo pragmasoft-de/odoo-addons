@@ -45,7 +45,7 @@
 						<h3>						
 							 <div>
 		                        <field name="default_code"/>
-		                        <button name="eq_product_number_update" string="Update" type="object" class="oe_edit_only oe_link oe_inline"/>
+		                        <button name="eq_product_number_update" string="Generate number" type="object" class="oe_edit_only oe_link oe_inline"/>
 		                        <newline/>
                     		</div>
                     		
@@ -157,7 +157,7 @@
 						<h3>						
 							 <div>
 		                        <field name="default_code" class="oe_form_required"/>
-		                        <button name="eq_product_number_update" string="Update" type="object" class="oe_edit_only oe_link oe_inline"/>
+		                        <button name="eq_product_number_update" string="Generate number" type="object" class="oe_edit_only oe_link oe_inline"/>
 		                        <newline/>
                     		</div>
                     		<!-- removed standard css class to archive bigger width for name -->
