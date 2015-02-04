@@ -26,31 +26,39 @@
             </field>
         </record>
         
-        <!-- Product Template -->
+        <!-- Product Template - form view -->
         <record id="eq_product_product_template_only_form_view" model="ir.ui.view">
             <field name="name">eq.product.product_template_only_form_view.inherit</field>
             <field name="model">product.template</field>
             <field name="inherit_id" ref="product.product_template_only_form_view" />
             <field name="arch" type="xml">
+                            
+                <!-- add only our 2 main fields and remove default_code..will be added below -->
                 <xpath expr="//group//field[@name='default_code']" position="replace">
-                	<field name="default_code" attrs="{'invisible':True}"/>
-                    <label for="default_code" string="Product No."/>
-                    <div>
-                        <field name="default_code" class="oe_inline"/>
-                        <button name="eq_product_number_update" string="Update" type="object" class="oe_edit_only oe_link oe_inline"/>
-                        <newline/>
-                    </div>
                     <field name="eq_drawing_number"/>
                     <field name="eq_index"/>
                 </xpath>
+                 
+                <!-- here it is, add that feld default_code together with update link -->
                 <xpath expr="//div[@class='oe_title']" position="replace">
 	                <div class="oe_title" style="width: 390px;">
-						<h3>
-							<field name="eq_default_code_dub"/>
-							<field name="name" class="oe_inline" modifiers="{'required': true}"/>
+						<h3>						
+							 <field name="default_code" attrs="{'invisible':True}" required="True"/>
+							 <div>
+		                        <!-- 
+		                        <field name="default_code" class="oe_inline"/>
+		                         -->
+		                         <field name="default_code" class="oe_title"/>
+		                        <button name="eq_product_number_update" string="Update" type="object" class="oe_edit_only oe_link oe_inline"/>
+		                        <newline/>
+                    		</div>
+                    		
+                    		<!-- removed standard css class to archive bigger width for name -->
+							<field name="name"  modifiers="{'required': true}"/>							 							 
 						</h3>
 					</div>
                 </xpath>
+                
                 <label for="purchase_ok" position="after">
                 	<div>
 	                	<label for="eq_state_dup" string="State"/>
@@ -64,6 +72,7 @@
             </field>
         </record>  
         
+        <!-- product_template - search view -->
         <record id="eq_product_template_search_view" model="ir.ui.view">
             <field name="name">eq.product.template.product.search</field>
             <field name="model">product.template</field>
@@ -81,6 +90,7 @@
             </field>
         </record>
         
+        <!-- product_template - tree view -->
         <record id="eq_product_template_tree_view" model="ir.ui.view">
             <field name="name">eq.product.template.product.tree</field>
             <field name="model">product.template</field>
@@ -98,6 +108,7 @@
             </field>
         </record>
         
+        <!-- product_template - kanban view -->
         <record id="eq_product_template_kanban_view" model="ir.ui.view">
             <field name="name">eq.product.template.kanban.view</field>
             <field name="model">product.template</field>
@@ -109,30 +120,35 @@
             </field>
         </record>
         
-        <!-- Product Product -->
+                
+        <!-- Product Product - form view -->
         <record id="eq_product_product_form_view" model="ir.ui.view">
             <field name="name">eq.product.product.form.view.inherit</field>
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_normal_form_view" />
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='default_code']" position="after">
-                    <label for="default_code" string="Product No."/>
-                    <div>
-                        <field name="default_code" class="oe_inline"/>
-                        <button name="eq_product_number_update" string="Update" type="object" class="oe_edit_only oe_link oe_inline"/>
-                        <newline/>
-                    </div>
+            	<!-- add only our 2 main fields and remove default_code..will be added below -->
+            	<xpath expr="//group//field[@name='default_code']" position="replace">
                     <field name="eq_drawing_number"/>
                     <field name="eq_index"/>
                 </xpath>
-                <xpath expr="//div[@class='oe_title']" position="replace">
+                
+                 <!-- here it is, add that feld default_code together with update link -->
+                 <xpath expr="//div[@class='oe_title']" position="replace">
 	                <div class="oe_title" style="width: 390px;">
-						<h3>
-							<div><field name="eq_default_code_dub" class="oe_inline"/></div>
-							<field name="name" class="oe_inline" modifiers="{'required': true}"/>
+						<h3>						
+							 <field name="default_code" attrs="{'invisible':True}"/>
+							 <div>
+		                        <field name="default_code"/>
+		                        <button name="eq_product_number_update" string="Update" type="object" class="oe_edit_only oe_link oe_inline"/>
+		                        <newline/>
+                    		</div>
+                    		<!-- removed standard css class to archive bigger width for name -->
+							<field name="name"  modifiers="{'required': true}"/>							 							 
 						</h3>
 					</div>
                 </xpath>
+                                
                 <label for="purchase_ok" position="after">
                 	<div>
 	                	<label for="eq_state_dup" string="State"/>
