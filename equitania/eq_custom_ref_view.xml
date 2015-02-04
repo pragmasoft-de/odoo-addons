@@ -55,16 +55,28 @@
 						</h3>
 					</div>
                 </xpath>
-                
+                                
                 <label for="purchase_ok" position="after">
                 	<div>
 	                	<label for="eq_state_dup" string="State"/>
 						<field name="eq_state_dup" class="oe_inline"/>
 					</div>
                 </label>
+                
+                <!-- remove category dropdownlist -->
+                <xpath expr="//field[@name='categ_id']" position="replace">
+                </xpath>
+                
+                <!-- remove label for category dropdownlist -->
+                <xpath expr="//label[@for='categ_id']" position="replace">
+                </xpath>
+                
+                <!-- append category dropdownlist on first tab -->
                 <xpath expr="//field[@name='list_price']" position="after">
                 	<field name="eq_internal_number"/>
                 	<field name="eq_internal_text"/>
+                	<label for="categ_id" string="Internal Category"/>
+                	<div><field name="categ_id" colspan="3" nolabel="1"/></div>
                 </xpath>
             </field>
         </record>  
