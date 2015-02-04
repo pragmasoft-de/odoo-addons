@@ -98,6 +98,12 @@ class eq_product_template(osv.osv):
                 'eq_internal_text': fields.char('Internal Info', size=255),
                 'default_code': fields.related('product_variant_ids', 'default_code', type='char', string='Internal Reference', required=True),
     }
+    
+    # default setting to make sure, that no "Interne Kategorie" by default selected is
+    _defaults = {
+                'categ_id': False,
+    }
+    
     def eq_product_number_update(self, cr, uid, ids, context=None):
         #Gets the product
         product = self.pool.get('product.template').browse(cr, uid, ids, context)
@@ -244,6 +250,11 @@ class eq_product_product(osv.osv):
                 'eq_state_dup': fields.function(_set_eq_state_dup, type='char', arg='context', method=True),
                 'eq_internal_number': fields.char('Internal Number', size=64),
                 'eq_internal_text': fields.char('Internal Info', size=255),
+    }
+    
+    # default setting to make sure, that no "Interne Kategorie" by default selected is
+    _defaults = {
+                'categ_id': False,
     }
     
     def eq_product_number_update(self, cr, uid, ids, context=None):
