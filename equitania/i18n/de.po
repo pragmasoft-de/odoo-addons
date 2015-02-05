@@ -1320,3 +1320,10 @@ msgstr "Mengeneinheit"
 #: view:res.partner:equitania.view_partner_form
 msgid "Generate number"
 msgstr "Nummer erzeugen"
+
+#. module: equitania
+#: model:ir.actions.report.xml,name:stock.action_report_picking
+#: view:stock.move:stock.view_move_search
+#: field:stock.transfer_details,picking_id:0
+msgid "Picking"
+msgstr "Lieferschein"
