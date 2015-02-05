@@ -56,6 +56,7 @@
         'views/eq_report_style.xml',
         'views/eq_report_internal_layout.xml',
         'views/eq_report_stockpicking.xml',
+        'views/eq_report_stockpicking_return.xml',
         'views/eq_report_open_sale_order_line.xml',
         'eq_install_func.xml',
         'eq_install_func_no_update.xml',
