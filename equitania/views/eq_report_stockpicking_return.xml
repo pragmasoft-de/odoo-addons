@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 	<data>
+		<!-- Menu option -->
 		<report id="eq_report_picking_return_action"
 			string="Picking return" 
 			model="stock.picking"
 			report_type="qweb-pdf"
 			file="equitania.eq_report_stockpicking_return" 
 			name="equitania.eq_report_stockpicking_return" />
-		<template id="eq_report_picking_return_extension" inherit_id="stock.report_picking"
-			active="True">
-			<xpath expr="//div[@class='page']" position="replace">
+			
+		<!-- definition of report -->
+		<template id="eq_report_stockpicking_return" active="True">
+		<t t-call="report.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="report.internal_layout">
+            
+            
 				<div class="page">
 					<div class="oe_structure" />
 					<div class="row">
@@ -79,7 +85,7 @@
 										<td class="text-right" t-if="o.date">
 											<span
 												t-esc="o.date.split(' ')[0].split('-')[2] + '.' + o.date.split(' ')[0].split('-')[1] + '.' + o.date.split(' ')[0].split('-')[0]" />
-											<!-- <span t-esc="o.date.split(' ')[0]"/> -->
+											
 										</td>
 									</tr>
 									<tr t-if="o.date_done and o.state == 'done'">
@@ -107,16 +113,16 @@
 							<tr>
 								<th>
 									<strong>
-										Our reference no.<!--Belegreferenz (Origin) -->
+										Our reference no.
 									</strong>
 								</th>
 								<th>
 									<strong>Status</strong>
 								</th>
-								<!-- <th> <strong>Commitment Date --><!--Bestelldatum --><!-- </strong> </th> -->
+								
 								<th name="td_sched_date_h" t-if="not o.state == 'done'">
 									<strong>
-										Scheduled date<!--Geplante Lieferung -->
+										Scheduled date
 									</strong>
 								</th>
 							</tr>
@@ -129,15 +135,12 @@
 								<td>
 									<span t-field="o.state" />
 								</td>
-								<!-- <td t-if="o.date and not o.state == 'done'"> ## Bestelldatum 
-									ausgeblendet da es schon im Header angezeigt wird <span t-esc="o.date.split(' 
-									')[0].split('-')[2] + '.' + o.date.split(' ')[0].split('-')[1] + '.' + o.date.split(' 
-									')[0].split('-')[0]"/> </td> -->
+
 								<td t-if="not o.date" />
 								<td name="td_sched_date" t-if="o.min_date and not o.state == 'done'">
 									<span
 										t-esc="o.min_date.split(' ')[0].split('-')[2] + '.' + o.min_date.split(' ')[0].split('-')[1] + '.' + o.min_date.split(' ')[0].split('-')[0]" />
-									<!-- <span t-field="o.min_date"/> -->
+									
 								</td>
 								<td t-if="not o.min_date" />
 							</tr>
@@ -189,14 +192,13 @@
 										<p>
 											Drawing No.:
 											<span t-field="move.product_id.eq_drawing_number" />
-										</p><!-- Zeigt die Zeichnungsnummer der Produktvariante an -->
+										</p>
 									</t>
 									<t t-if="not move.product_id.eq_drawing_number">
 										<p>
 											Drawing No.:
 											<span t-field="move.product_id.product_tmpl_id.eq_drawing_number" />
-										</p><!-- Zeigt die Zeichnungsnummer des Hauptprodukts an, wenn 
-											für die Variante keine Nummer hinterlegt ist -->
+										</p>
 									</t>
 								</td>
 								<td class="text-right">
@@ -235,7 +237,6 @@
 									<td>
 										<div t-field="o.sale_id.partner_invoice_id"
 											t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}" />
-										<!--, &quot;phone&quot;, &quot;fax&quot; -->
 									</td>
 								</tr>
 							</tbody>
@@ -256,7 +257,12 @@
 					</div>
 					<div class="oe_structure" />
 				</div>
-			</xpath>
+				
+				</t>
+			</t>
+			
+		
+		</t>
 		</template>
 
 		<template id="report_picking_extension" inherit_id="delivery.report_shipping2">
