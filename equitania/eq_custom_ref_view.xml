@@ -11,7 +11,7 @@
                 <field name="ref" position="replace">
                     <field name="ref" attrs="{'invisible':True}" colspan="3"/>
                 </field>
-                <field name="lang" position="before">
+                <field name="category_id" position="before">
                     <label for="eq_customer_ref" string="Customer Number" attrs="{'invisible':[('customer', '=', False)]}"/>
                     <div attrs="{'invisible':[('customer', '=', False)]}" it="eq_customer_ref">
                         <field name="eq_customer_ref" attrs="{'invisible':[('customer', '=', False)]}" class="oe_inline" on_change="on_change_customer_ref(eq_customer_ref)"/>

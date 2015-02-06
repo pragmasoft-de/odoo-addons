@@ -29,7 +29,7 @@ class eq_custom_ref(osv.osv):
     _name = 'res.partner'
     _inherit = 'res.partner'
     _columns = {
-        'eq_creditor_ref': fields.char('Creditor Number', size=64),
+        'eq_creditor_ref': fields.char('Supplier Number', size=64),
         'eq_customer_ref': fields.char('Customer Number', size=64)
     }
 

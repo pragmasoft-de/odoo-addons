@@ -129,8 +129,8 @@ msgstr "Erstellt am"
 
 #. module: equitania
 #: field:res.partner,eq_creditor_ref:0
-msgid "Creditor Number"
-msgstr "Kreditorennummer"
+msgid "Supplier Number"
+msgstr "Lieferantennummer"
 
 #. module: equitania
 #: field:res.company,eq_custom_1:0
