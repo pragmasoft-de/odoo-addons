@@ -230,7 +230,7 @@ msgstr "Lieferschein:"
 #. module: equitania
 #: view:website:stock.report_picking
 msgid "Packing list:"
-msgstr "Packliste:"
+msgstr "Packliste/Lieferschein:"
 
 #. module: equitania
 #: view:website:stock.report_picking
@@ -1327,3 +1327,8 @@ msgstr "Nummer erzeugen"
 #: field:stock.transfer_details,picking_id:0
 msgid "Picking"
 msgstr "Lieferschein"
+
+#. module: equitania
+#: model:ir.actions.report.xml,name:equitania.eq_report_picking_return_action
+msgid "Picking return"
+msgstr "Rücklieferschein"
