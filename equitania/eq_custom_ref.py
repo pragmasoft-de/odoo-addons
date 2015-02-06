@@ -88,6 +88,7 @@ class eq_product_template(osv.osv):
         return res
     
     
+    # changed default_code to required field
     _columns = {
                 'eq_drawing_number': fields.char('Drawing Number', size=50),
                 'eq_index': fields.char('Index', size=64),
@@ -95,7 +96,15 @@ class eq_product_template(osv.osv):
                 'eq_state_dup': fields.function(_set_eq_state_dup, type='char', arg='context', method=True),
                 'eq_internal_number': fields.char('Internal Number', size=64),
                 'eq_internal_text': fields.char('Internal Info', size=255),
+                #'default_code': fields.related('product_variant_ids', 'default_code', type='char', string='Internal Reference', required=True),
+                'default_code': fields.related('product_variant_ids', 'default_code', type='char', string='Internal Reference'),
     }
+    
+    # default setting to make sure, that no "Interne Kategorie" by default selected is
+    _defaults = {
+                'categ_id': False,
+    }
+    
     def eq_product_number_update(self, cr, uid, ids, context=None):
         #Gets the product
         product = self.pool.get('product.template').browse(cr, uid, ids, context)
@@ -204,7 +213,8 @@ class eq_product_template(osv.osv):
                         'default_code': self.pool.get('ir.sequence').get(cr, uid, 'product_no_sale.' + prod_rec)
                     }
                     super(eq_product_template, self).write(cr, uid, ids, vals, context=context)
-    
+        
+        
 eq_product_template()  
 
 
@@ -233,7 +243,7 @@ class eq_product_product(osv.osv):
         res = {'code': product.default_code,'default_code': product.default_code, 'name': product.name}
         return res
     
-    
+    # changed default_code to required field
     _columns = {
                 'default_code' : fields.char('Product Number', select=True),
                 'eq_drawing_number': fields.char('Drawing Number', size=50),
@@ -242,6 +252,11 @@ class eq_product_product(osv.osv):
                 'eq_state_dup': fields.function(_set_eq_state_dup, type='char', arg='context', method=True),
                 'eq_internal_number': fields.char('Internal Number', size=64),
                 'eq_internal_text': fields.char('Internal Info', size=255),
+    }
+    
+    # default setting to make sure, that no "Interne Kategorie" by default selected is
+    _defaults = {
+                'categ_id': False,
     }
     
     def eq_product_number_update(self, cr, uid, ids, context=None):

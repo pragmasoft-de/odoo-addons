@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<report id="eq_report_picking_return_action"
+			string="Picking return" 
+			model="stock.picking"
+			report_type="qweb-pdf"
+			file="equitania.eq_report_stockpicking_return" 
+			name="equitania.eq_report_stockpicking_return" />
+		<template id="eq_report_picking_return_extension" inherit_id="stock.report_picking"
+			active="True">
+			<xpath expr="//div[@class='page']" position="replace">
+				<div class="page">
+					<div class="oe_structure" />
+					<div class="row">
+						<div class="col-xs-7 addressmargin">
+							<div t-if="o.picking_type_id.code=='incoming' and o.partner_id">
+								<span>
+									<strong>Supplier Address:</strong>
+								</span>
+							</div>
+							<div t-if="o.picking_type_id.code=='internal' and o.partner_id">
+								<span>
+									<strong>Warehouse Address:</strong>
+								</span>
+							</div>
+							<div t-if="o.picking_type_id.code=='outgoing' and o.partner_id">
+								<div class="row col-xs-12 returnaddress">
+									<h t-field="o.partner_id.name" style="clear:left;" />
+									-
+									<h t-field="o.partner_id.street" />
+									-
+									<h t-field="o.partner_id.zip" />
+									<h t-field="o.partner_id.city" />
+									-
+									<h t-field="o.partner_id.country_id.name" />
+								</div>
+							</div>
+							<div t-if="o.partner_id" name="partner_header">
+								<div t-field="o.company_id.partner_id.name" style="clear:left;" />
+								<div t-field="o.company_id.partner_id.street" />
+								<div t-if="o.company_id.partner_id.street2">
+									<div t-field="o.company_id.partner_id.street2" />
+								</div>
+								<h>
+									<h t-field="o.company_id.partner_id.zip" />
+									<h t-field="o.company_id.partner_id.city" />
+								</h>
+								<h t-field="o.company_id.partner_id.country_id.name" />
+							</div>
+						</div>
+						<div class="col-xs-5">
+							<table style="width:100%;float:right;">
+								<tbody>
+									<tr>
+										<td>
+											<span>Customer no.</span>
+										</td>
+										<td class="text-right">
+											<span t-field="o.partner_id.ref" id="eq_customer_ref" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<strong>
+												<span>Your reference no.</span>
+											</strong>
+										</td>
+										<td class="text-right">
+											<strong>
+												<span t-field="o.eq_ref_number" />
+											</strong>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<span>Commitment Date</span>
+										</td>
+										<td class="text-right" t-if="o.date">
+											<span
+												t-esc="o.date.split(' ')[0].split('-')[2] + '.' + o.date.split(' ')[0].split('-')[1] + '.' + o.date.split(' ')[0].split('-')[0]" />
+											<!-- <span t-esc="o.date.split(' ')[0]"/> -->
+										</td>
+									</tr>
+									<tr t-if="o.date_done and o.state == 'done'">
+										<td>
+											<span>Delivery Date</span>
+										</td>
+										<td class="text-right" t-if="o.date_done">
+											<span
+												t-esc="o.date_done.split(' ')[0].split('-')[2] + '.' + o.date_done.split(' ')[0].split('-')[1] + '.' + o.date_done.split(' ')[0].split('-')[0]" />
+										</td>
+									</tr>
+									<tr>
+										<td />
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<h2 style="margin-bottom:25px; margin-top:25px">
+						Rücklieferschein
+						<span t-field="o.name" />
+					</h2>
+					<table class="table table-condensed">
+						<thead>
+							<tr>
+								<th>
+									<strong>
+										Our reference no.<!--Belegreferenz (Origin) -->
+									</strong>
+								</th>
+								<th>
+									<strong>Status</strong>
+								</th>
+								<!-- <th> <strong>Commitment Date --><!--Bestelldatum --><!-- </strong> </th> -->
+								<th name="td_sched_date_h" t-if="not o.state == 'done'">
+									<strong>
+										Scheduled date<!--Geplante Lieferung -->
+									</strong>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<span t-field="o.origin" />
+								</td>
+								<td>
+									<span t-field="o.state" />
+								</td>
+								<!-- <td t-if="o.date and not o.state == 'done'"> ## Bestelldatum 
+									ausgeblendet da es schon im Header angezeigt wird <span t-esc="o.date.split(' 
+									')[0].split('-')[2] + '.' + o.date.split(' ')[0].split('-')[1] + '.' + o.date.split(' 
+									')[0].split('-')[0]"/> </td> -->
+								<td t-if="not o.date" />
+								<td name="td_sched_date" t-if="o.min_date and not o.state == 'done'">
+									<span
+										t-esc="o.min_date.split(' ')[0].split('-')[2] + '.' + o.min_date.split(' ')[0].split('-')[1] + '.' + o.min_date.split(' ')[0].split('-')[0]" />
+									<!-- <span t-field="o.min_date"/> -->
+								</td>
+								<td t-if="not o.min_date" />
+							</tr>
+						</tbody>
+					</table>
+					<br />
+					<br />
+					<table class="table table-condensed" id="move_lines">
+						<thead>
+							<tr>
+								<th>
+									<strong>Seq.</strong>
+								</th>
+								<th>
+									<strong>Product</strong>
+								</th>
+								<th>
+									<strong>Item description</strong>
+								</th>
+								<th class="text-right">
+									<strong>Qty.</strong>
+								</th>
+								<t t-if="o.picking_type_id.code != 'incoming'">
+									<th>
+										<strong>Source</strong>
+									</th>
+								</t>
+								<th>
+									<strong>Barcode</strong>
+								</th>
+								<t t-if="o.picking_type_id.code != 'outgoing'">
+									<th>
+										<strong>Destination</strong>
+									</th>
+								</t>
+							</tr>
+						</thead>
+						<tbody>
+							<tr t-foreach="o.move_lines" t-as="move">
+								<td>
+									<t t-esc="move_index + 1" />
+								</td>
+								<td>
+									<span t-field="move.product_id" />
+								</td>
+								<td>
+									<span t-field="move.name" />
+									<t t-if="move.product_id.eq_drawing_number">
+										<p>
+											Drawing No.:
+											<span t-field="move.product_id.eq_drawing_number" />
+										</p><!-- Zeigt die Zeichnungsnummer der Produktvariante an -->
+									</t>
+									<t t-if="not move.product_id.eq_drawing_number">
+										<p>
+											Drawing No.:
+											<span t-field="move.product_id.product_tmpl_id.eq_drawing_number" />
+										</p><!-- Zeigt die Zeichnungsnummer des Hauptprodukts an, wenn 
+											für die Variante keine Nummer hinterlegt ist -->
+									</t>
+								</td>
+								<td class="text-right">
+									<span t-field="move.product_uom_qty" />
+									<span t-field="move.product_uom" groups="product.group_uom" />
+								</td>
+								<t t-if="o.picking_type_id.code != 'incoming'">
+									<td>
+										<span t-field="move.location_id" />
+									</td>
+								</t>
+								<td>
+									<span t-if="move.product_id and move.product_id.ean13">
+										<img
+											t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', move.product_id.ean13, 600, 100)"
+											style="width:300px;height:50px" />
+									</span>
+								</td>
+								<t t-if="o.picking_type_id.code != 'outgoing'">
+									<td>
+										<span t-field="move.location_dest_id" />
+									</td>
+								</t>
+							</tr>
+						</tbody>
+					</table>
+					<div name="invoice_partner"
+						t-if="o.picking_type_id.code == 'outgoing' and o.sale_id and o.sale_id.partner_invoice_id"
+						style="clear:both;">
+						<table style="width:auto!important; max-width:90%;">
+							<tbody>
+								<tr>
+									<td style="padding-right:0.5cm; vertical-align:top;">
+										<span style="font-weight:bold;">Invoice address:</span>
+									</td>
+									<td>
+										<div t-field="o.sale_id.partner_invoice_id"
+											t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}" />
+										<!--, &quot;phone&quot;, &quot;fax&quot; -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div style="display:inline-block;">
+						<table style="margin-top:0.5cm;">
+							<tr>
+								<td>Goods received on date:</td>
+							</tr>
+							<tr>
+								<td style="width:5cm; height:1.5cm; border-bottom: 1px solid #000;"></td>
+							</tr>
+							<tr>
+								<td>Signature</td>
+							</tr>
+						</table>
+					</div>
+					<div class="oe_structure" />
+				</div>
+			</xpath>
+		</template>
+
+		<template id="report_picking_extension" inherit_id="delivery.report_shipping2">
+			<xpath expr="//div[@name='invoice_partner']" position="replace" />
+		</template>
+	</data>
+</openerp>
