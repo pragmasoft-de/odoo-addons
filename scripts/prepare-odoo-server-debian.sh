@@ -32,12 +32,12 @@ read mypsql
 
 if [ "$mypsql" = "Y" ]; then
   echo "PostgreSQL will be install..."
-  sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+  sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
   apt-get install wget ca-certificates
   wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
   apt-get update
   apt-get upgrade
-  apt-get install postgresql-9.3
+  apt-get install postgresql
 else
   echo "PostgreSQL is not installed!"
 fi
@@ -115,12 +115,12 @@ read mysql
 if [ "$mysql" = "Y" ]; then
   echo "PostgreSQL will be optimized..."
   apt-get install pgtune
-  pgtune -i /etc/postgresql/9.3/main/postgresql.conf -o /etc/postgresql/9.3/main/postgresql.conf.tuned
-  mv /etc/postgresql/9.3/main/postgresql.conf  /etc/postgresql/9.3/main/postgresql.conf.old
-  mv /etc/postgresql/9.3/main/postgresql.conf.tuned  /etc/postgresql/9.3/main/postgresql.conf
+  pgtune -i /etc/postgresql/9.4/main/postgresql.conf -o /etc/postgresql/9.4/main/postgresql.conf.tuned
+  mv /etc/postgresql/9.4/main/postgresql.conf  /etc/postgresql/9.4/main/postgresql.conf.old
+  mv /etc/postgresql/9.4/main/postgresql.conf.tuned  /etc/postgresql/9.4/main/postgresql.conf
   /etc/init.d/postgresql stop
   /etc/init.d/postgresql start 
-  cat /etc/postgresql/9.3/main/postgresql.conf
+  cat /etc/postgresql/9.4/main/postgresql.conf
 else
   echo "PostgreSQL is not optimized!"
 fi
