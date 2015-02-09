@@ -35,3 +35,4 @@ import res_groups
 import stock
 import sale_layout
 import reports
+import res_config

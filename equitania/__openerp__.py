@@ -64,6 +64,7 @@
         'sale_layout/views/sale_layout_category_view.xml',
         'sale_layout/views/sale_layout_template.xml',
         'data/decimal_precision.xml',
+        'res_config_view.xml',
     ],
     'demo': [],
     'css': ['base.css'],

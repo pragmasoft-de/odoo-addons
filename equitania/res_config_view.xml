@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Stock Config Settings -->
+		<record id="eq_stock_config_settings" model="ir.ui.view">
+		     <field name="name">eq_stock_config_settings</field>
+		     <field name="model">stock.config.settings</field>
+		     <field name="inherit_id" ref="stock.view_stock_config_settings"/>
+		     <field name="arch" type="xml">
+                <field name="module_procurement_jit" position="before">
+                    <div>
+                        <field name="default_eq_join_stock_moves"/>
+                        <label for="default_eq_join_stock_moves"/>
+                    </div>
+				</field>
+		     </field>
+		</record>
+    </data>
+</openerp>

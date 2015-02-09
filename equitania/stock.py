@@ -21,6 +21,7 @@
 
 from openerp.osv import fields, osv, orm
 from openerp.tools.translate import _
+from openerp import SUPERUSER_ID, api
 
 class stock_picking_extension(osv.osv):
     _inherit = ['stock.picking']
@@ -48,6 +49,19 @@ class stock_picking_extension(osv.osv):
         res['procurement_id'] = same_move.procurement_id.id
         res['name'] = same_move.name
         return res
+    
+    
+    @api.cr_uid_ids_context
+    def do_transfer(self, cr, uid, picking_ids, context=None):
+        join_moves = self.pool.get('ir.values').get_default(cr, uid, 'stock.picking', 'default_eq_join_stock_moves', context)
+        if join_moves:
+            for picking in self.browse(cr, uid, picking_ids, context):
+                for pack_operation in picking.pack_operation_ids:
+                    for move in picking.move_lines:
+                        if pack_operation.product_id.id == move.product_id.id and pack_operation.product_qty > move.product_uom_qty:
+                            self.pool.get('stock.move').write(cr, uid, move.id, {'product_uom_qty': pack_operation.product_qty, 'product_uos_qty': pack_operation.product_qty * pack_operation.product_id.uos_coeff})
+            print 'doit!'
+        return super(stock_picking_extension, self).do_transfer(cr, uid, picking_ids, context)
 
 class stock_move_extension(osv.osv):
     _inherit = ['stock.move']
