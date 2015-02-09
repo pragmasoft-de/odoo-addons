@@ -50,7 +50,7 @@
 									<span>Customer no.</span>
 								</td>
 								<td class="text-right">
-									<span t-field="o.partner_id.ref" id="eq_customer_ref"/>
+									<span t-field="o.partner_id.eq_customer_ref" id="eq_customer_ref"/>
 								</td>
 							</tr>
 							<tr>

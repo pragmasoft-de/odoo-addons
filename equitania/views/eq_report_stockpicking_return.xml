@@ -21,9 +21,19 @@
 					<div class="row">
 						<div class="col-xs-7 addressmargin">
 							<div t-if="o.picking_type_id.code=='incoming' and o.partner_id">
-								<span>
+								<!-- <span>
 									<strong>Supplier Address:</strong>
-								</span>
+								</span>-->
+								<div class="row col-xs-12 returnaddress">
+									<h t-field="o.partner_id.name" style="clear:left;" />
+									-
+									<h t-field="o.partner_id.street" />
+									-
+									<h t-field="o.partner_id.zip" />
+									<h t-field="o.partner_id.city" />
+									-
+									<h t-field="o.partner_id.country_id.name" />
+								</div>
 							</div>
 							<div t-if="o.picking_type_id.code=='internal' and o.partner_id">
 								<span>
@@ -63,7 +73,7 @@
 											<span>Customer no.</span>
 										</td>
 										<td class="text-right">
-											<span t-field="o.partner_id.ref" id="eq_customer_ref" />
+											<span t-field="o.partner_id.eq_customer_ref" id="eq_customer_ref"/>
 										</td>
 									</tr>
 									<tr>
@@ -105,7 +115,7 @@
 						</div>
 					</div>
 					<h2 style="margin-bottom:25px; margin-top:25px">
-						Rücklieferschein
+						Delivery return
 						<span t-field="o.name" />
 					</h2>
 					<table class="table table-condensed">
@@ -268,5 +278,6 @@
 		<template id="report_picking_extension" inherit_id="delivery.report_shipping2">
 			<xpath expr="//div[@name='invoice_partner']" position="replace" />
 		</template>
+		
 	</data>
 </openerp>
