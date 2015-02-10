@@ -33,8 +33,6 @@ class eq_report_purchase_order(report_sxw.rml_parse):
             'get_price': self.get_price,
             'get_standard_price': self.get_standard_price,
         })
-    
-    
         
     
     def get_qty(self, object, language):
