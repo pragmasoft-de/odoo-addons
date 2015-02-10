@@ -1357,3 +1357,13 @@ msgstr "Rücklieferschein"
 #: view:website:equitania.eq_report_stockpicking_return
 msgid "Delivery return"
 msgstr "Rücklieferschein"
+
+#. module: equitania
+#: field:stock.config.settings,default_eq_join_stock_moves:0
+msgid "Join the positions of overdeliveries [equitania]"
+msgstr "Die Positionen bei einer Überlieferung zusammenfassen. [equitania]"
+
+#. module: equitania
+#: help:stock.config.settings,default_eq_join_stock_moves:0
+msgid "When an overdelivery occures it will automaticly join the positions of the picking."
+msgstr "Wenn eine Überlieferung auftritt, werden die Positionen im Lieferschein zusammengefasst."

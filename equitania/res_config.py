@@ -37,5 +37,5 @@ class eq_stock_config_settings(osv.osv_memory):
                 }
     
     _columns = {
-                'default_eq_join_stock_moves': fields.boolean('Join the Positions of Overdeliveries [equitania]', help="When an overdelivery occures it will automaticly join the positions of the picking.")
+                'default_eq_join_stock_moves': fields.boolean('Join the positions of overdeliveries [equitania]', help="When an overdelivery occures it will automaticly join the positions of the picking.")
                 }
