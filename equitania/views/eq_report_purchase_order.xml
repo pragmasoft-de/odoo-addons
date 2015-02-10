@@ -163,16 +163,16 @@
 	                        <div id="agreement_id"/>	                        
 	                    </td>
 	                    <td class="text-right">
-	                        <span t-field="line.product_qty"/>
+	                        <span t-esc="get_qty(line.product_qty, o.partner_id.lang)"/>
 	                    </td>
 	                    <td class="text-right">
 	                        <span t-field="line.product_uom.name"/>
 	                    </td>
 	                    <td class="text-right">
-	                        <span t-field="line.price_unit"/>
+	                        <span t-esc="get_price(line.price_unit, o.partner_id.lang)"/>
 	                    </td>
 	                    <td class="text-right">
-	                        <span t-field="line.price_subtotal" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
+	                        <span t-esc="get_standard_price(line.price_subtotal, o.partner_id.lang)" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
 	                    </td>
 	                </tr>
 	            </tbody>
@@ -198,13 +198,13 @@
 	                    <tbody>
 	                        <tr>
 	                            <td class="text-right">
-	                                <span t-field="o.amount_untaxed" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
+	                                <span t-esc="get_standard_price(o.amount_untaxed, o.partner_id.lang)" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
 	                            </td>
 	                            <td class="text-right">
-	                                <span t-field="o.amount_tax" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
+	                                <span t-esc="get_standard_price(o.amount_tax, o.partner_id.lang)" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
 	                            </td>
 	                            <td class="text-right">
-	                                <span t-field="o.amount_total" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
+	                                <span t-esc="get_standard_price(o.amount_total, o.partner_id.lang)" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
 	                            </td>
 	                        </tr>
 	                    </tbody>

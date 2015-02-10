@@ -36,3 +36,4 @@ import stock
 import sale_layout
 import reports
 import res_config
+import eq_report_helper
