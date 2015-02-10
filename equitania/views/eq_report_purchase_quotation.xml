@@ -118,7 +118,7 @@
 				            <span t-field="order_line.get_delivery_date"/>
 				        </td>
 				        <td class="text-right">
-				            <span t-field="order_line.product_qty"/>
+				            <span t-esc="get_qty(order_line.product_qty, o.partner_id.lang)"/>
 				            <span t-field="order_line.product_uom" groups="product.group_uom"/>
 				        </td>
 				    </tr>
