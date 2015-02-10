@@ -257,6 +257,7 @@ class eq_product_product(osv.osv):
     # default setting to make sure, that no "Interne Kategorie" by default selected is
     _defaults = {
                 'categ_id': False,
+                'lst_price': 0,
     }
     
     def eq_product_number_update(self, cr, uid, ids, context=None):
