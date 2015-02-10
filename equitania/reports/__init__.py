@@ -1,1 +1,2 @@
 import stock_picking
+import eq_report_purchase_order
