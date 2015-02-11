@@ -23,13 +23,17 @@ import time
 from openerp.osv import osv
 from openerp.report import report_sxw
 
-
+# functionality for our eq_report_invoice report
 class stock_picking(report_sxw.rml_parse):
     def __init__(self, cr, uid, name, context):
         super(stock_picking, self).__init__(cr, uid, name, context=context)
         self.localcontext.update({
             'get_pickings':self.get_pickings,
+            'get_qty':self.get_qty,
+            'get_price': self.get_price,
+            'get_standard_price': self.get_standard_price,
         })
+        
     def get_pickings(self, object):
         result = []
         for l in object:
@@ -37,6 +41,19 @@ class stock_picking(report_sxw.rml_parse):
                 if l.eq_move_id.picking_id not in result:
                     result.append(l.eq_move_id.picking_id)
         return result
+
+    
+    def get_qty(self, object, language):
+        return self.pool.get("eq_report_helper").get_qty(self.cr, self.uid, object, language, 'Sale Quantity Report')
+           
+    
+    def get_price(self, object, language):                
+        return self.pool.get("eq_report_helper").get_price(self.cr, self.uid, object, language, 'Sale Price Report')
+    
+    
+    def get_standard_price(self, object, language):
+        return self.pool.get("eq_report_helper").get_standard_price(self.cr, self.uid, object, language)
+
     
 class report_invoice(osv.AbstractModel):
     _name = 'report.account.report_invoice'

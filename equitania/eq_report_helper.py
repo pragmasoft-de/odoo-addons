@@ -28,7 +28,6 @@ class eq_report_helper(osv.osv):
     _name = "eq_report_helper"
             
     def get_qty(self, cr, uid, object, language, param_name, context = None):
-        print "-----ok ----"
         """
             Quantity formater
         """
@@ -75,7 +74,7 @@ class eq_report_helper(osv.osv):
         language_id = res_lang_obj.search(cr, uid, [("code", "=", language)])        
         langauge_record =  res_lang_obj.browse(cr, uid, language_id[0])
         
-        print langauge_record
+        #print langauge_record
         
         
         DECIMAL_SEPARATOR_TAG = langauge_record.decimal_point

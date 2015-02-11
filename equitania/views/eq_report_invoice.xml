@@ -159,12 +159,16 @@
 					</tr>
 				</thead>
 				<tbody class="invoice_tbody">
-		            <!-- Lines associated -->
-					<tr t-foreach="get_pickings(o.invoice_line)" t-as="l">
+		            <!-- Lines associated -->		            
+		            <tr t-foreach="get_pickings(o.invoice_line)" t-as="l">
 						<td colspan="10">
 							<p style="font-weight:bold;">Delivery No. <span t-field="l.name"/> from <span t-esc="l.date_done.split(' ')[0].split('-')[2] + '.' + l.date_done.split(' ')[0].split('-')[1] + '.' + l.date_done.split(' ')[0].split('-')[0]"/> / Delivery Date (the date of service)</p>
 						</td>
-					</tr>
+					</tr>					
+					
+					
+					
+					
 			        <t t-foreach="o.sale_layout_lines(invoice_id=o.id)" t-as="p">
 			            <!-- Name of the category -->
 			            <t t-call="equitania.category_template"/>
@@ -181,18 +185,18 @@
 										</t>
 									</td>
 									<td>
-										<span t-field="l.quantity"/>
+										<span t-esc="get_qty(l.quantity, o.partner_id.lang)"/>
 										<span t-field="l.uos_id"  groups="product.group_uom"/>
 									</td>
 									<td class="text-right">
-										<span t-field="l.price_unit"/>
+										<span t-esc="get_price(l.price_unit, o.partner_id.lang)"/>
 									</td>
-									<td class="text-right" groups="sale.group_discount_per_so_line"><span t-field="l.discount"/></td>
+									<td class="text-right" groups="sale.group_discount_per_so_line"><span t-esc="get_standard_price(l.discount, o.partner_id.lang)"/></td>
 									<!-- <td class="text-right">
 										<span t-esc="', '.join(map(lambda x: x.name, l.invoice_line_tax_id))"/>
 									</td>-->
 									<td class="text-right">
-										<span t-field="l.price_subtotal" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+										<span t-esc="get_standard_price(l.price_subtotal, o.partner_id.lang)" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
 									</td>
 								</tr>
 			            </t>
@@ -264,13 +268,13 @@
 						<tbody>
 							<tr>
 								<td class="text-right" id="price_netto_amount">
-									<span t-field="o.amount_untaxed" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+									<span t-esc="get_standard_price(o.amount_untaxed, o.partner_id.lang)" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
 								</td>
 								<td class="text-right" t-if="o.invoice_line[0].invoice_line_tax_id">
-									<span t-field="o.amount_tax" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+									<span t-esc="get_standard_price(o.amount_tax, o.partner_id.lang)" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
 								</td>
 								<td class="text-right">                                            
-									<span t-field="o.amount_total" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+									<span t-esc="get_standard_price(o.amount_total, o.partner_id.lang)" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
 								</td>
 							</tr>
 						</tbody>
