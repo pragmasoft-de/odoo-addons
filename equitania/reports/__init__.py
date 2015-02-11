@@ -6,3 +6,4 @@ import eq_report_purchase_quotation
 #import eq_report_invoice
 
 import eq_report_sale_order
+import eq_report_open_sale_order_line

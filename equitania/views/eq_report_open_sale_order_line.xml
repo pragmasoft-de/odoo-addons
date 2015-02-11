@@ -14,16 +14,15 @@
                         <thead>
                             <tr>
                                 <th style="vertical-align:top!important;">
-                                    <!-- class="text-center"    class="text-right"-->
                                     <strong>Auftrag</strong>
-                                        <br/>Zuständig
+                                     <br/>Zuständig
                                 </th>
                                 <th style="vertical-align:top!important;">
                                     <strong>KD-Nr.</strong>
                                 </th>
                                 <th style="vertical-align:top!important;">
                                     <strong>Kunde</strong>
-                                        <br/>Kundenreferenz
+                                     <br/>Kundenreferenz
                                 </th>
                                 <th style="vertical-align:top!important;">
                                     <strong>Lieferdatum</strong>
@@ -39,8 +38,8 @@
                                 </th>
                                 <th style="vertical-align:top!important;">
                                     <strong>Produktnummer</strong>
-                                        <br/>Produktbezeichnung
-                                        <br/>Zeichnungsnummer
+                                    <br/>Produktbezeichnung
+                                    <br/>Zeichnungsnummer
                                 </th>
                             </tr>
                         </thead>
@@ -50,7 +49,6 @@
                                     <strong><span t-field="o.eq_order_id"/></strong>
                                     <br/>
 	                                   <span t-field="o.eq_order_id.eq_contact_person_id.name"/>
-	                                
                                 </td>
                                 <td>
                                     <strong><span t-field="o.eq_customer_no"/></strong>
@@ -61,7 +59,6 @@
                                     	<p>
 	                                    <span t-field="o.eq_client_order_ref"/>
                                         </p>
-	                                
                                 </td>
                                 <td>
                                     <strong><span t-field="o.eq_delivery_date"/></strong>
@@ -72,16 +69,15 @@
                                     </strong>
                                 </td>
                                 <td class="text-right">
-                                    <strong><span t-field="o.eq_quantity"/></strong>
+                                    <strong><span t-esc="get_qty(o.eq_quantity, o.eq_customer.lang)"/></strong>
                                 </td>
                                 <td class="text-right">
-                                    <strong><span t-field="o.eq_quantity_left"/></strong>
+                                    <strong><span t-esc="get_qty(o.eq_quantity_left, o.eq_customer.lang)"/></strong>
                                 </td>
                                 <td>
                                     <strong><span t-field="o.eq_product_no"/></strong>
                                     <br/>
-	                                    <span t-field="o.eq_drawing_no"/>
-	                                
+	                                    <span t-field="o.eq_drawing_no"/>	                                
                                 </td>
                             </tr>
                         </tbody>
