@@ -7,3 +7,5 @@ import eq_report_purchase_quotation
 
 import eq_report_sale_order
 import eq_report_open_sale_order_line
+import eq_report_stockpicking
+import eq_report_stockpicking_return

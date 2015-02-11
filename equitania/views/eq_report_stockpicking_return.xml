@@ -212,7 +212,7 @@
 									</t>
 								</td>
 								<td class="text-right">
-									<span t-field="move.product_uom_qty" />
+									<span t-esc="get_qty(move.product_uom_qty, o.partner_id.lang)" />
 									<span t-field="move.product_uom" groups="product.group_uom" />
 								</td>
 								<t t-if="o.picking_type_id.code != 'incoming'">

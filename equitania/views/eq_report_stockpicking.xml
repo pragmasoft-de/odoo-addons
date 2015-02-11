@@ -3,7 +3,7 @@
 <data>
 <template id="eq_report_picking_extension" inherit_id="stock.report_picking" active="True">
 	<xpath expr="//div[@class='page']" position="replace">
-		<div class="page">
+		<div class="page">	
 			<div class="oe_structure"/>
 			<div class="row">
 				<div class="col-xs-7 addressmargin">
@@ -110,7 +110,7 @@
 				<tbody>
 					<tr>
 						<td>
-							<span t-field="o.origin"/>
+							<span t-field="o.origin"/>							
 						</td>
 						<td>
 							<span t-field="o.state"/>
@@ -122,7 +122,7 @@
 						<td t-if="not o.date"/>
 						<td name="td_sched_date" t-if="o.min_date and not o.state == 'done'">
 							<span t-esc="o.min_date.split(' ')[0].split('-')[2] + '.' + o.min_date.split(' ')[0].split('-')[1] + '.' + o.min_date.split(' ')[0].split('-')[0]"/>
-							<!-- <span t-field="o.min_date"/>-->
+							<!-- <span t-field="o.min_date"/>-->							
 						</td>
 						<td t-if="not o.min_date"/>
 					</tr>
@@ -178,7 +178,7 @@
 							</t>
 						</td>
 						<td class="text-right">
-							<span t-field="move.product_uom_qty"/>
+							<span t-esc="get_qty(move.product_uom_qty, o.partner_id.lang)"/>
 							<span t-field="move.product_uom" groups="product.group_uom"/>
 						</td>
 						<t t-if="o.picking_type_id.code != 'incoming'">
