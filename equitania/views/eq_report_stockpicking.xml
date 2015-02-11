@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data>
+
+<!-- 
 <template id="eq_report_picking_extension" inherit_id="stock.report_picking" active="True">
+ -->
+ <template id="eq_report_picking_extension" inherit_id="delivery.report_shipping2" active="True">
 	<xpath expr="//div[@class='page']" position="replace">
 		<div class="page">	
 			<div class="oe_structure"/>
@@ -105,12 +109,16 @@
 						<th name="td_sched_date_h" t-if="not o.state == 'done'">
 							<strong>Scheduled date<!--Geplante Lieferung--></strong>
 						</th>
+						<th t-if="o.picking_type_id.code == 'outgoing'"><strong>Carrier</strong></th>
+                		<th><strong>Weight</strong></th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>
-							<span t-field="o.origin"/>							
+							<span t-field="o.origin"/>		
+							<!-- TODO: !add this! -->
+							<span t-esc="get_weight(o.weight, o.partner_id.lang)" />					
 						</td>
 						<td>
 							<span t-field="o.state"/>
@@ -125,6 +133,12 @@
 							<!-- <span t-field="o.min_date"/>-->							
 						</td>
 						<td t-if="not o.min_date"/>
+						<td t-if="o.picking_type_id.code == 'outgoing'">
+		                    <span t-field="o.carrier_id"/>
+		                </td>
+		                <td>
+		                    <span t-esc="get_weight(o.weight, o.partner_id.lang)"/>
+		                </td>
 					</tr>
 				</tbody>
 			</table>
@@ -232,8 +246,9 @@
 	</xpath>
 </template>
 
-<template id="report_picking_extension" inherit_id="delivery.report_shipping2">
-	<xpath expr="//div[@name='invoice_partner']" position="replace"/>
+
+ <template id="report_picking_extension" inherit_id="delivery.report_shipping2">
+	<xpath expr="//div[@name='invoice_partner']" position="replace"/>	
 </template>
 </data>
 </openerp>
