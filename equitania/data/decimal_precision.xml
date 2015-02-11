@@ -16,6 +16,10 @@
         <record forcecreate="True" id="decimal_sale_price" model="decimal.precision">
             <field name="name">Sale Price Report</field>
             <field name="digits">0</field>
+        </record>        
+        <record forcecreate="True" id="decimal_sale_weight" model="decimal.precision">
+            <field name="name">Sales Weight Report</field>
+            <field name="digits">0</field>
         </record>
     </data>
 </openerp>
