@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- Template Action -->
+		<!--
+		<record id="your_action" model="ir.actions.act_window">
+			<field name="name">Name of your Action</field>
+			<field name="res_model">eq_module_template</field>	
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">Click here to create new "Your Module"</p>
+			</field>
+		</record>
+		-->
+		<!-- Template Form View -->
+		<!-- 
+		<record id="calculation_form_view" model="ir.ui.view">		
+			<field name="name">eq_module_template.form.view</field>
+			<field name="model">eq_module_template</field>
+			<field name="arch" type="xml">
+				<form string="Calculation">
+					Add your view definition like
+					<field name="your_field"/>
+				</form>
+			</field>
+		</record>
+		-->
+		<!-- Menu entries -->
+		<!--
+		<menuitem name="Calculations" id="menu_your_unique_name" parent="name_of_the_menu_you_want_to_add_it_to" sequence="4" />
+		<menuitem id="menu_your_unique_name2" name="Show Form by Action" parent="menu_your_unique_name" action="your_action" />
+		-->
+	</data>
+</openerp>
