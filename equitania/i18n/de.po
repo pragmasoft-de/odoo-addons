@@ -101,7 +101,7 @@ msgstr "Konfiguriere Verkauf"
 #: field:purchase.order,eq_contact_person_id:0
 #: field:sale.order,eq_contact_person_id:0
 msgid "Contact Person"
-msgstr "Kontaktperson"
+msgstr "Sachbearbeiter"
 
 #. module: equitania
 #: view:website:account.report_invoice_document
@@ -109,7 +109,7 @@ msgstr "Kontaktperson"
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:sale.report_saleorder_document
 msgid "Contact person"
-msgstr "Kontaktperson"
+msgstr "Sachbearbeiter"
 
 #. module: equitania
 #: field:eq.delivery.conditions,create_uid:0
