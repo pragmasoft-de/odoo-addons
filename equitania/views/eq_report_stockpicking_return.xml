@@ -162,7 +162,7 @@
 						<thead>
 							<tr>
 								<th>
-									<strong>Seq.</strong>
+									<strong>Seq</strong>
 								</th>
 								<th>
 									<strong>Product</strong>
@@ -191,7 +191,8 @@
 						<tbody>
 							<tr t-foreach="o.move_lines" t-as="move">
 								<td>
-									<t t-esc="move_index + 1" />
+									<!-- pos no from contract -->
+									<t t-esc="move.eq_pos_no"/>
 								</td>
 								<td>
 									<span t-field="move.product_id" />

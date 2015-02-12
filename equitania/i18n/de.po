@@ -799,7 +799,7 @@ msgstr "Search Partner"
 #. module: equitania
 #: field:eq_open_sale_order_line,eq_pos:0
 msgid "Seq"
-msgstr "Pos."
+msgstr "Pos"
 
 #. module: equitania
 #: help:sale.config.settings,default_use_sales_person_as_contact:0
@@ -1367,3 +1367,14 @@ msgstr "Die Positionen bei einer Überlieferung zusammenfassen. [equitania]"
 #: help:stock.config.settings,default_eq_join_stock_moves:0
 msgid "When an overdelivery occures it will automaticly join the positions of the picking."
 msgstr "Wenn eine Überlieferung auftritt, werden die Positionen im Lieferschein zusammengefasst."
+
+#. module: equitania
+#: field:account.invoice.line,eq_pos_no:0
+#: field:eq_open_sale_order_line,eq_pos:0
+#: field:stock.move,eq_pos_no:0
+#: view:website:account.report_invoice_document
+#: view:website:equitania.eq_report_stockpicking_return
+#: view:website:sale.report_saleorder_document
+#: view:website:stock.report_picking
+msgid "Seq"
+msgstr "Pos"

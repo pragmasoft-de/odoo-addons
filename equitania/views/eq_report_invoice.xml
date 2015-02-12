@@ -148,7 +148,7 @@
 			<table class="table table-condensed">
 				<thead>
 					<tr>
-                       	<th>Seq.</th>
+                       	<th>Seq</th>
 						<th>Item no.</th>
 						<th>Item description</th>
 						<th>Qty.</th>
@@ -165,16 +165,12 @@
 							<p style="font-weight:bold;">Delivery No. <span t-field="l.name"/> from <span t-esc="l.date_done.split(' ')[0].split('-')[2] + '.' + l.date_done.split(' ')[0].split('-')[1] + '.' + l.date_done.split(' ')[0].split('-')[0]"/> / Delivery Date (the date of service)</p>
 						</td>
 					</tr>					
-					
-					
-					
-					
 			        <t t-foreach="o.sale_layout_lines(invoice_id=o.id)" t-as="p">
 			            <!-- Name of the category -->
 			            <t t-call="equitania.category_template"/>
 			            <t t-foreach="p['lines']" t-as="l">
 								<tr>
-                                	<td><span t-field="l.sequence"/></td>
+                                	<td><span t-field="l.eq_pos_no"/></td> 
 									<td><span t-field="l.product_id.default_code"/></td>
 									<td><strong><span t-field="l.product_id.name"/></strong><br/><span t-field="l.name"/>
 										<t t-if="l.product_id.eq_drawing_number">

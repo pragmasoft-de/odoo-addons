@@ -187,9 +187,49 @@
             <field name="inherit_id" ref="stock.view_picking_form" />
             <field name="arch" type="xml">
             	<field name="priority" position="after">
-                    <field name="eq_ref_number"/>
+                    <field name="eq_ref_number"/>                    
             	</field>
             </field>
         </record>
+        
+       
+      
+        
+        <!-- added eq_pos_no to deliverynote - treeview -->
+        <record id="eq_stock_move_tree_extension" model="ir.ui.view">
+            <field name="name">eq_stock.move.tree.extextion</field>
+            <field name="model">stock.move</field>            
+            <field name="inherit_id" ref="stock.view_move_picking_tree" />
+            <field name="arch" type="xml">
+            	<field name="product_id" position="before">                    
+                    <field name="eq_pos_no" readonly="True"/>
+            	</field>
+            </field>
+        </record>
+        
+        <!-- added eq_pos_no to deliverynote - formview -->
+        <record id="eq_stock_move_form_extension" model="ir.ui.view">
+            <field name="name">eq_stock.move.form.extextion</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_picking_form" />
+            <field name="arch" type="xml">
+            	<field name="product_id" position="before">                    
+                    <field name="eq_pos_no" readonly="True"/>
+            	</field>
+            </field>
+        </record>
+                          
+         <!-- added eq_pos_no to invoice - formview --> 
+         <record id="eq_invoice_line_tree_extension" model="ir.ui.view">
+            <field name="name">eq_invoice.line.tree.extextion</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form" />
+            <field name="arch" type="xml">          
+            	<xpath expr="//page[@string='Invoice Lines']/field[@name='invoice_line']/tree/field[@name='sequence']" position="replace"> 
+            		<field name="eq_pos_no" readonly="True"/>
+                </xpath>
+            </field>
+        </record>
+          
     </data>
 </openerp>
