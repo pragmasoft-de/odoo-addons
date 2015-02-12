@@ -102,17 +102,17 @@
                             </tr>
                         </tbody>
                     </table>
-                    <h style="line-height:3em" t-if="o.eq_contact_person_id">
+                    <h style="line-height:3em" t-if="o.user_id.eq_employee_id">
                         <strong>For further information, please contact</strong>
                     </h>
-                    <table style="width:100%;" t-if="o.eq_contact_person_id">
+                    <table style="width:100%;" t-if="o.user_id.eq_employee_id">
                         <tbody>
                             <tr>
                                 <td>
                                     <span>Contact person</span>
                                 </td>
                                 <td class="text-right">
-                                    <span t-field="o.eq_contact_person_id.name"/>
+                                    <span t-field="o.user_id.eq_employee_id.name"/>
                                 </td>
                             </tr>
                             <tr>
@@ -120,7 +120,7 @@
                                     <span>Phone</span>
                                 </td>
                                 <td class="text-right">
-                                    <span t-field="o.eq_contact_person_id.work_phone"/>
+                                    <span t-field="o.user_id.eq_employee_id.work_phone"/>
                                 </td>
                             </tr>
                             <tr>
@@ -128,7 +128,7 @@
                                     <span>E-Mail</span>
                                 </td>
                                 <td class="text-right">
-                                    <span t-field="o.eq_contact_person_id.work_email"/>
+                                    <span t-field="o.user_id.eq_employee_id.work_email"/>
                                 </td>
                             </tr>
                         </tbody>

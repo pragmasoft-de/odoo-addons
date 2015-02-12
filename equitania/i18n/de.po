@@ -109,7 +109,7 @@ msgstr "Sachbearbeiter"
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:sale.report_saleorder_document
 msgid "Contact person"
-msgstr "Sachbearbeiter"
+msgstr "Kontaktperson"
 
 #. module: equitania
 #: field:eq.delivery.conditions,create_uid:0
