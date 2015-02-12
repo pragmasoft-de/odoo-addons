@@ -58,6 +58,9 @@ class eq_product_pricelist_item_search_item(osv.osv):
     
     _columns = {}
 
+    def delete(self, cr, uid, ids, context=None):
+        self.unlink(cr,uid,ids,context)
+        return True
     
     def name_get(self, cr, uid, ids, context=None):
         if context is None:

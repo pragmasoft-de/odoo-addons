@@ -52,7 +52,7 @@
                         <field name="price_max_margin" string="Max. Margin"/>
                     </group>
                     <footer>
-                        <button name="write" type="object" string="Save"/> or <button name="cancel" string="Cancel" special="cancel" class="oe_link"/>
+                        <button name="write" type="object" string="Save"/> or <button name="cancel" string="Cancel" special="cancel" class="oe_link"/> or <button name="delete" type="object" string="Delete"/>
                     </footer>
                 </form>
             </field>

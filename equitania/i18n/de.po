@@ -1378,3 +1378,8 @@ msgstr "Wenn eine Überlieferung auftritt, werden die Positionen im Lieferschein
 #: view:website:stock.report_picking
 msgid "Seq"
 msgstr "Pos"
+
+#. module: equitania
+#: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
+msgid "Delete"
+msgstr "Löschen"
