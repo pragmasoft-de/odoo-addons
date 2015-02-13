@@ -3,23 +3,23 @@
     <data noupdate="1">
         <record forcecreate="True" id="decimal_purchase_qty" model="decimal.precision">
             <field name="name">Purchase Quantity Report</field>
-            <field name="digits">0</field>
+            <field name="digits">2</field>
         </record>
         <record forcecreate="True" id="decimal_production_price" model="decimal.precision">
             <field name="name">Purchase Price Report</field>
-            <field name="digits">0</field>
+            <field name="digits">2</field>
         </record>
         <record forcecreate="True" id="decimal_sale_qty" model="decimal.precision">
             <field name="name">Sale Quantity Report</field>
-            <field name="digits">0</field>
+            <field name="digits">2</field>
         </record>
         <record forcecreate="True" id="decimal_sale_price" model="decimal.precision">
             <field name="name">Sale Price Report</field>
-            <field name="digits">0</field>
+            <field name="digits">2</field>
         </record>        
         <record forcecreate="True" id="decimal_sale_weight" model="decimal.precision">
-            <field name="name">Sales Weight Report</field>
-            <field name="digits">0</field>
+            <field name="name">Sale Weight Report</field>
+            <field name="digits">2</field>
         </record>
     </data>
 </openerp>

@@ -48,7 +48,7 @@ class eq_report_stockpicking(report_sxw.rml_parse):
         return self.pool.get("eq_report_helper").get_standard_price(self.cr, self.uid, object, language)
     
     def get_weight(self, object, language):
-        return self.pool.get("eq_report_helper").get_qty(self.cr, self.uid, object, language, 'Sales Weight Report')      
+        return self.pool.get("eq_report_helper").get_qty(self.cr, self.uid, object, language, 'Sale Weight Report')      
     
     
 class report_lunchorder(osv.AbstractModel):
