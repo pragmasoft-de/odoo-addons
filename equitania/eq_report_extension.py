@@ -22,6 +22,7 @@
 from openerp.osv import fields, osv, orm
 from datetime import datetime, timedelta
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DFORMAT
+import openerp.addons.decimal_precision as dp
 
 #Adds fields to forms that are used in the reports. Contact person and Head text
 
@@ -288,6 +289,8 @@ class eq_report_extension_purchase_order_line(osv.osv):
 
     _columns = {
                 'get_delivery_date': fields.function(_get_delivery_date, string="Delivery", type='char', methode=True, store=False),
+                'price_unit': fields.float('Unit Price', required=True, digits_compute= dp.get_precision('Product Price Purchase')),
+                'product_qty': fields.float('Quantity', digits_compute=dp.get_precision('Product Quantity Purchase'), required=True),
                 }
     
 class eq_report_extension_invoice(osv.osv):

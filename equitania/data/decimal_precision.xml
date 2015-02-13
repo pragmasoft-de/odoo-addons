@@ -21,5 +21,13 @@
             <field name="name">Sale Weight Report</field>
             <field name="digits">2</field>
         </record>
+        <record forcecreate="True" id="decimal_price_purchase" model="decimal.precision">
+            <field name="name">Product Price Purchase</field>
+            <field name="digits">2</field>
+        </record>
+        <record forcecreate="True" id="decimal_qty_purchase" model="decimal.precision">
+            <field name="name">Product Quantity Purchase</field>
+            <field name="digits">2</field>
+        </record>
     </data>
 </openerp>
