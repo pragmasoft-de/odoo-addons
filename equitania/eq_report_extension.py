@@ -99,6 +99,81 @@ class eq_report_extension_sale_order(osv.osv):
         new_context = {'eq_ref_number': client_order_ref}
         return super(eq_report_extension_sale_order, self).action_ship_create(cr, uid, ids, context=new_context)
     
+        """
+    def action_view_invoice(self, cr, uid, ids, context=None):
+        for order in self.browse(cr, uid, ids, context):
+            sql = "select invoice_id from sale_order_invoice_rel where order_id = " + str(order.id)
+            cr.execute(sql)
+            invoice_ids = cr.fetchall()
+            for invoice_id in invoice_ids:
+                print "invoice_id", invoice_id
+                positions_ids =  self.pool.get('account.invoice.line').browse(cr, uid, invoice_id, context)
+                for position in positions_ids:
+                    if position.eq_pos_no == 0:
+                        sale_order_line_obj = self.pool.get('sale.order.line')                     
+                        print "order.id", order.id
+                        print "position.product_id.id", position.product_id.id
+                                          
+                        #order_position_id = sale_order_line_obj.search(cr, uid, [('order_id', '=', order.id), ('product_id', '=', position.product_id.id)])
+                        #order_position =  sale_order_line_obj.browse(cr, uid, order_position_id, context)
+                        #print order_position
+                        
+                        #print "--- pos ---", order_position[0].sequence 
+                        #move.eq_pos_no = order_position[0].sequence        # workaround
+            
+            
+            #rel_id =  self.pool.get('sale.order.invoice.rel').browse(cr, uid, order.id, context)
+            #print rel_id.order_id
+            #print rel_id.invoice_id
+
+        return super(eq_report_extension_sale_order, self).action_view_invoice(cr, uid, ids, context)
+    """
+
+    def action_view_delivery(self, cr, uid, ids, context=None):        
+        for order in self.browse(cr, uid, ids, context):
+            # get all delivery notes for or order
+            stock_picking_ids = self.pool.get('stock.picking').search(cr, uid, [('origin', '=', order.name)])                                    
+            for stock_picking_id in stock_picking_ids:                                        
+                # get all positions on actual delivery note
+                stock_move_obj = self.pool.get('stock.move')
+                stock_move_ids = stock_move_obj.search(cr, uid,  [('picking_id', '=', stock_picking_id)])
+                stock_moves =  stock_move_obj.browse(cr, uid, stock_move_ids, context)
+                
+                existin_pos_nos = []                
+                for move in stock_moves:
+                    #move_index = 0                
+                    #print "seq", move.eq_pos_no
+                    #print "product_id", move.product_id.id
+                    #print "order_name", order.name
+                    #print "order.id", order.id
+                                        
+                    # here's is missing eq_pos_no...due to the fact, that jave to support existing orders from time before our extension
+                    if move.eq_pos_no == 0:                         
+                        sale_order_line_obj = self.pool.get('sale.order.line')                                       
+                        order_position_id = sale_order_line_obj.search(cr, uid, [('order_id', '=', order.id), ('product_id', '=', move.product_id.id)])
+                        order_position =  sale_order_line_obj.browse(cr, uid, order_position_id, context)
+                        
+                        # workaroung for our problem with more positions on sale order with same product_id but different pos no
+                        if len(order_position) > 1:
+                            for seq_no in order_position:
+                                print seq_no.sequence
+                                if seq_no.sequence not in existin_pos_nos:
+                                    move.eq_pos_no = seq_no.sequence
+                                    existin_pos_nos.append(seq_no.sequence)
+                                    break
+                                    
+                        else:                            
+                            move.eq_pos_no = order_position.sequence
+                            existin_pos_nos.append(order_position.sequence)
+                        
+                        
+                        
+                              
+                        #print "--- order_position.sequence ----", order_position.sequence
+                        #move.eq_pos_no = order_position[0].sequence        # workaround
+        
+        return super(eq_report_extension_sale_order, self).action_view_delivery(cr, uid, ids, context)
+
     def create(self, cr, uid, values, context=None):
         use_sale_person = self.pool.get('ir.values').get_default(cr, uid, 'sale.order', 'default_use_sales_person_as_contact')
         
