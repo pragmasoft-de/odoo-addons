@@ -57,9 +57,16 @@ class stock_picking_extension(osv.osv):
         if join_moves:
             for picking in self.browse(cr, uid, picking_ids, context):
                 for pack_operation in picking.pack_operation_ids:
-                    for move in picking.move_lines:
-                        if pack_operation.product_id.id == move.product_id.id and pack_operation.product_qty > move.product_uom_qty:
-                            self.pool.get('stock.move').write(cr, uid, move.id, {'product_uom_qty': pack_operation.product_qty, 'product_uos_qty': pack_operation.product_qty * pack_operation.product_id.uos_coeff})
+                    qty = 0
+                    move_id = False
+                    move_qty = 0
+                    for link in pack_operation.linked_move_operation_ids:
+                        qty += link.move_id.product_uom_qty
+                        move_id = link.move_id.id
+                        move_qty = link.move_id.product_uom_qty
+                    if pack_operation.product_qty > qty:
+                        packop_qty = pack_operation.product_qty - qty + move_qty
+                        self.pool.get('stock.move').write(cr, uid, move_id, {'product_uom_qty': packop_qty, 'product_uos_qty': packop_qty * pack_operation.product_id.uos_coeff})
             print 'doit!'
         return super(stock_picking_extension, self).do_transfer(cr, uid, picking_ids, context)
 
