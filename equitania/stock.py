@@ -25,7 +25,7 @@ from openerp import SUPERUSER_ID, api
 
 class stock_picking_extension(osv.osv):
     _inherit = ['stock.picking']
-    
+        
     def _prepare_values_extra_move(self, cr, uid, op, product, remaining_qty, context=None):
         """
         Calculates and sets the UOS for the move line.
@@ -69,6 +69,24 @@ class stock_picking_extension(osv.osv):
                         self.pool.get('stock.move').write(cr, uid, move_id, {'product_uom_qty': packop_qty, 'product_uos_qty': packop_qty * pack_operation.product_id.uos_coeff})
             print 'doit!'
         return super(stock_picking_extension, self).do_transfer(cr, uid, picking_ids, context)
+    
+    @api.cr_uid_ids_context
+    def reverse_picking(self, cr, uid, ids, context=None):
+        rp_vals = {'move_dest_exists': False}
+        
+        return_picking_id = self.pool.get('stock.return.picking').create(cr, uid, rp_vals, context)
+                
+        for move in self.browse(cr, uid, ids, context).move_lines:
+            vals = {
+                    'product_id': move.product_id,
+                    'quantity': move.product_uom_qty,
+                    'wizard_id': return_picking_id,
+                    'move_id': move.id,
+                    }
+            self.pool.get('stock.return.picking.line').create(cr, uid, vals, context)
+        
+        new_picking_id, pick_type_id = self._create_returns(cr, uid, [return_picking_id], context=context)
+        return False
 
 class stock_move_extension(osv.osv):
     _inherit = ['stock.move']

@@ -66,6 +66,7 @@
         'data/decimal_precision.xml',
         'res_config_view.xml',
         'res_users_view.xml',
+        'stock_view.xml',
     ],
     'demo': [],
     'css': ['base.css'],
