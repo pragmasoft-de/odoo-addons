@@ -463,7 +463,6 @@ class eq_stock_move_extension(osv.osv):
             @context: context
         """
         origin = self.pool.get('stock.picking').browse(cr, uid, vals["picking_id"], context).origin
-        product_id = vals["product_id"]
         
         # get contract
         result_id = self.pool.get('sale.order').search(cr, uid, [('name', '=', origin)])                
@@ -471,11 +470,11 @@ class eq_stock_move_extension(osv.osv):
         if len(result_id) != 0:
             # get corresponding sequence no for our positions
             sale_order_line_obj = self.pool.get('sale.order.line')
-            pos_ids = sale_order_line_obj.search(cr, uid, [('order_id', '=', result_id[0]), ('product_id', '=', product_id)])            
+            pos_ids = sale_order_line_obj.search(cr, uid, [('order_id', '=', result_id[0]), ('product_id', '=', vals["product_id"])])            
             pos_no = sale_order_line_obj.browse(cr, uid, pos_ids[0], context)  
         
-        # save sequence into our new field
-        vals["eq_pos_no"] = pos_no.sequence
+            # save sequence into our new field
+            vals["eq_pos_no"] = pos_no.sequence
         
         # use standard save functionality and save it
         return super(eq_stock_move_extension, self).create(cr, uid, vals, context)
