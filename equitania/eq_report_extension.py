@@ -454,7 +454,7 @@ class eq_stock_move_extension(osv.osv):
                 'eq_pos_no' : fields.integer('Seq')
                 }
     
-    def create(self, cr, user, vals, context={}):        
+    def create(self, cr, uid, vals, context={}):        
         """
             let's get original sequence no from contract and save it for every position on delivery note
             @cr: cursor
@@ -462,22 +462,23 @@ class eq_stock_move_extension(osv.osv):
             @vals: alle values to be saved
             @context: context
         """
-        origin = vals["origin"]
+        origin = self.pool.get('stock.picking').browse(cr, uid, vals["picking_id"], context).origin
         product_id = vals["product_id"]
         
         # get contract
-        result_id = self.pool.get('sale.order').search(cr, user, [('name', '=', origin)])                
+        result_id = self.pool.get('sale.order').search(cr, uid, [('name', '=', origin)])                
         
-        # get corresponding sequence no for our positions
-        sale_order_line_obj = self.pool.get('sale.order.line')
-        pos_ids = sale_order_line_obj.search(cr, user, [('order_id', '=', result_id[0]), ('product_id', '=', product_id)])            
-        pos_no = sale_order_line_obj.browse(cr, user, pos_ids[0], context)  
+        if len(result_id) != 0:
+            # get corresponding sequence no for our positions
+            sale_order_line_obj = self.pool.get('sale.order.line')
+            pos_ids = sale_order_line_obj.search(cr, uid, [('order_id', '=', result_id[0]), ('product_id', '=', product_id)])            
+            pos_no = sale_order_line_obj.browse(cr, uid, pos_ids[0], context)  
         
         # save sequence into our new field
         vals["eq_pos_no"] = pos_no.sequence
         
         # use standard save functionality and save it
-        return super(eq_stock_move_extension, self).create(cr, user, vals, context)
+        return super(eq_stock_move_extension, self).create(cr, uid, vals, context)
     
 class eq_compatibility_equitania_inox(osv.osv):
     _inherit = 'res.partner'
