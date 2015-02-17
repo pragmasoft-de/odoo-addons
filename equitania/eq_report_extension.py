@@ -403,14 +403,14 @@ class eq_report_extension_invoice(osv.osv):
             @vals: alle values to be saved
             @context: context
         """
+        if vals.get('eq_move_id'):
+            move_id = vals["eq_move_id"] 
             
-        move_id = vals["eq_move_id"] 
-        
-        # get corresponding sequence no for our positions
-        result_id = self.pool.get('stock.move').browse(cr, user, move_id, context)    
-        
-        # save sequence into our new field    
-        vals["eq_pos_no"] = result_id.eq_pos_no
+            # get corresponding sequence no for our positions
+            result_id = self.pool.get('stock.move').browse(cr, user, move_id, context)    
+            
+            # save sequence into our new field    
+            vals["eq_pos_no"] = result_id.eq_pos_no
 
         # use standard save functionality and save it
         return super(eq_report_extension_invoice, self).create(cr, user, vals, context)
