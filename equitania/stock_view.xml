@@ -7,7 +7,7 @@
             <field name="inherit_id" ref="stock.view_picking_form" />
             <field name="arch" type="xml">
 	            <field name="state" position="before">
-	            	<button name="reverse_picking" string="Cancel Delivery" type="object" attrs="{'invisible':['|', ('state', '&lt;&gt;', 'done'), ('invoice_state', '&lt;&gt;', '2binvoiced')]}"/>
+	            	<button name="reverse_picking" string="Cancel Delivery" type="object" attrs="{'invisible':True}"/>
 	            </field>
           	</field>
         </record>
