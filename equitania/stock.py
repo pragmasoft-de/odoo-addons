@@ -101,6 +101,7 @@ class stock_picking_extension(osv.osv):
         return_picking_obj = self.pool.get('stock.return.picking')
         return_picking_id = return_picking_obj.create(cr, uid, rp_vals, context=context)
         new_picking_id, pick_type_id = return_picking_obj._create_returns(cr, uid, [return_picking_id], context=context)
+        self.write(cr, uid, new_picking_id, {'invoice_state': 'none'}, context)
         #Do transfer for new picking
         transfer_obj = self.pool['stock.transfer_details']
         transfer_details_id = transfer_obj.create(cr, uid, {'picking_id': new_picking_id or False}, context=context)
