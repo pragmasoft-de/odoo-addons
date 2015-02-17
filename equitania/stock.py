@@ -93,14 +93,17 @@ class stock_picking_extension(osv.osv):
                    'move_dest_exists': False,
                    'invoice_state': 'none',
                    }
-        
+        #Add active model. Otherwise it throws an error when the return picking is created. (Bad context propagation)
+        context['active_model'] = 'stock.picking'
+        context['active_id'] = ids[0]
+        context['active_ids'] = ids
         #Creates the return picking
         return_picking_obj = self.pool.get('stock.return.picking')
-        return_picking_id = return_picking_obj.create(cr, uid, rp_vals, context)
+        return_picking_id = return_picking_obj.create(cr, uid, rp_vals, context=context)
         new_picking_id, pick_type_id = return_picking_obj._create_returns(cr, uid, [return_picking_id], context=context)
         #Do transfer for new picking
         transfer_obj = self.pool['stock.transfer_details']
-        transfer_details_id = transfer_obj.create(cr, uid, {'picking_id': new_picking_id or False}, context)
+        transfer_details_id = transfer_obj.create(cr, uid, {'picking_id': new_picking_id or False}, context=context)
         transfer_obj.do_detailed_transfer(cr, uid, [transfer_details_id], context)
         #Edit current and return picking, No invoice needed
         self.write(cr, uid, ids, {'invoice_state': 'none'}, context)
