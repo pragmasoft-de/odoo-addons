@@ -70,23 +70,45 @@ class stock_picking_extension(osv.osv):
             print 'doit!'
         return super(stock_picking_extension, self).do_transfer(cr, uid, picking_ids, context)
     
+    @api.multi
+    def reverse_picking_new_view(self):
+        view = self.env.ref('stock.view_picking_form')
+
+        return {
+            'name': _('Delivery'),
+            'type': 'ir.actions.act_window',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': 'stock.picking',
+            'views': [(view.id, 'form')],
+            'view_id': view.id,
+            'target': 'current',
+            'res_id': self.ids[0],
+            'context': self.env.context,
+        }
+    
     @api.cr_uid_ids_context
     def reverse_picking(self, cr, uid, ids, context=None):
-        rp_vals = {'move_dest_exists': False}
+        rp_vals = {
+                   'move_dest_exists': False,
+                   'invoice_state': 'none',
+                   }
         
-        return_picking_id = self.pool.get('stock.return.picking').create(cr, uid, rp_vals, context)
-                
-        for move in self.browse(cr, uid, ids, context).move_lines:
-            vals = {
-                    'product_id': move.product_id,
-                    'quantity': move.product_uom_qty,
-                    'wizard_id': return_picking_id,
-                    'move_id': move.id,
-                    }
-            self.pool.get('stock.return.picking.line').create(cr, uid, vals, context)
-        
-        new_picking_id, pick_type_id = self._create_returns(cr, uid, [return_picking_id], context=context)
-        return False
+        #Creates the return picking
+        return_picking_obj = self.pool.get('stock.return.picking')
+        return_picking_id = return_picking_obj.create(cr, uid, rp_vals, context)
+        new_picking_id, pick_type_id = return_picking_obj._create_returns(cr, uid, [return_picking_id], context=context)
+        #Do transfer for new picking
+        transfer_obj = self.pool['stock.transfer_details']
+        transfer_details_id = transfer_obj.create(cr, uid, {'picking_id': new_picking_id or False}, context)
+        transfer_obj.do_detailed_transfer(cr, uid, [transfer_details_id], context)
+        #Edit current and return picking, No invoice needed
+        self.write(cr, uid, ids, {'invoice_state': 'none'}, context)
+        transfer_obj.write(cr, uid, new_picking_id, {'invoice_state': 'none'})
+        #Copy the picking
+        new_picking_id = self.copy(cr, uid, ids[0], context)
+        #Return as view definition
+        return self.reverse_picking_new_view(cr, uid, new_picking_id)
 
 class stock_move_extension(osv.osv):
     _inherit = ['stock.move']

@@ -1383,3 +1383,14 @@ msgstr "Pos"
 #: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
 msgid "Delete"
 msgstr "Löschen"
+
+#. module: equitania
+#: view:stock.picking:equitania.view_picking_form_cancel
+msgid "Cancel Delivery"
+msgstr "Lieferung stornieren"
+
+#. module: equitania
+#: code:addons/equitania/stock.py:78
+#, python-format
+msgid "Delivery"
+msgstr "Lieferung"
