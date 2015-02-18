@@ -20,8 +20,6 @@
 ##############################################################################
 
 from openerp.osv import fields, osv, orm
-from reportlab.rl_config import _DEFAULTS
-#from numpy.ma.core import ids
 
 #Shows the sequence of the sale.order.line
 
@@ -30,24 +28,15 @@ class eq_sale_order_seq(osv.osv):
     _columns = { 
     }    
     
+    def onchange_order_line(self, cr, uid, ids, order_lines, context=False):
+        return {'value': order_lines}
 
 eq_sale_order_seq()
 
 class eq_sale_order_line_seq(osv.osv):
     _inherit = "sale.order.line"
-    SEQUENCE_VALUE = 10
-    
-    def default_get(self, cr, uid, ids, context=None):
-        res =  super(eq_sale_order_line_seq, self).default_get(cr, uid, ids, context=context)        
-        if context:
-            context_keys = context.keys()
-            next_sequence = self.SEQUENCE_VALUE
-            if 'ref_ids' in context_keys:
-                if len(context.get('ref_ids')) > 0:
-                    next_sequence = (len(context.get('ref_ids')) + 1) * self.SEQUENCE_VALUE
-        
-        res.update({'sequence': next_sequence})
-        return res
+
+    _defaults = {'sequence': 1}
     
         
 eq_sale_order_seq()
