@@ -29,7 +29,11 @@ class eq_sale_order_seq(osv.osv):
     }    
     
     def onchange_order_line(self, cr, uid, ids, order_lines, context=False):
-        return {'value': order_lines}
+        new_order_lines = []
+        for line in order_lines[1:]:
+            line[2]['name'] = 'test'
+            new_order_lines.append(line)
+        return {'value': {'order_line': new_order_lines}}
 
 eq_sale_order_seq()
 

@@ -7,12 +7,12 @@
 	            <field name="model">eq_open_sale_order_line</field>
 				<field name="arch" type="xml">				
                 <tree string="Open order lines">
+					<field name="eq_pos"/>
 					<field name="eq_order_id"/>
 					<field name="eq_client_order_ref"/>
 					<field name="eq_customer_no"/>
 					<field name="eq_customer"/>
 					<field name="eq_delivery_date"/>
-					<field name="eq_pos"/>
 					<field name="eq_quantity"/>
 					<field name="eq_quantity_left"/>
 					<field name="eq_product_no"/>

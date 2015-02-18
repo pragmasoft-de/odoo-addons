@@ -92,7 +92,8 @@ class eq_report_extension_sale_order(osv.osv):
                 'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False,
                 }
     
-
+    
+    #Method that is executed by the workflow
     def action_ship_create(self, cr, uid, ids, context=None):
         client_order_ref = {}
         for order in self.browse(cr, uid, ids, context):
@@ -129,51 +130,6 @@ class eq_report_extension_sale_order(osv.osv):
 
         return super(eq_report_extension_sale_order, self).action_view_invoice(cr, uid, ids, context)
     """
-
-    def action_view_delivery(self, cr, uid, ids, context=None):        
-        for order in self.browse(cr, uid, ids, context):
-            # get all delivery notes for or order
-            stock_picking_ids = self.pool.get('stock.picking').search(cr, uid, [('origin', '=', order.name)])                                    
-            for stock_picking_id in stock_picking_ids:                                        
-                # get all positions on actual delivery note
-                stock_move_obj = self.pool.get('stock.move')
-                stock_move_ids = stock_move_obj.search(cr, uid,  [('picking_id', '=', stock_picking_id)])
-                stock_moves =  stock_move_obj.browse(cr, uid, stock_move_ids, context)
-                
-                existin_pos_nos = []                
-                for move in stock_moves:
-                    #move_index = 0                
-                    #print "seq", move.eq_pos_no
-                    #print "product_id", move.product_id.id
-                    #print "order_name", order.name
-                    #print "order.id", order.id
-                                        
-                    # here's is missing eq_pos_no...due to the fact, that jave to support existing orders from time before our extension
-                    if move.eq_pos_no == 0:                         
-                        sale_order_line_obj = self.pool.get('sale.order.line')                                       
-                        order_position_id = sale_order_line_obj.search(cr, uid, [('order_id', '=', order.id), ('product_id', '=', move.product_id.id)])
-                        order_position =  sale_order_line_obj.browse(cr, uid, order_position_id, context)
-                        
-                        # workaroung for our problem with more positions on sale order with same product_id but different pos no
-                        if len(order_position) > 1:
-                            for seq_no in order_position:
-                                print seq_no.sequence
-                                if seq_no.sequence not in existin_pos_nos:
-                                    move.eq_pos_no = seq_no.sequence
-                                    existin_pos_nos.append(seq_no.sequence)
-                                    break
-                                    
-                        else:                            
-                            move.eq_pos_no = order_position.sequence
-                            existin_pos_nos.append(order_position.sequence)
-                        
-                        
-                        
-                              
-                        #print "--- order_position.sequence ----", order_position.sequence
-                        #move.eq_pos_no = order_position[0].sequence        # workaround
-        
-        return super(eq_report_extension_sale_order, self).action_view_delivery(cr, uid, ids, context)
 
     def create(self, cr, uid, values, context=None):
         use_sale_person = self.pool.get('ir.values').get_default(cr, uid, 'sale.order', 'default_use_sales_person_as_contact')
@@ -445,7 +401,7 @@ class eq_report_extension_stock_picking(osv.osv):
 class eq_stock_move_extension(osv.osv):
     """
      Small extension of standard functionality.
-     - added new field eq_pos_no as a container for sequence no from contract (AB). we'll use this information as pos on delivery note and invoice 
+     - added new field eq_pos_no as a container for sequence no from sale order (AB). we'll use this information as pos on delivery note and invoice 
     """
     
     _inherit = "stock.move"
@@ -462,20 +418,12 @@ class eq_stock_move_extension(osv.osv):
             @vals: alle values to be saved
             @context: context
         """
-        if vals.get('picking_id', False):
-            origin = self.pool.get('stock.picking').browse(cr, uid, vals["picking_id"], context).origin
-            
-            # get contract
-            result_id = self.pool.get('sale.order').search(cr, uid, [('name', '=', origin)])                
-        
-            if len(result_id) != 0:
-                # get corresponding sequence no for our positions
-                sale_order_line_obj = self.pool.get('sale.order.line')
-                pos_ids = sale_order_line_obj.search(cr, uid, [('order_id', '=', result_id[0]), ('product_id', '=', vals["product_id"])])            
-                pos_no = sale_order_line_obj.browse(cr, uid, pos_ids[0], context)  
-            
+        if vals.get('procurement_id', False):
+            procurement = self.pool.get('procurement.order').browse(cr, uid, vals["procurement_id"], context)
+                    
+            if hasattr(procurement, 'sale_line_id'):
                 # save sequence into our new field
-                vals["eq_pos_no"] = pos_no.sequence
+                vals["eq_pos_no"] = procurement.sale_line_id.sequence
         
         # use standard save functionality and save it
         return super(eq_stock_move_extension, self).create(cr, uid, vals, context)

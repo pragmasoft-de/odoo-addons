@@ -15,7 +15,7 @@
                 	 save order_line (one2many) field in context to be later able to compute total sum of existing positions
                  -->
                 <field name="order_line" position="attributes">
-                	 <attribute name="context">{'ref_ids':order_line}</attribute>
+                	 <attribute name="on_change">onchange_order_line(order_line, context)</attribute>
                 </field>
                 
                 
