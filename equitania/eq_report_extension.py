@@ -345,6 +345,8 @@ class eq_report_extension_invoice(osv.osv):
     
     _inherit = "account.invoice.line"
     
+    _order = "sequence"
+    
     _columns = {
                 'eq_delivery_date': fields.date('Delivery Date'),
                 'eq_move_id': fields.many2one('stock.move'),
@@ -406,6 +408,8 @@ class eq_stock_move_extension(osv.osv):
     
     _inherit = "stock.move"
         
+    _order = "eq_pos_no"
+    
     _columns = {
                 'eq_pos_no' : fields.integer('Seq')
                 }
