@@ -40,11 +40,11 @@ class eq_report_stockpicking_return(report_sxw.rml_parse):
            
     
     def get_price(self, object, language):                
-        return self.pool.get("eq_report_helper").get_price(self.cr, self.uid, object, language, 'Sale Price Report')
+        return self.pool.get("eq_report_helper").get_price(self.cr, self.uid, object, language, 'Sale Price Report', currency_id)
     
     
     def get_standard_price(self, object, language):
-        return self.pool.get("eq_report_helper").get_standard_price(self.cr, self.uid, object, language)
+        return self.pool.get("eq_report_helper").get_standard_price(self.cr, self.uid, object, language, currency_id)
           
     
 class report_lunchorder(osv.AbstractModel):

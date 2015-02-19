@@ -169,10 +169,10 @@
 	                        <span t-field="line.product_uom.name"/>
 	                    </td>
 	                    <td class="text-right">
-	                        <span t-esc="get_price(line.price_unit, o.partner_id.lang)"/>
+	                        <span t-esc="get_price(line.price_unit, o.partner_id.lang, o.currency_id)"/>
 	                    </td>
 	                    <td class="text-right">
-	                        <span t-esc="get_standard_price(line.price_subtotal, o.partner_id.lang)" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
+	                        <span t-esc="get_standard_price(line.price_subtotal, o.partner_id.lang, o.currency_id)"/>
 	                    </td>
 	                </tr>
 	            </tbody>
@@ -198,13 +198,13 @@
 	                    <tbody>
 	                        <tr>
 	                            <td class="text-right">
-	                                <span t-esc="get_standard_price(o.amount_untaxed, o.partner_id.lang)" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
+	                                <span t-esc="get_standard_price(o.amount_untaxed, o.partner_id.lang, o.currency_id)"/>
 	                            </td>
 	                            <td class="text-right">
-	                                <span t-esc="get_standard_price(o.amount_tax, o.partner_id.lang)" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
+	                                <span t-esc="get_standard_price(o.amount_tax, o.partner_id.lang, o.currency_id)"/>
 	                            </td>
 	                            <td class="text-right">
-	                                <span t-esc="get_standard_price(o.amount_total, o.partner_id.lang)" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.pricelist_id.currency_id&quot;}"/>
+	                                <span t-esc="get_standard_price(o.amount_total, o.partner_id.lang, o.currency_id)"/>
 	                            </td>
 	                        </tr>
 	                    </tbody>

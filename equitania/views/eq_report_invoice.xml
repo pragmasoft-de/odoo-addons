@@ -185,14 +185,14 @@
 										<span t-field="l.uos_id"  groups="product.group_uom"/>
 									</td>
 									<td class="text-right">
-										<span t-esc="get_price(l.price_unit, o.partner_id.lang)"/>
+										<span t-esc="get_price(l.price_unit, o.partner_id.lang, o.currency_id)"/>
 									</td>
-									<td class="text-right" groups="sale.group_discount_per_so_line"><span t-esc="get_standard_price(l.discount, o.partner_id.lang)"/></td>
+									<td class="text-right" groups="sale.group_discount_per_so_line"><span t-esc="get_standard_price(l.discount, o.partner_id.lang, o.currency_id)"/></td>
 									<!-- <td class="text-right">
 										<span t-esc="', '.join(map(lambda x: x.name, l.invoice_line_tax_id))"/>
 									</td>-->
 									<td class="text-right">
-										<span t-esc="get_standard_price(l.price_subtotal, o.partner_id.lang)" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+										<span t-esc="get_standard_price(l.price_subtotal, o.partner_id.lang, o.currency_id)"/>
 									</td>
 								</tr>
 			            </t>
@@ -264,13 +264,13 @@
 						<tbody>
 							<tr>
 								<td class="text-right" id="price_netto_amount">
-									<span t-esc="get_standard_price(o.amount_untaxed, o.partner_id.lang)" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+									<span t-esc="get_standard_price(o.amount_untaxed, o.partner_id.lang, o.currency_id)"/>
 								</td>
 								<td class="text-right" t-if="o.invoice_line[0].invoice_line_tax_id">
-									<span t-esc="get_standard_price(o.amount_tax, o.partner_id.lang)" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+									<span t-esc="get_standard_price(o.amount_tax, o.partner_id.lang, o.currency_id)"/>
 								</td>
 								<td class="text-right">                                            
-									<span t-esc="get_standard_price(o.amount_total, o.partner_id.lang)" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+									<span t-esc="get_standard_price(o.amount_total, o.partner_id.lang, o.currency_id)"/>
 								</td>
 							</tr>
 						</tbody>

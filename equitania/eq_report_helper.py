@@ -41,7 +41,7 @@ class eq_report_helper(osv.osv):
            
         return result
     
-    def get_price(self, cr, uid, object, language, param_name, context = None):
+    def get_price(self, cr, uid, object, language, param_name, currency_id=False, context = None):
         """
             Price formater
         """        
@@ -51,14 +51,20 @@ class eq_report_helper(osv.osv):
         
         # parse string and generate correct number format
         result = self.reformat_string(cr, uid, result, precision, language)
+        #Currency Symbol is added
+        if currency_id:
+            result += (' %s' % currency_id.symbol)
         
         return result
     
-    def get_standard_price(self, cr, uid, object, language, context =None):
+    def get_standard_price(self, cr, uid, object, language, currency_id=False, context =None):
         precision = 2
         string = ("%%5.%df" % precision)
         result = (string % object)        
         result = self.reformat_string(cr, uid, result, precision, language)
+        #Currency Symbol is added
+        if currency_id:
+            result += (' %s' % currency_id.symbol)
         
         return result    
             

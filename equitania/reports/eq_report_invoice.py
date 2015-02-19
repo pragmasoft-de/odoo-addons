@@ -43,16 +43,16 @@ class stock_picking(report_sxw.rml_parse):
         return result
 
     
-    def get_qty(self, object, language):
-        return self.pool.get("eq_report_helper").get_qty(self.cr, self.uid, object, language, 'Sale Quantity Report')
+    def get_qty(self, qty, language):
+        return self.pool.get("eq_report_helper").get_qty(self.cr, self.uid, qty, language, 'Sale Quantity Report')
            
     
-    def get_price(self, object, language):                
-        return self.pool.get("eq_report_helper").get_price(self.cr, self.uid, object, language, 'Sale Price Report')
+    def get_price(self, price, language, currency_id):                
+        return self.pool.get("eq_report_helper").get_price(self.cr, self.uid, price, language, 'Sale Price Report', currency_id)
     
     
-    def get_standard_price(self, object, language):
-        return self.pool.get("eq_report_helper").get_standard_price(self.cr, self.uid, object, language)
+    def get_standard_price(self, price, language, currency_id):
+        return self.pool.get("eq_report_helper").get_standard_price(self.cr, self.uid, price, language, currency_id)
 
     
 class report_invoice(osv.AbstractModel):
