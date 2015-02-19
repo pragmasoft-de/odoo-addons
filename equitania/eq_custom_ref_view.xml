@@ -119,7 +119,6 @@
             	</field>
             	<field name="categ_id" position="before">
             		<field name="list_price"/>
-            		<field name="qty_available"/>
             		<field name="eq_internal_number"/>
             		<field name="eq_index"/>
             	</field>
@@ -214,7 +213,6 @@
             <field name="inherit_id" ref="product.product_product_tree_view" />
             <field name="arch" type="xml">
             	<field name="lst_price" position="after">
-            		<field name="qty_available"/>
             		<field name="eq_internal_number"/>
             		<field name="eq_index"/>
             	</field> 
