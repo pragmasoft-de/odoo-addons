@@ -21,31 +21,6 @@
 
 from openerp.osv import fields, osv, orm
 
-#Shows the sequence of the sale.order.line
-
-class eq_sale_order_seq(osv.osv):
-    _inherit = "sale.order"
-    _columns = { 
-    }    
-    
-    def onchange_order_line(self, cr, uid, ids, order_lines, context=False):
-        new_order_lines = []
-        for line in order_lines[1:]:
-            line[2]['name'] = 'test'
-            new_order_lines.append(line)
-        return {'value': {'order_line': new_order_lines}}
-
-eq_sale_order_seq()
-
-class eq_sale_order_line_seq(osv.osv):
-    _inherit = "sale.order.line"
-
-    _defaults = {'sequence': 1}
-    
-        
-eq_sale_order_seq()
-
-
 class eq_product_name_is_ref(osv.osv):
     _inherit = "product.product"
     

@@ -10,17 +10,7 @@
                 <xpath expr="//field[@name='order_line']/tree/field[@name='sequence']" position="replace">
                     <field name="sequence" string="Pos"/>
                 </xpath>
-                
-                <!-- set context extra for our default_get
-                	 save order_line (one2many) field in context to be later able to compute total sum of existing positions
-                 -->
-                <field name="order_line" position="attributes">
-                	 <attribute name="on_change">onchange_order_line(order_line, context)</attribute>
-                </field>
-                
-                
-                
-                
+                                
                 <xpath expr="//field[@name='order_line']/form/group/group/field[@name='product_id']" position="before">                
                     <field name="sequence" string="Pos"/>                    
                 </xpath>
