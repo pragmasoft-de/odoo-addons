@@ -63,6 +63,28 @@
             	</xpath>
             </field>
         </record>
+        <!-- Sale Order Tree View -->
+        <record id="eq_sale_order_tree" model="ir.ui.view">
+            <field name="name">eq.sale.order.tree</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+					<field name="client_order_ref"/>
+                </xpath>
+            </field>
+        </record>
+        <!-- Sale Order Search View -->
+        <record id="eq_sale_order_search" model="ir.ui.view">
+            <field name="name">eq.sale.order.search</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+					<field name="client_order_ref"/>
+                </xpath>
+            </field>
+        </record>
         
         <!-- Config Settings -->
 		<record id="eq_view_sale_config_settings" model="ir.ui.view">
