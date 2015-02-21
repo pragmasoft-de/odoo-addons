@@ -1,5 +1,11 @@
 #!/bin/bash
-# Mit diesem Skript wird ein startklarer Odoo-Server zusammen gestellt
+# Mit diesem Skript wird Ihr Odoo-Server geupdated 
+# Zuvor Dienst als root stoppen mit /etc/init.d/openerp-server stop
+# Start als odoo Benutzer
+# Debian su odoo / Ubuntu sudo su odoo, danach $ ./update-odoo-server-addons.sh
+# Wenn "Computing parent left and right for table ir_ui_menu..." [crtl]+[c] drücken,
+# da das Update fertig ist. Danach als root User den Server wieder starten.
+# /etc/init.d/openerp-server start
 ##############################################################################
 #
 #    Shell Script for Odoo, Open Source Management Solution

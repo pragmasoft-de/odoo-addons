@@ -41,16 +41,24 @@ if [ "$mydel" == "Y" ] || [ "$mydel" == "y" ]; then
 fi
 
 echo "Name of the backupfile (path: $mybackuppath):"
-read mybackup
+read mybackupgz
 
 if [ "$mydb" != "" ]; then
+  echo "Unzip $mybackuppath/$mybackupgz.."
   gunzip $mybackuppath/$mybackupgz
   mybackup=`echo $mybackupgz | cut -d"." -f1,2`
   echo "Create DB $mydb with $mybackup file.."
   createdb -U odoo -T template0 $mydb
-  echo "Restore DB $mydb" 
+  echo "Restore DB $mydb"
   psql -U odoo -f $mybackuppath/$mybackup -d $mydb -h localhost -p 5432
   echo "Restore is done."
+  echo "Do you want to deactivate mailserver functions in $mydb [Y/n]:"
+  read mymail
+  if [ "$mymail" == "Y" ] || [ "$mymail" == "y" ]; then
+    psql -d $mydb -U odoo -c $'UPDATE ir_cron SET active = FALSE WHERE ("name" = \'Fetchmail Service\' OR "name" = \'Garbage Collect Mail Attachments\' OR "name" = \'Email Queue Manager\');'
+    psql -d $mydb -U odoo -c $'DELETE FROM ir_mail_server;'
+    psql -d $mydb -U odoo -c $'DELETE FROM fetchmail_server;'
+  fi
 else
   echo "No restore."
 fi
