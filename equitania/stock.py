@@ -114,6 +114,14 @@ class stock_picking_extension(osv.osv):
         #Return as view definition
         return self.reverse_picking_new_view(cr, uid, new_picking_id)
 
+    @api.cr_uid_ids_context
+    def _get_invoice_vals(self, cr, uid, key, inv_type, journal_id, move, context=None):
+        res = super(stock_picking_extension, self)._get_invoice_vals(cr, uid, key, inv_type, journal_id, move, context)
+        if move.procurement_id:
+            if move.procurement_id.sale_line_id:
+                res['comment'] = move.procurement_id.sale_line_id.order_id.note
+        return res
+
 class stock_move_extension(osv.osv):
     _inherit = ['stock.move']
     def _get_invoice_line_vals(self, cr, uid, move, partner, inv_type, context=None):
