@@ -187,7 +187,7 @@
 									<td class="text-right">
 										<span t-esc="get_price(l.price_unit, o.partner_id.lang, o.currency_id)"/>
 									</td>
-									<td class="text-right" groups="sale.group_discount_per_so_line"><span t-esc="get_standard_price(l.discount, o.partner_id.lang, o.currency_id)"/></td>
+									<td class="text-right" groups="sale.group_discount_per_so_line"><span t-field="l.discount"/></td>
 									<!-- <td class="text-right">
 										<span t-esc="', '.join(map(lambda x: x.name, l.invoice_line_tax_id))"/>
 									</td>-->

@@ -205,7 +205,7 @@
                             <span t-esc="get_price(line.price_unit, o.partner_id.lang, o.currency_id)"/>
                         </td>
 						<td t-if="any([line.discount for line in o.order_line])" class="text-right">
-							<span t-esc="get_standard_price(line.discount, o.partner_id.lang, o.currency_id)"/>
+							<span t-field="line.discount"/>
 						</td>
                         <td class="text-right">
                             <span t-esc="get_standard_price(line.price_subtotal, o.partner_id.lang, o.currency_id)"/>
