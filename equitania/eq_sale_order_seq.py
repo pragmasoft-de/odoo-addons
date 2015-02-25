@@ -20,7 +20,7 @@
 ##############################################################################
 
 from openerp.osv import fields, osv, orm
-from reportlab.rl_config import _DEFAULTS
+#from reportlab.rl_config import _DEFAULTS
 #from numpy.ma.core import ids
 
 #Shows the sequence of the sale.order.line
