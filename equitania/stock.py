@@ -67,7 +67,6 @@ class stock_picking_extension(osv.osv):
                     if pack_operation.product_qty > qty:
                         packop_qty = pack_operation.product_qty - qty + move_qty
                         self.pool.get('stock.move').write(cr, uid, move_id, {'product_uom_qty': packop_qty, 'product_uos_qty': packop_qty * pack_operation.product_id.uos_coeff})
-            print 'doit!'
         return super(stock_picking_extension, self).do_transfer(cr, uid, picking_ids, context)
     
     @api.multi
