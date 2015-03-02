@@ -237,6 +237,7 @@ class eq_mail_mail(osv.Model):
                             subtype='html',
                             subtype_alternative='plain',
                             headers=headers)
+                        msg['Return-Path'] = default_mail_address
                         res = ir_mail_server.send_email(cr, uid, msg,
                                                         mail_server_id=default_mail_server,
                                                         context=context)
@@ -256,6 +257,7 @@ class eq_mail_mail(osv.Model):
                             subtype='html',
                             subtype_alternative='plain',
                             headers=headers)
+                        msg['Return-Path'] = mail.email_from
                         res = ir_mail_server.send_email(cr, uid, msg,
                                                         mail_server_id=mail_server[0],
                                                         context=context)
