@@ -48,19 +48,36 @@ class eq_open_sale_order_line(models.Model):
     def init(self, cr):
         tools.drop_view_if_exists(cr, 'eq_open_sale_order_line')
         cr.execute("""
-            CREATE OR REPLACE VIEW eq_open_sale_order_line AS (
-            (SELECT MIN(id) as id,
-            order_id as eq_order_id,
-            (select client_order_ref from sale_order where id = order_id) as eq_client_order_ref,
-            (select eq_customer_ref from res_partner where id = (select partner_id from sale_order where id = order_id)) as eq_customer_no,
-            (select partner_id from sale_order where id = order_id) as eq_customer,
-            eq_delivery_date,
-            sequence as eq_pos,
-            product_uom_qty as eq_quantity,
-            (select SUM(product_qty) from stock_move where procurement_id in (select id from procurement_order where sale_line_id = main.id) and state != 'done' and state != 'cancel') as eq_quantity_left,
-            product_id as eq_product_no,
-            (select eq_drawing_number from product_template where id = (select product_tmpl_id from product_product where id = product_id)) as eq_drawing_no,
-            state as eq_state
-            FROM sale_order_line as main
-            Group by eq_order_id, eq_client_order_ref, eq_customer_no, eq_customer, eq_delivery_date, eq_pos, eq_quantity, eq_product_no, eq_drawing_no, eq_state, main.id
-            ))""")
+        CREATE OR REPLACE VIEW eq_open_sale_order_line AS (
+            
+  select min(main.id) AS id,main.order_id AS eq_order_id,
+ ( SELECT sale_order.client_order_ref FROM sale_order WHERE sale_order.id = main.order_id) AS eq_client_order_ref,
+   ( SELECT res_partner.eq_customer_ref  FROM res_partner WHERE res_partner.id = (( SELECT sale_order.partner_id FROM sale_order  WHERE sale_order.id = main.order_id))) AS eq_customer_no,
+    ( SELECT sale_order.partner_id  FROM sale_order  WHERE sale_order.id = main.order_id) AS eq_customer,
+      main.eq_delivery_date,
+    main.sequence AS eq_pos,
+    main.product_uom_qty AS eq_quantity,
+    re.Qleft  as eq_quantity_left,   
+     main.product_id AS eq_product_no,
+ ( SELECT product_template.eq_drawing_number FROM product_template WHERE product_template.id = (( SELECT product_product.product_tmpl_id FROM product_product WHERE product_product.id = main.product_id))) AS eq_drawing_no,
+    main.state AS eq_state
+   
+FROM sale_order_line main
+LEFT join (select sum(SM.product_qty)  as Qleft,sale_line_id FROM 
+stock_move SM left join procurement_order PO on PO.id=  SM.procurement_id
+where SM.state::text <> 'done'::text AND SM.state::text <> 'cancel'::text AND SM.production_id IS NULL
+GROUP BY sale_line_id ) re on  re .sale_line_id=main.id
+   GROUP BY main.order_id,re.Qleft,
+   ( SELECT sale_order.client_order_ref FROM sale_order WHERE sale_order.id = main.order_id),
+   ( SELECT res_partner.eq_customer_ref  FROM res_partner WHERE res_partner.id = (( SELECT sale_order.partner_id FROM sale_order  WHERE sale_order.id = main.order_id))),
+    ( SELECT sale_order.partner_id  FROM sale_order  WHERE sale_order.id = main.order_id),
+      main.eq_delivery_date,
+    main.sequence ,
+    main.product_uom_qty ,
+    main.product_id,
+           ( SELECT product_template.eq_drawing_number FROM product_template  WHERE product_template.id = (( SELECT product_product.product_tmpl_id
+                   FROM product_product WHERE product_product.id = main.product_id))), main.state, main.id
+                 
+   
+             )
+            """)
