@@ -1246,6 +1246,8 @@ msgstr "Reihenfolge Auftragszeilen"
 
 #. module: equitania
 #: view:sale_layout.category:sale_layout.report_configuration_search_view
+#: view:product.product:equitania.eq_product_search_form_view
+#: view:product.template:equitania.eq_product_template_search_view
 #: field:sale_layout.category,name:0
 msgid "Name"
 msgstr "Bezeichnung"

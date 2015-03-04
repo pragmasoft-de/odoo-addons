@@ -97,7 +97,8 @@
             <field name="inherit_id" ref="product.product_template_search_view" />
             <field name="arch" type="xml">
                 <field name="name" position="replace">
-                   <field name="name" string="Product" filter_domain="['|','|',('default_code','ilike',self),('default_code','ilike',self),('name','ilike',self)]"/>
+                   <field name="name" string="Product" filter_domain="['|',('default_code','ilike',self),('name','ilike',self)]"/>
+                   <field name="name" string="Name"/>
                 </field>            	
             	<field name="product_variant_ids" position="after">
             		<field name="default_code"/>
@@ -239,6 +240,7 @@
             <field name="arch" type="xml">
                 <field name="name" position="replace">
                    <field name="name" string="Product" filter_domain="['|','|',('default_code','ilike',self),('default_code','ilike',self),('name','ilike',self)]"/>
+                   <field name="name" string="Name"/>
                 </field> 
             </field>
         </record>
