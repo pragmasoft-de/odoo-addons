@@ -80,6 +80,21 @@ class eq_product_template(osv.osv):
             res.update({id:record.default_code})
         return res
     
+    def _reset_default_code(self, cr, uid, ids, context=None):
+        """
+            Trigger function which will be called after change of trigger fields in product.product table
+            @self: self
+            @cr: cursor
+            @uid: user id
+            @ids: ids of record from product.product
+            @return: list of ids of the source model whose function field values need to be recomputed
+        """
+        result = {}
+        for line in self.pool.get('product.product').browse(cr, uid, ids, context=context):            
+            result[line.product_tmpl_id.id] = line.default_code                    
+
+        return result.keys()
+    
     def _set_eq_state_dup(self, cr, uid, ids, name, arg, context=None):
         res = {}
         for id in ids:
@@ -87,16 +102,14 @@ class eq_product_template(osv.osv):
             res.update({id:record.state})
         return res
     
-    
     # changed default_code to required field
     _columns = {
                 'eq_drawing_number': fields.char('Drawing Number', size=50),
                 'eq_index': fields.char('Index', size=64),
-                'eq_default_code_dub': fields.function(_set_eq_default_code_dup, type='char', arg='context', method=True),
+                'eq_default_code_copy': fields.function(_set_eq_default_code_dup, type='char', arg='context', method=True, store={'product.product' : (_reset_default_code, ['default_code'], 10)}),                
                 'eq_state_dup': fields.function(_set_eq_state_dup, type='char', arg='context', method=True),
                 'eq_internal_number': fields.char('Internal Number', size=64),
                 'eq_internal_text': fields.char('Internal Info', size=255),
-                #'default_code': fields.related('product_variant_ids', 'default_code', type='char', string='Internal Reference', required=True),
                 'default_code': fields.related('product_variant_ids', 'default_code', type='char', string='Internal Reference'),
     }
     

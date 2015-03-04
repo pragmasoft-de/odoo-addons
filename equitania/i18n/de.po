@@ -1433,3 +1433,8 @@ msgstr "Speichern"
 #, python-format
 msgid "Change date done"
 msgstr "Lieferdatum ändern"
+
+#. module: equitania
+#: view:product.template:equitania.eq_product_template_tree_view
+msgid "Productno."
+msgstr "Produktnr."
