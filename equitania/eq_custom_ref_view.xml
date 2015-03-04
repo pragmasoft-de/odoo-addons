@@ -116,7 +116,10 @@
             <field name="inherit_id" ref="product.product_template_tree_view" />
             <field name="arch" type="xml">
             	<field name="name" position="before">
+            	<!-- 
             		<field name="default_code"/>
+            	 -->
+            		<field name="eq_default_code_copy" string="Productno."/>
             	</field>
             	<field name="categ_id" position="before">
             		<field name="list_price"/>
