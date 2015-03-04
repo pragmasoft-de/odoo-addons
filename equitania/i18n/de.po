@@ -38,6 +38,7 @@ msgid "Birthday"
 msgstr "Geburtstag"
 
 #. module: equitania
+#: view:eq.date.done.change:equitania.eq_date_done_form_view
 #: view:eq_pricelist_item_search:equitania.eq_pricelist_item_search_form_view
 #: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
 msgid "Cancel"
@@ -1055,6 +1056,7 @@ msgid "invoice"
 msgstr "Rechnung"
 
 #. module: equitania
+#: view:eq.date.done.change:equitania.eq_date_done_form_view
 #: view:eq_pricelist_item_search:equitania.eq_pricelist_item_search_form_view
 #: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
 msgid "or"
@@ -1394,3 +1396,40 @@ msgstr "Lieferung stornieren"
 #, python-format
 msgid "Delivery"
 msgstr "Lieferung"
+
+#. module: equitania
+#: view:stock.picking:equitania.view_picking_form_cancel
+msgid "Date of Transfer"
+msgstr "Lieferdatum"
+
+#. module: equitania
+#: code:addons/equitania/wizard/eq_date_done_change.py:35
+#, python-format
+msgid "<div><b>Changed Delivery Date</p></div><div>From:  To: <div>Reason: </div>"
+msgstr "<div><b>Liferdatum wurde geändert</p></div><div>Von:  Auf: <div>Grund: </div>"
+
+#. module: equitania
+#: field:eq.date.done.change,eq_reason:0
+msgid "Reason"
+msgstr "Grund"
+
+#. module: equitania
+#: field:eq.date.done.change,eq_new_date_done:0
+msgid "New Date"
+msgstr "Neues Lieferdatum"
+
+#. module: equitania
+#: view:stock.picking:equitania.view_picking_form_cancel
+msgid "Change"
+msgstr "Ändern"
+
+#. module: equitania
+#: view:eq.date.done.change:equitania.eq_date_done_form_view
+msgid "Confirm"
+msgstr "Speichern"
+
+#. module: equitania
+#: code:addons/equitania/stock.py:136
+#, python-format
+msgid "Change date done"
+msgstr "Lieferdatum ändern"

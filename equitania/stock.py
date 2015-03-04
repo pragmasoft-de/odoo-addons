@@ -121,6 +121,31 @@ class stock_picking_extension(osv.osv):
                 res['comment'] = move.procurement_id.sale_line_id.order_id.note
         return res
 
+    @api.cr_uid_ids_context
+    def change_date_done(self, cr, uid, ids, context={}):
+        vals = {'eq_new_date_done': self.browse(cr, uid, ids[0]).date_done}
+        date_done_change_id = self.pool.get('eq.date.done.change').create(cr, uid, vals)
+        context['picking_id'] = ids
+        return self.date_done_change_view(cr, uid, ids, date_done_change_id, context=context)
+    
+    @api.multi
+    def date_done_change_view(self, date_done_change_id):
+        view = self.env.ref('equitania.eq_date_done_form_view')
+
+        return {
+            'name': _('Change date done'),
+            'type': 'ir.actions.act_window',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': 'eq.date.done.change',
+            'views': [(view.id, 'form')],
+            'view_id': view.id,
+            'no_destroy': True,
+            'target': 'new',
+            'res_id': date_done_change_id,
+            'context': self.env.context,
+        }
+
 class stock_move_extension(osv.osv):
     _inherit = ['stock.move']
     def _get_invoice_line_vals(self, cr, uid, move, partner, inv_type, context=None):

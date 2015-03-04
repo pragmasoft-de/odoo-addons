@@ -1,0 +1,21 @@
+<openerp>
+	<data>
+        <!-- Date Done Form -->
+    	<record id="eq_date_done_form_view" model="ir.ui.view">
+            <field name="name">eq.date.done.form.view</field>
+            <field name="model">eq.date.done.change</field>
+            <field name="arch" type="xml">
+            	<form string="Change done date">
+            		<group>
+	            		<field name="eq_new_date_done"/>
+	            		<field name="eq_reason" required="True"/>
+            		</group>
+            		<footer>
+            			<button name="confirm_action" type="object" string="Confirm" class="oe_highlight"/> or 
+            			<button special="cancel" string="Cancel"/>
+            		</footer>
+            	</form>
+            </field>    
+        </record>
+	</data>
+</openerp>
