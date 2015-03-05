@@ -208,8 +208,6 @@
             </field>
         </record>
         
-        
-        
         <!-- product.product - tree view -->
         <record id="eq_product_product_tree_view" model="ir.ui.view">
             <field name="name">eq.product.product.tree</field>
