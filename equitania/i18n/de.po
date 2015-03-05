@@ -1440,3 +1440,19 @@ msgstr "Lieferdatum ändern"
 #: view:product.template:equitania.eq_product_template_tree_view
 msgid "Productno."
 msgstr "Produktnr."
+
+#. module: equitania
+#: view:res.partner:equitania.eq_partner_extension_property_form_view
+msgid "Default Address"
+msgstr "Standardadressen"
+
+#. module: equitania
+#: field:account.invoice,eq_delivery_address:0
+#: field:res.partner,eq_default_delivery_address:0
+msgid "Delivery Address"
+msgstr "Liferadresse"
+
+#. module: equitania
+#: field:res.partner,eq_default_invoice_address:0
+msgid "Invoice Address"
+msgstr "Rechnungsadresse"

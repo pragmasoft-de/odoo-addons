@@ -55,6 +55,24 @@
             </field>
         </record>
         
+        <record id="eq_partner_extension_property_form_view" model="ir.ui.view">
+            <field name="name">eq_partner_extension.form</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='sales_purchases']" position="inside">
+                	<h3>
+                		<label for="id" string="Default Address"/>
+                	</h3>
+                	<group>
+                		<field name="eq_default_delivery_address"/>
+                		<field name="eq_default_invoice_address"/>
+                	</group>
+                </xpath>
+            </field>
+        </record>
+        
         <record id="eq_partner_extension_sale_stock_form_view" model="ir.ui.view">
             <field name="name">eq_partner_extension.sale_stock.form</field>
             <field name="model">sale.order</field>

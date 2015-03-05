@@ -55,6 +55,10 @@ class eq_partner_sale_order_extension(osv.osv):
                 result['value']['eq_deliver_condition_id'] = partner.eq_deliver_condition_id.id
             else:
                 result['value']['eq_deliver_condition_id'] = False
+            if partner.eq_default_delivery_address:
+                result['value']['partner_shipping_id'] = partner.eq_default_delivery_address.id
+            if partner.eq_default_invoice_address:
+                result['value']['partner_invoice_id'] = partner.eq_default_invoice_address.id
         return result
 
 class eq_partner_extension(osv.osv):
@@ -110,6 +114,8 @@ class eq_partner_extension(osv.osv):
             help="Used to select automatically the right address according to the context in sales and purchases documents."),
         'eq_incoterm': fields.many2one('stock.incoterms', 'Incoterm'),
         'eq_deliver_condition_id': fields.many2one('eq.delivery.conditions', 'Delivery Condition'),
+        'eq_default_delivery_address': fields.many2one('res.partner', 'Delivery Address'),
+        'eq_default_invoice_address': fields.many2one('res.partner', 'Invoice Address'),
         }
     
     _defaults = {
