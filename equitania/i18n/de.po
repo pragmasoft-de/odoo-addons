@@ -1408,7 +1408,7 @@ msgstr "Lieferdatum"
 #: code:addons/equitania/wizard/eq_date_done_change.py:35
 #, python-format
 msgid "<div><b>Changed Delivery Date</p></div><div>From:  To: <div>Reason: </div>"
-msgstr "<div><b>Lieferdatum wurde geändert</p></div><div>Von:  Auf: <div>Grund: </div>"
+msgstr "<div><b>Liferdatum wurde geändert</p></div><div>Von:  Auf: <div>Grund: </div>"
 
 #. module: equitania
 #: field:eq.date.done.change,eq_reason:0

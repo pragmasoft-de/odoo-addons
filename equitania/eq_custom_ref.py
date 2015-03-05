@@ -102,16 +102,6 @@ class eq_product_template(osv.osv):
             res.update({id:record.state})
         return res
     
-    def _eq_prod_count(self, cr, uid, ids, name, arg, context=None):
-        res = {}
-        for id in ids:
-            cr.execute("""select count(*) from mrp_production where product_id in (select id from product_product where product_tmpl_id = %d) and state not in ('done', 'cancel')""" % (id))
-            open = cr.fetchone()[0] or 0
-            cr.execute("""select count(*) from mrp_production where product_id in (select id from product_product where product_tmpl_id = %d)""" % (id))
-            all = cr.fetchone()[0] or 0
-            res[id] = '%d / %d' % (open, all)
-        return res
-    
     # changed default_code to required field
     _columns = {
                 'eq_drawing_number': fields.char('Drawing Number', size=50),
@@ -121,7 +111,6 @@ class eq_product_template(osv.osv):
                 'eq_internal_number': fields.char('Internal Number', size=64),
                 'eq_internal_text': fields.char('Internal Info', size=255),
                 'default_code': fields.related('product_variant_ids', 'default_code', type='char', string='Internal Reference'),
-                'eq_prod_count': fields.function(_eq_prod_count, type="char"),
     }
     
     # default setting to make sure, that no "Interne Kategorie" by default selected is
@@ -267,16 +256,6 @@ class eq_product_product(osv.osv):
         res = {'code': product.default_code,'default_code': product.default_code, 'name': product.name}
         return res
     
-    def _eq_prod_count(self, cr, uid, ids, name, arg, context=None):
-        res = {}
-        for id in ids:
-            cr.execute("""select count(*) from mrp_production where product_id = %d and state not in ('done', 'cancel')""" % (id))
-            open = cr.fetchone()[0] or 0
-            cr.execute("""select count(*) from mrp_production where product_id = %d""" % (id))
-            all = cr.fetchone()[0] or 0
-            res[id] = '%d / %d' % (open, all)
-        return res
-    
     # changed default_code to required field
     _columns = {
                 'default_code' : fields.char('Product Number', select=True),
@@ -286,7 +265,6 @@ class eq_product_product(osv.osv):
                 'eq_state_dup': fields.function(_set_eq_state_dup, type='char', arg='context', method=True),
                 'eq_internal_number': fields.char('Internal Number', size=64),
                 'eq_internal_text': fields.char('Internal Info', size=255),
-                'eq_prod_count': fields.function(_eq_prod_count, type="char"),
     }
     
     # default setting to make sure, that no "Interne Kategorie" by default selected is
