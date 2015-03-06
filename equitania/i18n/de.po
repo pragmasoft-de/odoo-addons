@@ -1408,7 +1408,7 @@ msgstr "Lieferdatum"
 #: code:addons/equitania/wizard/eq_date_done_change.py:35
 #, python-format
 msgid "<div><b>Changed Delivery Date</p></div><div>From:  To: <div>Reason: </div>"
-msgstr "<div><b>Liferdatum wurde geändert</p></div><div>Von:  Auf: <div>Grund: </div>"
+msgstr "<div><b>Lieferdatum wurde geändert</p></div><div>Von:  Auf: <div>Grund: </div>"
 
 #. module: equitania
 #: field:eq.date.done.change,eq_reason:0
@@ -1450,7 +1450,7 @@ msgstr "Standardadressen"
 #: field:account.invoice,eq_delivery_address:0
 #: field:res.partner,eq_default_delivery_address:0
 msgid "Delivery Address"
-msgstr "Liferadresse"
+msgstr "Lieferadresse"
 
 #. module: equitania
 #: field:res.partner,eq_default_invoice_address:0
@@ -1461,4 +1461,4 @@ msgstr "Rechnungsadresse"
 #: view:product.product:equitania.eq_product_product_form_view
 #: view:product.template:equitania.eq_product_product_template_only_form_view
 msgid "Pricelist Pos"
-msgstr "Pristlisten Pos"
+msgstr "Preislisten Pos"
