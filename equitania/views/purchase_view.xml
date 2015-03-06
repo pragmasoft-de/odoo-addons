@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+		<record id="purchase_order_line_tree_inherit" model="ir.ui.view">
+			<field name="name">purchase.order.line.tree</field>
+			<field name="model">purchase.order.line</field>
+			<field name="inherit_id" ref="purchase.purchase_order_line_tree" />
+			<field name="arch" type="xml">
+				<data>
+				<xpath expr="/tree[@string='Purchase Order Lines']" position="replace">
+					<tree string="Purchase Order Lines" create="false">
+						<field name="eq_sequence" />
+						<field name="order_id"/>
+						<field name="eq_purchase_supplier_order_ref"/>
+						<field name="eq_supplier_no" />
+						<field name="partner_id" string="Supplier" />
+						<field name="date_planned"  string="Delivery Date" widget="date" width="135"/>
+						<field name="product_qty"/>
+						<field name="eq_quantity_left"/>
+						<field name="product_id" string="Product Number"/>
+						<field name="eq_drawing_number"/>
+						<field name="state" invisible="0"/>
+					</tree>
+				</xpath>
+				</data>
+			</field>
+		</record>
+		
+		<record id="purchase_order_line_form2_inherit" model="ir.ui.view">
+			<field name="name">purchase.order.line.form2</field>
+			<field name="model">purchase.order.line</field>
+			<field name="inherit_id" ref="purchase.purchase_order_line_form2" />
+			<field name="arch" type="xml">
+				<data>
+					<field name="date_planned" position="attributes">
+						<attribute name="string">Delivery Date</attribute>
+					</field>
+					<field name="product_id" position="after">
+						<field name="eq_drawing_number"/>
+					</field>
+					<field name="product_id" position="before">
+						<field name="eq_purchase_supplier_order_ref"/>	
+						<field name="eq_supplier_no"/>
+					</field>
+				</data>
+			</field>
+		</record>
+		
+		<record id="purchase_order_form_inherit" model="ir.ui.view">
+			<field name="name">purchase.order.form</field>
+			<field name="model">purchase.order</field>
+			<field name="inherit_id" ref="purchase.purchase_order_form" />
+			<field name="arch" type="xml">
+				<data>
+					<field name="partner_id" position="before">
+						<field name="eq_supplier_order_ref" />
+					</field>
+				</data>
+			</field>
+		</record>
+	</data>
+</openerp>
