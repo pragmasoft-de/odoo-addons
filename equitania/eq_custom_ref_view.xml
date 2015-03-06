@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+        
+	    <!-- Pricelist Items Tree View -->
+        <record id="eq_framework_agreement_tree_view" model="ir.ui.view">
+            <field name="name">product.pricelist.item.tree</field>
+            <field name="model">product.pricelist.item</field>
+            <field name="arch" type="xml">
+                <tree string="Products Listprices Items">
+                    <field name="sequence"/>
+                    <field colspan="4" name="name"/>
+                    <field name="product_id"/>
+                    <field name="product_tmpl_id"/>
+                    <field name="categ_id"/>
+                    <field name="min_quantity"/>
+                    <field name="base"/>
+                    <field name="price_version_id"/>
+                </tree>
+            </field>
+        </record>
+        
+	    <!-- Pricelist Items Action product.template -->
+        <record id="action_eq_open_pricelist_item_tree_product_template" model="ir.actions.act_window">
+            <field name="context">{}</field><!-- force empty -->
+            <field name="name">Pricelist Items</field>
+            <field name="res_model">product.pricelist.item</field>
+            <field name="domain">[('product_tmpl_id', '=', [active_id])]</field>
+            <field name="view_id" ref="eq_framework_agreement_tree_view"/>
+       	</record>
+        
+	    <!-- Pricelist Items Action product.product -->
+        <record id="action_eq_open_pricelist_item_tree_product_product" model="ir.actions.act_window">
+            <field name="context">{}</field><!-- force empty -->
+            <field name="name">Pricelist Items</field>
+            <field name="res_model">product.pricelist.item</field>
+            <field name="domain">[('product_id', '=', [active_id])]</field>
+            <field name="view_id" ref="eq_framework_agreement_tree_view"/>
+       	</record>
 
 		<!-- Customer Form -->
         <record id="view_partner_form" model="ir.ui.view">
@@ -86,7 +122,17 @@
                 	<field name="eq_internal_text"/>
                 	<label for="categ_id" string="Internal Category"/>
                 	<div><field name="categ_id" colspan="3" nolabel="1"/></div>
-                </xpath>                               
+                </xpath>
+                
+                <!-- add button for the pricelist items -->
+                <xpath expr="//div[@name='buttons']" position="inside">
+                   	<button class="oe_stat_button"
+                            name="%(action_eq_open_pricelist_item_tree_product_template)d"
+                            icon="fa-list-alt"
+                            type="action" attrs="{'invisible':[('sale_ok', '!=', True)]}">
+                  		<div><strong><field name="eq_pricelist_items_count"/></strong><br/>Pricelist Pos</div>
+                   	</button>
+                </xpath>
             </field>
         </record>  
         
@@ -205,6 +251,15 @@
                 	<div><field name="categ_id" colspan="3" nolabel="1"/></div>
                 </xpath>
                 
+                <!-- add button for the pricelist items -->
+                <xpath expr="//div[@name='buttons']" position="inside">
+                   	<button class="oe_stat_button"
+                            name="%(action_eq_open_pricelist_item_tree_product_product)d"
+                            icon="fa-list-alt"
+                            type="action" attrs="{'invisible':[('sale_ok', '!=', True)]}">
+                  		<div><strong><field name="eq_pricelist_items_count"/></strong><br/>Pricelist Pos</div>
+                   	</button>
+                </xpath>
             </field>
         </record>
         

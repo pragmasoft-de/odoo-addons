@@ -1456,3 +1456,9 @@ msgstr "Liferadresse"
 #: field:res.partner,eq_default_invoice_address:0
 msgid "Invoice Address"
 msgstr "Rechnungsadresse"
+
+#. module: equitania
+#: view:product.product:equitania.eq_product_product_form_view
+#: view:product.template:equitania.eq_product_product_template_only_form_view
+msgid "Pricelist Pos"
+msgstr "Pristlisten Pos"
