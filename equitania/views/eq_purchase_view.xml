@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+<!-- 		Inherited the existing view -->
+		<record id="eq_purchase_order_line_tree_inherit" model="ir.ui.view">
+			<field name="name">eq.purchase.order.line.tree</field>
+			<field name="model">purchase.order.line</field>
+			<field name="inherit_id" ref="purchase.purchase_order_line_tree" />
+			<field name="arch" type="xml">
+				<data>
+				<xpath expr="/tree[@string='Purchase Order Lines']" position="replace">
+					<tree string="Purchase Order Lines" create="true">
+						<field name="eq_sequence" />
+						<field name="order_id" string="Purchase Order"/>
+						<field name="eq_purchase_supplier_order_ref"/>
+						<field name="eq_supplier_no" />
+						<field name="partner_id" string="Supplier" />
+						<field name="date_planned"  string="Delivery Date" widget="date" width="135"/>
+						<field name="product_qty"/>
+						<field name="eq_qty_left"/>
+						<field name="product_id" string="Product Number"/>
+						<field name="eq_drawing_number"/>
+						<field name="state"/>
+					</tree>
+				</xpath>
+				</data>
+			</field>
+		</record>
+		
+<!-- 		Inherited the existing view -->
+		<record id="eq_purchase_order_line_form2_inherit" model="ir.ui.view">
+			<field name="name">eq.purchase.order.line.form2</field>
+			<field name="model">purchase.order.line</field>
+			<field name="inherit_id" ref="purchase.purchase_order_line_form2" />
+			<field name="arch" type="xml">
+				<data>
+					<xpath expr="//form[@string='Purchase Order Line']" position="replace">
+						<form string="Purchase Order Line" create="true">
+                    		<sheet>
+                    			<group col="4">
+                    				<field name="product_qty" />
+                    				<field name="eq_sequence" />
+                    				<field name="state" />
+                    				<field name="eq_drawing_number"/>
+                    				<field name="eq_purchase_supplier_order_ref" />
+                    				<field name="partner_id" string="Supplier" />
+									<field name="product_id" string="Product Number" required="1"/>
+                   					<field name="order_id" string="Purchase Order"/>
+                   					<field name="eq_supplier_no" />
+                   					<field name="date_planned"  string="Delivery Date"/>
+                   					<field name="eq_qty_left"/>
+                   					<field name="price_unit"/>
+                   					<field name="name"/>
+                    			</group>
+							</sheet>
+						</form>
+					</xpath>
+				</data>
+			</field>
+		</record>
+		
+<!-- 		Inherited the existing view -->
+		<record id="eq_purchase_order_line_search_inherit" model="ir.ui.view">
+			<field name="name">eq.purchase.order.line.search</field>
+			<field name="model">purchase.order.line</field>
+			<field name="inherit_id" ref="purchase.purchase_order_line_search" />
+			<field name="arch" type="xml">
+				<data>
+					<field name="order_id" position="before">
+						<field name="eq_purchase_supplier_order_ref" string="Supplier Order Reference" filter_domain="[('eq_purchase_supplier_order_ref', 'ilike', self)]"/>
+						<field name="eq_supplier_no" string="Supplier No" filter_domain="[('eq_supplier_no', 'ilike', self)]"/>
+						<field name="eq_drawing_number" string="Drawing number" filter_domain="[('eq_drawing_number', 'ilike', self)]"/>
+					</field>
+					<filter name="groupby_supplier" position="after">
+						<filter string="Remaining Quantity left" name="filter_remaining_quantity" domain="[('eq_qty_left','>', '0')]"/>
+					</filter>
+					<field name="order_id" position="attributes">
+						<attribute name="string">Purchase Order</attribute>
+					</field>
+				</data>
+			</field>
+		</record>
+		
+<!-- 		Overriden the existing action -->
+		<record id="purchase.purchase_line_form_action2" model="ir.actions.act_window">
+            <field name="name">Open Purchase Order Lines</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.order.line</field>
+            <field name="domain">[]</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+             <field name="context">{"search_default_filter_remaining_quantity":1}</field>
+            <field name="search_view_id" ref="purchase.purchase_order_line_search"/>
+            <field name="help" type="html">
+              <p>
+                Here you can track all the lines of purchase orders where the
+                invoicing is "Based on Purchase Order Lines", and for which you
+                have not received a supplier invoice yet. You can generate a
+                draft supplier invoice based on the lines from this list.
+              </p>
+            </field>
+        </record>
+
+<!-- 		Overriden the existing menu -->
+		 <menuitem
+            action="purchase.purchase_line_form_action2"
+            id="purchase.menu_purchase_line_order_draft"
+            parent="purchase.menu_procurement_management"
+            sequence="7"/>
+		
+<!-- 		Inherited the existing view -->
+		<record id="eq_purchase_order_form_inherit" model="ir.ui.view">
+			<field name="name">eq.purchase.order.form</field>
+			<field name="model">purchase.order</field>
+			<field name="inherit_id" ref="purchase.purchase_order_form" />
+			<field name="arch" type="xml">
+				<data>
+					<field name="partner_id" position="before">
+						<field name="eq_supplier_order_ref" />
+					</field>
+				</data>
+			</field>
+		</record>
+	</data>
+</openerp>
