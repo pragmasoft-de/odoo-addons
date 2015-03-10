@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+		<!-- Pricelist Item Form -->
+        <record id="eq_product_pricelist_item_form_view" model="ir.ui.view">
+            <field name="name">eq_product_pricelist_item_form_view</field>
+            <field name="model">product.pricelist.item</field>
+            <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
+            <field name="arch" type="xml">
+            	<field name="sequence" position="after">
+            		<field name="price_version_id"/>
+            	</field>
+            </field>
+        </record>
         
 	    <!-- Pricelist Items Tree View -->
         <record id="eq_framework_agreement_tree_view" model="ir.ui.view">
@@ -22,19 +33,19 @@
         
 	    <!-- Pricelist Items Action product.template -->
         <record id="action_eq_open_pricelist_item_tree_product_template" model="ir.actions.act_window">
-            <field name="context">{}</field><!-- force empty -->
+            <field name="context">{'default_product_tmpl_id': active_id, 'search_default_product_tmpl_id': active_id}</field>
             <field name="name">Pricelist Items</field>
             <field name="res_model">product.pricelist.item</field>
-            <field name="domain">[('product_tmpl_id', '=', [active_id])]</field>
+            <field name="domain">[('product_tmpl_id', '=', active_id)]</field>
             <field name="view_id" ref="eq_framework_agreement_tree_view"/>
        	</record>
         
 	    <!-- Pricelist Items Action product.product -->
         <record id="action_eq_open_pricelist_item_tree_product_product" model="ir.actions.act_window">
-            <field name="context">{}</field><!-- force empty -->
+            <field name="context">{'default_product_id': active_id, 'search_default_product_id': active_id}</field><!-- force empty -->
             <field name="name">Pricelist Items</field>
             <field name="res_model">product.pricelist.item</field>
-            <field name="domain">[('product_id', '=', [active_id])]</field>
+            <field name="domain">[('product_id', '=', active_id)]</field>
             <field name="view_id" ref="eq_framework_agreement_tree_view"/>
        	</record>
 
