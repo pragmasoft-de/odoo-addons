@@ -19,24 +19,4 @@
 #
 ##############################################################################
 
-import models
-import wizard
-import eq_install_func
-import eq_address_extension
-import eq_address_extension_new_api
-import eq_custom_ref
-import eq_pricelist_item_search
-import eq_company_custom_fields
-import eq_sale_order_seq
-import eq_partner_extension
-import eq_report_extension
-import eq_lead_referred
-import eq_open_sale_order_line
-import res_groups
-import stock
-import sale_layout
-import reports
-import res_config
-import eq_report_helper
-import res_users
-import hr
+import eq_purchase

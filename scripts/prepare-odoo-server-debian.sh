@@ -25,7 +25,7 @@ echo "Prepare Debian"
 apt-get update && apt-get dist-upgrade && apt-get autoremove
 
 echo "Tools zip, unzip, mc(Midnight Comander) and htop will be install.."
-apt-get install mc zip unzip htop ca-certificates
+apt-get install mc zip unzip htop ca-certificates ntp
 
 echo "Do you want install postgresql ? / Wollen Sie die PostgreSQL-DB installieren  (Y/n):"
 read mypsql
