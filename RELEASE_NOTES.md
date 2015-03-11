@@ -1,3 +1,8 @@
+# 11.03.2015
+## eq_framework_agreement
+##### Fix
+- Added small bugfix for our excel tool
+
 # 06.03.2015
 ## equitania
 ##### Erweiterung
