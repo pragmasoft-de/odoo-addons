@@ -59,25 +59,38 @@
 			</field>
 		</record>
 		
-<!-- 		Inherited the existing view -->
+       <!-- Inherited the existing view -->
 		<record id="eq_purchase_order_line_search_inherit" model="ir.ui.view">
 			<field name="name">eq.purchase.order.line.search</field>
 			<field name="model">purchase.order.line</field>
 			<field name="inherit_id" ref="purchase.purchase_order_line_search" />
 			<field name="arch" type="xml">
-				<data>
-					<field name="order_id" position="before">
-						<field name="eq_purchase_supplier_order_ref" string="Supplier Order Reference" filter_domain="[('eq_purchase_supplier_order_ref', 'ilike', self)]"/>
-						<field name="eq_supplier_no" string="Supplier No" filter_domain="[('eq_supplier_no', 'ilike', self)]"/>
-						<field name="eq_drawing_number" string="Drawing number" filter_domain="[('eq_drawing_number', 'ilike', self)]"/>
-					</field>
-					<filter name="groupby_supplier" position="after">
-						<filter string="Remaining Quantity left" name="filter_remaining_quantity" domain="[('eq_qty_left','>', '0')]"/>
-					</filter>
-					<field name="order_id" position="attributes">
-						<attribute name="string">Purchase Order</attribute>
-					</field>
-				</data>
+				<xpath expr="//search[@string='Search Purchase Order']" position="replace">
+					<search string="Search Supplier">
+						<field name="order_id" filter_domain="['|','|','|','|',('order_id','ilike',self),('eq_purchase_supplier_order_ref','ilike',self),('product_id','ilike',self),('partner_id','=',self),('eq_drawing_number','ilike',self)]" />
+						<field name="eq_purchase_supplier_order_ref" />
+						<field name="eq_supplier_no" />
+						<field name="partner_id" />
+						<field name="date_planned" />
+						<field name="eq_sequence" />
+						<field name="product_qty" />
+						<field name="eq_qty_left" />
+						<field name="product_id" />
+						<field name="eq_drawing_number" />
+		
+						<filter string="Remaining Quantity left" name="filter_remaining_quantity" domain="[('eq_qty_left','>', '0')]" />
+						<filter string="Draft" name="filter_draft" domain="[('state','=', 'draft')]" />
+						<filter string="Confirmed" name="filter_confirmed" domain="[('state','=', 'confirmed')]" />
+						<filter string="Done" name="filter_done" domain="[('state','=', 'done')]" />
+						<filter string="Cancelled" name="filter_cancel" domain="[('state','=', 'cancel')]" />
+		
+						<group expand="0" string="Group By">
+							<filter string="Purchase order" context="{'group_by' : 'order_id'}" />
+							<filter string="Supplier" context="{'group_by': 'partner_id'}" />
+							<filter string="Product" context="{'group_by': 'product_id'}" />
+						</group>
+					</search>
+				</xpath>
 			</field>
 		</record>
 		
