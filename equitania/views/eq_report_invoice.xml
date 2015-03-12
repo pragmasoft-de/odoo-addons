@@ -64,7 +64,7 @@
 									<span t-field="o.partner_id.eq_creditor_ref" id="eq_creditor_ref"/>
 								</td>
 							</tr>
-							<tr t-if="o.type == 'out_invoice'">
+							<tr t-if="o.type == 'out_invoice' or 'in_refund' or 'out_refund'">
 								<td>
 									<span>Customer no.</span>
 								</td>
