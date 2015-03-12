@@ -1,4 +1,8 @@
-##
+### 12.03.2012
+### eq_equitania
+#### Erweiterung
+- Erweiterung der Lokalisierung für open purchase order lines
+
 ### Bei Update-Fehler
 ..
 *AttributeError: Das Feld `eq_quantity_left` existiert nicht*
