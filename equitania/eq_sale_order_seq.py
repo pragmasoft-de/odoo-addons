@@ -38,13 +38,17 @@ class eq_sale_order_line_seq(osv.osv):
     SEQUENCE_VALUE = 10
     
     def default_get(self, cr, uid, ids, context=None):
-        res =  super(eq_sale_order_line_seq, self).default_get(cr, uid, ids, context=context)        
-        if context:
-            context_keys = context.keys()
-            next_sequence = self.SEQUENCE_VALUE
-            if 'ref_ids' in context_keys:
-                if len(context.get('ref_ids')) > 0:
-                    next_sequence = (len(context.get('ref_ids')) + 1) * self.SEQUENCE_VALUE
+        res =  super(eq_sale_order_line_seq, self).default_get(cr, uid, ids, context=context)
+        
+        # small bugfix for our exceltool
+        next_sequence = self.SEQUENCE_VALUE
+        if context is not None:        
+            if context:
+                context_keys = context.keys()
+                next_sequence = self.SEQUENCE_VALUE
+                if 'ref_ids' in context_keys:
+                    if len(context.get('ref_ids')) > 0:
+                        next_sequence = (len(context.get('ref_ids')) + 1) * self.SEQUENCE_VALUE
         
         res.update({'sequence': next_sequence})
         return res
