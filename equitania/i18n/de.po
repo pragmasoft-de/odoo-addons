@@ -170,7 +170,7 @@ msgstr "Change done date"
 #. module: equitania
 #: field:eq_open_sale_order_line,eq_client_order_ref:0
 msgid "Client Order Reference"
-msgstr "Referenz des Kunden"
+msgstr "Referenz"
 
 #. module: equitania
 #: view:website:equitania.eq_report_stockpicking_return
@@ -493,8 +493,10 @@ msgstr "Bei Rückfragen wenden Sie sich bitte an"
 
 #. module: equitania
 #: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
+#: view:purchase.order.line:equitania.eq_purchase_order_line_search_inherit
 msgid "Frameworkagreement"
 msgstr "Rahmenauftrag"
+
 
 #. module: equitania
 #: view:product.product:equitania.eq_product_product_form_view
@@ -996,7 +998,7 @@ msgstr "Bestellpositionen"
 #. module: equitania
 #: view:purchase.order.line:equitania.eq_purchase_order_line_search_inherit
 msgid "Purchase order"
-msgstr "Purchase order"
+msgstr "Bestellung"
 
 #. module: equitania
 #: view:website:purchase.report_purchasequotation_document
@@ -1301,7 +1303,7 @@ msgstr "Lieferantennummer"
 #. module: equitania
 #: field:purchase.order.line,eq_purchase_supplier_order_ref:0
 msgid "Supplier Order Reference"
-msgstr "Referenz des Lieferanten"
+msgstr "Referenz"
 
 #. module: equitania
 #: view:website:account.report_invoice_document
@@ -1549,3 +1551,20 @@ msgstr "{'ref_ids':order_line}"
 #: view:purchase.order:equitania.view_purchase_order_form_address_extension
 msgid "{'search_default_supplier':1, 'default_supplier':1, 'default_customer':0, 'show_address': 1,'main_address': True ,'active_model':'purchase.order',}"
 msgstr "{'search_default_supplier':1, 'default_supplier':1, 'default_customer':0, 'show_address': 1,'main_address': True ,'active_model':'purchase.order',}"
+
+
+#. module: purchase
+#: selection:purchase.order,invoice_method:0
+msgid "Based on Purchase Order lines"
+msgstr "Bestellpositionen"
+
+#. module: purchase
+#: selection:purchase.config.settings,default_invoice_method:0
+msgid "Based on purchase order lines"
+msgstr "Bestellpositionen"
+
+#. module: purchase
+#: model:ir.actions.act_window,name:purchase.purchase_line_form_action2
+#: model:ir.ui.menu,name:purchase.menu_purchase_line_order_draft
+msgid "On Purchase Order Lines"
+msgstr "Bestellpositionen"

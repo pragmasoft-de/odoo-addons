@@ -1,3 +1,14 @@
+### 13.03.2012
+### eq_equitania
+#### Erweiterung
+- Open purchase order lines um neue Gruppierung nach Rahmenauftrag erweitert
+ 
+#### Änderung
+- Änderung in der Lokalisierung für open purchase order lines -> der text "von Bestellpositionen" wird nicht mehr angezeigt
+
+#### Bugfix
+- Bugfix im Aufruf der Gruppierung nach Rahmenauftragsnummer für open sale order lines
+
 ### 12.03.2012
 ### eq_equitania
 #### Erweiterung
