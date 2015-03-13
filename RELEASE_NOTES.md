@@ -1,7 +1,10 @@
 ### 13.03.2012
-### eq_equitania
+### equitania
 #### Erweiterung
 - Open purchase order lines um neue Gruppierung nach Rahmenauftrag erweitert
+- Feld für die Preislistenversion in die Preislistenposition eingefügt.
+#### Fix
+- Fehler bei den Unterlieferungen behoben. (Mengeneinheit Stück stimmt mit Mengeneinheit Stück nicht überein)
  
 #### Änderung
 - Änderung in der Lokalisierung für open purchase order lines -> der text "von Bestellpositionen" wird nicht mehr angezeigt
@@ -10,7 +13,7 @@
 - Bugfix im Aufruf der Gruppierung nach Rahmenauftragsnummer für open sale order lines
 
 ### 12.03.2012
-### eq_equitania
+### equitania
 #### Erweiterung
 - Erweiterung der Lokalisierung für open purchase order lines
 
