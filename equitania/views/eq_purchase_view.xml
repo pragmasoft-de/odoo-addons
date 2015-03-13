@@ -87,7 +87,8 @@
 						<group expand="0" string="Group By">
 							<filter string="Purchase order" context="{'group_by' : 'order_id'}" />
 							<filter string="Supplier" context="{'group_by': 'partner_id'}" />
-							<filter string="Product" context="{'group_by': 'product_id'}" />
+							<filter string="Product" context="{'group_by': 'product_id'}" />							
+							<filter string="Frameworkagreement" context="{'group_by': 'eq_agreement_id'}" />							
 						</group>
 					</search>
 				</xpath>

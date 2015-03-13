@@ -76,3 +76,4 @@ class eq_open_purchase_order_line(models.Model):
     eq_drawing_number = fields.Char(string="Drawing number",readonly= True, store= True,compute='eq_compute_product_tmpl_drawing_nos')
     eq_sequence = fields.Integer(string="Seq",readonly= True, store= True, compute='eq_compute_sequence')
     eq_qty_left = fields.Integer(string="Quantity left", readonly=True,store=True,compute="eq_compute_qty_left")
+    

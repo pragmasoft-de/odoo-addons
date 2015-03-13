@@ -41,9 +41,14 @@ class eq_open_sale_order_line(models.Model):
     eq_quantity_left = fields.Integer(string="Quantity left")
     eq_product_no = fields.Many2one('product.product', string="Product number")
     eq_drawing_no = fields.Char(size=100, string="Drawing number")
+    eq_framework_agreement_id = fields.Many2one('eq_framework_agreement', string="Framework agreement")
+    
     eq_state = fields.Selection(
                 [('cancel', 'Cancelled'),('draft', 'Draft'),('confirmed', 'Confirmed'),('exception', 'Exception'),('done', 'Done')],
                 'Status')
+    
+    
+    
     
     def init(self, cr):
         tools.drop_view_if_exists(cr, 'eq_open_sale_order_line')
@@ -54,6 +59,7 @@ class eq_open_sale_order_line(models.Model):
  ( SELECT sale_order.client_order_ref FROM sale_order WHERE sale_order.id = main.order_id) AS eq_client_order_ref,
    ( SELECT res_partner.eq_customer_ref  FROM res_partner WHERE res_partner.id = (( SELECT sale_order.partner_id FROM sale_order  WHERE sale_order.id = main.order_id))) AS eq_customer_no,
     ( SELECT sale_order.partner_id  FROM sale_order  WHERE sale_order.id = main.order_id) AS eq_customer,
+    ( SELECT sale_order.eq_framework_agreement_id  FROM sale_order  WHERE sale_order.id = main.order_id) AS eq_framework_agreement_id,    
       main.eq_delivery_date,
     main.sequence AS eq_pos,
     main.product_uom_qty AS eq_quantity,
