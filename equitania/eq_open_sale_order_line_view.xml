@@ -6,15 +6,15 @@
 	            <field name="name">eq.open.sale.order.line.tree.view</field>
 	            <field name="model">eq_open_sale_order_line</field>
 				<field name="arch" type="xml">				
-                <tree string="Open order lines">
+                <tree string="Open order lines" fonts="bold:eq_quantity_left > 0" colors="grey:eq_state=='cancel';green:eq_state == 'draft';blue:eq_state == 'done';red:eq_state in ('exception')">
 					<field name="eq_pos"/>
 					<field name="eq_order_id"/>
 					<field name="eq_client_order_ref"/>
 					<field name="eq_customer_no"/>
 					<field name="eq_customer"/>
 					<field name="eq_delivery_date"/>
-					<field name="eq_quantity"/>
-					<field name="eq_quantity_left"/>
+					<field name="eq_quantity" sum="Total Quantity"/>
+					<field name="eq_quantity_left" sum="Total Quantity left"/>
 					<field name="eq_product_no"/>
 					<field name="eq_drawing_no"/>
 					<field name="eq_state"/>

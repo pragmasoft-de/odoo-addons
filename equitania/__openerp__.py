@@ -69,6 +69,7 @@
         'stock_view.xml',
         'wizard/eq_date_done_change_view.xml',
         'views/eq_purchase_view.xml',
+        'views/eq_css.xml'
     ],
     'demo': [],
     'css': ['base.css'],

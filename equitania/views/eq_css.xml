@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+        <!-- Inherit css -->
+        <template id="eq_css_inherit" name="eq_tree_view_inherit" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/equitania/static/src/css/eq_style.css"/>
+            </xpath>
+        </template>
+    </data>
+</openerp>
