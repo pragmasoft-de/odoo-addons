@@ -1,9 +1,14 @@
+### 17.03.2012
+### equitania
+#### Bugfix
+- Fehler bei den Unterlieferungen (Eingang) behoben. (Mengeneinheit * stimmt mit Mengeneinheit * nicht überein)
+ 
 ### 13.03.2012
 ### equitania
 #### Erweiterung
 - Open purchase order lines um neue Gruppierung nach Rahmenauftrag erweitert
 - Feld für die Preislistenversion in die Preislistenposition eingefügt.
-#### Fix
+#### Bugfix
 - Fehler bei den Unterlieferungen behoben. (Mengeneinheit Stück stimmt mit Mengeneinheit Stück nicht überein)
  
 #### Änderung
@@ -28,23 +33,23 @@
 **Folgenden Datensatz löschen:**
 *DELETE FROM ir_ui_view WHERE name='purchase.order.line.tree' AND mode='extension';*
 
-## 11.03.2015
-## eq_framework_agreement
-### Fix
+### 11.03.2015
+### eq_framework_agreement
+#### Bugfix
 - Added small bugfix for our excel tool
 
-## 06.03.2015
-## equitania
-### Erweiterung
+### 06.03.2015
+### equitania
+#### Erweiterung
 - Button/Widget in die Produkte eingefügt, die die Preisltistenpositionen anzeigen.
 
-## 04.03.2015
-## equitania
-### Erweiterung
+### 04.03.2015
+### equitania
+#### Erweiterung
 - Wizard für das Ändern des Liferdatums im Lieferschein eingefügt. Änderungsgrund muss angegeben werden und Änderung wird als Nachricht dokumentiert.
 - Suche nur nach der Bezeichnung eingefügt.
 - Sortierung nach dem Feld "Produktnr." ist ab jetzt auch möglich.
 - Die Kundenmaske um die Standardliefer- und rechnungsadresse erweitert. Wird im Verkauf genutzt.
 
-### Verbesseung
+#### Verbesseung
 - Performanceverbesserung des SQL Statements von Omprakash
