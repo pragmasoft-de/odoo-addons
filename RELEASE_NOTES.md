@@ -2,6 +2,7 @@
 ### equitania
 #### Bugfix
 - Fehler bei den Unterlieferungen (Eingang) behoben. (Mengeneinheit * stimmt mit Mengeneinheit * nicht überein)
+- Feld für den Rahmenauftrag einer Auftragsposition entfernt.
  
 ### 13.03.2012
 ### equitania
