@@ -72,7 +72,7 @@
         'views/eq_css.xml'
     ],
     'demo': [],
-    'css': ['base.css'],
+    'css': ['static/src/css/eq_style.css'],
     'installable': True,
     'auto_install': False,
 }
