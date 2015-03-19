@@ -1,3 +1,8 @@
+### 19.03.2012
+### equitania
+#### Erweiterung
+- Erweiterung der Lokalisierung für Texte, die in der DB bereits vorhanden sind. Man kann also ab jetzt immer ein UPDATE der Übersetzungen durchführen
+
 ### 17.03.2012
 ### equitania
 #### Bugfix
