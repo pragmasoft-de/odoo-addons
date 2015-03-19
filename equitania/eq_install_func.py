@@ -199,7 +199,7 @@ class eq_install_func(osv.osv):
                             #print "source", msgid  
                             #print "value", msgstr                                                                                                                                                                    
                             #print "--------------------------------------------------------------------------------"                          
-                            translation_id = ir_translation_obj.search(cr, uid, [('src', '=', entry.msgid), ('nameAAAA', '=', name), ('module', '=', module), ('lang', '=', 'de_DE')])
+                            translation_id = ir_translation_obj.search(cr, uid, [('src', '=', entry.msgid), ('name', '=', name), ('module', '=', module), ('lang', '=', 'de_DE')])
                             #print "translation_id", translation_id
                             if len(translation_id) > 0:
                                 self._update_localization(entry.msgstr, translation_id, ir_translation_obj, cr, uid)
