@@ -22,7 +22,6 @@
 from openerp.osv import fields, osv
 import polib
 from openerp.modules.module import get_module_path
-from gtksourceview2 import View
 
 #This is for methods that will be executed at startup.
 #Used to initiate the paper format of the reports.
