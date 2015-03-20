@@ -106,23 +106,7 @@ class eq_install_func(osv.osv):
             dp.create(cr, uid, values_purchase)
         
         return True
-        
-    def _insert_localization(self):
-        pass
-        """
-        vals = {
-                'lang': 'de_DE',
-                'src': entry.msgid,
-                'name': 'website',
-                'res_id': view_id,
-                'module': occurence_split[2].split('.')[0],
-                'state': 'translated',
-                'value': entry.msgstr,
-                'type': occurence_split[0],
-                }
-        ir_translation_obj.create(cr, uid, vals)
-        """
-    
+           
     def _update_localization(self, newstring, translation_id, ir_translation_obj, cr, uid):
         # prepare new value for our text
         vals = {
@@ -132,7 +116,8 @@ class eq_install_func(osv.osv):
         
         # update it..doesn't matter if for one or multiple records
         ir_translation_obj.write(cr, uid, translation_id, vals)
-                            
+
+    
     def _localize_backend(self, valid_entries, ir_translation_obj, ir_ui_view_obj, cr, uid):
         """
             U code:    EXAMPLE
@@ -207,9 +192,8 @@ class eq_install_func(osv.osv):
                                 self._insert_localization()
         except:
             pass
-        
-                                   
-    def _load_translation(self, cr, uid, ids=None, context=None):        
+                                                       
+    def _load_translation(self, cr, uid, ids=None, context=None, eval=None):
         """
             Localization helper
             - reads all terms from german po file
@@ -221,8 +205,14 @@ class eq_install_func(osv.osv):
             @context: context
         """    
         
-        # addon folder -> refactoring candidate. we should be able to use this functionality for every modul         
-        addon_folder = get_module_path('equitania')
+        # extract module name from function call EVAL from extern modules (the call is in each view)
+        actual_module = 'equitania'        
+        if ids is not None:
+            actual_module = ids
+        
+        addon_folder = get_module_path(actual_module)
+        #print "#### actual_module", actual_module
+        #print "#### addon_folder", addon_folder        
         
         # german langauage
         german_lang = self.pool.get('res.lang').search(cr, uid, [('code', '=', 'de_DE')])

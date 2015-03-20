@@ -19,7 +19,7 @@ msgstr ""
 #: code:addons/equitania/res_groups.py:34
 #, python-format
 msgid "%s (copy)"
-msgstr "%s (copy) AAAAAAAAAAAAAAAAAAAAAAA"
+msgstr "%s (copy)"
 
 #. module: equitania
 #: code:addons/equitania/eq_pricelist_item_search.py:72
@@ -115,7 +115,7 @@ msgstr "Basispreis"
 #. module: equitania
 #: field:res.partner,eq_birthday:0
 msgid "Birthday"
-msgstr "Geburtstag AX"
+msgstr "Geburtstag"
 
 #. module: equitania
 #: view:sale_layout.category:equitania.report_configuration_search_view
@@ -514,7 +514,7 @@ msgstr "Ware erhalten am:"
 #: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
 #: view:purchase.order.line:equitania.eq_purchase_order_line_search_inherit
 msgid "Group By"
-msgstr "AAAAAAA Gruppierung"
+msgstr "Gruppierung"
 
 #. module: equitania
 #: view:sale_layout.category:equitania.report_configuration_search_view
@@ -557,7 +557,7 @@ msgstr "ID"
 #. module: equitania
 #: field:res.partner,eq_incoterm:0
 msgid "Incoterm"
-msgstr "AAAA Incoterm"
+msgstr "Incoterm"
 
 #. module: equitania
 #: view:website:purchase.report_purchaseorder_document
@@ -1278,7 +1278,7 @@ msgstr "Zwischensumme:"
 #: view:purchase.order.line:equitania.eq_purchase_order_line_search_inherit
 #: view:purchase.order.line:equitania.eq_purchase_order_line_tree_inherit
 msgid "Supplier"
-msgstr "LieferantAAAAAA"
+msgstr "Lieferant"
 
 #. module: equitania
 #: view:website:stock.report_picking
@@ -1330,7 +1330,7 @@ msgstr "Zahlungsbedingungen:"
 #: help:res.company,eq_custom_3:0
 #: help:res.company,eq_custom_4:0
 msgid "The content of this field may be used in the header or footer of reports."
-msgstr "AAAAAAAAAAAA  Der Inhalt dieser Felder kann für die Reports benutzt werden."
+msgstr "Der Inhalt dieser Felder kann für die Reports benutzt werden."
 
 #. module: equitania
 #: field:base.config.settings,default_creator_saleperson:0
@@ -1411,7 +1411,7 @@ msgstr "Preis"
 #. module: equitania
 #: view:res.partner:equitania.view_partner_form
 msgid "Update"
-msgstr "XXX Aktualisieren"
+msgstr "Aktualisieren"
 
 #. module: equitania
 #: field:purchase.order,use_calendar_week:0
@@ -1524,7 +1524,7 @@ msgstr "oder"
 #: code:addons/equitania/eq_address_extension_new_api.py:85
 #, python-format
 msgid "other"
-msgstr "AAAAAAA Andere"
+msgstr "Andere"
 
 #. module: equitania
 #: field:account.invoice.line,eq_move_id:0
@@ -1556,7 +1556,7 @@ msgstr "{'search_default_supplier':1, 'default_supplier':1, 'default_customer':0
 #. module: purchase
 #: selection:purchase.order,invoice_method:0
 msgid "Based on Purchase Order lines"
-msgstr "Bestellpositionen XYS"
+msgstr "Bestellpositionen"
 
 #. module: purchase
 #: selection:purchase.config.settings,default_invoice_method:0
@@ -1567,4 +1567,4 @@ msgstr "Bestellpositionen"
 #: model:ir.actions.act_window,name:purchase.purchase_line_form_action2
 #: model:ir.ui.menu,name:purchase.menu_purchase_line_order_draft
 msgid "On Purchase Order Lines"
-msgstr "Bestellpositionen X AAAAAA"
+msgstr "Bestellpositionen"

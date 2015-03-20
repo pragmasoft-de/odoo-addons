@@ -2,6 +2,10 @@
 ### equitania
 #### Verbesserung
 - Unnötige Zugriffsrechte entfernt
+- Finale Version unserer Lokalisierung hinzugefügt
+
+#### Bugfix
+- Testeinträge in der de.po Datei gelöscht 
 
 ### 19.03.2012
 ### equitania
