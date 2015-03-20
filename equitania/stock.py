@@ -156,4 +156,9 @@ class stock_move_extension(osv.osv):
         
         res.update({'eq_move_id': move.id})
         
+        if not move.procurement_id:
+            fpos = partner.property_account_position or False
+            res['invoice_line_tax_id'] = [(6,0,self.pool.get('account.fiscal.position').map_tax(cr, uid, fpos, move.product_id.taxes_id))]
+        
         return res
+        

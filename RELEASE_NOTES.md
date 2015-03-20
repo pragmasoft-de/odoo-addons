@@ -2,6 +2,8 @@
 ### equitania
 #### Verbesserung
 - Unnötige Zugriffsrechte entfernt
+#### Bugfix
+- Steuer wird bei den Rechnungspositionen automatisch gesetzt, wenn eine Rechnung von einem Liferauftrag erstellt wird, welcher keinen Bezug zu einem Verkaufs-/Einkaufsauftrag hat.
 
 ### 19.03.2012
 ### equitania
