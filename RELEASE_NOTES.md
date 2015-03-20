@@ -1,3 +1,8 @@
+### 20.03.2012
+### equitania
+#### Verbesserung
+- Unnötige Zugriffsrechte entfernt
+
 ### 19.03.2012
 ### equitania
 #### Erweiterung
