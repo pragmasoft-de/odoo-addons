@@ -1,9 +1,12 @@
-### 23.03.2012
+### 23.03.2012, 1.0.1
 ### equitania
 #### Änderung
 - Das Feld eq_supplier_order_ref entfernt
 * Vor dem Update muss das dazugehöre View gelöscht werden. Hierzu folgenden SQL Query benutzen:
 * delete from ir_ui_view where arch like '%eq_supplier_order_ref%'
+
+#### Bugfix
+- Die Übersetzung des Textes "Leave Requests to Approve" im HR Modul wurde in unserer de.po Datei gespeichert, damit unsere Lokalisierung den Text selber setzen kann -> "Urlaubsanträge"
 
 ### 20.03.2012
 ### equitania
