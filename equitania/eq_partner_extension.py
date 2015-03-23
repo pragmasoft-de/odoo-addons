@@ -122,7 +122,7 @@ class eq_partner_extension(osv.osv):
                 'user_id': lambda self, cr, uid, context: uid if self.pool.get('ir.values').get_default(cr, uid, 'res.partner', 'default_creator_saleperson') else False,
                 }
     
-class eq_partner_extension_base_config_settings(osv.osv):
+class eq_partner_extension_base_config_settings(osv.osv_memory):
     _inherit = "base.config.settings"
     
     def set_default_creator(self, cr, uid, ids, context):

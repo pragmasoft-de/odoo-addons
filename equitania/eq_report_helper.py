@@ -23,7 +23,7 @@ import time
 from openerp.osv import osv
 from openerp.report import report_sxw
 
-class eq_report_helper(osv.osv):
+class eq_report_helper(osv.osv_memory):
     
     _name = "eq_report_helper"
             
