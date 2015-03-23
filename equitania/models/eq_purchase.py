@@ -21,25 +21,15 @@
 
 from openerp import models, fields, api, _
 
-
-class eq_open_purchase_order(models.Model):
-    _name = "purchase.order"
-    _inherit = "purchase.order"
-    
-    eq_supplier_order_ref = fields.Char('Reference/Description')
-
-
-
-
 class eq_open_purchase_order_line(models.Model):
     _name = "purchase.order.line"
     _inherit = "purchase.order.line"
     
     @api.one
-    @api.depends('order_id.eq_supplier_order_ref')
+    @api.depends('order_id.partner_ref')
     def eq_compute_purchase_supplier_ref(self):
         if self.order_id :
-            self.eq_purchase_supplier_order_ref = self.order_id.eq_supplier_order_ref
+            self.eq_purchase_supplier_order_ref = self.order_id.partner_ref
     
     @api.one
     @api.depends('order_id')

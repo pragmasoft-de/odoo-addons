@@ -121,19 +121,5 @@
             id="purchase.menu_purchase_line_order_draft"
             parent="purchase.menu_procurement_management"
             sequence="7"/>
-		
-<!-- 		Inherited the existing view -->
-		<record id="eq_purchase_order_form_inherit" model="ir.ui.view">
-			<field name="name">eq.purchase.order.form</field>
-			<field name="model">purchase.order</field>
-			<field name="inherit_id" ref="purchase.purchase_order_form" />
-			<field name="arch" type="xml">
-				<data>
-					<field name="partner_id" position="before">
-						<field name="eq_supplier_order_ref" />
-					</field>
-				</data>
-			</field>
-		</record>
 	</data>
 </openerp>
