@@ -1,5 +1,12 @@
 ### 20.03.2012
 ### equitania
+#### Änderung
+- Das Feld eq_supplier_order_ref entfernt
+* Vor dem Update muss das dazugehöre View gelöscht werden. Hierzu folgenden SQL Query benutzen:
+* delete from ir_ui_view where arch like '%eq_supplier_order_ref%'
+
+### 20.03.2012
+### equitania
 #### Verbesserung
 - Unnötige Zugriffsrechte entfernt
 - Finale Version unserer Lokalisierung hinzugefügt
