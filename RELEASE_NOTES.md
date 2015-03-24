@@ -1,3 +1,8 @@
+### 24.03.2012
+### equitania
+#### Verbesserung
+- Ids an die Elemente der Lieferanschrift in der Rechnung vergeben.
+
 ### 23.03.2012
 ### equitania
 #### Änderung
