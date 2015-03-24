@@ -1568,3 +1568,8 @@ msgstr "Bestellpositionen"
 #: model:ir.ui.menu,name:purchase.menu_purchase_line_order_draft
 msgid "On Purchase Order Lines"
 msgstr "Bestellpositionen"
+
+#. module: hr_holidays
+#: model:ir.ui.menu,name:hr_holidays.menu_request_approve_holidays
+msgid "Leave Requests to Approve"
+msgstr "Urlaubsanträge"
