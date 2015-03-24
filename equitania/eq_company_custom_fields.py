@@ -55,3 +55,9 @@ class eq_res_users_custom_fields(osv.osv):
     _columns = {
                 'eq_custom01': fields.char(size=64)
                 }
+class eq_product_product_custom_fields(osv.osv):
+    _inherit = 'product.product'
+    
+    _columns = {
+                'eq_custom01': fields.char(size=64)
+                }
