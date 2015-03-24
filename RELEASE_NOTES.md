@@ -1,9 +1,9 @@
-### 24.03.2012, 1.0.2
+### 24.03.2015, 1.0.2
 ### equitania
 #### Verbesserung
 - Ids an die Elemente der Lieferanschrift in der Rechnung vergeben.
 
-### 23.03.2012, 1.0.1
+### 23.03.2015, 1.0.1
 ### equitania
 #### Änderung
 - Das Feld eq_supplier_order_ref entfernt
@@ -14,7 +14,7 @@
 - Die Übersetzung des Textes "Leave Requests to Approve" im HR Modul wurde in unserer de.po Datei gespeichert, damit unsere Lokalisierung den Text selber setzen kann -> "Urlaubsanträge"
 
 
-### 20.03.2012
+### 20.03.2015
 ### equitania
 #### Verbesserung
 - Unnötige Zugriffsrechte entfernt
@@ -23,18 +23,18 @@
 - Steuer wird bei den Rechnungspositionen automatisch gesetzt, wenn eine Rechnung von einem Liferauftrag erstellt wird, welcher keinen Bezug zu einem Verkaufs-/Einkaufsauftrag hat.
 - Testeinträge in der de.po Datei gelöscht
 
-### 19.03.2012
+### 19.03.2015
 ### equitania
 #### Erweiterung
 - Erweiterung der Lokalisierung für Texte, die in der DB bereits vorhanden sind. Man kann also ab jetzt immer ein UPDATE der Übersetzungen durchführen
 
-### 17.03.2012
+### 17.03.2015
 ### equitania
 #### Bugfix
 - Fehler bei den Unterlieferungen (Eingang) behoben. (Mengeneinheit * stimmt mit Mengeneinheit * nicht überein)
 - Feld für den Rahmenauftrag einer Auftragsposition entfernt.
  
-### 13.03.2012
+### 13.03.2015
 ### equitania
 #### Erweiterung
 - Open purchase order lines um neue Gruppierung nach Rahmenauftrag erweitert
@@ -48,7 +48,7 @@
 #### Bugfix
 - Bugfix im Aufruf der Gruppierung nach Rahmenauftragsnummer für open sale order lines
 
-### 12.03.2012
+### 12.03.2015
 ### equitania
 #### Erweiterung
 - Erweiterung der Lokalisierung für open purchase order lines
