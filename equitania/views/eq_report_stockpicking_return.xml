@@ -3,7 +3,7 @@
 	<data>
 		<!-- Menu option -->
 		<report id="eq_report_picking_return_action"
-			string="Picking return" eq_report_stockpicking_return
+			string="Picking return"
 			model="stock.picking"
 			report_type="qweb-pdf"
 			file="equitania.eq_report_stockpicking_return" 
