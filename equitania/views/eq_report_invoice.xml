@@ -172,7 +172,16 @@
 								<tr>
                                 	<td><span t-field="l.eq_pos_no"/></td> 
 									<td><span t-field="l.product_id.default_code"/></td>
-									<td id="eq_drawing_number"/>
+									<td><strong><span t-field="l.product_id.name"/></strong><br/><span t-field="l.name"/>
+										<div id="eq_drawing_number">
+											<t t-if="l.product_id.eq_drawing_number">
+												<p>Drawing No.: <span t-field="l.product_id.eq_drawing_number"/></p><!-- Zeigt die Zeichnungsnummer der Produktvariante an -->
+											</t>
+											<t t-if="not l.product_id.eq_drawing_number and l.product_id.product_tmpl_id.eq_drawing_number">
+												<p>Drawing No.: <span t-field="l.product_id.product_tmpl_id.eq_drawing_number"/></p><!-- Zeigt die Zeichnungsnummer des Hauptprodukts an, wenn für die Variante keine Nummer hinterlegt ist -->
+											</t>
+										</div>
+									</td>
 									<td>
 										<span t-esc="get_qty(l.quantity, o.partner_id.lang)"/>
 										<span t-field="l.uos_id"  groups="product.group_uom"/>
