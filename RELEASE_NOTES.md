@@ -1,3 +1,8 @@
+### 24.03.2015, 1.0.3
+### equitania
+#### Änderung
+- Die Zeichnungsnnummer aus den Reports Angebot/Auftrag, Lieferschein, Rückliefertschein und Rechnung entfernt und durch Platzhalter mit der id "eq_drawing_number" ersetzt.
+
 ### 24.03.2015, 1.0.2
 ### equitania
 #### Verbesserung

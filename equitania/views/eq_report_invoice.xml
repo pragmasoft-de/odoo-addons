@@ -172,14 +172,7 @@
 								<tr>
                                 	<td><span t-field="l.eq_pos_no"/></td> 
 									<td><span t-field="l.product_id.default_code"/></td>
-									<td><strong><span t-field="l.product_id.name"/></strong><br/><span t-field="l.name"/>
-										<t t-if="l.product_id.eq_drawing_number">
-											<p>Drawing No.: <span t-field="l.product_id.eq_drawing_number"/></p><!-- Zeigt die Zeichnungsnummer der Produktvariante an -->
-										</t>
-										<t t-if="not l.product_id.eq_drawing_number and l.product_id.product_tmpl_id.eq_drawing_number">
-											<p>Drawing No.: <span t-field="l.product_id.product_tmpl_id.eq_drawing_number"/></p><!-- Zeigt die Zeichnungsnummer des Hauptprodukts an, wenn für die Variante keine Nummer hinterlegt ist -->
-										</t>
-									</td>
+									<td id="eq_drawing_number"/>
 									<td>
 										<span t-esc="get_qty(l.quantity, o.partner_id.lang)"/>
 										<span t-field="l.uos_id"  groups="product.group_uom"/>
@@ -295,7 +288,7 @@
 							</td>
 						</tr>
 						<tr t-if="o.eq_delivery_address" id="eq_delivery_address_spacing"><td><p> <!-- Keep this line for Spacing --></p></td><td></td></tr>
-						<tr t-if="o.eq_delivery_address" id="eq_delivery_address">
+						<tr t-if="o.eq_delivery_address" id="eq_delivery_address_spacing">
 							<td style="padding-right:0.5cm;" valign="top">
 								Shipping address:
 							</td>

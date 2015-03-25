@@ -3,7 +3,7 @@
 	<data>
 		<!-- Menu option -->
 		<report id="eq_report_picking_return_action"
-			string="Picking return" 
+			string="Picking return" eq_report_stockpicking_return
 			model="stock.picking"
 			report_type="qweb-pdf"
 			file="equitania.eq_report_stockpicking_return" 
@@ -197,21 +197,7 @@
 								<td>
 									<span t-field="move.product_id" />
 								</td>
-								<td>
-									<span t-field="move.name" />
-									<t t-if="move.product_id.eq_drawing_number">
-										<p>
-											Drawing No.:
-											<span t-field="move.product_id.eq_drawing_number" />
-										</p>
-									</t>
-									<t t-if="not move.product_id.eq_drawing_number">
-										<p>
-											Drawing No.:
-											<span t-field="move.product_id.product_tmpl_id.eq_drawing_number" />
-										</p>
-									</t>
-								</td>
+								<td id="eq_drawing_number"/>
 								<td class="text-right">
 									<span t-esc="get_qty(move.product_uom_qty, o.partner_id.lang)" />
 									<span t-field="move.product_uom" groups="product.group_uom" />
