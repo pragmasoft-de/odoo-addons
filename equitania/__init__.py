@@ -40,3 +40,4 @@ import res_config
 import eq_report_helper
 import res_users
 import hr
+import eq_foreign_ref

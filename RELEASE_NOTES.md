@@ -1,3 +1,11 @@
+### 26.03.2015, 1.0.4
+### equitania
+#### Verbesserung
+- Erweiterung der Tabelle res.partner um neues Feld eq_foreign_ref
+- Erweiterung der Maske, damit man das Feld in der Detailansicht der Adresse plfegen kann
+- Wenn ein Kundenauftrag oder eine Bestellung angelegt wird, ist der Inhalt des Feldes res.partner.eq_foreign_ref automatisch aus der Adresse übernommen und im Feld purchase.order."partner_ref" / sale.order."client_order_ref" gespeichert
+
+
 ### 25.03.2015, 1.0.3
 ### equitania
 #### Änderung

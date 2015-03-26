@@ -1573,3 +1573,8 @@ msgstr "Bestellpositionen"
 #: model:ir.ui.menu,name:hr_holidays.menu_request_approve_holidays
 msgid "Leave Requests to Approve"
 msgstr "Urlaubsanträge"
+
+#. module: equitania
+#: field:res.partner,eq_foreign_ref:0
+msgid "Foreign reference"
+msgstr "Fremdnr."
