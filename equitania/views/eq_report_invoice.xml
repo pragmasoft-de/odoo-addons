@@ -297,7 +297,7 @@
 							</td>
 						</tr>
 						<tr t-if="o.eq_delivery_address" id="eq_delivery_address_spacing"><td><p> <!-- Keep this line for Spacing --></p></td><td></td></tr>
-						<tr t-if="o.eq_delivery_address" id="eq_delivery_address_spacing">
+						<tr t-if="o.eq_delivery_address" id="eq_delivery_address">
 							<td style="padding-right:0.5cm;" valign="top">
 								Shipping address:
 							</td>

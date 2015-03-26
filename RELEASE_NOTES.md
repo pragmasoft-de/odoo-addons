@@ -1,3 +1,8 @@
+### 26.03.2015, 1.0.5
+### equitania
+#### Bugfix
+- Fehlerhafte id abgeändert.
+
 ### 26.03.2015, 1.0.4
 ### equitania
 #### Verbesserung
