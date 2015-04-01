@@ -109,9 +109,10 @@ class stock_picking_extension(osv.osv):
         transfer_obj.do_detailed_transfer(cr, uid, [transfer_details_id], context)
         #Copy the picking
         new_picking_id = self.copy(cr, uid, ids[0], context)
-        #Edit current and return picking, No invoice needed
+        #Edit current, No invoice needed
         self.write(cr, uid, ids, {'invoice_state': 'none'}, context)
-        transfer_obj.write(cr, uid, new_picking_id, {'invoice_state': 'none'})
+        #Edit new, Invoice needed
+        self.write(cr, uid, new_picking_id, {'invoice_state': '2binvoiced'})
         #Return as view definition
         return self.reverse_picking_new_view(cr, uid, new_picking_id)
 

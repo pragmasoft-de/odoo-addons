@@ -1,3 +1,8 @@
+### 01.04.2015, 1.0.6
+### equitania
+#### Bugfix
+- Neu erstellte Lieferscheine, die über den Button "Lieferschein abbrechen" erstellt wurden, werden mit dem Rechnungsstatus abzurechnen erstellt.
+
 ### 26.03.2015, 1.0.5
 ### equitania
 #### Bugfix
