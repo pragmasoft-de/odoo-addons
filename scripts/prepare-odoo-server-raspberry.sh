@@ -25,7 +25,7 @@ echo "Prepare Ubuntu"
 apt-get update && apt-get dist-upgrade && apt-get autoremove
 
 echo "Tools zip, unzip, mc(Midnight Comander) and htop will be install.."
-apt-get install mc zip unzip htop ntp
+apt-get install mc zip unzip htop ntp python-magic
 
 echo "Do you want install postgresql ? / Wollen Sie die PostgreSQL-DB installieren  (Y/n):"
 read mypsql

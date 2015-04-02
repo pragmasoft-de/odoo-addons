@@ -44,7 +44,7 @@ fi
 
 echo "apt-get packages will be install.."
 apt-get install ghostscript graphviz antiword git libpq-dev poppler-utils \
- python-pip build-essential libfreetype6-dev curl
+ python-pip build-essential libfreetype6-dev curl python-magic
 
 echo "apt-get python packages will be install.."
 apt-get install python-dateutil python-pypdf python-requests \

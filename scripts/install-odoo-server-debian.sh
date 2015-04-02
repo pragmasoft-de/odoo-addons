@@ -121,8 +121,10 @@ read myport
 
 if [ "$myport" = "Y" ]; then
   echo "nginx will be install..."
-  apt-get update
-  apt-get install nginx
+  wget http://www.openerp24.de/fileadmin/content/dateien/nginx_1.6.2-1~wheezy_amd64_pagespeed.deb
+  dpkg -i nginx_1.6.2-1~wheezy_amd64_pagespeed.deb
+  mkdir /var/ngx_pagespeed_cache
+  chown nginx.nginx /var/ngx_pagespeed_cache
   cp $mysourcepath/debian/odoo.nginx /etc/nginx/sites-available/odoo.nginx
   rm /etc/nginx/sites-enabled/default 
   ln -s /etc/nginx/sites-available/odoo.nginx /etc/nginx/sites-enabled/odoo.nginx
