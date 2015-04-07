@@ -1,3 +1,8 @@
+### 07.04.2015, 1.0.8
+### equitania
+#### Verbesserung
+- In allen Reports haben nun die Spalten für Artikelnummer, Preis pro Einheit und Netto-Preis eine Mindestbreite.
+
 ### 01.04.2015, 1.0.7
 ### equitania
 #### Bugfix
