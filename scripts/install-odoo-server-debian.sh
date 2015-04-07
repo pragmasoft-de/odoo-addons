@@ -105,24 +105,26 @@ chown -R odoo:odoo $myserverpath
 chown -R odoo:odoo $mysourcepath 
 chown -R odoo:odoo $mybasepath 
 
-cp $mysourcepath/debian/openerp-server.conf /etc/odoo-server.conf
+cp $mysourcepath/debian/odoo-server.conf /etc/odoo-server.conf
 chown odoo:odoo /etc/odoo-server.conf
 chmod 640 /etc/odoo-server.conf
 mkdir /var/log/odoo
 chown odoo:root /var/log/odoo
 cp $mysourcepath/debian/logrotate /etc/logrotate.d/odoo-server
 chmod 755 /etc/logrotate.d/odoo-server
-cp $mysourcepath/debian/openerp.init.d /etc/init.d/openerp-server
-chmod +x /etc/init.d/openerp-server
-update-rc.d openerp-server defaults
+cp $mysourcepath/debian/odoo.init.d /etc/init.d/odoo-server
+chmod +x /etc/init.d/odoo-server
+update-rc.d odoo-server defaults
 
 echo "Do you want to use standard port 80 against 8069 and install nginx | Wollen Sie eine Port-Umleitung auf Standard Port 80 und nginx installieren [Y/n]:"
 read myport
 
 if [ "$myport" = "Y" ]; then
   echo "nginx will be install..."
-  apt-get update
-  apt-get install nginx
+  wget http://www.openerp24.de/fileadmin/content/dateien/nginx_1.6.2-1~wheezy_amd64_pagespeed.deb
+  dpkg -i nginx_1.6.2-1~wheezy_amd64_pagespeed.deb
+  mkdir /var/ngx_pagespeed_cache
+  chown nginx.nginx /var/ngx_pagespeed_cache
   cp $mysourcepath/debian/odoo.nginx /etc/nginx/sites-available/odoo.nginx
   rm /etc/nginx/sites-enabled/default 
   ln -s /etc/nginx/sites-available/odoo.nginx /etc/nginx/sites-enabled/odoo.nginx
@@ -134,6 +136,12 @@ if [ "$myport" = "Y" ]; then
   sed -i "s/$old2/$new2/g" /etc/odoo-server.conf
   mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.old
   cp $mysourcepath/debian/nginx.conf /etc/nginx/nginx.conf
+  old1="#pagespeed on;"
+  new1="pagespeed on;"
+  old2="#pagespeed FileCachePath /var/ngx_pagespeed_cache;"
+  new2="pagespeed FileCachePath /var/ngx_pagespeed_cache;"
+  sed -i "s/$old1/$new1/g" /etc/odoo-server.conf
+  sed -i "s/$old2/$new2/g" /etc/odoo-server.conf
 else
   echo "nginx is not installed!"
 fi

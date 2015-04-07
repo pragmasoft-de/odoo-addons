@@ -39,7 +39,7 @@ fi
 
 echo "apt-get packages will be install.."
 apt-get install ghostscript graphviz antiword git libpq-dev poppler-utils \
- python-pip build-essential libfreetype6-dev npm
+ python-pip build-essential libfreetype6-dev npm python-magic
 
 apt-get install python-dateutil python-pypdf python-requests \
  python-feedparser python-gdata python-ldap python-libxslt1 \
