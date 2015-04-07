@@ -68,7 +68,6 @@ class stock_picking_extension(osv.osv):
                         packop_qty = pack_operation.product_qty - qty + move_qty
                         self.pool.get('stock.move').write(cr, uid, move_id, {'product_uom_qty': packop_qty, 'product_uos_qty': packop_qty * pack_operation.product_id.uos_coeff})
         res = super(stock_picking_extension, self).do_transfer(cr, uid, picking_ids, context)
-        cr.execute('delete from stock_pack_operation')
         return res
     
     @api.multi
