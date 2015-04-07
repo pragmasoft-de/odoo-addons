@@ -149,13 +149,13 @@
                         <th>
     						<strong>Seq</strong>
 						</th>
-                        <th>
+                        <th style="min-width:2.6cm;">
     						<strong>Product</strong>
 						</th>
 						<th>
 							<strong>Item description</strong>
 						</th>
-						<th class="text-right">
+						<th class="text-right" style="min-width:1.8cm;">
 							<strong>Qty.</strong>
 						</th>
 						<t t-if="o.picking_type_id.code != 'incoming'">

@@ -102,7 +102,7 @@
                         <th class="text-center" t-if="o.show_delivery_date">
                             <strong>Delivery date</strong>
                         </th>
-                        <th class="text-right">
+                        <th class="text-right" style="min-width:1.8cm;">
                             <strong>Qty.</strong>
                         </th>
                     </tr>

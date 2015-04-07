@@ -145,25 +145,25 @@
 				<thead>
 					<tr>
 						<th><strong>Seq</strong></th>
-						<th>
+						<th style="min-width:2.6cm;">
 							<strong>Item no.</strong>
 						</th>
                         <th>
                             <strong>Item description</strong>
                         </th>
-                        <th class="text-right">
+                        <th class="text-right" style="min-width:1.8cm;">
                             <strong>Qty.</strong>
                         </th>
                         <!-- <th class="text-right">
                             <strong>Unit</strong>
                         </th>-->
-                        <th class="text-right">
+                        <th class="text-right" style="min-width:2.3cm;">
                             <strong>Unit price</strong>
                         </th>
 						<th t-if="any([line.discount for line in o.order_line])" class="text-right">
 							<strong>Discount (%)</strong>
 						</th>
-                        <th class="text-right">
+                        <th class="text-right" style="min-width:2.7cm;">
                             <strong>Net price</strong>
                         </th>
                     </tr>
@@ -225,13 +225,13 @@
                             <thead>
                                 <tr>
                                 	<th>Seq.</th>
-                                	<th>Item no.</th>
+                                	<th style="min-width:2.6cm;">Item no.</th>
 			                        <th>Item description</th>
-			                        <th class="text-right">Qty.</th>
+			                        <th class="text-right" style="min-width:1.8cm;">Qty.</th>
 			                        <!-- <th class="text-right">Unit</th>-->
-			                        <th class="text-right">Unit price</th>
+			                        <th class="text-right" style="min-width:2.3cm;">Unit price</th>
                                 	<th t-if="any([line.discount for line in o.order_line])" class="text-right">Discount (%)</th>
-			                        <th class="text-right">Net price</th>
+			                        <th class="text-right" style="min-width:2.7cm;">Net price</th>
 			                        
                                     <!-- <th>Description</th>
                                     <th>Taxes</th>

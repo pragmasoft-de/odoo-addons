@@ -149,13 +149,13 @@
 				<thead>
 					<tr>
                        	<th>Seq</th>
-						<th>Item no.</th>
+						<th style="min-width:2.6cm;">Item no.</th>
 						<th>Item description</th>
-						<th>Qty.</th>
-						<th class="text-right">Unit price</th>
+						<th style="min-width:1.8cm;">Qty.</th>
+						<th class="text-right" style="min-width:2.3cm;">Unit price</th>
 						<th class="text-right" t-if="any([line.discount for line in o.invoice_line])" groups="sale.group_discount_per_so_line">Discount (%)</th>
 						<!-- <th class="text-right">Steuern</th> -->
-						<th class="text-right">Net price</th>
+						<th class="text-right" style="min-width:2.7cm;">Net price</th>
 					</tr>
 				</thead>
 				<tbody class="invoice_tbody">
@@ -217,13 +217,13 @@
 			                    <thead>
 			                        <tr>
                                 		<th>Seq.</th>
-			                        	<th>Item no.</th>
+			                        	<th style="min-width:2.6cm;">Item no.</th>
 				                        <th>Item description</th>
-				                        <th class="text-right">Qty.</th>
+				                        <th class="text-right" style="min-width:1.8cm;">Qty.</th>
 				                        <!-- <th class="text-right">Unit</th>-->
-				                        <th class="text-right">Unit price</th>
+				                        <th class="text-right" style="min-width:2.3cm;">Unit price</th>
 	                                	<th t-if="any([line.discount for line in o.invoice_line])" class="text-right">Discount (%)</th>
-				                        <th class="text-right">Net price</th>
+				                        <th class="text-right" style="min-width:2.7cm;">Net price</th>
 			                        
 			                        
 			                        

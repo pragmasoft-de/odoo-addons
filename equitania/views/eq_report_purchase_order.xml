@@ -129,7 +129,7 @@
 	        <table class="table table-condensed" >
 	            <thead>
 	                <tr>
-	                    <th>
+	                    <th style="min-width:2.6cm;">
 	                        <strong>Item no.<!--  Artikel Nr. --></strong>
 	                    </th>
 	                    <th>
@@ -141,10 +141,10 @@
 	                    <th class="text-right">
 	                        <strong>Unit<!-- Einheit --></strong>
 	                    </th>
-	                    <th class="text-right">
+	                    <th class="text-right" style="min-width:2.3cm;">
 	                        <strong>Unit price<!-- Preis --></strong>
 	                    </th>
-	                    <th class="text-right">
+	                    <th class="text-right" style="min-width:2.7cm;">
 	                        <strong>Net price<!-- Preis Netto --></strong>
 	                    </th>
 	                </tr>
