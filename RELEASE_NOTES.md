@@ -1,3 +1,8 @@
+### 01.04.2015, 1.0.7
+### equitania
+#### Bugfix
+- Seriennummernmodul funktionsfähig gemacht.
+
 ### 01.04.2015, 1.0.6
 ### equitania
 #### Bugfix
