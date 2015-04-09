@@ -111,52 +111,53 @@
 
 
 ### Modul Equitania
-Optimiertung der Masken für Adressen, Produkte, Verkauf, Einkauf, Fertigung uvm.
-Die Anzeige in der Partnersuche des Verkaufsauftrag um den Adresstypen erweitert. Straße, Ort einstellbar
-In den Einstellungen wird der Reiter "Installierte Module" als erster Eintrag angezeigt und beim Öffnen aufgerufen
-Die Unternehmensmaske um 4 Felder, die in der Fußzeile der Reports angezeigt werden, und das Firmenlogo, welches auf dem Report aufgedruckt wird
-Die Debitoren- und Kreditorennummer mit Sequenzgenerator im Kunden/Lieferanten hinzugefügt
-Eigene Übersetzungslogik der Reports und Masken
-Internes und externes Papierformat wird gesetzt
-Das Feld "Vermittelt durch" in die Leads eingefügt. Enthält eine Beschreibung.
-Alle Auftragspositionen für Einkauf und Verkauf werden noch einmal in einer seperaten Maske(Liste, Form) angezeigt
-Lieferbedingungen in den Verkaufsauftrag eingefügt
-Die Suche nach einzelnen Positionen in Preisliste - Löschen über die Detailansicht - Widget in der Produktmaske
-Sachbearbeiter in den Verkaufsauftrag eingefügt, Verkäufer wird automatisch eingetragen (einstellbar)
-Eigene Logik für Tausender Serperatoren und Nachkommastellen für die Reports eingefügt (einstellbar)
-Dezimalstellen für Mengen, Gewichte und Preise für Einkauf, Verkauf und Fertigung separat einstellbar
-Liefertermin für Ein/Verkauf eingefügt. Wird auf Reports gedruckt (einstellbar KW/Datum)
-Kopftext für die Reports eingefügt
-Verbindung zwischen Verkaufsauftrag, Lieferschein und Rechnung hergestellt
-Leistungsdatum in Rechnung vom Lieferschein abgeleitet
-Produktbeschreibung wird für den Verkauf/Einkauf optimiert
-Positionsnummer eingefügt. Wird vom Verkaufsauftrag and den Lieferschein und die Rechnung übergeben
-Die Produktsuche erweitert, sodass nach der Referenz gesucht werden kann und diese auch angezeigt wird
-Kundenreferenz in die Listenansicht des Verkaufsauftrag und Suche nach der Kundenreferenz hinzugefügt
-1:1 Verbindung zwischen Mitarbeitern und Benutzern hergestellt
-Überlieferungen werden in einer Position zusammengefasst (einstellbar)
-Stornieren von Lieferscheinen ohne Rechnung - neuer Lieferschein wird erstellt
-Wizard für das Ändern des Lieferdatums im Lieferschein eingefügt. Änderungsgrund muss angegeben werden und Änderung wird als Nachricht dokumentiert
-Button/Widget in die Produkte eingefügt, die die Preislistenpositionen anzeigen
-Feld für die Preislistenversion in die Preislistenposition eingefügt
-Steuer wird bei den Rechnungspositionen automatisch gesetzt, wenn eine Rechnung von einem Lieferauftrag erstellt wird, welcher keinen Bezug zu einem Verkaufs-/Einkaufsauftrag hat
-Fremdnr. bei Kontakt pflegbar - wird automatisch im Kundenauftrag in Referenznr. eingefügt
-Kontakt überarbeitet:
+- Optimiertung der Masken für Adressen, Produkte, Verkauf, Einkauf, Fertigung uvm.
+- Die Anzeige in der Partnersuche des Verkaufsauftrag um den Adresstypen erweitert. Straße, Ort einstellbar
+- In den Einstellungen wird der Reiter "Installierte Module" als erster Eintrag angezeigt und beim Öffnen aufgerufen
+- Die Unternehmensmaske um 4 Felder, die in der Fußzeile der Reports angezeigt werden, und das Firmenlogo, welches auf dem Report aufgedruckt wird
+- Die Debitoren- und Kreditorennummer mit Sequenzgenerator im Kunden/Lieferanten hinzugefügt
+- Eigene Übersetzungslogik der Reports und Masken
+- Internes und externes Papierformat wird gesetzt
+- Das Feld "Vermittelt durch" in die Leads eingefügt. Enthält eine Beschreibung.
+- Alle Auftragspositionen für Einkauf und Verkauf werden noch einmal in einer seperaten Maske(Liste, Form) angezeigt
+- Lieferbedingungen in den Verkaufsauftrag eingefügt
+- Die Suche nach einzelnen Positionen in Preisliste - Löschen über die Detailansicht - Widget in der Produktmaske
+- Sachbearbeiter in den Verkaufsauftrag eingefügt, Verkäufer wird automatisch eingetragen (einstellbar)
+- Eigene Logik für Tausender Serperatoren und Nachkommastellen für die Reports eingefügt (einstellbar)
+- Dezimalstellen für Mengen, Gewichte und Preise für Einkauf, Verkauf und Fertigung separat einstellbar
+- Liefertermin für Ein/Verkauf eingefügt. Wird auf Reports gedruckt (einstellbar KW/Datum)
+- Kopftext für die Reports eingefügt
+- Verbindung zwischen Verkaufsauftrag, Lieferschein und Rechnung hergestellt
+- Leistungsdatum in Rechnung vom Lieferschein abgeleitet
+- Produktbeschreibung wird für den Verkauf/Einkauf optimiert
+- Positionsnummer eingefügt. Wird vom Verkaufsauftrag and den Lieferschein und die Rechnung übergeben
+- Die Produktsuche erweitert, sodass nach der Referenz gesucht werden kann und diese auch angezeigt wird
+- Kundenreferenz in die Listenansicht des Verkaufsauftrag und Suche nach der Kundenreferenz hinzugefügt
+- 1:1 Verbindung zwischen Mitarbeitern und Benutzern hergestellt
+- Überlieferungen werden in einer Position zusammengefasst (einstellbar)
+- Stornieren von Lieferscheinen ohne Rechnung - neuer Lieferschein wird erstellt
+- Wizard für das Ändern des Lieferdatums im Lieferschein eingefügt. Änderungsgrund muss angegeben werden und Änderung wird als Nachricht dokumentiert
+- Button/Widget in die Produkte eingefügt, die die Preislistenpositionen anzeigen
+- Feld für die Preislistenversion in die Preislistenposition eingefügt
+- Steuer wird bei den Rechnungspositionen automatisch gesetzt, wenn eine Rechnung von einem Lieferauftrag erstellt wird, welcher keinen Bezug zu einem Verkaufs-/Einkaufsauftrag hat
+- Fremdnr. bei Kontakt pflegbar - wird automatisch im Kundenauftrag in Referenznr. eingefügt
 
-Feld Vorname eingefügt
-Feld Geburtsdatum eingefügt
-Addresstyp um die Postfachaddresse erweitert
-Standard Liefer- und Rechnungsadresse kann festgelegt werden
-Ersteller des Datensatzes wird als Verkäufer eingetragen (einstellbar)
+####Kontakt überarbeitet:
 
-Reports überarbeitet:
+- Feld Vorname eingefügt
+- Feld Geburtsdatum eingefügt
+- Addresstyp um die Postfachaddresse erweitert
+- Standard Liefer- und Rechnungsadresse kann festgelegt werden
+- Ersteller des Datensatzes wird als Verkäufer eingetragen (einstellbar)
 
-Angebot
-Verkaufsauftrag
-Anfrage
-Bestellung
-Lieferschein
-Rechnung
-Neu:  Auftragspositionen
-Neu: Rücklieferschein
-Das "sale_layout" Modul intigriert, wodurch sich Positionen gruppieren lassen
+####Reports überarbeitet:
+
+-Angebot
+-Verkaufsauftrag
+-Anfrage
+- Bestellung
+- Lieferschein
+- Rechnung
+- Neu:  Auftragspositionen
+- Neu: Rücklieferschein
+- Das "sale_layout" Modul intigriert, wodurch sich Positionen gruppieren lassen
