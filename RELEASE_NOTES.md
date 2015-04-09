@@ -152,9 +152,9 @@
 
 ####Reports überarbeitet:
 
--Angebot
--Verkaufsauftrag
--Anfrage
+- Angebot
+- Verkaufsauftrag
+- Anfrage
 - Bestellung
 - Lieferschein
 - Rechnung
