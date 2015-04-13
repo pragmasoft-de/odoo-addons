@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<template id="eq_purchaseorder_extension_sh" inherit_id="equitania.eq_purchaseorder_extension" active="True">
+	<xpath expr="//h[@t-field='o.partner_id.zip']" position="attributes">
+		<attribute name="style">margin-right:4px;</attribute>
+	</xpath>
+	<xpath expr="//h[@t-field='o.company_id.partner_id.zip']" position="after">
+		<h>&#xa0;</h>
+	</xpath>
+	<xpath expr="//h[@t-field='o.picking_type_id.warehouse_id.partner_id.zip']" position="after">
+		<h>&#xa0;</h>
+	</xpath>
+</template>
+<template id="eq_purchasequotation_extension_sh" inherit_id="equitania.eq_purchasequotation_extension" active="True">
+	<xpath expr="//h[@t-field='o.partner_id.zip']" position="attributes">
+		<attribute name="style">margin-right:4px;</attribute>
+	</xpath>
+	<xpath expr="//h[@t-field='o.company_id.partner_id.zip']" position="after">
+		<h>&#xa0;</h>
+	</xpath>
+	<xpath expr="//h[@t-field='o.picking_type_id.warehouse_id.partner_id.zip']" position="after">
+		<h>&#xa0;</h>
+	</xpath>
+</template>
+<template id="eq_saleorder_extension_sh" inherit_id="equitania.eq_saleorder_extension" active="True">
+	<xpath expr="//h[@t-field='o.partner_id.zip']" position="attributes">
+		<attribute name="style">margin-right:4px;</attribute>
+	</xpath>
+	<xpath expr="//h[@t-field='o.company_id.partner_id.zip']" position="after">
+		<h>&#xa0;</h>
+	</xpath>
+	<xpath expr="//h[@t-field='o.partner_invoice_id.zip']" position="after">
+		<h>&#xa0;</h>
+	</xpath>
+	<xpath expr="//h[@t-field='o.partner_shipping_id.zip']" position="after">
+		<h>&#xa0;</h>
+	</xpath>
+</template>
+<template id="eq_report_stockpicking_return_sh" inherit_id="equitania.eq_report_stockpicking_return" active="True">
+	<xpath expr="//h[@t-field='o.partner_id.zip']" position="attributes">
+		<attribute name="style">margin-right:4px;</attribute>
+	</xpath>
+	<xpath expr="//h[@t-field='o.company_id.partner_id.zip']" position="after">
+		<h>&#xa0;</h>
+	</xpath>
+</template>
+<template id="eq_report_picking_extension_sh" inherit_id="equitania.eq_report_picking_extension" active="True">
+	<xpath expr="//h[@t-field='o.partner_id.zip']" position="attributes">
+		<attribute name="style">margin-right:4px;</attribute>
+	</xpath>
+	<xpath expr="//h[@t-field='o.company_id.partner_id.zip']" position="after">
+		<h>&#xa0;</h>
+	</xpath>
+</template>
+<template id="eq_invoice_extension_sh" inherit_id="eq_invoice_extension" active="True">
+	<xpath expr="//h[@t-field='o.partner_id.zip']" position="attributes">
+		<attribute name="style">margin-right:4px;</attribute>
+	</xpath>
+	<xpath expr="//h[@t-field='o.company_id.partner_id.zip']" position="after">
+		<h>&#xa0;</h>
+	</xpath>
+	<xpath expr="//h[@t-field='o.eq_delivery_address.zip']" position="after">
+		<h>&#xa0;</h>
+	</xpath>
+</template>
+
+</data>
+</openerp>
