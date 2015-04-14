@@ -237,6 +237,11 @@ msgid "Contact person"
 msgstr "Kontaktperson"
 
 #. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Expiry Date:"
+msgstr "Angebot gültig bis:"
+
+#. module: equitania
 #: field:eq.date.done.change,create_uid:0
 #: field:eq.delivery.conditions,create_uid:0
 #: field:eq.lead.referred,create_uid:0
