@@ -54,7 +54,7 @@ apt-get install python-dateutil python-pypdf python-requests \
  python-paramiko python-software-properties
 
 echo "pip packages will be install.."
-pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode validate_email pyDNS
+pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode validate_email pyDNS pysftp
 
 echo "npm packages will be install.."
 npm install -g less less-plugin-clean-css
