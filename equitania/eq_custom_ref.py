@@ -72,6 +72,7 @@ eq_custom_ref()
 class eq_product_template(osv.osv):
     _name = 'product.template'
     _inherit = 'product.template'
+    _order = 'eq_default_code_copy'
     
     def _set_eq_default_code_dup(self, cr, uid, ids, name, arg, context=None):
         res = {}
