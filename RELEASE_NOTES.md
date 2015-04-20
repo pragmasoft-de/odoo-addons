@@ -1,3 +1,8 @@
+### 20.04.2015, 1.0.9
+### equitania
+#### Bugfix
+- Für zusätzliche Produkte, die nur im Lieferschein erfasst werden, wird nun die richtige Beschreibung benutz.
+
 ### 07.04.2015, 1.0.8
 ### equitania
 #### Verbesserung

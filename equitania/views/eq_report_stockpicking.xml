@@ -182,7 +182,9 @@
     					<td>
 							<span t-field="move.product_id"/>
 						</td>
-						<td id="eq_drawing_number"/>
+						<td id="eq_drawing_number">
+							<span t-field="move.name"/>
+						</td>
 						<td class="text-right">
 							<span t-esc="get_qty(move.product_uom_qty, o.partner_id.lang)"/>
 							<span t-field="move.product_uom" groups="product.group_uom"/>

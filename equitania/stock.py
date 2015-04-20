@@ -47,7 +47,10 @@ class stock_picking_extension(osv.osv):
                 same_move_id = same_move_id[0]
         same_move = stock_move_obj.browse(cr, uid, same_move_id)
         res['procurement_id'] = same_move.procurement_id.id
-        res['name'] = same_move.name
+        if same_move.picking_id.picking_type_id.code == 'incoming':
+            res['name'] = op.product_id.description_purchase
+        if same_move.picking_id.picking_type_id.code == 'outgoing':
+            res['name'] = op.product_id.description_sale
         return res
     
     
