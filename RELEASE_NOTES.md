@@ -2,6 +2,7 @@
 ### equitania
 #### Bugfix
 - Für zusätzliche Produkte, die nur im Lieferschein erfasst werden, wird nun die richtige Beschreibung benutzt.
+
 #### Erweiterung
 - Produkte werden standardmäßig nach der Produktnummer sortiert.
 
