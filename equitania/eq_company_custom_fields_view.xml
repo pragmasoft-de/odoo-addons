@@ -15,6 +15,9 @@
 	            <xpath expr="//field[@name='custom_footer']" position="before">
                    	<field name="eq_report_logo"/>
                 </xpath>
+	            <xpath expr="//field[@name='website']" position="after">
+                   	<field name="eq_company_ean"/>
+                </xpath>
             </field>
         </record>
     </data>

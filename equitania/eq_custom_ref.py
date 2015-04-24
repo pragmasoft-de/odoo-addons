@@ -129,113 +129,86 @@ class eq_product_template(osv.osv):
     }
     
     def eq_product_number_update(self, cr, uid, ids, context=None):
+        product_obj = self.pool.get('product.product')
         #Gets the product
         product = self.pool.get('product.template').browse(cr, uid, ids, context)
         prod_rec = product[0].default_code
+        product_variant = product[0].product_variant_ids[0].id
+        
+        #Gets the config values for the product number
+        ir_values = self.pool.get('ir.values')
+        min_prefix_count = ir_values.get_default(cr, uid, 'product.product', 'default_eq_min_prefix_count')
+        max_prefix_count = ir_values.get_default(cr, uid, 'product.product', 'default_eq_max_prefix_count')
+        prod_num_lenght = ir_values.get_default(cr, uid, 'product.product', 'default_eq_prod_num_lenght')
+        seperator = ir_values.get_default(cr, uid, 'product.product', 'default_eq_seperator')
         #Deletes all spaces in the string
         if prod_rec:
-            prod_rec = replace(prod_rec, '-', '')
             prod_rec = replace(prod_rec, ' ', '')
-            if len(prod_rec) == 3:
-                #Sql Query (self explaining), which gets the entries where prefix is identical to prefix.
-                cr.execute("Select * From ir_sequence Where code=%s", ('product_no_purch.' + prod_rec, ))
-
-                #cr.fetchone is a dictionary with the row from the database. which we got with cr.execute
-                #If the sequence with the prefix is present, we just use the sequence
-                if cr.fetchone():
-                    #Gets the sequence for the and sets it in the appropriate field
-                    vals = {
-                        'default_code': self.pool.get('ir.sequence').get(cr, uid, 'product_no_purch.' + prod_rec)
-                    }
-
-                    super(eq_product_template, self).write(cr, uid, ids, vals, context=context)
-
-                #Else we create that sequence and the sequence.type and use it
-                else:
-                    #Defines the sequence.type
-                    vals_seq_type = {
-                        'code': 'product_no_purch.' + prod_rec,
-                        'name': 'Product Number Purchase SQ',
-                    }
-
-                    #Creates the sequence.type in OpenERP
-                    self.pool.get('ir.sequence.type').create(cr, uid, vals_seq_type, context)
-
-                    #Gets the company_id, which is needed for the sequence
-                    user_rec = self.pool.get('res.users').browse(cr, uid, uid, context)
-                    company_id = user_rec.company_id.id
-
-                    #Defines the sequence and uses the ir.sequence.type that was previously created
-                    vals_seq = {
-                        'code': 'product_no_purch.' + prod_rec,
-                        'suffix': '',
-                        'number_next': 1,
-                        'number_increment': 1,
-                        'implementation': 'standard',
-                        'company_id': company_id,
-                        'padding': 5,
-                        'active': True,
-                        'prefix': prod_rec + '-',
-                        'name': 'Product Number Purchase SQ',
-                    }
-                    #Creates the sequence in OpenERP
-                    self.pool.get('ir.sequence').create(cr, uid, vals_seq, context=context)
-
-                    #Gets the sequence for the and sets it in the appropriate field
-                    vals = {
-                        'default_code': self.pool.get('ir.sequence').get(cr, uid, 'product_no_purch.' + prod_rec)
-                    }
-                    super(eq_product_template, self).write(cr, uid, ids, vals, context=context)
-            elif len(prod_rec) == 2:
-                #Sql Query (self explaining), which gets the entries where prefix is identical to entered prefix
-                cr.execute("Select * From ir_sequence Where code=%s", ('product_no_sale.' + prod_rec, ))
-
-                #cr.fetchone is a dictionary with the row from the database. which we got with cr.execute
-                #If the sequence with the prefix of entered prefix is present, we just use the sequence
-                if cr.fetchone():
-                    #Gets the sequence for the and sets it in the appropriate field
-                    vals = {
-                        'default_code': self.pool.get('ir.sequence').get(cr, uid, 'product_no_sale.' + prod_rec)
-                    }
-
-                    super(eq_product_template, self).write(cr, uid, ids, vals, context=context)
-
-                #Else we create that sequence and the sequence.type and use it
-                else:
-                    #Defines the sequence.type
-                    vals_seq_type = {
-                        'code': 'product_no_sale.' + prod_rec,
-                        'name': 'Product Number Sales SQ',
-                    }
-
-                    #Creates the sequence.type in OpenERP
-                    self.pool.get('ir.sequence.type').create(cr, uid, vals_seq_type, context)
-
-                    #Gets the company_id, which is needed for the sequence
-                    user_rec = self.pool.get('res.users').browse(cr, uid, uid, context)
-                    company_id = user_rec.company_id.id
-
-                    #Defines the sequence and uses the ir.sequence.type that we created
-                    vals_seq = {
-                        'code': 'product_no_sale.' + prod_rec,
-                        'suffix': '',
-                        'number_next': 1,
-                        'number_increment': 1,
-                        'implementation': 'standard',
-                        'company_id': company_id,
-                        'padding': 5,
-                        'active': True,
-                        'prefix': prod_rec + '-',
-                        'name': 'Product Number Purchase SQ',
-                    }
-                    #Creates the sequence in OpenERP
-                    self.pool.get('ir.sequence').create(cr, uid, vals_seq, context=context)
-
-                    #Gets the sequence for the and sets it in the appropriate field
-                    vals = {
-                        'default_code': self.pool.get('ir.sequence').get(cr, uid, 'product_no_sale.' + prod_rec)
-                    }
-                    super(eq_product_template, self).write(cr, uid, ids, vals, context=context)
+            if seperator: 
+                prod_rec = replace(prod_rec, seperator, '')
+        else:
+            prod_rec = ''
+            seperator = ''
+        if len(prod_rec) >= min_prefix_count and  len(prod_rec) <= max_prefix_count:
+            #Sql Query (self explaining), which gets the entries where prefix is identical to prefix.
+            cr.execute("Select * From ir_sequence Where code=%s", ('eq_product_no.' + prod_rec, ))
+    
+            #cr.fetchone is a dictionary with the row from the database. which we got with cr.execute
+            #If the sequence with the prefix is present, we just use the sequence
+            if cr.fetchone():
+                #Gets the sequence for the and sets it in the appropriate field
+                seq = self.pool.get('ir.sequence').get(cr, uid, 'eq_product_no.' + prod_rec)
+                vals = {
+                    'default_code': seq
+                }
+    
+                product_obj.write(cr, uid, product_variant, vals, context=context)
+                if prod_rec == '' and max_prefix_count == 0 :
+                    company_ean = self.pool.get('res.users').browse(cr, uid, uid, context).company_id.eq_company_ean
+                    if company_ean:
+                        product_obj._generate_ean(cr, uid, product_variant, company_ean, seq, context)
+    
+            #Else we create that sequence and the sequence.type and use it
+            else:
+                #Defines the sequence.type
+                vals_seq_type = {
+                    'code': 'eq_product_no.' + prod_rec,
+                    'name': 'Product Number ' + prod_rec,
+                }
+    
+                #Creates the sequence.type in OpenERP
+                self.pool.get('ir.sequence.type').create(cr, uid, vals_seq_type, context)
+    
+                #Gets the company_id, which is needed for the sequence
+                user_rec = self.pool.get('res.users').browse(cr, uid, uid, context)
+                company_id = user_rec.company_id.id
+    
+                #Defines the sequence and uses the ir.sequence.type that was previously created
+                vals_seq = {
+                    'code': 'eq_product_no.' + prod_rec,
+                    'suffix': '',
+                    'number_next': 1,
+                    'number_increment': 1,
+                    'implementation': 'standard',
+                    'company_id': company_id,
+                    'padding': prod_num_lenght,
+                    'active': True,
+                    'prefix': prod_rec + seperator,
+                    'name': 'Product Number ' + prod_rec,
+                }
+                #Creates the sequence in OpenERP
+                self.pool.get('ir.sequence').create(cr, uid, vals_seq, context=context)
+    
+                #Gets the sequence for the and sets it in the appropriate field
+                seq = self.pool.get('ir.sequence').get(cr, uid, 'eq_product_no.' + prod_rec)
+                vals = {
+                    'default_code': seq
+                }
+                product_obj.write(cr, uid, product_variant, vals, context=context)
+                if prod_rec == '' and max_prefix_count == 0:
+                    company_ean = self.pool.get('res.users').browse(cr, uid, uid, context).company_id.eq_company_ean
+                    if company_ean:
+                        product_obj._generate_ean(cr, uid, product_variant, company_ean, seq, context)
         
         
 eq_product_template()  
@@ -292,111 +265,99 @@ class eq_product_product(osv.osv):
                 'lst_price': 0,
     }
     
+    def _generate_ean(self, cr, uid, ids, company_ean, sequence, context):
+        ean_without_checksum = company_ean + sequence[-5:]
+        
+        oddsum = 0
+        evensum = 0
+        for i in range(0, len(ean_without_checksum)):
+            if i % 2 == 0:
+                oddsum += int(ean_without_checksum[i])
+            else:
+                evensum += int(ean_without_checksum[i])
+        total= oddsum + (evensum * 3)
+        checksum = int(10 - total % 10.0) %10
+        if checksum == 10:
+            checksum == 0
+        ean13 = ean_without_checksum + str(checksum)
+        self.write(cr, uid, ids ,{'ean13': ean13}, context)
+    
     def eq_product_number_update(self, cr, uid, ids, context=None):
         #Gets the product
         product = self.pool.get('product.product').browse(cr, uid, ids, context)
         prod_rec = product[0].default_code
+        
+        #Gets the config values for the product number
+        ir_values = self.pool.get('ir.values')
+        min_prefix_count = ir_values.get_default(cr, uid, 'product.product', 'default_eq_min_prefix_count')
+        max_prefix_count = ir_values.get_default(cr, uid, 'product.product', 'default_eq_max_prefix_count')
+        prod_num_lenght = ir_values.get_default(cr, uid, 'product.product', 'default_eq_prod_num_lenght')
+        seperator = ir_values.get_default(cr, uid, 'product.product', 'default_eq_seperator')
         #Deletes all spaces in the string
         if prod_rec:
-            prod_rec = replace(prod_rec, '-', '')
             prod_rec = replace(prod_rec, ' ', '')
-            if len(prod_rec) == 3:
-                #Sql Query (self explaining), which gets the entries where prefix is identical to prefix.
-                cr.execute("Select * From ir_sequence Where code=%s", ('product_no_purch.' + prod_rec, ))
-
-                #cr.fetchone is a dictionary with the row from the database. which we got with cr.execute
-                #If the sequence with the prefix is present, we just use the sequence
-                if cr.fetchone():
-                    #Gets the sequence for the and sets it in the appropriate field
-                    vals = {
-                        'default_code': self.pool.get('ir.sequence').get(cr, uid, 'product_no_purch.' + prod_rec)
-                    }
-
-                    super(eq_product_product, self).write(cr, uid, ids, vals, context=context)
-
-                #Else we create that sequence and the sequence.type and use it
-                else:
-                    #Defines the sequence.type
-                    vals_seq_type = {
-                        'code': 'product_no_purch.' + prod_rec,
-                        'name': 'Product Number Purchase SQ',
-                    }
-
-                    #Creates the sequence.type in OpenERP
-                    self.pool.get('ir.sequence.type').create(cr, uid, vals_seq_type, context)
-
-                    #Gets the company_id, which is needed for the sequence
-                    user_rec = self.pool.get('res.users').browse(cr, uid, uid, context)
-                    company_id = user_rec.company_id.id
-
-                    #Defines the sequence and uses the ir.sequence.type that was previously created
-                    vals_seq = {
-                        'code': 'product_no_purch.' + prod_rec,
-                        'suffix': '',
-                        'number_next': 1,
-                        'number_increment': 1,
-                        'implementation': 'standard',
-                        'company_id': company_id,
-                        'padding': 5,
-                        'active': True,
-                        'prefix': prod_rec + '-',
-                        'name': 'Product Number Purchase SQ',
-                    }
-                    #Creates the sequence in OpenERP
-                    self.pool.get('ir.sequence').create(cr, uid, vals_seq, context=context)
-
-                    #Gets the sequence for the and sets it in the appropriate field
-                    vals = {
-                        'default_code': self.pool.get('ir.sequence').get(cr, uid, 'product_no_purch.' + prod_rec)
-                    }
-                    super(eq_product_product, self).write(cr, uid, ids, vals, context=context)
-            elif len(prod_rec) == 2:
-                #Sql Query (self explaining), which gets the entries where prefix is identical to entered prefix
-                cr.execute("Select * From ir_sequence Where code=%s", ('product_no_sale.' + prod_rec, ))
-
-                #cr.fetchone is a dictionary with the row from the database. which we got with cr.execute
-                #If the sequence with the prefix of entered prefix is present, we just use the sequence
-                if cr.fetchone():
-                    #Gets the sequence for the and sets it in the appropriate field
-                    vals = {
-                        'default_code': self.pool.get('ir.sequence').get(cr, uid, 'product_no_sale.' + prod_rec)
-                    }
-
-                    super(eq_product_product, self).write(cr, uid, ids, vals, context=context)
-
-                #Else we create that sequence and the sequence.type and use it
-                else:
-                    #Defines the sequence.type
-                    vals_seq_type = {
-                        'code': 'product_no_sale.' + prod_rec,
-                        'name': 'Product Number Sales SQ',
-                    }
-
-                    #Creates the sequence.type in OpenERP
-                    self.pool.get('ir.sequence.type').create(cr, uid, vals_seq_type, context)
-
-                    #Gets the company_id, which is needed for the sequence
-                    user_rec = self.pool.get('res.users').browse(cr, uid, uid, context)
-                    company_id = user_rec.company_id.id
-
-                    #Defines the sequence and uses the ir.sequence.type that we created
-                    vals_seq = {
-                        'code': 'product_no_sale.' + prod_rec,
-                        'suffix': '',
-                        'number_next': 1,
-                        'number_increment': 1,
-                        'implementation': 'standard',
-                        'company_id': company_id,
-                        'padding': 5,
-                        'active': True,
-                        'prefix': prod_rec + '-',
-                        'name': 'Product Number Purchase SQ',
-                    }
-                    #Creates the sequence in OpenERP
-                    self.pool.get('ir.sequence').create(cr, uid, vals_seq, context=context)
-
-                    #Gets the sequence for the and sets it in the appropriate field
-                    vals = {
-                        'default_code': self.pool.get('ir.sequence').get(cr, uid, 'product_no_sale.' + prod_rec)
-                    }
-                    super(eq_product_product, self).write(cr, uid, ids, vals, context=context)
+            if seperator: 
+                prod_rec = replace(prod_rec, seperator, '')
+        else:
+            prod_rec = ''
+            seperator = ''
+        if len(prod_rec) >= min_prefix_count and  len(prod_rec) <= max_prefix_count:
+            #Sql Query (self explaining), which gets the entries where prefix is identical to prefix.
+            cr.execute("Select * From ir_sequence Where code=%s", ('eq_product_no.' + prod_rec, ))
+    
+            #cr.fetchone is a dictionary with the row from the database. which we got with cr.execute
+            #If the sequence with the prefix is present, we just use the sequence
+            if cr.fetchone():
+                #Gets the sequence for the and sets it in the appropriate field
+                seq = self.pool.get('ir.sequence').get(cr, uid, 'eq_product_no.' + prod_rec)
+                vals = {
+                    'default_code': seq
+                }
+    
+                super(eq_product_product, self).write(cr, uid, ids, vals, context=context)
+                if prod_rec == '' and max_prefix_count == 0 :
+                    company_ean = self.pool.get('res.users').browse(cr, uid, uid, context).company_id.eq_company_ean
+                    if company_ean:
+                        self._generate_ean(cr, uid, ids, company_ean, seq, context)
+    
+            #Else we create that sequence and the sequence.type and use it
+            else:
+                #Defines the sequence.type
+                vals_seq_type = {
+                    'code': 'eq_product_no.' + prod_rec,
+                    'name': 'Product Number ' + prod_rec,
+                }
+    
+                #Creates the sequence.type in OpenERP
+                self.pool.get('ir.sequence.type').create(cr, uid, vals_seq_type, context)
+    
+                #Gets the company_id, which is needed for the sequence
+                user_rec = self.pool.get('res.users').browse(cr, uid, uid, context)
+                company_id = user_rec.company_id.id
+    
+                #Defines the sequence and uses the ir.sequence.type that was previously created
+                vals_seq = {
+                    'code': 'eq_product_no.' + prod_rec,
+                    'suffix': '',
+                    'number_next': 1,
+                    'number_increment': 1,
+                    'implementation': 'standard',
+                    'company_id': company_id,
+                    'padding': prod_num_lenght,
+                    'active': True,
+                    'prefix': prod_rec + seperator,
+                    'name': 'Product Number ' + prod_rec,
+                }
+                #Creates the sequence in OpenERP
+                self.pool.get('ir.sequence').create(cr, uid, vals_seq, context=context)
+    
+                #Gets the sequence for the and sets it in the appropriate field
+                seq = self.pool.get('ir.sequence').get(cr, uid, 'eq_product_no.' + prod_rec)
+                vals = {
+                    'default_code': seq
+                }
+                super(eq_product_product, self).write(cr, uid, ids, vals, context=context)
+                if prod_rec == '' and max_prefix_count == 0:
+                    company_ean = self.pool.get('res.users').browse(cr, uid, uid, context).company_id.eq_company_ean
+                    if company_ean:
+                        self._generate_ean(cr, uid, ids, company_ean, seq, context)
