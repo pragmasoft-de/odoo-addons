@@ -1,3 +1,9 @@
+### 24.04.2015, 1.0.10
+### equitania
+#### Verbesserung
+- Produktnummerngenerierung kann in der Lagereinstellungen eignestellt werden.
+- Wenn bei der Produktnummerngenerierung nur eindeutige Produktnummern erstellt werden können (min/max Prefixlänge = 0), dann wird die EAN13 des Produktes automatisch generiert.
+
 ### 20.04.2015, 1.0.9
 ### equitania
 #### Bugfix
