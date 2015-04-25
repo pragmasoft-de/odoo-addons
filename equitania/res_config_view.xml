@@ -13,6 +13,29 @@
                         <label for="default_eq_join_stock_moves"/>
                     </div>
 				</field>
+                <label string="Additional Features" position="before">
+                    <group>
+                        <label for="id" string="Product Number Generator"/>
+                            <div>
+                                <div>
+                                    <field name="default_eq_min_prefix_count" class="oe_inline"/>
+                                    <label for="default_eq_min_prefix_count"/>
+                                </div>
+                                <div>
+                                    <field name="default_eq_max_prefix_count" class="oe_inline"/>
+                                    <label for="default_eq_max_prefix_count"/>
+                                </div>
+                                <div>
+                                    <field name="default_eq_prod_num_lenght" class="oe_inline"/>
+                                    <label for="default_eq_prod_num_lenght"/>
+                                </div>
+                                <div>
+                                    <field name="default_eq_seperator" class="oe_inline"/>
+                                    <label for="default_eq_seperator"/>
+                                </div>
+                            </div>
+                    </group>
+				</label>
 		     </field>
 		</record>
     </data>

@@ -1583,3 +1583,28 @@ msgstr "Urlaubsanträge"
 #: field:res.partner,eq_foreign_ref:0
 msgid "Foreign reference"
 msgstr "Fremdnr."
+
+#. module: equitania
+#: field:res.company,eq_company_ean:0
+msgid "Company EAN13"
+msgstr "Unternehmens EAN13"
+
+#. module: equitania
+#: field:stock.config.settings,default_eq_max_prefix_count:0
+msgid "Max prefix lenght [equitania]"
+msgstr "Max Prefixlänge [equitania]"
+
+#. module: equitania
+#: field:stock.config.settings,default_eq_min_prefix_count:0
+msgid "Min prefix lenght [equitania]"
+msgstr "Min Prefixlänge [equitania]"
+
+#. module: equitania
+#: field:stock.config.settings,default_eq_prod_num_lenght:0
+msgid "Product number lenght [equitania]"
+msgstr "Länge der Produktnummer [equitania]"
+
+#. module: equitania
+#: field:stock.config.settings,default_eq_seperator:0
+msgid "Seperator [equitania]"
+msgstr "Trennzeichen [equitania]"
