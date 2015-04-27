@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
             	<form string="Assign Product Number">
 					<group colspan="4" col="1">											
-						<label string="Are you sure you want to assign a product number for the selected products??"></label>
+						<label string="Are you sure you want to assign a product number for the selected products?"></label>
 					</group>
             		<footer>
             			<button name="assign_product_no" type="object" string="Yes" class="oe_highlight"/> or 
