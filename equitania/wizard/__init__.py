@@ -20,4 +20,4 @@
 ##############################################################################
 
 import eq_date_done_change
-import eq_multy_assigne_product_no
+import eq_multy_assign_product_no
