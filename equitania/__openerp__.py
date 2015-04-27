@@ -21,7 +21,7 @@
 
 {
     'name': 'Equitania Erweiterungsmodul',
-    'version': '1.0.9',
+    'version': '1.0.11',
     'description': """
         Equitania Software GmbH
     """,
@@ -36,6 +36,7 @@
     'data': [
         'security/equitania_security.xml',
         'security/ir.model.access.csv',
+        'wizard/eq_multy_assigne_product_no_view.xml',
         'eq_reports_view.xml',
         'eq_custom_ref_view.xml',
         'eq_address_extension_view.xml',

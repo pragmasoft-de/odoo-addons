@@ -286,6 +286,17 @@
             	</field> 
             </field>
         </record>
+
+        <!-- Extension of 'More' dropdownlist of product.product -->		 		 
+		<act_window name="Assigne product number"
+    		res_model="eq_multy_assigne_product_no"
+    		src_model="product.product"
+    		key2="client_action_multi" 
+    		view_mode="form"
+    		target="new" 
+    		view_type="form"
+    		view_id="eq_multy_assigne_product_no_form_view"
+    		id="act_multy_assigne_product_no" />
         
         <!-- product.product - kanban view -->        
         <record id="eq_product_kanban_view" model="ir.ui.view">
