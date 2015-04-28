@@ -1,0 +1,20 @@
+<openerp>
+	<data>
+        <!-- Multy assign product no form view -->
+    	<record id="eq_multy_assign_product_no_form_view" model="ir.ui.view">
+            <field name="name">eq_multy_assign_product_no.form.view</field>
+            <field name="model">eq_multy_assign_product_no</field>
+            <field name="arch" type="xml">
+            	<form string="Assign Product Number">
+					<group colspan="4" col="1">											
+						<label string="Are you sure you want to assign a product number for the selected products?"></label>
+					</group>
+            		<footer>
+            			<button name="assign_product_no" type="object" string="Yes" class="oe_highlight"/> or 
+            			<button special="cancel" string="No"/>
+            		</footer>
+            	</form>
+            </field>    
+        </record>
+	</data>
+</openerp>

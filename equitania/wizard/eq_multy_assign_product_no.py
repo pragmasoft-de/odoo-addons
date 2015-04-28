@@ -19,5 +19,13 @@
 #
 ##############################################################################
 
-import eq_date_done_change
-import eq_multy_assign_product_no
+from openerp import models, fields, api, _
+
+class eq_multy_assign_product_no(models.TransientModel):
+    _name = "eq_multy_assign_product_no"
+    
+    @api.multi
+    def assign_product_no(self):
+        for product in self.env['product.product'].browse(self.env.context['active_ids']):
+            product.eq_product_number_update()
+        return True

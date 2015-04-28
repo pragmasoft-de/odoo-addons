@@ -66,7 +66,7 @@ apt-get install nodejs-legacy
 curl -L --insecure https://www.npmjs.org/install.sh | bash
 
 echo "pip packages will be install.."
-pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode validate_email pyDNS pysftp
+pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode validate_email pyDNS pysftp python-slugify
 
 
 echo "npm packages will be install.."

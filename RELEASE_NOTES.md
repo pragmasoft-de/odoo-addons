@@ -1,3 +1,8 @@
+### 24.04.2015, 1.0.11
+### equitania
+#### Verbesserung
+- Produktnummern können in der Listenansicht der Produkt über den Button "Mehr/Produktnummer generieren" für die ausgewählten Produkte generiert werden.
+
 ### 24.04.2015, 1.0.10
 ### equitania
 #### Verbesserung
@@ -173,6 +178,7 @@
 - Addresstyp um die Postfachaddresse erweitert
 - Standard Liefer- und Rechnungsadresse kann festgelegt werden
 - Ersteller des Datensatzes wird als Verkäufer eingetragen (einstellbar)
+
 
 ####Reports überarbeitet:
 

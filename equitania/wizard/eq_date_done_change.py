@@ -20,7 +20,6 @@
 ##############################################################################
 
 from openerp import models, fields, api, _
-from gdata.data import REQUIRED_ATENDEE
 from datetime import datetime
 
 class eq_date_done_change(models.TransientModel):

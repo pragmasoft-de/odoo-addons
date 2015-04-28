@@ -1520,6 +1520,7 @@ msgstr "Rechnung"
 
 #. module: equitania
 #: view:eq.date.done.change:equitania.eq_date_done_form_view
+#: view:eq_multy_assign_product_no:equitania.eq_multy_assign_product_no_form_view
 #: view:eq_pricelist_item_search:equitania.eq_pricelist_item_search_form_view
 #: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
 msgid "or"
@@ -1608,3 +1609,28 @@ msgstr "Länge der Produktnummer [equitania]"
 #: field:stock.config.settings,default_eq_seperator:0
 msgid "Seperator [equitania]"
 msgstr "Trennzeichen [equitania]"
+
+#. module: equitania
+#: view:eq_multy_assign_product_no:equitania.eq_multy_assign_product_no_form_view
+msgid "Assign Product Number"
+msgstr "Produktnummer zuweisen"
+
+#. module: equitania
+#: model:ir.actions.act_window,name:equitania.act_multy_assign_product_no
+msgid "Assign product number"
+msgstr "Produktnummer zuweisen"
+
+#. module: equitania
+#: view:eq_multy_assign_product_no:equitania.eq_multy_assign_product_no_form_view
+msgid "No"
+msgstr "Nein"
+
+#. module: equitania
+#: view:eq_multy_assign_product_no:equitania.eq_multy_assign_product_no_form_view
+msgid "Yes"
+msgstr "Ja"
+
+#. module: equitania
+#: view:eq_multy_assign_product_no:equitania.eq_multy_assign_product_no_form_view
+msgid "Are you sure you want to assign a product number for the selected products?"
+msgstr "Sind Sie sicher, dass Sie für alle ausgewählten Produkte eine Produktnummer generieren wollen?"
