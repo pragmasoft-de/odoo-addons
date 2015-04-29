@@ -14,7 +14,8 @@
                 </xpath>
                 <xpath expr="//field[@name='name']" position="replace">              	
                     <field name="eq_firstname" placeholder="Firstname" attrs="{'invisible': ['|', ('type', '!=', 'contact'), ('is_company', '=', True)]}"/>
-                    <field name="name" placeholder="Name"/>
+                    <field name="name" style="width: 100%%;" placeholder="Name"/>
+					<field name="eq_name2" style="width: 100%%;" placeholder="Name2" attrs="{'invisible': [('is_company', '=', False)]}"/>
                 </xpath>
                 <xpath expr="//field[@name='type']" position="replace">
                     <field name="type"/>
@@ -32,6 +33,7 @@
 	                	<field name="title" placeholder="Titel" attrs="{'invisible': [('type', '!=', 'contact')]}"/>
 	                    <field name="eq_firstname" placeholder="Firstname" attrs="{'invisible': [('type', '!=', 'contact')]}"/>
 	                    <field name="name" placeholder="Name"/>
+	                    <field name="eq_name2" placeholder="Name2" attrs="{'invisible': [('is_company', '=', False)]}"/>
                     </h2>
                 </xpath>
                 <xpath expr="//field[@name='child_ids']/form/sheet/group" position="replace">
@@ -52,6 +54,41 @@
                 	<field name="eq_incoterm"/>
                 	<field name="eq_deliver_condition_id"/>
                 </xpath>
+                <!-- New Address -->
+				<field name="country_id" position="replace"/>
+				<field name="street" position="replace">
+                    <field name="street" style="width: 80%%" placeholder="Street..."  attrs="{'readonly': [('use_parent_address','=',True)]}"/>
+					<field name="eq_house_no" style="width: 20%%" placeholder="House no"  attrs="{'readonly': [('use_parent_address','=',True)]}"/>
+				</field>
+				<div class="address_format" position="replace">
+					<field name="zip" placeholder="ZIP" style="width: 102px" attrs="{'readonly': [('use_parent_address','=',True)]}"/>
+	                <div>
+	                    <field name="city" placeholder="City" style="width: 50%%" attrs="{'readonly': [('use_parent_address','=',True)]}"/>
+	                    <field name="eq_citypart" placeholder="Disctrict" style="width: 50%%" attrs="{'readonly': [('use_parent_address','=',True)]}"/>
+                        <field name="country_id" placeholder="Country" style="width: 50%%" options='{"no_open": True, "no_create": True}' attrs="{'readonly': [('use_parent_address','=',True)]}"/>
+	                    <field name="state_id" class="oe_no_button" placeholder="State" style="width: 50%%" options='{"no_open": True}' on_change="onchange_state(state_id)" attrs="{'readonly': [('use_parent_address','=',True)]}"/>		
+					</div>
+				</div>
+                <!-- New Address Child Form -->
+                <xpath expr="//field[@name='child_ids']/form/sheet/group/div/field[@name='country_id']" position="replace"/>
+                <xpath expr="//field[@name='child_ids']/form/sheet/group/div/field[@name='street']" position="replace">
+                    <field name="street" style="width: 80%%" placeholder="Street..."/>
+					<field name="eq_house_no" style="width: 20%%" placeholder="House no"/>
+                </xpath>
+                <xpath expr="//field[@name='child_ids']/form/sheet/group/div/div[@class='address_format']" position="replace">
+					<field name="zip" placeholder="ZIP" style="width: 102px"/>
+	                <div attrs="{'invisible': [('use_parent_address','=', True)]}">
+	                    <field name="city" placeholder="City" style="width: 50%%"/>
+	                    <field name="eq_citypart" placeholder="Disctrict" style="width: 50%%"/>
+                        <field name="country_id" placeholder="Country" style="width: 50%%" options='{"no_open": True, "no_create": True}'/>
+	                    <field name="state_id" class="oe_no_button" placeholder="State" style="width: 50%%" options='{"no_open": True}' on_change="onchange_state(state_id)"/>		
+					</div>
+                </xpath>
+				<!-- Header -->
+				<div class="oe_title oe_left" position="attributes">
+					<attribute name="class">oe_left</attribute>
+					<attribute name="style">width: 50%</attribute>
+				</div>
             </field>
         </record>
         

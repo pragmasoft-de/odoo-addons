@@ -1,3 +1,9 @@
+### 29.04.2015, 1.0.12
+### equitania
+#### Verbesserung
+- Adressfelder für den Standtteil und die Hausnummer zum Partner hinzugefügt und die Form Anischt überarbeitet. Zweites Namensfeld eingefügt.
+- Feld Telefax(geschäftlich) in das Mitarbeiter Onjekt eingefügt. 
+
 ### 24.04.2015, 1.0.11
 ### equitania
 #### Verbesserung

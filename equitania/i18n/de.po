@@ -751,6 +751,12 @@ msgid "Name"
 msgstr "Bezeichnung"
 
 #. module: equitania
+#: view:res.partner:equitania.eq_partner_extension_form_view
+#: field:res.partner,eq_name2:0
+msgid "Name2"
+msgstr "Bezeichnung2"
+
+#. module: equitania
 #: view:website:account.report_invoice_document
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:sale.report_saleorder_document
@@ -1634,3 +1640,18 @@ msgstr "Ja"
 #: view:eq_multy_assign_product_no:equitania.eq_multy_assign_product_no_form_view
 msgid "Are you sure you want to assign a product number for the selected products?"
 msgstr "Sind Sie sicher, dass Sie für alle ausgewählten Produkte eine Produktnummer generieren wollen?"
+
+#. module: equitania
+#: view:res.partner:equitania.eq_partner_extension_form_view
+msgid "House no"
+msgstr "Hausnr."
+
+#. module: equitania
+#: view:res.partner:equitania.eq_partner_extension_form_view
+msgid "Disctrict"
+msgstr "Stadtteil"
+
+#. module: equitania
+#: field:hr.employee,eq_work_fax:0
+msgid "Work Fax"
+msgstr "Fax (geschäftlich)"

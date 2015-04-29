@@ -26,6 +26,10 @@ from openerp import SUPERUSER_ID
 class eq_hr_employee(osv.osv):
     _inherit = 'hr.employee'
     
+    _columns = {
+                'eq_work_fax': fields.char('Work Fax'),
+                }
+    
     def write(self,cr, uid, ids, values, context=None):
         if 'user_id' in values and 'do_not_repeat' not in context:
             if values['user_id']:
