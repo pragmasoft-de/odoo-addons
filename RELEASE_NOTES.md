@@ -1,8 +1,8 @@
 ### 29.04.2015, 1.0.12
 ### equitania
 #### Verbesserung
-- Adressfelder für den Standtteil und die Hausnummer zum Partner hinzugefügt und die Form Anischt überarbeitet. Zweites Namensfeld eingefügt.
-- Feld Telefax(geschäftlich) in das Mitarbeiter Onjekt eingefügt. 
+- Adressfelder für den Stadtteil und die Hausnummer zum Partnerobjekt hinzugefügt und die Formanischt überarbeitet. Zweites Namensfeld hinzugefügt.
+- Feld Telefax(geschäftlich) in das Mitarbeiterobjekt eingefügt. 
 
 ### 24.04.2015, 1.0.11
 ### equitania
