@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="eq_view_partner_form_ebid" model="ir.ui.view">
+            <field name="name">res.partner.form.ebid</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="equitania.eq_foreign_ref_partner_extension_form" />
+            <field name="arch" type="xml">
+				<field name="eq_foreign_ref" position="after">                    
+					<label for="eq_ebid_no" string="EBID-Number" attrs="{'invisible':[('is_company', '=', False)]}"/>
+                    <div attrs="{'invisible':[('is_company', '=', False)]}">
+                        <field name="eq_ebid_no" attrs="{'invisible':[('is_company', '=', False)]}" class="oe_inline" style="width:128px!important;"/>
+                        <button name="check_ebid" string="Check" type="object" attrs="{'invisible':[('is_company', '=', False)]}" class="oe_edit_only oe_link oe_inline" style="margin:5px!important;"/>
+                    </div>
+				</field>
+          	</field>
+        </record>
+    </data>
+</openerp>
