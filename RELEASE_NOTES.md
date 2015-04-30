@@ -2,6 +2,10 @@
 ### equitania
 #### Änderung
 - Icon für den Button "Preislistenpos." in der Form View des Produktes abgeändert.
+#### Verbesserung
+- Reports: Adressfelder für den Stadtteil und die Hausnummer eingefügt.
+- Reports: Zweites Namensfeld eingefügt.
+- Reports: Telefax(geschäftlich) in das Mitarbeiterobjekt eingefügt.
 
 ### 29.04.2015, 1.0.12
 ### equitania
