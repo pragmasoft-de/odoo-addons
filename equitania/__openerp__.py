@@ -21,7 +21,7 @@
 
 {
     'name': 'Equitania Erweiterungsmodul',
-    'version': '1.0.13',
+    'version': '1.0.14',
     'description': """
         Equitania Software GmbH
     """,
@@ -60,7 +60,6 @@
         'views/eq_report_stockpicking.xml',
         'views/eq_report_stockpicking_return.xml',
         'views/eq_report_open_sale_order_line.xml',
-        'views/report_edit_equitania.xml',
         'eq_install_func.xml',
         'eq_install_func_no_update.xml',
         'data/sale_layout_category_data.xml',
@@ -73,7 +72,8 @@
         'wizard/eq_date_done_change_view.xml',
         'views/eq_purchase_view.xml',
         'views/eq_css.xml',
-        'eq_foreign_ref_view.xml'
+        'eq_foreign_ref_view.xml',
+        'views/report_edit_equitania.xml',
     ],
     'demo': [],
     'css': ['static/src/css/eq_style.css'],

@@ -1,3 +1,8 @@
+### 30.04.2015, 1.0.14
+### equitania
+#### Bugfix
+- Fehler behoben, bei dem die neu eingefügten Felder auf den Report nicht angezeigt wurde.
+
 ### 30.04.2015, 1.0.13
 ### equitania
 #### Änderung

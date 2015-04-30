@@ -22,7 +22,7 @@
 						<h t-field="o.company_id.partner_id.zip"/>
 						<h t-field="o.company_id.partner_id.city"/>
 					</div>
-					<div t-if="o.partner_id.type != 'contact'">
+					<div t-if="o.partner_id.is_company">
 						<div t-field="o.partner_id.name" style="clear:left;"/>
 						<div t-if="o.partner_id.eq_name2" t-field="o.partner_id.eq_name2" style="clear:left;"/>
                         <div>
@@ -40,7 +40,7 @@
                         </h>
                         <div t-field="o.partner_id.country_id.name"/>
                     </div>
-					<div t-if="o.partner_id.type == 'contact'">
+					<div t-if="not o.partner_id.is_company">
 						<div t-field="o.partner_id.parent_id.name" style="clear:left;"/>
 						<div t-if="o.partner_id.parent_id.eq_name2" t-field="o.partner_id.parent_id.eq_name2" style="clear:left;"/>
    	                    <span t-field="o.partner_id.title.name"/> <span t-field="o.partner_id.eq_firstname" style="clear:left;"/> <span t-field="o.partner_id.name" style="clear:left;"/>
@@ -53,6 +53,9 @@
            	            <h>
        	                    <h t-field="o.partner_id.zip"/>
    	                        <h t-field="o.partner_id.city"/>
+   	                        <h t-if="o.partner_id.eq_citypart">-
+   	                        	<h t-field="o.partner_id.eq_citypart"/>
+   	                        </h>
                         </h>
                         <div t-field="o.partner_id.country_id.name"/>
 					</div>
