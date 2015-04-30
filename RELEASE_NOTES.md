@@ -1,3 +1,8 @@
+### 30.04.2015, 1.0.13
+### equitania
+#### Änderung
+- Icon für den Button "Preislistenpos." in der Form View des Produktes abgeändert.
+
 ### 29.04.2015, 1.0.12
 ### equitania
 #### Verbesserung
