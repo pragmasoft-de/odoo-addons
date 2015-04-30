@@ -1,3 +1,10 @@
+### 30.04.2015, 1.0.13
+### equitania
+#### Verbesserung
+- Reports: Adressfelder für den Stadtteil und die Hausnummer eingefügt.
+- Reports: Zweites Namensfeld eingefügt.
+- Reports: Telefax(geschäftlich) in das Mitarbeiterobjekt eingefügt.
+
 ### 29.04.2015, 1.0.12
 ### equitania
 #### Verbesserung

@@ -21,26 +21,38 @@
 					</div>
 					<div t-if="o.partner_id.type != 'contact'">
 						<div t-field="o.partner_id.name" style="clear:left;"/>
-						<div t-field="o.partner_id.street"/>
+						<div t-if="o.partner_id.eq_name2" t-field="o.partner_id.eq_name2" style="clear:left;"/>
+						<div>
+							<span t-field="o.partner_id.street"/><span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no" style="margin-left:0.1cm;"/>
+						</div>
 						<div t-if="o.partner_id.street2">
 							<div t-field="o.partner_id.street2"/>
 						</div>
 						<h>
 							<h t-field="o.partner_id.zip"/>
 							<h t-field="o.partner_id.city"/>
+							<h t-if="o.partner_id.eq_citypart">-
+								<h t-field="o.partner_id.eq_citypart"/>
+							</h>
 						</h>
 						<div t-field="o.partner_id.country_id.name"/>
 					</div>
 					<div t-if="o.partner_id.type == 'contact'">
 						<div t-field="o.partner_id.parent_id.name" style="clear:left;"/>
+						<div t-if="o.partner_id.parent_id.eq_name2" t-field="o.partner_id.parent_id.eq_name2" style="clear:left;"/>
 						<span t-field="o.partner_id.title.name"/> <span t-field="o.partner_id.eq_firstname" style="clear:left;"/> <span t-field="o.partner_id.name" style="clear:left;"/>
-						<div t-field="o.partner_id.street"/>
+						<div>
+							<span t-field="o.partner_id.street"/><span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no" style="margin-left:0.1cm;"/>
+						</div>
 						<div t-if="o.partner_id.street2">
 							<div t-field="o.partner_id.street2"/>
 						</div>
 						<h>
 							<h t-field="o.partner_id.zip"/>
 							<h t-field="o.partner_id.city"/>
+							<h t-if="o.partner_id.eq_citypart">-
+								<h t-field="o.partner_id.eq_citypart"/>
+							</h>
 						</h>
 						<div t-field="o.partner_id.country_id.name"/>
 					</div>
@@ -122,6 +134,14 @@
 									<span t-field="o.user_id.eq_employee_id.work_phone"/>
 								</td>
 							</tr>
+                            <tr t-if="o.user_id.eq_employee_id.eq_work_fax">
+                                <td>
+                                    <span>Fax</span>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="o.user_id.eq_employee_id.eq_work_fax"/>
+                                </td>
+                            </tr>
 							<tr>
 								<td>
 									<span>E-Mail</span>
@@ -304,13 +324,19 @@
 							<td>
 								<div>
 									<div t-field="o.eq_delivery_address.name" style="clear:left;"/>
-									<div t-field="o.eq_delivery_address.street"/>
+									<div t-if="o.eq_delivery_address.eq_name2" t-field="o.eq_delivery_address.eq_name2" style="clear:left;"/>
+									<div>
+										<span t-field="o.eq_delivery_address.street"/><span t-if="o.eq_delivery_address.eq_house_no" t-field="o.eq_delivery_address.eq_house_no" style="margin-left:0.1cm;"/>
+									</div>
 									<div t-if="o.eq_delivery_address.street2">
 										<div t-field="o.eq_delivery_address.street2"/>
 									</div>
 									<h>
 										<h t-field="o.eq_delivery_address.zip"/>
 										<h t-field="o.eq_delivery_address.city"/>
+										<h t-if="o.eq_delivery_address.eq_citypart">-
+											<h t-field="o.eq_delivery_address.eq_citypart"/>
+										</h>
 									</h>
 									<div t-field="o.eq_delivery_address.country_id.name"/>
 								</div>
