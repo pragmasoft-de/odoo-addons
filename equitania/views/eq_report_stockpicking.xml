@@ -33,13 +33,19 @@
 					</div>
 					<div t-if="o.partner_id" name="partner_header">
 						<div t-field="o.partner_id.name" style="clear:left;"/>
-						<div t-field="o.partner_id.street"/>
+						<div t-if="o.partner_id.eq_name2" t-field="o.partner_id.eq_name2" style="clear:left;" />
+						<div>
+							<span t-field="o.partner_id.street"/><span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no" style="margin-left:0.1cm;"/>
+						</div>
 						<div t-if="o.partner_id.street2">
 							<div t-field="o.partner_id.street2"/>
 						</div>
 						<h>
 							<h t-field="o.partner_id.zip"/>
 							<h t-field="o.partner_id.city"/>
+							<h t-if="o.partner_id.eq_citypart">-
+								<h t-field="o.partner_id.eq_citypart"/>
+							</h>
 						</h>
 						<div t-field="o.partner_id.country_id.name"/>
 						<!--<div style="clear:left;" t-field="o.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;, &quot;fax&quot; ], &quot;no_marker&quot;: true}"/>-->
@@ -215,8 +221,26 @@
 								<span style="font-weight:bold;">Invoice address:</span>
 							</td>
 							<td>
-								<div t-field="o.sale_id.partner_invoice_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
-								<!--, &quot;phone&quot;, &quot;fax&quot;-->
+								<!-- <div t-field="o.sale_id.partner_invoice_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+								, &quot;phone&quot;, &quot;fax&quot;-->
+								<div>
+									<div t-field="o.sale_id.partner_invoice_id.name" style="clear:left;"/>
+									<div t-if="o.sale_id.partner_invoice_id.eq_name2" t-field="o.sale_id.partner_invoice_id.eq_name2" style="clear:left;"/>
+									<div>
+										<span t-field="o.sale_id.partner_invoice_id.street"/><span t-if="o.sale_id.partner_invoice_id.eq_house_no" t-field="o.sale_id.partner_invoice_id.eq_house_no" style="margin-left:0.1cm;"/>
+									</div>
+									<div t-if="o.sale_id.partner_invoice_id.street2">
+										<div t-field="o.sale_id.partner_invoice_id.street2"/>
+									</div>
+									<h>
+										<h t-field="o.sale_id.partner_invoice_id.zip"/>
+										<h t-field="o.sale_id.partner_invoice_id.city"/>
+										<h t-if="o.sale_id.partner_invoice_id.eq_citypart">-
+											<h t-field="o.sale_id.partner_invoice_id.eq_citypart"/>
+										</h>
+									</h>
+									<div t-field="o.sale_id.partner_invoice_id.country_id.name"/>
+								</div>
 							</td>
 						</tr>
 					</tbody>
