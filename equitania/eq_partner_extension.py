@@ -116,6 +116,9 @@ class eq_partner_extension(osv.osv):
         'eq_deliver_condition_id': fields.many2one('eq.delivery.conditions', 'Delivery Condition'),
         'eq_default_delivery_address': fields.many2one('res.partner', 'Delivery Address'),
         'eq_default_invoice_address': fields.many2one('res.partner', 'Invoice Address'),
+        'eq_citypart': fields.char('Disctirct'),
+        'eq_house_no': fields.char('House number'),
+        'eq_name2': fields.char('Name2'),
         }
     
     _defaults = {
