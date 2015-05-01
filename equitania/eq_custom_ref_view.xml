@@ -139,7 +139,7 @@
                 <xpath expr="//div[@name='buttons']" position="inside">
                    	<button class="oe_stat_button"
                             name="%(action_eq_open_pricelist_item_tree_product_template)d"
-                            icon="fa-list-alt"
+                            icon="fa-strikethrough"
                             type="action" attrs="{'invisible':[('sale_ok', '!=', True)]}">
                   		<div><strong><field name="eq_pricelist_items_count"/></strong><br/>Pricelist Pos</div>
                    	</button>
@@ -266,7 +266,7 @@
                 <xpath expr="//div[@name='buttons']" position="inside">
                    	<button class="oe_stat_button"
                             name="%(action_eq_open_pricelist_item_tree_product_product)d"
-                            icon="fa-list-alt"
+                            icon="fa-strikethrough"
                             type="action" attrs="{'invisible':[('sale_ok', '!=', True)]}">
                   		<div><strong><field name="eq_pricelist_items_count"/></strong><br/>Pricelist Pos</div>
                    	</button>
