@@ -2,8 +2,14 @@
 <openerp>
 <data>
 <template id="report.style">
+     
     body {
         color: #000 !important;
+        font-size:9pt;
+    }
+    
+    .h2, h2 {
+    font-size: 18pt;
     }
     
     td {
@@ -41,7 +47,7 @@
 	    margin:0;
 	    padding:0;
 	    text-align:left;
-	    font-size:7pt;
+	    font-size:6pt;
 	    border: none;
 		background-color:none;
 	}
@@ -57,8 +63,14 @@
 	}
 
 	#logo img {
-		max-width:7cm;
-		max-height:3cm;
+		max-width:6.5cm;
+		max-height:3.5cm;
+		float:right;
+	}
+    
+    .header img {
+    	max-width:6.4cm;
+		max-height:3.2cm;
 		float:right;
 	}
 
@@ -67,7 +79,7 @@
         height: 4.8cm;
     }
 	.returnaddress {
-			font-size:6.5pt;
+			font-size:5.5pt;
 			/*border-bottom:0.8pt solid #999;*/
             text-decoration: underline;
             margin-bottom:0.2cm;
