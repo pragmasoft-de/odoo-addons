@@ -1,3 +1,8 @@
+### 04.05.2015, 1.0.15
+### equitania
+#### Bugfix
+- Rechnungs und Lieferadresse im Angebot/Auftrag werden nicht mehr überschrieben, sondern abgeändert.
+
 ### 30.04.2015, 1.0.14
 ### equitania
 #### Bugfix
