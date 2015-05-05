@@ -13,7 +13,7 @@
                         <label for="default_eq_join_stock_moves"/>
                     </div>
 				</field>
-                <label string="Additional Features" position="before">
+                <form string="Configure Warehouse" position="inside">
                     <group>
                         <label for="id" string="Product Number Generator"/>
                             <div>
@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                     </group>
-				</label>
+				</form>
 		     </field>
 		</record>
     </data>

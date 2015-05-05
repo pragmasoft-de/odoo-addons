@@ -1655,3 +1655,8 @@ msgstr "Stadtteil"
 #: field:hr.employee,eq_work_fax:0
 msgid "Work Fax"
 msgstr "Fax (geschäftlich)"
+
+#. module: equitania
+#: view:stock.config.settings:equitania.eq_stock_config_settings
+msgid "Product Number Generator"
+msgstr "Produktnummern Generator"
