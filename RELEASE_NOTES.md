@@ -1,3 +1,8 @@
+### 05.05.2015, 1.0.17
+### equitania
+#### Erweiterung
+- Einstellung in den Verkauf hinzugefügt, wordurch der Verkaufstext einer Position aus der internen Beschreibung des Produktes genommen wird.
+
 ### 05.05.2015, 1.0.16
 ### equitania
 #### Bugfix
