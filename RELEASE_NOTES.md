@@ -3,7 +3,6 @@
 #### Bugfix
 - Fehlerhafter Anzeige des Produktnummern Generators in den Einstellungen behoben.
 
-
 ### 04.05.2015, 1.0.15
 ### equitania
 #### Bugfix
