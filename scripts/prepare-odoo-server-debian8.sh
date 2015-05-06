@@ -110,8 +110,9 @@ else
   echo "PoS is not prepared!"
 fi
 
-echo "Do you want optimize postgres settings? / Wollen Sie die PostgreSQL-Einstellungen optimieren (Y/n)?:"
-read mysql
+#echo "Do you want optimize postgres settings? / Wollen Sie die PostgreSQL-Einstellungen optimieren (Y/n)?:"
+#read mysql
+mysql=""
 
 if [ "$mysql" = "Y" ]; then
   echo "PostgreSQL will be optimized..."
