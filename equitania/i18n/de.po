@@ -1655,3 +1655,23 @@ msgstr "Stadtteil"
 #: field:hr.employee,eq_work_fax:0
 msgid "Work Fax"
 msgstr "Fax (geschäftlich)"
+
+#. module: equitania
+#: view:stock.config.settings:equitania.eq_stock_config_settings
+msgid "Product Number Generator"
+msgstr "Produktnummern Generator"
+
+#. module: equitania
+#: field:sale.order.line,eq_use_internal_descriptionion:0
+msgid "Use internal description for sale orders"
+msgstr "Interne Beschreibung für die Angebote/Aufträge verwenden"
+
+#. module: equitania
+#: field:sale.config.settings,default_eq_use_internal_descriptionion:0
+msgid "Use internal description for sale orders [equitania]"
+msgstr "Interne Beschreibung für die Angebote/Aufträge verwenden [equitania]"
+
+#. module: equitania
+#: help:sale.config.settings,default_eq_use_internal_descriptionion:0
+msgid "The internal description will be used for sale orders not the sale description"
+msgstr "Auf den Angeboten/Aufträgen wird die interne Beschreibung anstelle der Verkaufsbeschreibung verwendet"

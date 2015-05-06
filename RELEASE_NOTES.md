@@ -1,3 +1,23 @@
+### 05.05.2015, 1.0.18
+### equitania
+#### Bugfix
+- Fehler behoben, bei dem man den Verkaufsauftrag aus dem Webshop nicht zu erstellen konnte.
+
+### 05.05.2015, 1.0.17
+### equitania
+#### Erweiterung
+- Einstellung in den Verkauf hinzugefügt, wordurch der Verkaufstext einer Position aus der internen Beschreibung des Produktes genommen wird.
+
+### 05.05.2015, 1.0.16
+### equitania
+#### Bugfix
+- Fehlerhafte Anzeige des Produktnummern Generators in den Einstellungen behoben.
+
+### 04.05.2015, 1.0.15
+### equitania
+#### Bugfix
+- Rechnungs und Lieferadresse im Angebot/Auftrag werden nicht mehr überschrieben, sondern abgeändert.
+
 ### 30.04.2015, 1.0.14
 ### equitania
 #### Bugfix

@@ -97,6 +97,10 @@
                         <field name="default_use_sales_person_as_contact"/>
                         <label for="default_use_sales_person_as_contact"/>
                     </div>
+               		<div>
+               			<field name="default_eq_use_internal_description"/>
+               			<label for="default_eq_use_internal_description"/>
+               		</div>
 				</div>
                 <form string="Configure Sales" position="inside">
                     <separator string="Reports"/>
