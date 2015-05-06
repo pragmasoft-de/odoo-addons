@@ -38,7 +38,7 @@ class eq_report_extension_sale_settings(osv.osv_memory):
         ir_values.set_default(cr, uid, 'sale.order', 'default_use_sales_person_as_contact', config.default_use_sales_person_as_contact)
         ir_values.set_default(cr, uid, 'sale.order', 'show_delivery_date', config.default_show_delivery_date)
         ir_values.set_default(cr, uid, 'sale.order', 'use_calendar_week', config.default_use_calendar_week)
-        ir_values.set_default(cr, uid, 'sale.order.line', 'eq_use_internal_description', config.default_eq_use_internal_descriptionion)
+        ir_values.set_default(cr, uid, 'sale.order.line', 'eq_use_internal_description', config.default_eq_use_internal_description)
             
         
     
@@ -52,14 +52,14 @@ class eq_report_extension_sale_settings(osv.osv_memory):
                 'default_use_sales_person_as_contact': salesperson,
                 'default_show_delivery_date': show_delivery_date,
                 'default_use_calendar_week': use_calendar_week,
-                'default_eq_use_internal_descriptionion': eq_use_internal_description,
+                'default_eq_use_internal_description': eq_use_internal_description,
                 }
     
     _columns = {
                 'default_use_sales_person_as_contact': fields.boolean('Sale Person as Contact Person', help='Sets the Sale Person as the Contact Person in the Sale Order, only when creating.', default_model='sale.order'),
                 'default_show_delivery_date': fields.boolean('Show the Delivery Date on the Sale Order [equitania]', help='The delivery date will be shown in the Sale Order', default_model='sale.order'),
                 'default_use_calendar_week': fields.boolean('Show Calendar Week for Delivery Date [equitania]', help='The delivery date will be shown as a calendar week', default_model='sale.order'),
-                'default_eq_use_internal_descriptionion': fields.boolean('Use internal description for sale orders [equitania]', help='The internal description will be used for sale orders not the sale description', default_model='sale.order.line'),
+                'default_eq_use_internal_description': fields.boolean('Use internal description for sale orders [equitania]', help='The internal description will be used for sale orders not the sale description', default_model='sale.order.line'),
                 }
 
 class eq_report_extension_purchase_settings(osv.osv_memory):
@@ -229,7 +229,7 @@ class eq_report_extension_sale_order_line(osv.osv):
     _columns = {
                 'get_delivery_date': fields.function(_get_delivery_date, string="Delivery", type='char', methode=True, store=False),
                 'eq_delivery_date': fields.date('Delivery Date'),
-                'eq_use_internal_descriptionion': fields.boolean('Use internal description for sale orders'),
+                'eq_use_internal_description': fields.boolean('Use internal description for sale orders'),
                 }
     
     def on_change_delivery_date(self, cr, uid, ids, date_order, eq_delivery_date, context={}):

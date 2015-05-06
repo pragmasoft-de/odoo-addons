@@ -1,3 +1,8 @@
+### 05.05.2015, 1.0.18
+### equitania
+#### Bugfix
+- Fehler behoben, bei dem man den Verkaufsauftrag aus dem Webshop nicht zu erstellen konnte.
+
 ### 05.05.2015, 1.0.17
 ### equitania
 #### Erweiterung
@@ -6,7 +11,7 @@
 ### 05.05.2015, 1.0.16
 ### equitania
 #### Bugfix
-- Fehlerhafter Anzeige des Produktnummern Generators in den Einstellungen behoben.
+- Fehlerhafte Anzeige des Produktnummern Generators in den Einstellungen behoben.
 
 ### 04.05.2015, 1.0.15
 ### equitania
