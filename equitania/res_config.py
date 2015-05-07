@@ -54,4 +54,6 @@ class eq_stock_config_settings(osv.osv_memory):
                 'default_eq_max_prefix_count': fields.integer('Max prefix lenght [equitania]'),
                 'default_eq_prod_num_lenght': fields.integer('Product number lenght [equitania]'),
                 'default_eq_seperator': fields.char('Seperator [equitania]'),
+                'module_eq_info_for_product_product': fields.boolean('Volume, weight and net weight from product variant [equitania]', help="The volume, weight and net weight will be set in the product variant (product.product)."),
+                
                 }

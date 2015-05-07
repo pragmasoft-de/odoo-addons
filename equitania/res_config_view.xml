@@ -12,6 +12,10 @@
                         <field name="default_eq_join_stock_moves"/>
                         <label for="default_eq_join_stock_moves"/>
                     </div>
+                    <div>
+                        <field name="module_eq_info_for_product_product"/>
+                        <label for="module_eq_info_for_product_product"/>
+                    </div>
 				</field>
                 <form string="Configure Warehouse" position="inside">
                     <group>

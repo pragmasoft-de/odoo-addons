@@ -1675,3 +1675,43 @@ msgstr "Interne Beschreibung für die Angebote/Aufträge verwenden [equitania]"
 #: help:sale.config.settings,default_eq_use_internal_descriptionion:0
 msgid "The internal description will be used for sale orders not the sale description"
 msgstr "Auf den Angeboten/Aufträgen wird die interne Beschreibung anstelle der Verkaufsbeschreibung verwendet"
+
+#. module: equitania
+#: field:product.product,weight:0
+msgid "Gross Weight"
+msgstr "Bruttogewicht"
+
+#. module: equitania
+#: field:product.product,weight_net:0
+msgid "Net Weight"
+msgstr "Nettogewicht"
+
+#. module: equitania
+#: help:product.product,weight_net:0
+msgid "The net weight in Kg."
+msgstr "Das Nettogewicht in Kg."
+
+#. module: equitania
+#: help:product.product,volume:0
+msgid "The volume in m3."
+msgstr "Das Volumen in m3."
+
+#. module: equitania
+#: help:stock.config.settings,module_eq_info_for_product_product:0
+msgid "The volume, weight and net weight will be set in the product variant (product.product)."
+msgstr "Das Volumen, Gewicht und Nettogewicht in der Produktvariante festlegen (product.product)."
+
+#. module: equitania
+#: field:product.product,volume:0
+msgid "Volume"
+msgstr "Volumen"
+
+#. module: equitania
+#: field:stock.config.settings,module_eq_info_for_product_product:0
+msgid "Volume, weight and net weight from product variant [equitania]"
+msgstr "Volumen, Gewicht und Nettogewicht in der Produktvariante festlegen [equitania]"
+
+#. module: equitania
+#: help:product.product,weight:0
+msgid "The gross weight in Kg."
+msgstr "Das Bruttogewicht in Kg."
