@@ -1,7 +1,12 @@
+### 05.05.2015, 1.0.19
+### equitania
+#### Erweiterung
+- Beim Ein- und Verkaufsaufträgen wird als Beschreibung der Position ein Leerzeichen eingefügt, wenn für das Produkt keine Beschreibung hinterlegt ist. Dieses Leerzeichen wird auf den Reports nicht angezeigt.
+
 ### 05.05.2015, 1.0.18
 ### equitania
 #### Bugfix
-- Fehler behoben, bei dem man den Verkaufsauftrag aus dem Webshop nicht zu erstellen konnte.
+- Fehler behoben, bei dem man den Verkaufsauftrag aus dem Webshop nicht erstellen konnte.
 
 ### 05.05.2015, 1.0.17
 ### equitania

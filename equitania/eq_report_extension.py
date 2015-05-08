@@ -271,7 +271,7 @@ class eq_report_extension_sale_order_line(osv.osv):
         elif eq_use_internal_descriptionion and product_id.description:
             vals['value']['name'] = product_id.product_tmpl_id.description
         else:
-            vals['value']['name'] = product_id.name
+            vals['value']['name'] = ' '
         vals['value']['delay'] = product_id.sale_delay
         return vals
     
@@ -304,7 +304,7 @@ class eq_report_extension_purchase_order_line(osv.osv):
         if product.description_purchase:
             vals['value']['name'] = product.description_purchase
         else:
-            vals['value']['name'] = product.name
+            vals['value']['name'] = ' '
         return vals
     
     def _get_delivery_date(self, cr, uid, ids, field_name, arg, context):

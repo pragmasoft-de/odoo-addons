@@ -204,7 +204,7 @@
 	                        </td>
                         	<td>
                             <strong><span t-field="line.product_id.name"/></strong>
-                            <t t-if="line.name"><br/><span t-field="line.name"/></t>
+                            <t t-if="line.name and line.name != ' '"><br/><span t-field="line.name"/></t>
 							<!-- Zeigt die Zeichnungsnummer der Produktvariante an -->
 							<t id="eq_drawing_number"/>
 							<t t-if="o.state not in ['draft','sent']">

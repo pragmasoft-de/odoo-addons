@@ -170,8 +170,10 @@
 	                    </td>
 	                    <td>
 	                        <strong><span t-field="line.product_id.name"/></strong>
-	                        <br/>
-	                        <span t-field="line.name"/>
+	                        <div t-if="line.name and line.name != ' '">
+		                        <br/>
+		                        <span t-field="line.name"/>
+	                        </div>
 	                        <br/>
 	                        <strong t-if="o.show_delivery_date">Delivery date: <span t-field="line.get_delivery_date"/></strong>
 	                        <div id="agreement_id"/>	                        
