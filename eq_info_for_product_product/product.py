@@ -29,4 +29,12 @@ class eq_info_for_product_product(osv.osv):
         'weight': fields.float('Gross Weight', digits_compute=dp.get_precision('Stock Weight'), help="The gross weight in Kg."),
         'weight_net': fields.float('Net Weight', digits_compute=dp.get_precision('Stock Weight'), help="The net weight in Kg."),
         'volume': fields.float('Volume', help="The volume in m3."),
+        'seller_ids': fields.one2many('product.supplierinfo', 'product_tmpl_id', 'Supplier'),
+        'seller_delay': fields.related('seller_ids','delay', type='integer', string='Supplier Lead Time',
+            help="This is the average delay in days between the purchase order confirmation and the receipts for this product and for the default supplier. It is used by the scheduler to order requests based on reordering delays."),
+        'seller_qty': fields.related('seller_ids','qty', type='float', string='Supplier Quantity',
+            help="This is minimum quantity to purchase from Main Supplier."),
+        'seller_id': fields.related('seller_ids','name', type='many2one', relation='res.partner', string='Main Supplier',
+            help="Main Supplier who has highest priority in Supplier List."),
+
     }

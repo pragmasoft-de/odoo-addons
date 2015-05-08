@@ -8,6 +8,8 @@
             <field name="inherit_id" ref="product.product_template_only_form_view" />
             <field name="arch" type="xml">
             	<group name="weight" position="replace"/>
+                <separator string="Suppliers" position="replace"/>
+            	<field name="seller_ids" position="replace"/>
             </field>
         </record>
 	</data>
