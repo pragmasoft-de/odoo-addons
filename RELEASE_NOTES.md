@@ -1,3 +1,8 @@
+### 12.05.2015, 1.0.20
+### equitania
+#### Bugfix
+- Fehlendes Hochkomma im Report "Angebotsanfrage" hinzugefügt.
+
 ### 05.05.2015, 1.0.19
 ### equitania
 #### Erweiterung

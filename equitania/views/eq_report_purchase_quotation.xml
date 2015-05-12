@@ -125,7 +125,7 @@
 				    <tr t-foreach="o.order_line" t-as="order_line">
 				        <td>
 				            <strong><span t-field="order_line.product_id.name"/></strong>
-				            <div t-if="order_line.name and order_line.name != ' ">
+				            <div t-if="order_line.name and order_line.name != ' '">
 					            <br/>
 					            <span t-field="order_line.name"/>
 				            </div>
