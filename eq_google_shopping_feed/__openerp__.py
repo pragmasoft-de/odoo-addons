@@ -22,10 +22,9 @@
 {
     'name': "Equitania Google shopping feed",
 
-    'summary': """
-        """,
-
-    'description': """        
+    'summary': 'CMS Extension',
+    'description': """
+         This module provide Google shopping feed for Odoo Shop products.
     """,
 
     'author': "Equitania Software GmbH",
@@ -34,8 +33,8 @@
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/openerp/addons/base/module/module_data.xml
     # for the full list
-    'category': 'Uncategorized',
-    'version': '0.1',
+    'category': 'Website',
+    'version': '1.0.2',
 
     # any module necessary for this one to work correctly
     'depends': ['website'],

@@ -21,9 +21,11 @@
 
 {
     'name': 'Equitania No Advertisement',
-    'version': '1.0.0',
+    'version': '1.0.2',
     'description': """
-        Equitania Software GmbH
+        Module deactivate the phone home function of Odoo!
+        Odoo account will also deactivated. 
+        You should uninstall also Support chat!
     """,
     'author': 'Equitania Software GmbH',
     'website': 'www.myodoo.de',
