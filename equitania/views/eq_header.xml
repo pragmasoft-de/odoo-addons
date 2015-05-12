@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data>
-<template id="report.external_layout_header">
+
+<template id="eq_external_layout_header" inherit_id="report.external_layout_header" active="True" customize_show="True">
+	<xpath expr="//div[@class='header']" position="replace">
     <div class="header">
         <div class="row zero_min_height">
             <div>
@@ -15,6 +17,7 @@
                 <!--<div style="border-bottom: 1px solid black;"/>--></div>
         </div>
     </div>
+    </xpath>
 </template>
 </data>
 </openerp>
