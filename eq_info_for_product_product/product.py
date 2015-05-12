@@ -38,3 +38,10 @@ class eq_info_for_product_product(osv.osv):
             help="Main Supplier who has highest priority in Supplier List."),
 
     }
+    
+class product_supplierinfo(osv.osv):
+    _inherit = "product.supplierinfo"
+    
+    _columns = {
+                'product_tmpl_id' : fields.many2one('product.product', 'Product', required=True, ondelete='cascade', select=True, oldname='product_id'),
+                }
