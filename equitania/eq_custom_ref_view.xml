@@ -143,6 +143,18 @@
                             type="action" attrs="{'invisible':[('sale_ok', '!=', True)]}">
                   		<div><strong><field name="eq_pricelist_items_count"/></strong><br/>Pricelist Pos</div>
                    	</button>
+                   	<button class="oe_stat_button"
+                            name="action_view_invoice_out"
+                            icon="fa-strikethrough"
+                            type="object" attrs="{'invisible':[('sale_ok', '!=', True)]}">
+                  		<div><strong><field name="eq_invoice_count_out"/></strong><br/>Invoice Out</div>
+                   	</button>
+                   	<button class="oe_stat_button"
+                            name="action_view_invoice_in"
+                            icon="fa-strikethrough"
+                            type="object" attrs="{'invisible':[('purchase_ok', '!=', True)]}">
+                  		<div><strong><field name="eq_invoice_count_in"/></strong><br/>Invoice In</div>
+                   	</button>
                 </xpath>
             </field>
         </record>  
@@ -269,6 +281,18 @@
                             icon="fa-strikethrough"
                             type="action" attrs="{'invisible':[('sale_ok', '!=', True)]}">
                   		<div><strong><field name="eq_pricelist_items_count"/></strong><br/>Pricelist Pos</div>
+                   	</button>
+                   	<button class="oe_stat_button"
+                            name="action_view_invoice_out"
+                            icon="fa-strikethrough"
+                            type="object" attrs="{'invisible':[('sale_ok', '!=', True)]}">
+                  		<div><strong><field name="eq_invoice_count_out"/></strong><br/>Invoice Out</div>
+                   	</button>
+                   	<button class="oe_stat_button"
+                            name="action_view_invoice_in"
+                            icon="fa-strikethrough"
+                            type="object" attrs="{'invisible':[('purchase_ok', '!=', True)]}">
+                  		<div><strong><field name="eq_invoice_count_in"/></strong><br/>Invoice In</div>
                    	</button>
                 </xpath>
             </field>

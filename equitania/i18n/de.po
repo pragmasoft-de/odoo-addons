@@ -1715,3 +1715,15 @@ msgstr "Volumen, Gewicht und Nettogewicht in der Produktvariante festlegen [equi
 #: help:product.product,weight:0
 msgid "The gross weight in Kg."
 msgstr "Das Bruttogewicht in Kg."
+
+#. module: equitania
+#: view:product.product:equitania.eq_product_product_form_view
+#: view:product.template:equitania.eq_product_product_template_only_form_view
+msgid "Invoice In"
+msgstr "Eingangsrechnungen"
+
+#. module: equitania
+#: view:product.product:equitania.eq_product_product_form_view
+#: view:product.template:equitania.eq_product_product_template_only_form_view
+msgid "Invoice Out"
+msgstr "Ausgangsrechnungen"

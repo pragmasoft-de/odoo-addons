@@ -111,6 +111,22 @@ class eq_product_template(osv.osv):
             res[id] = '%d' % (all[0])
         return res
     
+    def _eq_invoice_count_out(self, cr, uid, ids, name, arg, context=None):
+        res = {}
+        for id in ids:
+            cr.execute("""select count(id) from account_invoice where type = 'out_invoice' and id in (select invoice_id from account_invoice_line where product_id   in (select id from product_product where product_tmpl_id = %d) group by invoice_id)""" % (ids[0]))
+            all = cr.fetchone() or [0]
+            res[id] = '%d' % (all[0])
+        return res
+    
+    def _eq_invoice_count_in(self, cr, uid, ids, name, arg, context=None):
+        res = {}
+        for id in ids:
+            cr.execute("""select count(id) from account_invoice where type = 'in_invoice' and id in (select invoice_id from account_invoice_line where product_id   in (select id from product_product where product_tmpl_id = %d) group by invoice_id)""" % (ids[0]))
+            all = cr.fetchone() or [0]
+            res[id] = '%d' % (all[0])
+        return res
+    
     # changed default_code to required field
     _columns = {
                 'eq_drawing_number': fields.char('Drawing Number', size=50),
@@ -120,13 +136,31 @@ class eq_product_template(osv.osv):
                 'eq_internal_number': fields.char('Internal Number', size=64),
                 'eq_internal_text': fields.char('Internal Info', size=255),
                 'default_code': fields.related('product_variant_ids', 'default_code', type='char', string='Internal Reference'),
-                'eq_pricelist_items_count': fields.function(_eq_pricleist_items_count, type="char", method=True)
+                'eq_pricelist_items_count': fields.function(_eq_pricleist_items_count, type="char", method=True),
+                'eq_invoice_count_out': fields.function(_eq_invoice_count_out, type="char", methode=True),
+                'eq_invoice_count_in': fields.function(_eq_invoice_count_in, type="char", methode=True),
     }
     
     # default setting to make sure, that no "Interne Kategorie" by default selected is
     _defaults = {
                 'categ_id': False,
     }
+    
+    def action_view_invoice_out(self, cr, uid, ids, context=None):
+        cr.execute("""select id from account_invoice where type = 'out_invoice' and id in (select invoice_id from account_invoice_line where product_id   in (select id from product_product where product_tmpl_id = %d) group by invoice_id)""" % (ids[0]))
+        all = cr.fetchone() or [0]
+            
+        result = self._get_act_window_dict(cr, uid, 'account.action_invoice_tree1', context=context)
+        result['domain'] = "[('id','in',[" + ','.join(map(str, all)) + "])]"
+        return result
+    
+    def action_view_invoice_in(self, cr, uid, ids, context=None):
+        cr.execute("""select id from account_invoice where type = 'in_invoice' and id in (select invoice_id from account_invoice_line where product_id   in (select id from product_product where product_tmpl_id = %d) group by invoice_id)""" % (ids[0]))
+        all = cr.fetchone() or [0]
+            
+        result = self._get_act_window_dict(cr, uid, 'account.action_invoice_tree2', context=context)
+        result['domain'] = "[('id','in',[" + ','.join(map(str, all)) + "])]"
+        return result
     
     def eq_product_number_update(self, cr, uid, ids, context=None):
         product_obj = self.pool.get('product.product')
@@ -247,6 +281,22 @@ class eq_product_product(osv.osv):
             res[id] = '%d' % (all[0])
         return res
     
+    def _eq_invoice_count_out(self, cr, uid, ids, name, arg, context=None):
+        res = {}
+        for id in ids:
+            cr.execute("""select count(id) from account_invoice where type = 'out_invoice' and id in (select invoice_id from account_invoice_line where product_id = %d group by invoice_id)""" % (ids[0]))
+            all = cr.fetchone() or [0]
+            res[id] = '%d' % (all[0])
+        return res
+    
+    def _eq_invoice_count_in(self, cr, uid, ids, name, arg, context=None):
+        res = {}
+        for id in ids:
+            cr.execute("""select count(id) from account_invoice where type = 'in_invoice' and id in (select invoice_id from account_invoice_line where product_id = %d group by invoice_id)""" % (ids[0]))
+            all = cr.fetchone() or [0]
+            res[id] = '%d' % (all[0])
+        return res
+    
     # changed default_code to required field
     _columns = {
                 'default_code' : fields.char('Product Number', select=True),
@@ -256,7 +306,9 @@ class eq_product_product(osv.osv):
                 'eq_state_dup': fields.function(_set_eq_state_dup, type='char', arg='context', method=True),
                 'eq_internal_number': fields.char('Internal Number', size=64),
                 'eq_internal_text': fields.char('Internal Info', size=255),
-                'eq_pricelist_items_count': fields.function(_eq_pricleist_items_count, type="char", method=True)
+                'eq_pricelist_items_count': fields.function(_eq_pricleist_items_count, type="char", method=True),
+                'eq_invoice_count_out': fields.function(_eq_invoice_count_out, type="char", methode=True),
+                'eq_invoice_count_in': fields.function(_eq_invoice_count_in, type="char", methode=True),
     }
     
     # default setting to make sure, that no "Interne Kategorie" by default selected is
@@ -264,6 +316,22 @@ class eq_product_product(osv.osv):
                 'categ_id': False,
                 'lst_price': 0,
     }
+    
+    def action_view_invoice_out(self, cr, uid, ids, context=None):
+        cr.execute("""select id from account_invoice where type = 'out_invoice' and id in (select invoice_id from account_invoice_line where product_id = %d group by invoice_id)""" % (ids[0]))
+        all = cr.fetchone() or [0]
+            
+        result = self.pool.get('product.template')._get_act_window_dict(cr, uid, 'account.action_invoice_tree1', context=context)
+        result['domain'] = "[('id','in',[" + ','.join(map(str, all)) + "])]"
+        return result
+    
+    def action_view_invoice_in(self, cr, uid, ids, context=None):
+        cr.execute("""select id from account_invoice where type = 'in_invoice' and id in (select invoice_id from account_invoice_line where product_id = %d group by invoice_id)""" % (ids[0]))
+        all = cr.fetchone() or [0]
+            
+        result = self.pool.get('product.template')._get_act_window_dict(cr, uid, 'account.action_invoice_tree2', context=context)
+        result['domain'] = "[('id','in',[" + ','.join(map(str, all)) + "])]"
+        return result
     
     def _generate_ean(self, cr, uid, ids, company_ean, sequence, context):
         ean_without_checksum = company_ean + sequence[-5:]

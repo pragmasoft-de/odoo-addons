@@ -1,3 +1,9 @@
+### 19.05.2015, 1.0.21
+### equitania
+#### Erweiterung
+- Button zum Öffnen der Ein-/Ausgangsrechnung in die Form Anischt der Produkte und Produktvarianten eingefügt.
+- Anzeige der Rechnung
+
 ### 12.05.2015, 1.0.1
 ### eq_info_for_product_product
 #### Bugfix
