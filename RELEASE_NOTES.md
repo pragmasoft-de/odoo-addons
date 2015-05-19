@@ -1,3 +1,8 @@
+### 19.05.2015, 1.0.22
+### equitania
+#### Erwiterung
+- Boolean Feld in die Lieferdetails eingefügt, wodurch die zu Liefernde Position abgeschlossen wird und im neuen Lieferschein nicht mehr aufgeführt ist.
+
 ### 19.05.2015, 1.0.21
 ### equitania
 #### Erweiterung

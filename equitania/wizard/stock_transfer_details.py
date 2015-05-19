@@ -19,6 +19,26 @@
 #
 ##############################################################################
 
-import eq_date_done_change
-import eq_multy_assign_product_no
-import stock_transfer_details
+from openerp import models, fields, api
+from openerp.tools.translate import _
+import openerp.addons.decimal_precision as dp
+from datetime import datetime
+        
+class eq_stock_transfer_details(models.TransientModel):
+    _inherit = 'stock.transfer_details'
+    
+    @api.one
+    def do_detailed_transfer(self):
+        for item in self.item_ids:
+            if item.eq_line_finished:
+                moves = self.env['stock.move'].search([('picking_id', '=', self.picking_id.id), ('product_id', '=', item.product_id.id), ('product_uom_qty', '>=', item.quantity)])
+                for move in moves:
+                    move.product_uom_qty = item.quantity
+        res = super(eq_stock_transfer_details, self).do_detailed_transfer()
+        return res
+        
+class eq_stock_transfer_details_items(models.TransientModel):
+    _inherit = 'stock.transfer_details_items'
+    
+    eq_line_finished = fields.Boolean('Finished')
+    

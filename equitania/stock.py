@@ -74,13 +74,6 @@ class stock_picking_extension(osv.osv):
         return res
     
     @api.multi
-    def set_state(self):
-        for move in self.move_lines:
-            if move.procurement_id and move.procurement_id[0].sale_line_id:
-                move.procurement_id.sale_line_id.state = 'confirmed'
-                move.procurement_id.sale_line_id.order_id.state = 'progress'
-    
-    @api.multi
     def reverse_picking_new_view(self):
         view = self.env.ref('stock.view_picking_form')
 
@@ -123,7 +116,6 @@ class stock_picking_extension(osv.osv):
         #Edit new, Invoice needed
         self.write(cr, uid, new_picking_id, {'invoice_state': '2binvoiced'})
         #Return as view definition
-        self.set_state(cr, uid, ids[0], context)
         return self.reverse_picking_new_view(cr, uid, new_picking_id)
 
     @api.cr_uid_ids_context
