@@ -39,8 +39,29 @@ class eq_product_template(osv.osv):
                 }
     
     def action_view_stock_moves(self, cr, uid, ids, context=None):
-        result = super(eq_product_template, self).action_view_stock_moves(cr, uid, ids, context=context)
-        result['context'] = result['context'][:-1] + ", 'search_default_in_and_out': 1" + result['context'][-1]
+        products = self._get_products(cr, uid, ids, context=context)
+        result = self._get_act_window_dict(cr, uid, 'stock.act_product_stock_move_open', context=context)
+        if len(ids) == 1 and len(products) == 1:
+            ctx = "{'tree_view_ref':'stock.view_move_tree', \
+                  'default_product_id': %s, 'search_default_product_id': %s}" \
+                  % (products[0], products[0])
+            result['context'] = ctx
+        else:
+            result['domain'] = "[('product_id','in',[" + ','.join(map(str, products)) + "])]"
+            result['context'] = "{'tree_view_ref':'stock.view_move_tree'}"
+        return result
+    def action_view_stock_moves(self, cr, uid, ids, context=None):
+        products = self._get_products(cr, uid, ids, context=context)
+        result = self._get_act_window_dict(cr, uid, 'equitania.eq_act_product_stock_move_open', context=context)
+        if len(ids) == 1 and len(products) == 1:
+            ctx = "{'tree_view_ref':'stock.view_move_tree', \
+                  'default_product_id': %s, 'search_default_product_id': %s}" \
+                  % (products[0], products[0])
+            result['context'] = ctx
+            result['context'] = result['context'][:-1] + ", 'search_default_in_and_out': 1" + result['context'][-1]
+        else:
+            result['domain'] = "[('product_id','in',[" + ','.join(map(str, products)) + "])]"
+            result['context'] = result['context'][:-1] + ", 'search_default_in_and_out': 1" + result['context'][-1]
         return result
     
 class eq_product_product(osv.osv):

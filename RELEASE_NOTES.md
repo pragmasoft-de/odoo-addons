@@ -1,3 +1,8 @@
+### 27.05.2015, 1.0.26
+### equitania
+#### Bugfix
+- In der Lieferansicht, welche man über den Button "Lieferungen" im Produkt öffnet, wird nach dem richtigen Produkt gefiltert.
+
 ### 27.05.2015, 1.0.25
 ### equitania
 #### Bugfix
