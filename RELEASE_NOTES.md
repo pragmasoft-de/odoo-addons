@@ -1,3 +1,8 @@
+### 27.05.2015, 1.0.25
+### equitania
+#### Verbesserung
+- Button, welcher die Vekäufe im Produkt anzeigt, zeigt nun die offene Menge und die Gesamtmenge an.
+
 ### 27.05.2015, 1.0.24
 ### equitania
 #### Erweiterung

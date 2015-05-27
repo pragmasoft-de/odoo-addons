@@ -1748,3 +1748,9 @@ msgstr "Lieferdatum Verkauf"
 #: help:res.partner,eq_delivery_date_type_sale:0
 msgid "If nothing is selected, the default from the settings will be used."
 msgstr "Wenn keine Auswahl getroffen ist, wird der Standardwert aus den Einstellungen genommen. Das Lieferdatum muss in den Einstellungen aktiviert sein."
+
+#. module: equitania
+#: field:product.product,eq_sale_count:0
+#: field:product.template,eq_sale_count:0
+msgid "Sales"
+msgstr "Verkäufe"

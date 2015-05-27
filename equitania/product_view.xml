@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Product Template - form view -->
+        <record id="eq_product_template_form_view_sale_order_button_inherit" model="ir.ui.view">
+            <field name="name">eq.product.template.only.form.view.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="sale.product_template_form_view_sale_order_button" />
+            <field name="arch" type="xml">
+            	<field name="sales_count" position="replace">
+            		<field name="eq_sale_count" widget="statinfo" />
+            	</field>
+            </field>
+        </record>
+        
+		
+        <!-- Product Product - form view -->
+        <record id="eq_product_form_view_sale_order_button_inherit" model="ir.ui.view">
+            <field name="name">eq.product.product.form.view.inherit</field>
+            <field name="model">product.product</field>            
+            <field name="inherit_id" ref="sale.product_form_view_sale_order_button" />
+            <field name="arch" type="xml">
+            	<field name="sales_count" position="replace">
+            		<field name="eq_sale_count" widget="statinfo" />
+            	</field>
+            </field>
+        </record>
+    </data>
+</openerp>
