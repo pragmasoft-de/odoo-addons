@@ -1754,3 +1754,15 @@ msgstr "Wenn keine Auswahl getroffen ist, wird der Standardwert aus den Einstell
 #: field:product.template,eq_sale_count:0
 msgid "Sales"
 msgstr "Verkäufe"
+
+#. module: equitania
+#: selection:res.partner,eq_delivery_date_type_purchase:0
+#: selection:res.partner,eq_delivery_date_type_sale:0
+msgid "Calendar week"
+msgstr "Kalenderwoche"
+
+#. module: equitania
+#: selection:res.partner,eq_delivery_date_type_purchase:0
+#: selection:res.partner,eq_delivery_date_type_sale:0
+msgid "Date"
+msgstr "Datum"
