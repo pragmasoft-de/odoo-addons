@@ -21,7 +21,7 @@
 
 {
     'name': 'Equitania Erweiterungsmodul',
-    'version': '1.0.22',
+    'version': '1.0.23',
     'description': """
         Equitania Software GmbH
     """,

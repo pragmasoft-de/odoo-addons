@@ -1,6 +1,12 @@
+### 27.05.2015, 1.0.23
+### equitania
+#### Erweiterung
+- Filter "Ein- und Ausgang" für die Lagerbuchungen eingefügt. Lieferungen von und zu Kunden und Lieferanten.
+- Der Button "Lieferungen" in den Produkten und Produktvarianten benutzt den Filter Ein- und "Ausgang"
+
 ### 19.05.2015, 1.0.22
 ### equitania
-#### Erwiterung
+#### Erweiterung
 - Boolean Feld in die Lieferdetails eingefügt, wodurch die zu Liefernde Position abgeschlossen wird und im neuen Lieferschein nicht mehr aufgeführt ist.
 
 ### 19.05.2015, 1.0.21

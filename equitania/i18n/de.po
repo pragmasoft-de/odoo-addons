@@ -1727,3 +1727,8 @@ msgstr "Eingangsrechnungen"
 #: view:product.template:equitania.eq_product_product_template_only_form_view
 msgid "Invoice Out"
 msgstr "Ausgangsrechnungen"
+
+#. module: equitania
+#: view:stock.move:equitania.eq_view_move_search
+msgid "In & Out"
+msgstr "Ein- & Ausgang"
