@@ -1,3 +1,8 @@
+### 27.05.2015, 1.0.24
+### equitania
+#### Erweiterung
+- Anzeigeart (Kalenderwoche/Datum) des Lieferdatums auf Kundenebene einstellbar.
+
 ### 27.05.2015, 1.0.23
 ### equitania
 #### Erweiterung

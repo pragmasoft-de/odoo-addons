@@ -21,7 +21,7 @@
 
 {
     'name': 'Equitania Erweiterungsmodul',
-    'version': '1.0.23',
+    'version': '1.0.24',
     'description': """
         Equitania Software GmbH
     """,
@@ -68,6 +68,7 @@
         'data/decimal_precision.xml',
         'res_config_view.xml',
         'res_users_view.xml',
+        'res_partner_view.xml',
         'stock_view.xml',
         'wizard/eq_date_done_change_view.xml',
         'wizard/stock_transfer_details_view.xml',

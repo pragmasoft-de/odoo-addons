@@ -1732,3 +1732,19 @@ msgstr "Ausgangsrechnungen"
 #: view:stock.move:equitania.eq_view_move_search
 msgid "In & Out"
 msgstr "Ein- & Ausgang"
+
+#. module: equitania
+#: field:res.partner,eq_delivery_date_type_purchase:0
+msgid "Delivery Date Purchase"
+msgstr "Lieferdatum Einkauf"
+
+#. module: equitania
+#: field:res.partner,eq_delivery_date_type_sale:0
+msgid "Delivery Date Sale"
+msgstr "Lieferdatum Verkauf"
+
+#. module: equitania
+#: help:res.partner,eq_delivery_date_type_purchase:0
+#: help:res.partner,eq_delivery_date_type_sale:0
+msgid "If nothing is selected, the default from the settings will be used."
+msgstr "Wenn keine Auswahl getroffen ist, wird der Standardwert aus den Einstellungen genommen. Das Lieferdatum muss in den Einstellungen aktiviert sein."

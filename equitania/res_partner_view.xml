@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_partner_form_inherited1" model="ir.ui.view">
+            <field name="name">res.partner.form.inherited1</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='sales_purchases']/group" position="inside">
+                	<group>
+			            <field name="eq_delivery_date_type_sale"/>
+			            <field name="eq_delivery_date_type_purchase"/>
+                	</group>
+                </xpath>
+          </field>
+        </record>
+	</data>
+</openerp>

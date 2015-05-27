@@ -217,10 +217,16 @@ class eq_report_extension_sale_order_line(osv.osv):
         for order_line in self.browse(cr, uid, ids, context):
             if order_line.order_id.show_delivery_date and order_line.eq_delivery_date:
                 delivery_date = datetime.strptime(order_line.eq_delivery_date, OE_DFORMAT)
-                if order_line.order_id.use_calendar_week:
-                    result[order_line.id] = 'KW ' + delivery_date.strftime('%V/%Y')
+                if order_line.order_id.partner_id.eq_delivery_date_type_sale:
+                    if order_line.order_id.partner_id.eq_delivery_date_type_sale == 'cw':
+                        result[order_line.id] = 'KW ' + delivery_date.strftime('%V/%Y')
+                    elif order_line.order_id.partner_id.eq_delivery_date_type_sale == 'date':
+                        result[order_line.id] = delivery_date.strftime('%d.%m.%Y')                        
                 else:
-                    result[order_line.id] = delivery_date.strftime('%d.%m.%Y')
+                    if order_line.order_id.use_calendar_week:
+                        result[order_line.id] = 'KW ' + delivery_date.strftime('%V/%Y')
+                    else:
+                        result[order_line.id] = delivery_date.strftime('%d.%m.%Y')
             else:
                 result[order_line.id] = False
         
@@ -313,10 +319,16 @@ class eq_report_extension_purchase_order_line(osv.osv):
         for purchase_line in self.browse(cr, uid, ids, context):
             if purchase_line.order_id.show_delivery_date and purchase_line.date_planned:
                 delivery_date = datetime.strptime(purchase_line.date_planned, OE_DFORMAT)
-                if purchase_line.order_id.use_calendar_week:
-                    result[purchase_line.id] = 'KW ' + delivery_date.strftime('%V/%Y')
+                if purchase_line.order_id.eq_delivery_date_type_purchase:
+                    if purchase_line.order_id.eq_delivery_date_type_purchase == 'cw':
+                        result[purchase_line.id] = 'KW ' + delivery_date.strftime('%V/%Y')
+                    elif purchase_line.order_id.eq_delivery_date_type_purchase == 'date':
+                        result[purchase_line.id] = delivery_date.strftime('%d.%m.%Y')                    
                 else:
-                    result[purchase_line.id] = delivery_date.strftime('%d.%m.%Y')
+                    if purchase_line.order_id.use_calendar_week:
+                        result[purchase_line.id] = 'KW ' + delivery_date.strftime('%V/%Y')
+                    else:
+                        result[purchase_line.id] = delivery_date.strftime('%d.%m.%Y')
             else:
                 result[purchase_line.id] = False
         
