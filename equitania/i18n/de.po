@@ -1766,3 +1766,8 @@ msgstr "Kalenderwoche"
 #: selection:res.partner,eq_delivery_date_type_sale:0
 msgid "Date"
 msgstr "Datum"
+
+#. module: equitania
+#: field:stock.transfer_details_items,eq_line_finished:0
+msgid "Finished"
+msgstr "Abgeschlossen"
