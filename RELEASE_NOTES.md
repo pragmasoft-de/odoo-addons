@@ -1,5 +1,10 @@
 ### 27.05.2015, 1.0.25
 ### equitania
+#### Bugfix
+- Button in der Produktübersicht für die Ein-/Ausgangsrechnungen zeigt nun alle Rechnungen an.
+
+### 27.05.2015, 1.0.25
+### equitania
 #### Verbesserung
 - Button, welcher die Vekäufe im Produkt anzeigt, zeigt nun die offene Menge und die Gesamtmenge an.
 

@@ -114,7 +114,7 @@ class eq_product_template(osv.osv):
     def _eq_invoice_count_out(self, cr, uid, ids, name, arg, context=None):
         res = {}
         for id in ids:
-            cr.execute("""select count(id) from account_invoice where type = 'out_invoice' and id in (select invoice_id from account_invoice_line where product_id   in (select id from product_product where product_tmpl_id = %d) group by invoice_id)""" % (ids[0]))
+            cr.execute("""select count(id) from account_invoice where type = 'out_invoice' and id in (select invoice_id from account_invoice_line where product_id   in (select id from product_product where product_tmpl_id = %d) group by invoice_id)""" % (id))
             all = cr.fetchone() or [0]
             res[id] = '%d' % (all[0])
         return res
@@ -122,7 +122,7 @@ class eq_product_template(osv.osv):
     def _eq_invoice_count_in(self, cr, uid, ids, name, arg, context=None):
         res = {}
         for id in ids:
-            cr.execute("""select count(id) from account_invoice where type = 'in_invoice' and id in (select invoice_id from account_invoice_line where product_id   in (select id from product_product where product_tmpl_id = %d) group by invoice_id)""" % (ids[0]))
+            cr.execute("""select count(id) from account_invoice where type = 'in_invoice' and id in (select invoice_id from account_invoice_line where product_id   in (select id from product_product where product_tmpl_id = %d) group by invoice_id)""" % (id))
             all = cr.fetchone() or [0]
             res[id] = '%d' % (all[0])
         return res
@@ -148,7 +148,7 @@ class eq_product_template(osv.osv):
     
     def action_view_invoice_out(self, cr, uid, ids, context=None):
         cr.execute("""select id from account_invoice where type = 'out_invoice' and id in (select invoice_id from account_invoice_line where product_id   in (select id from product_product where product_tmpl_id = %d) group by invoice_id)""" % (ids[0]))
-        all = cr.fetchone() or [0]
+        all = cr.fetchall() or [0]
             
         result = self._get_act_window_dict(cr, uid, 'account.action_invoice_tree1', context=context)
         result['domain'] = "[('id','in',[" + ','.join(map(str, all)) + "])]"
@@ -156,7 +156,7 @@ class eq_product_template(osv.osv):
     
     def action_view_invoice_in(self, cr, uid, ids, context=None):
         cr.execute("""select id from account_invoice where type = 'in_invoice' and id in (select invoice_id from account_invoice_line where product_id   in (select id from product_product where product_tmpl_id = %d) group by invoice_id)""" % (ids[0]))
-        all = cr.fetchone() or [0]
+        all = cr.fetchall() or [0]
             
         result = self._get_act_window_dict(cr, uid, 'account.action_invoice_tree2', context=context)
         result['domain'] = "[('id','in',[" + ','.join(map(str, all)) + "])]"
@@ -284,7 +284,7 @@ class eq_product_product(osv.osv):
     def _eq_invoice_count_out(self, cr, uid, ids, name, arg, context=None):
         res = {}
         for id in ids:
-            cr.execute("""select count(id) from account_invoice where type = 'out_invoice' and id in (select invoice_id from account_invoice_line where product_id = %d group by invoice_id)""" % (ids[0]))
+            cr.execute("""select count(id) from account_invoice where type = 'out_invoice' and id in (select invoice_id from account_invoice_line where product_id = %d group by invoice_id)""" % (id))
             all = cr.fetchone() or [0]
             res[id] = '%d' % (all[0])
         return res
@@ -292,7 +292,7 @@ class eq_product_product(osv.osv):
     def _eq_invoice_count_in(self, cr, uid, ids, name, arg, context=None):
         res = {}
         for id in ids:
-            cr.execute("""select count(id) from account_invoice where type = 'in_invoice' and id in (select invoice_id from account_invoice_line where product_id = %d group by invoice_id)""" % (ids[0]))
+            cr.execute("""select count(id) from account_invoice where type = 'in_invoice' and id in (select invoice_id from account_invoice_line where product_id = %d group by invoice_id)""" % (id))
             all = cr.fetchone() or [0]
             res[id] = '%d' % (all[0])
         return res
@@ -319,7 +319,7 @@ class eq_product_product(osv.osv):
     
     def action_view_invoice_out(self, cr, uid, ids, context=None):
         cr.execute("""select id from account_invoice where type = 'out_invoice' and id in (select invoice_id from account_invoice_line where product_id = %d group by invoice_id)""" % (ids[0]))
-        all = cr.fetchone() or [0]
+        all = cr.fetchall() or [0]
             
         result = self.pool.get('product.template')._get_act_window_dict(cr, uid, 'account.action_invoice_tree1', context=context)
         result['domain'] = "[('id','in',[" + ','.join(map(str, all)) + "])]"
@@ -327,7 +327,7 @@ class eq_product_product(osv.osv):
     
     def action_view_invoice_in(self, cr, uid, ids, context=None):
         cr.execute("""select id from account_invoice where type = 'in_invoice' and id in (select invoice_id from account_invoice_line where product_id = %d group by invoice_id)""" % (ids[0]))
-        all = cr.fetchone() or [0]
+        all = cr.fetchall() or [0]
             
         result = self.pool.get('product.template')._get_act_window_dict(cr, uid, 'account.action_invoice_tree2', context=context)
         result['domain'] = "[('id','in',[" + ','.join(map(str, all)) + "])]"
