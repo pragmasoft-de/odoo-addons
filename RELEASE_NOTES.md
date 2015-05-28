@@ -1,3 +1,8 @@
+### 28.05.2015, 1.0.27
+### equitania
+#### Verbesserung
+- Deutsche Übersetzung für Ein-/Ausgangsrechnung angepasst.
+
 ### 27.05.2015, 1.0.26
 ### equitania
 #### Bugfix
