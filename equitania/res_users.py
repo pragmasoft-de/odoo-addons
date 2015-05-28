@@ -32,7 +32,7 @@ class eq_res_users(osv.osv):
     
     
     def write(self, cr, uid, ids, values, context=None):
-        res = super(eq_res_users, self).write(cr, uid, ids, values, context)
+        res = super(eq_res_users, self).write(cr, uid, ids, values, context={})
         
         if 'eq_employee_id' in values and 'do_not_repeat' not in context:
             if values['eq_employee_id']:
@@ -55,7 +55,7 @@ class eq_res_users(osv.osv):
                 user_ids_to_del = self.search(cr, SUPERUSER_ID, [('eq_employee_id', '=', values['eq_employee_id'])])
                 if len(user_ids_to_del) != 0:
                     for user_id in user_ids_to_del:
-                        self.write(cr, SUPERUSER_ID, user_id, {'eq_employee_id': False})
-                emp_obj.write(cr, SUPERUSER_ID, values['eq_employee_id'], {'user_id': res})
+                        self.write(cr, SUPERUSER_ID, user_id, {'eq_employee_id': False}, context={})
+                emp_obj.write(cr, SUPERUSER_ID, [values['eq_employee_id']], {'user_id': res}, context={})
         
         return res

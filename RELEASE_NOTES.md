@@ -1,3 +1,9 @@
+### 28.05.2015, 1.0.28
+### equitania
+#### Bugfix
+- Benutzer mit eingetragenem Mitarbeiter lässt sich wieder erstellen.
+- Logik für die 1zu1 Verbindung zwischen Mitarbeiter und Benutzer funktioniert wieder.
+
 ### 28.05.2015, 1.0.27
 ### equitania
 #### Verbesserung
