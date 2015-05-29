@@ -103,8 +103,8 @@
                 		<label for="id" string="Default Address"/>
                 	</h3>
                 	<group>
-                		<field name="eq_default_delivery_address"/>
-                		<field name="eq_default_invoice_address"/>
+                		<field name="eq_default_delivery_address" domain="[('parent_id', '=', active_id)]"/>
+                		<field name="eq_default_invoice_address" domain="[('parent_id', '=', active_id)]"/>
                 	</group>
                 </xpath>
             </field>

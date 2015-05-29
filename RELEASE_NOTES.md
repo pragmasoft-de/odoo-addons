@@ -1,3 +1,8 @@
+### 29.05.2015, 1.0.30
+### equitania
+#### Verbesserung
+- Auswahl bei Standardliefer- und rechnungsadresse auf die eigenen Partner-Kontakte beschränkt
+
 ### 28.05.2015, 1.0.28
 ### equitania
 #### Bugfix
