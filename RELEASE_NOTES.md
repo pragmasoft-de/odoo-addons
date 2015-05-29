@@ -2,6 +2,7 @@
 ### equitania
 #### Verbesserung
 - Auswahl bei Standardliefer- und rechnungsadresse auf die eigenen Partner-Kontakte beschränkt
+- Kundenreferenznr. wird beim Duplizieren übertragen
 
 ### 28.05.2015, 1.0.28
 ### equitania

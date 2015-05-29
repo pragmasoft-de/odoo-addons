@@ -57,6 +57,7 @@ class sale_order(osv.osv):
                 'eq_pricelist_change': fields.boolean('Pricelist Default'),
                 'eq_invoice_address': fields.function(_compute_invoice_address, string=" ", sotre=False, type="char"),
                 'eq_delivery_address': fields.function(_compute_delivery_address, string=" ", sotre=False, type="char"),
+                'client_order_ref': fields.char('Reference/Description', copy=True),
                 }
 
 sale_order()
