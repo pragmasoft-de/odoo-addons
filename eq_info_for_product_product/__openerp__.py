@@ -21,6 +21,7 @@
 
 {
     'name': 'Equitania Produktinformationen',
+    'license': 'AGPL-3',
     'version': '1.0.1',
     'description': """
         Equitania Software GmbH

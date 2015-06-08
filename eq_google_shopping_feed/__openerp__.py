@@ -21,7 +21,7 @@
 
 {
     'name': "Equitania Google shopping feed",
-
+    'license': 'AGPL-3',
     'summary': 'CMS Extension',
     'description': """
          This module provide Google shopping feed for Odoo Shop products.
