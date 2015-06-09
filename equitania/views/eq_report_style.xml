@@ -12,6 +12,10 @@
     font-size: 18pt;
     }
     
+    tr {
+    	page-break-inside: avoid;
+    }
+    
     td {
         vertical-align:top;
     }
@@ -27,8 +31,8 @@
     .border-black td {
         border-top: 1px solid black !important;
     }
-    .table-condensed &gt; thead &gt; tr &gt; th {
-        border-bottom: 1px solid black !important;
+    .table-condensed > thead > tr > th {
+        border-bottom: 2px groove black !important;
     }
     
     .zero_min_height {

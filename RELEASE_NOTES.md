@@ -1,3 +1,8 @@
+### 9.06.2015, 1.0.32
+### equitania
+#### Bugfix
+- Zeilenumbrüche werden auf den Reports wieder richtig angezeigt.
+
 ### 9.06.2015, 1.0.31
 ### equitania
 #### Bugfix
