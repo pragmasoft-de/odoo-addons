@@ -400,8 +400,9 @@ class eq_report_extension_stock_picking(osv.osv):
     
     #Adds the customer ref number to the picking list. Gets data from context which is set in the method action_ship_create of the sale.order
     def create(self, cr, user, vals, context={}):
-        if context.get('eq_ref_number', False):
-            vals['eq_ref_number'] = context['eq_ref_number'].get(vals['origin'], False)
+        if context:
+            if context.get('eq_ref_number', False):
+                vals['eq_ref_number'] = context['eq_ref_number'].get(vals['origin'], False)
         return super(eq_report_extension_stock_picking, self).create(cr, user, vals, context)
     
     #Adds the customer ref number to the invoice (Create from picking list)

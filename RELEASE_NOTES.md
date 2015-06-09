@@ -1,3 +1,8 @@
+### 9.06.2015, 1.0.31
+### equitania
+#### Bugfix
+- Fehlenden Context eingefügt.
+
 ### 29.05.2015, 1.0.30
 ### equitania
 #### Verbesserung
