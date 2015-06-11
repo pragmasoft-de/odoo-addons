@@ -303,7 +303,7 @@ msgstr "Kundennummer"
 #. module: equitania
 #: view:website:account.report_invoice_document
 #: view:website:equitania.eq_report_stockpicking_return
-#: view:website:sale.report_saleorder_document
+#: view:website:sale.eq_external_layout_header_sale_order
 #: view:website:stock.report_picking
 msgid "Customer no."
 msgstr "Kundennr."
@@ -824,13 +824,13 @@ msgstr "Auftragspositionen"
 
 #. module: equitania
 #: view:website:purchase.report_purchaseorder_document
-#: view:website:sale.report_saleorder_document
+#: view:website:sale.eq_external_layout_header_sale_order
 msgid "Order date"
 msgstr "Bestelldatum"
 
 #. module: equitania
 #: view:website:account.report_invoice_document
-#: view:website:sale.report_saleorder_document
+#: view:website:sale.eq_external_layout_header_sale_order
 msgid "Order no."
 msgstr "Auftrags Nr."
 
@@ -841,7 +841,7 @@ msgstr "Unsere Bestellnr."
 
 #. module: equitania
 #: view:website:equitania.eq_report_stockpicking_return
-#: view:website:sale.report_saleorder_document
+#: view:website:sale.eq_external_layout_header_sale_order
 #: view:website:stock.report_picking
 msgid "Our reference no."
 msgstr "Belegreferenz"
@@ -1043,12 +1043,12 @@ msgid "Quotation"
 msgstr "Angebot"
 
 #. module: equitania
-#: view:website:sale.report_saleorder_document
+#: view:website:sale.eq_external_layout_header_sale_order
 msgid "Quotation date"
 msgstr "Angebotsdatum"
 
 #. module: equitania
-#: view:website:sale.report_saleorder_document
+#: view:website:sale.eq_external_layout_header_sale_order
 msgid "Quotation no."
 msgstr "Angebots Nr."
 
@@ -1470,7 +1470,7 @@ msgstr "Ihre Bestellnr."
 #. module: equitania
 #: view:website:account.report_invoice_document
 #: view:website:equitania.eq_report_stockpicking_return
-#: view:website:sale.report_saleorder_document
+#: view:website:sale.eq_external_layout_header_sale_order
 #: view:website:stock.report_picking
 msgid "Your reference no."
 msgstr "Referenz des Kunden"
