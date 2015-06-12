@@ -173,8 +173,8 @@ msgid "Client Order Reference"
 msgstr "Referenz"
 
 #. module: equitania
-#: view:website:equitania.eq_report_stockpicking_return
-#: view:website:stock.report_picking
+#: view:website:eq_external_layout_header_return_picking
+#: view:website:equitania.eq_external_layout_header_stock_picking
 msgid "Commitment Date"
 msgstr "Bestelldatum"
 
@@ -301,10 +301,10 @@ msgid "Customer Number"
 msgstr "Kundennummer"
 
 #. module: equitania
-#: view:website:account.report_invoice_document
-#: view:website:equitania.eq_report_stockpicking_return
-#: view:website:sale.eq_external_layout_header_sale_order
-#: view:website:stock.report_picking
+#: view:website:equitania.eq_external_layout_header_invoice
+#: view:website:equitania.eq_external_layout_header_return_picking
+#: view:website:equitania.eq_external_layout_header_sale_order
+#: view:website:equitania.eq_external_layout_header_stock_picking
 msgid "Customer no."
 msgstr "Kundennr."
 
@@ -363,8 +363,8 @@ msgstr "Lieferbedingungen"
 #: view:purchase.order.line:equitania.eq_purchase_order_line_tree_inherit
 #: view:sale.config.settings:equitania.eq_view_sale_config_settings
 #: field:sale.order.line,eq_delivery_date:0
-#: view:website:equitania.eq_report_stockpicking_return
-#: view:website:stock.report_picking
+#: view:website:equitania.eq_external_layout_header_return_picking
+#: view:website:equitania.eq_external_layout_header_stock_picking
 msgid "Delivery Date"
 msgstr "Lieferdatum"
 
@@ -619,12 +619,12 @@ msgid "Invoice address:"
 msgstr "Rechnungsanschrift:"
 
 #. module: equitania
-#: view:website:account.report_invoice_document
+#: view:website:equitania.eq_external_layout_header_invoice
 msgid "Invoice date"
 msgstr "Rechnungsdatum"
 
 #. module: equitania
-#: view:website:account.report_invoice_document
+#: view:website:equitania.eq_external_layout_header_invoice
 msgid "Invoice no."
 msgstr "Rechnungsnr."
 
@@ -823,14 +823,14 @@ msgid "Open sale order line"
 msgstr "Auftragspositionen"
 
 #. module: equitania
-#: view:website:purchase.report_purchaseorder_document
+#: view:website:equitania.eq_external_layout_header_purchase_order
 #: view:website:sale.eq_external_layout_header_sale_order
 msgid "Order date"
 msgstr "Bestelldatum"
 
 #. module: equitania
-#: view:website:account.report_invoice_document
-#: view:website:sale.eq_external_layout_header_sale_order
+#: view:website:equitania.eq_external_layout_header_invoice
+#: view:website:equitania.eq_external_layout_header_sale_order
 msgid "Order no."
 msgstr "Auftrags Nr."
 
@@ -1322,8 +1322,8 @@ msgid "Supplier Refund"
 msgstr "Rückerstattung Lieferant"
 
 #. module: equitania
-#: view:website:account.report_invoice_document
-#: view:website:purchase.report_purchaseorder_document
+#: view:website:equitania.eq_external_layout_header_invoice
+#: view:website:equitania.eq_external_layout_header_purchase_order
 msgid "Supplier no."
 msgstr "Lieferantennr."
 
@@ -1457,26 +1457,26 @@ msgid "Wizard that opens the stock valuation history table"
 msgstr "Dieser Assistent öffnet die Übersicht für die Lagerbestandshistorie"
 
 #. module: equitania
-#: view:website:purchase.report_purchasequotation_document
+#: view:website:equitania.eq_external_layout_header_purchase_quotation
 msgid "Your message"
 msgstr "Ihre Nachricht"
 
 #. module: equitania
-#: view:website:purchase.report_purchaseorder_document
-#: view:website:purchase.report_purchasequotation_document
+#: view:website:equitania.eq_external_layout_header_purchase_order
+#: view:website:equitania.eq_external_layout_header_purchase_quotation
 msgid "Your order reference"
 msgstr "Ihre Bestellnr."
 
 #. module: equitania
-#: view:website:account.report_invoice_document
-#: view:website:equitania.eq_report_stockpicking_return
-#: view:website:sale.eq_external_layout_header_sale_order
-#: view:website:stock.report_picking
+#: view:website:equitania.eq_external_layout_header_invoice
+#: view:website:equitania.eq_external_layout_header_return_picking
+#: view:website:equitania.eq_external_layout_header_sale_order
+#: view:website:equitania.eq_external_layout_header_stock_picking
 msgid "Your reference no."
 msgstr "Referenz des Kunden"
 
 #. module: equitania
-#: view:website:purchase.report_purchasequotation_document
+#: view:website:equitania.eq_external_layout_header_purchase_quotation
 msgid "Your request no."
 msgstr "Ihre Anfragenr."
 

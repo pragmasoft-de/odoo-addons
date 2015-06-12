@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data>
-<template id="eq_purchaseorder_extension_sh" inherit_id="equitania.eq_purchaseorder_extension" active="True">
+<template id="eq_purchaseorder_extension_sh" inherit_id="purchase.report_purchaseorder_document" active="True">
 	<xpath expr="//h[@t-field='o.partner_id.zip']" position="attributes">
 		<attribute name="style">margin-right:4px;</attribute>
 	</xpath>
@@ -12,7 +12,7 @@
 		<h>&#xa0;</h>
 	</xpath>
 </template>
-<template id="eq_purchasequotation_extension_sh" inherit_id="equitania.eq_purchasequotation_extension" active="True">
+<template id="eq_purchasequotation_extension_sh" inherit_id="purchase.report_purchasequotation_document" active="True">
 	<xpath expr="//h[@t-field='o.partner_id.zip']" position="attributes">
 		<attribute name="style">margin-right:4px;</attribute>
 	</xpath>
@@ -45,7 +45,7 @@
 		<h>&#xa0;</h>
 	</xpath>
 </template>
-<template id="eq_report_picking_extension_sh" inherit_id="equitania.eq_report_picking_extension" active="True">
+<template id="eq_report_picking_extension_sh" inherit_id="stock.report_picking" active="True">
 	<xpath expr="//h[@t-field='o.partner_id.zip']" position="attributes">
 		<attribute name="style">margin-right:4px;</attribute>
 	</xpath>
@@ -53,7 +53,7 @@
 		<h>&#xa0;</h>
 	</xpath>
 </template>
-<template id="eq_invoice_extension_sh" inherit_id="eq_invoice_extension" active="True">
+<template id="eq_invoice_extension_sh" inherit_id="account.report_invoice_document" active="True">
 	<xpath expr="//h[@t-field='o.partner_id.zip']" position="attributes">
 		<attribute name="style">margin-right:4px;</attribute>
 	</xpath>
