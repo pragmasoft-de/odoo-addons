@@ -3,22 +3,22 @@
 #### Änderung
 - Reports und Header überarbeitet. Informationsblock wird auf allen Seiten gedruckt.
 
-*Vor dem Update folgende SQL Script ausführen
-*
-*delete from ir_ui_view where inherit_id = (select id from ir_ui_view where name = 'eq_saleorder_extension');
-*delete from ir_ui_view where name = 'eq_saleorder_extension';
-*
-*delete from ir_ui_view where inherit_id = (select id from ir_ui_view where name = 'eq_purchasequotation_extension');
-*delete from ir_ui_view where name = 'eq_purchasequotation_extension';
-*
-*delete from ir_ui_view where inherit_id = (select id from ir_ui_view where name = 'eq_purchaseorder_extension');
-*delete from ir_ui_view where name = 'eq_purchaseorder_extension';
-*
-*delete from ir_ui_view where inherit_id = (select id from ir_ui_view where name = 'eq_invoice_extension');
-*delete from ir_ui_view where name = 'eq_invoice_extension';
-*
-*delete from ir_ui_view where inherit_id = (select id from ir_ui_view where name = 'eq_report_picking_extension');
-*delete from ir_ui_view where name = 'eq_report_picking_extension';
+##### Vor dem Update folgende SQL Script ausführen
+
+- delete from ir_ui_view where inherit_id = (select id from ir_ui_view where name = 'eq_saleorder_extension');
+- delete from ir_ui_view where name = 'eq_saleorder_extension';
+
+- delete from ir_ui_view where inherit_id = (select id from ir_ui_view where name = 'eq_purchasequotation_extension');
+- delete from ir_ui_view where name = 'eq_purchasequotation_extension';
+
+- delete from ir_ui_view where inherit_id = (select id from ir_ui_view where name = 'eq_purchaseorder_extension');
+- delete from ir_ui_view where name = 'eq_purchaseorder_extension';
+
+- delete from ir_ui_view where inherit_id = (select id from ir_ui_view where name = 'eq_invoice_extension');
+- delete from ir_ui_view where name = 'eq_invoice_extension';
+
+- delete from ir_ui_view where inherit_id = (select id from ir_ui_view where name = 'eq_report_picking_extension');
+- delete from ir_ui_view where name = 'eq_report_picking_extension';
 
 ### 9.06.2015, 1.0.32
 ### equitania
