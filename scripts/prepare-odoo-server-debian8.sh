@@ -32,11 +32,6 @@ read mypsql
 
 if [ "$mypsql" = "Y" ]; then
   echo "PostgreSQL will be install..."
-  sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-  apt-get install wget ca-certificates
-  wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-  apt-get update
-  apt-get upgrade
   apt-get install postgresql
 else
   echo "PostgreSQL is not installed!"
@@ -95,6 +90,7 @@ if [ "$mypdf" = "Y" ]; then
   wget http://www.openerp24.de/fileadmin/content/dateien/wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
   dpkg -i wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
   rm wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
+  apt-get -f install
 else
   echo "HTML2PDF is not installed!"
 fi
