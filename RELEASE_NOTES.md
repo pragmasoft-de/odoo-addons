@@ -3,6 +3,7 @@
 #### Änderung
 - Die Änderungen am partner_id Feld zusammengefasst. Nur die nötigen Attribute werden geändert.
 - Die Optionen für die Ädresserweiterungen werden nun immer angezeigt.
+- Beim "Verkäufe" Button im Produkt wird die Menge aus Angeboten nicht mehr berücksichtigt.
 
 ### 12.06.2015, 1.0.33
 ### equitania
