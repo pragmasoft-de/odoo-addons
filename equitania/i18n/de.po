@@ -1726,7 +1726,7 @@ msgstr "EIngangsre."
 #: view:product.product:equitania.eq_product_product_form_view
 #: view:product.template:equitania.eq_product_product_template_only_form_view
 msgid "Invoice Out"
-msgstr "Asugangsre."
+msgstr "Ausgangsre."
 
 #. module: equitania
 #: view:stock.move:equitania.eq_view_move_search
