@@ -36,6 +36,8 @@ class eq_company_custom_fields(osv.osv):
         'eq_custom_4': fields.char('Custom 4', size=50, help="The content of this field may be used in the header or footer of reports."),
         'eq_report_logo': fields.binary('Company Report Logo'),
         'eq_company_ean': fields.char('Company EAN13', size=7),
+        'eq_citypart': fields.char('Disctirct'),
+        'eq_house_no': fields.char('House number'),
         
     }
     

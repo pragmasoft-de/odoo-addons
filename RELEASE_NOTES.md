@@ -4,6 +4,8 @@
 - Die Änderungen am partner_id Feld zusammengefasst. Nur die nötigen Attribute werden geändert.
 - Die Optionen für die Ädresserweiterungen werden nun immer angezeigt.
 - Beim "Verkäufe" Button im Produkt wird die Menge aus Angeboten nicht mehr berücksichtigt.
+#### Erweiterung
+- Hausnummer in die Unternehmendsdaten eingefügt.
 
 ### 12.06.2015, 1.0.33
 ### equitania
@@ -26,6 +28,10 @@
 
 - delete from ir_ui_view where inherit_id = (select id from ir_ui_view where name = 'eq_report_picking_extension');
 - delete from ir_ui_view where name = 'eq_report_picking_extension';
+
+- update report_paperformat
+- set header_spacing = 55, margin_top = 60
+- where id = 1;
 
 ### 9.06.2015, 1.0.32
 ### equitania

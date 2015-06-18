@@ -18,6 +18,13 @@
 	            <xpath expr="//field[@name='website']" position="after">
                    	<field name="eq_company_ean"/>
                 </xpath>
+				<field name="street" position="replace">
+                    <field name="street" style="width: 75%%" placeholder="Street..."/>
+					<field name="eq_house_no" style="width: 20%%" placeholder="House no"/>
+				</field>
+				<field name="street2" positions="attributes">
+					<attribute name="placeholder">Street2...</attribute>
+				</field>
             </field>
         </record>
     </data>
