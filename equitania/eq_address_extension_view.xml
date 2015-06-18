@@ -59,8 +59,10 @@
             <field name="model">sale.order</field>
 	    	<field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
-                <field name="partner_id" position="replace">
-                    <field name="partner_id" on_change="onchange_partner_id(partner_id, context)" domain="[('customer','=', True)]" context="{'search_default_customer':1, 'show_address': 1,'active_model':'sale.order','main_address': True}" options='{"always_reload": True}'/>
+                <field name="partner_id" position="attributes">
+                    <attribute name="context">{'search_default_customer':1, 'show_address': 1,'active_model':'sale.order','main_address': True}</attribute>
+                    <attribute name="options">{'always_reload': True}</attribute>
+            		<attribute name="domain">[('customer','=',True), ('is_company', '=', True)]</attribute>
                 </field>
             	<xpath expr="//field[@name='partner_invoice_id']" position="attributes">
             		<attribute name="domain">['|', ('id', '=', partner_id), ('parent_id', '=', partner_id)]</attribute>
@@ -88,14 +90,14 @@
             </field>
 	    </record>
 	    
-        <record id="view_sale_config_settings" model="ir.ui.view">
+        <record id="eq_view_sale_config_settings_show_address" model="ir.ui.view">
             <field name="name">crm settings</field>
             <field name="model">sale.config.settings</field>
-            <field name="inherit_id" ref="sale.view_sales_config"/>
+            <field name="inherit_id" ref="base_setup.view_sale_config_settings"/>
             <field name="arch" type="xml">
                 <data>
-		            <label for="group_sale_delivery_address" position="after">
-		            	<div attrs="{'invisible': [('group_sale_delivery_address','=', False)]}">
+                	<div name="Customer Features" position="inside">
+		            	<div>
 		                    <field name="default_show_address" class="oe_inline"/>
 		                	<label for="default_show_address" string="Show street and city in the partner search of the saleorder [equitania]"/>
 		            	</div>
@@ -103,7 +105,7 @@
 		                    <field name="default_search_only_company" class="oe_inline"/>
 		                	<label for="default_search_only_company" string="Only search for Companies in the Sale Order/Quotation [equitania]"/>
 		            	</div>
-		            </label>
+		            </div>
                 </data>
             </field>
         </record>

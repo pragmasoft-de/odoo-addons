@@ -1,3 +1,9 @@
+### 18.06.2015, 1.0.34
+### equitania
+#### Änderung
+- Die Änderungen am partner_id Feld zusammengefasst. Nur die nötigen Attribute werden geändert.
+- Die Optionen für die Ädresserweiterungen werden nun immer angezeigt.
+
 ### 12.06.2015, 1.0.33
 ### equitania
 #### Änderung
