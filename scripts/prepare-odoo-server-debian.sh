@@ -92,9 +92,10 @@ read mypdf
 
 if [ "$mypdf" = "Y" ]; then
   echo "HTML2PDF will be install..."
-  wget http://www.openerp24.de/fileadmin/content/dateien/wkhtmltox-0.12.1_linux-wheezy-amd64.deb
-  dpkg -i wkhtmltox-0.12.1_linux-wheezy-amd64.deb
-  rm wkhtmltox-0.12.1_linux-wheezy-amd64.deb
+  wget http://www.openerp24.de/fileadmin/content/dateien/wkhtmltox-0.12.2.1_linux-wheezy-amd64.deb
+  dpkg -i wkhtmltox-0.12.2.1_linux-wheezy-amd64.deb
+  rm wkhtmltox-0.12.2.1_linux-wheezy-amd64.deb
+  apt-get -f install
 else
   echo "HTML2PDF is not installed!"
 fi
