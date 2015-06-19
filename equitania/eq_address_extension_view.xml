@@ -66,12 +66,14 @@
                 </field>
             	<xpath expr="//field[@name='partner_invoice_id']" position="attributes">
             		<attribute name="domain">['|', ('id', '=', partner_id), ('parent_id', '=', partner_id)]</attribute>
+                    <attribute name="context">{'search_default_customer':1, 'show_address': 1,'active_model':'sale.order', 'default_type': 'invoice'}</attribute>
             	</xpath>
             	<xpath expr="//field[@name='partner_invoice_id']" position="after">
             		<field name="eq_invoice_address" groups="sale.group_delivery_invoice_address"/>
             	</xpath>
             	<xpath expr="//field[@name='partner_shipping_id']" position="attributes">
             		<attribute name="domain">['|', ('id', '=', partner_id), ('parent_id', '=', partner_id)]</attribute>
+                    <attribute name="context">{'search_default_customer':1, 'show_address': 1,'active_model':'sale.order', 'default_type': 'delivery'}</attribute>
             	</xpath>
             	<xpath expr="//field[@name='partner_shipping_id']" position="after">
             		<field name="eq_delivery_address" groups="sale.group_delivery_invoice_address"/>

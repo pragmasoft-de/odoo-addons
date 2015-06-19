@@ -1,3 +1,8 @@
+### 19.06.2015, 1.0.35
+### equitania
+#### Änderung
+- Rechnung- und Lieferadresse bekommen auch den Zusatzt Starße und Stadt, wenn die Option in den Verkaufseinstellungen aktiviert ist.
+
 ### 18.06.2015, 1.0.34
 ### equitania
 #### Änderung
