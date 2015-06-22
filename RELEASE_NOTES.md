@@ -4,6 +4,7 @@
 - Papierformate für die neuen Reports angepasst. Werden bei einer Neuinstallation neu gesetzt.
 #### FIX
 - Bei einer Unterlieferung wird die Verkaufsmenge richtig gesetzt, wodurch dir Rechnung mit der korrekten Menge erstellt wird.
+- Bei erzwungenenen Teillieferungen (nicht auf Lager) wird die Lieferung von davor nicht addiert. 
 
 ### 19.06.2015, 1.0.35
 ### equitania
