@@ -34,6 +34,7 @@ class eq_stock_transfer_details(models.TransientModel):
                 moves = self.env['stock.move'].search([('picking_id', '=', self.picking_id.id), ('product_id', '=', item.product_id.id), ('product_uom_qty', '>=', item.quantity)])
                 for move in moves:
                     move.product_uom_qty = item.quantity
+                    move.product_uos_qty = item.quantity * move.product_id.uos_coeff
         res = super(eq_stock_transfer_details, self).do_detailed_transfer()
         return res
         

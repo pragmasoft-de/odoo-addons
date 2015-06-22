@@ -43,9 +43,9 @@ class eq_install_func(osv.osv):
                  'header_line': False, 
                  'default': True, 
                  'format': 'A4', 
-                 'header_spacing': 35, 
+                 'header_spacing': 55, 
                  'margin_right': 17, 
-                 'margin_top': 40, 
+                 'margin_top': 60, 
                  'margin_left': 17, 
                  'margin_bottom': 23, 
                  'page_height': 0, 
@@ -74,6 +74,26 @@ class eq_install_func(osv.osv):
                      'name': 'European A4 Intern'}
             
             eu_a4_intern_id = self.pool.get('report.paperformat').create(cr, uid, eu_a4_intern)
+        
+        if self.pool.get('report.paperformat').search(cr, uid, [('name', '=', 'European A4 Intern Fertigung')]) == []:           
+            eu_a4_intern_mrp = {
+                     'page_width': 0,
+                     'orientation': 'Portrait', 
+                     'header_line': False, 
+                     'default': True, 
+                     'format': 'A4', 
+                     'header_spacing': 30, 
+                     'margin_right': 17, 
+                     'margin_top': 35, 
+                     'margin_left': 17, 
+                     'margin_bottom': 24, 
+                     'page_height': 0, 
+                     'display_name': 'European A4 Intern Fertigung', 
+                     'report_ids': [], 
+                     'dpi': 90, 
+                     'name': 'European A4 Intern Fertigung'}
+            
+            eu_a4_intern_id = self.pool.get('report.paperformat').create(cr, uid, eu_a4_intern_mrp)
         
         return True
     

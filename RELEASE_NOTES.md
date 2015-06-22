@@ -1,3 +1,10 @@
+### 22.06.2015, 1.0.36
+### equitania
+#### Änderung
+- Papierformate für die neuen Reports angepasst. Werden bei einer Neuinstallation neu gesetzt.
+#### FIX
+- Bei einer Unterlieferung wird die Verkaufsmenge richtig gesetzt, wodurch dir Rechnung mit der korrekten Menge erstellt wird.
+
 ### 19.06.2015, 1.0.35
 ### equitania
 #### Änderung
