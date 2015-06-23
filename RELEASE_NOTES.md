@@ -1,3 +1,8 @@
+### 23.06.2015, 1.0.37
+### equitania
+#### Erweiterung
+- Die Reports werden bei der Installation den Papierformaten zugeordnet.
+
 ### 22.06.2015, 1.0.36
 ### equitania
 #### Änderung

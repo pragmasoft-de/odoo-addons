@@ -28,7 +28,7 @@ from openerp.modules.module import get_module_path
 
 class eq_install_func(osv.osv):
     _name = "eq_install_func"
-    
+        
     def _set_paper_format(self, cr, uid, ids=None, context=None):
         """
         eu_a4_reports = self.pool.get('ir.actions.report.xml').search(cr, uid, ['|', '|', '|',('report_name', '=', 'purchase.report_purchaseorder'), ('report_name', '=', 'purchase.report_purchasequotation'), ('report_name', '=', 'account.report_invoice'), ('report_name', '=', 'sale.report_saleorder')])
@@ -37,6 +37,12 @@ class eq_install_func(osv.osv):
             val = {'paperformat_id': 1,}
             self.pool.get('ir.actions.report.xml ').write(cr, uid, ids, val)
         """
+        
+        paperformat_obj = self.pool.get('report.paperformat')
+        report_obj = self.pool.get('ir.actions.report.xml')
+        
+        eq_a4_report_ids = report_obj.search(cr, uid, [('model', 'in', ('sale.order', 'account.invoice', 'purchase.order', 'eq_framework_agreement', 'stock.picking'))])
+        
         eu_a4 = {
                  'page_width': 0,
                  'orientation': 'Portrait', 
@@ -49,51 +55,53 @@ class eq_install_func(osv.osv):
                  'margin_left': 17, 
                  'margin_bottom': 23, 
                  'page_height': 0, 
-                 'display_name': 'European A4', 
-                 'report_ids': [], 
+                 'display_name': 'EQ European A4', 
+                 'report_ids': [(6, 0, eq_a4_report_ids)], 
                  'dpi': 90, 
-                 'name': 'European A4'}
-        eu_a4_id = self.pool.get('report.paperformat').write(cr, uid, 1, eu_a4)
+                 'name': 'EQ European A4'}
+        eu_a4_intern_id = paperformat_obj.create(cr, uid, eu_a4)
+               
+        eu_a4_intern_report_ids = report_obj.search(cr, uid, [('model', 'in', ('eq_open_sale_order_line', 'mrp.bom', 'eq_calculation.data'))])
+               
+        eu_a4_intern = {
+                 'page_width': 0,
+                 'orientation': 'Portrait', 
+                 'header_line': False, 
+                 'default': True, 
+                 'format': 'A4', 
+                 'header_spacing': 10, 
+                 'margin_right': 17, 
+                 'margin_top': 15, 
+                 'margin_left': 17, 
+                 'margin_bottom': 23, 
+                 'page_height': 0, 
+                 'display_name': 'EQ European A4 Intern', 
+                 'report_ids': [(6, 0 , eu_a4_intern_report_ids)], 
+                 'dpi': 90, 
+                 'name': 'EQ European A4 Intern'}
         
-        if self.pool.get('report.paperformat').search(cr, uid, [('name', '=', 'European A4 Intern')]) == []:           
-            eu_a4_intern = {
-                     'page_width': 0,
-                     'orientation': 'Portrait', 
-                     'header_line': False, 
-                     'default': True, 
-                     'format': 'A4', 
-                     'header_spacing': 10, 
-                     'margin_right': 17, 
-                     'margin_top': 15, 
-                     'margin_left': 17, 
-                     'margin_bottom': 23, 
-                     'page_height': 0, 
-                     'display_name': 'European A4 Intern', 
-                     'report_ids': [], 
-                     'dpi': 90, 
-                     'name': 'European A4 Intern'}
-            
-            eu_a4_intern_id = self.pool.get('report.paperformat').create(cr, uid, eu_a4_intern)
+        eu_a4_intern_id = paperformat_obj.create(cr, uid, eu_a4_intern)
         
-        if self.pool.get('report.paperformat').search(cr, uid, [('name', '=', 'European A4 Intern Fertigung')]) == []:           
-            eu_a4_intern_mrp = {
-                     'page_width': 0,
-                     'orientation': 'Portrait', 
-                     'header_line': False, 
-                     'default': True, 
-                     'format': 'A4', 
-                     'header_spacing': 30, 
-                     'margin_right': 17, 
-                     'margin_top': 35, 
-                     'margin_left': 17, 
-                     'margin_bottom': 24, 
-                     'page_height': 0, 
-                     'display_name': 'European A4 Intern Fertigung', 
-                     'report_ids': [], 
-                     'dpi': 90, 
-                     'name': 'European A4 Intern Fertigung'}
-            
-            eu_a4_intern_id = self.pool.get('report.paperformat').create(cr, uid, eu_a4_intern_mrp)
+        eu_a4_intern_mrp_report_ids = report_obj.search(cr, uid, [('model', 'in', ('mrp.production',))])
+               
+        eu_a4_intern_mrp = {
+                 'page_width': 0,
+                 'orientation': 'Portrait', 
+                 'header_line': False, 
+                 'default': True, 
+                 'format': 'A4', 
+                 'header_spacing': 30, 
+                 'margin_right': 17, 
+                 'margin_top': 35, 
+                 'margin_left': 17, 
+                 'margin_bottom': 24, 
+                 'page_height': 0, 
+                 'display_name': 'EQ European A4 Intern Fertigung', 
+                 'report_ids': [(6, 0, eu_a4_intern_mrp_report_ids)], 
+                 'dpi': 90, 
+                 'name': 'EQ European A4 Intern Fertigung'}
+        
+        eu_a4_intern_id = paperformat_obj.create(cr, uid, eu_a4_intern_mrp)
         
         return True
     
