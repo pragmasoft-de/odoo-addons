@@ -1,6 +1,8 @@
-### 23.06.2015, 1.0.38
+### 23.06.2015
 ### equitania
-#### FIX
+#### FIX, 1.0.39
+- Überleiferung war nicht möglich.
+#### FIX, 1.0.38
 - Vereinzelte Lieferscheine ließen sich nicht abschließen.
 
 ### 23.06.2015, 1.0.37

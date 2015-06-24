@@ -529,6 +529,7 @@ class eq_stock_move_extension(osv.osv):
 
             #unreserve the quants and make them available for other operations/moves
             quant_obj.quants_unreserve(cr, uid, move, context=context)
+        procurement_ids = list(set(procurement_ids))
         # Check the packages have been placed in the correct locations
         self._check_package_from_moves(cr, uid, ids, context=context)
         #set the move as done
