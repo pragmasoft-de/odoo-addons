@@ -1,3 +1,8 @@
+### 23.06.2015, 1.0.38
+### equitania
+#### FIX
+- Vereinzelte Lieferscheine ließen sich nicht abschließen.
+
 ### 23.06.2015, 1.0.37
 ### equitania
 #### Erweiterung

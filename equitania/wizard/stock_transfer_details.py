@@ -29,7 +29,8 @@ class eq_stock_transfer_details(models.TransientModel):
     
     @api.one
     def do_detailed_transfer(self):
-        self.picking_id.move_lines[0].linked_move_operation_ids[0].unlink()
+        if len(self.picking_id.move_lines[0].linked_move_operation_ids):
+            self.picking_id.move_lines[0].linked_move_operation_ids[0].unlink()
         for item in self.item_ids:
             if item.eq_line_finished:
                 moves = self.env['stock.move'].search([('picking_id', '=', self.picking_id.id), ('product_id', '=', item.product_id.id), ('product_uom_qty', '>=', item.quantity)])
