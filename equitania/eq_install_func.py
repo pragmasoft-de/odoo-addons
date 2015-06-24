@@ -265,8 +265,8 @@ class eq_install_func(osv.osv):
                         if occurence_split[1] == 'website':
                             report_id = occurence_split[2].split('.')[-1]
                             #print "report_id", report_id                            
-                            if len(ir_ui_view_obj.search(cr, uid, [('name', '=', report_id)])) != 0:
-                                view_id = ir_ui_view_obj.search(cr, uid, [('name', '=', report_id)])[0]
+                            if len(ir_ui_view_obj.search(cr, uid, [('name', '=', report_id), ('type', '=', 'qweb')])) != 0:
+                                view_id = ir_ui_view_obj.search(cr, uid, [('name', '=', report_id), ('type', '=', 'qweb')])[0]
                                 translation_id = ir_translation_obj.search(cr, uid, [('src', '=', entry.msgid), ('res_id', '=', view_id), ('name', '=', occurence_split[1]), ('lang', '=', 'de_DE')])                                                                
                                 if len(translation_id) != 0:
                                     vals = {
