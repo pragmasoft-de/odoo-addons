@@ -1,5 +1,7 @@
 ### 23.06.2015
 ### equitania
+#### Erweiterung, 1.0.40
+- Papierformate werden bei neuinstallation und update angelegt und Reports werden automatisch zugeteilt.
 #### FIX, 1.0.39
 - Überleiferung war nicht möglich.
 #### FIX, 1.0.38
