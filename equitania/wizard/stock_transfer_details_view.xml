@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data>
+    <data><!-- 
         <record id="eq_view_stock_enter_transfer_details" model="ir.ui.view">
             <field name="name">Enter transfer details</field>
             <field name="model">stock.transfer_details</field>
@@ -10,6 +10,6 @@
 	            	<field name="eq_line_finished"/>
 	            </xpath>
 	        </field>
-        </record>
+        </record> -->
     </data>
 </openerp>

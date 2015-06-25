@@ -150,6 +150,7 @@
 					<div colspan="4">
 						<field name="eq_head_text" placeholder="Dear Sir or Madam," nolabel="1"/>
 					</div>
+					<field name="invoiced"/>
                 </xpath>
             </field>
         </record>
@@ -185,9 +186,11 @@
             <field name="model">account.invoice</field>
             <field name="inherit_id" ref="account.invoice_form" />
             <field name="arch" type="xml">
+            <!-- 
 	            <field name="account_id" position="after">
                     <field name="eq_contact_person_id"/>
                 </field>
+                 -->
                 <field name="origin" positione="after">
                     <field name="eq_customer_ref"/>
                 </field>
@@ -242,17 +245,17 @@
             </field>
         </record>
                           
-         <!-- added eq_pos_no to invoice - formview --> 
+         <!-- added eq_pos_no to invoice - formview
          <record id="eq_invoice_line_tree_extension" model="ir.ui.view">
             <field name="name">eq_invoice.line.tree.extextion</field>
             <field name="model">account.invoice</field>
             <field name="inherit_id" ref="account.invoice_form" />
-            <field name="arch" type="xml">          
+            <field name="arch" type="xml">
             	<xpath expr="//page[@string='Invoice Lines']/field[@name='invoice_line']/tree/field[@name='sequence']" position="replace"> 
             		<field name="eq_pos_no" readonly="True"/>
                 </xpath>
             </field>
-        </record>
+        </record> --> 
           
     </data>
 </openerp>

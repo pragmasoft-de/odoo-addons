@@ -9,9 +9,11 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='title']" position="replace"/>
                 <xpath expr="//field[@name='title']" position="replace"/>
+                <!-- 
                 <xpath expr="//div[@class='oe_title oe_left']/h1" position="before">
                 	<field name="title" placeholder="Titel" attrs="{'invisible': ['|', ('type', '!=', 'contact'), ('is_company', '=', True)]}"/>                	
                 </xpath>
+                 -->
                 <xpath expr="//field[@name='name']" position="replace">              	
                     <field name="eq_firstname" placeholder="Firstname" attrs="{'invisible': ['|', ('type', '!=', 'contact'), ('is_company', '=', True)]}"/>
                     <field name="name" style="width: 100%%;" placeholder="Name"/>
@@ -22,7 +24,7 @@
                 </xpath>
                 <xpath expr="//field[@name='website']" position="after">
                     <field name="eq_birthday" attrs="{'invisible': ['|', ('type', '!=', 'contact'), ('is_company', '=', True)]}"/>
-                </xpath>
+                </xpath><!-- 
                 <xpath expr="//field[@name='child_ids']/form/sheet/div/label[@for='name']" position="replace"/>
                 <xpath expr="//field[@name='child_ids']/form/sheet/div/h1" position="replace">
 					<div class="oe_edit_only">
@@ -49,7 +51,7 @@
                 </xpath>
                 <xpath expr="//field[@name='child_ids']/kanban/templates/t[@t-name='kanban-box']/div/div/div[@class='oe_module_desc']/div/table/tr/td/h4/a[@type='open']" position="replace">
                 	<a type="open"><field name="title"/> <field name="eq_firstname"/> <field name="name"/></a>
-                </xpath>
+                </xpath> -->
                 <xpath expr="//field[@name='user_id']" position="after">
                 	<field name="eq_incoterm"/>
                 	<field name="eq_deliver_condition_id"/>
@@ -60,6 +62,7 @@
                     <field name="street" style="width: 80%%" placeholder="Street..."  attrs="{'readonly': [('use_parent_address','=',True)]}"/>
 					<field name="eq_house_no" style="width: 20%%" placeholder="House no"  attrs="{'readonly': [('use_parent_address','=',True)]}"/>
 				</field>
+				<!-- 
 				<div class="address_format" position="replace">
 					<field name="zip" placeholder="ZIP" style="width: 102px" attrs="{'readonly': [('use_parent_address','=',True)]}"/>
 	                <div>
@@ -69,7 +72,8 @@
 	                    <field name="state_id" class="oe_no_button" placeholder="State" style="width: 50%%" options='{"no_open": True}' on_change="onchange_state(state_id)" attrs="{'readonly': [('use_parent_address','=',True)]}"/>		
 					</div>
 				</div>
-                <!-- New Address Child Form -->
+				 -->
+                <!-- New Address Child Form
                 <xpath expr="//field[@name='child_ids']/form/sheet/group/div/field[@name='country_id']" position="replace"/>
                 <xpath expr="//field[@name='child_ids']/form/sheet/group/div/field[@name='street']" position="replace">
                     <field name="street" style="width: 80%%" placeholder="Street..."/>
@@ -83,12 +87,12 @@
                         <field name="country_id" placeholder="Country" style="width: 50%%" options='{"no_open": True, "no_create": True}'/>
 	                    <field name="state_id" class="oe_no_button" placeholder="State" style="width: 50%%" options='{"no_open": True}' on_change="onchange_state(state_id)"/>		
 					</div>
-                </xpath>
-				<!-- Header -->
+                </xpath> -->
+				<!-- Header
 				<div class="oe_title oe_left" position="attributes">
 					<attribute name="class">oe_left</attribute>
 					<attribute name="style">width: 50%</attribute>
-				</div>
+				</div> -->
             </field>
         </record>
         

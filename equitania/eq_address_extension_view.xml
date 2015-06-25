@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data>
+    <data><!-- 
         <record id="view_partner_form_inherited1" model="ir.ui.view">
             <field name="name">res.partner.form.inherited1</field>
             <field name="model">res.partner</field>
@@ -11,7 +11,7 @@
                 </xpath>
           </field>
         </record>
-
+ -->
         <record id="sale.act_res_partner_2_sale_order" model="ir.actions.act_window">
             <field name="name">Quotations and Sales</field>
             <field name="res_model">sale.order</field>

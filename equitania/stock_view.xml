@@ -9,6 +9,7 @@
 	            <field name="state" position="before">
 	            	<button name="reverse_picking" string="Cancel Delivery" type="object" attrs="{'invisible':['|', ('state', '&lt;&gt;', 'done'), ('invoice_state', '&lt;&gt;', '2binvoiced')]}"/>
 	            </field>
+	            <!-- 
 	            <field name="date_done" position="replace">
 	            	<label for="date_done" string="Date of Transfer"/>
 	            	<div>
@@ -16,6 +17,7 @@
 		            	<button name="change_date_done" type="object" string="Change" class="oe_link oe_inline" attrs="{'invisible':[('state', '&lt;&gt;', 'done')]}" group="base.group_sale_salesman"/>
 	            	</div>
 	            </field>
+	             -->
           	</field>
         </record>
         <record id="eq_view_move_search" model="ir.ui.view">

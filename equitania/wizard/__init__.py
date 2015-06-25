@@ -21,4 +21,4 @@
 
 import eq_date_done_change
 import eq_multy_assign_product_no
-import stock_transfer_details
+#import stock_transfer_details
