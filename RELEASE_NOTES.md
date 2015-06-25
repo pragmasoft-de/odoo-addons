@@ -1,5 +1,11 @@
 ### 23.06.2015
 ### equitania
+#### Bugfix, 1.0.41
+- Eins zu Eins Beziehung zwischen Mitarbeiter und Benutzer wird wieder richtig hergestellt.
+- Mitarbeiter ließ sich nicht mit einem Benutzer erstellen.
+
+### 23.06.2015
+### equitania
 #### Erweiterung, 1.0.40
 - Papierformate werden bei neuinstallation und update angelegt und Reports werden automatisch zugeteilt.
 #### FIX, 1.0.39

@@ -31,31 +31,53 @@ class eq_res_users(osv.osv):
                 }
     
     
-    def write(self, cr, uid, ids, values, context=None):
-        res = super(eq_res_users, self).write(cr, uid, ids, values, context={})
+    def write(self, cr, uid, ids, values, context={}):
+        if context == None:
+            context = {}
+            
+        if type(ids) is not list: ids = [ids]
         
         if 'eq_employee_id' in values and 'do_not_repeat' not in context:
+            emp_obj = self.pool.get('hr.employee')
             if values['eq_employee_id']:
                 if values['eq_employee_id'] != self.browse(cr, uid, ids).eq_employee_id.id:
-                    emp_obj = self.pool.get('hr.employee')
+                    #Removes the user from all employees, except the selected one
                     user_ids_to_del = self.search(cr, SUPERUSER_ID, [('eq_employee_id', '=', values['eq_employee_id'])])
+                    print 'User user_ids_to_del', user_ids_to_del
                     if len(user_ids_to_del) != 0:
                         for user_id in user_ids_to_del:
-                            self.write(cr, SUPERUSER_ID, user_id, {'eq_employee_id': False}, context={'do_not_repeat': True})
-                    emp_obj.write(cr, SUPERUSER_ID, values['eq_employee_id'], {'user_id': ids}, context={'do_not_repeat': True})
+                            if user_id != ids:
+                                self.write(cr, SUPERUSER_ID, user_id, {'eq_employee_id': False})
+                    emp_ids_to_del = emp_obj.search(cr, uid, [('user_id', 'in', ids)])
+                    if len(emp_ids_to_del) != 0:
+                        emp_obj.write(cr, SUPERUSER_ID, emp_ids_to_del, {'user_id': False}, context={'do_not_repeat': True})
+                    #Sets the user_id in the employee
+                    for user_id in ids:
+                        emp_obj.write(cr, SUPERUSER_ID, values['eq_employee_id'], {'user_id': user_id}, context={'do_not_repeat': True})
+            else:
+                #Removes the user from all employees
+                emp_ids_to_del = emp_obj.search(cr, SUPERUSER_ID, [('user_id', 'in', ids)], context)
+                emp_obj.write(cr, SUPERUSER_ID, emp_ids_to_del, {'user_id': False}, context={'do_not_repeat': True})
+                
+        res = super(eq_res_users, self).write(cr, uid, ids, values, context={})
         
         return res
     
-    def create(self,cr, uid, values, context=None):
+    def create(self,cr, uid, values, context={}):        
+        if context == None:
+            context = {}
+            
         res = super(eq_res_users, self).create(cr, uid, values, context)
         
-        if 'eq_employee_id' in values:
+        if 'eq_employee_id' in values and 'do_not_repeat' not in context:
             if values['eq_employee_id']:
                 emp_obj = self.pool.get('hr.employee')
+                #Removes the user from all employees, except the selected one.
                 user_ids_to_del = self.search(cr, SUPERUSER_ID, [('eq_employee_id', '=', values['eq_employee_id'])])
                 if len(user_ids_to_del) != 0:
                     for user_id in user_ids_to_del:
-                        self.write(cr, SUPERUSER_ID, user_id, {'eq_employee_id': False}, context={})
-                emp_obj.write(cr, SUPERUSER_ID, [values['eq_employee_id']], {'user_id': res}, context={})
-        
+                        if user_id != res:
+                            self.write(cr, SUPERUSER_ID, user_id, {'eq_employee_id': False}, context)
+                #Sets the user_id in the employee. do_not_repeat in context so that the employee does not set the employee_id for the user.
+                emp_obj.write(cr, uid, values['eq_employee_id'], {'user_id': res}, context={'do_not_repeat': True})
         return res
