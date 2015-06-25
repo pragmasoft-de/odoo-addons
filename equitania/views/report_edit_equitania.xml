@@ -59,10 +59,10 @@
 	</xpath>
 	<xpath expr="//h[@t-field='o.company_id.partner_id.zip']" position="after">
 		<h>&#xa0;</h>
-	</xpath>
+	</xpath><!-- 
 	<xpath expr="//h[@t-field='o.eq_delivery_address.zip']" position="after">
 		<h>&#xa0;</h>
-	</xpath>
+	</xpath> -->
 </template>
 
 </data>
