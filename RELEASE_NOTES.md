@@ -1,3 +1,8 @@
+### 29.06.2015
+### equitania
+#### Bugfix, 1.0.42
+- Übersetzung für Webseiten und Reports überarbeitet. Manche Begriffe wurden nicht übersetzt.
+
 ### 23.06.2015
 ### equitania
 #### Bugfix, 1.0.41
