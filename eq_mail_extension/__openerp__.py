@@ -31,7 +31,7 @@
     'summary': 'E-Mail Extension',
     'website': 'www.myodoo.de',
     'license': 'AGPL-3',
-    "depends" : ['base', 'mail', 'base_setup', 'fetchmail'],
+    "depends" : ['base', 'mail', 'base_setup', 'fetchmail', 'equitania'],
     'data': [
              "eq_mail_extension_view.xml",
              "eq_mail_config_view.xml",
