@@ -44,7 +44,7 @@ class eq_purchase_order(osv.osv):
             @context: context
             @return: original values together with eq_foreign_ref stored in partner_ref
         """        
-        original_values = super(eq_purchase_order, self).onchange_partner_id(cr, uid, ids, partner_id, context)
+        original_values = super(eq_purchase_order, self).onchange_partner_id(cr, uid, ids, partner_id, context=context)
         if partner_id:
             partner = self.pool.get('res.partner')
             supplier = partner.browse(cr, uid, partner_id, context=context)            
