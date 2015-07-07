@@ -1,3 +1,10 @@
+### 07.07.2015
+### equitania, 1.0.43
+#### Bugfix
+- Der Text zum einfügen eines Snippets wird im report nicht angezeigt.
+#### Erweiterung
+- Kopftext auf html umgestellt.
+
 ### 29.06.2015
 ### equitania
 #### Bugfix, 1.0.42

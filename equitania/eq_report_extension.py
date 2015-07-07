@@ -91,7 +91,8 @@ class eq_report_extension_sale_order(osv.osv):
         
     _columns = {
                 'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person Sale', size=100),
-                'eq_head_text': fields.text('Head Text'),
+                'eq_head_text': fields.html('Head Text'),
+                'note': fields.html('Terms and conditions'),
                 'show_delivery_date': fields.boolean('Show Delivery Date'),
                 'use_calendar_week': fields.boolean('Use Calendar Week for Delivery Date [equitania]'),
                 }

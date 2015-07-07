@@ -88,6 +88,11 @@
             text-decoration: underline;
             margin-bottom:0.2cm;
 	}
+
+	[data-oe-type="html"]:empty  {
+	  background-color:red!important;
+	   display:none; 
+	} 
 </template>
 </data>
 </openerp>
