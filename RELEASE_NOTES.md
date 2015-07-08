@@ -4,6 +4,7 @@
 - Der Text zum einfügen eines Snippets wird im report nicht angezeigt.
 #### Erweiterung
 - Kopftext auf html umgestellt.
+- Geschäftsbedingungen auf html umgestellt.
 
 ### 29.06.2015
 ### equitania
