@@ -1,4 +1,11 @@
 ### 07.07.2015
+### equitania, 1.0.44
+#### Bugfix
+- Feld eq_qty_left als float erfasst.
+####Erweiterung
+- Kopf- und Fußtext auf html umgestellt.
+
+### 07.07.2015
 ### equitania, 1.0.43
 #### Bugfix
 - Der Text zum einfügen eines Snippets wird im report nicht angezeigt.
