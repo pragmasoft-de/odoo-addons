@@ -1,3 +1,8 @@
+### 10.07.2015
+### equitania, 1.0.45
+#### Bugfix
+- Die offene Menge der Verkäufe bei den Produkten und Produktvarianten zeigt nun den richtigen Wert.
+
 ### 07.07.2015
 ### equitania, 1.0.44
 #### Bugfix
