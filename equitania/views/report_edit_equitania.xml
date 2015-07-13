@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-<data><!-- 
+<data>
 <template id="eq_purchaseorder_extension_sh" inherit_id="purchase.report_purchaseorder_document" active="True">
 	<xpath expr="//h[@t-field='o.partner_id.zip']" position="attributes">
 		<attribute name="style">margin-right:4px;</attribute>
@@ -59,11 +59,11 @@
 	</xpath>
 	<xpath expr="//h[@t-field='o.company_id.partner_id.zip']" position="after">
 		<h>&#xa0;</h>
-	</xpath>
+	</xpath><!-- 
 	<xpath expr="//h[@t-field='o.eq_delivery_address.zip']" position="after">
 		<h>&#xa0;</h>
-	</xpath>
-</template> -->
+	</xpath> -->
+</template>
 
 </data>
 </openerp>
