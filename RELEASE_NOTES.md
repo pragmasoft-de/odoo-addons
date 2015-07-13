@@ -1,3 +1,8 @@
+### 13.07.2015
+### equitania, 1.0.46
+#### Bugfix
+- Produktbeschreibung in den Lieferscheinen wird richtig angezeigt.
+
 ### 10.07.2015
 ### equitania, 1.0.45
 #### Bugfix
