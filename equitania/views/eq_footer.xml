@@ -46,7 +46,7 @@
 	            </tr>
 	            <tr>
 	                <td style="">
-	                    <span t-field="company.street"/>
+						<h t-field="o.company_id.partner_id.street"/><span t-if="o.company_id.partner_id.eq_house_no"> <span t-field="o.company_id.partner_id.eq_house_no"/></span>
 	                </td>
 	                <td style="">
 	                    <div t-if="company.phone">
