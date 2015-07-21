@@ -88,6 +88,11 @@
             text-decoration: underline;
             margin-bottom:0.2cm;
 	}
+	/* Removes the website content box for the reports */
+	[data-oe-type="html"]:empty  {
+	  background-color:red!important;
+	   display:none; 
+	} 
 </template>
 </data>
 </openerp>

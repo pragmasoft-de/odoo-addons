@@ -1,3 +1,38 @@
+### 21.07.2015
+### equitania, 1.0.47
+#### Erweiterung
+- Positionen beim Liefern haben einen direkten Bezug zu den Lieferscheinpositionen.
+
+### 17.07.2015
+### equitania, 1.0.46
+#### Bugfix
+- Hausnummer des Unternehmens in die Reports eingefügt.
+
+### 10.07.2015
+### equitania, 1.0.45
+#### Bugfix
+- Die offene Menge der Verkäufe bei den Produkten und Produktvarianten zeigt nun den richtigen Wert.
+
+### 07.07.2015
+### equitania, 1.0.44
+#### Bugfix
+- Feld eq_qty_left als float erfasst.
+####Erweiterung
+- Kopf- und Fußtext auf html umgestellt.
+
+### 07.07.2015
+### equitania, 1.0.43
+#### Bugfix
+- Der Text zum einfügen eines Snippets wird im report nicht angezeigt.
+#### Erweiterung
+- Kopftext auf html umgestellt.
+- Geschäftsbedingungen auf html umgestellt.
+
+### 29.06.2015
+### equitania
+#### Bugfix, 1.0.42
+- Übersetzung für Webseiten und Reports überarbeitet. Manche Begriffe wurden nicht übersetzt.
+
 ### 23.06.2015
 ### equitania
 #### Bugfix, 1.0.41

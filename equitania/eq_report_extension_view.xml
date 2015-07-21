@@ -58,6 +58,9 @@
 						<field name="eq_head_text" placeholder="Dear Sir or Madam," nolabel="1"/>
 					</div>
                 </xpath>
+                <field name="note" position="before">
+					<label for="note"/>
+                </field>
             </field>
         </record>
         <!-- Sale Order Tree View -->

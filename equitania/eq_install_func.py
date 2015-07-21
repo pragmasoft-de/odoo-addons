@@ -264,9 +264,10 @@ class eq_install_func(osv.osv):
                         #website reports
                         if occurence_split[1] == 'website':
                             report_id = occurence_split[2].split('.')[-1]
-                            #print "report_id", report_id                            
-                            if len(ir_ui_view_obj.search(cr, uid, [('name', '=', report_id), ('type', '=', 'qweb')])) != 0:
-                                view_id = ir_ui_view_obj.search(cr, uid, [('name', '=', report_id), ('type', '=', 'qweb')])[0]
+                            model_name = occurence_split[2].split('.')[0]
+                            model_ids = self.pool.get('ir.model.data').search(cr, uid, [('module', '=', model_name), ('model', '=', 'ir.ui.view')]) 
+                            if len(ir_ui_view_obj.search(cr, uid, [('name', 'ilike', report_id), ('type', '=', 'qweb'), ('model_data_id', 'in', model_ids)])) != 0 and len(model_ids):
+                                view_id = ir_ui_view_obj.search(cr, uid, [('name', 'ilike', report_id), ('type', '=', 'qweb'), ('model_data_id', 'in', model_ids)])[0]
                                 translation_id = ir_translation_obj.search(cr, uid, [('src', '=', entry.msgid), ('res_id', '=', view_id), ('name', '=', occurence_split[1]), ('lang', '=', 'de_DE')])                                                                
                                 if len(translation_id) != 0:
                                     vals = {

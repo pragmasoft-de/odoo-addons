@@ -39,7 +39,18 @@ fi
 
 echo "apt-get packages will be install.."
 apt-get install ghostscript graphviz antiword git libpq-dev poppler-utils \
- python-pip build-essential libfreetype6-dev curl python-magic
+ python-pip build-essential libfreetype6-dev curl python-magic libjpeg-dev
+
+echo "Python Image Library will be install.."
+wget http://effbot.org/downloads/Imaging-1.1.7.tar.gz
+tar fzvx Imaging-1.1.7.tar.gz
+cd Imaging-1.1.7
+python setup.py install
+cd ..
+rm Imaging-1.1.7.tar.gz
+rm –rf Imaging-1.1.7
+pip install -I pillow
+
 
 echo "apt-get python packages will be install.."
 apt-get install python-dateutil python-pypdf python-requests \
@@ -52,7 +63,7 @@ apt-get install python-dateutil python-pypdf python-requests \
  python-unittest2 python-mock python-jinja2 python-dev \
  python-pdftools python-decorator python-openssl python-babel \
  python-imaging python-reportlab-accel \
- python-paramiko python-software-properties
+ python-paramiko python-software-properties python-matplotlib
 
 echo "apt-get npm packages will be install.."
 echo "deb http://ftp.us.debian.org/debian wheezy-backports main" >> /etc/apt/sources.list

@@ -3,6 +3,7 @@
 	<name>odoo-addons</name>
 	<comment></comment>
 	<projects>
+		<project>myodoo-server</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

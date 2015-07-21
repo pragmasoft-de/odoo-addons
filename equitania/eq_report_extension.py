@@ -91,7 +91,8 @@ class eq_report_extension_sale_order(osv.osv):
         
     _columns = {
                 'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person Sale', size=100),
-                'eq_head_text': fields.text('Head Text'),
+                'eq_head_text': fields.html('Head Text'),
+                'note': fields.html('Terms and conditions'),
                 'show_delivery_date': fields.boolean('Show Delivery Date'),
                 'use_calendar_week': fields.boolean('Use Calendar Week for Delivery Date [equitania]'),
                 }
@@ -285,9 +286,10 @@ class eq_report_extension_purchase_order(osv.osv):
     _inherit = "purchase.order"
     _columns = {
                 'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person', size=100),
-                'eq_head_text': fields.text('Head Text'),
+                'eq_head_text': fields.html('Head Text'),
                 'show_delivery_date': fields.boolean('Show the Delivery Date'),
                 'use_calendar_week': fields.boolean('Use Calendar Week for Delivery Date [equitania]'),
+                'notes': fields.html('Terms and conditions'),
                 }
     _defaults = {
                 'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False
@@ -346,9 +348,10 @@ class eq_report_extension_invoice(osv.osv):
     
     _columns = {
                 'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person', size=100),
-                'eq_head_text': fields.text('Head Text'),
+                'eq_head_text': fields.html('Head Text'),
                 'eq_ref_number': fields.char('Sale Order Referenc', size=64),
                 'eq_delivery_address': fields.many2one('res.partner', 'Delivery Address'),
+                'comment': fields.html('Additional Information'),
                 }
     _defaults = {
                 'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
