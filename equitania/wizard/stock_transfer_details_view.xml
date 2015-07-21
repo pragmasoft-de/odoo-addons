@@ -9,6 +9,12 @@
 	            <xpath expr="//field[@name='item_ids']/tree/field[@name='lot_id']" position="after">
 	            	<field name="eq_line_finished"/>
 	            </xpath>
+	            <xpath expr="//field[@name='item_ids']/tree/field[@name='product_id']" position="before">
+	            	<field name="eq_pos_no" attrs="{'readonly': True}"/>
+	            </xpath>
+	            <xpath expr="//field[@name='item_ids']/tree/field[@name='product_id']" position="after">
+	            	<field name="eq_delivery_date" attrs="{'readonly': True}"/>
+	            </xpath>
 	        </field>
         </record>
     </data>

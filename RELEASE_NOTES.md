@@ -1,7 +1,12 @@
+### 21.07.2015
+### equitania, 1.0.47
+#### Erweiterung
+- Positionen beim Liefern haben einen direkten Bezug zu den Lieferscheinpositionen.
+
 ### 17.07.2015
 ### equitania, 1.0.46
 #### Bugfix
-- Hausnummer des Unternehmens in die Reports eignefügt.
+- Hausnummer des Unternehmens in die Reports eingefügt.
 
 ### 10.07.2015
 ### equitania, 1.0.45
