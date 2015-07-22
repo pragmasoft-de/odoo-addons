@@ -323,6 +323,7 @@ msgstr "Lieferdatum"
 #. module: equitania
 #: view:account.invoice:equitania.eq_invoice_form
 #: view:purchase.order:equitania.eq_purchase_order_form
+#: view:res.partner:equitania.eq_partner_extension_form_view
 #: view:sale.order:equitania.eq_sale_order_form
 msgid "Dear Sir or Madam,"
 msgstr "Sehr geehrte Damen und Herren,"
@@ -1598,7 +1599,7 @@ msgid "{'search_default_customer':1, 'show_address': 1,'active_model':'sale.orde
 msgstr "{'search_default_customer':1, 'show_address': 1,'active_model':'sale.order', 'default_type': 'delivery'}"
 
 #. module: equitania
-#: view:sale.order:equitania.view_order_form_inherit_shopid
+#: view:sale.order:equitania.view_order_form_inherit_shopideq_nam
 msgid "{'search_default_customer':1, 'show_address': 1,'active_model':'sale.order', 'default_type': 'invoice'}"
 msgstr "{'search_default_customer':1, 'show_address': 1,'active_model':'sale.order', 'default_type': 'invoice'}"
 
@@ -1612,3 +1613,9 @@ msgstr "{'search_default_customer':1, 'show_address': 1,'active_model':'sale.ord
 msgid "{'search_default_supplier':1, 'default_supplier':1, 'default_customer':0, 'show_address': 1,'main_address': True ,'active_model':'purchase.order',}"
 msgstr "{'search_default_supplier':1, 'default_supplier':1, 'default_customer':0, 'show_address': 1,'main_address': True ,'active_model':'purchase.order',}"
 
+
+
+#. module: equitania
+#: field:res.partner,eq_letter_salutation:0
+msgid "Salutation"
+msgstr "Briefanrede"
