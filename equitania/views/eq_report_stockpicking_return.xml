@@ -113,7 +113,7 @@
 									-
 									<h t-field="o.partner_id.street" />
 									-
-									<h t-field="o.partner_id.zip" />
+									<h t-field="o.partner_id.zip" /><h>&#xa0;</h>
 									<h t-field="o.partner_id.city" />
 									-
 									<h t-field="o.partner_id.country_id.name" />
@@ -130,7 +130,7 @@
 									-
 									<h t-field="o.partner_id.street" />
 									-
-									<h t-field="o.partner_id.zip" />
+									<h t-field="o.partner_id.zip" /><h>&#xa0;</h>
 									<h t-field="o.partner_id.city" />
 									-
 									<h t-field="o.partner_id.country_id.name" />
@@ -146,7 +146,7 @@
 									<div t-field="o.company_id.partner_id.street2" />
 								</div>
 								<h>
-									<h t-field="o.company_id.partner_id.zip" />
+									<h t-field="o.company_id.partner_id.zip" /><h>&#xa0;</h>
 									<h t-field="o.company_id.partner_id.city" />
 									<h t-if="o.company_id.partner_id.eq_citypart">-
 										<h t-field="o.company_id.partner_id.eq_citypart"/>
@@ -289,7 +289,7 @@
 												<div t-field="o.sale_id.partner_invoice_id.street2"/>
 											</div>
 											<h>
-												<h t-field="o.sale_id.partner_invoice_id.zip"/>
+												<h t-field="o.sale_id.partner_invoice_id.zip"/><h>&#xa0;</h>
 												<h t-field="o.sale_id.partner_invoice_id.city"/>
 												<h t-if="o.sale_id.partner_invoice_id.eq_citypart">-
 													<h t-field="o.sale_id.partner_invoice_id.eq_citypart"/>

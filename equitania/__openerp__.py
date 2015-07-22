@@ -77,7 +77,6 @@
         'views/eq_purchase_view.xml',
         'views/eq_css.xml',
         'eq_foreign_ref_view.xml',
-        'views/report_edit_equitania.xml',
     ],
     'demo': [],
     'css': ['static/src/css/eq_style.css'],

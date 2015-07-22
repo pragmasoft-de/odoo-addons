@@ -1,3 +1,8 @@
+### 22.07.2015
+### equitania, 1.0.48
+#### Änderung
+- Den Fix für die Leerzeichen in die Reports direkt eingefügt.
+
 ### 21.07.2015
 ### equitania, 1.0.47
 #### Erweiterung

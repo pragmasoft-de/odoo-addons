@@ -110,7 +110,7 @@
 						
 						<h t-field="o.company_id.partner_id.street"/><span t-if="o.company_id.partner_id.eq_house_no"> <span t-field="o.company_id.partner_id.eq_house_no"/></span> -
 						
-						<h t-field="o.company_id.partner_id.zip"/>
+						<h t-field="o.company_id.partner_id.zip"/><h>&#xa0;</h>
 						<h t-field="o.company_id.partner_id.city"/>
 					</div>
 					<div t-if="o.partner_id.is_company">
@@ -123,7 +123,7 @@
                	        	<div t-field="o.partner_id.street2"/>
                	        </div>
            	            <h>
-       	                    <h t-field="o.partner_id.zip"/>
+       	                    <h t-field="o.partner_id.zip"/><h>&#xa0;</h>
    	                        <h t-field="o.partner_id.city"/>
    	                        <h t-if="o.partner_id.eq_citypart">-
    	                        	<h t-field="o.partner_id.eq_citypart"/>
@@ -142,7 +142,7 @@
                     		<div t-field="o.partner_id.street2"/>
                	        </div>
            	            <h>
-       	                    <h t-field="o.partner_id.zip"/>
+       	                    <h t-field="o.partner_id.zip"/><h>&#xa0;</h>
    	                        <h t-field="o.partner_id.city"/>
    	                        <h t-if="o.partner_id.eq_citypart">-
    	                        	<h t-field="o.partner_id.eq_citypart"/>
@@ -385,7 +385,7 @@
 				                    		<div t-field="o.partner_invoice_id.street2"/>
 				                	    </div>
 			            	            <h>
-			        	                    <h t-field="o.partner_invoice_id.zip"/>
+			        	                    <h t-field="o.partner_invoice_id.zip"/><h>&#xa0;</h>
 			    	                        <h t-field="o.partner_invoice_id.city"/>
 				                        </h>
 			                         	<div t-field="o.partner_invoice_id.country_id.name"/>
@@ -402,7 +402,7 @@
 				                    		<div t-field="o.partner_invoice_id.street2"/>
 				                	    </div>
 			            	            <h>
-			        	                    <h t-field="o.partner_invoice_id.zip"/>
+			        	                    <h t-field="o.partner_invoice_id.zip"/><h>&#xa0;</h>
 			    	                        <h t-field="o.partner_invoice_id.city"/>
 				                        </h>
 			                        	<div t-field="o.partner_invoice_id.country_id.name"/>
@@ -425,7 +425,7 @@
 										<div t-field="o.partner_shipping_id.street2"/>
 									</div>
 									<h>
-										<h t-field="o.partner_shipping_id.zip"/>
+										<h t-field="o.partner_shipping_id.zip"/><h>&#xa0;</h>
 										<h t-field="o.partner_shipping_id.city"/>
 									</h>
 									<div t-field="o.partner_shipping_id.country_id.name"/>

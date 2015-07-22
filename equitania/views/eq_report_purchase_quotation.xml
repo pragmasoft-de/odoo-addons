@@ -94,7 +94,7 @@
                     <div class="row col-xs-12 returnaddress" >
                         <h t-field="o.company_id.partner_id.name"/> -
 						<h t-field="o.company_id.partner_id.street"/><span t-if="o.company_id.partner_id.eq_house_no"> <span t-field="o.company_id.partner_id.eq_house_no"/></span> -
-                        <h t-field="o.company_id.partner_id.zip"/>
+                        <h t-field="o.company_id.partner_id.zip"/><h>&#xa0;</h>
                         <h t-field="o.company_id.partner_id.city"/>
                     </div>
                     <div t-field="o.partner_id.name" style="clear:left;"/>
@@ -106,7 +106,7 @@
                         <div t-field="o.partner_id.street2"/>
                     </div>
                    	<h>
-                        <h t-field="o.partner_id.zip"/>
+                        <h t-field="o.partner_id.zip"/><h>&#xa0;</h>
                         <h t-field="o.partner_id.city"/>
 						<h t-if="o.partner_id.eq_citypart">-
 							<h t-field="o.partner_id.eq_citypart"/>
@@ -245,7 +245,7 @@
 							                    <div t-field="o.picking_type_id.warehouse_id.partner_id.street2"/>
 							                </div>
 							                <h t-if="o.picking_type_id.warehouse_id.partner_id.zip">
-							                    <h t-field="o.picking_type_id.warehouse_id.partner_id.zip"/>
+							                    <h t-field="o.picking_type_id.warehouse_id.partner_id.zip"/><h>&#xa0;</h>
 							                    <h t-field="o.picking_type_id.warehouse_id.partner_id.city"/>
 												<h t-if="o.picking_type_id.warehouse_id.partner_id.eq_citypart">-
 													<h t-field="o.picking_type_id.warehouse_id.partner_id.eq_citypart"/>
