@@ -1,4 +1,4 @@
-### 24.07.2015
+### 23.07.2015
 ### equitania, 1.0.49
 #### Änderung
 - Anischt der Partner angepasst.
