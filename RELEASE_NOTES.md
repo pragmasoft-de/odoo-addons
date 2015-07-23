@@ -1,10 +1,12 @@
 ### 23.07.2015
-### equitania, 1.0.49
-#### Änderung
+### equitania
+#### Änderung, 1.0.49
 - Anischt der Partner angepasst.
 -- Schlagwörte auf volle Breite.
 -- Briefanrede nach dem Geburtstag
 -Übersetzung angepasst.
+#### Änderung, 1.0.50
+- Startwert der Sequenz der Debitoren-/Kreditorennummer um 1 erhöht.
 
 ### 22.07.2015
 ### equitania, 1.0.48

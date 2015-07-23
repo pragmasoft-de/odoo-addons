@@ -57,6 +57,9 @@
                 <xpath expr="//field[@name='child_ids']/kanban/templates/t[@t-name='kanban-box']/div/div/div[@class='oe_module_desc']/div/table/tr/td/h4/a[@type='open']" position="replace">
                 	<a type="open"><field name="title"/> <field name="eq_firstname"/> <field name="name"/></a>
                 </xpath>
+                <xpath expr="//field[@name='child_ids']/kanban/templates/t[@t-name='kanban-box']/div/div/div[@class='oe_module_desc']/div/table/tr/td/div[@t-if='record.fax.raw_value']" position="after">
+                	<div>Typ: <field name="type"/></div>
+                </xpath>
                 <xpath expr="//field[@name='user_id']" position="after">
                 	<field name="eq_incoterm"/>
                 	<field name="eq_deliver_condition_id"/>
