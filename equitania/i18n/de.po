@@ -1365,7 +1365,7 @@ msgstr "This adds the street and the city to the results of the partner search o
 #. module: equitania
 #: view:res.partner:equitania.eq_partner_extension_form_view
 msgid "Titel"
-msgstr "Titel"
+msgstr "Titel/Anrede"
 
 #. module: equitania
 #: view:sale_layout.category:equitania.report_configuration_search_view
@@ -1408,12 +1408,12 @@ msgstr "Kalenderwoche anzeigen [equitania]"
 #. module: equitania
 #: field:sale.order.line,eq_use_internal_description:0
 msgid "Use internal description for sale orders"
-msgstr "Use internal description for sale orders"
+msgstr "Bei Angebote/Verkaufsaufträge wird die interne Beschreibung an Stelle der Verkaufsbeschreibung verwenden"
 
 #. module: equitania
 #: field:sale.config.settings,default_eq_use_internal_description:0
 msgid "Use internal description for sale orders [equitania]"
-msgstr "Use internal description for sale orders [equitania]"
+msgstr "Interne Beschreibung für die Angebote/Verkaufsaufträge verwenden [equitania]"
 
 #. module: equitania
 #: model:ir.model,name:equitania.model_res_users
@@ -1612,8 +1612,6 @@ msgstr "{'search_default_customer':1, 'show_address': 1,'active_model':'sale.ord
 #: view:purchase.order:equitania.view_purchase_order_form_address_extension
 msgid "{'search_default_supplier':1, 'default_supplier':1, 'default_customer':0, 'show_address': 1,'main_address': True ,'active_model':'purchase.order',}"
 msgstr "{'search_default_supplier':1, 'default_supplier':1, 'default_customer':0, 'show_address': 1,'main_address': True ,'active_model':'purchase.order',}"
-
-
 
 #. module: equitania
 #: field:res.partner,eq_letter_salutation:0

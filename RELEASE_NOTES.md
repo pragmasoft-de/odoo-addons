@@ -1,3 +1,11 @@
+### 24.07.2015
+### equitania, 1.0.49
+#### Änderung
+- Anischt der Partner angepasst.
+-- Schlagwörte auf volle Breite.
+-- Briefanrede nach dem Geburtstag
+-Übersetzung angepasst.
+
 ### 22.07.2015
 ### equitania, 1.0.48
 #### Änderung
