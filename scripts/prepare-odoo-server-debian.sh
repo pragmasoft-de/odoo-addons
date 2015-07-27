@@ -59,17 +59,12 @@ apt-get install python-dateutil python-pypdf python-requests \
  python-imaging python-reportlab-accel \
  python-paramiko python-software-properties
 
-echo "apt-get npm packages will be install.."
-echo "deb http://ftp.us.debian.org/debian wheezy-backports main" >> /etc/apt/sources.list
-apt-get update
-apt-get install nodejs-legacy
-curl -L --insecure https://www.npmjs.org/install.sh | bash
-
 echo "pip packages will be install.."
 pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode validate_email pyDNS pysftp python-slugify
 
-
 echo "npm packages will be install.."
+curl -sL https://deb.nodesource.com/setup_0.12 | bash -
+apt-get install nodejs
 npm install -g less less-plugin-clean-css
 ln -s /usr/bin/nodejs /usr/bin/node
 
@@ -127,6 +122,14 @@ else
   echo "PostgreSQL is not optimized!"
 fi
 
-
+echo "Python Image Library will be install.."
+wget http://effbot.org/downloads/Imaging-1.1.7.tar.gz
+tar fzvx Imaging-1.1.7.tar.gz
+cd Imaging-1.1.7
+python setup.py install
+cd ..
+rm Imaging-1.1.7.tar.gz
+rm –rf Imaging-1.1.7
+pip install -I pillow
 
 echo "Finished!"

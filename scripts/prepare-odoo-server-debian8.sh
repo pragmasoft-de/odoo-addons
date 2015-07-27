@@ -41,17 +41,6 @@ echo "apt-get packages will be install.."
 apt-get install ghostscript graphviz antiword git libpq-dev poppler-utils \
  python-pip build-essential libfreetype6-dev curl python-magic libjpeg-dev
 
-echo "Python Image Library will be install.."
-wget http://effbot.org/downloads/Imaging-1.1.7.tar.gz
-tar fzvx Imaging-1.1.7.tar.gz
-cd Imaging-1.1.7
-python setup.py install
-cd ..
-rm Imaging-1.1.7.tar.gz
-rm –rf Imaging-1.1.7
-pip install -I pillow
-
-
 echo "apt-get python packages will be install.."
 apt-get install python-dateutil python-pypdf python-requests \
  python-feedparser python-gdata python-ldap python-libxslt1 \
@@ -65,17 +54,12 @@ apt-get install python-dateutil python-pypdf python-requests \
  python-imaging python-reportlab-accel \
  python-paramiko python-software-properties python-matplotlib
 
-echo "apt-get npm packages will be install.."
-echo "deb http://ftp.us.debian.org/debian wheezy-backports main" >> /etc/apt/sources.list
-apt-get update
-apt-get install nodejs-legacy
-curl -L --insecure https://www.npmjs.org/install.sh | bash
-
 echo "pip packages will be install.."
 pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode validate_email pyDNS pysftp python-slugify
 
-
 echo "npm packages will be install.."
+curl -sL https://deb.nodesource.com/setup_0.12 | bash -
+apt-get install nodejs
 npm install -g less less-plugin-clean-css
 ln -s /usr/bin/nodejs /usr/bin/node
 
@@ -117,23 +101,14 @@ else
   echo "PoS is not prepared!"
 fi
 
-#echo "Do you want optimize postgres settings? / Wollen Sie die PostgreSQL-Einstellungen optimieren (Y/n)?:"
-#read mysql
-mysql=""
-
-if [ "$mysql" = "Y" ]; then
-  echo "PostgreSQL will be optimized..."
-  apt-get install pgtune
-  pgtune -i /etc/postgresql/9.4/main/postgresql.conf -o /etc/postgresql/9.4/main/postgresql.conf.tuned
-  mv /etc/postgresql/9.4/main/postgresql.conf  /etc/postgresql/9.4/main/postgresql.conf.old
-  mv /etc/postgresql/9.4/main/postgresql.conf.tuned  /etc/postgresql/9.4/main/postgresql.conf
-  /etc/init.d/postgresql stop
-  /etc/init.d/postgresql start 
-  cat /etc/postgresql/9.4/main/postgresql.conf
-else
-  echo "PostgreSQL is not optimized!"
-fi
-
-
+echo "Python Image Library will be install.."
+wget http://effbot.org/downloads/Imaging-1.1.7.tar.gz
+tar fzvx Imaging-1.1.7.tar.gz
+cd Imaging-1.1.7
+python setup.py install
+cd ..
+rm Imaging-1.1.7.tar.gz
+rm –rf Imaging-1.1.7
+pip install -I pillow
 
 echo "Finished!"
