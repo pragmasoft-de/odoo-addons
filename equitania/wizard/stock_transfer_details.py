@@ -57,11 +57,13 @@ class eq_stock_transfer_details(models.TransientModel):
                 if prod.packop_id:
                     prod.packop_id.with_context(no_recompute=True).write(pack_datas)
                     processed_ids.append(prod.packop_id.id)
-                    prod.packop_id.linked_move_operation_ids.write({'move_id': prod.eq_move_id.id})
+                    if prod.eq_move_id:
+                        prod.packop_id.linked_move_operation_ids.write({'move_id': prod.eq_move_id.id})
                 else:
                     pack_datas['picking_id'] = self.picking_id.id
                     packop_id = self.env['stock.pack.operation'].create(pack_datas)
-                    prod.packop_id.linked_move_operation_ids.write({'move_id': prod.eq_move_id.id})
+                    if prod.eq_move_id:
+                        prod.packop_id.linked_move_operation_ids.write({'move_id': prod.eq_move_id.id})
                     processed_ids.append(packop_id.id)
         # Delete the others
         packops = self.env['stock.pack.operation'].search(['&', ('picking_id', '=', self.picking_id.id), '!', ('id', 'in', processed_ids)])
@@ -111,7 +113,8 @@ class eq_stock_transfer_details(models.TransientModel):
                 items.append(item)
             elif op.package_id:
                 packs.append(item)
-            op.eq_move_id.linked_move_operation_ids[0].operation_id = op.id
+            if len(op.eq_move_id.linked_move_operation_ids):
+                op.eq_move_id.linked_move_operation_ids[0].operation_id = op.id
         res.update(item_ids=items)
         res.update(packop_ids=packs)
         return res    

@@ -1,5 +1,10 @@
 ### 23.07.2015
 ### equitania
+#### BUGFIX, 1.0.51
+- Fehler behoben, der Auftritt wenn bereits erstellte Lieferungen geliefert werden.
+
+### 23.07.2015
+### equitania
 #### Änderung, 1.0.49
 - Anischt der Partner angepasst.
 -- Schlagwörte auf volle Breite.
