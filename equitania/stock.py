@@ -59,7 +59,8 @@ class stock_picking_extension(osv.osv):
         #links the operation with the original move, becouse the recompute_remaining_qty method distorts it.
         for op in picking.pack_operation_ids:
             for link in op.linked_move_operation_ids:
-                self.pool.get('stock.move.operation.link').write(cr, uid, link.id, {'move_id': op.eq_move_id.id})
+                if op.eq_move_id:
+                    self.pool.get('stock.move.operation.link').write(cr, uid, link.id, {'move_id': op.eq_move_id.id})
         return res
     
     @api.cr_uid_ids_context
@@ -69,16 +70,17 @@ class stock_picking_extension(osv.osv):
         if join_moves:
             for picking in pickings:
                 for pack_operation in picking.pack_operation_ids:
-                    qty = 0
-                    move_id = False
-                    move_qty = 0
-                    for link in pack_operation.linked_move_operation_ids:
-                        qty += link.move_id.product_uom_qty
-                        move_id = link.move_id.id
-                        move_qty = link.move_id.product_uom_qty
-                    if pack_operation.product_qty > qty:
-                        packop_qty = pack_operation.product_qty - qty + move_qty
-                        self.pool.get('stock.move').write(cr, uid, move_id, {'product_uom_qty': packop_qty, 'product_uos_qty': packop_qty * pack_operation.product_id.uos_coeff})
+                    if link.move_id:
+                        qty = 0
+                        move_id = False
+                        move_qty = 0
+                        for link in pack_operation.linked_move_operation_ids:
+                            qty += link.move_id.product_uom_qty
+                            move_id = link.move_id.id
+                            move_qty = link.move_id.product_uom_qty
+                        if pack_operation.product_qty > qty:
+                            packop_qty = pack_operation.product_qty - qty + move_qty
+                            self.pool.get('stock.move').write(cr, uid, move_id, {'product_uom_qty': packop_qty, 'product_uos_qty': packop_qty * pack_operation.product_id.uos_coeff})
         for picking in pickings:
             if len(picking.move_lines[0].linked_move_operation_ids):
                 picking.move_lines[0].linked_move_operation_ids[0].unlink()
