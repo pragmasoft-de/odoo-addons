@@ -103,7 +103,7 @@ read mysql
 
 if [ "$mysql" = "Y" ]; then
   echo "PostgreSQL will be optimized..."
-  apt-get install pgtune
+  sudo apt-get install pgtune
   sudo pgtune -i /etc/postgresql/9.3/main/postgresql.conf -o /etc/postgresql/9.3/main/postgresql.conf.tuned
   sudo mv /etc/postgresql/9.3/main/postgresql.conf  /etc/postgresql/9.3/main/postgresql.conf.old
   sudo mv /etc/postgresql/9.3/main/postgresql.conf.tuned  /etc/postgresql/9.3/main/postgresql.conf
@@ -114,6 +114,14 @@ else
   echo "PostgreSQL is not optimized!"
 fi
 
-
+echo "Python Image Library will be install.."
+sudo wget http://effbot.org/downloads/Imaging-1.1.7.tar.gz
+sudo tar fzvx Imaging-1.1.7.tar.gz
+sudo cd Imaging-1.1.7
+sudo python setup.py install
+sudo cd ..
+sudo rm Imaging-1.1.7.tar.gz
+sudo rm –rf Imaging-1.1.7
+sudo pip install -I pillow
 
 echo "Finished!"
