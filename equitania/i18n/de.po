@@ -1595,3 +1595,107 @@ msgstr "{'search_default_supplier':1, 'default_supplier':1, 'default_customer':0
 #: field:res.partner,eq_letter_salutation:0
 msgid "Salutation"
 msgstr "Briefanrede"
+
+# Reportübersetzung
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Contact person"
+msgstr "Ansprechpartner"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "For further information, please contact"
+msgstr "Bei Fragen wenden Sie sich bitte an:"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Phone"
+msgstr "Telefon"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Fax"
+msgstr "Telefax"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Sale order"
+msgstr "Auftrag"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Quotation"
+msgstr "Angebot"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Seq"
+msgstr "Pos"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Item no."
+msgstr "Artikelnr."
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Item description"
+msgstr "Beschreibung"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Qty."
+msgstr "Menge"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Unit price"
+msgstr "Einzelpreis"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Discount (%)"
+msgstr "Rabatt (%)"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Net price"
+msgstr "Positionspreis"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Delivery date:"
+msgstr "Lieferdatum:"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Total without taxes"
+msgstr "Summe ohne Steuern"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Total sum"
+msgstr "Gesamtsumme"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Term of payment:"
+msgstr "Zahlungskonditionen:"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Notes:"
+msgstr "Notizen:"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Invoice address:"
+msgstr "Rechnungsadresse:"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+msgid "Shipping address:"
+msgstr "Lieferadresse:"
+
+
+
