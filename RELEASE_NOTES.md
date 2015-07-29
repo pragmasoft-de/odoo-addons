@@ -1,6 +1,8 @@
 ### 29.07.2015
 ### equitania
-#### BUGFIX, 1.0.5
+#### BUGFIX, 1.0.52
+- Übersetzungsfehler in Reports behoben.
+#### BUGFIX, 1.0.53
 - Fehlerhafte Abfrage überarbeitet, wodurch vorher keine Lieferung durchgeführt werden konnte, wenn Überleiferungen in einer Position angezeigt werden sollten.
 - Verkaufseinheit in der Verkaufsposition wird beim Ändern der Menge abgeändert.
 #### Erweiterung
