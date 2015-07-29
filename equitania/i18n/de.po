@@ -1675,7 +1675,6 @@ msgstr "Beschreibung"
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:stock.report_picking
 #: view:website:external_layout_return_picking
-
 msgid "Qty."
 msgstr "Menge"
 
@@ -1701,7 +1700,7 @@ msgstr "Rabatt (%)"
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "Net price"
-msgstr "Positionspreis"
+msgstr "Nettopreis"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
@@ -1890,10 +1889,6 @@ msgstr "Einkaufsanfrage"
 msgid "Your message"
 msgstr "Ihre Nachricht"
 
-#. module: equitania
-#: view:website:purchase.report_purchasequotation_document
-msgid ""
-msgstr ""
 
 #. module: equitania
 #: view:website:purchase.report_purchasequotation_document
