@@ -273,6 +273,8 @@ class eq_report_extension_sale_order_line(osv.osv):
         product_id = self.pool.get('product.product').browse(cr, uid, product, context_new)
         eq_use_internal_descriptionion = self.pool.get('ir.values').get_default(cr, uid, 'sale.order.line', 'eq_use_internal_description')
         
+        vals['value']['product_uos_qty'] = qty * product_id.uos_coeff
+        
         if not eq_use_internal_descriptionion and product_id.description_sale:
             vals['value']['name'] = product_id.description_sale
         elif eq_use_internal_descriptionion and product_id.description:

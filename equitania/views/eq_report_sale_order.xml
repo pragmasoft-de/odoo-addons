@@ -342,6 +342,15 @@
                         </tbody>
                     </table>
                 </div>
+                <table>
+                	<tbody>
+                        <tr t-if="o.note">
+                            <td styles=" vertical-align:top;">
+                                <p t-field="o.note"/>
+                            </td>
+                        </tr>
+                	</tbody>
+                </table>
                 <table class="col-xs-3" style="width:auto!important; max-width:50%;">
                     <tbody>
                         <tr t-if="o.payment_term">
@@ -358,14 +367,6 @@
                             </td>
                             <td>
                                 <span t-field="o.incoterm.name"/>
-                            </td>
-                        </tr>
-                        <tr t-if="o.note">
-                            <td style="padding-right:0.5cm; vertical-align:top;">
-                                Notes:
-                            </td>
-                            <td styles=" vertical-align:top;">
-                                <p t-field="o.note"/>
                             </td>
                         </tr>
                         <tr t-if="o.partner_invoice_id != o.partner_id and o.partner_invoice_id != False">

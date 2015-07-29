@@ -58,8 +58,9 @@
 						<field name="eq_head_text" placeholder="Dear Sir or Madam," nolabel="1"/>
 					</div>
                 </xpath>
-                <field name="note" position="before">
-					<label for="note"/>
+                <field name="note" position="replace">
+                	<label for="note"/>
+					<field name="note"/>
                 </field>
             </field>
         </record>
@@ -153,6 +154,10 @@
 					<div colspan="4">
 						<field name="eq_head_text" placeholder="Dear Sir or Madam," nolabel="1"/>
 					</div>
+                </xpath>
+                <xpath expr="//field[@name='notes']" position="replace">
+                	<label for="notes"/>
+                	<field name="notes"/>
                 </xpath>
             </field>
         </record>

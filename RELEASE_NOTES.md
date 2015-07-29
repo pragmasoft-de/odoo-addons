@@ -1,3 +1,13 @@
+### 29.07.2015
+### equitania
+#### BUGFIX, 1.0.5
+- Fehlerhafte Abfrage überarbeitet, wodurch vorher keine Lieferung durchgeführt werden konnte, wenn Überleiferungen in einer Position angezeigt werden sollten.
+- Verkaufseinheit in der Verkaufsposition wird beim Ändern der Menge abgeändert.
+#### Erweiterung
+- Fußtext (Notiz/Geschäftsbedingung) im Verkauf/Einkauf von der Darstellung in der Form und den Report überarbeitet.
+-- Report: Direkt unter die Positionen und ohne der Information "Notiz".
+-- Form: Feld wird auf der ganzen Breite angezeigt.
+
 ### 23.07.2015
 ### equitania
 #### BUGFIX, 1.0.51

@@ -262,9 +262,18 @@
 	                    </tbody>
 	                </table>
 	            </div>
+                <table>
+                	<tbody>
+                        <tr t-if="o.notes">
+                            <td styles=" vertical-align:top;">
+                                <p t-field="o.notes"/>
+                            </td>
+                        </tr>
+                	</tbody>
+                </table>
 	            <table class="col-xs-3" style="width:90%;">
 	            	<tr>
-	            		<td style="vertical-align:top; width:50%;">
+	            		<td style="vertical-align:top; width:50%;" t-if="o.payment_term_id or o.incoterm_id">
 	            			<table class="col-xs-3" style="width:auto!important; max-width:90%; min-width:8cm;">
 				                <tbody>
 				                    <tr style="vertical-align:top;">
@@ -283,14 +292,6 @@
 				                            <span t-field="o.incoterm_id.name"/>
 				                        </td>
 				                    </tr>
-				                    <tr t-if="o.notes" style="vertical-align:top;">
-				                        <td style="padding-right:0.5cm;">
-				                            Notes: 
-				                        </td>
-				                        <td styles=" vertical-align:top;">
-				                            <p t-field="o.notes"/>
-				                        </td>
-				                    </tr>
 				                </tbody>
 				            </table>
 	            		</td>
@@ -298,7 +299,7 @@
 	            			<table t-if="o.picking_type_id.warehouse_id.partner_id" class="col-xs-3" style="width:auto!important; max-width:90%; min-width:8cm;">
 				                <tbody>
 				                    <tr style="vertical-align:top;">
-				                    	<td style="padding-right:0.5cm;">
+				                    	<td style="padding-right:0.5cm; font-weight:bold;">
 				                    		Deliver to:
 				                    	</td>
 				                    </tr>
