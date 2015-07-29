@@ -1,3 +1,8 @@
+### 29.07.2015
+### equitania
+#### BUGFIX, 1.0.52
+- Übersetzungsfehler in Reports behoben.
+
 ### 23.07.2015
 ### equitania
 #### BUGFIX, 1.0.51
