@@ -9,6 +9,8 @@
 - Fußtext (Notiz/Geschäftsbedingung) im Verkauf/Einkauf von der Darstellung in der Form und den Report überarbeitet.
 -- Report: Direkt unter die Positionen und ohne der Information "Notiz".
 -- Form: Feld wird auf der ganzen Breite angezeigt.
+#### Erweiterung, 1.0.54
+- id für ein td Element eingefügt
 
 ### 23.07.2015
 ### equitania

@@ -70,7 +70,7 @@
 		                    </td>
 		                </tr>
 		                <tr>
-		                    <td></td>
+		                    <td id="sale_header_placeholder"></td>
 		                </tr>
 		            </tbody>
 		        </table>
