@@ -1596,24 +1596,36 @@ msgstr "{'search_default_supplier':1, 'default_supplier':1, 'default_customer':0
 msgid "Salutation"
 msgstr "Briefanrede"
 
-# Reportübersetzung
+# Reportübersetzung Angebote/Aufträge/Rechnungen/Bestellungen
 #. module: equitania
 #: view:website:sale.report_saleorder_document
+#: view:website:eq_external_layout_header_invoice
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
 msgid "Contact person"
 msgstr "Ansprechpartner"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
+#: view:website:eq_external_layout_header_invoice
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
 msgid "For further information, please contact"
 msgstr "Bei Fragen wenden Sie sich bitte an:"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
+#: view:website:eq_external_layout_header_invoice
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
 msgid "Phone"
 msgstr "Telefon"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
+#: view:website:eq_external_layout_header_invoice
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
 msgid "Fax"
 msgstr "Telefax"
 
@@ -1629,73 +1641,354 @@ msgstr "Angebot"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
+#: view:website:eq_external_layout_header_invoice
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
+#: view:website:eq_external_layout_header_stock_picking
+#: view:website:eq_external_layout_header_return_picking
 msgid "Seq"
 msgstr "Pos"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
+#: view:website:eq_external_layout_header_invoice
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
+#: view:website:eq_external_layout_header_stock_picking
+#: view:website:eq_external_layout_header_return_picking
 msgid "Item no."
 msgstr "Artikelnr."
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
+#: view:website:eq_external_layout_header_invoice
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
+#: view:website:eq_external_layout_header_return_picking
 msgid "Item description"
 msgstr "Beschreibung"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
+#: view:website:eq_external_layout_header_invoice
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
+#: view:website:eq_external_layout_header_stock_picking
+#: view:website:eq_external_layout_header_return_picking
+
 msgid "Qty."
 msgstr "Menge"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
+#: view:website:eq_external_layout_header_invoice
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
 msgid "Unit price"
 msgstr "Einzelpreis"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
+#: view:website:eq_external_layout_header_invoice
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
 msgid "Discount (%)"
 msgstr "Rabatt (%)"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
+#: view:website:eq_external_layout_header_invoice
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
 msgid "Net price"
 msgstr "Positionspreis"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
+#: view:website:eq_external_layout_header_invoice
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
 msgid "Delivery date:"
 msgstr "Lieferdatum:"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
+#: view:website:eq_external_layout_header_invoice
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
 msgid "Total without taxes"
 msgstr "Summe ohne Steuern"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
+#: view:website:eq_external_layout_header_invoice
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
 msgid "Total sum"
 msgstr "Gesamtsumme"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
+#: view:website:eq_external_layout_header_invoice
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
 msgid "Term of payment:"
 msgstr "Zahlungskonditionen:"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
+#: view:website:eq_external_layout_header_invoice
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
 msgid "Notes:"
 msgstr "Notizen:"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
+#: view:website:eq_external_layout_header_invoice
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
 msgid "Invoice address:"
 msgstr "Rechnungsadresse:"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
+#: view:website:eq_external_layout_header_invoice
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
 msgid "Shipping address:"
 msgstr "Lieferadresse:"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+#: view:website:eq_external_layout_header_invoice
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
+msgid "Drawing No.:"
+msgstr "Zeichnungsnr.:"
+
+# Reportübersetzung Rechnungen
+#. module: equitania
+#: view:website:eq_external_layout_header_invoice
+msgid "Order no."
+msgstr "Auftragsnr."
+
+#. module: equitania
+#: view:website:eq_external_layout_header_invoice
+msgid "Supplier no."
+msgstr "Lieferantennr."
+
+#. module: equitania
+#: view:website:eq_external_layout_header_invoice
+msgid "Customer no."
+msgstr "Kundennr."
+
+#. module: equitania
+#: view:website:eq_external_layout_header_invoice
+msgid "Your reference no."
+msgstr "Referenznr."
+
+#. module: equitania
+#: view:website:eq_external_layout_header_invoice
+msgid "Invoice no."
+msgstr "Rechnungsnr."
+
+#. module: equitania
+#: view:website:eq_external_layout_header_invoice
+msgid "Invoice date"
+msgstr "Rechnungsdatum"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_invoice
+msgid "Invoice"
+msgstr "Rechnung"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_invoice
+msgid "Pro-forma invoice"
+msgstr "Pro-Forma Rechnung"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_invoice
+msgid "Draft invoice"
+msgstr "Rechnungsentwurf"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_invoice
+msgid "Cancelled invoice"
+msgstr "Abgebrochene Rechnung"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_invoice
+msgid "Refund"
+msgstr "Gutschrift"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_invoice
+msgid "Supplier Refund"
+msgstr "Liefer-Gutschrift"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_invoice
+msgid "Supplier Invoice"
+msgstr "Liefer-Rechnung"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_invoice
+msgid "Delivery No."
+msgstr "Lieferscheinnr."
+
+#. module: equitania
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
+msgid "Deliver to:"
+msgstr "Lieferung an:"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
+msgid "Delivery date:"
+msgstr "Lieferdatum:"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
+msgid "Purchase Order"
+msgstr "Bestellung"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
+msgid "Supplier no."
+msgstr "Lieferantennr."
+
+#. module: equitania
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
+msgid "Your order reference"
+msgstr "Ihre Referenznr."
+
+#. module: equitania
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
+msgid "Our order reference"
+msgstr "Unsere Referenznr."
+
+#. module: equitania
+#: view:website:eq_external_layout_header_purchase_order
+#: view:website:eq_external_layout_header_purchase_quotation
+msgid "Order date"
+msgstr "Bestelldatum"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_purchase_quotation
+msgid "Purchase quotation"
+msgstr "Einkaufsanfrage"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_purchase_quotation
+msgid "Your message"
+msgstr "Ihre Nachricht"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_purchase_quotation
+msgid ""
+msgstr ""
+
+#. module: equitania
+#: view:website:eq_external_layout_header_purchase_quotation
+msgid "Your order reference"
+msgstr "Ihre Bestellreferenz"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_purchase_quotation
+msgid "Your request no."
+msgstr "Ihre Anfragenr."
+
+#. module: equitania
+#: view:website:eq_external_layout_header_stock_picking
+#: view:website:eq_external_layout_header_return_picking
+msgid "Customer no."
+msgstr "Kundennr."
+
+#. module: equitania
+#: view:website:eq_external_layout_header_stock_picking
+#: view:website:eq_external_layout_header_return_picking
+msgid "Your reference no."
+msgstr "Ihre Referenznr."
+
+#. module: equitania
+#: view:website:eq_external_layout_header_stock_picking
+#: view:website:eq_external_layout_header_return_picking
+msgid "Commitment Date"
+msgstr "Bestätigungsdatum"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_stock_picking
+#: view:website:eq_external_layout_header_return_picking
+msgid "Delivery Date"
+msgstr "Lieferdatum"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_stock_picking
+#: view:website:eq_external_layout_header_return_picking
+msgid "Supplier Address:"
+msgstr "Lieferadresse:"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_stock_picking
+#: view:website:eq_external_layout_header_return_picking
+msgid "Warehouse Address:"
+msgstr "Lageradresse:"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_stock_picking
+#: view:website:eq_external_layout_header_return_picking
+msgid "Our reference no."
+msgstr "Unsere Referenznr."
+
+#. module: equitania
+#: view:website:eq_external_layout_header_stock_picking
+#: view:website:eq_external_layout_header_return_picking
+msgid "Scheduled date"
+msgstr "Geplantes Datum"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_stock_picking
+#: view:website:eq_external_layout_header_return_picking
+msgid "Weight"
+msgstr "Gewicht"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_stock_picking
+#: view:website:eq_external_layout_header_return_picking
+msgid "Source"
+msgstr "Ursprungsort"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_stock_picking
+#: view:website:eq_external_layout_header_return_picking
+msgid "Destination"
+msgstr "Zielort"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_stock_picking
+#: view:website:eq_external_layout_header_return_picking
+msgid "Invoice address:"
+msgstr "Rechnungsadresse:"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_stock_picking
+#: view:website:eq_external_layout_header_return_picking
+msgid "Goods received on date:"
+msgstr "Waren erhalten am:"
+
+#. module: equitania
+#: view:website:eq_external_layout_header_stock_picking
+#: view:website:eq_external_layout_header_return_picking
+msgid "Signature"
+msgstr "Unterschrift"
+
 
 
 
