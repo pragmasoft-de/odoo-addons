@@ -1632,7 +1632,7 @@ msgstr "Telefax"
 #. module: equitania
 #: view:website:sale.report_saleorder_document
 msgid "Sale order"
-msgstr "Auftrag"
+msgstr "Auftragsbestätigung"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
