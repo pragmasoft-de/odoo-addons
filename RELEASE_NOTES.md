@@ -1,7 +1,12 @@
 ### 29.07.2015
 ### equitania
-#### BUGFIX, 1.0.52
-- Übersetzungsfehler in Reports behoben.
+#### Änderung, 1.0.55
+- Lieferschiennummer wird in der Rechnung unter jeder Position angezeigt.
+
+### 29.07.2015
+### equitania
+#### Erweiterung, 1.0.54
+- id für ein td Element eingefügt
 #### BUGFIX, 1.0.53
 - Fehlerhafte Abfrage überarbeitet, wodurch vorher keine Lieferung durchgeführt werden konnte, wenn Überleiferungen in einer Position angezeigt werden sollten.
 - Verkaufseinheit in der Verkaufsposition wird beim Ändern der Menge abgeändert.
@@ -9,8 +14,8 @@
 - Fußtext (Notiz/Geschäftsbedingung) im Verkauf/Einkauf von der Darstellung in der Form und den Report überarbeitet.
 -- Report: Direkt unter die Positionen und ohne der Information "Notiz".
 -- Form: Feld wird auf der ganzen Breite angezeigt.
-#### Erweiterung, 1.0.54
-- id für ein td Element eingefügt
+#### BUGFIX, 1.0.52
+- Übersetzungsfehler in Reports behoben.
 
 ### 23.07.2015
 ### equitania

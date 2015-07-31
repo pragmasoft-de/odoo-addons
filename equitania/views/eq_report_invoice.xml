@@ -214,13 +214,7 @@
 						<th class="text-right" style="min-width:2.7cm;">Net price</th>
 					</tr>
 				</thead>
-				<tbody class="invoice_tbody">
-		            <!-- Lines associated -->		            
-		            <tr t-foreach="get_pickings(o.invoice_line)" t-as="l">
-						<td colspan="10">
-							<p style="font-weight:bold;">Delivery No. <span t-field="l.name"/> from <span t-esc="l.date_done.split(' ')[0].split('-')[2] + '.' + l.date_done.split(' ')[0].split('-')[1] + '.' + l.date_done.split(' ')[0].split('-')[0]"/> / Delivery Date (the date of service)</p>
-						</td>
-					</tr>					
+				<tbody class="invoice_tbody">				
 			        <t t-foreach="o.sale_layout_lines(invoice_id=o.id)" t-as="p">
 			            <!-- Name of the category -->
 			            <t t-call="equitania.category_template"/>
@@ -251,6 +245,11 @@
 									</td>-->
 									<td class="text-right">
 										<span t-esc="get_standard_price(l.price_subtotal, o.partner_id.lang, o.currency_id)"/>
+									</td>
+								</tr>
+								<tr t-if="l.eq_move_id and l.eq_move_id.picking_id" style="border-top-style:hidden;">
+									<td colspan="7">
+										<p style="font-weight:bold;">Delivery No. <span t-field="l.eq_move_id.picking_id.name"/> from <span t-esc="l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[2] + '.' + l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[1] + '.' + l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[0]"/> / Delivery Date (the date of service)</p>
 									</td>
 								</tr>
 			            </t>
