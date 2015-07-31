@@ -1,0 +1,14 @@
+You need to change the email templates with the following SQL Statements, otherwise the for loop in the table won't work.
+
+Change the english template
+
+update email_template
+set body_html = $$ //template// $$
+where id = //template_id//
+
+Change the german template
+
+update ir_translation 
+set value = $$ //template// $$
+where name = 'email.template,body_html' and lang = 'de_DE' and res_id = //template_id//
+
