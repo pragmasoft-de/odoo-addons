@@ -209,7 +209,7 @@
 	            			<table class="col-xs-3" style="width:auto!important; max-width:90%; min-width:8cm;">
 				                <tbody>
 				                    <tr style="vertical-align:top;">
-				                        <td t-if="o.payment_term_id" style="padding-right:0.5cm;">
+				                        <td t-if="o.payment_term_id" style="padding-right:0.5cm; padding-bottom:0.3cm;">
 				                            Term of payment:
 				                        </td>
 				                        <td t-if="o.payment_term_id">
@@ -217,7 +217,7 @@
 				                        </td>
 				                    </tr>
 				                    <tr style="vertical-align:top;">
-				                        <td t-if="o.incoterm_id" style="padding-right:0.5cm;">
+				                        <td t-if="o.incoterm_id" style="padding-right:0.5cm; padding-bottom:0.3cm;">
 				                            Incoterm:
 				                        </td>
 				                        <td t-if="o.incoterm_id">

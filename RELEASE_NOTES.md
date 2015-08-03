@@ -1,7 +1,12 @@
+### 03.08.2015
+### equitania
+#### Änderung, 1.0.56
+- Abstände von Zahlungskonditionen, Lieferbedingungen, Rechnungsanschrift und Lieferanschrift am Fuß von Rechnungen, Angeboten und Einkäufen verbessert.
+
 ### 29.07.2015
 ### equitania
 #### Änderung, 1.0.55
-- Lieferschiennummer wird in der Rechnung unter jeder Position angezeigt.
+- Lieferscheinnummer wird in der Rechnung unter jeder Position angezeigt.
 
 ### 29.07.2015
 ### equitania

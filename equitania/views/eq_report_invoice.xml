@@ -333,30 +333,39 @@
 						</tbody>
 					</table>
 				</div>
+				<table>
+                	<tbody>
+                 		<tr t-if="o.comment">
+                            <td style="padding:0 0.5cm 0.3cm 0; vertical-align:top;">
+                                <p t-field="o.comment"/>
+                            </td>
+                        </tr>
+                	</tbody>
+                </table>
 				<table id="additional-invoice-info" class="col-xs-3" style="width:auto!important; max-width:50%; clear:both;">
 					<tbody>
 						<tr t-if="o.payment_term">
-							<td style="padding-right:0.5cm;">
+							<td style="padding-right:0.5cm; padding-bottom:0.3cm;">
 								Term of payment:
 							</td>
 							<td>
 								<span t-field="o.payment_term"/>
 							</td>
 						</tr>
-						<tr t-if="o.comment">
-							<td style="padding:0 0.5cm 0.5cm 0; vertical-align:top;">
+						<!-- <tr t-if="o.comment">
+							<td style="padding:0 0.5cm 0.3cm 0; vertical-align:top;">
 								Notes:
 							</td>
 							<td style=" vertical-align:top;">
 								<span t-field="o.comment"/>
 							</td>
-						</tr>
+						</tr>-->
 						<tr t-if="o.eq_delivery_address" id="eq_delivery_address_spacing"><td><p> <!-- Keep this line for Spacing --></p></td><td></td></tr>
 						<tr t-if="o.eq_delivery_address" id="eq_delivery_address">
 							<td style="padding-right:0.5cm;" valign="top">
 								Shipping address:
 							</td>
-							<td>
+							<td style="padding-bottom:0.3cm; padding-bottom:0.3cm;">
 								<div>
 									<div t-field="o.eq_delivery_address.name" style="clear:left;"/>
 									<div t-if="o.eq_delivery_address.eq_name2" t-field="o.eq_delivery_address.eq_name2" style="clear:left;"/>

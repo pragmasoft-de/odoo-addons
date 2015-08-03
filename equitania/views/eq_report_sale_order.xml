@@ -354,7 +354,7 @@
                 <table class="col-xs-3" style="width:auto!important; max-width:50%;">
                     <tbody>
                         <tr t-if="o.payment_term">
-                            <td style="padding-right:0.5cm;">
+                            <td style="padding-right:0.5cm; padding-bottom:0.3cm;">
                                 Term of payment:
                             </td>
                             <td>
@@ -362,7 +362,7 @@
                             </td>
                         </tr>
                         <tr t-if="o.incoterm">
-                            <td style="padding-right:0.5cm;">
+                            <td style="padding-right:0.5cm; padding-bottom:0.3cm;">
                                 Incoterm:
                             </td>
                             <td>
@@ -373,7 +373,7 @@
                             <td style="padding-right:0.5cm; font-weight:bold;" valign="top">
                                 Invoice address:
                             </td>
-                            <td style="padding-bottom:0.5cm;">
+                            <td style="padding-bottom:0.3cm;">
 								<div>
 									<!-- wenn keine Person (Rechnungsadresse ist kein Kontakt) -->
 									<div t-if="o.partner_invoice_id.type != 'contact'">
@@ -415,7 +415,7 @@
                             <td style="padding-right:0.5cm; font-weight:bold;" valign="top">
                                 Shipping address:
                             </td>
-                            <td>
+                            <td style="padding-bottom:0.3cm;">
 								<div>
 									<div t-field="o.partner_shipping_id.name" style="clear:left;"/>
 									<div t-if="o.partner_shipping_id.eq_name2" t-field="o.partner_shipping_id.eq_name2" style="clear:left;"/>
