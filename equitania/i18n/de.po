@@ -1985,6 +1985,8 @@ msgstr "Waren erhalten am:"
 msgid "Signature"
 msgstr "Unterschrift"
 
-
-
-
+#. module: equitania
+#: field:crm.lead,eq_lead_referred_id:0
+#: field:res.partner,eq_lead_referred_id:0
+msgid "Referred By"
+msgstr "Vermittelt durch"

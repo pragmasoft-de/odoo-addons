@@ -1,3 +1,10 @@
+### 06.08.2015
+### equitania
+#### Erweiterung, 1.0.57
+- Das Feld "Vermittelt durch" ist ab jetzt auch bei Kunden, deren Kontakten und bei Interessenten
+- Alle Klassen in der Datei eq_lead_referred.py wurden auf neue API umgestellt
+- Die DE.PO Datei wurde um neuen Eintrag erweitert. Diesmal habe ich es wirklich manuell gemacht
+
 ### 03.08.2015
 ### equitania
 #### Änderung, 1.0.56
