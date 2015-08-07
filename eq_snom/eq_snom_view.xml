@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	     <record id="eq_view_users_form_snom" model="ir.ui.view">
+	        <field name="name">eq.view.users.form.snom</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+            <field name="arch" type="xml">
+            	 <xpath expr="//group[@name='preferences']" position="after">            	 	
+            		<group string="Snom-Phone settings" cols="1">            			
+            		    <field name="eq_snom_ip_name"/>
+            		    <field name="eq_snom_user"/>	
+            		    <field name="eq_snom_password"/>
+            		    <field name="eq_snom_prefix"/>			            			            
+	            	</group>
+	            </xpath> 	            
+	        </field>
+	   	</record>	
+	   	
+	   	<record id="eq_view_partner_snom" model="ir.ui.view">
+	        <field name="name">eq.view.partner.snom</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//field[@name='phone']" position="replace">
+            	    <label for="phone" string="Phone"/>
+            		<div colspan="1">
+	            		<field name="phone" style="width: 40%" />					
+						<button name="eq_call_snom" type="object" string="Call" class="oe_inline" style="width: 20%"/>							
+					</div>		            			            	            	
+	            </xpath> 	            
+	        </field>
+	   	</record>
+	</data>
+</openerp>
