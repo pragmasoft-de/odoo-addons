@@ -1,0 +1,21 @@
+Title
+#######
+${object.company_id.name} invitation to connect on our System
+
+Body
+#######
+<p>Hello ${object.partner_id.title.name} ${object.partner_id.name},<br></p>
+<p>this is an automatic e-mail to verify your address and to register with a password in our customer portal.</p>
+<p>To accept the invitation, click on the following link:</p>
+<ul>
+<li><a href="${object.signup_url}">Accept invitation to "${object.company_id.name}"</a></li>
+</ul>
+<p>For questions please ask our team.</p>
+<p><br></p>
+<p>Grettings from ${object.company_id.city or ''}</p>
+<p><br></p>
+<p>
+${object.company_id.name or ''}<br>
+${object.company_id.email or ''}<br>
+${object.company_id.phone or ''}<br>
+</p>
