@@ -75,9 +75,10 @@ class stock_picking_extension(osv.osv):
                     move_qty = 0
                     for link in pack_operation.linked_move_operation_ids:
                         if link.move_id:
-                            qty += link.move_id.product_uom_qty
-                            move_id = link.move_id.id
-                            move_qty = link.move_id.product_uom_qty
+                            if move_id != link.move_id.id:
+                                qty += link.move_id.product_uom_qty
+                                move_id = link.move_id.id
+                                move_qty = link.move_id.product_uom_qty
                     if pack_operation.product_qty > qty:
                         packop_qty = pack_operation.product_qty - qty + move_qty
                         self.pool.get('stock.move').write(cr, uid, move_id, {'product_uom_qty': packop_qty, 'product_uos_qty': packop_qty * pack_operation.product_id.uos_coeff})
