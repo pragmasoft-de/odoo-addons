@@ -35,21 +35,35 @@ class eq_snom_res_users(models.Model):
 class eq_snom_res_users(models.Model):
     _inherit = 'res.partner'
 
-    @api.multi
-    def eq_call_snom(self):
-        """ Execute HTTP GET after button click """
-        
+    def start_call(self, phone_number):
+        #Get current user    
         res_user_obj = self.env['res.users'].sudo()
         res_user = res_user_obj.search([('id', '=', self._uid)])
-        phone_number = res_user.eq_snom_prefix + self.phone.replace('+','00')
-        phone_number = ''.join(i for i in phone_number if i in "0123456789")
-        if (res_user.eq_snom_user) and (res_user.eq_snom_password):
-            url = "http://" + res_user.eq_snom_user + ":" + res_user.eq_snom_password + "@" + res_user.eq_snom_ip_name + "/command.htm?number=" + phone_number
-        else:    
-            url = "http://" + res_user.eq_snom_ip_name + "/command.htm?number=" + phone_number              
-        #url_response = urllib2.urlopen(url).read()
-        #print "------------------ url_response: ", url_response
         
-        print "------------------ ip/name: ", url       
+        if (res_user.eq_snom_ip_name) and (phone_number):
+            #Format the phone number            
+            if (res_user.eq_snom_prefix):
+                phone_number = res_user.eq_snom_prefix + phone_number
+            phone_number_formatted = phone_number.replace('+','00')
+            phone_number_formatted = ''.join(i for i in phone_number_formatted if i in "0123456789")                        
+            
+            #Build URL
+            if (res_user.eq_snom_user) and (res_user.eq_snom_password):
+                url = "http://" + res_user.eq_snom_user + ":" + res_user.eq_snom_password + "@" + res_user.eq_snom_ip_name + "/command.htm?number=" + phone_number_formatted
+            else:    
+                url = "http://" + res_user.eq_snom_ip_name + "/command.htm?number=" + phone_number_formatted  
+                
+                            
+            #url_response = urllib2.urlopen(url).read()            
+            
+            print "------------------ called url: ", url               
+
+    @api.multi
+    def eq_call_phone_snom(self):
+        self.start_call(self.phone)
+        
+    @api.multi
+    def eq_call_mobile_snom(self):
+        self.start_call(self.mobile)    
         
   
