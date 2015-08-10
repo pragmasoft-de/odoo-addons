@@ -1,3 +1,8 @@
+### 10.08.2015
+### equitania
+#### Bugfix, 1.0.58
+- Überlieferung wird auch zusammengefasst, wenn ein Produkt nur teilweise verfügbar ist.
+
 ### 06.08.2015
 ### equitania
 #### Erweiterung, 1.0.57
