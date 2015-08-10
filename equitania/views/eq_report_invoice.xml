@@ -179,11 +179,11 @@
                                 </td>
                             </tr>
 							<tr>
-								<td>
+								<td colspan="2">
 									<span>E-Mail</span>
-								</td>
-								<td class="text-right">
-									<span t-field="o.user_id.eq_employee_id.work_email"/>
+									<div style="float:right;">
+                                        <span t-field="o.user_id.eq_employee_id.work_email"/>
+                                    </div>
 								</td>
 							</tr>
 						</tbody>
