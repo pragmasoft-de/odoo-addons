@@ -1,3 +1,8 @@
+### 11.08.2015
+### equitania
+#### Bugfix, 1.0.59
+- Neues Addon: Snom-Telefonunterstützung. Es können direkt Telefonate aus dem Kundenstamm gestartet werden.
+
 ### 10.08.2015
 ### equitania
 #### Bugfix, 1.0.58
