@@ -144,14 +144,14 @@
                                     <span t-field="o.eq_contact_person_id.eq_work_fax"/>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <span>E-Mail</span>
-                                </td>
-                                <td class="text-right">
-                                    <span t-field="o.eq_contact_person_id.work_email"/>
-                                </td>
-                            </tr>
+  							<tr>
+								<td colspan="2">
+									<span>E-Mail</span>
+									<div style="float:right;">
+                                        <span t-field="o.eq_contact_person_id.work_email"/>
+                                    </div>
+								</td>
+							</tr>
                         </tbody>
                     </table>
                 </div>
