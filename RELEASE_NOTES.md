@@ -1,3 +1,8 @@
+### 13.08.2015
+### equitania
+#### Bugfix, 1.0.60
+- Die Felder "Belegnr. des Kunden" und "Referenz / Beschreibung" werden bei allen Abrechnungstypen richtig erfasst. 
+
 ### 11.08.2015
 ### equitania
 #### Bugfix, 1.0.59
