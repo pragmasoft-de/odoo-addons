@@ -22,15 +22,16 @@
 {
     'name': 'Equitania Snom Addon',
     'version': '1.0.0',
-    'description': """
-        Equitania Software GmbH
+    'description': 
+    """Adds snom-phone settings to the user preferences and call-buttons to the partner view (for phone and mobile).
+    You can start calls directly from the partner view, by pressing the call-button 
     """,
     'author': 'Equitania Software GmbH',
     'website': 'www.myodoo.de',
     'depends': ['base_setup'],
     'category' : 'General Improvements',
     #What it Improves e.g Sale, Purchase, Accounting
-    'summary': '',
+    'summary': 'Snom-Phone extension',
     #Only on initialization
     #'init': [
     #         'eq_install_func.xml', 

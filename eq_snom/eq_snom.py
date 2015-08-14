@@ -20,6 +20,8 @@
 ##############################################################################
 
 import urllib2
+from openerp.http import request
+#from main import eq_snom_controller
 
 #New API, Remove Old API import if the New API is used. Otherwise you'll get an import error.
 from openerp import models, fields, api, _
@@ -33,7 +35,7 @@ class eq_snom_res_users(models.Model):
     eq_snom_prefix = fields.Char(string='Prefix')
         
 class eq_snom_res_users(models.Model):
-    _inherit = 'res.partner'
+    _inherit = 'res.partner'            
 
     def start_call(self, phone_number):
         #Get current user    
@@ -49,21 +51,26 @@ class eq_snom_res_users(models.Model):
             
             #Build URL
             if (res_user.eq_snom_user) and (res_user.eq_snom_password):
-                url = "http://" + res_user.eq_snom_user + ":" + res_user.eq_snom_password + "@" + res_user.eq_snom_ip_name + "/command.htm?number=" + phone_number_formatted
+                url = request.httprequest.host_url + "snom/call?url=http://" + res_user.eq_snom_user + ":" + res_user.eq_snom_password + "@" + res_user.eq_snom_ip_name + "/command.htm?number=" + phone_number_formatted
             else:    
-                url = "http://" + res_user.eq_snom_ip_name + "/command.htm?number=" + phone_number_formatted  
-                
-                            
-            #url_response = urllib2.urlopen(url).read()            
+                url = request.httprequest.host_url + "snom/call?url=http://" + res_user.eq_snom_ip_name + "/command.htm?number=" + phone_number_formatted                          
+                          
+            #url_response = urllib2.urlopen(url).read()
             
-            print "------------------ called url: ", url               
+            return {
+                'type': 'ir.actions.act_url',
+                'url': url,
+                'target': 'new',
+            }
+                        
+            #print "------------------ called url: ", url_response               
 
     @api.multi
-    def eq_call_phone_snom(self):
-        self.start_call(self.phone)
+    def eq_call_phone_snom(self):        
+        return self.start_call(self.phone)
         
     @api.multi
     def eq_call_mobile_snom(self):
-        self.start_call(self.mobile)    
+        return self.start_call(self.mobile)    
         
   

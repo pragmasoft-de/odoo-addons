@@ -19,4 +19,6 @@
 #
 ##############################################################################
 
+import controllers
+#from . import main
 import eq_snom
