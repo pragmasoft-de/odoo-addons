@@ -39,7 +39,7 @@ fi
 
 echo "apt-get packages will be install.."
 apt-get install ghostscript graphviz antiword git libpq-dev poppler-utils \
- python-pip build-essential libfreetype6-dev npm python-magic
+ python-pip build-essential libfreetype6-dev python-magic
 
 apt-get install python-dateutil python-pypdf python-requests \
  python-feedparser python-gdata python-ldap python-libxslt1 \
@@ -57,6 +57,8 @@ echo "pip packages will be install.."
 pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode validate_email pyDNS pysftp python-slugify
 
 echo "npm packages will be install.."
+curl -sL https://deb.nodesource.com/setup_0.12 | bash -
+apt-get install nodejs
 npm install -g less less-plugin-clean-css
 ln -s /usr/bin/nodejs /usr/bin/node
 
