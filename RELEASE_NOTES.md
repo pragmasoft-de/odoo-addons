@@ -1,3 +1,8 @@
+### 17.08.2015
+### equitania
+#### Änderung, 1.0.61
+- Reports: Die Positionen und Schriftgröße der Reports wurde angepasst um potentielle Fehler vorzubeugen
+
 ### 13.08.2015
 ### equitania
 #### Bugfix, 1.0.60

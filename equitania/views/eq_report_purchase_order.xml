@@ -109,7 +109,7 @@
 	                <div t-field="o.partner_id.country_id.name"/>
 	            </div>
 	            <div class="col-xs-5">
-	                <h style="line-height:3em" t-if="o.eq_contact_person_id">
+	                <h class="contactpersonheader" t-if="o.eq_contact_person_id">
 	                    <strong>For further information, please contact</strong>
 	                </h>
 	                <table style="width:100%;" t-if="o.eq_contact_person_id">

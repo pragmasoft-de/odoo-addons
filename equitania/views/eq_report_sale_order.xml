@@ -152,7 +152,7 @@
 					</div>
 				</div>
                 <div class="col-xs-5">
-                    <h style="line-height:3em" t-if="o.user_id.eq_employee_id">
+                    <h class="contactpersonheader" t-if="o.user_id.eq_employee_id">
                         <strong>For further information, please contact</strong>
                     </h>
                     <h style="line-height:0.5cm" t-if="o.user_id.eq_employee_id">
