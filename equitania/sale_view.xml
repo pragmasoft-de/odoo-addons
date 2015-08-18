@@ -1,0 +1,18 @@
+<openerp>
+	<data>
+		<record id="eq_info_optional_form_view" model="ir.ui.view">		
+			<field name="name">eq_info_optional.form.view</field>
+			<field name="model">eq_info_optional</field>
+			<field name="arch" type="xml">
+				<form version="7.0">
+                	<group>
+						<field name="eq_info_text" nolabel="1" readonly="1"/>
+					</group>
+					<footer>
+						<button name="action_done" type="object" string="Confirm"/> or <button name="cancel" type="special" string="Cancel"/>
+					</footer>
+				</form>
+			</field>
+		</record>
+	</data>
+</openerp>

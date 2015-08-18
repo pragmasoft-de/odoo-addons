@@ -26,13 +26,15 @@ from datetime import datetime
 class eq_sale_order_line(models.Model):
     _inherit = 'sale.order.line'
     
+    eq_optional = fields.Boolean(string="Optional")
+    
     @api.multi
     def remove_production(self):
         return True
     
     def create_order_line_del_message(self):
         message_vals = {
-                        'body': _('<div><b>Position Storniert</p></div><div>Product: ' + self.product_id.name + '\nMenge: ' + str(self.product_uom_qty)),
+                        'body': _('<div><b>Position Storniert</p></div><div>Product: ' + (self.product_id.name if self.product_id.name else self.name) + '\nMenge: ' + str(self.product_uom_qty)),
                         'date': datetime.now(),
                         'res_id': self.order_id.id,
                         'record_name': self.order_id.name,
@@ -60,3 +62,50 @@ class eq_sale_order_line(models.Model):
                     rec.order_id.signal_workflow('ship_recreate')
             rec.create_order_line_del_message()
         return super(eq_sale_order_line, self).unlink()
+    
+class eq_sale_order(models.Model):
+    _inherit = 'sale.order'
+    
+    @api.multi
+    def action_button_confirm_optional(self):
+        warning_msgs = False
+        for line in self.order_line:
+            if line.eq_optional:
+                warning_msgs = True
+
+
+        if warning_msgs:
+            vals = {
+                    'eq_info_text': _("All the optional positions will be removed."),
+                    'eq_sale_id': self.id,
+                    }
+            new_popup = self.env['eq_info_optional'].create(vals)
+            view = self.env.ref('equitania.eq_info_optional_form_view')
+            return {
+                'name': _('Not enough stock !'),
+                'view_type': 'form',
+                'view_mode': 'form',
+                'view_id': view.id,
+                'res_model': 'eq_info_optional',
+                'context': "{}",
+                'type': 'ir.actions.act_window',
+                'nodestroy': True,
+                'target': 'new',
+                'res_id': new_popup.id,
+            }
+        else:
+            return super(eq_sale_order, self).action_button_confirm()
+        
+class eq_info_optional(models.TransientModel):
+    _name = 'eq_info_optional'
+    
+    eq_info_text = fields.Text()
+    eq_sale_id = fields.Many2one('sale.order')
+    
+    @api.multi
+    def action_done(self):
+        for line in self.eq_sale_id.order_line:
+            if line.eq_optional:
+                line.unlink()
+        self.eq_sale_id.action_button_confirm()
+        return True
