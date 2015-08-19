@@ -128,6 +128,7 @@ msgstr "Kalenderwoche"
 
 #. module: equitania
 #: view:eq.date.done.change:equitania.eq_date_done_form_view
+#: view:eq_info_optional:equitania.eq_info_optional_form_view
 #: view:eq_pricelist_item_search:equitania.eq_pricelist_item_search_form_view
 #: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
 msgid "Cancel"
@@ -218,6 +219,11 @@ msgstr "Konfiguriere Lager"
 #: view:eq.date.done.change:equitania.eq_date_done_form_view
 msgid "Confirm"
 msgstr "Speichern"
+
+#. module: equitania
+#: view:eq_info_optional:equitania.eq_info_optional_form_view
+msgid "Confirm"
+msgstr "Bestätigen"
 
 #. module: equitania
 #: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
@@ -1527,6 +1533,7 @@ msgstr "oe_left"
 
 #. module: equitania
 #: view:eq.date.done.change:equitania.eq_date_done_form_view
+#: view:eq_info_optional:equitania.eq_info_optional_form_view
 #: view:eq_multy_assign_product_no:equitania.eq_multy_assign_product_no_form_view
 #: view:eq_pricelist_item_search:equitania.eq_pricelist_item_search_form_view
 #: view:product.pricelist.item:equitania.eq_pricelist_item_search_item_form
@@ -1990,3 +1997,14 @@ msgstr "Unterschrift"
 #: field:res.partner,eq_lead_referred_id:0
 msgid "Referred By"
 msgstr "Vermittelt durch"
+
+#. module: equitania
+#: field:sale.order.line,eq_optional:0
+msgid "Optional"
+msgstr "Optional"
+
+#. module: equitania
+#: code:addons/equitania/sale.py:97
+#, python-format
+msgid "All the optional positions will be removed."
+msgstr "Alle optionalen Positionen werden aus dem Auftrag entfernt."

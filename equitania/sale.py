@@ -65,7 +65,25 @@ class eq_sale_order_line(models.Model):
     
 class eq_sale_order(models.Model):
     _inherit = 'sale.order'
-    
+
+    @api.cr_uid_ids_context
+    def _amount_all(self, cr, uid, ids, field_name, arg, context=None):
+        cur_obj = self.pool.get('res.currency')
+        res = super(eq_sale_order, self)._amount_all(cr, uid, ids, field_name, arg, context=context)
+        for order_id in res:
+            val1 = 0
+            val = 0
+            order = self.browse(cr, uid, order_id, context=context)
+            cur = order.pricelist_id.currency_id
+            for line in order.order_line:
+                if line.eq_optional:
+                    val1 += line.price_subtotal
+                    val += self._amount_line_tax(cr, uid, line, context=context)
+            res[order.id]['amount_tax'] -= cur_obj.round(cr, uid, cur, val)
+            res[order.id]['amount_untaxed'] -= cur_obj.round(cr, uid, cur, val1)
+            res[order.id]['amount_total'] = res[order.id]['amount_untaxed'] + res[order.id]['amount_tax']
+        return res
+        
     @api.multi
     def action_button_confirm_optional(self):
         warning_msgs = False
