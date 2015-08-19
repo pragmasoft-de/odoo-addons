@@ -7,11 +7,11 @@
             <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
             <field name="arch" type="xml">
             	 <xpath expr="//group[@name='preferences']" position="after">            	 	
-            		<group string="Snom-Phone settings" cols="1">            			
-            		    <field name="eq_snom_ip_name"/>
-            		    <field name="eq_snom_user"/>	
-            		    <field name="eq_snom_password"/>
-            		    <field name="eq_snom_prefix"/>			            			            
+            		<group string="Snom-Phone settings" cols="1">
+            		    <field name="eq_snom_ip_name" readonly="0"/>
+            		    <field name="eq_snom_user" readonly="0"/>
+            		    <field name="eq_snom_password" readonly="0"/>
+            		    <field name="eq_snom_prefix" readonly="0"/>
 	            	</group>
 	            </xpath> 	            
 	        </field>
