@@ -28,7 +28,7 @@
     """,
     'author': 'Equitania Software GmbH',
     'website': 'www.myodoo.de',
-    'depends': ['base_setup'],
+    'depends': ['base_setup', 'crm'],
     'category' : 'General Improvements',
     #What it Improves e.g Sale, Purchase, Accounting
     'summary': 'Snom-Phone extension',

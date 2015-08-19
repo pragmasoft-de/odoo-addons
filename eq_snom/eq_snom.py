@@ -19,9 +19,8 @@
 #
 ##############################################################################
 
-import urllib2
+#import urllib2
 from openerp.http import request
-#from main import eq_snom_controller
 
 #New API, Remove Old API import if the New API is used. Otherwise you'll get an import error.
 from openerp import models, fields, api, _
@@ -33,10 +32,10 @@ class eq_snom_res_users(models.Model):
     eq_snom_user = fields.Char(string='User')
     eq_snom_password = fields.Char(string='Password')
     eq_snom_prefix = fields.Char(string='Prefix')
-        
-class eq_snom_res_users(models.Model):
-    _inherit = 'res.partner'            
-
+    
+class eq_snom_call(models.Model):
+    _name = 'eq.snom.call'
+    
     def start_call(self, phone_number):
         #Get current user    
         res_user_obj = self.env['res.users'].sudo()
@@ -63,14 +62,30 @@ class eq_snom_res_users(models.Model):
                 'target': 'new',
             }
                         
-            #print "------------------ called url: ", url_response               
+            #print "------------------ called url: ", url    
+        
+class eq_snom_res_partner(models.Model):
+    _inherit = 'res.partner'                       
 
     @api.multi
     def eq_call_phone_snom(self):        
-        return self.start_call(self.phone)
+        tmp = self.env['eq.snom.call']
+        return tmp.start_call(self.phone)
         
     @api.multi
     def eq_call_mobile_snom(self):
-        return self.start_call(self.mobile)    
+        tmp = self.env['eq.snom.call']     
+        return tmp.start_call(self.mobile)    
         
-  
+class eq_snom_crm_lead(models.Model):
+    _inherit = 'crm.lead'                        
+
+    @api.multi
+    def eq_call_phone_snom(self):
+        tmp = self.env['eq.snom.call']        
+        return tmp.start_call(self.phone)
+        
+    @api.multi
+    def eq_call_mobile_snom(self):
+        tmp = self.env['eq.snom.call']     
+        return tmp.start_call(self.mobile)
