@@ -52,7 +52,7 @@ class eq_install_func(osv.osv):
                      'format': 'A4', 
                      'header_spacing': 55, 
                      'margin_right': 17, 
-                     'margin_top': 60, 
+                     'margin_top': 57, 
                      'margin_left': 17, 
                      'margin_bottom': 23, 
                      'page_height': 0, 

@@ -1,3 +1,15 @@
+### 19.08.2015
+### equitania
+#### Erweiterung, 1.0.62
+- Optionale Positionen in die Auftragspositionen eingefügt.
+-- In der Listenansicht im Angebot werden die optionalen Positionen blau dargestellt.
+-- In dem gedruckten Angebot werden die Zwischensummen der optionalen Positionen in Klammern dargestellt.
+
+### 17.08.2015
+### equitania
+#### Änderung, 1.0.61
+- Reports: Die Positionen und Schriftgröße der Reports wurde angepasst um potentielle Fehler vorzubeugen
+
 ### 13.08.2015
 ### equitania
 #### Bugfix, 1.0.60
