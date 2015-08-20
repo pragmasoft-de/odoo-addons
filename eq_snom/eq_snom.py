@@ -33,7 +33,7 @@ class eq_snom_res_users(models.Model):
     eq_snom_password = fields.Char(string='Password')
     eq_snom_prefix = fields.Char(string='Prefix')
     
-class eq_snom_call(models.Model):
+class eq_snom_call(models.TransientModel):
     _name = 'eq.snom.call'
     
     def start_call(self, phone_number):

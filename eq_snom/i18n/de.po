@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0 Build 1508002\n"
+"Project-Id-Version: Odoo Server 8.0 Build 1508003\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-11 08:48+0000\n"
-"PO-Revision-Date: 2015-08-11 08:48+0000\n"
+"POT-Creation-Date: 2015-08-20 07:29+0000\n"
+"PO-Revision-Date: 2015-08-20 07:29+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,26 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: eq_snom
+#: view:crm.lead:eq_snom.eq_crm_case_form_view_leads_snom
+#: view:crm.lead:eq_snom.eq_crm_case_form_view_oppor_snom
 #: view:res.partner:eq_snom.eq_view_partner_snom
 msgid "Call"
 msgstr "Anrufen"
+
+#. module: eq_snom
+#: field:eq.snom.call,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: eq_snom
+#: field:eq.snom.call,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: eq_snom
+#: field:eq.snom.call,id:0
+msgid "ID"
+msgstr "ID"
 
 #. module: eq_snom
 #: field:res.users,eq_snom_ip_name:0
@@ -26,6 +43,22 @@ msgid "IP/Name"
 msgstr "IP/Name"
 
 #. module: eq_snom
+#: field:eq.snom.call,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: eq_snom
+#: field:eq.snom.call,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: eq_snom
+#: model:ir.model,name:eq_snom.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Interessent / Chance"
+
+#. module: eq_snom
+#: view:crm.lead:eq_snom.eq_crm_case_form_view_leads_snom
 #: view:res.partner:eq_snom.eq_view_partner_snom
 msgid "Mobile"
 msgstr "Mobil"
@@ -41,6 +74,8 @@ msgid "Password"
 msgstr "Passwort"
 
 #. module: eq_snom
+#: view:crm.lead:eq_snom.eq_crm_case_form_view_leads_snom
+#: view:crm.lead:eq_snom.eq_crm_case_form_view_oppor_snom
 #: view:res.partner:eq_snom.eq_view_partner_snom
 msgid "Phone"
 msgstr "Telefon"
@@ -64,4 +99,3 @@ msgstr "Benutzer"
 #: model:ir.model,name:eq_snom.model_res_users
 msgid "Users"
 msgstr "Benutzer"
-
