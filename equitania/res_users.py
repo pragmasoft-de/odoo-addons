@@ -31,6 +31,10 @@ class eq_res_users(osv.osv):
                 }
     
     
+    def copy(self, cr, uid, id, default=None, context=None):
+        default = {'eq_employee_id': False}
+        super(eq_res_users, self).copy(cr, uid, id, default=default, context=context)
+    
     def write(self, cr, uid, ids, values, context={}):
         if context == None:
             context = {}
@@ -56,7 +60,7 @@ class eq_res_users(osv.osv):
                         emp_obj.write(cr, SUPERUSER_ID, values['eq_employee_id'], {'user_id': user_id}, context={'do_not_repeat': True})
             else:
                 #Removes the user from all employees
-                emp_ids_to_del = emp_obj.search(cr, SUPERUSER_ID, [('user_id', 'in', ids)], context)
+                emp_ids_to_del = emp_obj.search(cr, SUPERUSER_ID, [('user_id', 'in', ids)], context=context)
                 emp_obj.write(cr, SUPERUSER_ID, emp_ids_to_del, {'user_id': False}, context={'do_not_repeat': True})
                 
         res = super(eq_res_users, self).write(cr, uid, ids, values, context={})
@@ -67,7 +71,7 @@ class eq_res_users(osv.osv):
         if context == None:
             context = {}
             
-        res = super(eq_res_users, self).create(cr, uid, values, context)
+        res = super(eq_res_users, self).create(cr, uid, values, context=context)
         
         if 'eq_employee_id' in values and 'do_not_repeat' not in context:
             if values['eq_employee_id']:
@@ -77,7 +81,7 @@ class eq_res_users(osv.osv):
                 if len(user_ids_to_del) != 0:
                     for user_id in user_ids_to_del:
                         if user_id != res:
-                            self.write(cr, SUPERUSER_ID, user_id, {'eq_employee_id': False}, context)
+                            self.write(cr, SUPERUSER_ID, user_id, {'eq_employee_id': False}, context=context)
                 #Sets the user_id in the employee. do_not_repeat in context so that the employee does not set the employee_id for the user.
                 emp_obj.write(cr, uid, values['eq_employee_id'], {'user_id': res}, context={'do_not_repeat': True})
         return res

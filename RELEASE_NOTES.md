@@ -1,3 +1,8 @@
+### 21.08.2015
+### equitania
+#### Bugfix, 1.0.63
+- Benutzer können wieder kopiert werden.
+
 ### 19.08.2015
 ### equitania
 #### Erweiterung, 1.0.62
