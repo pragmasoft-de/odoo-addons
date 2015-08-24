@@ -1,3 +1,8 @@
+### 24.08.2015
+### eq_snom
+#### Bugfix, 1.0.1
+- Write Methode überarbeitet, sodass Benutzer die eigenen Snom Daten eintragen können.
+
 ### 21.08.2015
 ### equitania
 #### Bugfix, 1.0.63

@@ -28,10 +28,30 @@ from openerp import models, fields, api, _
 class eq_snom_res_users(models.Model):
     _inherit = 'res.users'
     
-    eq_snom_ip_name = fields.Char(string='IP/Name')
-    eq_snom_user = fields.Char(string='User')
-    eq_snom_password = fields.Char(string='Password')
-    eq_snom_prefix = fields.Char(string='Prefix')
+    eq_snom_ip_name = fields.Char(string='IP/Name', related='partner_id.eq_snom_ip_name')
+    eq_snom_user = fields.Char(string='User', related='partner_id.eq_snom_ip_name')
+    eq_snom_password = fields.Char(string='Password', related='partner_id.eq_snom_ip_name')
+    eq_snom_prefix = fields.Char(string='Prefix', related='partner_id.eq_snom_ip_name')
+    
+    @api.one
+    def write(self, vals):
+        admin = self.sudo()
+        if self._uid == self.ids[0]:
+            if 'eq_snom_ip_name' in vals:
+                admin.partner_id.eq_snom_ip_name = vals['eq_snom_ip_name']
+                vals.pop('eq_snom_ip_name', None)
+            if 'eq_snom_user' in vals:
+                admin.partner_id.eq_snom_user = vals['eq_snom_user']
+                vals.pop('eq_snom_user', None)
+            if 'eq_snom_password' in vals:
+                admin.partner_id.eq_snom_password = vals['eq_snom_password']
+                vals.pop('eq_snom_password', None)
+            if 'eq_snom_prefix' in vals:
+                admin.partner_id.eq_snom_prefix = vals['eq_snom_prefix']
+                vals.pop('eq_snom_prefix', None)
+        res = super(eq_snom_res_users, self).write(vals)
+        return res
+
     
 class eq_snom_call(models.TransientModel):
     _name = 'eq.snom.call'
@@ -65,7 +85,12 @@ class eq_snom_call(models.TransientModel):
             #print "------------------ called url: ", url    
         
 class eq_snom_res_partner(models.Model):
-    _inherit = 'res.partner'                       
+    _inherit = 'res.partner'           
+    
+    eq_snom_ip_name = fields.Char(string='IP/Name')
+    eq_snom_user = fields.Char(string='User')
+    eq_snom_password = fields.Char(string='Password')
+    eq_snom_prefix = fields.Char(string='Prefix')            
 
     @api.multi
     def eq_call_phone_snom(self):        

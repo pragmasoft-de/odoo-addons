@@ -21,7 +21,7 @@
 
 {
     'name': 'Equitania Snom Addon',
-    'version': '1.0.0',
+    'version': '1.0.1',
     'description': 
     """Adds snom-phone settings to the user preferences and call-buttons to the partner view (for phone and mobile).
     You can start calls directly from the partner view, by pressing the call-button 
