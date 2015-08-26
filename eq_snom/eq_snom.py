@@ -56,6 +56,7 @@ class eq_snom_res_users(models.Model):
 class eq_snom_call(models.TransientModel):
     _name = 'eq.snom.call'
     
+    
     def start_call(self, phone_number):
         #Get current user    
         res_user_obj = self.env['res.users'].sudo()
@@ -76,13 +77,23 @@ class eq_snom_call(models.TransientModel):
                           
             #url_response = urllib2.urlopen(url).read()
             
+            # execute client call and hand our url paramater over. We'll use that url in our javascript !     
+            return {
+                'type': 'ir.actions.client',
+                'url': url,
+                'tag': 'eq_snom.action',
+            }
+                                    
+            """
             return {
                 'type': 'ir.actions.act_url',
                 'url': url,
                 'target': 'new',
             }
+            """
+            
                         
-            #print "------------------ called url: ", url    
+                
         
 class eq_snom_res_partner(models.Model):
     _inherit = 'res.partner'           

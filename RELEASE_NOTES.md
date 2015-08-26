@@ -1,6 +1,8 @@
 ### 26.08.2015
-### eq_snom
-#### Bugfix, 1.0.2
+### eq_snom, 1.0.2
+#### Erweiterung
+- Umstellung auf client call. Ab jetzt wird http get direkt aus javascript ausgeführt
+#### Bugfix
 - Fehlerhafte zuweisung der related fields behoben.
 
 ### 24.08.2015
