@@ -1,3 +1,8 @@
+### 26.08.2015
+### eq_snom
+#### Erweiterung, 1.0.2
+- Umstellung auf client call. Ab jetzt wird http get direkt aus javascript ausgeführt
+
 ### 24.08.2015
 ### eq_snom
 #### Bugfix, 1.0.1
