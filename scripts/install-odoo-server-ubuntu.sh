@@ -21,13 +21,16 @@
 #
 ##############################################################################
 
+myscriptpath="$PWD"
 mybasepath="/opt/odoo"
 mysourcepath=$mybasepath"/odoo"
 myserverpath=$mybasepath"/odoo-server"
+myaddpath=$mybasepath"/odoo-addons"
 
 echo "Basepath: "$mybasepath
 echo "Sourcepath: "$mysourcepath
 echo "Serverpath: "$myserverpath
+echo "odoo-addons path: "$myaddpath
 
 echo "Prepare PostgreSQL"
 
@@ -51,28 +54,33 @@ if [ "$mypsqlpwd" != "" ]; then
 fi
 
 cd $mybasepath
-git clone -b 8.0 --single-branch https://github.com/equitania/odoo.git
+git clone -b 8.0 --single-branch https://github.com/odoo/odoo.git
 echo "Clone lastest branch odoo.."
+
+cd $mybasepath
+git clone -b 8.0 --single-branch https://github.com/equitania/odoo-addons.git
+echo "Clone lastest branch odoo-addons.."
+
 mkdir $myserverpath
 echo "Create odoo-server"
 
 cp -r $mysourcepath/addons $myserverpath
 echo "Copy addons..."
-cp -r $mysourcepath/debian $myserverpath
-echo "Copy debian..."
 cp -r $mysourcepath/doc $myserverpath
 echo "Copy doc..."
 cp -r $mysourcepath/openerp $myserverpath
 echo "Copy openerp..."
-cp -r $mysourcepath/setup $myserverpath
-echo "Copy setup..."
-cp  $mysourcepath/odoo.py $myserverpath
 echo "Copy files..."
 cp  $mysourcepath/openerp-gevent $myserverpath
 cp  $mysourcepath/openerp-server $myserverpath
 cp  $mysourcepath/openerp-wsgi.py $myserverpath
-cp  $mysourcepath/setup.py $myserverpath
-cp  $mysourcepath/setup.cfg $myserverpath
+cp  $mysourcepath/odoo.py $myserverpath
+
+echo "Copy equitania addons"
+# odoo-addons
+cp -r $myaddpath/eq_no_ad $myserverpath/addons
+cp -r $myaddpath/equitania $myserverpath/addons
+cp -r $myaddpath/eq_mail_extension $myserverpath/addons
 
 echo "Insert the password for the databasemanager | Geben Sie das Passwort für den Databasemanager ein:"
 read myadminpwd
@@ -93,16 +101,16 @@ sudo chown -R odoo:odoo $myserverpath
 sudo chown -R odoo:odoo $mysourcepath 
 sudo chown -R odoo:odoo $mybasepath 
 
-sudo cp $mysourcepath/debian/openerp-server.conf /etc/odoo-server.conf
+sudo cp $myscriptpath/server-install-helpers/openerp-server.conf /etc/odoo-server.conf
 sudo chown odoo:odoo /etc/odoo-server.conf
 sudo chmod 640 /etc/odoo-server.conf
 sudo mkdir /var/log/odoo
 sudo chown odoo:root /var/log/odoo
-sudo cp $mysourcepath/debian/logrotate /etc/logrotate.d/odoo-server
+sudo cp $myscriptpath/server-install-helpers/logrotate /etc/logrotate.d/odoo-server
 chmod 755 /etc/logrotate.d/odoo-server
-sudo cp $mysourcepath/debian/openerp.init.d /etc/init.d/openerp-server
-sudo chmod +x /etc/init.d/openerp-server
-sudo update-rc.d openerp-server defaults
+sudo cp $myscriptpath/server-install-helpers/odoo.init.d /etc/init.d/odoo-server
+sudo chmod +x /etc/init.d/odoo-server
+sudo update-rc.d odoo-server defaults
 
 echo "Do you want to use standard port 80 against 8069 and install nginx | Wollen Sie eine Port-Umleitung auf Standard Port 80 und nginx installieren [Y/n]:"
 read myport
@@ -114,14 +122,6 @@ if [ "$myport" = "Y" ]; then
   sudo cp $mysourcepath/debian/odoo.nginx /etc/nginx/sites-available/odoo.nginx
   sudo rm /etc/nginx/sites-enabled/default 
   sudo ln -s /etc/nginx/sites-available/odoo.nginx /etc/nginx/sites-enabled/odoo.nginx
-  old1=";xmlrpc_interface = 127.0.0.1"
-  new1="xmlrpc_interface = 127.0.0.1"
-  old2=";netrpc_interface = 127.0.0.1"
-  new2="netrpc_interface = 127.0.0.1"
-  sudo sed -i "s/$old1/$new1/g" /etc/odoo-server.conf
-  sudo sed -i "s/$old2/$new2/g" /etc/odoo-server.conf
-  sudo mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.old
-  sudo cp $mysourcepath/debian/nginx.conf /etc/nginx/nginx.conf
 else
   echo "nginx is not installed!"
 fi
