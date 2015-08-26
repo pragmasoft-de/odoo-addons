@@ -29,9 +29,9 @@ class eq_snom_res_users(models.Model):
     _inherit = 'res.users'
     
     eq_snom_ip_name = fields.Char(string='IP/Name', related='partner_id.eq_snom_ip_name')
-    eq_snom_user = fields.Char(string='User', related='partner_id.eq_snom_ip_name')
-    eq_snom_password = fields.Char(string='Password', related='partner_id.eq_snom_ip_name')
-    eq_snom_prefix = fields.Char(string='Prefix', related='partner_id.eq_snom_ip_name')
+    eq_snom_user = fields.Char(string='User', related='partner_id.eq_snom_user')
+    eq_snom_password = fields.Char(string='Password', related='partner_id.eq_snom_password')
+    eq_snom_prefix = fields.Char(string='Prefix', related='partner_id.eq_snom_prefix')
     
     @api.one
     def write(self, vals):

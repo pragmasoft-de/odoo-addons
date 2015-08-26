@@ -1,3 +1,8 @@
+### 26.08.2015
+### eq_snom
+#### Bugfix, 1.0.2
+- Fehlerhafte zuweisung der related fields behoben.
+
 ### 24.08.2015
 ### eq_snom
 #### Bugfix, 1.0.1
