@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+    
+    	<!-- search support -->    	
+		<record id="eq_partner_extension_search_view" model="ir.ui.view">
+			<field name="name">eq_partner_extension.search.view</field>
+			<field name="inherit_id" ref="base.view_res_partner_filter"/>
+			<field name="model">res.partner</field>			
+			<field name="arch" type="xml">
+				<field name="name" position="after">
+					<field name="eq_name2"/>
+				</field>												 
+			</field>			
+		</record>
+		 
+		
         <record id="eq_partner_extension_form_view" model="ir.ui.view">
             <field name="name">eq_partner_extension.form</field>
             <field name="model">res.partner</field>

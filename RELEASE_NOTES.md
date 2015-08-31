@@ -1,3 +1,8 @@
+### 31.08.2015
+### equitania
+#### Erweiterung, 1.0.64
+- Ab jetzt kann man auf der Maske "Verkauf - Kunden" auch nach eq_name2 suchen
+
 ### 26.08.2015
 ### eq_snom, 1.0.2
 #### Erweiterung
