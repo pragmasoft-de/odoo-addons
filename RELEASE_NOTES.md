@@ -2,6 +2,7 @@
 ### equitania
 #### Erweiterung, 1.0.64
 - Ab jetzt kann man auf der Maske "Verkauf - Kunden" auch nach eq_name2 suchen
+- Bei Anlage eines Benutzers wird ab jetzt immer beprüft ob es bereits Kunden mit der E-Mail Adresse gibt. Falls ja, wird gleich die Verlinkung zwischen dem Benutzer und Kunden gesetzt.
 
 ### 26.08.2015
 ### eq_snom, 1.0.2
