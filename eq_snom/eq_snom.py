@@ -71,11 +71,12 @@ class eq_snom_call(models.TransientModel):
             
             #Build URL
             if (res_user.eq_snom_user) and (res_user.eq_snom_password):
-                url = request.httprequest.host_url + "snom/call?url=http://" + res_user.eq_snom_user + ":" + res_user.eq_snom_password + "@" + res_user.eq_snom_ip_name + "/command.htm?number=" + phone_number_formatted
-            else:    
-                url = request.httprequest.host_url + "snom/call?url=http://" + res_user.eq_snom_ip_name + "/command.htm?number=" + phone_number_formatted                          
+                url = "http://" + res_user.eq_snom_user + ":" + res_user.eq_snom_password + "@" + res_user.eq_snom_ip_name + "/command.htm?number=" + phone_number_formatted                
+            else:
+                url = "http://" + res_user.eq_snom_ip_name + "/command.htm?number=" + phone_number_formatted                         
                           
             #url_response = urllib2.urlopen(url).read()
+            #print '------------------------------------- ', url
             
             # execute client call and hand our url paramater over. We'll use that url in our javascript !     
             return {
@@ -83,14 +84,6 @@ class eq_snom_call(models.TransientModel):
                 'url': url,
                 'tag': 'eq_snom.action',
             }
-                                    
-            """
-            return {
-                'type': 'ir.actions.act_url',
-                'url': url,
-                'target': 'new',
-            }
-            """
             
                         
                 
