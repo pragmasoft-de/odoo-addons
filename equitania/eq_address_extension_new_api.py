@@ -60,11 +60,11 @@ class res_partner(models.Model):
                 city = partner_id.city if partner_id.city else ''
                 #customer/creditor number
                 deb_num = ''
-                if partner_id.eq_customer_ref and partner_id.eq_creditor_ref:
+                if partner_id.eq_customer_ref != 'False' and partner_id.eq_creditor_ref != 'False':
                     deb_num = '[' + partner_id.eq_customer_ref + '/' + partner_id.eq_creditor_ref + '] '
-                elif partner_id.eq_customer_ref:
+                elif partner_id.eq_customer_ref != 'False':
                     deb_num = '[' + partner_id.eq_customer_ref + '] '
-                elif partner_id.eq_creditor_ref:
+                elif partner_id.eq_creditor_ref != 'False':
                     deb_num = '[' + partner_id.eq_creditor_ref + '] '
                 if partner_id.is_company:
                     if show_address:

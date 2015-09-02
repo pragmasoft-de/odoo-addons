@@ -1,3 +1,8 @@
+### 02.09.2015
+### equitania
+#### Bugfix, 1.0.65
+- Kreditoren- und Debitorennummer wird in der Kanban Ansicht und den Feldern für Partner richtig dargestellt.
+
 ### 31.08.2015
 ### equitania
 #### Erweiterung, 1.0.64

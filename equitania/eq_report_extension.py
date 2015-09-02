@@ -560,11 +560,11 @@ class eq_compatibility_equitania_inox(osv.osv):
         result = {}
         for partner in self.browse(cr, uid, ids, context):
             deb_cred = False
-            if partner.eq_customer_ref and partner.eq_creditor_ref:
+            if partner.eq_customer_ref != 'False' and partner.eq_creditor_ref != 'False':
                 deb_cred = partner.eq_customer_ref + ' / ' + partner.eq_creditor_ref
-            elif partner.eq_customer_ref:
+            elif partner.eq_customer_ref != 'False':
                 deb_cred = partner.eq_customer_ref
-            elif partner.eq_creditor_ref:
+            elif partner.eq_creditor_ref != 'False':
                 deb_cred = partner.eq_creditor_ref
             result[partner.id] = deb_cred
             
