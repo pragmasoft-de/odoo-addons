@@ -214,6 +214,9 @@
                 <field name="origin" positione="after">
                     <field name="eq_customer_ref"/>
                 </field>
+                <field name="comment" positione="replace">
+                    <field name="comment"/>
+                </field>
                 <xpath expr="//notebook" position="before">
 					<label for="eq_head_text" string="Headtext"/>
 					<div colspan="4">
@@ -226,6 +229,18 @@
             </field>
         </record>
         
+        <record id="eq_invoice_supplier_form" model="ir.ui.view">
+            <field name="name">account.invoice.supplier.form.eq</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form" />
+            <field name="arch" type="xml">
+                <field name="comment" positione="replace">
+                    <attribute name="comment"/>
+                </field>
+            </field>
+       	</record>
+            
+            
         <!-- Stock -->
         <record id="eq_picking_form_rep" model="ir.ui.view">
             <field name="name">stock.picking.form.eq</field>

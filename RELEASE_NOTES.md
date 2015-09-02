@@ -1,11 +1,13 @@
 ### 02.09.2015
-### equitania
-#### Bugfix, 1.0.65
+### equitania, 1.0.65
+#### Bugfix
 - Kreditoren- und Debitorennummer wird in der Kanban Ansicht und den Feldern für Partner richtig dargestellt.
+#### Änderung
+- Fußtext in der Formansicht für Ein-/Ausgangsrechnungen auf die gesamte Breite erweitert.
 
 ### 31.08.2015
-### equitania
-#### Erweiterung, 1.0.64
+### equitania, 1.0.64
+#### Erweiterung
 - Ab jetzt kann man auf der Maske "Verkauf - Kunden" auch nach eq_name2 suchen
 - Bei Anlage eines Benutzers wird ab jetzt immer beprüft ob es bereits Kunden mit der E-Mail Adresse gibt. Falls ja, wird gleich die Verlinkung zwischen dem Benutzer und Kunden gesetzt.
 
