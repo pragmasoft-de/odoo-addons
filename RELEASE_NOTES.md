@@ -2,6 +2,7 @@
 ### equitania, 1.0.66
 #### Erweiterung
 - Wichtige Änderung in der eq_res_users. Ab jetzt wird keine funktion copy(...) mehr ausgeführt. Es hat nur zu einem Problem mit SignUp geführt.
+- Wichtige Änderung in der eq_res_users_new_api. Neue Version funktioniert nach dem Refactoring von eq_res_users korrekt im Webshop und auch in der Anpassung für Illingen
 
 ### 02.09.2015
 ### equitania, 1.0.65
