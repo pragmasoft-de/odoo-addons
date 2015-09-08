@@ -27,13 +27,8 @@ class eq_res_users(osv.osv):
     _inherit = 'res.users'
     
     _columns = {
-                'eq_employee_id': fields.many2one('hr.employee', 'Employee')
+                'eq_employee_id': fields.many2one('hr.employee', 'Employee', copy=False)
                 }
-    
-    
-    def copy(self, cr, uid, id, default=None, context=None):
-        default = {'eq_employee_id': False}
-        super(eq_res_users, self).copy(cr, uid, id, default=default, context=context)
     
     def write(self, cr, uid, ids, values, context={}):
         if context == None:

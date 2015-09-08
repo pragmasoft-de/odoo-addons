@@ -1,3 +1,8 @@
+### 08.09.2015
+### equitania, 1.0.66
+#### Erweiterung
+- Wichtige Änderung in der eq_res_users. Ab jetzt wird keine funktion copy(...) mehr ausgeführt. Es hat nur zu einem Problem mit SignUp geführt.
+
 ### 02.09.2015
 ### equitania, 1.0.65
 #### Bugfix
