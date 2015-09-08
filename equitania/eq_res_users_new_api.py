@@ -32,6 +32,7 @@ class eq_res_users_new_api(models.Model):
         We'll also migrate implementation of res_users from old api to new api 
     """
         
+    
     @api.model    
     def create(self, vals):
                 
@@ -41,7 +42,14 @@ class eq_res_users_new_api(models.Model):
         # check if we can find at least one record in res_partner with same email as user provided
         if 'email' in vals:
             partner = self.env['res.partner'].search([('email', '=', vals['email']), ('customer', '=', True)])
-            existing_partner_id = partner[0].id
+            #print "-------------- partner: ", partner
+            if len(partner) > 1:
+                #print "----- tuple -----"
+                existing_partner_id = partner[0].id
+            else:
+                #print "----- single ------"
+                existing_partner_id = partner.id
+                
             #print "------- existing_partner_id: ", existing_partner_id
                                                                     
             new_generated_partner_id = new_user.partner_id.id
@@ -57,3 +65,4 @@ class eq_res_users_new_api(models.Model):
                     wrong_partner.unlink() 
                      
         return new_user
+    
