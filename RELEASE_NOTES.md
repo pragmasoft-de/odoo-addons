@@ -1,3 +1,8 @@
+### 09.09.2015
+### equitania, 1.0.67
+#### Erweiterung
+- Den UVP(RRP) in die Produktvarianten eingefügt.
+
 ### 08.09.2015
 ### equitania, 1.0.66
 #### Erweiterung

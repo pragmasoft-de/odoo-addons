@@ -23,6 +23,9 @@
             	<field name="sales_count" position="replace">
             		<field name="eq_sale_count" widget="statinfo" />
             	</field>
+            	<field name="lst_price" position="after">
+            		<field name="eq_rrp" groups="equitania.group_product_rrp"/>
+            	</field>
             </field>
         </record>
     </data>

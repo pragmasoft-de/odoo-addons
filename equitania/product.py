@@ -91,4 +91,5 @@ class eq_product_product(osv.osv):
     
     _columns = {
                 'eq_sale_count': fields.function(_eq_sale_count, type="char", string='Sales'),                
+                'eq_rrp': fields.float(string='RRP'),
                 }

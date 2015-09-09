@@ -107,6 +107,10 @@
 		                    <field name="default_search_only_company" class="oe_inline"/>
 		                	<label for="default_search_only_company" string="Only search for Companies in the Sale Order/Quotation [equitania]"/>
 		            	</div>
+	                    <div>
+	                        <field name="group_product_rrp"/>
+	                        <label for="group_product_rrp"/>
+	                    </div>
 		            </div>
                 </data>
             </field>
