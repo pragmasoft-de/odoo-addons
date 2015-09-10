@@ -24,5 +24,18 @@
         <field name="name">Show RRP for products</field>
         <field name="category_id" ref="base.module_category_hidden"/>
     </record>
+    <record model="ir.module.category" id="module_category_managed_administration">
+        <field name="name">Managed Admin</field>
+        <field name="sequence">101</field>
+    </record>
+	<record id="group_managed_admin" model="res.groups">
+        <field name="name">Managed Admin</field>
+        <field name="category_id" ref="module_category_managed_administration"/>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+    </record>
+
+	<record model="ir.ui.menu" id="base.menu_administration">
+	    <field name="groups_id" eval="[(6,0, [ref('equitania.group_managed_admin')])]"/>
+	</record>
 </data>
 </openerp>

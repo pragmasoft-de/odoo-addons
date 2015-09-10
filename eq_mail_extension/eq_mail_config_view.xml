@@ -32,6 +32,6 @@
             <field name="target">inline</field>
         </record>
         <menuitem id="menu_eq_mail_configuration" parent="base.menu_config"
-            sequence="80" action="action_eq_mail_configuration"/>
+            sequence="80" action="action_eq_mail_configuration" groups="base.group_erp_manager"/>
     </data>
 </openerp>

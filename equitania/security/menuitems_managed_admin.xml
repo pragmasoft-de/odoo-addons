@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+	<record model="ir.ui.menu" id="base.menu_administration">
+	    <field name="groups_id" eval="[(6,0, [ref('equitania.group_managed_admin')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="base.menu_ir_property">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="base.menu_security">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="base.menu_automation">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="base.next_id_9">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="base.menu_email">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="base.next_id_2">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="base.menu_custom">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="base.menu_translation_export">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="base.menu_translation_app">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="base.menu_translation">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record> 
+	<record model="ir.ui.menu" id="base.menu_action_res_groups">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="base.menu_administration_shortcut">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="base.menu_management">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="account.menu_account_config">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="base.menu_sale_config">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="purchase.menu_purchase_config">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="stock.menu_stock_config_settings">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="base.menu_project_config">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="hr.menu_human_resources_configuration">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="knowledge.menu_knowledge_configuration">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="base_setup.menu_general_configuration">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+	<record model="ir.ui.menu" id="base_setup.menu_general_configuration">
+	    <field name="groups_id" eval="[(6,0, [ref('base.group_erp_manager')])]"/>
+	</record>
+</data>
+</openerp>
