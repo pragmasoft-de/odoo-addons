@@ -42,7 +42,7 @@ for row in reader:
     if (intI > 0):
         # Intrastatcode
         intrastat = {
-            'name': row[0][:-2],
+            'name': row[0][:-4],
             'description': row[3]
 
         }
