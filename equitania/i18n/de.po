@@ -2008,3 +2008,18 @@ msgstr "Optional"
 #, python-format
 msgid "All the optional positions will be removed."
 msgstr "Alle optionalen Positionen werden aus dem Auftrag entfernt."
+
+#. module: equitania
+#: field:product.product,eq_rrp:0
+msgid "RRP"
+msgstr "UVP"
+
+#. module: equitania
+#: model:res.groups,name:equitania.group_product_rrp
+msgid "Show RRP for products"
+msgstr "UVP für Produkte anzeigen"
+
+#. module: equitania
+#: field:sale.config.settings,group_product_rrp:0
+msgid "Show RRP for products [equitania]"
+msgstr "UVP für Produkte anzeigen [equitania]"

@@ -1,3 +1,8 @@
+### 10.09.2015
+### equitania, 1.0.68
+#### Erweiterung
+- Deutsche Übersetzung für den UVP eingefügt.
+
 ### 09.09.2015
 ### equitania, 1.0.67
 #### Erweiterung
