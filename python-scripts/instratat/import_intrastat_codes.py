@@ -24,8 +24,8 @@ import csv
 
 username = "admin"
 pwd = "***"
-dbname = "dbbane"
-baseurl = "http://192.168.0.29:8069"
+dbname = "dbname"
+baseurl = "http://0.0.0.0:8069"
 
 sock_common = xmlrpclib.ServerProxy(baseurl + "/xmlrpc/common")
 
@@ -38,11 +38,11 @@ reader = csv.reader(open('intrastat_codes.csv', 'rb'))
 
 intI = 1
 for row in reader:
-    print row[0] + " " + row[3] + " Durchlauf:" + str(intI)
+    print row[0][:-2] + " " + row[3] + " Durchlauf:" + str(intI)
     if (intI > 0):
         # Intrastatcode
         intrastat = {
-            'name': row[0][:2],
+            'name': row[0][:-2],
             'description': row[3]
 
         }
