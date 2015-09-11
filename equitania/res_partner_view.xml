@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+    	<!-- extension of detail form -->
         <record id="view_partner_form_inherited1" model="ir.ui.view">
             <field name="name">res.partner.form.inherited1</field>
             <field name="model">res.partner</field>
@@ -15,5 +16,38 @@
                 </xpath>
           </field>
         </record>
+
+        <!-- extension of treeview -->
+        <record id="view_partner_tree_inherited1" model="ir.ui.view">
+            <field name="name">view.partner.tree.inherited1</field>
+            <field name="model">res.partner</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+            	<field name="name" position="replace">
+                     <field name="eq_complete_description"/>
+                 </field>
+          </field>
+        </record>
+        
+        <!-- extension of kanban -->
+        <record id="view_partner_kanban_inherited1" model="ir.ui.view">
+            <field name="name">view.partner.kanban.inherited1</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//h4[@class='oe_partner_heading']" position="replace">
+            		<h4 class="oe_partner_heading">
+						<a data-type="open" href="#" class=" oe_kanban_action oe_kanban_action_a">
+						<t t-if="parent_id == True">
+							<field name="parent_id"/>
+							<br/>
+						</t>
+						<field name="eq_complete_description"/></a>
+					</h4>
+                </xpath>
+          </field>
+        </record>
+        
 	</data>
 </openerp>

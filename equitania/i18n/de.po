@@ -2023,3 +2023,8 @@ msgstr "UVP für Produkte anzeigen"
 #: field:sale.config.settings,group_product_rrp:0
 msgid "Show RRP for products [equitania]"
 msgstr "UVP für Produkte anzeigen [equitania]"
+
+#. module: equitania
+#: field:res.partner,eq_complete_description:0
+msgid "Eq complete description"
+msgstr "Bezeichnung"

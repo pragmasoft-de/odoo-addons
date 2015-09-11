@@ -3,6 +3,9 @@
 #### Bugfix
 - Änderung an einer XMl Datei auskommentiert, welche das knowledge Modul benötigt.
 
+#### Erweiterung
+- Erweiterung in Darstellung von "Nachname, Vorname" für Kunden mit dem Flag "is_company=False" im Treeview und Kanban
+
 ### 10.09.2015
 ### equitania, 1.0.68
 #### Erweiterung
