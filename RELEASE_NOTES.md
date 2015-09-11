@@ -1,3 +1,8 @@
+### 11.09.2015
+### equitania, 1.0.69
+#### Bugfix
+- Änderung an einer XMl Datei auskommentiert, welche das knowledge Modul benötigt.
+
 ### 10.09.2015
 ### equitania, 1.0.68
 #### Erweiterung
