@@ -1,3 +1,8 @@
+### 14.09.2015
+### equitania, 1.0.70
+#### Bugfix
+- Fußtext wird in der Formansicht der Ein-/Ausgangrechnung richtig dargestellt.
+
 ### 11.09.2015
 ### equitania, 1.0.69
 #### Bugfix

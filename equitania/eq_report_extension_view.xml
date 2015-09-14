@@ -226,6 +226,9 @@
                 <xpath expr="//page/group/group/field[@name='origin']" position="after">
                     <field name="eq_ref_number"/>
                 </xpath>
+                <field name="comment" position="replace">
+                    <field name="comment"/>
+                </field>
             </field>
         </record>
         
@@ -234,8 +237,8 @@
             <field name="model">account.invoice</field>
             <field name="inherit_id" ref="account.invoice_supplier_form" />
             <field name="arch" type="xml">
-                <field name="comment" positione="replace">
-                    <attribute name="comment"/>
+                <field name="comment" position="replace">
+                    <field name="comment"/>
                 </field>
             </field>
        	</record>
