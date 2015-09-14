@@ -26,4 +26,24 @@ class res_partner(models.Model):
     _inherit = 'res.partner'
     
     eq_delivery_date_type_purchase = fields.Selection([('cw', 'Calendar week'), ('date', 'Date')], string="Delivery Date Purchase", help="If nothing is selected, the default from the settings will be used.")
-    eq_delivery_date_type_sale = fields.Selection([('cw', 'Calendar week'), ('date', 'Date')], string="Delivery Date Sale", help="If nothing is selected, the default from the settings will be used.")
+    eq_delivery_date_type_sale = fields.Selection([('cw', 'Calendar week'), ('date', 'Date')], string="Delivery Date Sale", help="If nothing is selected, the default from the settings will be used.")    
+    eq_complete_description = fields.Char(compute='_generate_complete_description', store=True)
+    
+    @api.one
+    @api.depends('name', 'eq_firstname')
+    def _generate_complete_description(self):
+        for record in self:
+            if record.is_company is False:
+                result = ""
+                if record.name is not False:
+                    result = record.name
+                    
+                if record.eq_firstname is not False:
+                    if len(result) > 0:
+                        result += ", " + record.eq_firstname 
+                    else:
+                        result = record.eq_firstname
+
+                record.eq_complete_description = result  
+            else:
+                record.eq_complete_description = record.name
