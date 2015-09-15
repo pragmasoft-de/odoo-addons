@@ -2028,3 +2028,9 @@ msgstr "UVP für Produkte anzeigen [equitania]"
 #: field:res.partner,eq_complete_description:0
 msgid "Eq complete description"
 msgstr "Bezeichnung"
+
+#. module: equitania
+#: view:website:sale.report_saleorder_document
+#: view:website:account.report_invoice_document
+msgid "Gross price"
+msgstr "Bruttopreis"

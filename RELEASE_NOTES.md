@@ -1,3 +1,8 @@
+### 15.09.2015
+### equitania, 1.0.71
+#### Erweiterung
+- Erweiterung der Reportlogik für alle Belege im Verkauf (optionale Positionen und Bruttopreis) 
+
 ### 14.09.2015
 ### equitania, 1.0.70
 #### Bugfix
