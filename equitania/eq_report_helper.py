@@ -67,7 +67,85 @@ class eq_report_helper(osv.osv_memory):
             result += (' %s' % currency_id.symbol)
         
         return result    
+
+    def get_gross_price_invoice(self, cr, uid, object, language, currency_id=False, context =None):
+        """
+            Calculate gross price a return result as string together with currency back
+            @cr: cursor
+            @uid: user id
+            @object: order line object
+            @currency_id: Currency
+            @context: Context
+            @return: Calculated gross price
+        """
+        
+        gross_price = object.price_unit *  object.quantity
+        return self.get_standard_price(cr, uid, gross_price, language, currency_id)
+
+    
+    def get_gross_price(self, cr, uid, object, language, currency_id=False, context =None):
+        """
+            Calculate gross price a return result as string together with currency back
+            @cr: cursor
+            @uid: user id
+            @object: order line object
+            @currency_id: Currency
+            @context: Context
+            @return: Calculated gross price
+        """
+        
+        gross_price = object.price_unit *  object.product_uom_qty
+        return self.get_standard_price(cr, uid, gross_price, language, currency_id)
+       
+    def get_gross_price_as_float_invoice(self, cr, uid, object, language, currency_id=False, context =None):
+        """
+            Calculate gross price a return result as float
+            @cr: cursor
+            @uid: user id
+            @object: order line object
+            @currency_id: Currency
+            @context: Context
+            @return: Calculated gross price
+        """
+        
+        return object.price_unit *  object.quantity
+    
+    def get_gross_price_as_float(self, cr, uid, object, language, currency_id=False, context =None):
+        """
+            Calculate gross price a return result as float
+            @cr: cursor
+            @uid: user id
+            @object: order line object
+            @currency_id: Currency
+            @context: Context
+            @return: Calculated gross price
+        """
+        
+        return object.price_unit *  object.product_uom_qty
             
+    def check_if_display_gross_price(self, cr, uid, order, context=None):        
+        """
+            Check if we should display prices a gross pricess
+            @cr: Cursor
+            @uid: User id
+            @orde: Actual order
+            @context: Context
+            @return: True (show gross price) if tax is (19% Umsatzsteuer or 7% Umsatzsteuer) and price_include = true
+        """
+                
+        tax_obj = self.pool.get('account.tax')
+        sale_order_line_obj = self.pool.get('sale.order.line')
+        sale_line_ids = sale_order_line_obj.search(cr, uid, [('order_id', '=', order.id),], context=context)
+        for line_id in sale_line_ids:
+            sale_order_line = sale_order_line_obj.browse(cr, uid, line_id, context=context)
+            tax_id = sale_order_line.tax_id.id
+            tax = tax_obj.browse(cr, uid, tax_id, context=context)
+            
+            if ("19% Umsatzsteuer" in tax.name or "7% Umsatzsteuer" in tax.name) and tax.price_include is True:
+                return True
+        
+        return False    
+             
     def reformat_string(self, cr, uid, data, precision, language, context =None):    
         """
             Creates formated number with count of decimal positions from odd and puts hardcoded thousand separator on right place.
