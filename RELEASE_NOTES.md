@@ -1,3 +1,8 @@
+### 18.09.2015
+### equitania, 1.0.71
+#### Bugfix
+- Die action_button_conifrm methode im Verkaufsauftrag wird richtig aufgerufen.
+
 ### 14.09.2015
 ### equitania, 1.0.70
 #### Bugfix

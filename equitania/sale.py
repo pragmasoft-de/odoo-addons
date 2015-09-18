@@ -112,7 +112,7 @@ class eq_sale_order(models.Model):
                 'res_id': new_popup.id,
             }
         else:
-            return super(eq_sale_order, self).action_button_confirm()
+            return self.action_button_confirm()
         
 class eq_info_optional(models.TransientModel):
     _name = 'eq_info_optional'
