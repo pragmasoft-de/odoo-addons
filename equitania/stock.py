@@ -119,6 +119,12 @@ class stock_picking_extension(osv.osv):
         return_picking_obj = self.pool.get('stock.return.picking')
         return_picking_id = return_picking_obj.create(cr, uid, rp_vals, context=context)
         new_picking_id, pick_type_id = return_picking_obj._create_returns(cr, uid, [return_picking_id], context=context)
+        picking_to_return = self.browse(cr, uid, ids)
+        for move_to_return in picking_to_return.move_lines:
+            #Reserves the quants from the original move
+            if move_to_return.lot_ids and len(move_to_return.lot_ids) == move_to_return.product_qty and len(move_to_return.returned_move_ids) == 1:
+                move_to_return.returned_move_ids[0].reserved_quant_ids = [quant.id for quant in move_to_return.quant_ids]
+                move_to_return.returned_move_ids[0].lot_ids = [lot.id for lot in move_to_return.lot_ids]
         self.write(cr, uid, new_picking_id, {'invoice_state': 'none'}, context)
         #Do transfer for new picking
         transfer_obj = self.pool['stock.transfer_details']

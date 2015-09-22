@@ -1,4 +1,9 @@
 ### 18.09.2015
+### equitania, 1.0.73
+#### Bugfix
+- Bei der Funktion "Lieferung stornieren" wurden für die Rücklieferung andere Quants genommen. Nicht die der Lieferung.
+
+### 18.09.2015
 ### equitania, 1.0.72
 #### Bugfix
 - Die action_button_conifrm methode im Verkaufsauftrag wird richtig aufgerufen.
