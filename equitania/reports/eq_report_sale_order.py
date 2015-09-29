@@ -134,15 +134,19 @@ class eq_report_sale_order(report_sxw.rml_parse):
             @input: Subtotal price - total inkl. optional products
             @category_no: Category no
             @return: Total price without optional products
-        """        
-        if self.display_gross_price is False:
-            total_price = self.data_dict[category_no]
-            result = input - total_price
-            return result
-        else:
-            total_price = self.data_dict[category_no]            
-            result = input - total_price
-            return result
+        """     
+                   
+        if category_no in self.data_dict:               # check if we find total price for category
+            if self.display_gross_price is False:
+                total_price = self.data_dict[category_no]
+                result = input - total_price
+                return result
+            else:
+                total_price = self.data_dict[category_no]            
+                result = input - total_price
+                return result
+        
+        return input
         
     
 class report_lunchorder(osv.AbstractModel):

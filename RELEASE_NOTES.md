@@ -1,3 +1,8 @@
+### 29.09.2015
+### equitania, 1.0.74
+#### Bugfix
+- Bugfix im Report "eq_report_sale_order" in der Berechnung für optionale Positionen
+
 ### 18.09.2015
 ### equitania, 1.0.73
 #### Bugfix
