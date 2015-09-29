@@ -3,6 +3,9 @@
 #### Bugfix
 - Bugfix im Report "eq_report_sale_order" in der Berechnung für optionale Positionen
 
+#### Erweiterung
+- Hausnummer auf der Maske SaleOrder (Angebot, Vertrag) etc. wird ba jetzt bei der Lieferadresse und Rechnungsadresse angezeigt
+
 ### 18.09.2015
 ### equitania, 1.0.73
 #### Bugfix

@@ -30,9 +30,9 @@ class sale_order(osv.osv):
         for person in self.browse(cr, uid, ids):
             #if person.partner_invoice_id:
             if person.partner_invoice_id.street and person.partner_invoice_id.city:
-                res[person.id] = person.partner_invoice_id.street + ', ' + person.partner_invoice_id.city
+                res[person.id] = person.partner_invoice_id.street + ' ' + person.partner_invoice_id.eq_house_no + ', ' + person.partner_invoice_id.city                
             elif person.partner_invoice_id.street:
-                res[person.id] = person.partner_invoice_id.street
+                res[person.id] = person.partner_invoice_id.street + ' ' + person.partner_invoice_id.eq_house_no
             elif person.partner_invoice_id.city:
                 res[person.id] = person.partner_invoice_id.city
             else:
@@ -44,9 +44,11 @@ class sale_order(osv.osv):
         for person in self.browse(cr, uid, ids):
             #if person.partner_shipping_id:
             if person.partner_shipping_id.street and person.partner_shipping_id.city:
-                res[person.id] = person.partner_shipping_id.street + ', ' + person.partner_shipping_id.city
+                #res[person.id] = person.partner_shipping_id.street + ', ' + person.partner_shipping_id.city
+                res[person.id] = person.partner_shipping_id.street + ' ' + person.partner_invoice_id.eq_house_no + ', ' + person.partner_shipping_id.city
             elif person.partner_shipping_id.street:
-                res[person.id] = person.partner_shipping_id.street
+                #res[person.id] = person.partner_shipping_id.street
+                res[person.id] = person.partner_shipping_id.street + ' ' + person.partner_invoice_id.eq_house_no
             elif person.partner_shipping_id.city:
                 res[person.id] = person.partner_shipping_id.city
             else:
