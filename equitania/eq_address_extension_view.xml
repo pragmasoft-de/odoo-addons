@@ -81,6 +81,38 @@
             </field>
 	    </record>
 	    
+	    
+	    <!-- extension of invoices IN -->
+	    <record id="view_account_invoice_supplier_form_address_extension" model="ir.ui.view">
+	    	<field name="name">account.invoice_supplier_form.extension</field>
+	    	<field name="model">account.invoice</field>
+	    	<field name="inherit_id" ref="account.invoice_supplier_form"/>
+	    	<field name="arch" type="xml">
+	    		<xpath expr="//field[@name='partner_id']" position="after">
+	    			<field name="eq_street_house_no" attrs="{'invisible': [('eq_street_house_no', '=', False)]}" />        
+               		<field name="eq_zip_city" attrs="{'invisible': [('eq_zip_city', '=', False)]}" />
+               		<field name="eq_country" attrs="{'invisible': [('eq_country', '=', False)]}" />
+            	</xpath>
+	    	</field>	    	
+	    </record>
+	    
+	    <!-- extension of invoices OUT -->
+	    <!-- 
+	    <record id="view_account_invoice_form_address_extension" model="ir.ui.view">
+	    	<field name="name">account.invoice_form.extension</field>
+	    	<field name="model">account.invoice</field>
+	    	<field name="inherit_id" ref="account.invoice_form"/>
+	    	<field name="arch" type="xml">
+	    		<xpath expr="//field[@name='partner_id']" position="after">
+	    			<field name="eq_street_house_no" attrs="{'invisible': [('eq_street_house_no', '=', False)]}" />        
+               		<field name="eq_zip_city" attrs="{'invisible': [('eq_zip_city', '=', False)]}" />
+               		<field name="eq_country" attrs="{'invisible': [('eq_country', '=', False)]}" />
+            	</xpath>
+	    	</field>	    	
+	    </record>
+	     -->
+	    
+	    <!--  extension of purchase order page -->
         <record id="view_purchase_order_form_address_extension" model="ir.ui.view">
             <field name="name">purchase.order.form.address.extension</field>
             <field name="model">purchase.order</field>
@@ -89,6 +121,12 @@
                 <field name="partner_id" position="attributes">
 					<attribute name="context">{'search_default_supplier':1, 'default_supplier':1, 'default_customer':0, 'show_address': 1,'main_address': True ,'active_model':'purchase.order',}</attribute>
                 </field>
+                <!-- append address infos -->
+                <xpath expr="//field[@name='partner_id']" position="after">                 
+               		<field name="eq_street_house_no" attrs="{'invisible': [('eq_street_house_no', '=', False)]}" />
+               		<field name="eq_zip_city" attrs="{'invisible': [('eq_zip_city', '=', False)]}" />
+               		<field name="eq_country" attrs="{'invisible': [('eq_country', '=', False)]}" />               	             	
+            	</xpath>            	
             </field>
 	    </record>
 	    

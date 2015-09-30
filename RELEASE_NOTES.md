@@ -2,6 +2,7 @@
 ### equitania, 1.0.75
 #### Erweiterung
 - Wichtige Kontrolle für Auswertung des Feldes eq_house_no hinzugefügt
+- Strasse, Hausnummer, PLZ, Ort und Land wird ab jetzt auch auf diesen Masken angezeigt (Angebotsanfrage, Bestellung, Eingangsrechnung)
 
 ### 29.09.2015
 ### equitania, 1.0.74
