@@ -1,3 +1,8 @@
+### 30.09.2015
+### equitania, 1.0.75
+#### Erweiterung
+- Wichtige Kontrolle für Auswertung des Feldes eq_house_no hinzugefügt
+
 ### 29.09.2015
 ### equitania, 1.0.74
 #### Bugfix
