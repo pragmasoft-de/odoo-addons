@@ -136,6 +136,48 @@ purchase_order()
 class sale_order(osv.osv):
     _inherit = 'sale.order'
     
+    
+    def _compute_street_house_no(self, cr, uid, ids, field_name, arg, context):
+        """ Generate street and house no info for purchase order """
+                
+        res = {}
+        for person in self.browse(cr, uid, ids):
+            if person.partner_id.street and person.partner_id.eq_house_no:                
+                    res[person.id] = person.partner_id.street + ' ' + person.partner_id.eq_house_no
+            elif person.partner_id.street:                                
+                    res[person.id] = person.partner_id.street
+            else:
+                res[person.id] = False
+                
+        return res
+        
+    def _compute_zip_city(self, cr, uid, ids, field_name, arg, context):
+        """ Generate zip and city info for purchase order """
+                
+        res = {}
+        for person in self.browse(cr, uid, ids):
+            if person.partner_id.zip and person.partner_id.city:                
+                    res[person.id] = person.partner_id.zip + ' ' + person.partner_id.city
+            elif person.partner_id.zip:                                
+                    res[person.id] = person.partner_id.zip
+            elif person.partner_id.city:                                
+                    res[person.id] = person.partner_id.city
+            else:
+                res[person.id] = False
+                
+        return res
+    
+    def _compute_country(self, cr, uid, ids, field_name, arg, context):
+        """ Generate country info for purchase order """
+        res = {}
+        for person in self.browse(cr, uid, ids, context):
+            if person.partner_id.country_id:
+                    res[person.id] = person.partner_id.country_id.name           
+            else:
+                res[person.id] = False
+                
+        return res
+    
     def _compute_invoice_address(self, cr, uid, ids, field_name, arg, context):
         """ Generate address infos for sale order """
         
@@ -161,12 +203,17 @@ class sale_order(osv.osv):
         """ Generate address infos for sale order """
         
         res = {}
+        zip = ""
+        
         for person in self.browse(cr, uid, ids):
+            if person.partner_shipping_id.zip:
+                zip = person.partner_shipping_id.zip
+                
             if person.partner_shipping_id.street and person.partner_shipping_id.city:
                 if person.partner_shipping_id.eq_house_no:
-                    res[person.id] = person.partner_shipping_id.street + ' ' + person.partner_shipping_id.eq_house_no + ', ' + person.partner_shipping_id.city
+                    res[person.id] = person.partner_shipping_id.street + ' ' + person.partner_shipping_id.eq_house_no + ', @ZIP ' + person.partner_shipping_id.city
                 else:
-                    res[person.id] = person.partner_shipping_id.street + ', ' + person.partner_shipping_id.city
+                    res[person.id] = person.partner_shipping_id.street + ', @ZIP ' + person.partner_shipping_id.city
             elif person.partner_shipping_id.street:
                 if person.partner_shipping_id.eq_house_no:                
                     res[person.id] = person.partner_shipping_id.street + ' ' + person.partner_shipping_id.eq_house_no
@@ -176,6 +223,12 @@ class sale_order(osv.osv):
                 res[person.id] = person.partner_shipping_id.city
             else:
                 res[person.id] = False
+                
+        if res[person.id] is not False:
+            result = res[person.id]
+            result = result.replace("@ZIP", zip)
+            res[person.id] = result
+
         return res  
 
     _columns = {
@@ -183,6 +236,9 @@ class sale_order(osv.osv):
                 'eq_invoice_address': fields.function(_compute_invoice_address, string=" ", store=False, type="char"),
                 'eq_delivery_address': fields.function(_compute_delivery_address, string=" ", store=False, type="char"),
                 'client_order_ref': fields.char('Reference/Description', copy=True),
+                'eq_street_house_no': fields.function(_compute_street_house_no, string=" ", store=False, type="char"),
+                'eq_zip_city': fields.function(_compute_zip_city, string=" ", store=False, type="char"),
+                'eq_country': fields.function(_compute_country, string=" ", store=False, type="char"),                            
                 }
 
 sale_order()
