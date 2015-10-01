@@ -1,3 +1,8 @@
+### 01.10.2015
+### equitania, 1.0.77
+#### Bugfix
+- Gruppeneinschränkung für den Menüeintrag "Einstellungen/Projekte" entfernt, da die Installation des Modules "Projekte" keine Vorraussetzung für dieses Modul ist.
+
 ### 30.09.2015
 ### equitania, 1.0.76
 #### Bugfix
