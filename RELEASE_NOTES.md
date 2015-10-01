@@ -1,4 +1,9 @@
 ### 01.10.2015
+### equitania, 1.0.78
+#### Erweiterung
+- Methode eingefügt, die unnötige Einträge in der ir_model_data Tabelle entfernt.
+
+### 01.10.2015
 ### equitania, 1.0.77
 #### Bugfix
 - Gruppeneinschränkung für den Menüeintrag "Einstellungen/Projekte" entfernt, da die Installation des Modules "Projekte" keine Vorraussetzung für dieses Modul ist.
