@@ -2034,3 +2034,13 @@ msgstr "Bezeichnung"
 #: view:website:account.report_invoice_document
 msgid "Gross price"
 msgstr "Bruttopreis"
+
+#. module: equitania
+#: field:res.partner,eq_prospective_customer:0
+msgid "Prospective user"
+msgstr "Interessent"
+
+#. module: equitania
+#: field:res.partner,eq_unlocked_for_webshop:0
+msgid "Unlocked for webshop"
+msgstr "Webshop"
