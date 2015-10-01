@@ -28,6 +28,7 @@ class eq_clean_data(models.TransientModel):
     def remove_unwanted_data(self):
         cr = self.env.cr
         data_pool = self.pool['ir.model.data']
+        cr.execute("""DELTE FROM ir_module_module WHERE state = 'uninstalled'""")
         cr.execute("""SELECT DISTINCT(model) FROM ir_model_data""")
         for (model,) in cr.fetchall():
             if not model:

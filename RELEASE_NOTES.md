@@ -1,4 +1,9 @@
 ### 01.10.2015
+### equitania, 1.0.79
+#### Erweiterung
+- Methode zum Löschen unnötiger Einträge in der ir_model_data Tabelle erweitert, sodass nun auch uninstallierte Module aus der ir_module_module Tabelle entfernt werden.
+
+### 01.10.2015
 ### equitania, 1.0.78
 #### Erweiterung
 - Methode eingefügt, die unnötige Einträge in der ir_model_data Tabelle entfernt.
