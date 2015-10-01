@@ -183,11 +183,14 @@ class sale_order(osv.osv):
         
         res = {}
         for person in self.browse(cr, uid, ids):
+            if person.partner_shipping_id.zip:
+                zip = person.partner_shipping_id.zip
+                
             if person.partner_invoice_id.street and person.partner_invoice_id.city:
                 if person.partner_invoice_id.eq_house_no:
-                    res[person.id] = person.partner_invoice_id.street + ' ' + person.partner_invoice_id.eq_house_no + ', ' + person.partner_invoice_id.city
+                    res[person.id] = person.partner_invoice_id.street + ' ' + person.partner_invoice_id.eq_house_no + ', @ZIP ' + person.partner_invoice_id.city
                 else:                                
-                    res[person.id] = person.partner_invoice_id.street + ', ' + person.partner_invoice_id.city
+                    res[person.id] = person.partner_invoice_id.street + ', @ZIP ' + person.partner_invoice_id.city
             elif person.partner_invoice_id.street:
                 if person.partner_invoice_id.eq_house_no:
                     res[person.id] = person.partner_invoice_id.street + ' ' + person.partner_invoice_id.eq_house_no
@@ -197,6 +200,12 @@ class sale_order(osv.osv):
                 res[person.id] = person.partner_invoice_id.city
             else:
                 res[person.id] = False
+                
+        if res[person.id] is not False:
+            result = res[person.id]
+            result = result.replace("@ZIP", zip)
+            res[person.id] = result
+            
         return res
     
     def _compute_delivery_address(self, cr, uid, ids, field_name, arg, context):

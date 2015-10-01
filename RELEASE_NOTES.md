@@ -1,4 +1,9 @@
 ### 30.09.2015
+### equitania, 1.0.76
+#### Bugfix
+- Fehlende PLZ in der Infozeile bei der Rechnungsadresse auf der Masken (Angebotsanfrage und Auftrag) korrigiert
+
+### 30.09.2015
 ### equitania, 1.0.75
 #### Erweiterung
 - Wichtige Kontrolle für Auswertung des Feldes eq_house_no hinzugefügt
