@@ -1,3 +1,8 @@
+### 02.10.2015
+### equitania, 1.0.79
+#### Erweiterung
+- Methode zum Löschen unnötiger Einträge überarbeitet.
+
 ### 01.10.2015
 ### equitania, 1.0.79
 #### Erweiterung
