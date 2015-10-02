@@ -27,7 +27,11 @@ class res_partner(models.Model):
     
     eq_delivery_date_type_purchase = fields.Selection([('cw', 'Calendar week'), ('date', 'Date')], string="Delivery Date Purchase", help="If nothing is selected, the default from the settings will be used.")
     eq_delivery_date_type_sale = fields.Selection([('cw', 'Calendar week'), ('date', 'Date')], string="Delivery Date Sale", help="If nothing is selected, the default from the settings will be used.")    
-    eq_complete_description = fields.Char(compute='_generate_complete_description', store=True)
+    eq_complete_description = fields.Char(compute='_generate_complete_description', store=True)    
+    
+    eq_prospective_customer = fields.Boolean(string="Prospective user",required=False, default=False)
+    eq_unlocked_for_webshop = fields.Boolean(string="Unlocked for webshop",required=False, default=False)
+    
     
     @api.one
     @api.depends('name', 'eq_firstname')

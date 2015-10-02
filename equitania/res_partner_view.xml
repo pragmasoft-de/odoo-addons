@@ -48,6 +48,19 @@
                 </xpath>
           </field>
         </record>
+                
+        <!-- add 2 new fields -->
+	 	<record id="eq_view_partner_form_inherit_hofm" model="ir.ui.view">
+            <field name="name">eq.res.partner.form.inherit_hofm</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+            <xpath expr="//page[@name='sales_purchases']//field[@name='supplier']" position="after">
+				<field name="eq_prospective_customer"/>
+				<field name="eq_unlocked_for_webshop"/>               
+			</xpath>
+            </field>
+        </record>
         
 	</data>
 </openerp>
