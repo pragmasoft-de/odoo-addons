@@ -26,11 +26,15 @@ mybasepath="/opt/odoo"
 mysourcepath=$mybasepath"/odoo"
 myserverpath=$mybasepath"/odoo-server"
 myaddpath=$mybasepath"/odoo-addons"
+my3rdpath=$mybasepath"/odoo-third-party-modules"
+myocapath=$mybasepath"/oca-modules"
 
 echo "Basepath: "$mybasepath
 echo "Sourcepath: "$mysourcepath
 echo "Serverpath: "$myserverpath
 echo "odoo-addons path: "$myaddpath
+echo "odoo-third-party-modules path: "$my3rdpath
+echo "oca-modules path: "$myocapath
 
 echo "Prepare PostgreSQL"
 adduser odoo --home /opt/odoo
@@ -53,11 +57,19 @@ if [ "$mypsqlpwd" != "" ]; then
 fi
 
 cd $mybasepath
-git clone -b 8.0 --single-branch https://github.com/odoo/odoo.git
-echo "Clone lastest branch odoo.."
+git clone -b 8.0 --single-branch https://github.com/equitania/myodoo-server.git
+echo "Clone lastest branch myodoo.."
 
 cd $mybasepath
 git clone -b 8.0 --single-branch https://github.com/equitania/odoo-addons.git
+echo "Clone lastest branch odoo-addons.."
+
+cd $mybasepath
+git clone -b 8.0 --single-branch https://github.com/equitania/odoo-third-party-modules.git
+echo "Clone lastest branch odoo-addons.."
+
+cd $mybasepath
+git clone -b 8.0 --single-branch https://github.com/equitania/oca-modules.git
 echo "Clone lastest branch odoo-addons.."
 
 mkdir $myserverpath
@@ -70,7 +82,6 @@ echo "Copy doc..."
 cp -r $mysourcepath/openerp $myserverpath
 echo "Copy openerp..."
 echo "Copy files..."
-cp  $mysourcepath/openerp-gevent $myserverpath
 cp  $mysourcepath/openerp-server $myserverpath
 cp  $mysourcepath/openerp-wsgi.py $myserverpath
 cp  $mysourcepath/odoo.py $myserverpath
@@ -80,6 +91,44 @@ echo "Copy equitania addons"
 cp -r $myaddpath/eq_no_ad $myserverpath/addons
 cp -r $myaddpath/equitania $myserverpath/addons
 cp -r $myaddpath/eq_mail_extension $myserverpath/addons
+cp -r $myaddpath/base_report_to_printer $myserverpath/addons
+cp -r $myaddpath/eq_google_shopping_feed $myserverpath/addons
+cp -r $myaddpath/eq_info_for_product_product $myserverpath/addons
+cp -r $myaddpath/eq_snom $myserverpath/addons
+
+echo "Copy third party addons"
+# odoo-addons
+cp -r $my3rdpath/auto_backup $myserverpath/addons
+cp -r $my3rdpath/mail_check_immediately $myserverpath/addons
+cp -r $my3rdpath/mail_delete_access_link $myserverpath/addons
+cp -r $my3rdpath/mail_delete_odoo_footer $myserverpath/addons
+cp -r $my3rdpath/mail_delete_sent_by_footer $myserverpath/addons
+cp -r $my3rdpath/mail_fix_553 $myserverpath/addons
+cp -r $my3rdpath/mail_fix_empty_body $myserverpath/addons
+cp -r $my3rdpath/mail_html_widget_template $myserverpath/addons
+cp -r $my3rdpath/mail_outgoing $myserverpath/addons
+cp -r $my3rdpath/res_users_clear_access_rights $myserverpath/addons
+cp -r $my3rdpath/smsclient $myserverpath/addons
+cp -r $my3rdpath/sync_mail_forward $myserverpath/addons
+cp -r $my3rdpath/web_easy_switch_company $myserverpath/addons
+cp -r $my3rdpath/web_polymorphic_field $myserverpath/addons
+
+echo "Copy oca addons"
+# odoo-addons
+cp -r $myocapath/attachment_preview $myserverpath/addons
+cp -r $myocapath/auditlog $myserverpath/addons
+cp -r $myocapath/database_cleanup $myserverpath/addons
+cp -r $myocapath/disable_openerp_online $myserverpath/addons
+cp -r $myocapath/mass_editing $myserverpath/addons
+cp -r $myocapath/product_attribute_multi_type $myserverpath/addons
+cp -r $myocapath/web_context_tunnel $myserverpath/addons
+cp -r $myocapath/web_dialog_size $myserverpath/addons
+cp -r $myocapath/web_export_view $myserverpath/addons
+cp -r $myocapath/web_hide_db_manager_link $myserverpath/addons
+cp -r $myocapath/web_last_viewed_records $myserverpath/addons
+cp -r $myocapath/web_searchbar_full_width $myserverpath/addons
+cp -r $myocapath/web_sheet_full_width $myserverpath/addons
+cp -r $myocapath/web_shortcuts $myserverpath/addons
 
 echo "Insert the password for the databasemanager | Geben Sie das Passwort für den Databasemanager ein:"
 read myadminpwd

@@ -50,11 +50,12 @@ apt-get install python-dateutil python-pypdf python-requests \
  python-yaml python-zsi python-docutils python-psutil \
  python-unittest2 python-mock python-jinja2 python-dev \
  python-pdftools python-decorator python-openssl python-babel \
- python-imaging python-reportlab-accel \
+ python-imaging python-reportlab-accel \ python-passlib \
  python-paramiko python-software-properties
 
 echo "pip packages will be install.."
-pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode validate_email pyDNS pysftp python-slugify
+pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode validate_email pyDNS pysftp python-slugify odoorpc
+easy_install pyinotify
 
 echo "npm packages will be install.."
 curl -sL https://deb.nodesource.com/setup_0.12 | bash -
@@ -74,7 +75,6 @@ if [ "$myfonts" = "Y" ]; then
 else
   echo "Barcodes is not installed!"
 fi
-
 
 echo "Do you want install module HTML2PDF? / Wollen Sie das Modul HTML2PDF installieren (Y/n):"
 read mypdf
