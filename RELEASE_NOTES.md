@@ -1,8 +1,8 @@
 ### 02.10.2015
 ### equitania, 1.0.81
 #### Erweiterung
-- Die Tabelle product.template um neues Feld eq_sale_min_qty erweitert
-- Die Maske "Prodictdetail" um das Feld eq_sale_min_qty erweitert
+- Die Tabelle product.product um neues Feld eq_sale_min_qty erweitert
+- Die Maske "Variante - Productdetail" um das Feld eq_sale_min_qty erweitert
 
 
 ### 02.10.2015

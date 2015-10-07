@@ -2049,3 +2049,8 @@ msgstr "Webshop"
 #: field:product.template,eq_sale_min_qty:0
 msgid "Min. order quantity"
 msgstr "Mindestbestellmenge"
+
+#. module: equitania
+#: field:product.product,eq_sale_min_qty:0
+msgid "Min. order quantity"
+msgstr "Mindestbestellmenge"

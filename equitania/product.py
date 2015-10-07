@@ -42,12 +42,14 @@ class eq_product_template(osv.osv):
     
     _columns = {
                 'eq_sale_count': fields.function(_eq_sale_count, type="char", string='Sales'),
-                'eq_sale_min_qty': fields.integer(string='Min. order quantity'),                
+                #'eq_sale_min_qty': fields.integer(string='Min. order quantity'),                
                 }
     
+    """
     _defaults = {
                  'eq_sale_min_qty': 0,
     }
+    """
     
     def action_view_stock_moves(self, cr, uid, ids, context=None):
         products = self._get_products(cr, uid, ids, context=context)
@@ -97,4 +99,9 @@ class eq_product_product(osv.osv):
     _columns = {
                 'eq_sale_count': fields.function(_eq_sale_count, type="char", string='Sales'),                
                 'eq_rrp': fields.float(string='RRP'),
+                'eq_sale_min_qty': fields.integer(string='Min. order quantity'),
                 }
+    
+    _defaults = {
+                 'eq_sale_min_qty': 0,
+    }
