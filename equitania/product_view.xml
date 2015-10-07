@@ -28,5 +28,23 @@
             	</field>
             </field>
         </record>
+        
+        
+        <!-- extension of product.template -->
+        <record id="eq_product_template_only_form_view" model="ir.ui.view">
+            <field name="name">eq.product.template.only.form.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view" />
+            <field name="arch" type="xml">            
+	            <group name="sale_condition" position="inside">
+	            	<!-- add eq_sale_min_qty -->
+					<label for="eq_sale_min_qty"/>
+					<div>
+					    <field name="eq_sale_min_qty"/>
+					</div>	            
+	            </group>
+	                    	
+            </field>
+        </record>
     </data>
 </openerp>

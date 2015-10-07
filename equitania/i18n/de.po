@@ -2044,3 +2044,8 @@ msgstr "Interessent"
 #: field:res.partner,eq_unlocked_for_webshop:0
 msgid "Unlocked for webshop"
 msgstr "Webshop"
+
+#. module: equitania
+#: field:product.template,eq_sale_min_qty:0
+msgid "Min. order quantity"
+msgstr "Mindestbestellmenge"
