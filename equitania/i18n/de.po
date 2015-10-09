@@ -2054,3 +2054,8 @@ msgstr "Mindestbestellmenge"
 #: field:product.product,eq_sale_min_qty:0
 msgid "Min. order quantity"
 msgstr "Mindestbestellmenge"
+
+#. module: equitania
+#: view:product.pricelist.item:equitania.eq_framework_agreement_tree_view
+msgid "Price"
+msgstr "Preis"

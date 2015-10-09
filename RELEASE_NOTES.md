@@ -2,6 +2,7 @@
 ### equitania, 1.0.82
 #### Erweiterung
 - Ab jetzt kann man auf der Maske "Benutzer" den zugehörigen Partner auswählen. Es ist nicht mehr readonly
+- Der Preis "price_surcharge" wird ab jetzt auch in der Tabelle "Pricelist Items" in neuer Spalte "Preis" angezeigt
 
 ### 02.10.2015
 ### equitania, 1.0.81
