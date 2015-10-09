@@ -1,3 +1,8 @@
+### 09.10.2015
+### equitania, 1.0.82
+#### Erweiterung
+- Ab jetzt kann man auf der Maske "Benutzer" den zugehörigen Partner auswählen. Es ist nicht mehr readonly
+
 ### 02.10.2015
 ### equitania, 1.0.81
 #### Erweiterung
