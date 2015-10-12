@@ -263,24 +263,31 @@ class eq_report_extension_sale_order_line(osv.osv):
     def product_id_change(self, cr, uid, ids, pricelist, product, qty=0,
             uom=False, qty_uos=0, uos=False, name='', partner_id=False,
             lang=False, update_tax=True, date_order=False, packaging=False, fiscal_position=False, flag=False, context=None):
-        
+        """
+            Default product_id_change handler
+        """
         vals = super(eq_report_extension_sale_order_line, self).product_id_change(cr, uid, ids, pricelist, product, qty, uom, qty_uos, uos, name, partner_id, lang, update_tax, date_order, packaging, fiscal_position, flag, context)
+        
         #Creates new dict for if not present and sets the customer language. The frozendict context can't be edited.
         context_new = {}
         if context:
             context_new = dict(context)
+        
         context_new['lang'] = self.pool.get('res.partner').browse(cr, uid, partner_id, context).lang
         product_id = self.pool.get('product.product').browse(cr, uid, product, context_new)
         eq_use_internal_descriptionion = self.pool.get('ir.values').get_default(cr, uid, 'sale.order.line', 'eq_use_internal_description')
         
         vals['value']['product_uos_qty'] = qty * product_id.uos_coeff
         
-        if not eq_use_internal_descriptionion and product_id.description_sale:
-            vals['value']['name'] = product_id.description_sale
-        elif eq_use_internal_descriptionion and product_id.description:
-            vals['value']['name'] = product_id.product_tmpl_id.description
-        else:
-            vals['value']['name'] = ' '
+        # set product name only after first change of quantity - it's our workaround for refresh problem after each change of quantity
+        if name is False:                   # name is set, don't reset it again !           
+            if not eq_use_internal_descriptionion and product_id.description_sale:
+                vals['value']['name'] = product_id.description_sale
+            elif eq_use_internal_descriptionion and product_id.description:
+                vals['value']['name'] = product_id.product_tmpl_id.description
+            else:
+                vals['value']['name'] = ' '
+        
         vals['value']['delay'] = product_id.sale_delay
         return vals
     

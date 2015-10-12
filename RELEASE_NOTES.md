@@ -2,6 +2,7 @@
 ### equitania, 1.0.83
 #### Erweiterung
 - Defaultwerte der Maske "Pricelist items" werden ab jetzt gesetzt
+- Änderung der Funktion "product_id_change". Ab jetzt wird der Produkttext nur einmal gesetzt und wird nach der Änderung der Menge nicht mehr ersetzt
 
 ### 09.10.2015
 ### equitania, 1.0.82
