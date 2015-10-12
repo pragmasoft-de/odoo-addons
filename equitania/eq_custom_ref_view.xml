@@ -9,10 +9,16 @@
             <field name="arch" type="xml">
             	<field name="sequence" position="after">
             		<field name="price_version_id"/>
-            	</field>
+            	</field>            	
+            	<!-- 
+            	<xpath expr="//label[@for='name']" position="before">
+            		<button name="set_defaults" type="object" string='Set defaults' class="oe_edit_only"/>
+            		<br/>
+            	</xpath>
+            	 -->            	   
             </field>
-        </record>
-        
+        </record>         
+         
 	    <!-- Pricelist Items Tree View -->
         <record id="eq_framework_agreement_tree_view" model="ir.ui.view">
             <field name="name">product.pricelist.item.tree</field>
@@ -28,7 +34,7 @@
                     <field name="price_surcharge" string="Price"/>
                     <field name="base"/>
                     <field name="price_version_id"/>                    
-                </tree>
+                </tree>                               
             </field>
         </record>
         

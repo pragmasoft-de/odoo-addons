@@ -25,6 +25,51 @@ from string import replace
 
 #The customer and creditor number with the appropriate sequence
 
+class eq_product_pricelist_item(osv.osv):
+    _inherit = 'product.pricelist.item'
+    
+    
+    def _get_default_price_version_id(self, cr, uid, context):
+        """
+            Return first id from product.pricelist.version and set it as actual one
+            @return: False or id
+        """        
+        result = False
+        versions = self.pool.get('product.pricelist.version').search(cr, uid, [], context=context)
+        if versions:
+            result = versions[0]
+
+            
+        return result
+    
+    """
+    def set_defaults(self, cr, uid, ids, context=None):        
+        # Set defalt values for pricelist after click on button 'set defaults'
+        res = {}
+        for id in ids:
+            record = self.browse(cr, uid, id)
+            record.min_quantity = 1
+            record.base = 1
+            record.price_discount = -1
+                        
+            versions = self.pool.get('product.pricelist.version').search(cr, uid, [], context=context)
+            if versions:
+                    record.price_version_id = versions[0]          
+        return res
+    """
+    
+    
+    _defaults = {
+        'min_quantity': 1,
+        'price_discount': -1,
+        'base': 1,           
+        'price_version_id' : lambda self, cr, uid, context: self._get_default_price_version_id(cr, uid, context),
+    }
+    
+        
+eq_product_pricelist_item()
+
+
 class eq_custom_ref(osv.osv):
     _name = 'res.partner'
     _inherit = 'res.partner'

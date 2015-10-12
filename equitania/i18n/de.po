@@ -2059,3 +2059,8 @@ msgstr "Mindestbestellmenge"
 #: view:product.pricelist.item:equitania.eq_framework_agreement_tree_view
 msgid "Price"
 msgstr "Preis"
+
+#. module: equitania
+#: view:product.pricelist.item:equitania.eq_product_pricelist_item_form_view
+msgid "Set defaults"
+msgstr "Festpreis setzen"

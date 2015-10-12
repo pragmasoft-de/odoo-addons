@@ -1,3 +1,8 @@
+### 12.10.2015
+### equitania, 1.0.83
+#### Erweiterung
+- Defaultwerte der Maske "Pricelist items" werden ab jetzt gesetzt
+
 ### 09.10.2015
 ### equitania, 1.0.82
 #### Erweiterung
