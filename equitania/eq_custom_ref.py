@@ -22,6 +22,7 @@
 from openerp.osv import fields, osv, orm
 from datetime import datetime
 from string import replace
+from openerp import SUPERUSER_ID
 
 #The customer and creditor number with the appropriate sequence
 
@@ -256,10 +257,10 @@ class eq_product_template(osv.osv):
                 }
     
                 #Creates the sequence.type in OpenERP
-                self.pool.get('ir.sequence.type').create(cr, uid, vals_seq_type, context)
+                self.pool.get('ir.sequence.type').create(cr, SUPERUSER_ID, vals_seq_type, context)
     
                 #Gets the company_id, which is needed for the sequence
-                user_rec = self.pool.get('res.users').browse(cr, uid, uid, context)
+                user_rec = self.pool.get('res.users').browse(cr, SUPERUSER_ID, uid, context)
                 company_id = user_rec.company_id.id
     
                 #Defines the sequence and uses the ir.sequence.type that was previously created
@@ -276,10 +277,10 @@ class eq_product_template(osv.osv):
                     'name': 'Product Number ' + prod_rec,
                 }
                 #Creates the sequence in OpenERP
-                self.pool.get('ir.sequence').create(cr, uid, vals_seq, context=context)
+                self.pool.get('ir.sequence').create(cr, SUPERUSER_ID, vals_seq, context=context)
     
                 #Gets the sequence for the and sets it in the appropriate field
-                seq = self.pool.get('ir.sequence').get(cr, uid, 'eq_product_no.' + prod_rec)
+                seq = self.pool.get('ir.sequence').get(cr, SUPERUSER_ID, 'eq_product_no.' + prod_rec)
                 vals = {
                     'default_code': seq
                 }
@@ -288,7 +289,6 @@ class eq_product_template(osv.osv):
                     company_ean = self.pool.get('res.users').browse(cr, uid, uid, context).company_id.eq_company_ean
                     if company_ean:
                         product_obj._generate_ean(cr, uid, product_variant, company_ean, seq, context)
-        
         
 eq_product_template()  
 

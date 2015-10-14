@@ -1,3 +1,8 @@
+### 14.10.2015
+### equitania, 1.0.84
+#### Bugfix
+- Alle Benutzer, die Zugriff auf die Produkte haben, können die Produktnummernfolge generieren.
+
 ### 12.10.2015
 ### equitania, 1.0.83
 #### Erweiterung
