@@ -1,3 +1,8 @@
+### 16.10.2015
+### equitania, 1.0.85
+#### Bugfix
+- Reports mit Positionen ohne Steuer konnten nicht generiert werden.
+
 ### 14.10.2015
 ### equitania, 1.0.84
 #### Bugfix

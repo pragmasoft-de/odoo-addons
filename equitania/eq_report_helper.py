@@ -139,10 +139,11 @@ class eq_report_helper(osv.osv_memory):
         for line_id in sale_line_ids:
             sale_order_line = sale_order_line_obj.browse(cr, uid, line_id, context=context)
             tax_id = sale_order_line.tax_id.id
-            tax = tax_obj.browse(cr, uid, tax_id, context=context)
-            
-            if ("19% Umsatzsteuer" in tax.name or "7% Umsatzsteuer" in tax.name) and tax.price_include is True:
-                return True
+            if tax_id:
+                tax = tax_obj.browse(cr, uid, tax_id, context=context)
+                
+                if ("19% Umsatzsteuer" in tax.name or "7% Umsatzsteuer" in tax.name) and tax.price_include is True:
+                    return True
         
         return False    
              
