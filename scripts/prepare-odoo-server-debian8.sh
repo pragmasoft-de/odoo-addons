@@ -25,7 +25,7 @@ echo "Prepare Debian"
 apt-get update && apt-get dist-upgrade && apt-get autoremove
 
 echo "Tools zip, unzip, mc(Midnight Comander) and htop will be install.."
-apt-get install mc zip unzip htop ca-certificates ntp
+apt-get install mc zip unzip htop ca-certificates ntp apt-transport-https
 
 echo "Do you want install postgresql ? / Wollen Sie die PostgreSQL-DB installieren  (Y/n):"
 read mypsql
@@ -39,91 +39,91 @@ fi
 
 echo "apt-get packages will be install.."
 apt-get install -y --no-install-recommends \
-			ghostscript  \
-			graphviz  \
-			antiword  \
+			ghostscript \
+			graphviz \
+			antiword \
 			poppler-utils \
-            curl \
-            build-essential \
-            libfreetype6-dev \
-            libjpeg-dev \
-            wget \
-            sqlite3 
+			curl \
+			build-essential \
+			libfreetype6-dev \
+			libjpeg-dev \
+			wget \
+			sqlite3
 
 echo "apt-get python packages will be install.."
 apt-get install -y --no-install-recommends \
- 			python-pip  \
- 			python-magic \            
-            python-dateutil \ 
-            python-pypdf \
-            python-requests \
- 			python-feedparser \ 
- 			python-gdata \ 
- 			python-ldap \
- 			python-libxslt1 \
- 			python-lxml \ 
- 			python-mako \ 
- 			python-openid \
- 			python-psycopg2 \
- 			python-pybabel \ 
- 			python-pychart \
- 			python-pydot \
- 			python-pyparsing \
- 			python-reportlab \
- 			python-simplejson \
- 			python-tz \
- 			python-vatnumber \
- 			python-vobject \ 
- 			python-webdav \
- 			python-werkzeug \
- 			python-xlwt \
- 			python-yaml \
- 			python-zsi \
- 			python-docutils \ 
- 			python-psutil \
- 			python-unittest2 \ 
- 			python-mock \ 
- 			python-jinja2 \
- 			python-dev \
- 			python-pdftools \
- 			python-decorator \ 
- 			python-openssl \ 
- 			python-babel \
- 			python-imaging \ 
- 			python-reportlab-accel \
- 			python-paramiko \ 
- 			python-software-properties \ 
- 			python-matplotlib \
-            python-support \
-            python-passlib \
-            python-pyinotify \
-            python-gevent
+		python-pip \
+		python-magic \
+		python-dateutil \
+		python-pypdf \
+		python-requests \
+		python-feedparser \
+		python-gdata \
+		python-ldap \
+		python-libxslt1 \
+		python-lxml \
+		python-mako \
+		python-openid \
+		python-psycopg2 \
+		python-pybabel \
+		python-pychart \
+		python-pydot \
+		python-pyparsing \
+		python-reportlab \
+		python-simplejson \
+		python-tz \
+		python-vatnumber \
+		python-vobject \
+		python-webdav \
+		python-werkzeug \
+		python-xlwt \
+		python-yaml \
+		python-zsi \
+		python-docutils \
+		python-psutil \
+		python-unittest2 \
+		python-mock \
+		python-jinja2 \
+		python-dev \
+		python-pdftools \
+		python-decorator \
+		python-openssl \
+		python-babel \
+		python-imaging \
+		python-reportlab-accel \
+		python-paramiko \
+		python-software-properties \
+		python-matplotlib \
+		python-support \
+		python-passlib \
+		python-pyinotify \
+		python-gevent
 
 echo "pip packages will be install.."
-        pip install passlib \
-        && pip install beautifulsoup4 \ 
-        && pip install evdev \
-        && pip install reportlab \
-        && pip install qrcode \
-        && pip install polib \
-        && pip install unidecode \
-        && pip install validate_email \
-        && pip install pyDNS \ 
-        && pip install pysftp \
-        && pip install python-slugify \
-        && pip install six==1.4 \
-        && pip install paramiko==1.9.0 \
-        && pip install pycrypto==2.4 \
-        && pip install pyinotify \
-        && pip install ecdsa==0.11 \
-        && pip install sphinx \
-        && pip install babel==1.3 \
-        && pip install Pygments==2.0 \
-        && pip install docutils==0.11 \
-        && pip install markupsafe \
-        && pip install pytz \
-        && pip install Jinja2==2.3 \ 
-        && pip install odoorpc 
+pip install passlib \
+	&& pip install beautifulsoup4 \
+	&& pip install evdev \
+	&& pip install reportlab \
+	&& pip install qrcode \
+	&& pip install polib \
+	&& pip install unidecode \
+	&& pip install validate_email \
+	&& pip install pyDNS \
+	&& pip install pysftp \
+	&& pip install python-slugify \
+	&& pip install six==1.4 \
+	&& pip install paramiko==1.9.0 \
+	&& pip install pycrypto==2.4 \
+	&& pip install pyinotify \
+	&& pip install ecdsa==0.11 \
+	&& pip install sphinx \
+	&& pip install babel==1.3 \
+	&& pip install Pygments==2.0 \
+	&& pip install docutils==0.11 \
+	&& pip install markupsafe \
+	&& pip install pytz \
+	&& pip install Jinja2==2.3 \
+	&& pip install odoorpc
 
 echo "npm packages will be install.."
 curl -sL https://deb.nodesource.com/setup_0.12 | bash -
