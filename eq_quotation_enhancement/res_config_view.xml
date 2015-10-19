@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="eq_view_sale_config_settings_quote_template" model="ir.ui.view">
+		     <field name="name">crm settings</field>
+		     <field name="model">sale.config.settings</field>
+		     <field name="inherit_id" ref="base_setup.view_sale_config_settings"/>
+            <field name="arch" type="xml">
+                <div name="Sale Features" position="inside">
+                    <div>
+                        <field name="default_template_id" class="oe_inline"/>
+                        <label for="default_template_id" class="oe_inline"/>
+                    </div>
+				</div>
+            </field>
+        </record>
+    </data>
+</openerp>

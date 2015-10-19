@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Stock Config Settings -->
+		<record id="eq_view_sale_quote_template_form_header" model="ir.ui.view">
+		     <field name="name">eq.view.sale.quote.template.form.header</field>
+		     <field name="model">sale.quote.template</field>
+		     <field name="inherit_id" ref="website_quote.view_sale_quote_template_form"/>
+		     <field name="arch" type="xml">
+                <notebook position="before">
+					<label for="eq_header_text" string="Header text"/>
+					<group>
+						<field name="eq_header_text" placeholder="Dear Sir or Madam," nolabel="1"/>
+					</group>
+				</notebook>
+		     </field>
+		</record>
+        <!-- Stock Config Settings -->
+		<record id="eq_view_sale_order_form_header" model="ir.ui.view">
+		     <field name="name">eq.view.sale.order.form.header</field>
+		     <field name="model">sale.order</field>
+		     <field name="inherit_id" ref="website_quote.sale_order_form_quote"/>
+		     <field name="arch" type="xml">
+                <field name="template_id" position="replace">
+                    <field name="template_id" on_change="onchange_template_id(template_id, partner_id, fiscal_position, order_line)"/>
+				</field>
+                <field name="partner_id" position="replace">
+                    <field name="partner_id" on_change="onchange_partner_id(partner_id, template_id)" context="{'search_default_customer':1, 'show_address': 1,'active_model':'sale.order','main_address': True}" options="{'always_reload': True}"/>
+				</field>
+		     </field>
+		</record>
+    </data>
+</openerp>

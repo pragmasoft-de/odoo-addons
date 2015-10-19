@@ -1,0 +1,53 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* eq_quotation_enhancement
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-10 13:58+0000\n"
+"PO-Revision-Date: 2015-04-10 16:00+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: de\n"
+"X-Generator: Poedit 1.7.5\n"
+
+#. module: eq_quotation_enhancement
+#: view:sale.quote.template:eq_quotation_enhancement.eq_view_sale_quote_template_form_header
+msgid "Dear Sir or Madam,"
+msgstr "Sehr geehrte Damen und Herren,"
+
+#. module: eq_quotation_enhancement
+#: view:sale.quote.template:eq_quotation_enhancement.eq_view_sale_quote_template_form_header
+msgid "Header text"
+msgstr "Kopftext"
+
+#. module: eq_quotation_enhancement
+#: model:ir.model,name:eq_quotation_enhancement.model_sale_quote_template
+msgid "Sale Quotation Template"
+msgstr "Angebotsvorlage"
+
+#. module: eq_quotation_enhancement
+#: model:ir.model,name:eq_quotation_enhancement.model_sale_order
+msgid "Sales Order"
+msgstr "Verkaufsauftrag"
+
+#. module: eq_quotation_enhancement
+#: field:sale.config.settings,default_template_id:0
+msgid "Default sale order template [eq_quotation_enhancement]"
+msgstr "Standard Angebotsvorlage [eq_quotation_enhancement]"
+
+#. module: eq_quotation_enhancement
+#: help:sale.config.settings,default_template_id:0
+msgid "Default the quotation template which will be used in every new quotation."
+msgstr "Diese Vorlage wird standardmäßig bei jedem neu erstellten Angebot verwendet."
+
+#. module: eq_quotation_enhancement
+#: view:website:equitania.eq_external_layout_header_sale_order
+msgid "Expiry Date"
+msgstr "Gültig bis"

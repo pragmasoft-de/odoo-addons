@@ -1828,7 +1828,7 @@ msgstr "Abgebrochene Rechnung"
 #. module: equitania
 #: view:website:account.report_invoice_document
 msgid "Refund"
-msgstr "Gutschrift"
+msgstr "Korrektur-Rechnung"
 
 #. module: equitania
 #: view:website:account.report_invoice_document
