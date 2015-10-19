@@ -22,21 +22,20 @@
 {
     'name': 'Equitania Erweiterungsmodul',
     'license': 'AGPL-3',
-    'version': '1.0.86',
+    'version': '1.0.87',
     'description': """
         Equitania Software GmbH
     """,
     'author': 'Equitania Software GmbH',
     'website': 'www.myodoo.de',
     'depends': [
-                'base_setup', 'purchase', 'sale',  'account', 'stock_account', 'product', 
+                'base_setup', 'purchase', 'sale',  'account', 'stock_account', 'product',
                 'mail', 'report', 'hr', 'crm', 'stock','sale_stock', 'delivery',
-                'website', 'website_report', 'website_quote', 'eq_quotation_enhancement'
-                ],
+                'website', 'website_report' ],
     'category' : 'General Improvements',
     'summary': 'Sale, Account, Product, Mail, Report, CRM, Purchase',
     #'init': [
-    #         'eq_install_func.xml', 
+    #         'eq_install_func.xml',
     #         ],
     'data': [
         'security/equitania_security.xml',
@@ -51,7 +50,7 @@
         'eq_company_custom_fields_view.xml',
         'eq_sale_order_seq_view.xml',
         'eq_partner_extension_view.xml',
-        'eq_report_extension_view.xml',        
+        'eq_report_extension_view.xml',
         'eq_lead_referred_view.xml',
         'eq_open_sale_order_line_view.xml',
         'sale_view.xml',

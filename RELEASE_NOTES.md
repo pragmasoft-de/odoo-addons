@@ -1,4 +1,9 @@
 ### 19.10.2015
+### equitania, 1.0.87
+#### Änderung
+- Abhängigkeiten korrigiert.
+
+### 19.10.2015
 ### equitania, 1.0.86
 #### Änderung
 - Abhängigkeiten zum 'website', 'website_report', 'website_quote', 'eq_quotation_enhancement' Modul hinzugefügt.
@@ -161,7 +166,7 @@
 ### 13.08.2015
 ### equitania
 #### Bugfix, 1.0.60
-- Die Felder "Belegnr. des Kunden" und "Referenz / Beschreibung" werden bei allen Abrechnungstypen richtig erfasst. 
+- Die Felder "Belegnr. des Kunden" und "Referenz / Beschreibung" werden bei allen Abrechnungstypen richtig erfasst.
 
 ### 11.08.2015
 ### equitania
@@ -286,7 +291,7 @@
 - Papierformate für die neuen Reports angepasst. Werden bei einer Neuinstallation neu gesetzt.
 #### FIX
 - Bei einer Unterlieferung wird die Verkaufsmenge richtig gesetzt, wodurch dir Rechnung mit der korrekten Menge erstellt wird.
-- Bei erzwungenenen Teillieferungen (nicht auf Lager) wird die Lieferung von davor nicht addiert. 
+- Bei erzwungenenen Teillieferungen (nicht auf Lager) wird die Lieferung von davor nicht addiert.
 
 ### 19.06.2015, 1.0.35
 ### equitania
@@ -445,7 +450,7 @@
 ### equitania
 #### Verbesserung
 - Adressfelder für den Stadtteil und die Hausnummer zum Partnerobjekt hinzugefügt und die Formanischt überarbeitet. Zweites Namensfeld hinzugefügt.
-- Feld Telefax(geschäftlich) in das Mitarbeiterobjekt eingefügt. 
+- Feld Telefax(geschäftlich) in das Mitarbeiterobjekt eingefügt.
 
 ### 24.04.2015, 1.0.11
 ### equitania
@@ -534,7 +539,7 @@
 #### Bugfix
 - Fehler bei den Unterlieferungen (Eingang) behoben. (Mengeneinheit * stimmt mit Mengeneinheit * nicht überein)
 - Feld für den Rahmenauftrag einer Auftragsposition entfernt.
- 
+
 ### 13.03.2015
 ### equitania
 #### Erweiterung
@@ -542,7 +547,7 @@
 - Feld für die Preislistenversion in die Preislistenposition eingefügt.
 #### Bugfix
 - Fehler bei den Unterlieferungen behoben. (Mengeneinheit Stück stimmt mit Mengeneinheit Stück nicht überein)
- 
+
 #### Änderung
 - Änderung in der Lokalisierung für open purchase order lines -> der text "von Bestellpositionen" wird nicht mehr angezeigt
 
