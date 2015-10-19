@@ -1,3 +1,8 @@
+### 19.10.2015
+### equitania, 1.0.86
+#### Änderung
+- Abhängigkeiten zum 'website', 'website_report', 'website_quote', 'eq_quotation_enhancement' Modul hinzugefügt.
+
 ### 16.10.2015
 ### equitania, 1.0.85
 #### Bugfix
