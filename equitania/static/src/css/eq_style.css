@@ -3,3 +3,12 @@
 .openerp th {
 	vertical-align:top !important;
 }
+
+
+/* ==================================================
+Erweiterung für Template-Variablen ================Start */
+
+.label1 label:hover,.label2 label:hover{padding-left:20px;-webkit-transition:padding .4s;-moz-transition:padding .4s;-o-transition:padding .4s;transition:padding .4s;transition-timing-function:ease;cursor:help}.eq_db_variant label:after{content:"V";color:#666;font-size:9px;padding:0 3px;height:18px;display:inline-block;border:1px solid #ddd;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;background:#fff}.eq_db_variant:hover label:after{content:"Variante" !important}
+
+/* ==================================================
+Erweiterung für Template-Variablen ================Ende */
