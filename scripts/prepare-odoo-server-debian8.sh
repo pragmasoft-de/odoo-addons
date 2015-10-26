@@ -164,7 +164,7 @@ read mypos
 if [ "$mypos" = "Y" ]; then
   echo "PoS will be install..."
   pip install pyserial
-  pip install --pre pyusb
+  pip install pyusb
 else
   echo "PoS is not prepared!"
 fi
@@ -176,7 +176,7 @@ cd Imaging-1.1.7
 python setup.py install
 cd ..
 rm Imaging-1.1.7.tar.gz
-rm –rf Imaging-1.1.7
-pip install -I pillow
+rm -r Imaging-1.1.7/
+
 
 echo "Finished!"
