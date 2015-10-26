@@ -1,3 +1,10 @@
+### 26.10.2015
+### equitania, 1.0.88
+#### Erweiterung
+- Listen- und Formansicht für das Feld "Vermittelt durch", welches sich im Kunden und Chance/Interessent befindet, eingefügt.
+#### Bugfix
+- Option "Suche nur nach Firmen in den Angeboten und Verkaufsaufträgen [equitania]" im Einkauf
+
 ### 19.10.2015
 ### equitania, 1.0.87
 #### Änderung

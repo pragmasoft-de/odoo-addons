@@ -2064,3 +2064,11 @@ msgstr "Preis"
 #: view:product.pricelist.item:equitania.eq_product_pricelist_item_form_view
 msgid "Set defaults"
 msgstr "Festpreis setzen"
+
+#. module: equitania
+#: view:eq.lead.referred:equitania.eq_lead_referred_form
+#: view:eq.lead.referred:equitania.eq_lead_referred_tree
+#: model:ir.actions.act_window,name:equitania.action_eq_lead_referred
+#: model:ir.ui.menu,name:equitania.menu_eq_lead_referred
+msgid "Referred by"
+msgstr "Vermittelt durch"

@@ -41,6 +41,8 @@ class res_partner(models.Model):
             elif self.env.context.has_key('default_type'):
                 if self.env.context['default_type'] in ['delivery', 'invoice']:
                     args += [('type', '!=', 'contact')]
+        elif self.env.context.get('active_model', False) == 'sale.order':
+            args = [x for x in args if 'is_company' not in x]
         categories = self.search(args, limit=limit)
         res = categories.name_get()
         
