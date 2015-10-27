@@ -408,7 +408,7 @@
 	                                Term of payment:
 	                            </td>
 	                            <td>
-	                                <span t-field="o.payment_term"/>
+	                                <span t-field="o.payment_term" style="padding-right:10px; white-space: nowrap;"/>
 	                            </td>
 	                        </tr>
 	                        <tr t-if="o.incoterm">
@@ -416,7 +416,7 @@
 	                                Incoterm:
 	                            </td>
 	                            <td>
-	                                <span t-field="o.incoterm.name"/>
+	                                <span t-field="o.incoterm.name" style="padding-right:10px; white-space: nowrap;"/>
 	                            </td>
 	                        </tr>
 	                        <tr t-if="o.partner_invoice_id != o.partner_id and o.partner_invoice_id != False">
