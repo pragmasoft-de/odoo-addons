@@ -1,3 +1,8 @@
+### 28.10.2015
+### equitania, 1.0.89
+#### Bugfix
+- Beim Ändern des Kunden im Angebot/Verkaufsauftrag kann False nicht mehr als context übergeben werden.
+
 ### 26.10.2015
 ### equitania, 1.0.88
 #### Erweiterung

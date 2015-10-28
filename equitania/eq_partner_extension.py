@@ -42,7 +42,9 @@ class eq_partner_sale_order_extension(osv.osv):
                 'partner_id': fields.many2one('res.partner', 'Customer', readonly=True, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]}, required=True, change_default=True, select=True, track_visibility='always'),
                 }
     
-    def onchange_partner_id(self, cr, uid, ids, part, context=None):
+    def onchange_partner_id(self, cr, uid, ids, part, context=None):        
+        if not context:
+            context = {}
         result = super(eq_partner_sale_order_extension, self).onchange_partner_id(cr, uid, ids, part, context=context)
         
         partner = self.pool.get('res.partner').browse(cr, uid, part, context)
