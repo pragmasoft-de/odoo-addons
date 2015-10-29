@@ -1,8 +1,10 @@
 ### 29.10.2015
+### equitania, 1.0.91
+#### Erweiterung
+- Kennzeichnung der Felder, die nur für die Variante gelten, eingefügt.
 ### equitania, 1.0.90
 #### Erweiterung
 - Kundennummer über den Kunden im Verkaufsauftrag eingefügt.
-
 
 ### 28.10.2015
 ### equitania, 1.0.89

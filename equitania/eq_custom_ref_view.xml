@@ -226,8 +226,8 @@
             <field name="arch" type="xml">            	
             	<!-- add only our 2 main fields and remove default_code..will be added below -->
             	<xpath expr="//group//field[@name='default_code']" position="replace">
-                    <field name="eq_drawing_number"/>
-                    <field name="eq_index"/>
+                    <field name="eq_drawing_number" class="eq_db_variant"/>
+                    <field name="eq_index" class="eq_db_variant"/>
                 </xpath>
                 
                  <!-- here it is, add that feld default_code together with update link -->
@@ -275,8 +275,8 @@
                 
                 <!-- append category dropdownlist on first tab -->
                 <xpath expr="//field[@name='lst_price']" position="after">
-                	<field name="eq_internal_number"/>
-                	<field name="eq_internal_text"/>
+                	<field name="eq_internal_number" class="eq_db_variant"/>
+                	<field name="eq_internal_text" class="eq_db_variant"/>
                 	<label for="categ_id" string="Internal Category"/>
                 	<div><field name="categ_id" colspan="3" nolabel="1"/></div>
                 </xpath>
