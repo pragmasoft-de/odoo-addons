@@ -40,8 +40,8 @@ class eq_res_users_new_api(models.Model):
         new_user =  super(eq_res_users_new_api, self).create(vals)
             
         # check if we can find at least one record in res_partner with same email as user provided
-        if 'email' in vals:
-            partner = self.env['res.partner'].search([('email', '=', vals['email']), ('customer', '=', True)])
+        if new_user.login : #fixed the issue for users
+            partner = self.env['res.partner'].search([('email', '=',new_user.login), ('customer', '=', True)])
             #print "-------------- partner: ", partner
             if len(partner) > 1:
                 #print "----- tuple -----"
