@@ -14,5 +14,18 @@
 				</form>
 			</field>
 		</record>
+		
+		<record id="eq_sale_order_from_view_eq_customer_ref" model="ir.ui.view">
+            <field name="name">eq.sale.order.form.view.eq_customer_ref</field>
+            <field name="model">sale.order</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+            	<field name="partner_id" position="before">
+            		<field name="eq_customer_ref" readonly="1" class="oe_inline"/>
+            	</field>
+            </field>
+        </record>
+		
 	</data>
 </openerp>

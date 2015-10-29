@@ -1,3 +1,9 @@
+### 29.10.2015
+### equitania, 1.0.90
+#### Erweiterung
+- Kundennummer über den Kunden im Verkaufsauftrag eingefügt.
+
+
 ### 28.10.2015
 ### equitania, 1.0.89
 #### Bugfix
