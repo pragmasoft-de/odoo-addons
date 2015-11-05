@@ -22,8 +22,8 @@
                     <field name="street" style="width: 75%%" placeholder="Street..."/>
 					<field name="eq_house_no" style="width: 20%%" placeholder="House no"/>
 				</field>
-				<field name="street2" positions="attributes">
-					<attribute name="placeholder">Street2...</attribute>
+				<field name="street2" position="attributes">
+					<attribute name='placeholder'>Street2...</attribute>
 				</field>
             </field>
         </record>
