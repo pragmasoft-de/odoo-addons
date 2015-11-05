@@ -90,10 +90,16 @@
             text-decoration: underline;
             margin-bottom:0.2cm;
 	}
+    .referencecontainer {
+    /* keeps the reference to maximum height of 2 lines */
+        text-overflow: clip;
+        max-height:27px;
+        overflow: hidden;
+    }
 	/* Removes the website content box for the reports */
 	[data-oe-type="html"]:empty  {
 	  background-color:red!important;
-	   display:none; 
+	   display:none!important; 
 	} 
 </template>
 </data>

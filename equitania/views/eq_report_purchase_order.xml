@@ -30,7 +30,7 @@
                                 <span>Your order reference</span>
                             </td>
                             <td class="text-right">
-                                <span t-field="o.partner_ref"/>
+								<div class="referencecontainer"><span t-field="o.partner_ref"/></div>
                             </td>
                         </tr>
                         <tr>
@@ -38,7 +38,7 @@
                                 <span>Our order reference</span>
                             </td>
                             <td class="text-right">
-                                <span t-field="o.name"/>
+                                <div class="referencecontainer"><span t-field="o.name"/></div>
                             </td>
                         </tr>
                         <tr>

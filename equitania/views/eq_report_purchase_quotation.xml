@@ -47,7 +47,7 @@
                                     <span>Your order reference</span>
                                 </td>
                                 <td class="text-right">
-                                    <span t-field="o.partner_ref"/>
+                                    <div class="referencecontainer"><span t-field="o.partner_ref"/></div>
                                 </td>
                             </tr>
                             <tr>

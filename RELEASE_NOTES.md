@@ -1,3 +1,8 @@
+### 05.11.2015
+### equitania, 1.0.92
+#### Verbesserung
+- Reports: Referenzeinträge des Kunden können nun nurnoch 2 Zeilen in der Länge betragen (inkl. Umbruch im Report). Alles was zuviel ist, wird abgeschnitten, damit der Report korrekt angezeigt bleibt und die Anschrift nicht abgeschnitten wird.
+
 ### 29.10.2015
 ### equitania, 1.0.91
 #### Erweiterung

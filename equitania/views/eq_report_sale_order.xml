@@ -29,7 +29,7 @@
 									<span>Your reference no.</span>
 								</td>
 								<td class="text-right">
-									<span t-field="o.client_order_ref" />
+									<div class="referencecontainer"><span t-field="o.client_order_ref" /></div>
 								</td>
 							</tr>
 				 			<tr>

@@ -29,7 +29,7 @@
 								<strong><span>Your reference no.</span></strong>
 							</td>
 							<td class="text-right">
-								<strong><span t-field="o.eq_ref_number" /></strong>
+								<div class="referencecontainer"><strong><span t-field="o.eq_ref_number" /></strong></div>
 							</td>
 						</tr>
 						<tr>
