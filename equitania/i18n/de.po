@@ -303,6 +303,7 @@ msgstr "KD-Nr."
 #. module: equitania
 #: view:res.partner:equitania.view_partner_form
 #: field:res.partner,eq_customer_ref:0
+#: field:sale.order,eq_customer_ref:0
 msgid "Customer Number"
 msgstr "Kundennummer"
 
