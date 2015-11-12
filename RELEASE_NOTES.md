@@ -1,3 +1,8 @@
+### 12.11.2015
+### equitania, 1.0.94
+#### Erweiterung
+- Deutsche Übersetzung für den Menüpunkt "Bestellpositionen" hinzugefügt.
+
 ### 05.11.2015
 ### equitania, 1.0.93
 #### Fix
