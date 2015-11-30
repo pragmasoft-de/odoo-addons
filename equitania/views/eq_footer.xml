@@ -20,77 +20,51 @@
 	        <table class="footer" style="width: 100%;">
 	            <tr>
 	                <td style="">
-	                    <span t-field="company.name"/>
-	                </td>
-	                <td style="">
-	                    <span t-field="company.email"/>
-	                </td>
-	                <td style="">
-	                    <span t-field="company.website"/>
-	                </td>
-	                <td style="">
-	                    <div t-if="company.eq_custom_1 or company.eq_custom_2">Geschäftsführer</div>
-	                    
-	                </td>
-	                <td rowspan="3" width="40" style="margin:0; padding:0;" margin="0" padding="0">
-	                    <div id="version">Version 1.34
-	                        <br/>13.05.2014
-	                        <br/>EXTensions
-	                    </div>
-	                </td>
-	                <td t-foreach="company.bank_ids" t-as="bank">
-	                    <div t-if="bank.footer">
-	                        <strong>Bank:</strong> <span t-field="bank.bank.name"/>
-	                	</div>
-	                </td>
-	            </tr>
-	            <tr>
-	                <td style="">
-						<h t-field="o.company_id.partner_id.street"/><span t-if="o.company_id.partner_id.eq_house_no"> <span t-field="o.company_id.partner_id.eq_house_no"/></span>
+	                    <span t-field="company.name"/><br/>
+	                    <h t-field="o.company_id.partner_id.street"/><span t-if="o.company_id.partner_id.eq_house_no"> <span t-field="o.company_id.partner_id.eq_house_no"/></span><br/>
 						<div t-if="o.company_id.partner_id.street2">
 							<div t-field="o.company_id.partner_id.street2"/>
 						</div>
+						<div><span t-field="company.zip"/> <span t-field="company.city"/></div>
 	                </td>
 	                <td style="">
+	                    <span t-field="company.email"/>
 	                    <div t-if="company.phone">
 	                        Tel: <span t-field="company.phone"/>
 	                    </div>
-	                </td>
-	                <td style="">
-	                    <div t-if="company.vat">
-	                        USt-IdNr. <span t-field="company.vat"/>
-	                    </div>
-	                </td>
-	                <td style="">
-	                    <span t-field="company.eq_custom_1"/>
-	                </td>
-	                <td t-foreach="company.bank_ids" t-as="bank">
-	                    <div t-if="bank.footer">
-		                    <strong>BIC:</strong> <span t-field="bank.bank_bic"/>
-	                	</div>
-	                </td>
-	            </tr>
-	            <tr>
-	                <td style="">
-	                    <span t-field="company.zip"/>
-	                    <span t-field="company.city"/>
-	                </td>
-	                <td style="">
 	                    <div t-if="company.fax">
 	                        Fax: <span t-field="company.fax"/>
 	                    </div>
 	                </td>
 	                <td style="">
+	                    <span t-field="company.website"/><br/>
+	                    <div t-if="company.vat">
+	                        USt-IdNr. <span t-field="company.vat"/><br/>
+	                    </div>
 	                    <span t-field="company.company_registry"/>
 	                </td>
 	                <td style="">
-	                    <span t-field="company.eq_custom_2"/>
+	                
+	                    <span t-field="company.eq_custom_1"/><br/>
+	                    <!-- <div t-if="company.eq_custom_1 or company.eq_custom_2">Geschäftsführer</div>-->
+	                    <span t-field="company.eq_custom_2"/><br/>
+	                    <span t-field="company.eq_custom_3"/><br/>
+	                    <span t-if="company.eq_custom_4"><span t-field="company.eq_custom_4"/></span>
+	                    
 	                </td>
 	                <td t-foreach="company.bank_ids" t-as="bank">
 	                    <div t-if="bank.footer">
+	                        <strong>Bank:</strong> <span t-field="bank.bank.name"/><br/>
+		                    <strong>BIC:</strong> <span t-field="bank.bank_bic"/><br/>
 	                        <strong>IBAN:</strong> <span t-field="bank.acc_number"/>
 	                	</div>
 	                </td>
+	                <!-- <td rowspan="3" width="40" style="margin:0; padding:0;" margin="0" padding="0">
+	                    <div id="version">Version 1.34
+	                        <br/>13.05.2014
+	                        <br/>EXTensions
+	                    </div>
+	                </td>-->
 	            </tr>
 	        </table>
 	        <!--<div class="text-center" style="border-top: 1px solid black;"><t t-if="company.custom_footer"><span t-raw="company.rml_footer"/></t><ul class="list-inline"><li>Page:</li><li><span class="page"/></li><li>/</li><li><span class="topage"/></li></ul></div>-->

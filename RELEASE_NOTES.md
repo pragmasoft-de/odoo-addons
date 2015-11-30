@@ -1,3 +1,9 @@
+### 30.11.2015
+### equitania, 1.0.95
+#### Erweiterung
+- Footer: Die feste Bezeichnung "Geschäftsführer" ist nun entfernt, stattdessen heißen Zusatzfeld 1-4: nun Bezeichnung (z.b. Geschäftsführer) und 1. - 3. Person für den Report
+INFO: Ggf. muss man im Backend eine "Übersetzung laden" für die deutsche Sprache um die neuen Bezeichnungen zu erhalten.
+
 ### 12.11.2015
 ### equitania, 1.0.94
 #### Erweiterung

@@ -7,7 +7,7 @@
             <field name="inherit_id" ref="base.view_company_form" />
             <field name="arch" type="xml">
 	            <xpath expr="//field[@name='company_registry']" position="after">
-                   	<field name="eq_custom_1"/>
+                   	<field name="eq_custom_1" placeholder="Geschäftsführer:"/>
                    	<field name="eq_custom_2"/>
                    	<field name="eq_custom_3"/>
                    	<field name="eq_custom_4"/>

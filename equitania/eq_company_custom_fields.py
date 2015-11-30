@@ -30,17 +30,17 @@ class eq_company_custom_fields(osv.osv):
     _inherit = 'res.company'
 
     _columns = {
-        'eq_custom_1': fields.char('Custom 1', size=50, help="The content of this field may be used in the header or footer of reports."),
-        'eq_custom_2': fields.char('Custom 2', size=50, help="The content of this field may be used in the header or footer of reports."),
-        'eq_custom_3': fields.char('Custom 3', size=50, help="The content of this field may be used in the header or footer of reports."),
-        'eq_custom_4': fields.char('Custom 4', size=50, help="The content of this field may be used in the header or footer of reports."),
+        'eq_custom_1': fields.char('Chief labeling', size=50, help="The content of this field may be used in the header or footer of reports."),
+        'eq_custom_2': fields.char('1st person', size=50, help="The content of this field may be used in the header or footer of reports."),
+        'eq_custom_3': fields.char('2nd person', size=50, help="The content of this field may be used in the header or footer of reports."),
+        'eq_custom_4': fields.char('3rd person', size=50, help="The content of this field may be used in the header or footer of reports."),
         'eq_report_logo': fields.binary('Company Report Logo'),
         'eq_company_ean': fields.char('Company EAN13', size=7),
         'eq_citypart': fields.char('Disctirct'),
         'eq_house_no': fields.char('House number'),
         
     }
-    
+
 class eq_product_category_custom_fields(osv.osv):
     _inherit = 'product.category'
     

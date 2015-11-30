@@ -271,23 +271,23 @@ msgstr "Erstellt am"
 
 #. module: equitania
 #: field:res.company,eq_custom_1:0
-msgid "Custom 1"
-msgstr "Zusatz 1"
+msgid "Chief labeling"
+msgstr "Bezeichnung"
 
 #. module: equitania
 #: field:res.company,eq_custom_2:0
-msgid "Custom 2"
-msgstr "Zusatz 2"
+msgid "1st person"
+msgstr "1. Person"
 
 #. module: equitania
 #: field:res.company,eq_custom_3:0
-msgid "Custom 3"
-msgstr "Zusatz 3"
+msgid "2nd person"
+msgstr "2. Person"
 
 #. module: equitania
 #: field:res.company,eq_custom_4:0
-msgid "Custom 4"
-msgstr "Zusatz 4"
+msgid "3rd person"
+msgstr "3. Person"
 
 #. module: equitania
 #: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
