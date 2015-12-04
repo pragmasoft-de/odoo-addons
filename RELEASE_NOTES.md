@@ -1,3 +1,8 @@
+### 04.10.2015
+### equitania, 1.0.96
+#### Erweiterung
+- Lieferschein: Ab jetzt zeigen wird bei der Adresse diese Felder: Anrede, Vorname und Nachname
+
 ### 30.11.2015
 ### equitania, 1.0.95
 #### Erweiterung
