@@ -21,7 +21,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-export PGPASSWORD=
+export PGPASSWORD=odoo2015
 mybackuppath="$PWD"
 mybasepath="$HOME"
 
@@ -47,22 +47,40 @@ if [ "$mydb" != "" ]; then
   echo "Unzip $mybackuppath/$mybackupzip.."
   cd $mybackuppath
   unzip $mybackuppath/$mybackupzip
-  mybackup=dump.sql
+  mybackup="dump.sql"
+  if [ -f "$mybackup" ]; then
+	 echo "$mybackup found."
+	 isDocker=""
+  else
+	 echo "$mybackup not found."
+	 isDocker="Y"  
+	 cd $mydb
+	 mybackuppath="$PWD"
+  fi 
   echo "Create DB $mydb with $mybackup file.."
-  createdb -U odoo -T template0 $mydb
+  createdb -U odoo -T template1 $mydb
   echo "Restore DB $mydb"
   psql -U odoo -f $mybackuppath/$mybackup -d $mydb -h localhost -p 5432
-  filestorepath="$mybasepath/.local/share/Odoo/filestore/$mydb"
-  rm -rf $mybasepath/.local/share/Odoo/sessions/
-  if [ -d $filestorepath ]; then
-    rm -rf $filestorepath
-  else
-    mkdir -p $filestorepath
+  filestorepath="$mybasepath/.local/share/Odoo/filestore/"
+  rm -rf "$mybasepath/.local/share/Odoo/sessions/"
+  if [ -d "$filestorepath$mydb" ]; then
+    rm -rf "$filestorepath$mydb"
   fi
-  cp -r $mybackuppath/filestore $filestorepath
+  # Restore Filesystem
+  mv "$mybackuppath/filestore" "$mybackuppath/$mydb"
+  cp -r "$mybackuppath/$mydb" $filestorepath
+  # Delete dump.sql
   rm $mybackuppath/$mybackup
-  rm $mybackuppath/manifest.json
-  rm -rf $mybackuppath/filestore
+  rm -rf "$mybackuppath/$mydb"
+  # Delete Manifest if exists
+  if [ -f "$mybackuppath/manifest.json" ]; then
+    rm "$mybackuppath/manifest.json"
+  fi  
+  # If Docker Backup
+  if [ "$isDocker" = "Y" ]; then
+    cd ..
+    rm -rf $mydb     
+  fi  
   echo "Do you want to deactivate cronjob functions in $mydb [Y/n]:"
   read mycron
   if [ "$mycron" == "Y" ] || [ "$mycron" == "y" ]; then 
