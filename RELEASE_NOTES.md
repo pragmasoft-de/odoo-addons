@@ -1,4 +1,9 @@
 ### 04.10.2015
+### equitania, 1.0.97
+#### Erweiterung
+- Produkt- und Lieferantenfilterung, anhand der Lieferanten in den Produkten, in die Anfragen und Bestellungen eingefügt. Lässt sicht über die Einstellungen aktivieren. Funktioniert nur für Anfragen und Bestellungen, die nach der Aktivierung erstellt wurden.
+
+### 04.10.2015
 ### equitania, 1.0.96
 #### Erweiterung
 - Lieferschein: Ab jetzt zeigen wird bei der Adresse diese Felder: Anrede, Vorname und Nachname

@@ -1,7 +1,25 @@
 <?xml version="1.0"?>
 <openerp>
 	<data>
-<!-- 		Inherited the existing view -->
+	
+		<!-- Purchase Order Form View -->
+		<record id="eq_purchase_order_form_view_inherit" model="ir.ui.view">
+			<field name="name">eq.purchase.order.form</field>
+			<field name="model">purchase.order</field>
+        	<field name="inherit_id" ref="purchase.purchase_order_form"/> 
+			<field name="arch" type="xml">
+				<data>
+					<field name="partner_id" position="after">
+						<field name="eq_filter_prod_sup" attrs="{'invisible': True}"/>
+					</field>
+	                <field name="partner_id" position="attributes">
+						<attribute name="context">{'search_default_supplier':1, 'default_supplier':1, 'default_customer':0, 'eq_filter_prod_sup': eq_filter_prod_sup, 'eq_order_line': order_line}</attribute>
+	                </field>
+				</data>
+			</field>
+		</record>
+		
+		<!-- Inherited the existing view -->
 		<record id="eq_purchase_order_line_tree_inherit" model="ir.ui.view">
 			<field name="name">eq.purchase.order.line.tree</field>
 			<field name="model">purchase.order.line</field>
@@ -27,7 +45,19 @@
 			</field>
 		</record>
 		
-<!-- 		Inherited the existing view -->
+					
+        <record id="eq_purchase_order_line_form_inherit" model="ir.ui.view">
+            <field name="name">purchase.order.line.form</field>
+            <field name="model">purchase.order.line</field>
+        	<field name="inherit_id" ref="purchase.purchase_order_line_form"/> 
+            <field name="arch" type="xml">
+				<field name="product_id" position="attributes">
+					<attribute name="context">{'eq_filter_prod_sup': parent.eq_filter_prod_sup, 'eq_partner_id': parent.partner_id}</attribute>
+				</field>
+            </field>
+        </record>
+        
+		<!-- Inherited the existing view -->
 		<record id="eq_purchase_order_line_form2_inherit" model="ir.ui.view">
 			<field name="name">eq.purchase.order.line.form2</field>
 			<field name="model">purchase.order.line</field>
@@ -95,7 +125,7 @@
 			</field>
 		</record>
 		
-<!-- 		Overriden the existing action -->
+		<!-- Overriden the existing action -->
 		<record id="purchase.purchase_line_form_action2" model="ir.actions.act_window">
             <field name="name">Open Purchase Order Lines</field>
             <field name="type">ir.actions.act_window</field>
@@ -115,11 +145,11 @@
             </field>
         </record>
 
-<!-- 		Overriden the existing menu -->
-		 <menuitem
-            action="purchase.purchase_line_form_action2"
-            id="purchase.menu_purchase_line_order_draft"
-            parent="purchase.menu_procurement_management"
-            sequence="7"/>
+		<!-- Overriden the existing menu -->
+		<menuitem
+			action="purchase.purchase_line_form_action2"
+			id="purchase.menu_purchase_line_order_draft"
+			parent="purchase.menu_procurement_management"
+			sequence="7"/>
 	</data>
 </openerp>

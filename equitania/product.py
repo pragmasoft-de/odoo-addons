@@ -21,6 +21,25 @@
 
 from openerp.osv import fields, osv, orm
 
+from openerp import models, api
+
+class eq_product_product_new_api(models.Model):
+    _inherit = "product.product"
+    
+    @api.model
+    def name_search(self, name, args=None, operator='ilike', limit=100):
+        if self._context.get('eq_filter_prod_sup'):
+            partner_id = self._context['eq_partner_id']
+            sql_query = """select product_tmpl_id from product_supplierinfo where name = %s""" % (partner_id)
+            self._cr.execute(sql_query)
+            supplierinfo = self._cr.fetchall()
+            product_ids = [x[0] for x in supplierinfo]
+            if args == None:
+                args = []
+            args.append(['id', 'in', product_ids])
+        res = super(eq_product_product_new_api, self).name_search(name, args=args, operator=operator, limit=limit)
+        return res
+
 class eq_product_template(osv.osv):
     _inherit = 'product.template'
     

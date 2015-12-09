@@ -21,6 +21,11 @@
 
 from openerp import models, fields, api, _
 
+class eq_open_purchase_order(models.Model):
+    _inherit = "purchase.order"
+    
+    eq_filter_prod_sup = fields.Boolean()
+
 class eq_open_purchase_order_line(models.Model):
     _name = "purchase.order.line"
     _inherit = "purchase.order.line"

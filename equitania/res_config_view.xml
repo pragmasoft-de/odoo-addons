@@ -2,6 +2,20 @@
 <openerp>
     <data>
         <!-- Stock Config Settings -->
+		<record id="eq_purchase_config_settings" model="ir.ui.view">
+		     <field name="name">eq_purchase_config_settings</field>
+		     <field name="model">purchase.config.settings</field>
+		     <field name="inherit_id" ref="purchase.view_purchase_configuration"/>
+		     <field name="arch" type="xml">
+             	<div name="module_purchase_double_validation" position="before">
+                    <div>
+                        <field name="default_eq_filter_prod_sup" class="oe_inline"/>
+                        <label for="default_eq_filter_prod_sup"/>
+                    </div>
+             	</div>
+		     </field>
+		</record>
+        <!-- Stock Config Settings -->
 		<record id="eq_stock_config_settings" model="ir.ui.view">
 		     <field name="name">eq_stock_config_settings</field>
 		     <field name="model">stock.config.settings</field>

@@ -21,6 +21,27 @@
 
 from openerp.osv import fields, osv, orm
 
+class eq_purchase_config_settings(osv.osv_memory):
+    _inherit = 'purchase.config.settings'
+    
+    def set_default_filter(self, cr, uid, ids, context=None):
+        ir_values = self.pool.get('ir.values')
+        config = self.browse(cr, uid, ids[0], context)
+        ir_values.set_default(cr, uid, 'purchase.order', 'eq_filter_prod_sup', config.default_eq_filter_prod_sup)
+        
+    def get_default_filter(self, cr, uid, fields, context=None):
+        ir_values = self.pool.get('ir.values')
+        filter_prod_sup = ir_values.get_default(cr, uid, 'purchase.order', 'eq_filter_prod_sup')
+        return {
+                'default_eq_filter_prod_sup': filter_prod_sup,
+                }
+    
+    _columns = {
+                'default_eq_filter_prod_sup': fields.boolean('Only show Products of selected supplier [equitania]'),
+                }
+
+    
+
 class eq_stock_config_settings(osv.osv_memory):
     _inherit = 'stock.config.settings'
     
