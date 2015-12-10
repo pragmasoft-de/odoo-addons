@@ -74,6 +74,31 @@ class eq_stock_transfer_details(models.TransientModel):
 
         return True
     
+    def _get_items_from_po(self, op):
+        """
+            Takes an pack operation and retuns a dict with values for stock.transfer_details_items
+            @self: self
+            @op: pack.operation object
+            @return: dict with values for stock.transfer_details_items
+        """
+        item = {
+            'packop_id': op.id,
+            'product_id': op.product_id.id,
+            'product_uom_id': op.product_uom_id.id,
+            'quantity': op.product_qty,
+            'package_id': op.package_id.id,
+            'lot_id': op.lot_id.id,
+            'sourceloc_id': op.location_id.id,
+            'destinationloc_id': op.location_dest_id.id,
+            'result_package_id': op.result_package_id.id,
+            'date': op.date, 
+            'owner_id': op.owner_id.id,
+            'eq_move_id': op.eq_move_id.id,
+            'eq_pos_no': op.eq_move_id.eq_pos_no,
+            'eq_delivery_date': op.eq_move_id.date_expected,
+        }
+        return item
+    
     def default_get(self, cr, uid, fields, context=None):
         if context is None: context = {}
         res = super(eq_stock_transfer_details, self).default_get(cr, uid, fields, context=context)
@@ -93,22 +118,7 @@ class eq_stock_transfer_details(models.TransientModel):
         if not picking.pack_operation_ids:
             picking.do_prepare_partial()
         for op in picking.pack_operation_ids:
-            item = {
-                'packop_id': op.id,
-                'product_id': op.product_id.id,
-                'product_uom_id': op.product_uom_id.id,
-                'quantity': op.product_qty,
-                'package_id': op.package_id.id,
-                'lot_id': op.lot_id.id,
-                'sourceloc_id': op.location_id.id,
-                'destinationloc_id': op.location_dest_id.id,
-                'result_package_id': op.result_package_id.id,
-                'date': op.date, 
-                'owner_id': op.owner_id.id,
-                'eq_move_id': op.eq_move_id.id,
-                'eq_pos_no': op.eq_move_id.eq_pos_no,
-                'eq_delivery_date': op.eq_move_id.date_expected,
-            }
+            item = self._get_items_from_po(op, context=context)
             if op.product_id:
                 items.append(item)
             elif op.package_id:

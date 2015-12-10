@@ -1,4 +1,7 @@
 ### 10.12.2015
+### equitania, 1.0.99
+#### Änderung
+- Werte für die stock_transfer_details_items werden in einer seperaten Methode erstellt, damit es in der Vererbung verändert werden kann.
 ### equitania, 1.0.98
 #### Bugfix
 - Deutsche Übersetzung für "Only show Products of selected supplier [equitania]" eingefügt.
