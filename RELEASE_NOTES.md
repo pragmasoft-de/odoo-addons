@@ -1,4 +1,9 @@
-### 04.10.2015
+### 10.12.2015
+### equitania, 1.0.98
+#### Bugfix
+- Deutsche Übersetzung für "Only show Products of selected supplier [equitania]" eingefügt.
+
+### 04.12.2015
 ### equitania, 1.0.97
 #### Erweiterung
 - Produkt- und Lieferantenfilterung, anhand der Lieferanten in den Produkten, in die Anfragen und Bestellungen eingefügt. Lässt sicht über die Einstellungen aktivieren. Funktioniert nur für Anfragen und Bestellungen, die nach der Aktivierung erstellt wurden.
@@ -33,6 +38,7 @@ INFO: Ggf. muss man im Backend eine "Übersetzung laden" für die deutsche Sprac
 ### equitania, 1.0.91
 #### Erweiterung
 - Kennzeichnung der Felder, die nur für die Variante gelten, eingefügt.
+
 ### equitania, 1.0.90
 #### Erweiterung
 - Kundennummer über den Kunden im Verkaufsauftrag eingefügt.

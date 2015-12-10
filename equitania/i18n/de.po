@@ -2079,3 +2079,8 @@ msgstr "Vermittelt durch"
 #: model:ir.ui.menu,name:purchase.menu_purchase_line_order_draft
 msgid "Open Purchase Order Lines"
 msgstr "Bestellpositionen"
+
+#. module: equitania
+#: field:purchase.config.settings,default_eq_filter_prod_sup:0
+msgid "Only show Products of selected supplier [equitania]"
+msgstr "Nur Produkte des ausgewählten Lieferanten sind wählbar [equitania]"
