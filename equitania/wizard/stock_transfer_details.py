@@ -74,7 +74,7 @@ class eq_stock_transfer_details(models.TransientModel):
 
         return True
     
-    def _get_items_from_po(self, op):
+    def _get_items_from_po(self, op, context={}):
         """
             Takes an pack operation and retuns a dict with values for stock.transfer_details_items
             @self: self
