@@ -101,7 +101,7 @@
 	    	<field name="arch" type="xml">	    
 	    		<!-- deactivate default version of address fields -->
 		    	<xpath expr="//field[@name='partner_id']" position="replace">
-		    		<field string="Customer" name="partner_id" on_change="onchange_partner_id(type, partner_id, date_invoice, payment_term, partner_bank_id, company_id, context)" context="{'search_default_customer':1, 'show_address': 0}" options="{&quot;always_reload&quot;: True}" domain="[('customer', '=', True)]"/>
+		    		<field string="Supplier" name="partner_id" on_change="onchange_partner_id(type, partner_id, date_invoice, payment_term, partner_bank_id, company_id, context)" context="{'search_default_customer':1, 'show_address': 0}" options="{&quot;always_reload&quot;: True}" domain="[('supplier', '=', True)]"/>
 		    	</xpath>
 		    	<!-- append our version of address fields -->
 	    		<xpath expr="//field[@name='partner_id']" position="after">

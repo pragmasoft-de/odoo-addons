@@ -1,3 +1,8 @@
+### 15.12.2015
+### equitania, 1.0.101
+#### Bugfix
+- Lieferant wird in der Ausgangsrechnung richtig dargestellt.
+
 ### 10.12.2015
 ### equitania, 1.0.100
 #### Bugfix
