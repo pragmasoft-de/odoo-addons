@@ -1,3 +1,8 @@
+### 17.12.2015
+### equitania, 1.0.102
+#### Verbesserung
+- Texte aus Auftag und Bestellung in Rechnung übernehmen
+
 ### 15.12.2015
 ### equitania, 1.0.101
 #### Bugfix

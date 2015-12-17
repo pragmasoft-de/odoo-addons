@@ -296,6 +296,7 @@ class eq_report_extension_purchase_order(osv.osv):
     _columns = {
                 'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person', size=100),
                 'eq_head_text': fields.html('Head Text'),
+                #'note': fields.html('Terms and conditions'),#hinzugefügt 16.12.; Ticket 1861
                 'show_delivery_date': fields.boolean('Show the Delivery Date'),
                 'use_calendar_week': fields.boolean('Use Calendar Week for Delivery Date [equitania]'),
                 'notes': fields.html('Terms and conditions'),
@@ -303,6 +304,52 @@ class eq_report_extension_purchase_order(osv.osv):
     _defaults = {
                 'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False
                 }
+    
+    
+    #16.12.2015
+    def _prepare_invoice(self, cr, uid, order, line_ids, context=None):
+        """Prepare the dict of values to create the new invoice for a
+           purchase order. This method may be overridden to implement custom
+           invoice generation (making sure to call super() to establish
+           a clean extension chain).
+
+           :param browse_record order: purchase.order record to invoice
+           :param list(int) line_ids: list of invoice line IDs that must be
+                                      attached to the invoice
+           :return: dict of value to create() the invoice
+        """
+        
+        invoice_vals = super(eq_report_extension_purchase_order, self)._prepare_invoice(cr, uid, order, line_ids, context)
+        
+        #=======================================================================
+        # journal_ids = self.pool['account.journal'].search(
+        #                     cr, uid, [('type', '=', 'purchase'),
+        #                               ('company_id', '=', order.company_id.id)],
+        #                     limit=1)
+        # if not journal_ids:
+        #     raise osv.except_osv(
+        #         _('Error!'),
+        #         _('Define purchase journal for this company: "%s" (id:%d).') % \
+        #             (order.company_id.name, order.company_id.id))
+        #=======================================================================
+        
+        invoice_vals['eq_contact_person_id'] = order.eq_contact_person_id.id
+        invoice_vals['eq_head_text'] = order.eq_head_text
+        invoice_vals['comment'] = order.notes
+        
+        return invoice_vals
+    
+    #16.12.2015
+    def action_invoice_create(self, cr, uid, ids, context=None):
+        """Generates invoice for given ids of purchase orders and links that invoice ID to purchase order.
+        :param ids: list of ids of purchase orders.
+        :return: ID of created invoice.
+        :rtype: int
+        """
+        #TODO
+        return super(eq_report_extension_purchase_order, self).action_invoice_create(cr, uid, ids, context)
+  
+    
     
 class eq_report_extension_purchase_order_line(osv.osv):
     _inherit = "purchase.order.line"
@@ -421,6 +468,25 @@ class eq_report_extension_stock_picking(osv.osv):
     def _create_invoice_from_picking(self, cr, uid, picking, vals, context=None):    
         vals['eq_ref_number'] = picking.eq_ref_number
         vals['eq_delivery_address'] = picking.partner_id.id
+        
+        head_text = ''
+        comment = ''
+        if (picking.move_lines):
+            if (picking.move_lines[0].procurement_id and picking.move_lines[0].procurement_id.sale_line_id):
+                head_text = picking.move_lines[0].procurement_id.sale_line_id.order_id.eq_head_text
+                comment = picking.move_lines[0].procurement_id.sale_line_id.order_id.note
+            elif (picking.move_lines[0].purchase_line_id):
+                head_text = picking.move_lines[0].purchase_line_id[0].order_id.eq_head_text
+                comment = picking.move_lines[0].purchase_line_id[0].order_id.notes
+                
+        vals['eq_head_text'] = head_text
+        vals['comment'] = comment
+                
+        
+        #picking.move_lines[0].purchase_line_id[0].order_id.eq_head_text
+        #picking.move_lines[0].procurement_id.sale_line_id.order_id
+        
+        
         return super(eq_report_extension_stock_picking, self)._create_invoice_from_picking(cr, uid, picking, vals, context)
     
     def _get_invoice_vals(self, cr, uid, key, inv_type, journal_id, move, context=None):
@@ -465,6 +531,7 @@ class eq_stock_move_extension(osv.osv):
     def action_done(self, cr, uid, ids, context=None):
         """ Process completely the moves given as ids and if all moves are done, it will finish the picking.
         """
+        
         context = context or {}
         picking_obj = self.pool.get("stock.picking")
         quant_obj = self.pool.get("stock.quant")
