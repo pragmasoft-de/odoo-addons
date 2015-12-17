@@ -183,6 +183,7 @@ class sale_order(osv.osv):
         
         res = {}
         for person in self.browse(cr, uid, ids):
+            zip = ""
             if person.partner_shipping_id.zip:
                 zip = person.partner_shipping_id.zip
                 
@@ -201,10 +202,10 @@ class sale_order(osv.osv):
             else:
                 res[person.id] = False
                 
-        if res[person.id] is not False:
-            result = res[person.id]
-            result = result.replace("@ZIP", zip)
-            res[person.id] = result
+            if res[person.id] is not False:
+                result = res[person.id]
+                result = result.replace("@ZIP", zip)
+                res[person.id] = result
             
         return res
     
@@ -212,9 +213,9 @@ class sale_order(osv.osv):
         """ Generate address infos for sale order """
         
         res = {}
-        zip = ""
         
         for person in self.browse(cr, uid, ids):
+            zip = ""
             if person.partner_shipping_id.zip:
                 zip = person.partner_shipping_id.zip
                 
@@ -233,10 +234,10 @@ class sale_order(osv.osv):
             else:
                 res[person.id] = False
                 
-        if res[person.id] is not False:
-            result = res[person.id]
-            result = result.replace("@ZIP", zip)
-            res[person.id] = result
+            if res[person.id] is not False:
+                result = res[person.id]
+                result = result.replace("@ZIP", zip)
+                res[person.id] = result
 
         return res  
 

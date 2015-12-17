@@ -1,6 +1,8 @@
 ### 17.12.2015
-### equitania, 1.0.102
-#### Bugfix
+### equitania
+#### Bugfix, 1.0.103
+- Fehlerhafte compute function überarbeitet.
+#### Bugfix, 1.0.102
 - Durchschnittspreis im "Berichtswesen/Einkauf/Statistik Einkauf" wird wie folgt berechnet (Gesamtpreis/Menge).
 
 ### 15.12.2015
