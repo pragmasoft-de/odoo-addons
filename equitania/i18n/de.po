@@ -2084,3 +2084,9 @@ msgstr "Bestellpositionen"
 #: field:purchase.config.settings,default_eq_filter_prod_sup:0
 msgid "Only show Products of selected supplier [equitania]"
 msgstr "Nur Produkte des ausgewählten Lieferanten sind wählbar [equitania]"
+
+
+#. module: equitania
+#: model:res.groups,name:equitania.purchase_in_products
+msgid "Show Procurements Tab in Products"
+msgstr "Reiter 'Beschaffung' im Produkt anzeigen"

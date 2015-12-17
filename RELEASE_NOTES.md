@@ -4,6 +4,9 @@
 - Kompatibilitätsmodul für das equitania und stock_account Modul, wodurch die Berechnung des Lagerwertes (Durchschnitt) funktioniert.
 - Aktuelle Bestandsbewertung des Lagers überarbeitet, sodass nicht stock.moves für die id genutzt werden, sondern die stock.quants. Somit fehlen keine Einträge, wenn in einem stock.move unterscheidliche stock.quants hinterlegt sind.
 ### equitania
+#### Erweiterung, 1.0.105
+- Der Reiter "Beschaffung" kann über die Gruppen ausgeblendet werden.
+### equitania
 #### Bugfix, 1.0.104
 - Fehlende Datei hinzugefügt.
 ### equitania

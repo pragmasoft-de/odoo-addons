@@ -15,10 +15,21 @@
             	</field>
             	<field name="default_code" position="attributes">
             		<attribute name="class">eq_db_variant</attribute>
-            	</field>
+            	</field>      
             </field>
         </record>
         
+        <!-- Product Template - form view -->
+        <record id="eq_product_template_common_form_inherit" model="ir.ui.view">
+            <field name="name">eq.product.template.common.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view" />
+            <field name="arch" type="xml">
+            	<xpath expr="//page[@string='Procurements']" position="attributes">
+            		<attribute name="groups">equitania.purchase_in_products</attribute>
+            	</xpath>            	
+            </field>
+        </record>
 		
         <!-- Product Product - form view -->
         <record id="eq_product_form_view_sale_order_button_inherit" model="ir.ui.view">
@@ -56,7 +67,7 @@
             <field name="name">eq.product.product.normal.form.view</field>
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_normal_form_view" />
-            <field name="arch" type="xml">            
+            <field name="arch" type="xml">
 	            <group name="sale_condition" position="inside">
 					<label for="eq_sale_min_qty" class="eq_db_variant"/>
 					<div>
