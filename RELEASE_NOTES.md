@@ -1,4 +1,9 @@
 ### 17.12.2015
+### eq_stock_account_compatibility, 1.0.1
+#### Erweiterung
+- Icon und Beschreibung eingefügt.
+
+### 17.12.2015
 ### eq_stock_account_compatibility, 1.0.0
 #### Veröffentlichung
 - Kompatibilitätsmodul für das equitania und stock_account Modul, wodurch die Berechnung des Lagerwertes (Durchschnitt) funktioniert.
