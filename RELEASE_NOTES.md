@@ -1,4 +1,9 @@
 ### 17.12.2015
+### equitania, 1.0.106
+#### Erweiterung
+- Email-Template für Bestellbestätigun (Portal) verbessert
+
+### 17.12.2015
 ### eq_stock_account_compatibility, 1.0.1
 #### Erweiterung
 - Icon und Beschreibung eingefügt.
