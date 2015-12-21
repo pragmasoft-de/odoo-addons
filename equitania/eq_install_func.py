@@ -28,6 +28,22 @@ from openerp.modules.module import get_module_path
 
 class eq_install_func(osv.osv):
     _name = "eq_install_func"
+    
+    def _set_group_for_users(self, cr, uid, ids=None, context= None):
+        sql_exists_query = """
+        select exists(select * from res_groups_users_rel where gid = (select res_id from ir_model_data where name = 'purchase_in_products' and module = 'equitania'))
+        """
+        cr.execute(sql_exists_query)
+        if not cr.fetchone()[0]:
+            sql_insert_query = """
+            insert into res_groups_users_rel
+            select (select res_id from ir_model_data where name = 'purchase_in_products' and module = 'equitania') as gid, id as uid  from res_users 
+            where id not in 
+            (select uid from res_groups_users_rel where gid = (select res_id from ir_model_data where name = 'purchase_in_products' and module = 'equitania'))
+            """
+            cr.execute(sql_insert_query)
+            cr.commit()
+        return True
         
     def _set_paper_format(self, cr, uid, ids=None, context=None):
         """
