@@ -1,7 +1,33 @@
 ### 17.12.2015
+### equitania, 1.0.106
+#### Erweiterung
+- Email-Template für Bestellbestätigun (Portal) verbessert
 ### equitania, 1.0.102
 #### Verbesserung
 - Texte aus Auftag und Bestellung in Rechnung übernehmen
+
+### 17.12.2015
+### eq_stock_account_compatibility, 1.0.1
+#### Erweiterung
+- Icon und Beschreibung eingefügt.
+
+### 17.12.2015
+### eq_stock_account_compatibility, 1.0.0
+#### Veröffentlichung
+- Kompatibilitätsmodul für das equitania und stock_account Modul, wodurch die Berechnung des Lagerwertes (Durchschnitt) funktioniert.
+- Aktuelle Bestandsbewertung des Lagers überarbeitet, sodass nicht stock.moves für die id genutzt werden, sondern die stock.quants. Somit fehlen keine Einträge, wenn in einem stock.move unterscheidliche stock.quants hinterlegt sind.
+### equitania
+#### Erweiterung, 1.0.105
+- Der Reiter "Beschaffung" kann über die Gruppen ausgeblendet werden.
+### equitania
+#### Bugfix, 1.0.104
+- Fehlende Datei hinzugefügt.
+### equitania
+#### Bugfix, 1.0.103
+- Fehlerhafte compute function überarbeitet.
+#### Bugfix, 1.0.102
+- Durchschnittspreis im "Berichtswesen/Einkauf/Statistik Einkauf" wird wie folgt berechnet (Gesamtpreis/Menge).
+
 
 ### 15.12.2015
 ### equitania, 1.0.101

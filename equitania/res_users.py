@@ -25,10 +25,25 @@ from openerp import SUPERUSER_ID
 
 class eq_res_users(osv.osv):
     _inherit = 'res.users'
+
+    def _get_group(self,cr, uid, context=None):
+        dataobj = self.pool.get('ir.model.data')
+        result = super(eq_res_users, self)._get_group(cr, uid, context=context)
+        try:
+            dummy,group_id = dataobj.get_object_reference(cr, SUPERUSER_ID, 'equitania', 'purchase_in_products')
+            result.append(group_id)
+        except ValueError:
+            # If these groups does not exists anymore
+            pass
+        return result
     
     _columns = {
                 'eq_employee_id': fields.many2one('hr.employee', 'Employee', copy=False)
                 }
+
+    _defaults = {
+        'groups_id': _get_group,
+    }
     
     def write(self, cr, uid, ids, values, context={}):
         if context == None:
