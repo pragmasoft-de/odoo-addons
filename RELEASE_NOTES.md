@@ -1,4 +1,14 @@
 ### 22.12.2015
+### equitania, 1.0.108
+#### Erweiterung
+-  Email-Vorlage für unsere englische Version von "Sale Order Portal" hinzugefügt - endlich auch mit funktionierendem Feld eq_house_no
+
+! Wichtig ! Damit es korrekt funktioniert, muss man diese Schritte ausführen:
+1. Das Modul portal_sale deinstallieren und gleich nochmal installieren
+2. Update mit -u equitania ausführen
+3. Jetzt sind alle Änderungen da
+
+### 22.12.2015
 ### equitania, 1.0.107
 #### Erweiterung
 - Email-Vorlage für unsere englische Version von "Sale Order Portal" hinzugefügt. Im Moment aber wegen einem Fehler in der Vererbung deaktviert 
