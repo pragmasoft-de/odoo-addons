@@ -1,4 +1,12 @@
 ### 22.12.2015
+### equitania, 1.0.109
+#### Erweiterung
+- Anrede wird ba jetzt in beiden Sprachen mit dieser Logik gesetzt:
+1. res_partner is company => Sehr geehrte Damen & Herren,
+2. res_partner is not company => oder Sehr geehrte(r)
+
+
+### 22.12.2015
 ### equitania, 1.0.108
 #### Erweiterung
 -  Email-Vorlage für unsere englische Version von "Sale Order Portal" hinzugefügt - endlich auch mit funktionierendem Feld eq_house_no
