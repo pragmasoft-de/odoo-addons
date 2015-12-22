@@ -1,7 +1,12 @@
 ### 22.12.2015
+### equitania, 1.0.112
+#### Änderung
+-  Email-Vorlage für unsere englische Version von "Send by Email (Online Quote)" hinzugefügt - auch mit funktionierendem Feld eq_house_no
+
+### 22.12.2015
 ### equitania, 1.0.111
 #### Änderung
-- Anreder für Firmen geändert
+- Anrede für Firmen geändert
 
 ### 22.12.2015
 ### equitania, 1.0.110
@@ -11,7 +16,7 @@
 ### 22.12.2015
 ### equitania, 1.0.109
 #### Erweiterung
-- Anrede wird ba jetzt in beiden Sprachen mit dieser Logik gesetzt:
+- Anrede wird ab jetzt in beiden Sprachen mit dieser Logik gesetzt:
 1. res_partner is company => Sehr geehrte Damen & Herren,
 2. res_partner is not company => oder Sehr geehrte(r)
 
