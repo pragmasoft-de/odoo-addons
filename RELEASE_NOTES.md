@@ -1,4 +1,9 @@
 ### 22.12.2015
+### equitania, 1.0.110
+#### Änderung
+- Anrede "Hello" auf "Dear" geändert
+
+### 22.12.2015
 ### equitania, 1.0.109
 #### Erweiterung
 - Anrede wird ba jetzt in beiden Sprachen mit dieser Logik gesetzt:
