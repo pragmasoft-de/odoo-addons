@@ -1,4 +1,9 @@
 ### 22.12.2015
+### equitania, 1.0.113
+#### Änderung
+- Änderung der Email-Vorlagen
+
+### 22.12.2015
 ### equitania, 1.0.112
 #### Änderung
 -  Email-Vorlage für unsere englische Version von "Send by Email (Online Quote)" hinzugefügt - auch mit funktionierendem Feld eq_house_no
