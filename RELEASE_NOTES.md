@@ -1,5 +1,10 @@
-### 21.12.2015
+### 22.12.2015
 ### equitania, 1.0.107
+#### Erweiterung
+- Email-Vorlage für unsere englische Version von "Sale Order Portal" hinzugefügt. Im Moment aber wegen einem Fehler in der Vererbung deaktviert 
+
+### 21.12.2015
+### equitania, 1.0.106
 #### Bugfix
 - Benutzergruppe "Reiter 'Beschaffung' im Produkt anzeigen" wird beim Update oder der Installation für alle Benutzer gesetzt.
 
