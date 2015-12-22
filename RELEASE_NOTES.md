@@ -1,4 +1,9 @@
 ### 22.12.2015
+### equitania, 1.0.111
+#### Änderung
+- Anreder für Firmen geändert
+
+### 22.12.2015
 ### equitania, 1.0.110
 #### Änderung
 - Anrede "Hello" auf "Dear" geändert
