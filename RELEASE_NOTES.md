@@ -1,3 +1,8 @@
+### 23.12.2015
+### equitania, 1.0.114
+#### Änderung
+- Anzeige des Lieferdatums für Positionen in Auftragsformular
+
 ### 22.12.2015
 ### equitania, 1.0.113
 #### Änderung
