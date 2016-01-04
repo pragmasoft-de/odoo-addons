@@ -1,3 +1,8 @@
+### 4.1.2016
+### equitania, 1.0.115
+#### Änderung
+- Fehlende Datei eq_sale_order_action_data.xml hinzugefügt
+
 ### 23.12.2015
 ### equitania, 1.0.114
 #### Änderung
