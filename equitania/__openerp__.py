@@ -88,6 +88,6 @@
     ],
     'demo': [],
     'css': ['static/src/css/eq_style.css'],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
 }

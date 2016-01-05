@@ -39,6 +39,6 @@
     ],
     'demo': [],
     'css': [],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
 }

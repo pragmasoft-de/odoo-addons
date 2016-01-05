@@ -37,5 +37,5 @@
              "eq_mail_config_view.xml",
              ],
     "active": False,
-    "installable": True
+    "installable": False
 }
