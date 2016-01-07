@@ -43,24 +43,26 @@
             </field>
         </record>
         
-        
-        <!-- (future use?) min. order quantity for product.template -->
-        <!-- 
+                
         <record id="eq_product_template_only_form_view" model="ir.ui.view">
             <field name="name">eq.product.template.only.form.view</field>
             <field name="model">product.template</field>
             <field name="inherit_id" ref="product.product_template_only_form_view" />
-            <field name="arch" type="xml">            
+            <field name="arch" type="xml">
+            
+            	<!-- (future use?) min. order quantity for product.template -->            
+	            <!-- 
 	            <group name="sale_condition" position="inside">
 					<label for="eq_sale_min_qty"/>
 					<div>
 					    <field name="eq_sale_min_qty"/>
 					</div>	            
 	            </group>
-	                    	
+	             -->
+				<group name="store" position="replace">
+                </group>                
             </field>
         </record>
-         -->
          
          <!-- min. order quantity for product.product -->
          <record id="eq_product_product_normal_form_view" model="ir.ui.view">
@@ -101,6 +103,11 @@
             	<label for="incoming_qty" position="attributes">
             		<attribute name="class">eq_db_variant</attribute>
             	</label>
+            
+             
+            	<group name="store" position="replace">
+                </group>
+            
             </field>
         </record>
          

@@ -1,3 +1,8 @@
+### 7.1.2016
+### equitania, 1.0.116
+#### Änderung
+- Die Gruppe "Lagerort" auf der Lasche "Bestand" wurde für Produkte und Varianten ausgeblendet
+
 ### 4.1.2016
 ### equitania, 1.0.115
 #### Änderung
