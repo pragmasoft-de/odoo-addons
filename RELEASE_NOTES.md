@@ -1,3 +1,8 @@
+### 11.1.2016
+### equitania, 1.0.117
+#### Verbesserung
+- Lokalisierung für "Delivery note" erweitert
+
 ### 7.1.2016
 ### equitania, 1.0.116
 #### Änderung

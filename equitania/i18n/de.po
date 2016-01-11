@@ -2408,3 +2408,8 @@ msgstr "\n"
 "        <p></p>\n"
 "    </div>\n"
 "</div>"
+
+#. module: equitania
+#: view:website:stock.report_picking
+msgid "Delivery note:"
+msgstr "Lieferschein:"
