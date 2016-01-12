@@ -1,3 +1,8 @@
+### 12.1.2016
+### equitania, 1.0.116
+#### Feature
+- migrating equitania module for odoo9(Initial commit)
+
 ### 4.1.2016
 ### equitania, 1.0.115
 #### Änderung
