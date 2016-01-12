@@ -1,4 +1,9 @@
 ### 12.1.2016
+### equitania, 1.0.119
+#### Feature
+- changes for sale.py and sale_view.xml
+
+### 12.1.2016
 ### equitania, 1.0.118
 #### Feature
 - changes for eq_partner_extension.py and eq_partner_extension_view.xml

@@ -34,7 +34,7 @@ import eq_partner_extension
 # import eq_open_sale_order_line
 # import res_groups
 # import stock
-# import sale
+import sale
 # import sale_layout
 # import reports
 # import res_config

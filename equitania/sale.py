@@ -66,7 +66,8 @@ class eq_sale_order_line(models.Model):
 class eq_sale_order(models.Model):
     _inherit = 'sale.order'
     
-    eq_customer_ref = fields.Char(string="", related="partner_id.eq_customer_ref")
+#     eq_customer_ref = fields.Char(string="", related="partner_id.eq_customer_ref")
+    eq_customer_ref = fields.Char(string="") #when eq_custom_ref.py is implemented, revert the changes
 
     @api.cr_uid_ids_context
     def _amount_all(self, cr, uid, ids, field_name, arg, context=None):
