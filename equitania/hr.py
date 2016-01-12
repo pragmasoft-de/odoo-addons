@@ -19,17 +19,18 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, osv, orm
-from openerp.tools.translate import _
+from openerp import models, fields, api, _
+from openerp.osv import osv
 from openerp import SUPERUSER_ID
 
-class eq_hr_employee(osv.osv):
+class eq_hr_employee(models.Model):
     _inherit = 'hr.employee'
     
-    _columns = {
-                'eq_work_fax': fields.char('Work Fax'),
-                }
     
+    eq_work_fax = fields.Char('Work Fax')
+
+    
+    @api.v7
     def write(self, cr, uid, ids, values, context={}):
         if context == None:
             context = {}
@@ -60,6 +61,7 @@ class eq_hr_employee(osv.osv):
             
         return res
     
+    @api.v7
     def create(self, cr, uid, values, context={}):
         if context == None:
             context = {}
