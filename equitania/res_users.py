@@ -19,13 +19,14 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, osv, orm
-from openerp.tools.translate import _
+from openerp import models, fields, api, _
+from openerp.osv import osv
 from openerp import SUPERUSER_ID
 
-class eq_res_users(osv.osv):
+class eq_res_users(models.Model):
     _inherit = 'res.users'
 
+    @api.v7
     def _get_group(self,cr, uid, context=None):
         dataobj = self.pool.get('ir.model.data')
         result = super(eq_res_users, self)._get_group(cr, uid, context=context)
@@ -37,14 +38,15 @@ class eq_res_users(osv.osv):
             pass
         return result
     
-    _columns = {
-                'eq_employee_id': fields.many2one('hr.employee', 'Employee', copy=False)
-                }
+    
+    eq_employee_id = fields.Many2one('hr.employee', 'Employee', copy=False)
+                
 
     _defaults = {
         'groups_id': _get_group,
     }
     
+    @api.v7
     def write(self, cr, uid, ids, values, context={}):
         if context == None:
             context = {}
@@ -77,7 +79,8 @@ class eq_res_users(osv.osv):
         
         return res
     
-    def create(self,cr, uid, values, context={}):        
+    @api.v7
+    def create(self,cr, uid, values, context={}):     
         if context == None:
             context = {}
             

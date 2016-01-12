@@ -1,4 +1,9 @@
 ### 12.1.2016
+### equitania, 1.0.120
+#### Feature
+- changes for res_users.py
+
+### 12.1.2016
 ### equitania, 1.0.119
 #### Feature
 - changes for sale.py and sale_view.xml

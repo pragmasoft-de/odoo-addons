@@ -40,7 +40,7 @@ import sale
 # import res_config
 # import res_partner
 # import eq_report_helper
-# import res_users
+import res_users
 import hr
 # import product
 # import eq_foreign_ref
