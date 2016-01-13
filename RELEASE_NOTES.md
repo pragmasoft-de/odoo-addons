@@ -1,4 +1,9 @@
 ### 13.1.2016
+### equitania, 1.0.127
+#### Feature
+- changes for eq_res_users_new_api.py
+
+### 13.1.2016
 ### equitania, 1.0.126
 #### Feature
 - changes for eq_sale_order_seq.py
