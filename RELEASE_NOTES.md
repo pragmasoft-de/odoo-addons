@@ -1,4 +1,9 @@
 ### 13.1.2016
+### equitania, 1.0.123
+#### Feature
+- changes for res_groups.py
+
+### 13.1.2016
 ### equitania, 1.0.122
 #### Feature
 - changes for res_partner.py and res_partner_view.xml

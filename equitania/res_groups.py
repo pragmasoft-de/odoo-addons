@@ -19,14 +19,14 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, osv, orm
-from openerp.tools.translate import _
+from openerp import models, fields, api, _
+from openerp.osv import osv
 
-class eq_res_groups_copy(osv.osv):
+class eq_res_groups_copy(models.Model):
     _inherit = 'res.groups'
     
+    @api.v7
     def copy(self, cr, uid, id, default=None, context=None):
-        
         if context is None:
             context = {}
         
