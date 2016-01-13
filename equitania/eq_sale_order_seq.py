@@ -20,6 +20,8 @@
 ##############################################################################
 
 from openerp.osv import fields, osv, orm
+
+from openerp import models, api
 #from reportlab.rl_config import _DEFAULTS
 #from numpy.ma.core import ids
 
