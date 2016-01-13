@@ -2,9 +2,10 @@
 <openerp>
     <data>
     	<!-- Support for our localization  -->
-		<function model="eq_install_func" name="_load_translation" eval="[('equitania')]"/>
+<!-- 		<function model="eq_install_func" name="_load_translation" eval="[('equitania')]"/> -->
 	
-        <record id="view_picking_form_cancel" model="ir.ui.view">
+	<!--     Error: cannot be located in parent view -->
+       <!--  <record id="view_picking_form_cancel" model="ir.ui.view">
             <field name="name">stock.picking.form.cancel</field>
             <field name="model">stock.picking</field>
             <field name="inherit_id" ref="stock.view_picking_form" />
@@ -20,7 +21,7 @@
 	            	</div>
 	            </field>
           	</field>
-        </record>
+        </record> -->
         <record id="eq_view_move_search" model="ir.ui.view">
             <field name="name">eq.view.move.search</field>
             <field name="model">stock.move</field>

@@ -19,14 +19,14 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, osv, orm
-from openerp.tools.translate import _
+from openerp import models, fields, api, _
 from openerp import SUPERUSER_ID, api
 from openerp.tools.float_utils import float_compare, float_round
 
-class stock_picking_extension(osv.osv):
+class stock_picking_extension(models.Model):
     _inherit = ['stock.picking']
-        
+    
+    @api.v7    
     def _prepare_values_extra_move(self, cr, uid, op, product, remaining_qty, context=None):
         """
         Calculates and sets the UOS for the move line.
@@ -54,6 +54,7 @@ class stock_picking_extension(osv.osv):
             res['name'] = op.product_id.description_sale
         return res
     
+    @api.v7
     def recompute_remaining_qty(self, cr, uid, picking, context=None):
         res = super(stock_picking_extension, self).recompute_remaining_qty(cr, uid, picking, context=context)
         #links the operation with the original move, becouse the recompute_remaining_qty method distorts it.
@@ -171,7 +172,8 @@ class stock_picking_extension(osv.osv):
             'res_id': date_done_change_id,
             'context': self.env.context,
         }
-        
+    
+    @api.v7    
     def _prepare_pack_ops(self, cr, uid, picking, quants, forced_qties, context=None):
         """ returns a list of dict, ready to be used in create() of stock.pack.operation.
 
@@ -257,8 +259,10 @@ class stock_picking_extension(osv.osv):
                 processed_products.add(move.product_id.id)
         return vals
 
-class stock_move_extension(osv.osv):
+class stock_move_extension(models.Model):
     _inherit = ['stock.move']
+    
+    @api.v7
     def _get_invoice_line_vals(self, cr, uid, move, partner, inv_type, context=None):
         
         res = super(stock_move_extension, self)._get_invoice_line_vals(cr, uid, move, partner, inv_type, context)

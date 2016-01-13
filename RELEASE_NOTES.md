@@ -1,3 +1,8 @@
+### 13.1.2016
+### equitania, 1.0.121
+#### Feature
+- changes for stock.py and stock_view.xml
+
 ### 12.1.2016
 ### equitania, 1.0.120
 #### Feature
