@@ -1,4 +1,9 @@
 ### 13.1.2016
+### equitania, 1.0.125
+#### Feature
+- changes for product.py and product_view.xml
+
+### 13.1.2016
 ### equitania, 1.0.124
 #### Feature
 - changes for res_config.py and res_config_view.xml
