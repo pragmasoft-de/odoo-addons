@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <!-- Stock Config Settings -->
-		<record id="eq_purchase_config_settings" model="ir.ui.view">
+        <!-- Error : cannot be located in parent view -->
+        <!-- Stock Config Settings --> 
+<!-- 		<record id="eq_purchase_config_settings" model="ir.ui.view">
 		     <field name="name">eq_purchase_config_settings</field>
 		     <field name="model">purchase.config.settings</field>
 		     <field name="inherit_id" ref="purchase.view_purchase_configuration"/>
@@ -14,7 +15,8 @@
                     </div>
              	</div>
 		     </field>
-		</record>
+		</record> -->
+		
         <!-- Stock Config Settings -->
 		<record id="eq_stock_config_settings" model="ir.ui.view">
 		     <field name="name">eq_stock_config_settings</field>
@@ -31,7 +33,9 @@
                         <label for="module_eq_info_for_product_product"/>
                     </div>
 				</field>
-                <form string="Configure Warehouse" position="inside">
+			
+			   <!-- Error : View inheritance may not use attribute 'string' as a selector. -->	
+                <!-- <form string="Configure Warehouse" position="inside">
                     <group>
                         <label for="id" string="Product Number Generator"/>
                             <div>
@@ -53,7 +57,7 @@
                                 </div>
                             </div>
                     </group>
-				</form>
+				</form> -->
 		     </field>
 		</record>
     </data>
