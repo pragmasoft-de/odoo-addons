@@ -19,13 +19,14 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, osv, orm
-from openerp.tools.translate import _
+from openerp import models, fields, api, _
+from openerp.osv import osv
 
 
-class account_invoice(osv.osv):
+class account_invoice(models.Model):
     _inherit = 'account.invoice'
     
+    @api.v7
     def _compute_street_house_no(self, cr, uid, ids, field_name, arg, context):
         """ Generate street and house no info for purchase order """
         
@@ -41,7 +42,7 @@ class account_invoice(osv.osv):
                      
         return res
     
-    
+    @api.v7
     def _compute_zip_city(self, cr, uid, ids, field_name, arg, context):
         """ Generate zip and city info for purchase order """
                 
@@ -58,6 +59,7 @@ class account_invoice(osv.osv):
                 
         return res
     
+    @api.v7
     def _compute_country(self, cr, uid, ids, field_name, arg, context):
        """ Generate country info for purchase order """
        res = {}
@@ -69,18 +71,17 @@ class account_invoice(osv.osv):
                 
        return res
     
-    _columns = {
-                'eq_street_house_no': fields.function(_compute_street_house_no, string=" ", store=False, type="char"),
-                'eq_zip_city': fields.function(_compute_zip_city, string=" ", store=False, type="char"),
-                'eq_country': fields.function(_compute_country, string=" ", store=False, type="char"),
-                }
+    
+    eq_street_house_no = fields.Char(compute='_compute_street_house_no', string=" ", store=False)
+    eq_zip_city = fields.Char(compute='_compute_zip_city', string=" ", store=False)
+    eq_country = fields.Char(compute='_compute_country', string=" ", store=False)
 
-account_invoice()
  
  
-class purchase_order(osv.osv):
+class purchase_order(models.Model):
     _inherit = 'purchase.order'
-        
+    
+    @api.v7    
     def _compute_street_house_no(self, cr, uid, ids, field_name, arg, context):
         """ Generate street and house no info for purchase order """
                 
@@ -94,7 +95,8 @@ class purchase_order(osv.osv):
                 res[person.id] = False
                 
         return res
-        
+    
+    @api.v7    
     def _compute_zip_city(self, cr, uid, ids, field_name, arg, context):
         """ Generate zip and city info for purchase order """
                 
@@ -111,6 +113,7 @@ class purchase_order(osv.osv):
                 
         return res
     
+    @api.v7
     def _compute_country(self, cr, uid, ids, field_name, arg, context):
         """ Generate country info for purchase order """
         res = {}
@@ -123,20 +126,18 @@ class purchase_order(osv.osv):
         return res
     
     
-    _columns = {
-                'eq_street_house_no': fields.function(_compute_street_house_no, string=" ", store=False, type="char"),
-                'eq_zip_city': fields.function(_compute_zip_city, string=" ", store=False, type="char"),
-                'eq_country': fields.function(_compute_country, string=" ", store=False, type="char"),
-                }
+    
+    eq_street_house_no = fields.Char(compute='_compute_street_house_no', string=" ", store=False)
+    eq_zip_city = fields.Char(compute='_compute_zip_city', string=" ", store=False)
+    eq_country = fields.Char(compute='_compute_country', string=" ", store=False)
 
-purchase_order()
         
     
     
-class sale_order(osv.osv):
+class sale_order(models.Model):
     _inherit = 'sale.order'
     
-    
+    @api.v7
     def _compute_street_house_no(self, cr, uid, ids, field_name, arg, context):
         """ Generate street and house no info for purchase order """
                 
@@ -150,7 +151,8 @@ class sale_order(osv.osv):
                 res[person.id] = False
                 
         return res
-        
+    
+    @api.v7    
     def _compute_zip_city(self, cr, uid, ids, field_name, arg, context):
         """ Generate zip and city info for purchase order """
                 
@@ -167,6 +169,7 @@ class sale_order(osv.osv):
                 
         return res
     
+    @api.v7
     def _compute_country(self, cr, uid, ids, field_name, arg, context):
         """ Generate country info for purchase order """
         res = {}
@@ -178,6 +181,7 @@ class sale_order(osv.osv):
                 
         return res
     
+    @api.v7
     def _compute_invoice_address(self, cr, uid, ids, field_name, arg, context):
         """ Generate address infos for sale order """
         
@@ -209,6 +213,7 @@ class sale_order(osv.osv):
             
         return res
     
+    @api.v7
     def _compute_delivery_address(self, cr, uid, ids, field_name, arg, context):
         """ Generate address infos for sale order """
         
@@ -241,43 +246,40 @@ class sale_order(osv.osv):
 
         return res  
 
-    _columns = {
-                'eq_pricelist_change': fields.boolean('Pricelist Default'),
-                'eq_invoice_address': fields.function(_compute_invoice_address, string=" ", store=False, type="char"),
-                'eq_delivery_address': fields.function(_compute_delivery_address, string=" ", store=False, type="char"),
-                'client_order_ref': fields.char('Reference/Description', copy=True),
-                'eq_street_house_no': fields.function(_compute_street_house_no, string=" ", store=False, type="char"),
-                'eq_zip_city': fields.function(_compute_zip_city, string=" ", store=False, type="char"),
-                'eq_country': fields.function(_compute_country, string=" ", store=False, type="char"),                            
-                }
-
-sale_order()
+    
+    eq_pricelist_change =  fields.Boolean('Pricelist Default')
+    eq_invoice_address =fields.Char(compute='_compute_invoice_address', string=" ", store=False)
+    eq_delivery_address = fields.Char(compute='_compute_delivery_address', string=" ", store=False)
+    client_order_ref = fields.Char('Reference/Description', copy=True)
+    eq_street_house_no = fields.Char(compute='_compute_street_house_no', string=" ", store=False)
+    eq_zip_city = fields.Char(compute='_compute_zip_city', string=" ", store=False,)
+    eq_country = fields.Char(compute='_compute_country', string=" ", store=False)                            
 
 
-class eq_sale_configuration_address(osv.TransientModel):
+class eq_sale_configuration_address(models.TransientModel):
     _name = 'sale.config.settings'
     _inherit = _name
     
-    def set_default_values_eq_address(self, cr, uid, ids, context=None):
-        ir_values_obj = self.pool.get('ir.values')
-        config = self.browse(cr, uid, ids[0], context)
+    @api.multi
+    def set_default_values_eq_address(self):
+        ir_values_obj = self.env['ir.values']
+        config = self.browse(self.ids[0])
         
-        ir_values_obj.set_default(cr, uid, 'sale.order', 'default_show_address', config.default_show_address or False)
-        ir_values_obj.set_default(cr, uid, 'sale.order', 'default_search_only_company', config.default_search_only_company or False)
+        ir_values_obj.set_default('sale.order', 'default_show_address', config.default_show_address or False)
+        ir_values_obj.set_default('sale.order', 'default_search_only_company', config.default_search_only_company or False)
             
                 
-    
-    def get_default_values_eq_address(self, cr, uid, fields, context=None):
-        ir_values_obj = self.pool.get('ir.values')
-        notification = ir_values_obj.get_default(cr, uid, 'sale.order', 'default_show_address')
-        only_company = ir_values_obj.get_default(cr, uid, 'sale.order', 'default_search_only_company')
+    @api.multi
+    def get_default_values_eq_address(self):
+        ir_values_obj = self.env['ir.values']
+        notification = ir_values_obj.get_default('sale.order', 'default_show_address')
+        only_company = ir_values_obj.get_default('sale.order', 'default_search_only_company')
         return {
                 'default_show_address': notification,
                 'default_search_only_company': only_company,
                 }
     
-    _columns = {
-                'default_show_address': fields.boolean('Show street and city in the partner search of the Sale and Purchase Order [equitania]', help="This adds the street and the city to the results of the partner search of the Sale and Purchase Order."),
-                'default_search_only_company': fields.boolean('Only Search for Companies [equitania]', help="Only Companies will be shown in the Customer search of the Sale and Purchase Order."),
-                'group_product_rrp': fields.boolean('Show RRP for products [equitania]', implied_group='equitania.group_product_rrp'),
-                }
+
+    default_show_address= fields.Boolean('Show street and city in the partner search of the Sale and Purchase Order [equitania]', help="This adds the street and the city to the results of the partner search of the Sale and Purchase Order.")
+    default_search_only_company = fields.Boolean('Only Search for Companies [equitania]', help="Only Companies will be shown in the Customer search of the Sale and Purchase Order.")
+    group_product_rrp = fields.Boolean('Show RRP for products [equitania]', implied_group='equitania.group_product_rrp')

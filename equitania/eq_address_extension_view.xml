@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <record id="view_partner_form_inherited1" model="ir.ui.view">
+             <!-- Error: xpath cannot be located in parent view -->
+<!--         <record id="view_partner_form_inherited1" model="ir.ui.view">
             <field name="name">res.partner.form.inherited1</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form" />
@@ -10,7 +11,7 @@
                     <div t-if="record.type.raw_value">Type: <field name="type"/></div>
                 </xpath>
           </field>
-        </record>
+        </record> -->
 
         <record id="sale.act_res_partner_2_sale_order" model="ir.actions.act_window">
             <field name="name">Quotations and Sales</field>
@@ -154,7 +155,8 @@
             </field>
 	    </record>
 	    
-        <record id="eq_view_sale_config_settings_show_address" model="ir.ui.view">
+	   <!--  Error : <div name="Customer Features">' cannot be located in parent view -->
+        <!-- <record id="eq_view_sale_config_settings_show_address" model="ir.ui.view">
             <field name="name">crm settings</field>
             <field name="model">sale.config.settings</field>
             <field name="inherit_id" ref="base_setup.view_sale_config_settings"/>
@@ -176,6 +178,6 @@
 		            </div>
                 </data>
             </field>
-        </record>
+        </record> -->
     </data>
 </openerp>
