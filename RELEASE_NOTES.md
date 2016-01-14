@@ -1,4 +1,9 @@
 ### 14.1.2016
+### equitania, 1.0.133
+#### Feature
+- changes for eq_custom_ref.py
+
+### 14.1.2016
 ### equitania, 1.0.132
 #### Feature
 - changes for eq_partner_extension.py,eq_address_extension.py and added res_partner_old.py

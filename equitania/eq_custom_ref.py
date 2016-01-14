@@ -23,6 +23,8 @@ from openerp.osv import fields, osv, orm
 from datetime import datetime
 from string import replace
 from openerp import SUPERUSER_ID
+from openerp.tools.translate import _
+
 
 #The customer and creditor number with the appropriate sequence
 
