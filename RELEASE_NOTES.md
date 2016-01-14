@@ -1,14 +1,19 @@
-### 11.1.2016
+### 14.01.2016
+### equitania, 1.0.118
+#### Erweiterung
+- Preishistorie für den Anschaffungspreis eingefügt.
+
+### 11.01.2016
 ### equitania, 1.0.117
 #### Verbesserung
 - Lokalisierung für "Delivery note" erweitert
 
-### 7.1.2016
+### 7.01.2016
 ### equitania, 1.0.116
 #### Änderung
 - Die Gruppe "Lagerort" auf der Lasche "Bestand" wurde für Produkte und Varianten ausgeblendet
 
-### 4.1.2016
+### 4.01.2016
 ### equitania, 1.0.115
 #### Änderung
 - Fehlende Datei eq_sale_order_action_data.xml hinzugefügt

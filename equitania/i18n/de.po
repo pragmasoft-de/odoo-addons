@@ -933,8 +933,9 @@ msgstr "Preisliste Einzelposition"
 #: model:ir.model,name:equitania.model_product_product
 #: view:product.product:equitania.eq_product_search_form_view
 #: view:product.template:equitania.eq_product_template_search_view
+#: view:product.template.standard_price_history:equitania.eq_product_template_standard_price_history_search_view
+#: field:product.template.standard_price_history,eq_product_id:0
 #: view:purchase.order.line:equitania.eq_purchase_order_line_search_inherit
-#: view:website:equitania.eq_report_stockpicking_return
 msgid "Product"
 msgstr "Produkt"
 
@@ -2413,3 +2414,35 @@ msgstr "\n"
 #: view:website:stock.report_picking
 msgid "Delivery note:"
 msgstr "Lieferschein:"
+
+#. module: equitania
+#: view:product.template:equitania.eq_product_template_only_form_view
+msgid "Show Price History"
+msgstr "Preishistorie anzeigen"
+
+#. module: equitania
+#: field:product.template.standard_price_history,eq_old_price:0
+msgid "Old Price"
+msgstr "Alter Preis"
+
+#. module: equitania
+#: field:product.template.standard_price_history,eq_new_price:0
+msgid "New Price"
+msgstr "Neuer Preis"
+
+#. module: equitania
+#: field:product.template.standard_price_history,create_date:0
+msgid "Create Date"
+msgstr "Erstelldatum"
+
+#. module: equitania
+#: field:product.template.standard_price_history,create_uid:0
+msgid "User"
+msgstr "Benutzer"
+
+#. module: equitania
+#: model:ir.actions.act_window,name:equitania.eq_template_standard_price_history_action
+#: view:product.template.standard_price_history:equitania.eq_product_template_standard_price_history_form_view
+#: view:product.template.standard_price_history:equitania.eq_product_template_standard_price_history_tree_view
+msgid "Cost Price History"
+msgstr "Historie Anschaffungspreis"
