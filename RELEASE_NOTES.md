@@ -1,4 +1,9 @@
 ### 14.1.2016
+### equitania, 1.0.134
+#### Feature
+- changes for eq_foreign_ref.py
+
+### 14.1.2016
 ### equitania, 1.0.133
 #### Feature
 - changes for eq_custom_ref.py

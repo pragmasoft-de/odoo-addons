@@ -19,20 +19,21 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, osv, orm
+from openerp import models, fields, api, _
+from openerp.osv import osv
 
 
-class eq_foreign_ref(osv.osv):
+class eq_foreign_ref(models.Model):
     _inherit = 'res.partner'
     
-    _columns = {
-                'eq_foreign_ref': fields.char('Foreign reference'),
-                }
+    eq_foreign_ref = fields.Char('Foreign reference')
+
         
 
-class eq_purchase_order(osv.osv):
+class eq_purchase_order(models.Model):
     _inherit = 'purchase.order'
     
+    @api.v7
     def onchange_partner_id(self, cr, uid, ids, partner_id, context=None):
         """
             Extension of standard function onchange_partner_id(...) which adds eq_foreign_ref as partner_ref  to result values
@@ -53,9 +54,10 @@ class eq_purchase_order(osv.osv):
         return original_values
         
             
-class eq_sale_order(osv.osv):
+class eq_sale_order(models.Model):
     _inherit = 'sale.order'
     
+    @api.v7
     def onchange_partner_id(self, cr, uid, ids, partner_id, context=None):
         """
             Extension of standard function onchange_partner_id(...) which adds eq_foreign_ref as partner_ref  to result values
