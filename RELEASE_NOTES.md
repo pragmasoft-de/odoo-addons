@@ -1,3 +1,8 @@
+### 14.1.2016
+### equitania, 1.0.130
+#### Feature
+- changes for eq_clean_data
+
 ### 13.1.2016
 ### equitania, 1.0.129
 #### Feature
