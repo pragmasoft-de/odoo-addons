@@ -19,49 +19,45 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, osv, orm
+from openerp import models, fields, api, _
+from openerp.osv import osv
 
 #Adds custom fields to the objects res.company, product.category, product.pricelist.version and res.users.
 #The custom fields of res.company can be used in the header and footer of the reports and is shown in the form. 
 #The rest is for dataimport and won't be shown.
 
-class eq_company_custom_fields(osv.osv):
+class eq_company_custom_fields(models.Model):
     _name = 'res.company'
     _inherit = 'res.company'
 
-    _columns = {
-        'eq_custom_1': fields.char('Chief labeling', size=50, help="The content of this field may be used in the header or footer of reports."),
-        'eq_custom_2': fields.char('1st person', size=50, help="The content of this field may be used in the header or footer of reports."),
-        'eq_custom_3': fields.char('2nd person', size=50, help="The content of this field may be used in the header or footer of reports."),
-        'eq_custom_4': fields.char('3rd person', size=50, help="The content of this field may be used in the header or footer of reports."),
-        'eq_report_logo': fields.binary('Company Report Logo'),
-        'eq_company_ean': fields.char('Company EAN13', size=7),
-        'eq_citypart': fields.char('Disctirct'),
-        'eq_house_no': fields.char('House number'),
+    eq_custom_1 = fields.Char('Chief labeling', size=50, help="The content of this field may be used in the header or footer of reports.")
+    eq_custom_2 = fields.Char('1st person', size=50, help="The content of this field may be used in the header or footer of reports.")
+    eq_custom_3 = fields.Char('2nd person', size=50, help="The content of this field may be used in the header or footer of reports.")
+    eq_custom_4 = fields.Char('3rd person', size=50, help="The content of this field may be used in the header or footer of reports.")
+    eq_report_logo = fields.Binary('Company Report Logo')
+    eq_company_ean = fields.Char('Company EAN13', size=7)
+    eq_citypart = fields.Char('Disctirct')
+    eq_house_no = fields.Char('House number')
         
-    }
 
-class eq_product_category_custom_fields(osv.osv):
+class eq_product_category_custom_fields(models.Model):
     _inherit = 'product.category'
     
-    _columns = {
-                'eq_custom01': fields.char(size=64)
-                }
-class eq_pricelist_version_custom_fields(osv.osv):
-    _inherit = 'product.pricelist.version'
-    
-    _columns = {
-                'eq_custom01': fields.char(size=64)
-                }
-class eq_res_users_custom_fields(osv.osv):
+    eq_custom01 = fields.Char(size=64)
+                
+                
+""" object: product.pricelist.version removed on Odoo9"""                 
+# class eq_pricelist_version_custom_fields(models.Model):
+#     _inherit = 'product.pricelist.version'
+#     
+#     eq_custom01 = fields.Char(size=64)
+
+class eq_res_users_custom_fields(models.Model):
     _inherit = 'res.users'
     
-    _columns = {
-                'eq_custom01': fields.char(size=64)
-                }
-class eq_product_product_custom_fields(osv.osv):
+    eq_custom01 = fields.Char(size=64)
+
+class eq_product_product_custom_fields(models.Model):
     _inherit = 'product.product'
     
-    _columns = {
-                'eq_custom01': fields.char(size=64)
-                }
+    eq_custom01 = fields.Char(size=64)

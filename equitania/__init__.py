@@ -26,7 +26,7 @@ import eq_address_extension
 import eq_address_extension_new_api
 # import eq_custom_ref
 import eq_pricelist_item_search
-# import eq_company_custom_fields
+import eq_company_custom_fields
 import eq_sale_order_seq
 import eq_partner_extension
 # import eq_report_extension

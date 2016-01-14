@@ -1,4 +1,9 @@
 ### 14.1.2016
+### equitania, 1.0.131
+#### Feature
+- changes for eq_company_custom_fields.py
+
+### 14.1.2016
 ### equitania, 1.0.130
 #### Feature
 - changes for eq_clean_data
