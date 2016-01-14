@@ -31,10 +31,10 @@
 	            <field name="model">res.partner</field>
 	            <field name="inherit_id" ref="base.view_partner_form" />
 	            <field name="arch" type="xml">
-	            	<!-- main page -->	            		           
-	           		<field name="date" position="before">
+	            	<!-- main page -->	  <!--  Error: cannot be located in parent view -->         		           
+<!-- 	           		<field name="date" position="before">
 						<field attrs="{'invisible':[('customer', '=', False)]}" name="eq_lead_referred_id"/>
-	               	</field>
+	               	</field> -->
 						
 					<!-- popup with contacts -->
                  	<field name="supplier" position="after">
