@@ -1,4 +1,9 @@
 ### 14.1.2016
+### equitania, 1.0.132
+#### Feature
+- changes for eq_partner_extension.py,eq_address_extension.py and added res_partner_old.py
+
+### 14.1.2016
 ### equitania, 1.0.131
 #### Feature
 - changes for eq_company_custom_fields.py

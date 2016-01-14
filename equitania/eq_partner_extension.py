@@ -63,6 +63,9 @@ class eq_partner_sale_order_extension(models.Model):
                 result['value']['partner_invoice_id'] = partner.eq_default_invoice_address.id
         return result
 
+# added this functionality on res_partner_old.py
+"""
+
 class eq_partner_extension(models.Model):
     _inherit = "res.partner"
     _name = "res.partner"
@@ -126,9 +129,9 @@ class eq_partner_extension(models.Model):
 
     
     _defaults = {
-                 """ Error """
-#                 'user_id': lambda self, cr, uid, context: uid if self.pool.get('ir.values').get_default(cr, uid, 'res.partner', 'default_creator_saleperson') else False,
-                }
+
+                'user_id': lambda self, cr, uid, context: uid if self.pool.get('ir.values').get_default(cr, uid, 'res.partner', 'default_creator_saleperson') else False,
+                } """
     
 class eq_partner_extension_base_config_settings(models.TransientModel):
     _inherit = "base.config.settings"
