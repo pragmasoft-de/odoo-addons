@@ -2,6 +2,7 @@
 ### equitania, 1.0.119
 #### Erweiterung
 - Anpassung des Mailversandes: gültige E-Mailadresse für Return-Path
+- Report Headers um eine CSS Klasse erweitert für bessere Änderungen im Headerbereich
 
 
 ### 14.01.2016
