@@ -1,3 +1,9 @@
+### 15.01.2016
+### equitania, 1.0.119
+#### Erweiterung
+- Anpassung des Mailversandes: gültige E-Mailadresse für Return-Path
+
+
 ### 14.01.2016
 ### equitania, 1.0.118
 #### Erweiterung
