@@ -1,9 +1,13 @@
+### 18.01.2016
+### equitania, 1.0.120
+#### Fix
+- Zugriffsrechte für die Preishistorie hinzugefügt.
+
 ### 15.01.2016
 ### equitania, 1.0.119
 #### Erweiterung
 - Anpassung des Mailversandes: gültige E-Mailadresse für Return-Path
 - Report Headers um eine CSS Klasse erweitert für bessere Änderungen im Headerbereich
-
 
 ### 14.01.2016
 ### equitania, 1.0.118
