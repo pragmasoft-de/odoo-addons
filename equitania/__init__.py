@@ -39,7 +39,7 @@ import sale
 # import reports
 import res_config
 import res_partner
-# import eq_report_helper
+import eq_report_helper
 import res_users
 import hr
 import product

@@ -1,3 +1,8 @@
+### 18.1.2016
+### equitania, 1.0.136
+#### Feature
+- changes for eq_report_helper.py
+
 ### 14.1.2016
 ### equitania, 1.0.135
 #### Feature
