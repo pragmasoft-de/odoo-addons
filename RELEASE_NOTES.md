@@ -1,4 +1,9 @@
 ### 18.1.2016
+### equitania, 1.0.138
+#### Feature
+- changes for eq_report_extension and ex_report_extension_view.xml
+
+### 18.1.2016
 ### equitania, 1.0.137
 #### Feature
 - changes for eq_install_func.py,eq_install_func.xml and eq_install_func_no_update.xml

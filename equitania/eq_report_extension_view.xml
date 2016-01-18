@@ -44,14 +44,16 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form" />
             <field name="arch" type="xml">
-                <field name="invoiced" postion="replace">
+<!--             Error : cannot be located in parent view -->
+<!--                 <field name="invoiced" postion="replace">
                 <field name="partner_shipping_id" position="after">
                 	<fild name="invoiced"/>
                 </field>
-                </field>
-	            <field name="pricelist_id" position="after">
+                </field> -->
+                <!-- Error : Field `eq_contact_person_id` does not exist -->
+<!-- 	            <field name="pricelist_id" position="after">
                     <field name="eq_contact_person_id"/>
-				</field>
+				</field> -->
                 <xpath expr="//notebook" position="before">
 					<label for="eq_head_text" string="Headtext"/>
 					<div colspan="4">
@@ -62,12 +64,13 @@
                 	<label for="note"/>
 					<field name="note"/>
                 </field>
-	            <button name="action_button_confirm" states="draft" position="replace">
+<!--                 Error : cannot be located in parent view -->
+<!-- 	            <button name="action_button_confirm" states="draft" position="replace">
 	            	<button name="action_button_confirm_optional" states="draft" string="Confirm Sale" type="object" groups="base.group_user"/>
 	            </button>
 	            <button name="action_button_confirm" states="sent" position="replace">
 	            	<button name="action_button_confirm_optional" states="sent" string="Confirm Sale" class="oe_highlight" type="object" groups="base.group_user"/>
-	            </button>
+	            </button> -->
             </field>
         </record>
         <!-- Sale Order Tree View -->
@@ -94,7 +97,7 @@
         </record>
         
         <!-- Config Settings -->
-		<record id="eq_view_sale_config_settings" model="ir.ui.view">
+		<!-- <record id="eq_view_sale_config_settings" model="ir.ui.view">
 		     <field name="name">Contact Person</field>
 		     <field name="model">sale.config.settings</field>
 		     <field name="inherit_id" ref="base_setup.view_sale_config_settings"/>
@@ -126,10 +129,11 @@
 	                </group>
                 </form>
 		     </field>
-		</record>
+		</record> -->
 		
-		<!-- Sale Order Stock -->
-        <record id="eq_sale_order_form_view_delivery_date" model="ir.ui.view">
+		
+		<!-- Sale Order Stock -->  <!-- Error : External ID not found in the system -->
+       <!--  <record id="eq_sale_order_form_view_delivery_date" model="ir.ui.view">
             <field name="name">eq.sale.order.form.delivery.date</field>
             <field name="model">sale.order</field>
             <field name="type">form</field>
@@ -157,7 +161,7 @@
 	                </xpath>
                 </data>
            </field>
-        </record>
+        </record> -->
         
         <!-- Purchase -->
         <record id="eq_purchase_order_form" model="ir.ui.view">
@@ -165,9 +169,11 @@
             <field name="model">purchase.order</field>
             <field name="inherit_id" ref="purchase.purchase_order_form" />
             <field name="arch" type="xml">
-	            <field name="pricelist_id" position="after">
+               
+                <!-- Error : cannot be located in parent view -->
+	            <!-- <field name="pricelist_id" position="after">
                     <field name="eq_contact_person_id"/>
-                </field>
+                </field> -->
                 <xpath expr="//notebook" position="before">
 					<label for="eq_head_text" string="Headtext"/>
 					<div colspan="4">
@@ -181,8 +187,8 @@
             </field>
         </record>
         
-        <!-- Purchase Settings -->
-		<record id="eq_view_purchase_config_settings_delivery" model="ir.ui.view">
+        <!-- Purchase Settings --> <!-- Error : View inheritance may not use attribute 'string' as a selector. -->
+		<!-- <record id="eq_view_purchase_config_settings_delivery" model="ir.ui.view">
 		     <field name="name">purchase settings delivery</field>
 		     <field name="model">purchase.config.settings</field>
 		     <field name="inherit_id" ref="purchase.view_purchase_configuration"/>
@@ -204,7 +210,7 @@
 		     		</group>
 		     	</form>
 		     </field>
-		</record>
+		</record> -->
         
         <!-- Account -->
         <record id="eq_invoice_form" model="ir.ui.view">
@@ -212,9 +218,10 @@
             <field name="model">account.invoice</field>
             <field name="inherit_id" ref="account.invoice_form" />
             <field name="arch" type="xml">
-	            <field name="account_id" position="after">
+           <!--  Error : Field `eq_contact_person_id` does not exist -->
+	           <!--  <field name="account_id" position="after">
                     <field name="eq_contact_person_id"/>
-                </field>
+                </field> -->
                 <field name="origin" positione="after">
                     <field name="eq_customer_ref"/>
                 </field>
@@ -294,8 +301,8 @@
             </field>
         </record>
                           
-         <!-- added eq_pos_no to invoice - formview --> 
-         <record id="eq_invoice_line_tree_extension" model="ir.ui.view">
+         <!-- added eq_pos_no to invoice - formview --> <!-- Error : View inheritance may not use attribute 'string' as a selector. -->
+         <!-- <record id="eq_invoice_line_tree_extension" model="ir.ui.view">
             <field name="name">eq_invoice.line.tree.extextion</field>
             <field name="model">account.invoice</field>
             <field name="inherit_id" ref="account.invoice_form" />
@@ -304,7 +311,7 @@
             		<field name="eq_pos_no" readonly="True"/>
                 </xpath>
             </field>
-        </record>
+        </record> -->
           
     </data>
 </openerp>
