@@ -30,6 +30,7 @@ class eq_lead(models.Model):
     _inherit = 'crm.lead'
     
     eq_lead_referred_id = fields.Many2one('eq.lead.referred', 'Referred By')
+    eq_lead_referred_name = fields.Char(string='Referred By', store=True, related='eq_lead_referred_id.eq_description')
 
 
 class eq_lead_referred(models.Model):
