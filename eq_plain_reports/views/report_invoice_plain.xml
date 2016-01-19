@@ -50,7 +50,7 @@
 
 		<template id="report_invoice_plain">
 			<!-- <t t-call="eq_plain_reports.html_container_plain"> -->
-			<t t-call="report.html_container">
+			<t t-call="eq_plain_reports.html_container_plain">
 				<t t-foreach="doc_ids" t-as="doc_id">
 					<t
 						t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'eq_plain_reports.report_invoice_plain_document')" />
@@ -60,7 +60,7 @@
 
 
 		<report id="account_invoices_plain" model="account.invoice"
-			string="Invoice Plain" report_type="qweb-pdf"
+			string="Rechnungen für Briefpapier" report_type="qweb-pdf"
 			name="eq_plain_reports.report_invoice_plain" file="eq_plain_reports.report_invoice_plain"
 			attachment_use="True" />
 	</data>
