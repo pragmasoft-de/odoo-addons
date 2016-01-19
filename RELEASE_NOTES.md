@@ -1,3 +1,8 @@
+### 19.1.2016
+### equitania, 1.0.139
+#### Feature
+- merged the equitania module. [develop --> develop9.0]
+
 ### 18.1.2016
 ### equitania, 1.0.138
 #### Feature

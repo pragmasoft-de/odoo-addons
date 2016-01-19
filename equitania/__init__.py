@@ -47,3 +47,4 @@ import eq_foreign_ref
 import eq_res_users_new_api
 import eq_clean_data
 import res_partner_old
+import eq_email

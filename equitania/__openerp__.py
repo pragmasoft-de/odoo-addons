@@ -22,7 +22,7 @@
 {
     'name': 'Equitania Erweiterungsmodul',
     'license': 'AGPL-3',
-    'version': '1.0.138',
+    'version': '1.0.139',
     'description': """
         Equitania Software GmbH
     """,
@@ -31,7 +31,7 @@
     'depends': [
                 'base_setup', 'purchase', 'sale',  'account', 'stock_account', 'product',
                 'mail', 'report', 'hr', 'crm', 'stock','sale_stock', 'delivery',
-                'website'], # 'website_report, no more available in odoo9
+                'website','website_quote'], # 'website_report, no more available in odoo9
     'category' : 'General Improvements',
     'summary': 'Sale, Account, Product, Mail, Report, CRM, Purchase',
     #'init': [

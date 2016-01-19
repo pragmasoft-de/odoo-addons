@@ -82,6 +82,7 @@ class eq_product_template(osv.osv):
             result['domain'] = "[('product_id','in',[" + ','.join(map(str, products)) + "])]"
             result['context'] = "{'tree_view_ref':'stock.view_move_tree'}"
         return result
+    
     def action_view_stock_moves(self, cr, uid, ids, context=None):
         products = self._get_products(cr, uid, ids, context=context)
         result = self._get_act_window_dict(cr, uid, 'equitania.eq_act_product_stock_move_open', context=context)
@@ -95,6 +96,20 @@ class eq_product_template(osv.osv):
             result['domain'] = "[('product_id','in',[" + ','.join(map(str, products)) + "])]"
             result['context'] = result['context'][:-1] + ", 'search_default_in_and_out': 1" + result['context'][-1]
         return result
+    
+    def write(self, cr, uid, ids, vals, context=None):
+        if 'standard_price' in vals:
+            for sep_id in ids:
+                old_price = self.read(cr, uid, sep_id, ['standard_price'], context)['standard_price']
+                new_price = vals['standard_price']
+                history_vals = {
+                                'eq_product_id': sep_id,
+                                'eq_old_price': old_price,
+                                'eq_new_price': new_price,
+                                }
+                self.pool.get('product.template.standard_price_history').create(cr, uid, history_vals, context=context)
+        res = super(eq_product_template, self).write(cr, uid, ids, vals, context=context)
+        return res
     
 class eq_product_product(osv.osv):
     _inherit = 'product.product'
@@ -124,3 +139,14 @@ class eq_product_product(osv.osv):
     _defaults = {
                  'eq_sale_min_qty': 0,
     }
+    
+class eq_product_template_standard_price_history(osv.osv):
+    _name = 'product.template.standard_price_history'
+    
+    _columns = {
+                'eq_product_id': fields.many2one('product.template', string="Product"),
+                'eq_old_price': fields.float(string="Old Price"),
+                'eq_new_price': fields.float(string="New Price"),
+                'create_uid': fields.many2one('res.users', string="User"),
+                'create_date': fields.datetime(string="Create Date"),
+                }
