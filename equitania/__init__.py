@@ -20,7 +20,7 @@
 ##############################################################################
 
 # import models
-# import wizard
+import wizard
 import eq_install_func
 import eq_address_extension
 import eq_address_extension_new_api

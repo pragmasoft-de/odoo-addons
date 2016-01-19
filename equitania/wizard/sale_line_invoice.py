@@ -20,22 +20,24 @@
 ##############################################################################
 
 
-from openerp.osv import osv, fields
-from openerp.tools.translate import _
+from openerp import models, fields, api, _
 from openerp import workflow
 
-class sale_order_line_make_invoice(osv.osv_memory):
-    _inherit = "sale.order.line.make.invoice"
-
-    def _prepare_invoice(self, cr, uid, order, lines, context=None):
-        res = super(sale_order_line_make_invoice, self)._prepare_invoice(cr, uid, order, lines, context=context)
-        res['eq_ref_number'] = order.client_order_ref
-        res['name'] = order.name
-        return res
+""" Object : sale.order.line.make.invoice, not available in Odoo9 """
+# class sale_order_line_make_invoice(models.TransientModel):
+#     _inherit = "sale.order.line.make.invoice"
+# 
+#     @api.v7
+#     def _prepare_invoice(self, cr, uid, order, lines, context=None):
+#         res = super(sale_order_line_make_invoice, self)._prepare_invoice(cr, uid, order, lines, context=context)
+#         res['eq_ref_number'] = order.client_order_ref
+#         res['name'] = order.name
+#         return res
     
-class sale_advance_payment_inv(osv.osv_memory):
+class sale_advance_payment_inv(models.TransientModel):
     _inherit = "sale.advance.payment.inv"
     
+    @api.v7
     def _prepare_advance_invoice_vals(self, cr, uid, ids, context=None):
         res = super(sale_advance_payment_inv, self)._prepare_advance_invoice_vals(cr, uid, ids, context=context)
         for re in res:

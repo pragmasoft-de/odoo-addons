@@ -1,4 +1,9 @@
 ### 19.1.2016
+### equitania, 1.0.141
+#### Feature
+- changes for wizard and its corresponding views
+
+### 19.1.2016
 ### equitania, 1.0.140
 #### Feature
 - changes for product_view.xml
