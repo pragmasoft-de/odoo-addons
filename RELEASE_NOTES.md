@@ -1,4 +1,9 @@
 ### 19.1.2016
+### equitania, 1.0.140
+#### Feature
+- changes for product_view.xml
+
+### 19.1.2016
 ### equitania, 1.0.139
 #### Feature
 - merged the equitania module. [develop --> develop9.0]
