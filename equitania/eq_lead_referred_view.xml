@@ -1,92 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data>
-    	<!--  oportunity -->
-	    <record id="crm_case_form_view_oppor_ref" model="ir.ui.view">
-	            <field name="name">eq_crm_case_form_view_oppor_ref</field>
-	            <field name="model">crm.lead</field>
-	            <field name="inherit_id" ref="crm.crm_case_form_view_oppor" />
-	            <field name="arch" type="xml">
-	            	<xpath expr="//field[@name='referred']" position="replace">
-	            		<field name="eq_lead_referred_id"/>
-	            	</xpath>
-	            </field>
-	    </record>
-	    
-	    <!-- lead -->
-	    <record id="eq_crm_crm_case_form_view_leads" model="ir.ui.view">
-	            <field name="name">eq_crm_crm_case_form_view_leads</field>
-	            <field name="model">crm.lead</field>
-	            <field name="inherit_id" ref="crm.crm_case_form_view_leads" />
-	            <field name="arch" type="xml">
-	            	<xpath expr="//field[@name='referred']" position="replace">
-	            		<field name="eq_lead_referred_id"/>
-	            	</xpath>
-	            </field>
-	    </record>
-	    
-	    <!-- customer -->
-	    <record id="eq_ref_view_partner_form" model="ir.ui.view">
-	            <field name="name">eq_ref_view_partner_form</field>
-	            <field name="model">res.partner</field>
-	            <field name="inherit_id" ref="base.view_partner_form" />
-	            <field name="arch" type="xml">
-	            	<!-- main page -->	            		           
-	           		<field name="date" position="before">
-						<field attrs="{'invisible':[('customer', '=', False)]}" name="eq_lead_referred_id"/>
-	               	</field>
-						
-					<!-- popup with contacts -->
-                 	<field name="supplier" position="after">
-                		<group attrs="{'invisible':[('customer', '=', False)]}" col="2">
-                			<field name="customer"/>
-                			<field name="eq_lead_referred_id"/>
-                		</group>
-                	</field>
-            	</field>	            
-	    </record>
+	<data>
+		<!-- oportunity -->
+		<record id="crm_case_form_view_oppor_ref" model="ir.ui.view">
+			<field name="name">eq_crm_case_form_view_oppor_ref</field>
+			<field name="model">crm.lead</field>
+			<field name="inherit_id" ref="crm.crm_case_form_view_oppor" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='referred']" position="replace">
+					<field name="eq_lead_referred_id" />
+				</xpath>
+			</field>
+		</record>
+
+		<!-- Opportunities Search View -->
+		<record id="eq_view_crm_case_opportunities_filter" model="ir.ui.view">
+			<field name="name">CRM - Opportunities Search</field>
+			<field name="model">crm.lead</field>
+			<field name="inherit_id" ref="crm.view_crm_case_opportunities_filter" />
+			<field name="arch" type="xml">
+				<field name="user_id" position="after">
+					<field name="eq_lead_referred_name" />
+				</field>
+			</field>
+		</record>
+
+		<!-- lead -->
+		<record id="eq_crm_crm_case_form_view_leads" model="ir.ui.view">
+			<field name="name">eq_crm_crm_case_form_view_leads</field>
+			<field name="model">crm.lead</field>
+			<field name="inherit_id" ref="crm.crm_case_form_view_leads" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='referred']" position="replace">
+					<field name="eq_lead_referred_id" />
+				</xpath>
+			</field>
+		</record>
+
+		<!-- CRM Lead Search View -->
+		<record id="eq_view_crm_case_leads_filter" model="ir.ui.view">
+			<field name="name">CRM - Leads Search</field>
+			<field name="model">crm.lead</field>
+			<field name="inherit_id" ref="crm.view_crm_case_leads_filter" />
+			<field name="arch" type="xml">
+				<field name="user_id" position="after">
+					<field name="eq_lead_referred_name" />
+				</field>
+			</field>
+		</record>
+
+		<!-- customer -->
+		<record id="eq_ref_view_partner_form" model="ir.ui.view">
+			<field name="name">eq_ref_view_partner_form</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_partner_form" />
+			<field name="arch" type="xml">
+				<!-- main page -->
+				<field name="date" position="before">
+					<field attrs="{'invisible':[('customer', '=', False)]}" name="eq_lead_referred_id" />
+				</field>
+
+				<!-- popup with contacts -->
+				<field name="supplier" position="after">
+					<group attrs="{'invisible':[('customer', '=', False)]}" col="2">
+						<field name="customer" />
+						<field name="eq_lead_referred_id" />
+					</group>
+				</field>
+			</field>
+		</record>
 
 		<!-- eq.lead.referred Tree View -->
 
-        <record model="ir.ui.view" id="eq_lead_referred_tree">
-            <field name="name">eq.lead.referred.tree</field>
-            <field name="model">eq.lead.referred</field>
-            <field name="arch" type="xml">
-                <tree string="Referred by">
-                    <field name="eq_description"/>
-                </tree>
-            </field>
-        </record>
+		<record model="ir.ui.view" id="eq_lead_referred_tree">
+			<field name="name">eq.lead.referred.tree</field>
+			<field name="model">eq.lead.referred</field>
+			<field name="arch" type="xml">
+				<tree string="Referred by">
+					<field name="eq_description" />
+				</tree>
+			</field>
+		</record>
 
-        <!-- eq.lead.referred Form View -->
+		<!-- eq.lead.referred Form View -->
 
-        <record model="ir.ui.view" id="eq_lead_referred_form">
-            <field name="name">eq.lead.referred.form</field>
-            <field name="model">eq.lead.referred</field>
-            <field name="arch" type="xml">
-                <form string="Referred by">
-                	<sheet>
-	                    <group>
-	                        <field name="eq_description"/>
-	                    </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
+		<record model="ir.ui.view" id="eq_lead_referred_form">
+			<field name="name">eq.lead.referred.form</field>
+			<field name="model">eq.lead.referred</field>
+			<field name="arch" type="xml">
+				<form string="Referred by">
+					<sheet>
+						<group>
+							<field name="eq_description" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
 
-        <!-- eq.lead.referred Action -->
+		<!-- eq.lead.referred Action -->
 
-        <record id="action_eq_lead_referred" model="ir.actions.act_window">
-            <field name="name">Referred by</field>
-            <field name="res_model">eq.lead.referred</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-        </record>
+		<record id="action_eq_lead_referred" model="ir.actions.act_window">
+			<field name="name">Referred by</field>
+			<field name="res_model">eq.lead.referred</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
 
-        <menuitem action="action_eq_lead_referred"
-            id="menu_eq_lead_referred"
-            groups="base.group_no_one"
-            name="Referred by"
-            parent="base.menu_crm_config_lead"/>
-    </data>
+		<menuitem action="action_eq_lead_referred" id="menu_eq_lead_referred"
+			name="Referred by" parent="base.menu_crm_config_lead" />
+	</data>
 </openerp>    

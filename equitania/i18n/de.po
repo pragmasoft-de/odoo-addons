@@ -1047,6 +1047,7 @@ msgstr "Grund"
 
 #. module: equitania
 #: field:crm.lead,eq_lead_referred_id:0
+#: field:crm.lead,eq_lead_referred_name:0
 msgid "Referred By"
 msgstr "Vermittelt durch"
 

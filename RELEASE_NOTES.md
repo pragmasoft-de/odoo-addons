@@ -1,3 +1,8 @@
+### 19.01.2016
+### equitania, 1.0.120
+#### Erweiterung
+- Suche nach "Vermittelt durch" in die Interessenten und Chancen eingefügt..
+
 ### 18.01.2016
 ### equitania, 1.0.121
 #### Erweiterung
