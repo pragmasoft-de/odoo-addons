@@ -3,14 +3,12 @@
 	<data>
 		<template id="style_plain">
 			<style type="text/css">
-				div.addressmargin div.returnaddress {
-				background-color:green!important; visibility:hidden;}
+				div.addressmargin div.returnaddress { /*visibility:hidden; wird aktuell leider gerade global angewendet*/}
 
 				.returnaddressplain {
 				font-size:5.5pt;
 				text-decoration: underline;
 				margin-bottom:0.2cm;
-				background-color: yellow;
 				width: 35%; height:20px; position: fixed; margin-top: 20px;
 				}
 			</style>
