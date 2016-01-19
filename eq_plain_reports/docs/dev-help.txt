@@ -1,0 +1,11 @@
+Letzte Änderung: Johann Müller - 19.01.2016
+
+
+Plain Reports
+___Vorbereitungen:
+Die Datensätze für die equitania Reports müssen erst in den Tempaltes geändert werden, so dass der Inhalt der Report-Headers als _data gesetzt sind.
+Dies ist für die Invoice und SaleOrder schon umgesetzt (im Equitania Modul) Änderungen vom 19.01.2016.
+Nicht vergessen die Übersetzungsdateien für die normalen Reports anzupassen (im Equitania Modul), hier müssen die IDs noch angepasst werden für die neue header_data.
+
+___Nach der Installition des Moduls:
+Innerhalb der Papierformate müssen die neuen Plain Reports den Equitania A4 Papierformaten zugewiesen werden (Einstellungen > Berichte > Papierformat)

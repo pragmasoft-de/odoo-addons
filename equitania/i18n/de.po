@@ -308,7 +308,7 @@ msgid "Customer Number"
 msgstr "Kundennummer"
 
 #. module: equitania
-#: view:website:equitania.eq_external_layout_header_invoice
+#: view:website:equitania.eq_external_layout_header_invoice_data
 #: view:website:equitania.eq_external_layout_header_return_picking
 #: view:website:equitania.eq_external_layout_header_sale_order
 #: view:website:equitania.eq_external_layout_header_stock_picking
@@ -641,12 +641,12 @@ msgid "Invoice address:"
 msgstr "Rechnungsanschrift:"
 
 #. module: equitania
-#: view:website:equitania.eq_external_layout_header_invoice
+#: view:website:equitania.eq_external_layout_header_invoice_data
 msgid "Invoice date"
 msgstr "Rechnungsdatum"
 
 #. module: equitania
-#: view:website:equitania.eq_external_layout_header_invoice
+#: view:website:equitania.eq_external_layout_header_invoice_data
 msgid "Invoice no."
 msgstr "Rechnungsnr."
 
@@ -837,7 +837,7 @@ msgid "Order date"
 msgstr "Bestelldatum"
 
 #. module: equitania
-#: view:website:equitania.eq_external_layout_header_invoice
+#: view:website:equitania.eq_external_layout_header_invoice_data
 #: view:website:equitania.eq_external_layout_header_sale_order
 msgid "Order no."
 msgstr "Auftrags Nr."
@@ -1297,7 +1297,7 @@ msgid "Supplier Order Reference"
 msgstr "Referenz"
 
 #. module: equitania
-#: view:website:equitania.eq_external_layout_header_invoice
+#: view:website:equitania.eq_external_layout_header_invoice_data
 #: view:website:equitania.eq_external_layout_header_purchase_order
 msgid "Supplier no."
 msgstr "Lieferantennr."
@@ -1453,7 +1453,7 @@ msgid "Your order reference"
 msgstr "Ihre Bestellnr."
 
 #. module: equitania
-#: view:website:equitania.eq_external_layout_header_invoice
+#: view:website:equitania.eq_external_layout_header_invoice_data
 #: view:website:equitania.eq_external_layout_header_return_picking
 #: view:website:equitania.eq_external_layout_header_sale_order
 #: view:website:equitania.eq_external_layout_header_stock_picking
@@ -1520,7 +1520,7 @@ msgid "invoice"
 msgstr "Rechnung"
 
 #. module: equitania
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:equitania.eq_report_stockpicking_return
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
@@ -1610,7 +1610,7 @@ msgstr "Briefanrede"
 # Reportübersetzung Angebote/Aufträge/Rechnungen/Bestellungen
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "Contact person"
@@ -1618,7 +1618,7 @@ msgstr "Ansprechpartner"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "For further information, please contact"
@@ -1626,7 +1626,7 @@ msgstr "Bei Fragen wenden Sie sich bitte an:"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "Phone"
@@ -1634,7 +1634,7 @@ msgstr "Telefon"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "Fax"
@@ -1652,7 +1652,7 @@ msgstr "Angebot"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:stock.report_picking
@@ -1662,7 +1662,7 @@ msgstr "Pos"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:stock.report_picking
@@ -1672,7 +1672,7 @@ msgstr "Artikelnr."
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:external_layout_return_picking
@@ -1681,7 +1681,7 @@ msgstr "Beschreibung"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:stock.report_picking
@@ -1691,7 +1691,7 @@ msgstr "Menge"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "Unit price"
@@ -1699,7 +1699,7 @@ msgstr "Einzelpreis"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "Discount (%)"
@@ -1707,7 +1707,7 @@ msgstr "Rabatt (%)"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "Net price"
@@ -1715,7 +1715,7 @@ msgstr "Nettopreis"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "Delivery date:"
@@ -1723,7 +1723,7 @@ msgstr "Lieferdatum:"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "Total without taxes"
@@ -1731,7 +1731,7 @@ msgstr "Summe ohne Steuern"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "Total sum"
@@ -1739,7 +1739,7 @@ msgstr "Gesamtsumme"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "Term of payment:"
@@ -1747,7 +1747,7 @@ msgstr "Zahlungskonditionen:"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "Notes:"
@@ -1755,7 +1755,7 @@ msgstr "Notizen:"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "Invoice address:"
@@ -1763,7 +1763,7 @@ msgstr "Rechnungsadresse:"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "Shipping address:"
@@ -1771,7 +1771,7 @@ msgstr "Lieferadresse:"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "Drawing No.:"
@@ -1779,72 +1779,72 @@ msgstr "Zeichnungsnr.:"
 
 # Reportübersetzung Rechnungen
 #. module: equitania
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 msgid "Order no."
 msgstr "Auftragsnr."
 
 #. module: equitania
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 msgid "Supplier no."
 msgstr "Lieferantennr."
 
 #. module: equitania
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 msgid "Customer no."
 msgstr "Kundennr."
 
 #. module: equitania
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 msgid "Your reference no."
 msgstr "Referenznr."
 
 #. module: equitania
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 msgid "Invoice no."
 msgstr "Rechnungsnr."
 
 #. module: equitania
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 msgid "Invoice date"
 msgstr "Rechnungsdatum"
 
 #. module: equitania
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 msgid "Invoice"
 msgstr "Rechnung"
 
 #. module: equitania
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 msgid "Pro-forma invoice"
 msgstr "Pro-Forma Rechnung"
 
 #. module: equitania
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 msgid "Draft invoice"
 msgstr "Rechnungsentwurf"
 
 #. module: equitania
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 msgid "Cancelled invoice"
 msgstr "Abgebrochene Rechnung"
 
 #. module: equitania
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 msgid "Refund"
 msgstr "Korrektur-Rechnung"
 
 #. module: equitania
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 msgid "Supplier Refund"
 msgstr "Liefer-Gutschrift"
 
 #. module: equitania
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 msgid "Supplier Invoice"
 msgstr "Liefer-Rechnung"
 
 #. module: equitania
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 msgid "Delivery No."
 msgstr "Lieferscheinnr."
 
@@ -2034,7 +2034,7 @@ msgstr "Bezeichnung"
 
 #. module: equitania
 #: view:website:sale.report_saleorder_document
-#: view:website:account.report_invoice_document
+#: view:website:equitania..report_invoice_data
 msgid "Gross price"
 msgstr "Bruttopreis"
 
