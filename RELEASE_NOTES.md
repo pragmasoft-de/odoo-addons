@@ -1,4 +1,15 @@
 ### 18.01.2016
+### equitania, 1.0.121
+#### Erweiterung
+- Vorbereitung für neue Report-Header (invoice und saleorder umgestellt)
+
+### 18.01.2016
+### eq_quotation_enhancement, 1.0.10
+#### Änderung
+- ID Referenz aktualisiert
+
+
+### 18.01.2016
 ### equitania, 1.0.120
 #### Fix
 - Zugriffsrechte für die Preishistorie hinzugefügt.

@@ -36,7 +36,7 @@
 		<xpath expr="//div[@t-if='o.validity_date']" position="replace"/>
 	</template>
 	
-	<template id="add_saleorder_validity_date" inherit_id="equitania.eq_external_layout_header_sale_order">
+	<template id="add_saleorder_validity_date" inherit_id="equitania.eq_external_layout_header_sale_order_data">
 		<xpath expr="//td[@id='sale_header_placeholder']" position="replace">
 			<td t-if="o.validity_date and o.state in ['draft','sent']">
 				<span>Expiry Date</span>
