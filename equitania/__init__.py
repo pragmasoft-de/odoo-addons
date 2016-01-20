@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-# import models
+import models
 import wizard
 import eq_install_func
 import eq_address_extension
