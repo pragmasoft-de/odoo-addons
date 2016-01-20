@@ -1,4 +1,9 @@
 ### 20.1.2016
+### equitania, 1.0.145
+#### Feature
+- changes for security/ir.model.access.csv,security/menuitems_managed_admin.xml
+
+### 20.1.2016
 ### equitania, 1.0.144
 #### Feature
 - changes for models/eq_purchase.py
