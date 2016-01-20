@@ -1,4 +1,9 @@
 ### 20.1.2016
+### equitania, 1.0.146
+#### Feature
+- changes for eq_open_sale_order_line.py and eq_open_sale_order_line_view.xml
+
+### 20.1.2016
 ### equitania, 1.0.145
 #### Feature
 - changes for security/ir.model.access.csv,security/menuitems_managed_admin.xml

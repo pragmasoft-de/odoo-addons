@@ -31,7 +31,7 @@ import eq_sale_order_seq
 import eq_partner_extension
 import eq_report_extension
 import eq_lead_referred
-# import eq_open_sale_order_line
+import eq_open_sale_order_line
 import res_groups
 import stock
 import sale
