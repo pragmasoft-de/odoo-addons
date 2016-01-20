@@ -1,4 +1,12 @@
 ### 19.01.2016
+### equitania, 1.0.121
+#### Änderung
+- Die Beschränkung der Liefer- und Rechnugnsadresse ins equitania_limit_address_sale Modul ausgelagert und über die Einstellungen installierbar gemacht.
+### equitania_limit_address_sale, 1.0.0
+#### Neu
+- Beschränkt die Liefer- und Rechnungsadresse bei Angeboten und Aufträgen auf die Unteradressen der Hauptadresse.
+
+### 19.01.2016
 ### equitania, 1.0.120
 #### Erweiterung
 - Suche nach "Vermittelt durch" in die Interessenten und Chancen eingefügt..

@@ -280,4 +280,5 @@ class eq_sale_configuration_address(osv.TransientModel):
                 'default_show_address': fields.boolean('Show street and city in the partner search of the Sale and Purchase Order [equitania]', help="This adds the street and the city to the results of the partner search of the Sale and Purchase Order."),
                 'default_search_only_company': fields.boolean('Only Search for Companies [equitania]', help="Only Companies will be shown in the Customer search of the Sale and Purchase Order."),
                 'group_product_rrp': fields.boolean('Show RRP for products [equitania]', implied_group='equitania.group_product_rrp'),
+                'module_equitania_limit_address_sale': fields.boolean('Limit the invoice and supplier address [equitania]', help="Limit the invoice and supplier address to the children of the parent address.")
                 }

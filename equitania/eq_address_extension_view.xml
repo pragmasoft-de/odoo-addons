@@ -74,7 +74,7 @@
                 
                 <!-- invoice address -->               
             	<xpath expr="//field[@name='partner_invoice_id']" position="attributes">
-            		<attribute name="domain">['|', ('id', '=', partner_id), ('parent_id', '=', partner_id)]</attribute>
+            		<!-- <attribute name="domain">['|', ('id', '=', partner_id), ('parent_id', '=', partner_id)]</attribute> -->
                     <attribute name="context">{'search_default_customer':1, 'show_address': 0,'active_model':'sale.order'}</attribute>
             	</xpath>
             	<xpath expr="//field[@name='partner_invoice_id']" position="after">
@@ -83,7 +83,7 @@
             	            	
             	<!-- shipping address -->
             	<xpath expr="//field[@name='partner_shipping_id']" position="attributes">
-            		<attribute name="domain">['|', ('id', '=', partner_id), ('parent_id', '=', partner_id)]</attribute>
+            		<!-- <attribute name="domain">['|', ('id', '=', partner_id), ('parent_id', '=', partner_id)]</attribute> -->
                     <attribute name="context">{'search_default_customer':1, 'show_address': 0,'active_model':'sale.order'}</attribute>
             	</xpath>            	           
             	<xpath expr="//field[@name='partner_shipping_id']" position="after">
@@ -168,6 +168,10 @@
 		            	<div>
 		                    <field name="default_search_only_company" class="oe_inline"/>
 		                	<label for="default_search_only_company" string="Only search for Companies in the Sale Order/Quotation [equitania]"/>
+		            	</div>
+		            	<div>
+		                    <field name="module_equitania_limit_address_sale" class="oe_inline"/>
+		                	<label for="module_equitania_limit_address_sale"/>
 		            	</div>
 	                    <div>
 	                        <field name="group_product_rrp"/>
