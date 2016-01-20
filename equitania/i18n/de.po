@@ -662,6 +662,7 @@ msgstr "Position"
 
 #. module: equitania
 #: view:website:equitania.eq_report_stockpicking_return
+#: view:website:stock.report_picking
 msgid "Item description"
 msgstr "Beschreibung"
 
@@ -2457,3 +2458,8 @@ msgstr "Die Rechnungs- und Lieferadresse beschränken [equitania]"
 #: help:sale.config.settings,module_equitania_limit_address_sale:0
 msgid "Limit the invoice and supplier address to the children of the parent address."
 msgstr "Hierdurch wird bei der Anfrage und Bestellung die Rechnungs- und Lieferadresse auf die Unteradressen der Hauptadresse beschränkt."
+
+#. module: stock
+#: model:ir.actions.report.xml,name:stock.action_report_picking view:stock.move:stock.view_move_search field:stock.transfer_details,picking_id:0
+msgid "Picking"
+msgstr "Kommissionierung/Lieferschein"

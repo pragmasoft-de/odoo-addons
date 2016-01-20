@@ -1,3 +1,8 @@
+### 20.01.2016
+### equitania, 1.0.122
+#### Änderung
+- Änderung der Lokalisierung von Lieferschein
+
 ### 19.01.2016
 ### equitania, 1.0.121
 #### Änderung
