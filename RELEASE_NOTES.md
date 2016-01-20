@@ -1,4 +1,9 @@
 ### 20.1.2016
+### equitania, 1.0.143
+#### Feature
+- changes for data/sale_layout_category_data.xml,data/decimal_precision.xml
+
+### 20.1.2016
 ### equitania, 1.0.142
 #### Feature
 - changes for sale_layout and its corresponding views
