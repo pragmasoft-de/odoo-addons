@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <!-- Sale order form -->
-        <record model="ir.ui.view" id="view_order_form_inherit_1">
+        <!-- Sale order form --> <!-- Error : View inheritance may not use attribute 'string' as a selector. -->
+        <!-- <record model="ir.ui.view" id="view_order_form_inherit_1">
             <field name="name">sale.order.form.inherit_1</field>
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
@@ -16,10 +16,10 @@
                     </xpath>
                 </data>
             </field>
-        </record>
+        </record> -->
 
-        <!-- Invoice form -->
-        <record model="ir.ui.view" id="view_invoice_form_inherit_1">
+        <!-- Invoice form --> <!-- Error : View inheritance may not use attribute 'string' as a selector. -->
+        <!-- <record model="ir.ui.view" id="view_invoice_form_inherit_1">
              <field name="name">account.invoice.form.inherit_1</field>
              <field name="model">account.invoice</field>
              <field name="inherit_id" ref="account.invoice_form"/>
@@ -31,7 +31,7 @@
 
                  </data>
              </field>
-         </record>
+         </record> -->
 
         <record model="ir.ui.view" id="view_invoice_line_form_inherit_2">
             <field name="name">account.invoice.line.form.inherit_2</field>
@@ -99,13 +99,14 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem 
+		<!-- Error : External ID not found in the system: base.menu_base_config -->
+       <!--  <menuitem 
             action="report_configuration_action" 
             id="Report_configuration" 
             parent="base.menu_base_config" 
             sequence="25" 
             name="Report Layout Categories" 
             groups="base.group_sale_manager,base.group_sale_salesman,account.group_account_manager,account.group_account_user"
-        />
+        /> -->
     </data>
 </openerp>

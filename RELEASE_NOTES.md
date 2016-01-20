@@ -1,3 +1,8 @@
+### 20.1.2016
+### equitania, 1.0.142
+#### Feature
+- changes for sale_layout and its corresponding views
+
 ### 19.1.2016
 ### equitania, 1.0.141
 #### Feature
