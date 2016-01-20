@@ -1,4 +1,9 @@
 ### 20.1.2016
+### equitania, 1.0.149
+#### Feature
+- changes for eq_custom_ref_view.xml
+
+### 20.1.2016
 ### equitania, 1.0.148
 #### Feature
 - changes for eq_reports_view.xml

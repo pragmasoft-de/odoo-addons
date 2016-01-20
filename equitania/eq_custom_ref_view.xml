@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-		<!-- Pricelist Item Form -->
-        <record id="eq_product_pricelist_item_form_view" model="ir.ui.view">
+		<!-- Pricelist Item Form --> <!-- Error : <field name="sequence">' cannot be located in parent view -->
+       <!--  <record id="eq_product_pricelist_item_form_view" model="ir.ui.view">
             <field name="name">eq_product_pricelist_item_form_view</field>
             <field name="model">product.pricelist.item</field>
             <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
@@ -10,14 +10,14 @@
             	<field name="sequence" position="after">
             		<field name="price_version_id"/>
             	</field>            	
-            	<!-- 
+            	
             	<xpath expr="//label[@for='name']" position="before">
             		<button name="set_defaults" type="object" string='Set defaults' class="oe_edit_only"/>
             		<br/>
             	</xpath>
-            	 -->            	   
+            	            	   
             </field>
-        </record>         
+        </record>     -->     
          
 	    <!-- Pricelist Items Tree View -->
         <record id="eq_framework_agreement_tree_view" model="ir.ui.view">
@@ -33,7 +33,8 @@
                     <field name="min_quantity"/>
                     <field name="price_surcharge" string="Price"/>
                     <field name="base"/>
-                    <field name="price_version_id"/>                    
+                    <!-- <field name="price_version_id"/> --> <!-- Error : Field `price_version_id` does not exist -->
+                    
                 </tree>                               
             </field>
         </record>
@@ -109,30 +110,27 @@
 					</div>
                 </xpath>
                 
-                <!-- remove state dropdownlist -->
-                <xpath expr="//field[@name='state']" position="replace">
-                </xpath>
+                <!-- remove state dropdownlist --> <!-- Error: cannot be located in parent view -->
+                <!-- <xpath expr="//field[@name='state']" position="replace">
+                </xpath> -->
                 
-                <label for="purchase_ok" position="after">
+                <!-- Error: cannot be located in parent view -->
+                <!-- <label for="purchase_ok" position="after">
                 	<div>
-                		<!-- we don't need it anymore 
-	                	<label for="eq_state_dup" string="State"/>
-						<field name="eq_state_dup"/>
-						 -->
-						 
-						 <!-- add state -->
+
+
 						<label for="state" string="State"/>
 						<field name="state"/>
 					</div>
-                </label>
+                </label> -->
                               
                 <!-- remove category dropdownlist -->
                 <xpath expr="//field[@name='categ_id']" position="replace">
                 </xpath>
                 
-                <!-- remove label for category dropdownlist -->
-                <xpath expr="//label[@for='categ_id']" position="replace">
-                </xpath>
+                <!-- remove label for category dropdownlist --> <!-- Error: cannot be located in parent view -->
+             <!--    <xpath expr="//label[@for='categ_id']" position="replace">
+                </xpath> -->
                 
                 <!-- append category dropdownlist on first tab -->
                 <xpath expr="//field[@name='list_price']" position="after">
@@ -142,8 +140,8 @@
                 	<div><field name="categ_id" colspan="3" nolabel="1"/></div>
                 </xpath>
                 
-                <!-- add button for the pricelist items -->
-                <xpath expr="//div[@name='buttons']" position="inside">
+                <!-- add button for the pricelist items --> <!-- Error: cannot be located in parent view -->
+               <!--  <xpath expr="//div[@name='buttons']" position="inside">
                    	<button class="oe_stat_button"
                             name="%(action_eq_open_pricelist_item_tree_product_template)d"
                             icon="fa-strikethrough"
@@ -162,7 +160,7 @@
                             type="object" attrs="{'invisible':[('purchase_ok', '!=', True)]}">
                   		<div><strong><field name="eq_invoice_count_in"/></strong><br/>Invoice In</div>
                    	</button>
-                </xpath>
+                </xpath> -->
             </field>
         </record>  
         
@@ -175,13 +173,14 @@
                 <field name="name" position="replace">
                    <field name="name" string="Product" filter_domain="['|',('default_code','ilike',self),('name','ilike',self)]"/>
                    <field name="name" string="Name"/>
-                </field>            	
-            	<field name="product_variant_ids" position="after">
+                </field>  
+               <!--  Error : cannot be located in parent view -->
+            	<!-- <field name="product_variant_ids" position="after">
             		<field name="default_code"/>
             		<field name="eq_drawing_number"/>
             		<field name="eq_internal_number"/>
             		<field name="eq_index"/>
-            	</field>
+            	</field> -->
             </field>
         </record>
         
@@ -205,8 +204,8 @@
             </field>
         </record>
         
-        <!-- product_template - kanban view -->
-        <record id="eq_product_template_kanban_view" model="ir.ui.view">
+        <!-- product_template - kanban view --> <!-- Error :cannot be located in parent view -->
+        <!--<record id="eq_product_template_kanban_view" model="ir.ui.view">
             <field name="name">eq.product.template.kanban.view</field>
             <field name="model">product.template</field>
             <field name="inherit_id" ref="product.product_template_kanban_view" />
@@ -215,7 +214,7 @@
             		<field name="default_code"/>
             	</xpath>
             </field>
-        </record>
+        </record> -->
         
                 
         <!-- Product Product - form view -->
@@ -245,33 +244,31 @@
 					</div>
                 </xpath>
                                 
-                <!-- remove state dropdownlist -->
-                <xpath expr="//field[@name='state']" position="replace">
-                </xpath>
+                <!-- remove state dropdownlist --> <!-- Error:cannot be located in parent view -->
+               <!--  <xpath expr="//field[@name='state']" position="replace">
+                </xpath> -->
 
-                <label for="purchase_ok" position="after">
+				<!-- Error: cannot be located in parent view -->
+               <!--  <label for="purchase_ok" position="after"> 
                 	<div>
-                		<!-- we don't need it anymore 
-	                	<label for="eq_state_dup" string="State"/>
-						<field name="eq_state_dup"/>
-						 -->
+
 						 
-						 <!-- add state -->
+
 						<label for="state" string="State"/>
 						<field name="state"/>						
-						<!-- 
+						
 						<div><field name="categ_id" colspan="3" nolabel="1"/></div>
-						 -->
+						
 					</div>
-                </label>
+                </label> -->
                                 
-                <!-- remove category dropdownlist -->
-                <xpath expr="//field[@name='categ_id']" position="replace">
-                </xpath>
+                <!-- remove category dropdownlist --> <!-- Error:  cannot be located in parent view -->
+<!--                 <xpath expr="//field[@name='categ_id']" position="replace">
+                </xpath> -->
                 
-                <!-- remove label for category dropdownlist -->
-                <xpath expr="//label[@for='categ_id']" position="replace">
-                </xpath>
+                <!-- remove label for category dropdownlist --><!-- Error:  cannot be located in parent view -->
+<!--                 <xpath expr="//label[@for='categ_id']" position="replace">
+                </xpath> -->
                 
                 <!-- append category dropdownlist on first tab -->
                 <xpath expr="//field[@name='lst_price']" position="after">
@@ -281,8 +278,8 @@
                 	<div><field name="categ_id" colspan="3" nolabel="1"/></div>
                 </xpath>
                 
-                <!-- add button for the pricelist items -->
-                <xpath expr="//div[@name='buttons']" position="inside">
+                <!-- add button for the pricelist items --> <!-- Error:cannot be located in parent view -->
+               <!--  <xpath expr="//div[@name='buttons']" position="inside">
                    	<button class="oe_stat_button"
                             name="%(action_eq_open_pricelist_item_tree_product_product)d"
                             icon="fa-strikethrough"
@@ -301,7 +298,7 @@
                             type="object" attrs="{'invisible':[('purchase_ok', '!=', True)]}">
                   		<div><strong><field name="eq_invoice_count_in"/></strong><br/>Invoice In</div>
                    	</button>
-                </xpath>
+                </xpath> -->
             </field>
         </record>
         
@@ -356,8 +353,8 @@
         
     </data>
     
-    <data noupdate="1">
-        <!-- Creditor Sequence -->
+    <!-- Error: ParseError -->
+    <!-- <data noupdate="1">
         <record id="eq_seq_creditor_ref" model="ir.sequence.type">
             <field name="name">Creditor Number</field>
             <field name="code">eq_creditor_ref</field>
@@ -370,7 +367,7 @@
             <field eval="1" name="number_increment"/>
         </record>
 
-        <!-- Customer Sequence -->
+
         <record id="eq_seq_customer_ref" model="ir.sequence.type">
             <field name="name">Customer Number</field>
             <field name="code">eq_customer_ref</field>
@@ -381,6 +378,6 @@
             <field name="number_next">10001</field>
             <field name="padding">5</field>
             <field eval="1" name="number_increment"/>
-        </record>
-    </data>
+        </record> 
+    </data> -->
 </openerp>
