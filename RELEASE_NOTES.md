@@ -1,4 +1,9 @@
 ### 21.1.2016
+### equitania, 1.0.153
+#### FIX
+- changes for stock.picking object
+
+### 21.1.2016
 ### equitania, 1.0.152
 #### FIX
 - changes for purchase.config.settings object

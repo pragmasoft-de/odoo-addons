@@ -47,3 +47,4 @@ import eq_clean_data
 import res_partner_old
 import eq_email
 import res_users_old
+import stock_old
