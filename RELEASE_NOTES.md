@@ -1,3 +1,8 @@
+### 21.01.2016
+### equitania, 1.0.124
+#### Fix
+- Übersetzungsfehler (ID für Templates) korrigiert
+
 ### 20.01.2016
 ### equitania, 1.0.123
 #### Erweiterung
