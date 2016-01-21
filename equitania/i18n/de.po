@@ -2095,6 +2095,12 @@ msgid "Show Procurements Tab in Products"
 msgstr "Reiter 'Beschaffung' im Produkt anzeigen"
 
 
+#. module: equitania
+#: model:res.groups,name:equitania.supplier_in_account
+msgid "Show Supplier Menu in Accounting"
+msgstr "Bereich 'Lieferanten' in Finanzen anzeigen"
+
+
 
 
 #. module: portal_sale

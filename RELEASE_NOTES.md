@@ -1,4 +1,7 @@
 ### 20.01.2016
+### equitania, 1.0.123
+#### Erweiterung
+- Der Menüpunkt "Lieferanten" ist nur für die neu erstellte Gruppe "Bereich 'Lieferanten' in Finanzen anzeigen" sichtbar. Standardmäßig für alle Benutzer aktiviert.
 ### equitania, 1.0.122
 #### Änderung
 - Änderung der Lokalisierung von Lieferschein

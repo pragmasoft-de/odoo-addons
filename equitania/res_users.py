@@ -30,8 +30,10 @@ class eq_res_users(osv.osv):
         dataobj = self.pool.get('ir.model.data')
         result = super(eq_res_users, self)._get_group(cr, uid, context=context)
         try:
-            dummy,group_id = dataobj.get_object_reference(cr, SUPERUSER_ID, 'equitania', 'purchase_in_products')
-            result.append(group_id)
+            dummy,group_purchase_id = dataobj.get_object_reference(cr, SUPERUSER_ID, 'equitania', 'purchase_in_products')
+            dummy,group_supplier_id = dataobj.get_object_reference(cr, SUPERUSER_ID, 'equitania', 'supplier_in_account')
+            result.append(group_purchase_id)
+            result.append(group_supplier_id)
         except ValueError:
             # If these groups does not exists anymore
             pass
