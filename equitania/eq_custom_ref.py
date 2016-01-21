@@ -73,49 +73,50 @@ class eq_product_pricelist_item(osv.osv):
 eq_product_pricelist_item()
 
 
-class eq_custom_ref(osv.osv):
-    _name = 'res.partner'
-    _inherit = 'res.partner'
-    _columns = {
-        'eq_creditor_ref': fields.char('Supplier Number', size=64),
-        'eq_customer_ref': fields.char('Customer Number', size=64)
-    }
-
-    def eq_creditor_update(self, cr, uid, ids, context=None):
-        #Gets the Partner
-        partner = self.pool.get('res.partner').browse(cr, uid, ids, context=context)
-
-        #If the field isn't filled, it should do this
-        if not partner[0].eq_creditor_ref:
-            #Gets the sequence and sets it in the apropriate field
-            vals = {
-                'eq_creditor_ref': self.pool.get('ir.sequence').get(cr, uid, 'eq_creditor_ref')
-            }
-
-            super(eq_custom_ref, self).write(cr, uid, ids, vals, context=context)
-
-
-    def eq_customer_update(self, cr, uid, ids, context=None):
-        #Gets the Partner
-        partner = self.pool.get('res.partner').browse(cr, uid, ids, context=context)
-
-        #If the field isn't filled, it should do this
-        if not partner[0].eq_customer_ref:
-                #Gets the sequence and sets it in the apropriate field
-                ref = self.pool.get('ir.sequence').get(cr, uid, 'eq_customer_ref')
-                vals = {
-                    'eq_customer_ref': ref,
-                    'ref': ref,
-                }
-
-                super(eq_custom_ref, self).write(cr, uid, ids, vals, context=context)
-    
-    def on_change_customer_ref(self, cr, uid, ids, eq_customer_ref, context=None):
-        vals = {}
-        vals['ref'] = eq_customer_ref
-        return {'value': vals}
-
-eq_custom_ref()
+""" added this functionality on res_partner_old.py """
+# class eq_custom_ref(osv.osv):
+#     _name = 'res.partner'
+#     _inherit = 'res.partner'
+#     _columns = {
+#         'eq_creditor_ref': fields.char('Supplier Number', size=64),
+#         'eq_customer_ref': fields.char('Customer Number', size=64)
+#     }
+# 
+#     def eq_creditor_update(self, cr, uid, ids, context=None):
+#         #Gets the Partner
+#         partner = self.pool.get('res.partner').browse(cr, uid, ids, context=context)
+# 
+#         #If the field isn't filled, it should do this
+#         if not partner[0].eq_creditor_ref:
+#             #Gets the sequence and sets it in the apropriate field
+#             vals = {
+#                 'eq_creditor_ref': self.pool.get('ir.sequence').get(cr, uid, 'eq_creditor_ref')
+#             }
+# 
+#             super(eq_custom_ref, self).write(cr, uid, ids, vals, context=context)
+# 
+# 
+#     def eq_customer_update(self, cr, uid, ids, context=None):
+#         #Gets the Partner
+#         partner = self.pool.get('res.partner').browse(cr, uid, ids, context=context)
+# 
+#         #If the field isn't filled, it should do this
+#         if not partner[0].eq_customer_ref:
+#                 #Gets the sequence and sets it in the apropriate field
+#                 ref = self.pool.get('ir.sequence').get(cr, uid, 'eq_customer_ref')
+#                 vals = {
+#                     'eq_customer_ref': ref,
+#                     'ref': ref,
+#                 }
+# 
+#                 super(eq_custom_ref, self).write(cr, uid, ids, vals, context=context)
+#     
+#     def on_change_customer_ref(self, cr, uid, ids, eq_customer_ref, context=None):
+#         vals = {}
+#         vals['ref'] = eq_customer_ref
+#         return {'value': vals}
+# 
+# eq_custom_ref()
 
 class eq_product_template(osv.osv):
     _name = 'product.template'

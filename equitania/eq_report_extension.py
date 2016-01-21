@@ -625,25 +625,26 @@ class eq_stock_move_extension(osv.osv):
         if done_picking:
             picking_obj.write(cr, uid, done_picking, {'date_done': time.strftime(DEFAULT_SERVER_DATETIME_FORMAT)}, context=context)
         return True
-    
-class eq_compatibility_equitania_inox(osv.osv):
-    _inherit = 'res.partner'
-    _name = _inherit
-    
-    def _show_deb_cred_number(self, cr, uid, ids, name, arg, context={}):
-        result = {}
-        for partner in self.browse(cr, uid, ids, context):
-            deb_cred = False
-            if partner.eq_customer_ref != 'False' and partner.eq_customer_ref and partner.eq_creditor_ref != 'False' and partner.eq_creditor_ref:
-                deb_cred = partner.eq_customer_ref + ' / ' + partner.eq_creditor_ref
-            elif partner.eq_customer_ref != 'False' and partner.eq_customer_ref:
-                deb_cred = partner.eq_customer_ref
-            elif partner.eq_creditor_ref != 'False' and partner.eq_creditor_ref:
-                deb_cred = partner.eq_creditor_ref
-            result[partner.id] = deb_cred
-            
-        return result
-        
-    _columns = {
-                'eq_deb_cred_number': fields.function(_show_deb_cred_number, type='char', store=False)
-                }
+
+""" added this functionality on res_partner_old.py """    
+# class eq_compatibility_equitania_inox(osv.osv):
+#     _inherit = 'res.partner'
+#     _name = _inherit
+#     
+#     def _show_deb_cred_number(self, cr, uid, ids, name, arg, context={}):
+#         result = {}
+#         for partner in self.browse(cr, uid, ids, context):
+#             deb_cred = False
+#             if partner.eq_customer_ref != 'False' and partner.eq_customer_ref and partner.eq_creditor_ref != 'False' and partner.eq_creditor_ref:
+#                 deb_cred = partner.eq_customer_ref + ' / ' + partner.eq_creditor_ref
+#             elif partner.eq_customer_ref != 'False' and partner.eq_customer_ref:
+#                 deb_cred = partner.eq_customer_ref
+#             elif partner.eq_creditor_ref != 'False' and partner.eq_creditor_ref:
+#                 deb_cred = partner.eq_creditor_ref
+#             result[partner.id] = deb_cred
+#             
+#         return result
+#         
+#     _columns = {
+#                 'eq_deb_cred_number': fields.function(_show_deb_cred_number, type='char', store=False)
+#                 }

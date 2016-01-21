@@ -56,6 +56,21 @@ class eq_partner_extension(osv.osv):
         context.pop('show_email', None)
         return dict(self.name_get(cr, uid, ids, context=context))
     
+    """ added the method from eq_report_extension.py """
+    def _show_deb_cred_number(self, cr, uid, ids, name, arg, context={}):
+        result = {}
+        for partner in self.browse(cr, uid, ids, context):
+            deb_cred = False
+            if partner.eq_customer_ref != 'False' and partner.eq_customer_ref and partner.eq_creditor_ref != 'False' and partner.eq_creditor_ref:
+                deb_cred = partner.eq_customer_ref + ' / ' + partner.eq_creditor_ref
+            elif partner.eq_customer_ref != 'False' and partner.eq_customer_ref:
+                deb_cred = partner.eq_customer_ref
+            elif partner.eq_creditor_ref != 'False' and partner.eq_creditor_ref:
+                deb_cred = partner.eq_creditor_ref
+            result[partner.id] = deb_cred
+            
+        return result
+    
     _display_name = lambda self, *args, **kwargs: self._display_name_compute(*args, **kwargs)
     
     _display_name_store_triggers = {
@@ -81,8 +96,49 @@ class eq_partner_extension(osv.osv):
         'eq_house_no': fields.char('House number'),
         'eq_name2': fields.char('Name2'),
         'eq_letter_salutation': fields.char('Salutation'),
+        'eq_creditor_ref': fields.char('Supplier Number', size=64), # added the field from eq_custom_ref.py
+        'eq_customer_ref': fields.char('Customer Number', size=64), # added the field from eq_custom_ref.py
+        'eq_deb_cred_number': fields.function(_show_deb_cred_number, type='char', store=False) # added the field from eq_report_extension.py
         }
     
     _defaults = {
                 'user_id': lambda self, cr, uid, context: uid if self.pool.get('ir.values').get_default(cr, uid, 'res.partner', 'default_creator_saleperson') else False,
                 }
+    
+    
+    """ added the method from eq_custom_ref.py """
+    def eq_creditor_update(self, cr, uid, ids, context=None):
+        #Gets the Partner
+        partner = self.pool.get('res.partner').browse(cr, uid, ids, context=context)
+
+        #If the field isn't filled, it should do this
+        if not partner[0].eq_creditor_ref:
+            #Gets the sequence and sets it in the apropriate field
+            vals = {
+                'eq_creditor_ref': self.pool.get('ir.sequence').get(cr, uid, 'eq_creditor_ref')
+            }
+
+            super(eq_custom_ref, self).write(cr, uid, ids, vals, context=context)
+
+    """ added the method from eq_custom_ref.py """
+    def eq_customer_update(self, cr, uid, ids, context=None):
+        #Gets the Partner
+        partner = self.pool.get('res.partner').browse(cr, uid, ids, context=context)
+
+        #If the field isn't filled, it should do this
+        if not partner[0].eq_customer_ref:
+                #Gets the sequence and sets it in the apropriate field
+                ref = self.pool.get('ir.sequence').get(cr, uid, 'eq_customer_ref')
+                vals = {
+                    'eq_customer_ref': ref,
+                    'ref': ref,
+                }
+
+                super(eq_custom_ref, self).write(cr, uid, ids, vals, context=context)
+    
+    """ added the method from eq_custom_ref.py """
+    def on_change_customer_ref(self, cr, uid, ids, eq_customer_ref, context=None):
+        vals = {}
+        vals['ref'] = eq_customer_ref
+        return {'value': vals}
+    

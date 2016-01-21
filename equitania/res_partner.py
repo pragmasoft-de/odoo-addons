@@ -102,6 +102,8 @@ class res_partner(models.Model):
     eq_prospective_customer = fields.Boolean(string="Prospective user",required=False, default=False)
     eq_unlocked_for_webshop = fields.Boolean(string="Unlocked for webshop",required=False, default=False)
     
+    eq_lead_referred_id = fields.Many2one('eq.lead.referred', 'Referred By') # field extended from eq_lead_referred.py
+    eq_foreign_ref = fields.Char('Foreign reference') # field extended from eq_foreign_ref.py
     
     @api.one
     @api.depends('name', 'eq_firstname')
@@ -121,3 +123,91 @@ class res_partner(models.Model):
                 record.eq_complete_description = result  
             else:
                 record.eq_complete_description = record.name
+                
+                
+    """ method extended from  eq_lead_referred.py  """    
+    @api.multi
+    def write(self, vals):                
+        """
+            Override of write function - save customer flag also for each contact
+            @vals: values to be set
+            @return: super call            
+        """
+        res_partner_obj = self.env['res.partner'].sudo()
+        
+        if "customer" in vals:            
+            res_partners = res_partner_obj.search([('parent_id', '=', self._ids[0])])
+            if res_partners:
+                for partner in res_partners:
+                    partner.customer = vals["customer"]            
+                        
+        return super(eq_res_partner_ref, self).write(vals)
+    
+    
+    """ method extended from eq_address_extension_new_api.py """
+    @api.model
+    def name_search(self, name, args=None, operator='ilike', limit=100):
+        
+        ir_values_obj = self.env['ir.values']
+        
+        args = args or []
+        if name:
+            # Be sure name_search is symetric to name_get
+            name = name.split(' / ')[-1]
+            args = ['|','|',('name', operator, name),('eq_customer_ref', 'ilike', name),('eq_creditor_ref', 'ilike', name)] + args
+        if ir_values_obj.get_default('sale.order', 'default_search_only_company'):
+            if self.env.context.has_key('main_address'):
+                args += [('is_company', '=', True)]
+            elif self.env.context.has_key('default_type'):
+                if self.env.context['default_type'] in ['delivery', 'invoice']:
+                    args += [('type', '!=', 'contact')]
+        elif self.env.context.get('active_model', False) == 'sale.order':
+            args = [x for x in args if 'is_company' not in x]
+        categories = self.search(args, limit=limit)
+        res = categories.name_get()
+        
+        if self.env.context is None:
+            self.env.context = {}
+        if self.env.context.has_key('active_model'):
+            partner_ids = [r[0] for r in res]
+            new_res = []
+            
+            show_address = ir_values_obj.get_default('sale.order', 'default_show_address')
+
+            for partner_id in self.browse(partner_ids):
+                #Company name
+                company_name = partner_id.parent_id and partner_id.parent_id.name + ' ; ' or ''
+                #Street City
+                street = partner_id.street if partner_id.street else ''
+                city = partner_id.city if partner_id.city else ''
+                #customer/creditor number
+                deb_num = ''
+                if partner_id.eq_customer_ref != 'False' and partner_id.eq_customer_ref and partner_id.eq_creditor_ref != 'False' and partner_id.eq_creditor_ref:
+                    deb_num = '[' + partner_id.eq_customer_ref + '/' + partner_id.eq_creditor_ref + '] '
+                elif partner_id.eq_customer_ref != 'False' and partner_id.eq_customer_ref:
+                    deb_num = '[' + partner_id.eq_customer_ref + '] '
+                elif partner_id.eq_creditor_ref != 'False' and partner_id.eq_creditor_ref:
+                    deb_num = '[' + partner_id.eq_creditor_ref + '] '
+                if partner_id.is_company:
+                    if show_address:
+                        new_res.append((partner_id.id, deb_num + company_name + partner_id.name + ' / ' + _('Company') + ' // ' + street + ', ' + city))
+                    else:
+                        new_res.append((partner_id.id, deb_num + company_name + partner_id.name + ' / ' + _('Company')))
+                else:
+                    type = partner_id.type
+                    if partner_id.type == 'contact':
+                        type = _('contact')
+                    elif partner_id.type == 'invoice':
+                        type = _('invoice')
+                    elif partner_id.type == 'delivery':
+                        type = _('delivery')
+                    elif partner_id.type == 'default':
+                        type = _('default')
+                    elif partner_id.type == 'other':
+                        type = _('other')
+                    if show_address:
+                        new_res.append((partner_id.id, "%s %s %s %s" % ( deb_num + company_name, (partner_id.title.name if partner_id.title else ''), (partner_id.eq_firstname if partner_id.eq_firstname else ''), partner_id.name + ' / ' + type + ' // ' + street + ', ' + city)))
+                    else:
+                        new_res.append((partner_id.id, "%s %s %s %s" % ( deb_num + company_name, (partner_id.title.name if partner_id.title else ''), (partner_id.eq_firstname if partner_id.eq_firstname else ''), partner_id.name + ' / ' + type)))
+            return new_res
+        return res 

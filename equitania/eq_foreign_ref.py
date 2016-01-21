@@ -22,11 +22,11 @@
 from openerp import models, fields, api, _
 from openerp.osv import osv
 
-
-class eq_foreign_ref(models.Model):
-    _inherit = 'res.partner'
-    
-    eq_foreign_ref = fields.Char('Foreign reference')
+""" added this function on res.partner.py """
+# class eq_foreign_ref(models.Model):
+#     _inherit = 'res.partner'
+#     
+#     eq_foreign_ref = fields.Char('Foreign reference')
 
         
 

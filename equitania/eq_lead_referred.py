@@ -43,29 +43,30 @@ class eq_lead_referred(models.Model):
     eq_description  = fields.Char('Description')
 
 
-class eq_res_partner_ref(models.Model):
-    """
-        Extend version of res.partner with small modification of write.
-        Our goal is to schow dropdownlist with "Referred by" only if customer flag is TRUE
-    """
-    
-    _inherit = 'res.partner'
-    
-    eq_lead_referred_id = fields.Many2one('eq.lead.referred', 'Referred By')
-    
-    @api.multi
-    def write(self, vals):                
-        """
-            Override of write function - save customer flag also for each contact
-            @vals: values to be set
-            @return: super call            
-        """
-        res_partner_obj = self.env['res.partner'].sudo()
-        
-        if "customer" in vals:            
-            res_partners = res_partner_obj.search([('parent_id', '=', self._ids[0])])
-            if res_partners:
-                for partner in res_partners:
-                    partner.customer = vals["customer"]            
-                        
-        return super(eq_res_partner_ref, self).write(vals)    
+""" added this functionality on res_partner.py """
+# class eq_res_partner_ref(models.Model):
+#     """
+#         Extend version of res.partner with small modification of write.
+#         Our goal is to schow dropdownlist with "Referred by" only if customer flag is TRUE
+#     """
+#     
+#     _inherit = 'res.partner'
+#     
+#     eq_lead_referred_id = fields.Many2one('eq.lead.referred', 'Referred By')
+#     
+#     @api.multi
+#     def write(self, vals):                
+#         """
+#             Override of write function - save customer flag also for each contact
+#             @vals: values to be set
+#             @return: super call            
+#         """
+#         res_partner_obj = self.env['res.partner'].sudo()
+#         
+#         if "customer" in vals:            
+#             res_partners = res_partner_obj.search([('parent_id', '=', self._ids[0])])
+#             if res_partners:
+#                 for partner in res_partners:
+#                     partner.customer = vals["customer"]            
+#                         
+#         return super(eq_res_partner_ref, self).write(vals)    
