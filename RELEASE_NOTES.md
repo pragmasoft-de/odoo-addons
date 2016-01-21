@@ -1,11 +1,16 @@
 ### 21.1.2016
+### equitania, 1.0.152
+#### FIX
+- changes for purchase.config.settings object
+
+### 21.1.2016
 ### equitania, 1.0.151
-#### Feature
+#### FIX
 - changes for res.users object
 
 ### 21.1.2016
 ### equitania, 1.0.150
-#### Feature
+#### FIX
 - changes for res.partner object
 
 ### 20.1.2016

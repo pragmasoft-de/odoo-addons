@@ -38,10 +38,32 @@ class eq_purchase_config_settings(models.TransientModel):
         return {
                 'default_eq_filter_prod_sup': filter_prod_sup,
                 }
+        
+    """ added this functionality from eq_report_extension.py """    
+    @api.multi
+    def set_default_sale_settings_eq(self):
+        ir_values = self.env['ir.values']
+        config = self.browse(self.ids[0])
+        ir_values.set_default('purchase.order', 'show_delivery_date', config.default_show_delivery_date)
+        ir_values.set_default('purchase.order', 'use_calendar_week', config.default_use_calendar_week)
     
-    
+    """ added this functionality from eq_report_extension.py """
+    @api.multi
+    def get_default_use_sale_settings_eq(self):
+        ir_values = self.env['ir.values']
+        show_delivery_date = ir_values.get_default('purchase.order', 'show_delivery_date')
+        use_calendar_week = ir_values.get_default('purchase.order', 'use_calendar_week')
+        return {
+                'default_show_delivery_date': show_delivery_date,
+                'default_use_calendar_week': use_calendar_week,
+                }
+        
+        
     default_eq_filter_prod_sup = fields.Boolean('Only show Products of selected supplier [equitania]')
-
+    
+    # added these fields from eq_report_extension.py
+    default_show_delivery_date = fields.Boolean('Show the Delivery Date on the Purchase Order [equitania]', help='The delivery date will be shown in the Purchase Order', default_model='purchase.order')
+    default_use_calendar_week = fields.Boolean('Show Calendar Week for Delivery Date [equitania]', help='The delivery date will be shown as a calendar week ', default_model='purchase.order')
     
 
 class eq_stock_config_settings(models.TransientModel):
