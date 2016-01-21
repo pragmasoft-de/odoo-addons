@@ -22,14 +22,13 @@
 #from openerp.osv import fields, osv, orm
 from openerp import models, fields, api, _
 
-class eq_lead(models.Model):
-    """
-        Extended version of crm.lead class - we will save referred by information
-    """    
-    
-    _inherit = 'crm.lead'
-    
-    eq_lead_referred_id = fields.Many2one('eq.lead.referred', 'Referred By')
+""" added this functionality on crm.py """
+# class eq_lead(models.Model):
+# 
+#     
+#     _inherit = 'crm.lead'
+#     
+#     eq_lead_referred_id = fields.Many2one('eq.lead.referred', 'Referred By')
 
 
 class eq_lead_referred(models.Model):

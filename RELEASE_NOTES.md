@@ -1,4 +1,9 @@
 ### 21.1.2016
+### equitania, 1.0.155
+#### FIX
+-changes for crm.lead object
+
+### 21.1.2016
 ### equitania, 1.0.154
 #### FIX
 -changes for eq_company_custom_fields.py file
