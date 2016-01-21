@@ -26,75 +26,41 @@ from openerp import SUPERUSER_ID
 class eq_res_users(models.Model):
     _inherit = 'res.users'
 
-    @api.v7
-    def _get_group(self,cr, uid, context=None):
-        dataobj = self.pool.get('ir.model.data')
-        result = super(eq_res_users, self)._get_group(cr, uid, context=context)
-        try:
-            dummy,group_id = dataobj.get_object_reference(cr, SUPERUSER_ID, 'equitania', 'purchase_in_products')
-            result.append(group_id)
-        except ValueError:
-            # If these groups does not exists anymore
-            pass
-        return result
-    
     
     eq_employee_id = fields.Many2one('hr.employee', 'Employee', copy=False)
-                
+    eq_custom01 = fields.Char(size=64) # field added from eq_company_custom_fields.py            
 
-    _defaults = {
-        'groups_id': _get_group,
-    }
     
-    @api.v7
-    def write(self, cr, uid, ids, values, context={}):
-        if context == None:
-            context = {}
-            
-        if type(ids) is not list: ids = [ids]
-        
-        if 'eq_employee_id' in values and 'do_not_repeat' not in context:
-            emp_obj = self.pool.get('hr.employee')
-            if values['eq_employee_id']:
-                if values['eq_employee_id'] != self.browse(cr, uid, ids).eq_employee_id.id:
-                    #Removes the user from all employees, except the selected one
-                    user_ids_to_del = self.search(cr, SUPERUSER_ID, [('eq_employee_id', '=', values['eq_employee_id'])])
-                    print 'User user_ids_to_del', user_ids_to_del
-                    if len(user_ids_to_del) != 0:
-                        for user_id in user_ids_to_del:
-                            if user_id != ids:
-                                self.write(cr, SUPERUSER_ID, user_id, {'eq_employee_id': False})
-                    emp_ids_to_del = emp_obj.search(cr, uid, [('user_id', 'in', ids)])
-                    if len(emp_ids_to_del) != 0:
-                        emp_obj.write(cr, SUPERUSER_ID, emp_ids_to_del, {'user_id': False}, context={'do_not_repeat': True})
-                    #Sets the user_id in the employee
-                    for user_id in ids:
-                        emp_obj.write(cr, SUPERUSER_ID, values['eq_employee_id'], {'user_id': user_id}, context={'do_not_repeat': True})
-            else:
-                #Removes the user from all employees
-                emp_ids_to_del = emp_obj.search(cr, SUPERUSER_ID, [('user_id', 'in', ids)], context=context)
-                emp_obj.write(cr, SUPERUSER_ID, emp_ids_to_del, {'user_id': False}, context={'do_not_repeat': True})
+    """ added this functionality from eq_res_users_new_api.py """
+    @api.model    
+    def create(self, vals):
                 
-        res = super(eq_res_users, self).write(cr, uid, ids, values, context={})
-        
-        return res
-    
-    @api.v7
-    def create(self,cr, uid, values, context={}):     
-        if context == None:
-            context = {}
+        # default call - create new user and save automaticaly created new partner_id            
+        new_user =  super(eq_res_users_new_api, self).create(vals)
             
-        res = super(eq_res_users, self).create(cr, uid, values, context=context)
-        
-        if 'eq_employee_id' in values and 'do_not_repeat' not in context:
-            if values['eq_employee_id']:
-                emp_obj = self.pool.get('hr.employee')
-                #Removes the user from all employees, except the selected one.
-                user_ids_to_del = self.search(cr, SUPERUSER_ID, [('eq_employee_id', '=', values['eq_employee_id'])])
-                if len(user_ids_to_del) != 0:
-                    for user_id in user_ids_to_del:
-                        if user_id != res:
-                            self.write(cr, SUPERUSER_ID, user_id, {'eq_employee_id': False}, context=context)
-                #Sets the user_id in the employee. do_not_repeat in context so that the employee does not set the employee_id for the user.
-                emp_obj.write(cr, uid, values['eq_employee_id'], {'user_id': res}, context={'do_not_repeat': True})
-        return res
+        # check if we can find at least one record in res_partner with same email as user provided
+        if new_user.login : #fixed the issue for users
+            partner = self.env['res.partner'].search([('email', '=',new_user.login), ('customer', '=', True)])
+            #print "-------------- partner: ", partner
+            if len(partner) > 1:
+                #print "----- tuple -----"
+                existing_partner_id = partner[0].id
+            else:
+                #print "----- single ------"
+                existing_partner_id = partner.id
+                
+            #print "------- existing_partner_id: ", existing_partner_id
+                                                                    
+            new_generated_partner_id = new_user.partner_id.id
+            #print "------- new_generated_partner_id:", new_generated_partner_id
+            
+            # yes, we have an existing partner, so there's no need to use new created one. just use existing partner and delete new one
+            #if partner.id is not False:
+            if existing_partner_id is not False:
+                if existing_partner_id != new_generated_partner_id:   
+                    #print "---- ok, it's call from backend ILLINGEN - deleted new generated record"         
+                    new_user.partner_id = existing_partner_id                                                        
+                    wrong_partner = self.env['res.partner'].search([('id', '=', new_generated_partner_id)])     # get new + automaticaly generated partner and delete him - we don't need him
+                    wrong_partner.unlink() 
+                     
+        return new_user

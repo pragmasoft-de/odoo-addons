@@ -1,4 +1,9 @@
 ### 21.1.2016
+### equitania, 1.0.151
+#### Feature
+- changes for res.users object
+
+### 21.1.2016
 ### equitania, 1.0.150
 #### Feature
 - changes for res.partner object

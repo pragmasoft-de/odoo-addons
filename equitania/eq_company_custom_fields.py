@@ -52,10 +52,11 @@ class eq_product_category_custom_fields(models.Model):
 #     
 #     eq_custom01 = fields.Char(size=64)
 
-class eq_res_users_custom_fields(models.Model):
-    _inherit = 'res.users'
-    
-    eq_custom01 = fields.Char(size=64)
+""" added this functionality on res_users.py """
+# class eq_res_users_custom_fields(models.Model):
+#     _inherit = 'res.users'
+#     
+#     eq_custom01 = fields.Char(size=64)
 
 class eq_product_product_custom_fields(models.Model):
     _inherit = 'product.product'
