@@ -22,9 +22,6 @@
 from openerp import models, fields, api, _
 from openerp.osv import osv
 
-#Adds custom fields to the objects res.company, product.category, product.pricelist.version and res.users.
-#The custom fields of res.company can be used in the header and footer of the reports and is shown in the form. 
-#The rest is for dataimport and won't be shown.
 
 class eq_company_custom_fields(models.Model):
     _name = 'res.company'
@@ -38,27 +35,4 @@ class eq_company_custom_fields(models.Model):
     eq_company_ean = fields.Char('Company EAN13', size=7)
     eq_citypart = fields.Char('Disctirct')
     eq_house_no = fields.Char('House number')
-        
-
-class eq_product_category_custom_fields(models.Model):
-    _inherit = 'product.category'
     
-    eq_custom01 = fields.Char(size=64)
-                
-                
-""" object: product.pricelist.version removed on Odoo9"""                 
-# class eq_pricelist_version_custom_fields(models.Model):
-#     _inherit = 'product.pricelist.version'
-#     
-#     eq_custom01 = fields.Char(size=64)
-
-""" added this functionality on res_users.py """
-# class eq_res_users_custom_fields(models.Model):
-#     _inherit = 'res.users'
-#     
-#     eq_custom01 = fields.Char(size=64)
-
-class eq_product_product_custom_fields(models.Model):
-    _inherit = 'product.product'
-    
-    eq_custom01 = fields.Char(size=64)

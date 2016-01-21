@@ -26,6 +26,8 @@ from openerp import models, api
 class eq_product_product_new_api(models.Model):
     _inherit = "product.product"
     
+    eq_custom01 = fields.char(size=64) # added this field from eq_company_custom_fields.py
+    
     @api.model
     def name_search(self, name, args=None, operator='ilike', limit=100):
         if self._context.get('eq_filter_prod_sup'):
@@ -150,3 +152,9 @@ class eq_product_template_standard_price_history(osv.osv):
                 'create_uid': fields.many2one('res.users', string="User"),
                 'create_date': fields.datetime(string="Create Date"),
                 }
+    
+    
+class eq_product_category_custom_fields(models.Model):
+    _inherit = 'product.category'
+    
+    eq_custom01 = fields.char(size=64)

@@ -25,7 +25,6 @@ import eq_install_func
 import eq_address_extension
 import eq_custom_ref
 import eq_pricelist_item_search
-import eq_company_custom_fields
 import eq_sale_order_seq
 import eq_partner_extension
 import eq_report_extension
@@ -48,3 +47,4 @@ import res_partner_old
 import eq_email
 import res_users_old
 import stock_old
+import company

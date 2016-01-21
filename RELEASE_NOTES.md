@@ -1,4 +1,9 @@
 ### 21.1.2016
+### equitania, 1.0.154
+#### FIX
+-changes for eq_company_custom_fields.py file
+
+### 21.1.2016
 ### equitania, 1.0.153
 #### FIX
 - changes for stock.picking object
