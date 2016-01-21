@@ -10,25 +10,30 @@ Nicht vergessen die Übersetzungsdateien für die normalen Reports anzupassen (i
 
 Schritt für Schritt:
 1. Basis Reports im equitania Modul anpassen (Beispiel invoice):
-  A. Die Kopfdaten (z.B. customer-number etc) vom seperaten Report-Header aus den Basistemplates (z.B. für die Invoice)-(im equitania modul), muss als eigenes Template ausgelagert werden.
-   Durch diesen Schritt entsteht teilweise aus dem Inhalt von
-   "template=eq_external_layout_header_invoice"
-   ...nun auch:
-   "template=eq_external_layout_header_invoice_data"
-   welcher nur diese Kopfdaten enthält, ohne das Logo im Kopf (deswegen der Plain-Report)
-  B. Das alte Template "template=eq_external_layout_header_invoice" enthält nurnoch
-   das Logo / Logobereich (mit css Klasse <div class="row zero_min_height reportlogo">)
-   und den call auf den oben definierten "..._data" also z.B:
-   <t t-call="equitania.eq_external_layout_header_invoice_data"/>
+	
+	A. Die Kopfdaten (z.B. customer-number etc) vom seperaten Report-Header aus den Basistemplates (z.B. für die Invoice)-(im equitania modul), muss als eigenes Template ausgelagert werden.
+		Durch diesen Schritt entsteht teilweise aus dem Inhalt von
+		"template=eq_external_layout_header_invoice"
+		...nun auch:
+		"template=eq_external_layout_header_invoice_data"
+		welcher nur diese Kopfdaten enthält, ohne das Logo im Kopf (deswegen der Plain-Report)
+	
+	B. Das alte Template "template=eq_external_layout_header_invoice" enthält nurnoch
+		das Logo / Logobereich (mit css Klasse <div class="row zero_min_height reportlogo">)
+		und den call auf den oben definierten "..._data" also z.B:
+		<t t-call="equitania.eq_external_layout_header_invoice_data"/>
    
-   Über diesen Call können die Kopfdaten (samt Übersetzung) nun im neuen Report eingefügt werden
+		Über diesen Call können die Kopfdaten (samt Übersetzung) nun im neuen Report eingefügt werden
 
 	C. Anschließend müssen noch die Übersetzungen angepasst werden für die neuen _data Templates
-	so wird aus
-	#: view:website:equitania.eq_external_layout_header_invoice
-	dann...
-	#: view:website:equitania.eq_external_layout_header_invoice_data
+		so wird aus
+		#: view:website:equitania.eq_external_layout_header_invoice
+		dann...
+		#: view:website:equitania.eq_external_layout_header_invoice_data
 
+2. Reports im eigenen Modul anpassen (eq_plain_reports)
+
+	A. 
 
 
 ___Nach der Installation des Moduls:
