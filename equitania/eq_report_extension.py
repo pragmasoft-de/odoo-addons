@@ -400,56 +400,58 @@ class eq_report_extension_purchase_order_line(osv.osv):
                 'price_unit': fields.float('Unit Price', required=True, digits_compute= dp.get_precision('Product Price Purchase')),
                 'product_qty': fields.float('Quantity', digits_compute=dp.get_precision('Product Quantity Purchase'), required=True),
                 }
-    
-class eq_report_extension_invoice(osv.osv):
-    _inherit = "account.invoice"
-    
-    _columns = {
-                'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person', size=100),
-                'eq_head_text': fields.html('Head Text'),
-                'eq_ref_number': fields.char('Sale Order Referenc', size=64),
-                'eq_delivery_address': fields.many2one('res.partner', 'Delivery Address'),
-                'comment': fields.html('Additional Information'),
-                }
-    _defaults = {
-                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
-                }
-    
-class eq_report_extension_invoice(osv.osv):
-    """
-     Small extension of standard functionality.
-     - added new field eq_pos_no as a container for sequence no from contract (AB). we'll use this information as pos on delivery note and invoice 
-    """
-    
-    _inherit = "account.invoice.line"
-    
-    _order = "sequence"
-    
-    _columns = {
-                'eq_delivery_date': fields.date('Delivery Date'),
-                'eq_move_id': fields.many2one('stock.move'),
-                'eq_pos_no' : fields.integer('Seq')
-                }
-    
-    def create(self, cr, user, vals, context={}):    
-        """
-            let's get original sequence no from deliverynote and save it for every position on delivery note
-            @cr: cursor
-            @use: actual user
-            @vals: alle values to be saved
-            @context: context
-        """
-        if vals.get('eq_move_id'):
-            move_id = vals["eq_move_id"] 
-            
-            # get corresponding sequence no for our positions
-            result_id = self.pool.get('stock.move').browse(cr, user, move_id, context)    
-            
-            # save sequence into our new field    
-            vals["eq_pos_no"] = result_id.eq_pos_no
 
-        # use standard save functionality and save it
-        return super(eq_report_extension_invoice, self).create(cr, user, vals, context)
+""" Implemented this functionality on account_invoice_old.py """    
+# class eq_report_extension_invoice(osv.osv):
+#     _inherit = "account.invoice"
+#     
+#     _columns = {
+#                 'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person', size=100),
+#                 'eq_head_text': fields.html('Head Text'),
+#                 'eq_ref_number': fields.char('Sale Order Referenc', size=64),
+#                 'eq_delivery_address': fields.many2one('res.partner', 'Delivery Address'),
+#                 'comment': fields.html('Additional Information'),
+#                 }
+#     _defaults = {
+#                 'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
+#                 }
+     
+""" Implemented this functionality on account_invoice_old.py """  
+# class eq_report_extension_invoice(osv.osv):
+#     """
+#      Small extension of standard functionality.
+#      - added new field eq_pos_no as a container for sequence no from contract (AB). we'll use this information as pos on delivery note and invoice 
+#     """
+#     
+#     _inherit = "account.invoice.line"
+#     
+#     _order = "sequence"
+#     
+#     _columns = {
+#                 'eq_delivery_date': fields.date('Delivery Date'),
+#                 'eq_move_id': fields.many2one('stock.move'),
+#                 'eq_pos_no' : fields.integer('Seq')
+#                 }
+#     
+#     def create(self, cr, user, vals, context={}):    
+#         """
+#             let's get original sequence no from deliverynote and save it for every position on delivery note
+#             @cr: cursor
+#             @use: actual user
+#             @vals: alle values to be saved
+#             @context: context
+#         """
+#         if vals.get('eq_move_id'):
+#             move_id = vals["eq_move_id"] 
+#             
+#             # get corresponding sequence no for our positions
+#             result_id = self.pool.get('stock.move').browse(cr, user, move_id, context)    
+#             
+#             # save sequence into our new field    
+#             vals["eq_pos_no"] = result_id.eq_pos_no
+# 
+#         # use standard save functionality and save it
+#         return super(eq_report_extension_invoice, self).create(cr, user, vals, context)
     
 """ added this functionality on stock_old.py """        
 # class eq_report_extension_stock_picking(osv.osv):
