@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-import models
+
 import wizard
 import eq_install_func
 import eq_partner_extension
@@ -47,3 +47,4 @@ import account_invoice_old
 import purchase_old
 import sale_old
 import product_old
+import purchase

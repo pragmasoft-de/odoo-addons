@@ -1,4 +1,9 @@
 ### 22.1.2016
+### equitania, 1.0.164
+#### FIX
+-cleanup
+
+### 22.1.2016
 ### equitania, 1.0.163
 #### FIX
 -changes for product.template,product.product,product.template.standard_price_history,
