@@ -102,3 +102,34 @@ class eq_stock_config_settings(models.TransientModel):
     default_eq_prod_num_lenght = fields.Integer('Product number lenght [equitania]')
     default_eq_seperator = fields.Char('Seperator [equitania]')
     module_eq_info_for_product_product = fields.Boolean('Volume, weight and net weight from product variant [equitania]', help="The volume, weight and net weight will be set in the product variant (product.product).")
+    
+    
+    
+class eq_sale_configuration_address(models.TransientModel):
+    _name = 'sale.config.settings'
+    _inherit = _name
+    
+    @api.multi
+    def set_default_values_eq_address(self):
+        ir_values_obj = self.env['ir.values']
+        config = self.browse(self.ids[0])
+        
+        ir_values_obj.set_default('sale.order', 'default_show_address', config.default_show_address or False)
+        ir_values_obj.set_default('sale.order', 'default_search_only_company', config.default_search_only_company or False)
+            
+                
+    @api.multi
+    def get_default_values_eq_address(self):
+        ir_values_obj = self.env['ir.values']
+        notification = ir_values_obj.get_default('sale.order', 'default_show_address')
+        only_company = ir_values_obj.get_default('sale.order', 'default_search_only_company')
+        return {
+                'default_show_address': notification,
+                'default_search_only_company': only_company,
+                }
+    
+ 
+    default_show_address = fields.Boolean('Show street and city in the partner search of the Sale and Purchase Order [equitania]', help="This adds the street and the city to the results of the partner search of the Sale and Purchase Order.")
+    default_search_only_company = fields.Boolean('Only Search for Companies [equitania]', help="Only Companies will be shown in the Customer search of the Sale and Purchase Order.")
+    group_product_rrp = fields.Boolean('Show RRP for products [equitania]', implied_group='equitania.group_product_rrp')
+
