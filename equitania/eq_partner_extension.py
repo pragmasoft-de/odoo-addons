@@ -132,24 +132,25 @@ class eq_partner_extension(models.Model):
 
                 'user_id': lambda self, cr, uid, context: uid if self.pool.get('ir.values').get_default(cr, uid, 'res.partner', 'default_creator_saleperson') else False,
                 } """
-    
-class eq_partner_extension_base_config_settings(models.TransientModel):
-    _inherit = "base.config.settings"
-    
-    @api.multi
-    def set_default_creator(self):
-        ir_values_obj = self.env['ir.values']
-        config = self.browse(self.ids[0])
-        
-        ir_values_obj.set_default('base.config.settings','default_creator_saleperson', config.default_creator_saleperson or False)
-    
-    @api.multi    
-    def get_default_creator(self):
-        ir_values_obj = self.env['ir.values']
-        creator = ir_values_obj.get_default('base.config.settings','default_creator_saleperson')
-        return {
-                'default_creator_saleperson': creator,
-                }    
-    
-    
-    default_creator_saleperson = fields.Boolean('The creator of the address dataset will be set automatically as sales person. [equitania]')
+
+""" Implemented this funcationality on res_config.py"""    
+# class eq_partner_extension_base_config_settings(models.TransientModel):
+#     _inherit = "base.config.settings"
+#     
+#     @api.multi
+#     def set_default_creator(self):
+#         ir_values_obj = self.env['ir.values']
+#         config = self.browse(self.ids[0])
+#         
+#         ir_values_obj.set_default('base.config.settings','default_creator_saleperson', config.default_creator_saleperson or False)
+#     
+#     @api.multi    
+#     def get_default_creator(self):
+#         ir_values_obj = self.env['ir.values']
+#         creator = ir_values_obj.get_default('base.config.settings','default_creator_saleperson')
+#         return {
+#                 'default_creator_saleperson': creator,
+#                 }    
+#     
+#     
+#     default_creator_saleperson = fields.Boolean('The creator of the address dataset will be set automatically as sales person. [equitania]')

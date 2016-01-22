@@ -132,4 +132,28 @@ class eq_sale_configuration_address(models.TransientModel):
     default_show_address = fields.Boolean('Show street and city in the partner search of the Sale and Purchase Order [equitania]', help="This adds the street and the city to the results of the partner search of the Sale and Purchase Order.")
     default_search_only_company = fields.Boolean('Only Search for Companies [equitania]', help="Only Companies will be shown in the Customer search of the Sale and Purchase Order.")
     group_product_rrp = fields.Boolean('Show RRP for products [equitania]', implied_group='equitania.group_product_rrp')
+    
+    
+    
+class eq_partner_extension_base_config_settings(models.TransientModel):
+    _inherit = "base.config.settings"
+    
+    @api.multi
+    def set_default_creator(self):
+        ir_values_obj = self.env['ir.values']
+        config = self.browse(self.ids[0])
+        
+        ir_values_obj.set_default('base.config.settings','default_creator_saleperson', config.default_creator_saleperson or False)
+    
+    @api.multi    
+    def get_default_creator(self):
+        ir_values_obj = self.env['ir.values']
+        creator = ir_values_obj.get_default('base.config.settings','default_creator_saleperson')
+        return {
+                'default_creator_saleperson': creator,
+                }    
+    
+    
+    default_creator_saleperson = fields.Boolean('The creator of the address dataset will be set automatically as sales person. [equitania]')
+
 
