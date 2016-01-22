@@ -292,114 +292,115 @@ class eq_report_extension_sale_order_line(osv.osv):
         
         vals['value']['delay'] = product_id.sale_delay
         return vals
-    
-class eq_report_extension_purchase_order(osv.osv):
-    _inherit = "purchase.order"
-    _columns = {
-                'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person', size=100),
-                'eq_head_text': fields.html('Head Text'),
-                #'note': fields.html('Terms and conditions'),#hinzugefügt 16.12.; Ticket 1861
-                'show_delivery_date': fields.boolean('Show the Delivery Date'),
-                'use_calendar_week': fields.boolean('Use Calendar Week for Delivery Date [equitania]'),
-                'notes': fields.html('Terms and conditions'),
-                }
-    _defaults = {
-                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False
-                }
-    
-    
-    #16.12.2015
-    def _prepare_invoice(self, cr, uid, order, line_ids, context=None):
-        """Prepare the dict of values to create the new invoice for a
-           purchase order. This method may be overridden to implement custom
-           invoice generation (making sure to call super() to establish
-           a clean extension chain).
 
-           :param browse_record order: purchase.order record to invoice
-           :param list(int) line_ids: list of invoice line IDs that must be
-                                      attached to the invoice
-           :return: dict of value to create() the invoice
-        """
-        
-        invoice_vals = super(eq_report_extension_purchase_order, self)._prepare_invoice(cr, uid, order, line_ids, context)
-        
-        #=======================================================================
-        # journal_ids = self.pool['account.journal'].search(
-        #                     cr, uid, [('type', '=', 'purchase'),
-        #                               ('company_id', '=', order.company_id.id)],
-        #                     limit=1)
-        # if not journal_ids:
-        #     raise osv.except_osv(
-        #         _('Error!'),
-        #         _('Define purchase journal for this company: "%s" (id:%d).') % \
-        #             (order.company_id.name, order.company_id.id))
-        #=======================================================================
-        
-        invoice_vals['eq_contact_person_id'] = order.eq_contact_person_id.id
-        invoice_vals['eq_head_text'] = order.eq_head_text
-        invoice_vals['comment'] = order.notes
-        
-        return invoice_vals
-    
-    #16.12.2015
-    def action_invoice_create(self, cr, uid, ids, context=None):
-        """Generates invoice for given ids of purchase orders and links that invoice ID to purchase order.
-        :param ids: list of ids of purchase orders.
-        :return: ID of created invoice.
-        :rtype: int
-        """
-        #TODO
-        return super(eq_report_extension_purchase_order, self).action_invoice_create(cr, uid, ids, context)
+""" Implemented this functionality on purchase_old.py """    
+# class eq_report_extension_purchase_order(osv.osv):
+#     _inherit = "purchase.order"
+#     _columns = {
+#                 'eq_contact_person_id': fields.many2one('hr.employee', 'Contact Person', size=100),
+#                 'eq_head_text': fields.html('Head Text'),
+#                 #'note': fields.html('Terms and conditions'),#hinzugefügt 16.12.; Ticket 1861
+#                 'show_delivery_date': fields.boolean('Show the Delivery Date'),
+#                 'use_calendar_week': fields.boolean('Use Calendar Week for Delivery Date [equitania]'),
+#                 'notes': fields.html('Terms and conditions'),
+#                 }
+#     _defaults = {
+#                 'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False
+#                 }
+#     
+#     
+#     #16.12.2015
+#     def _prepare_invoice(self, cr, uid, order, line_ids, context=None):
+#         """Prepare the dict of values to create the new invoice for a
+#            purchase order. This method may be overridden to implement custom
+#            invoice generation (making sure to call super() to establish
+#            a clean extension chain).
+# 
+#            :param browse_record order: purchase.order record to invoice
+#            :param list(int) line_ids: list of invoice line IDs that must be
+#                                       attached to the invoice
+#            :return: dict of value to create() the invoice
+#         """
+#         
+#         invoice_vals = super(eq_report_extension_purchase_order, self)._prepare_invoice(cr, uid, order, line_ids, context)
+#         
+#         #=======================================================================
+#         # journal_ids = self.pool['account.journal'].search(
+#         #                     cr, uid, [('type', '=', 'purchase'),
+#         #                               ('company_id', '=', order.company_id.id)],
+#         #                     limit=1)
+#         # if not journal_ids:
+#         #     raise osv.except_osv(
+#         #         _('Error!'),
+#         #         _('Define purchase journal for this company: "%s" (id:%d).') % \
+#         #             (order.company_id.name, order.company_id.id))
+#         #=======================================================================
+#         
+#         invoice_vals['eq_contact_person_id'] = order.eq_contact_person_id.id
+#         invoice_vals['eq_head_text'] = order.eq_head_text
+#         invoice_vals['comment'] = order.notes
+#         
+#         return invoice_vals
+#     
+#     #16.12.2015
+#     def action_invoice_create(self, cr, uid, ids, context=None):
+#         """Generates invoice for given ids of purchase orders and links that invoice ID to purchase order.
+#         :param ids: list of ids of purchase orders.
+#         :return: ID of created invoice.
+#         :rtype: int
+#         """
+#         #TODO
+#         return super(eq_report_extension_purchase_order, self).action_invoice_create(cr, uid, ids, context)
   
     
-    
-class eq_report_extension_purchase_order_line(osv.osv):
-    _inherit = "purchase.order.line"
-
-    def onchange_product_id(self, cr, uid, ids, pricelist_id, product_id, qty, uom_id,
-            partner_id, date_order=False, fiscal_position_id=False, date_planned=False,
-            name=False, price_unit=False, state='draft', context=None):
-        
-        vals = super(eq_report_extension_purchase_order_line, self).onchange_product_id(cr, uid, ids, pricelist_id, product_id, qty, uom_id, partner_id, date_order, fiscal_position_id, date_planned, name, price_unit, state, context)
-        #Creates new dict for if not present and sets the customer language. The frozendict context can't be edited.
-        context_new = {}
-        if context:
-            context_new = dict(context)
-        context_new['lang'] = self.pool.get('res.partner').browse(cr, uid, partner_id, context).lang
-        product = self.pool.get('product.product').browse(cr, uid, product_id, context_new)
-        if product.description_purchase:
-            vals['value']['name'] = product.description_purchase
-        else:
-            vals['value']['name'] = ' '
-        return vals
-    
-    def _get_delivery_date(self, cr, uid, ids, field_name, arg, context):
-        result = {}
-        
-        for purchase_line in self.browse(cr, uid, ids, context):
-            if purchase_line.order_id.show_delivery_date and purchase_line.date_planned:
-                delivery_date = datetime.strptime(purchase_line.date_planned, OE_DFORMAT)
-                if purchase_line.order_id.partner_id.eq_delivery_date_type_purchase:
-                    if purchase_line.order_id.partner_id.eq_delivery_date_type_purchase == 'cw':
-                        result[purchase_line.id] = 'KW ' + delivery_date.strftime('%V/%Y')
-                    else:
-                        purchase_line.order_id.partner_id.eq_delivery_date_type_purchase == 'date'
-                        result[purchase_line.id] = delivery_date.strftime('%d.%m.%Y')                    
-                else:
-                    if purchase_line.order_id.use_calendar_week:
-                        result[purchase_line.id] = 'KW ' + delivery_date.strftime('%V/%Y')
-                    else:
-                        result[purchase_line.id] = delivery_date.strftime('%d.%m.%Y')
-            else:
-                result[purchase_line.id] = False
-        
-        return result
-
-    _columns = {
-                'get_delivery_date': fields.function(_get_delivery_date, string="Delivery", type='char', methode=True, store=False),
-                'price_unit': fields.float('Unit Price', required=True, digits_compute= dp.get_precision('Product Price Purchase')),
-                'product_qty': fields.float('Quantity', digits_compute=dp.get_precision('Product Quantity Purchase'), required=True),
-                }
+""" Implemented this functionality on purchase_old.py """   
+# class eq_report_extension_purchase_order_line(osv.osv):
+#     _inherit = "purchase.order.line"
+# 
+#     def onchange_product_id(self, cr, uid, ids, pricelist_id, product_id, qty, uom_id,
+#             partner_id, date_order=False, fiscal_position_id=False, date_planned=False,
+#             name=False, price_unit=False, state='draft', context=None):
+#         
+#         vals = super(eq_report_extension_purchase_order_line, self).onchange_product_id(cr, uid, ids, pricelist_id, product_id, qty, uom_id, partner_id, date_order, fiscal_position_id, date_planned, name, price_unit, state, context)
+#         #Creates new dict for if not present and sets the customer language. The frozendict context can't be edited.
+#         context_new = {}
+#         if context:
+#             context_new = dict(context)
+#         context_new['lang'] = self.pool.get('res.partner').browse(cr, uid, partner_id, context).lang
+#         product = self.pool.get('product.product').browse(cr, uid, product_id, context_new)
+#         if product.description_purchase:
+#             vals['value']['name'] = product.description_purchase
+#         else:
+#             vals['value']['name'] = ' '
+#         return vals
+#     
+#     def _get_delivery_date(self, cr, uid, ids, field_name, arg, context):
+#         result = {}
+#         
+#         for purchase_line in self.browse(cr, uid, ids, context):
+#             if purchase_line.order_id.show_delivery_date and purchase_line.date_planned:
+#                 delivery_date = datetime.strptime(purchase_line.date_planned, OE_DFORMAT)
+#                 if purchase_line.order_id.partner_id.eq_delivery_date_type_purchase:
+#                     if purchase_line.order_id.partner_id.eq_delivery_date_type_purchase == 'cw':
+#                         result[purchase_line.id] = 'KW ' + delivery_date.strftime('%V/%Y')
+#                     else:
+#                         purchase_line.order_id.partner_id.eq_delivery_date_type_purchase == 'date'
+#                         result[purchase_line.id] = delivery_date.strftime('%d.%m.%Y')                    
+#                 else:
+#                     if purchase_line.order_id.use_calendar_week:
+#                         result[purchase_line.id] = 'KW ' + delivery_date.strftime('%V/%Y')
+#                     else:
+#                         result[purchase_line.id] = delivery_date.strftime('%d.%m.%Y')
+#             else:
+#                 result[purchase_line.id] = False
+#         
+#         return result
+# 
+#     _columns = {
+#                 'get_delivery_date': fields.function(_get_delivery_date, string="Delivery", type='char', methode=True, store=False),
+#                 'price_unit': fields.float('Unit Price', required=True, digits_compute= dp.get_precision('Product Price Purchase')),
+#                 'product_qty': fields.float('Quantity', digits_compute=dp.get_precision('Product Quantity Purchase'), required=True),
+#                 }
 
 """ Implemented this functionality on account_invoice_old.py """    
 # class eq_report_extension_invoice(osv.osv):

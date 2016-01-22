@@ -50,3 +50,4 @@ import stock_old
 import company
 import crm
 import account_invoice_old
+import purchase_old

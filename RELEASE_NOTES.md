@@ -1,4 +1,9 @@
 ### 22.1.2016
+### equitania, 1.0.160
+#### FIX
+-changes for purchase.order and purchase.order.line object
+
+### 22.1.2016
 ### equitania, 1.0.159
 #### FIX
 -changes for account.invoice and account.invoice.line object

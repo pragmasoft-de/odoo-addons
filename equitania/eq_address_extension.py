@@ -77,59 +77,59 @@ from openerp.tools.translate import _
 # 
 # account_invoice()
  
- 
-class purchase_order(osv.osv):
-    _inherit = 'purchase.order'
-        
-    def _compute_street_house_no(self, cr, uid, ids, field_name, arg, context):
-        """ Generate street and house no info for purchase order """
-                
-        res = {}
-        for person in self.browse(cr, uid, ids):
-            if person.partner_id.street and person.partner_id.eq_house_no:                
-                    res[person.id] = person.partner_id.street + ' ' + person.partner_id.eq_house_no
-            elif person.partner_id.street:                                
-                    res[person.id] = person.partner_id.street
-            else:
-                res[person.id] = False
-                
-        return res
-        
-    def _compute_zip_city(self, cr, uid, ids, field_name, arg, context):
-        """ Generate zip and city info for purchase order """
-                
-        res = {}
-        for person in self.browse(cr, uid, ids):
-            if person.partner_id.zip and person.partner_id.city:                
-                    res[person.id] = person.partner_id.zip + ' ' + person.partner_id.city
-            elif person.partner_id.zip:                                
-                    res[person.id] = person.partner_id.zip
-            elif person.partner_id.city:                                
-                    res[person.id] = person.partner_id.city
-            else:
-                res[person.id] = False
-                
-        return res
-    
-    def _compute_country(self, cr, uid, ids, field_name, arg, context):
-        """ Generate country info for purchase order """
-        res = {}
-        for person in self.browse(cr, uid, ids, context):
-            if person.partner_id.country_id:
-                    res[person.id] = person.partner_id.country_id.name           
-            else:
-                res[person.id] = False
-                
-        return res
-    
-    
-    _columns = {
-                'eq_street_house_no': fields.function(_compute_street_house_no, string=" ", store=False, type="char"),
-                'eq_zip_city': fields.function(_compute_zip_city, string=" ", store=False, type="char"),
-                'eq_country': fields.function(_compute_country, string=" ", store=False, type="char"),
-                }
-
-purchase_order()
+""" Implemented this functionality on purchase_old.py """ 
+# class purchase_order(osv.osv):
+#     _inherit = 'purchase.order'
+#         
+#     def _compute_street_house_no(self, cr, uid, ids, field_name, arg, context):
+#         """ Generate street and house no info for purchase order """
+#                 
+#         res = {}
+#         for person in self.browse(cr, uid, ids):
+#             if person.partner_id.street and person.partner_id.eq_house_no:                
+#                     res[person.id] = person.partner_id.street + ' ' + person.partner_id.eq_house_no
+#             elif person.partner_id.street:                                
+#                     res[person.id] = person.partner_id.street
+#             else:
+#                 res[person.id] = False
+#                 
+#         return res
+#         
+#     def _compute_zip_city(self, cr, uid, ids, field_name, arg, context):
+#         """ Generate zip and city info for purchase order """
+#                 
+#         res = {}
+#         for person in self.browse(cr, uid, ids):
+#             if person.partner_id.zip and person.partner_id.city:                
+#                     res[person.id] = person.partner_id.zip + ' ' + person.partner_id.city
+#             elif person.partner_id.zip:                                
+#                     res[person.id] = person.partner_id.zip
+#             elif person.partner_id.city:                                
+#                     res[person.id] = person.partner_id.city
+#             else:
+#                 res[person.id] = False
+#                 
+#         return res
+#     
+#     def _compute_country(self, cr, uid, ids, field_name, arg, context):
+#         """ Generate country info for purchase order """
+#         res = {}
+#         for person in self.browse(cr, uid, ids, context):
+#             if person.partner_id.country_id:
+#                     res[person.id] = person.partner_id.country_id.name           
+#             else:
+#                 res[person.id] = False
+#                 
+#         return res
+#     
+#     
+#     _columns = {
+#                 'eq_street_house_no': fields.function(_compute_street_house_no, string=" ", store=False, type="char"),
+#                 'eq_zip_city': fields.function(_compute_zip_city, string=" ", store=False, type="char"),
+#                 'eq_country': fields.function(_compute_country, string=" ", store=False, type="char"),
+#                 }
+# 
+# purchase_order()
         
     
     
