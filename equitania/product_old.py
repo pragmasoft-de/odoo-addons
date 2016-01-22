@@ -272,7 +272,7 @@ class eq_product_product(osv.osv):
                 res.append((id, str(elmt.default_code)))
             return res
         else:
-            return super(eq_product_name_is_ref, self).name_get(cr, uid, ids, context=context)
+            return super(eq_product_product, self).name_get(cr, uid, ids, context=context)
         
     
     def _set_eq_default_code_dup(self, cr, uid, ids, name, arg, context=None):

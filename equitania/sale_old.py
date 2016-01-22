@@ -368,7 +368,7 @@ class eq_report_extension_sale_order_line(osv.osv):
     
     
     def default_get(self, cr, uid, ids, context=None):
-        res =  super(eq_sale_order_line_seq, self).default_get(cr, uid, ids, context=context)
+        res =  super(eq_report_extension_sale_order_line, self).default_get(cr, uid, ids, context=context)
         
         # small bugfix for our exceltool
         next_sequence = self.SEQUENCE_VALUE
