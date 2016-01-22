@@ -22,9 +22,6 @@
 import models
 import wizard
 import eq_install_func
-import eq_custom_ref
-import eq_pricelist_item_search
-import eq_sale_order_seq
 import eq_partner_extension
 import eq_lead_referred
 import eq_open_sale_order_line
@@ -49,3 +46,4 @@ import crm
 import account_invoice_old
 import purchase_old
 import sale_old
+import product_old

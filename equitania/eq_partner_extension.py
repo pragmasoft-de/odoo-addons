@@ -63,12 +63,12 @@ class eq_partner_sale_order_extension(models.Model):
                 result['value']['partner_invoice_id'] = partner.eq_default_invoice_address.id
         return result
 
-# added this functionality on res_partner_old.py
-"""
+"""added this functionality on res_partner_old.py"""
 
-class eq_partner_extension(models.Model):
-    _inherit = "res.partner"
-    _name = "res.partner"
+
+# class eq_partner_extension(models.Model):
+#     _inherit = "res.partner"
+#     _name = "res.partner"
     
       
 #     def name_get(self, cr, uid, ids, context=None):
@@ -109,29 +109,29 @@ class eq_partner_extension(models.Model):
 #     }
 #     
     
-    eq_firstname = fields.Char('Firstname', size=128)
-    eq_birthday = fields.Date('Birthday')
-#     display_name = fields.Char(compute=_display_name, string='Name', store=_display_name_store_triggers, select=True)
-    title = fields.Many2one('res.partner.title', 'Title')
-    eq_custom01 =fields.Char(size=64)
-    type = fields.Selection([('default', 'Default'), ('invoice', 'Invoice'),
-                                   ('delivery', 'Shipping'), ('contact', 'Contact'),
-                                   ('pobox', 'P.O. box'), ('other', 'Other')], 'Address Type',
-            help="Used to select automatically the right address according to the context in sales and purchases documents.")
-    eq_incoterm = fields.Many2one('stock.incoterms', 'Incoterm')
-    eq_deliver_condition_id = fields.Many2one('eq.delivery.conditions', 'Delivery Condition')
-    eq_default_delivery_address = fields.Many2one('res.partner', 'Delivery Address')
-    eq_default_invoice_address = fields.Many2one('res.partner', 'Invoice Address')
-    eq_citypart = fields.Char(string='Disctirct')
-    eq_house_no = fields.Char('House number')
-    eq_name2 = fields.Char('Name2')
-    eq_letter_salutation = fields.Char('Salutation')
-
-    
-    _defaults = {
-
-                'user_id': lambda self, cr, uid, context: uid if self.pool.get('ir.values').get_default(cr, uid, 'res.partner', 'default_creator_saleperson') else False,
-                } """
+#     eq_firstname = fields.Char('Firstname', size=128)
+#     eq_birthday = fields.Date('Birthday')
+# #     display_name = fields.Char(compute=_display_name, string='Name', store=_display_name_store_triggers, select=True)
+#     title = fields.Many2one('res.partner.title', 'Title')
+#     eq_custom01 =fields.Char(size=64)
+#     type = fields.Selection([('default', 'Default'), ('invoice', 'Invoice'),
+#                                    ('delivery', 'Shipping'), ('contact', 'Contact'),
+#                                    ('pobox', 'P.O. box'), ('other', 'Other')], 'Address Type',
+#             help="Used to select automatically the right address according to the context in sales and purchases documents.")
+#     eq_incoterm = fields.Many2one('stock.incoterms', 'Incoterm')
+#     eq_deliver_condition_id = fields.Many2one('eq.delivery.conditions', 'Delivery Condition')
+#     eq_default_delivery_address = fields.Many2one('res.partner', 'Delivery Address')
+#     eq_default_invoice_address = fields.Many2one('res.partner', 'Invoice Address')
+#     eq_citypart = fields.Char(string='Disctirct')
+#     eq_house_no = fields.Char('House number')
+#     eq_name2 = fields.Char('Name2')
+#     eq_letter_salutation = fields.Char('Salutation')
+# 
+#     
+#     _defaults = {
+# 
+#                 'user_id': lambda self, cr, uid, context: uid if self.pool.get('ir.values').get_default(cr, uid, 'res.partner', 'default_creator_saleperson') else False,
+#                 } 
 
 """ Implemented this funcationality on res_config.py"""    
 # class eq_partner_extension_base_config_settings(models.TransientModel):
