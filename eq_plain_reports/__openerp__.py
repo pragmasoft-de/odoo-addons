@@ -11,6 +11,7 @@
         'views/report_global_footer_plain.xml',
         'views/report_global_plain.xml',
         'views/report_invoice_plain.xml',
+        'views/report_sale_order_plain.xml',
     ],
     'application': True,
 }

@@ -1,11 +1,12 @@
 Letzte Änderung: Johann Müller - 19.01.2016
 
 
-Plain Reports
-___Vorbereitungen:
-Die Datensätze für die equitania Reports müssen erst in den Tempaltes geändert werden, so dass der Inhalt der Report-Headers als _data gesetzt sind.
-Dies ist für die Invoice und SaleOrder schon umgesetzt (im Equitania Modul - Änderungen vom 19.01.2016).
-Nicht vergessen die Übersetzungsdateien für die normalen Reports anzupassen (im Equitania Modul), hier müssen die IDs noch angepasst werden für die neue header_data.
+/// Plain Reports
+
+Zusammenfassung:
+Die Datensätze für die equitania Reports müssen erst in den Tempaltes geändert werden, so dass der Inhalt der Report-Headers als _data gesetzt ist.
+Dies ist für die Invoice und SaleOrder schon umgesetzt (im Equitania Modul - Änderungen vom 19. bis 22.01.2016).
+Nicht vergessen die Übersetzungsdateien für die normalen Reports anzupassen (im Equitania Modul), hier müssen die IDs noch angepasst werden für die zu übersetzenden Wörter auf die neue Template-ID mit header_data.
 
 
 Schritt für Schritt:
@@ -31,9 +32,13 @@ Schritt für Schritt:
 		dann...
 		#: view:website:equitania.eq_external_layout_header_invoice_data
 
-2. Reports im eigenen Modul anpassen (eq_plain_reports)
+2. Neuen Theme/Datei in der __openerp__.py Datei hinzufügen
 
-	A. 
+3. Reports im eigenen Modul anpassen (eq_plain_reports)
+
+	A. Alle IDs der Templates aktualisieren
+	B. Die zugehörige ReportDatei im Ordner eq_plain_reports > reports
+		überprüfen und anpassen (Name, template, inherit)
 
 
 ___Nach der Installation des Moduls:

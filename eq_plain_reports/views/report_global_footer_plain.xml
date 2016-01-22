@@ -3,7 +3,7 @@
 	<data>
 		<template id="external_layout_footer_plain">
 			<div class="footer">
-	        <table style="border-bottom: 1px solid #999999; width: 100%">
+	        <table style="width: 100%"><!-- border-bottom: 1px solid #999999;-->
 	            <tr>
 	                <td style="text-align:right;font-size:8pt; font-weight:bold;">Seite
 	                    

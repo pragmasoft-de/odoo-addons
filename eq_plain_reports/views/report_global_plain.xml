@@ -4,8 +4,10 @@
 		<template id="style_plain">
 			<style type="text/css">
 				div.addressmargin div.returnaddress {
-				background-color:red; /*visibility:hidden; wird aktuell leider
-				gerade global angewendet*/}
+				background-color:red!important; color:ping!important; /* wird in PDFs leider nicht angewendet */}
+				
+				.returnaddress {
+				background-color:yellow!important; color:green!important; /* wird in PDFs leider nicht angewendet */}
 
 				.returnaddressplain {
 				font-size:5.5pt;
@@ -13,6 +15,9 @@
 				margin-bottom:0.2cm;
 				width: 35%;
 				height:20px; position: fixed; margin-top: 20px;
+				visibility:hidden!important;
+				display:none!important;
+				background-color:green!important;
 				}
 			</style>
 		</template>
