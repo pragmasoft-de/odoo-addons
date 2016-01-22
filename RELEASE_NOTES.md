@@ -1,4 +1,9 @@
 ### 22.1.2016
+### equitania, 1.0.162
+#### FIX
+-changes for sale.order and sale.order.line object
+
+### 22.1.2016
 ### equitania, 1.0.161
 #### FIX
 -changes for stock.move object
