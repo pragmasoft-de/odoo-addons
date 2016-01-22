@@ -1,4 +1,9 @@
 ### 22.1.2016
+### equitania, 1.0.158
+#### FIX
+-changes for sale.config.settings object
+
+### 22.1.2016
 ### equitania, 1.0.157
 #### FIX
 -changes for base.config.settings object

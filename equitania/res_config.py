@@ -128,11 +128,39 @@ class eq_sale_configuration_address(models.TransientModel):
                 'default_search_only_company': only_company,
                 }
     
+    @api.multi
+    def set_default_sale_settings_eq(self):
+        ir_values = self.env['ir.values']
+        config = self.browse(self.ids[0])
+        ir_values.set_default('sale.order', 'default_use_sales_person_as_contact', config.default_use_sales_person_as_contact)
+        ir_values.set_default('sale.order', 'show_delivery_date', config.default_show_delivery_date)
+        ir_values.set_default('sale.order', 'use_calendar_week', config.default_use_calendar_week)
+        ir_values.set_default('sale.order.line', 'eq_use_internal_description', config.default_eq_use_internal_description)
+            
+        
+    @api.multi
+    def get_default_use_sale_settings_eq(self):
+        ir_values = self.env['ir.values']
+        salesperson = ir_values.get_default('sale.order', 'default_use_sales_person_as_contact')
+        show_delivery_date = ir_values.get_default('sale.order', 'show_delivery_date')
+        use_calendar_week = ir_values.get_default('sale.order', 'use_calendar_week')
+        eq_use_internal_description = ir_values.get_default('sale.order.line', 'eq_use_internal_description')
+        return {
+                'default_use_sales_person_as_contact': salesperson,
+                'default_show_delivery_date': show_delivery_date,
+                'default_use_calendar_week': use_calendar_week,
+                'default_eq_use_internal_description': eq_use_internal_description,
+                }
+    
  
     default_show_address = fields.Boolean('Show street and city in the partner search of the Sale and Purchase Order [equitania]', help="This adds the street and the city to the results of the partner search of the Sale and Purchase Order.")
     default_search_only_company = fields.Boolean('Only Search for Companies [equitania]', help="Only Companies will be shown in the Customer search of the Sale and Purchase Order.")
     group_product_rrp = fields.Boolean('Show RRP for products [equitania]', implied_group='equitania.group_product_rrp')
     
+    default_use_sales_person_as_contact = fields.Boolean('Sale Person as Contact Person', help='Sets the Sale Person as the Contact Person in the Sale Order, only when creating.', default_model='sale.order')
+    default_show_delivery_date = fields.Boolean('Show the Delivery Date on the Sale Order [equitania]', help='The delivery date will be shown in the Sale Order', default_model='sale.order')
+    default_use_calendar_week = fields.Boolean('Show Calendar Week for Delivery Date [equitania]', help='The delivery date will be shown as a calendar week', default_model='sale.order')
+    default_eq_use_internal_description = fields.Boolean('Use internal description for sale orders [equitania]', help='The internal description will be used for sale orders not the sale description', default_model='sale.order.line')
     
     
 class eq_partner_extension_base_config_settings(models.TransientModel):
@@ -155,5 +183,3 @@ class eq_partner_extension_base_config_settings(models.TransientModel):
     
     
     default_creator_saleperson = fields.Boolean('The creator of the address dataset will be set automatically as sales person. [equitania]')
-
-

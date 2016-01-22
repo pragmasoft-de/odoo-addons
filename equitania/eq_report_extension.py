@@ -29,38 +29,39 @@ import time
 
 #Adds fields to forms that are used in the reports. Contact person and Head text
 
-class eq_report_extension_sale_settings(osv.osv_memory):
-    _inherit = 'sale.config.settings'
-    
-    def set_default_sale_settings_eq(self, cr, uid, ids, context=None):
-        ir_values = self.pool.get('ir.values')
-        config = self.browse(cr, uid, ids[0], context)
-        ir_values.set_default(cr, uid, 'sale.order', 'default_use_sales_person_as_contact', config.default_use_sales_person_as_contact)
-        ir_values.set_default(cr, uid, 'sale.order', 'show_delivery_date', config.default_show_delivery_date)
-        ir_values.set_default(cr, uid, 'sale.order', 'use_calendar_week', config.default_use_calendar_week)
-        ir_values.set_default(cr, uid, 'sale.order.line', 'eq_use_internal_description', config.default_eq_use_internal_description)
-            
-        
-    
-    def get_default_use_sale_settings_eq(self, cr, uid, fields, context=None):
-        ir_values = self.pool.get('ir.values')
-        salesperson = ir_values.get_default(cr, uid, 'sale.order', 'default_use_sales_person_as_contact')
-        show_delivery_date = ir_values.get_default(cr, uid, 'sale.order', 'show_delivery_date')
-        use_calendar_week = ir_values.get_default(cr, uid, 'sale.order', 'use_calendar_week')
-        eq_use_internal_description = ir_values.get_default(cr, uid, 'sale.order.line', 'eq_use_internal_description')
-        return {
-                'default_use_sales_person_as_contact': salesperson,
-                'default_show_delivery_date': show_delivery_date,
-                'default_use_calendar_week': use_calendar_week,
-                'default_eq_use_internal_description': eq_use_internal_description,
-                }
-    
-    _columns = {
-                'default_use_sales_person_as_contact': fields.boolean('Sale Person as Contact Person', help='Sets the Sale Person as the Contact Person in the Sale Order, only when creating.', default_model='sale.order'),
-                'default_show_delivery_date': fields.boolean('Show the Delivery Date on the Sale Order [equitania]', help='The delivery date will be shown in the Sale Order', default_model='sale.order'),
-                'default_use_calendar_week': fields.boolean('Show Calendar Week for Delivery Date [equitania]', help='The delivery date will be shown as a calendar week', default_model='sale.order'),
-                'default_eq_use_internal_description': fields.boolean('Use internal description for sale orders [equitania]', help='The internal description will be used for sale orders not the sale description', default_model='sale.order.line'),
-                }
+""" Implemented this functionality on res_config.py """
+# class eq_report_extension_sale_settings(osv.osv_memory):
+#     _inherit = 'sale.config.settings'
+#     
+#     def set_default_sale_settings_eq(self, cr, uid, ids, context=None):
+#         ir_values = self.pool.get('ir.values')
+#         config = self.browse(cr, uid, ids[0], context)
+#         ir_values.set_default(cr, uid, 'sale.order', 'default_use_sales_person_as_contact', config.default_use_sales_person_as_contact)
+#         ir_values.set_default(cr, uid, 'sale.order', 'show_delivery_date', config.default_show_delivery_date)
+#         ir_values.set_default(cr, uid, 'sale.order', 'use_calendar_week', config.default_use_calendar_week)
+#         ir_values.set_default(cr, uid, 'sale.order.line', 'eq_use_internal_description', config.default_eq_use_internal_description)
+#             
+#         
+#     
+#     def get_default_use_sale_settings_eq(self, cr, uid, fields, context=None):
+#         ir_values = self.pool.get('ir.values')
+#         salesperson = ir_values.get_default(cr, uid, 'sale.order', 'default_use_sales_person_as_contact')
+#         show_delivery_date = ir_values.get_default(cr, uid, 'sale.order', 'show_delivery_date')
+#         use_calendar_week = ir_values.get_default(cr, uid, 'sale.order', 'use_calendar_week')
+#         eq_use_internal_description = ir_values.get_default(cr, uid, 'sale.order.line', 'eq_use_internal_description')
+#         return {
+#                 'default_use_sales_person_as_contact': salesperson,
+#                 'default_show_delivery_date': show_delivery_date,
+#                 'default_use_calendar_week': use_calendar_week,
+#                 'default_eq_use_internal_description': eq_use_internal_description,
+#                 }
+#     
+#     _columns = {
+#                 'default_use_sales_person_as_contact': fields.boolean('Sale Person as Contact Person', help='Sets the Sale Person as the Contact Person in the Sale Order, only when creating.', default_model='sale.order'),
+#                 'default_show_delivery_date': fields.boolean('Show the Delivery Date on the Sale Order [equitania]', help='The delivery date will be shown in the Sale Order', default_model='sale.order'),
+#                 'default_use_calendar_week': fields.boolean('Show Calendar Week for Delivery Date [equitania]', help='The delivery date will be shown as a calendar week', default_model='sale.order'),
+#                 'default_eq_use_internal_description': fields.boolean('Use internal description for sale orders [equitania]', help='The internal description will be used for sale orders not the sale description', default_model='sale.order.line'),
+#                 }
 
 """ added this functionality to res_config.py """
 # class eq_report_extension_purchase_settings(osv.osv_memory):
