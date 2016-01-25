@@ -2,18 +2,20 @@
 <openerp>
     <data>
     	<!-- Support for our localization  -->
-<!-- 		<function model="eq_install_func" name="_load_translation" eval="[('equitania')]"/> -->
+		<function model="eq_install_func" name="_load_translation" eval="[('equitania')]"/>
 	
-	<!--     Error: cannot be located in parent view -->
-       <!--  <record id="view_picking_form_cancel" model="ir.ui.view">
+
+        <record id="view_picking_form_cancel" model="ir.ui.view">
             <field name="name">stock.picking.form.cancel</field>
             <field name="model">stock.picking</field>
             <field name="inherit_id" ref="stock.view_picking_form" />
             <field name="arch" type="xml">
 	            <field name="state" position="before">
-	            	<button name="reverse_picking" string="Cancel Delivery" type="object" attrs="{'invisible':['|', ('state', '&lt;&gt;', 'done'), ('invoice_state', '&lt;&gt;', '2binvoiced')]}"/>
+	       			<!--      Error: Unknown field invoice_state -->
+	            	<!-- <button name="reverse_picking" string="Cancel Delivery" type="object" attrs="{'invisible':['|', ('state', '&lt;&gt;', 'done'), ('invoice_state', '&lt;&gt;', '2binvoiced')]}"/> -->
+	            	<button name="reverse_picking" string="Cancel Delivery" type="object" attrs="{'invisible':[('state', '&lt;&gt;', 'done')]}"/>
 	            </field>
-	            <field name="date_done" position="replace">
+	            <field name="priority" position="after">
 	            	<label for="date_done" string="Date of Transfer"/>
 	            	<div>
 		            	<field name="date_done" class="oe_inline"/>
@@ -21,7 +23,7 @@
 	            	</div>
 	            </field>
           	</field>
-        </record> -->
+        </record>
         <record id="eq_view_move_search" model="ir.ui.view">
             <field name="name">eq.view.move.search</field>
             <field name="model">stock.move</field>

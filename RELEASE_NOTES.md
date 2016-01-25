@@ -1,3 +1,8 @@
+### 25.1.2016
+### equitania, 1.0.166
+#### FIX
+-changes on stock_view.xml
+
 ### 22.1.2016
 ### equitania, 1.0.165
 #### FIX
