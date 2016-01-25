@@ -17,8 +17,8 @@
           </field>
         </record>
 
-        <!-- extension of treeview --> <!-- Error: cannot be located in parent view -->
-<!--         <record id="view_partner_tree_inherited1" model="ir.ui.view">
+        <!-- extension of treeview --> 
+         <record id="view_partner_tree_inherited1" model="ir.ui.view">
             <field name="name">view.partner.tree.inherited1</field>
             <field name="model">res.partner</field>
             <field name="type">tree</field>
@@ -28,15 +28,15 @@
                      <field name="eq_complete_description"/>
                  </field>
           </field>
-        </record> -->
+        </record>
         
-        <!-- extension of kanban --> <!-- Error: cannot be located in parent view -->
-<!--         <record id="view_partner_kanban_inherited1" model="ir.ui.view">
+        <!-- extension of kanban --> 
+        <record id="view_partner_kanban_inherited1" model="ir.ui.view">
             <field name="name">view.partner.kanban.inherited1</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.res_partner_kanban_view"/>
             <field name="arch" type="xml">
-            	<xpath expr="//h4[@class='oe_partner_heading']" position="replace">
+            	<xpath expr="//div[@class='oe_kanban_details']/strong" position="replace">
             		<h4 class="oe_partner_heading">
 						<a data-type="open" href="#" class=" oe_kanban_action oe_kanban_action_a">
 						<t t-if="parent_id == True">
@@ -47,7 +47,7 @@
 					</h4>
                 </xpath>
           </field>
-        </record> -->
+        </record>
                 
         <!-- add 2 new fields -->
 	 	<record id="eq_view_partner_form_inherit_hofm" model="ir.ui.view">

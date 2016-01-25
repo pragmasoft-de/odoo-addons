@@ -1,4 +1,9 @@
 ### 25.1.2016
+### equitania, 1.0.167
+#### FIX
+-changes on res_patner_view.xml
+
+### 25.1.2016
 ### equitania, 1.0.166
 #### FIX
 -changes on stock_view.xml
