@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-             <!-- Error: xpath cannot be located in parent view -->
-<!--         <record id="view_partner_form_inherited1" model="ir.ui.view">
+        <record id="view_partner_form_inherited1" model="ir.ui.view">
             <field name="name">res.partner.form.inherited1</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form" />
             <field name="arch" type="xml">
-	            <xpath expr="//div[@class='oe_module_desc']/div[@class='oe_kanban_box_content oe_kanban_color_bglight oe_kanban_color_border']/table[@class='oe_kanban_table']/tr/td[@class='oe_kanban_title1']/div[@t-if='record.fax.raw_value']"  position="after">
+             <xpath expr="//t[@t-name='kanban-box']//div[contains(@class, 'oe_kanban_details')]/div[@t-if='record.fax.raw_value']" position="after">
                     <div t-if="record.type.raw_value">Type: <field name="type"/></div>
-                </xpath>
+             </xpath>
           </field>
-        </record> -->
+        </record>
 
         <record id="sale.act_res_partner_2_sale_order" model="ir.actions.act_window">
             <field name="name">Quotations and Sales</field>
@@ -156,28 +155,19 @@
 	    </record>
 	    
 	   <!--  Error : <div name="Customer Features">' cannot be located in parent view -->
-        <!-- <record id="eq_view_sale_config_settings_show_address" model="ir.ui.view">
+        <record id="eq_view_sale_config_settings_show_address" model="ir.ui.view">
             <field name="name">crm settings</field>
             <field name="model">sale.config.settings</field>
-            <field name="inherit_id" ref="base_setup.view_sale_config_settings"/>
+            <field name="inherit_id" ref="sale.view_sales_config"/>
             <field name="arch" type="xml">
                 <data>
-                	<div name="Customer Features" position="inside">
-		            	<div>
+                <xpath expr="//group[@id='sale']/field[@name='group_sale_delivery_address']" position="after">
 		                    <field name="default_show_address" class="oe_inline"/>
-		                	<label for="default_show_address" string="Show street and city in the partner search of the saleorder [equitania]"/>
-		            	</div>
-		            	<div>
 		                    <field name="default_search_only_company" class="oe_inline"/>
-		                	<label for="default_search_only_company" string="Only search for Companies in the Sale Order/Quotation [equitania]"/>
-		            	</div>
-	                    <div>
 	                        <field name="group_product_rrp"/>
-	                        <label for="group_product_rrp"/>
-	                    </div>
-		            </div>
+		            </xpath>
                 </data>
             </field>
-        </record> -->
+        </record>
     </data>
 </openerp>
