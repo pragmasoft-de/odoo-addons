@@ -1,4 +1,9 @@
 ### 27.1.2016
+### equitania, 1.0.170
+#### FIX
+-changes on eq_report_extension_view.xml
+
+### 27.1.2016
 ### equitania, 1.0.169
 #### FIX
 -changes on product_view.xml
