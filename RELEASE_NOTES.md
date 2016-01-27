@@ -1,3 +1,8 @@
+### 27.1.2016
+### equitania, 1.0.168
+#### FIX
+-changes on res_config_view.xml
+
 ### 25.1.2016
 ### equitania, 1.0.167
 #### FIX

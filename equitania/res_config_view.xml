@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <!-- Error : cannot be located in parent view -->
         <!-- Stock Config Settings --> 
-<!-- 		<record id="eq_purchase_config_settings" model="ir.ui.view">
+		<record id="eq_purchase_config_settings" model="ir.ui.view">
 		     <field name="name">eq_purchase_config_settings</field>
 		     <field name="model">purchase.config.settings</field>
 		     <field name="inherit_id" ref="purchase.view_purchase_configuration"/>
 		     <field name="arch" type="xml">
-             	<div name="module_purchase_double_validation" position="before">
-                    <div>
-                        <field name="default_eq_filter_prod_sup" class="oe_inline"/>
-                        <label for="default_eq_filter_prod_sup"/>
-                    </div>
-             	</div>
+             	<field name="group_manage_vendor_price" position="after">
+                	<field name="default_eq_filter_prod_sup" class="oe_inline"/>
+        		</field>
 		     </field>
-		</record> -->
+		</record>
 		
         <!-- Stock Config Settings -->
 		<record id="eq_stock_config_settings" model="ir.ui.view">
@@ -34,30 +30,27 @@
                     </div>
 				</field>
 			
-			   <!-- Error : View inheritance may not use attribute 'string' as a selector. -->	
-                <!-- <form string="Configure Warehouse" position="inside">
-                    <group>
-                        <label for="id" string="Product Number Generator"/>
+               <xpath expr="//group[@name='shipping']" position="after">
+					<group string="Product Number Generator" name="Product Number Generator"/>
+                        <div>
                             <div>
-                                <div>
-                                    <field name="default_eq_min_prefix_count" class="oe_inline"/>
-                                    <label for="default_eq_min_prefix_count"/>
-                                </div>
-                                <div>
-                                    <field name="default_eq_max_prefix_count" class="oe_inline"/>
-                                    <label for="default_eq_max_prefix_count"/>
-                                </div>
-                                <div>
-                                    <field name="default_eq_prod_num_lenght" class="oe_inline"/>
-                                    <label for="default_eq_prod_num_lenght"/>
-                                </div>
-                                <div>
-                                    <field name="default_eq_seperator" class="oe_inline"/>
-                                    <label for="default_eq_seperator"/>
-                                </div>
+	                        	<field name="default_eq_min_prefix_count" class="oe_inline"/>
+	                            <label for="default_eq_min_prefix_count"/>
+                           </div>
+                            <div>
+	                            <field name="default_eq_max_prefix_count" class="oe_inline"/>
+	                            <label for="default_eq_max_prefix_count"/>
                             </div>
-                    </group>
-				</form> -->
+                            <div>
+	                            <field name="default_eq_prod_num_lenght" class="oe_inline"/>
+	                            <label for="default_eq_prod_num_lenght"/>
+                            </div>
+                            <div>
+	                            <field name="default_eq_seperator" class="oe_inline"/>
+	                            <label for="default_eq_seperator"/>
+							</div>
+						</div>
+				</xpath>
 		     </field>
 		</record>
     </data>
