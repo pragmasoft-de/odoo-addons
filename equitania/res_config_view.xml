@@ -55,5 +55,25 @@
 				</xpath>
 		     </field>
 		</record>
+		
+		<!-- Sale Config Settings -->
+		 <record id="eq_view_sale_config_settings_show_address" model="ir.ui.view">
+            <field name="name">crm settings</field>
+            <field name="model">sale.config.settings</field>
+            <field name="inherit_id" ref="sale.view_sales_config"/>
+            <field name="arch" type="xml">
+                <data>
+                <xpath expr="//group[@id='sale']/field[@name='group_sale_delivery_address']" position="after">
+		                    <field name="default_show_address" class="oe_inline"/>
+		                    <field name="default_search_only_company" class="oe_inline"/>
+	                        <field name="group_product_rrp"/>
+	                        <field name="default_use_sales_person_as_contact"/>
+               				<field name="default_eq_use_internal_description"/>
+							<field name="default_show_delivery_date"/>
+						 	<field name="default_use_calendar_week"/>
+		            </xpath>
+                </data>
+            </field>
+        </record>
     </data>
 </openerp>
