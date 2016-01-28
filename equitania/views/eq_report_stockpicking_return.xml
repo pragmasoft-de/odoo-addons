@@ -280,8 +280,8 @@
 											t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}" />
 											-->
 										<!-- wenn keine Person (Rechnungsadresse ist kein Kontakt) -->
-										<div t-if="o.sale_id.partner_invoice_id.type != 'contact'" style="background-color:red;">
-											<div t-field="o.sale_id.partner_invoice_id.name" style="clear:left;background-color:red;" />
+										<div t-if="o.sale_id.partner_invoice_id.type != 'contact'">
+											<div t-field="o.sale_id.partner_invoice_id.name" style="clear:left;" />
 											<div t-if="o.sale_id.partner_invoice_id.eq_name2" t-field="o.sale_id.partner_invoice_id.eq_name2" style="clear:left;" />
 											<div>
 												<span t-field="o.sale_id.partner_invoice_id.street" />
