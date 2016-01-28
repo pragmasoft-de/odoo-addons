@@ -1,4 +1,9 @@
 ### 28.1.2016
+### equitania, 1.0.175
+#### FIX
+-changes on eq_custom_ref_view.xml
+
+### 28.1.2016
 ### equitania, 1.0.174
 #### FIX
 -changes on eq_address_extension_view.xml
