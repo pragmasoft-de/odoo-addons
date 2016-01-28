@@ -1,4 +1,7 @@
 ### 28.01.2016
+### equitania, 1.0.126
+#### Fix
+- Nicht übermittelten Code eingefügt.
 ### equitania, 1.0.125
 #### Fix
 - Titel + Name wird für Endkunden in der Suche angezeigt.

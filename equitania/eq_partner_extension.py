@@ -79,6 +79,8 @@ class eq_partner_extension(osv.osv):
                 name =  "%s, %s" % (record.parent_id.name, name)
                 if record.type == 'contact':
                     name = "%s, %s %s %s" % (record.parent_id.name, (record.title.name if record.title else ''), (record.eq_firstname if record.eq_firstname else ''), record.name)
+            if not record.parent_id and not record.is_company:
+                name = "%s %s %s" % ((record.title.name if record.title else ''), (record.eq_firstname if record.eq_firstname else ''), record.name)
             if context.get('show_address_only'):
                 name = self._display_address(cr, uid, record, without_company=True, context=context)
             if context.get('show_address'):
