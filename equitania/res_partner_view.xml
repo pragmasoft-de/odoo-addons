@@ -115,5 +115,17 @@
                 </field>
             </field>
         </record>
+        
+         <record id="eq_foreign_ref_partner_extension_form" model="ir.ui.view">
+            <field name="name">eq.foreign.ref.partner.extension.form</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">                              
+                <field name="email" position="after">
+                	<field name="eq_foreign_ref"/>
+                </field>
+			</field>
+		</record>	
 	</data>
 </openerp>
