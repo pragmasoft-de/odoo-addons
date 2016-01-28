@@ -4,6 +4,11 @@
 - Lieferscheine Reports: Erweitern um die Logik ob die Rechnungsadresse ein Kontakt ist oder nicht, entsprechend auch Name und Titel abbilden.
 
 ### 28.01.2016
+### equitania, 1.0.125
+#### Fix
+- Titel + Name wird für Endkunden in der Suche angezeigt.
+
+### 28.01.2016
 ### eq_quotation_enhancement, 1.0.11
 #### Fix
 - Für die onchange Methode wird nicht das gesamte Feld "partner_id" überschrieben, sondern nur das Attribute "on_change".
