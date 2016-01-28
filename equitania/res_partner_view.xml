@@ -126,6 +126,28 @@
                 	<field name="eq_foreign_ref"/>
                 </field>
 			</field>
-		</record>	
+		</record>
+		
+		<!-- customer -->
+	    <record id="eq_ref_view_partner_form" model="ir.ui.view">
+	            <field name="name">eq_ref_view_partner_form</field>
+	            <field name="model">res.partner</field>
+	            <field name="inherit_id" ref="base.view_partner_form" />
+	            <field name="arch" type="xml">
+	            	<!-- main page -->	  <!--  Error: cannot be located in parent view -->         		           
+<!-- 	           		<field name="date" position="before">
+						<field attrs="{'invisible':[('customer', '=', False)]}" name="eq_lead_referred_id"/>
+	               	</field> -->
+						
+					<!-- popup with contacts -->
+                 	<field name="supplier" position="after">
+                		<group attrs="{'invisible':[('customer', '=', False)]}" col="2">
+                			<field name="customer"/>
+                			<field name="eq_lead_referred_id"/>
+                		</group>
+                	</field>
+            	</field>	            
+	    </record>
+			
 	</data>
 </openerp>

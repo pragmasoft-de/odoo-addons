@@ -1,4 +1,9 @@
 ### 28.1.2016
+### equitania, 1.0.177
+#### FIX
+-changes on eq_lead_referred_view.xml
+
+### 28.1.2016
 ### equitania, 1.0.176
 #### FIX
 -changes on eq_foreign_ref_view.xml
