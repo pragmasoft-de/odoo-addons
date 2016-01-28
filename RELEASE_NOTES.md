@@ -1,4 +1,9 @@
 ### 28.1.2016
+### equitania, 1.0.179
+#### FIX
+-changes on equitania_security.xml
+
+### 28.1.2016
 ### equitania, 1.0.178
 #### FIX
 -changes on eq_partner_extension_view.xml
