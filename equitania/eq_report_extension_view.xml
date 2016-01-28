@@ -95,7 +95,8 @@
             </field>
         </record>
         
-        <!-- Config Settings -->
+        <!-- Merged this functionality on eq_address_extension_view.xml -->
+        <!-- Config Settings --> 
 		<!-- <record id="eq_view_sale_config_settings" model="ir.ui.view">
 		     <field name="name">Contact Person</field>
 		     <field name="model">sale.config.settings</field>
@@ -130,8 +131,8 @@
 		     </field>
 		</record> -->
 		
-		
-		<!-- Sale Order Stock -->  <!-- Error : External ID not found in the system -->
+		<!-- Error : External ID not found in the system -->
+		<!-- Sale Order Stock -->  
        <!--  <record id="eq_sale_order_form_view_delivery_date" model="ir.ui.view">
             <field name="name">eq.sale.order.form.delivery.date</field>
             <field name="model">sale.order</field>
@@ -186,7 +187,7 @@
             </field>
         </record>
         
-        <!-- Purchase Settings --> <!-- Error : View inheritance may not use attribute 'string' as a selector. -->
+        <!-- Purchase Settings -->  <!-- Merged this functionality on res_config_view.xml -->
 		<!-- <record id="eq_view_purchase_config_settings_delivery" model="ir.ui.view">
 		     <field name="name">purchase settings delivery</field>
 		     <field name="model">purchase.config.settings</field>

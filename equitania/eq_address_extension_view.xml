@@ -165,6 +165,10 @@
 		                    <field name="default_show_address" class="oe_inline"/>
 		                    <field name="default_search_only_company" class="oe_inline"/>
 	                        <field name="group_product_rrp"/>
+	                        <field name="default_use_sales_person_as_contact"/>
+               				<field name="default_eq_use_internal_description"/>
+							<field name="default_show_delivery_date"/>
+						 	<field name="default_use_calendar_week"/>
 		            </xpath>
                 </data>
             </field>

@@ -9,6 +9,8 @@
 		     <field name="arch" type="xml">
              	<field name="group_manage_vendor_price" position="after">
                 	<field name="default_eq_filter_prod_sup" class="oe_inline"/>
+                	<field name="default_show_delivery_date"/>
+                	<field name="default_use_calendar_week"/>
         		</field>
 		     </field>
 		</record>
