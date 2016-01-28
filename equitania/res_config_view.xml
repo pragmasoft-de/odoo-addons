@@ -75,5 +75,24 @@
                 </data>
             </field>
         </record>
+        
+        <record id="eq_view_sale_config_settings_saleperson" model="ir.ui.view">
+            <field name="name">eq_partner_extension.base.config.settings</field>
+            <field name="model">base.config.settings</field>
+            <field name="inherit_id" ref="base_setup.view_general_configuration"/>
+            <field name="arch" type="xml">
+            	<form position="inside">
+                    <group>
+                        <label for="id" string="Partner"/>
+                        <div>
+                            <div>
+                                <field name="default_creator_saleperson"/>
+                                <label for="default_creator_saleperson"/>
+                            </div>
+                        </div>
+                    </group>
+            	</form>
+            </field>
+        </record>
     </data>
 </openerp>
