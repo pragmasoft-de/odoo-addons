@@ -2,6 +2,11 @@
 ### equitania, 1.0.127
 #### Fix
 - Rechnungs-Report: Zeigt nun auch korrekt die abweichende Lieferanschrift im unteren Report-Bereich für Kontakte
+#### Änderung
+- Verkaufs-Report: wurde erweitert für die neue Briefpapier-Variante
+### eq_plain_reports, 1.0.1
+#### CHG
+- SaleOrder-Report: ist nun auch als Plain-Version (für Briefpapier) umgesetzt
 
 ### 28.01.2016
 ### equitania, 1.0.126

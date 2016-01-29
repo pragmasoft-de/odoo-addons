@@ -58,7 +58,6 @@
 			</t>
 		</template>
 
-
 		<report id="account_invoices_plain" model="account.invoice"
 			string="Rechnungen für Briefpapier" report_type="qweb-pdf"
 			name="eq_plain_reports.report_invoice_plain" file="eq_plain_reports.report_invoice_plain"

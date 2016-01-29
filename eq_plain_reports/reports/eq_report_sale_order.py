@@ -23,7 +23,7 @@ import time
 from openerp.osv import osv
 from openerp.report import report_sxw
 
-class eq_report_sale_order(osv.AbstractModel):
+class report_lunchorder(osv.AbstractModel):
     _name = 'report.eq_plain_reports.report_sale_order_plain'
     _inherit = 'report.sale.report_saleorder'
     _template = 'eq_plain_reports.report_sale_order_plain'

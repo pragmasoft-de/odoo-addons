@@ -34,7 +34,7 @@ class res_partner(models.Model):
         if name:
             # Be sure name_search is symetric to name_get
             name = name.split(' / ')[-1]
-            args = ['|','|',('name', operator, name),('eq_customer_ref', 'ilike', name),('eq_creditor_ref', 'ilike', name)] + args
+            args = ['|','|','|',('eq_firstname', operator, name),('name', operator, name),('eq_customer_ref', 'ilike', name),('eq_creditor_ref', 'ilike', name)] + args
         if ir_values_obj.get_default('sale.order', 'default_search_only_company'):
             if self.env.context.has_key('main_address'):
                 args += [('is_company', '=', True)]
@@ -59,6 +59,7 @@ class res_partner(models.Model):
                 company_name = partner_id.parent_id and partner_id.parent_id.name + ' ; ' or ''
                 #Street City
                 street = partner_id.street if partner_id.street else ''
+                house_no = partner_id.eq_house_no or ''
                 city = partner_id.city if partner_id.city else ''
                 #customer/creditor number
                 deb_num = ''
@@ -70,7 +71,7 @@ class res_partner(models.Model):
                     deb_num = '[' + partner_id.eq_creditor_ref + '] '
                 if partner_id.is_company:
                     if show_address:
-                        new_res.append((partner_id.id, deb_num + company_name + partner_id.name + ' / ' + _('Company') + ' // ' + street + ', ' + city))
+                        new_res.append((partner_id.id, deb_num + company_name + partner_id.name + ' / ' + _('Company') + ' // ' + street + ' ' + house_no + ', ' + city))
                     else:
                         new_res.append((partner_id.id, deb_num + company_name + partner_id.name + ' / ' + _('Company')))
                 else:
@@ -86,7 +87,7 @@ class res_partner(models.Model):
                     elif partner_id.type == 'other':
                         type = _('other')
                     if show_address:
-                        new_res.append((partner_id.id, "%s %s %s %s" % ( deb_num + company_name, (partner_id.title.name if partner_id.title else ''), (partner_id.eq_firstname if partner_id.eq_firstname else ''), partner_id.name + ' / ' + type + ' // ' + street + ', ' + city)))
+                        new_res.append((partner_id.id, "%s %s %s %s" % ( deb_num + company_name, (partner_id.title.name if partner_id.title else ''), (partner_id.eq_firstname if partner_id.eq_firstname else ''), partner_id.name + ' / ' + type + ' // ' + street + ' ' + house_no + ', ' + city)))
                     else:
                         new_res.append((partner_id.id, "%s %s %s %s" % ( deb_num + company_name, (partner_id.title.name if partner_id.title else ''), (partner_id.eq_firstname if partner_id.eq_firstname else ''), partner_id.name + ' / ' + type)))
             return new_res
