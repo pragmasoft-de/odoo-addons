@@ -1,4 +1,9 @@
 ### 28.1.2016
+### equitania, 1.0.180
+#### FIX
+-changes on reports
+
+### 28.1.2016
 ### equitania, 1.0.179
 #### FIX
 -changes on equitania_security.xml
