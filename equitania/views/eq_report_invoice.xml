@@ -489,10 +489,38 @@
 									Shipping address:
 								</td>
 								<td style="padding-bottom:0.3cm; padding-bottom:0.3cm;">
-									<div>
-										<div t-field="o.eq_delivery_address.name" style="clear:left;" />
-										<div t-if="o.eq_delivery_address.eq_name2" t-field="o.eq_delivery_address.eq_name2"
+									<!-- wenn die Anschrift keine Person ist (Lieferadresse ist kein Kontakt) -->
+									<div t-if="o.eq_delivery_address.type != 'contact'">
+										<div t-if="o.eq_delivery_address.parent_id.name" t-field="o.eq_delivery_address.parent_id.name" style="clear:left;" />
+										<div t-if="o.eq_delivery_addres.parent_ids.eq_name2" t-field="o.eq_delivery_address.eq_name2"
 											style="clear:left;" />
+										<div>
+											<span t-field="o.eq_delivery_address.street" />
+											<span t-if="o.eq_delivery_address.eq_house_no" t-field="o.eq_delivery_address.eq_house_no"
+												style="margin-left:0.1cm;" />
+										</div>
+										<div t-if="o.eq_delivery_address.street2">
+											<div t-field="o.eq_delivery_address.street2" />
+										</div>
+										<h>
+											<h t-field="o.eq_delivery_address.zip" />
+											<h t-field="o.eq_delivery_address.city" />
+											<h t-if="o.eq_delivery_address.eq_citypart">
+												-
+												<h t-field="o.eq_delivery_address.eq_citypart" />
+											</h>
+										</h>
+										<div t-field="o.eq_delivery_address.country_id.name" />
+									</div>
+									
+									<!-- wenn die Anschrift eine Person ist (Lieferadresse IST ein Kontakt) -->
+									<div t-if="o.eq_delivery_address.type == 'contact'">
+										<div t-if="o.eq_delivery_address.parent_id.name" t-field="o.eq_delivery_address.parent_id.name" style="clear:left;" />
+										<div t-if="o.eq_delivery_address.parent_id.eq_name2" t-field="o.eq_delivery_address.eq_name2"
+											style="clear:left;" />
+									<span t-field="o.eq_delivery_address.title.name" />
+									<span t-field="o.eq_delivery_address.eq_firstname" style="clear:left;" />
+									<span t-field="o.eq_delivery_address.name" style="clear:left;" />
 										<div>
 											<span t-field="o.eq_delivery_address.street" />
 											<span t-if="o.eq_delivery_address.eq_house_no" t-field="o.eq_delivery_address.eq_house_no"

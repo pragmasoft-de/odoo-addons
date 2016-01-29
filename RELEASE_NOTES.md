@@ -1,3 +1,8 @@
+### 29.01.2016
+### equitania, 1.0.127
+#### Fix
+- Rechnungs-Report: Zeigt nun auch korrekt die abweichende Lieferanschrift im unteren Report-Bereich für Kontakte
+
 ### 28.01.2016
 ### equitania, 1.0.126
 #### Fix
