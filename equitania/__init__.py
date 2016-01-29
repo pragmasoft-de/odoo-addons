@@ -24,10 +24,10 @@ import wizard
 import eq_install_func
 import eq_partner_extension
 import eq_lead_referred
-import eq_open_sale_order_line
+import sale
+import res_partner_old
 import res_groups
 import stock
-import sale
 import sale_layout
 import reports
 import res_config
@@ -37,7 +37,6 @@ import res_users
 import hr
 import product
 import eq_clean_data
-import res_partner_old
 import eq_email
 import res_users_old
 import stock_old
@@ -48,3 +47,4 @@ import purchase_old
 import sale_old
 import product_old
 import purchase
+import eq_open_sale_order_line

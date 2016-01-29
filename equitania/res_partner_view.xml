@@ -24,7 +24,7 @@
             <field name="type">tree</field>
             <field name="inherit_id" ref="base.view_partner_tree"/>
             <field name="arch" type="xml">
-            	<field name="name" position="replace">
+            	<field name="display_name" position="replace">
                      <field name="eq_complete_description"/>
                  </field>
           </field>
