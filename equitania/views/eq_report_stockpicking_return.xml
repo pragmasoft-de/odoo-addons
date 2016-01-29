@@ -279,9 +279,31 @@
 										<!-- <div t-field="o.sale_id.partner_invoice_id"
 											t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}" />
 											-->
-										<div>
-											<div t-field="o.sale_id.partner_invoice_id.name" style="clear:left;"/>
-											<div t-if="o.sale_id.partner_invoice_id.eq_name2" t-field="o.sale_id.partner_invoice_id.eq_name2" style="clear:left;"/>
+										<!-- wenn keine Person (Rechnungsadresse ist kein Kontakt) -->
+										<div t-if="o.sale_id.partner_invoice_id.type != 'contact'">
+											<div t-field="o.sale_id.partner_invoice_id.name" style="clear:left;" />
+											<div t-if="o.sale_id.partner_invoice_id.eq_name2" t-field="o.sale_id.partner_invoice_id.eq_name2" style="clear:left;" />
+											<div>
+												<span t-field="o.sale_id.partner_invoice_id.street" />
+												<span t-if="o.sale_id.partner_invoice_id.eq_house_no" t-field="o.sale_id.partner_invoice_id.eq_house_no" style="margin-left:0.1cm;" />
+											</div>
+											<div t-if="o.sale_id.partner_invoice_id.street2">
+												<div t-field="o.sale_id.partner_invoice_id.street2" />
+											</div>
+											<h>
+												<h t-field="o.sale_id.partner_invoice_id.zip" />
+												<h>&#xa0;</h>
+												<h t-field="o.sale_id.partner_invoice_id.city" />
+											</h>
+											<div t-field="o.sale_id.partner_invoice_id.country_id.name" />
+										</div>
+										<!-- Rechnungsadresse IST Kontakt -->
+										<div t-if="o.sale_id.partner_invoice_id.type == 'contact'">
+											<div t-field="o.sale_id.partner_invoice_id.parent_id.name" style="clear:left;" />
+											<div t-if="o.sale_id.partner_invoice_id.parent_id.eq_name2" t-field="o.sale_id.partner_invoice_id.parent_id.eq_name2" style="clear:left;" />
+											<span t-field="o.sale_id.partner_invoice_id.title.name" />
+											<span t-field="o.sale_id.partner_invoice_id.eq_firstname" style="clear:left;" />
+											<span t-field="o.sale_id.partner_invoice_id.name" style="clear:left;" />
 											<div>
 												<span t-field="o.sale_id.partner_invoice_id.street"/><span t-if="o.sale_id.partner_invoice_id.eq_house_no" t-field="o.sale_id.partner_invoice_id.eq_house_no" style="margin-left:0.1cm;"/>
 											</div>

@@ -30,6 +30,7 @@ class eq_install_func(osv.osv):
     _name = "eq_install_func"
     
     def _set_group_for_users(self, cr, uid, ids=None, context= None):
+        #Group purchase_in_products
         sql_exists_query = """
         select exists(select * from res_groups_users_rel where gid = (select res_id from ir_model_data where name = 'purchase_in_products' and module = 'equitania'))
         """
@@ -40,6 +41,20 @@ class eq_install_func(osv.osv):
             select (select res_id from ir_model_data where name = 'purchase_in_products' and module = 'equitania') as gid, id as uid  from res_users 
             where id not in 
             (select uid from res_groups_users_rel where gid = (select res_id from ir_model_data where name = 'purchase_in_products' and module = 'equitania'))
+            """
+            cr.execute(sql_insert_query)
+            cr.commit()
+        #Group supplier_in_account
+        sql_exists_query = """
+        select exists(select * from res_groups_users_rel where gid = (select res_id from ir_model_data where name = 'supplier_in_account' and module = 'equitania'))
+        """
+        cr.execute(sql_exists_query)
+        if not cr.fetchone()[0]:
+            sql_insert_query = """
+            insert into res_groups_users_rel
+            select (select res_id from ir_model_data where name = 'supplier_in_account' and module = 'equitania') as gid, id as uid  from res_users 
+            where id not in 
+            (select uid from res_groups_users_rel where gid = (select res_id from ir_model_data where name = 'supplier_in_account' and module = 'equitania'))
             """
             cr.execute(sql_insert_query)
             cr.commit()

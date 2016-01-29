@@ -36,7 +36,15 @@
             </field>
         </record>
 
-        <!-- eq.lead.referred Form View -->
+		<record model="ir.ui.view" id="eq_lead_referred_tree">
+			<field name="name">eq.lead.referred.tree</field>
+			<field name="model">eq.lead.referred</field>
+			<field name="arch" type="xml">
+				<tree string="Referred by">
+					<field name="eq_description" />
+				</tree>
+			</field>
+		</record>
 
         <record model="ir.ui.view" id="eq_lead_referred_form">
             <field name="name">eq.lead.referred.form</field>

@@ -1,17 +1,10 @@
 <openerp>
-<data>
-	<!-- header -->
-	<template id="eq_external_layout_header_invoice">
-	    <div class="header">
-	        <div class="row zero_min_height reportlogo">
-	            <div>
-	                <img t-if="company.eq_report_logo" t-att-src="'data:image/png;base64,%s' % company.eq_report_logo" style="margin-right:15px; float:right;" class="text-right"/>
-	                <!--<img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 2cm; margin-right:0.25cm; float:right;" class="text-right"/>-->
-	            </div>
-	        </div>
+	<data>
+		<!-- header data -->
+		<template id="eq_external_layout_header_invoice_data">
 			<div class="row">
-				<div class="col-xs-7"/>
-		        <div class="col-xs-5">
+				<div class="col-xs-7" />
+				<div class="col-xs-5">
 					<table style="width:100%">
 						<tbody>
 							<tr>
@@ -19,7 +12,7 @@
 									<span>Order no.</span>
 								</td>
 								<td class="text-right">
-									<span t-field="o.name"/>
+									<span t-field="o.name" />
 								</td>
 							</tr>
 							<tr t-if="o.type == 'in_invoice'">
@@ -27,7 +20,7 @@
 									<span>Supplier no.</span>
 								</td>
 								<td class="text-right">
-									<span t-field="o.partner_id.eq_creditor_ref" id="eq_creditor_ref"/>
+									<span t-field="o.partner_id.eq_creditor_ref" id="eq_creditor_ref" />
 								</td>
 							</tr>
 							<tr t-if="o.type in ('out_invoice', 'in_refund', 'out_refund')">
@@ -35,7 +28,7 @@
 									<span>Customer no.</span>
 								</td>
 								<td class="text-right">
-									<span t-field="o.partner_id.eq_customer_ref" id="eq_customer_ref"/>
+									<span t-field="o.partner_id.eq_customer_ref" id="eq_customer_ref" />
 								</td>
 							</tr>
 							<tr>
@@ -43,7 +36,9 @@
 									<span>Your reference no.</span>
 								</td>
 								<td class="text-right">
-									<div class="referencecontainer"><span t-field="o.eq_ref_number"/></div>
+									<div class="referencecontainer">
+										<span t-field="o.eq_ref_number" />
+									</div>
 								</td>
 							</tr>
 							<tr>
@@ -51,7 +46,7 @@
 									<span>Invoice no.</span>
 								</td>
 								<td class="text-right">
-									<span t-field="o.number"/>
+									<span t-field="o.number" />
 								</td>
 							</tr>
 							<tr>
@@ -59,7 +54,7 @@
 									<span>Invoice date</span>
 								</td>
 								<td class="text-right">
-									<span t-field="o.date_invoice"/>
+									<span t-field="o.date_invoice" />
 								</td>
 							</tr>
 							<tr>
@@ -69,113 +64,141 @@
 					</table>
 				</div>
 			</div>
-	        <div class="row zero_min_height">
-	   			<t t-raw="0" />
-	            <div class="col-xs-12">
-	                <div style="font-size:6.5pt;text-decoration: underline;"/>
-	                <!--<div style="border-bottom: 1px solid black;"/>--></div>
-	        </div>
-	    </div>
-	</template>
+		</template>
 
-	<!-- subtotal - template for net price -->
-	<template id="eq_subtotal_template">
-	    <!-- Subtotal -->
-	    <t t-if="'subtotal' in p['category'] and p['category'].subtotal is True">
-	        <tr class="text-right subtotal">
-	            <td colspan="100">
-	            <!-- 
-	            	<t t-esc="p"></t>
-	            	 -->
-	                <strong>Subtotal: </strong>	                	               	                
-	                <span t-esc="calculate(p['subtotal'], p['category'].id)" t-esc-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>	                
-	                <!-- 
-	                <span t-esc="p['subtotal']" t-esc-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
-	                 -->
-	            </td>
-	        </tr>
-	    </t>
-	</template>
+		<!-- header -->
+		<template id="eq_external_layout_header_invoice">
+			<div class="header">
+				<div class="row zero_min_height reportlogo">
+					<div>
+						<img t-if="company.eq_report_logo"
+							t-att-src="'data:image/png;base64,%s' % company.eq_report_logo"
+							style="margin-right:15px; float:right;" class="text-right" />
+						<!--<img t-if="company.logo" t-att-src="'data:image/png;base64,%s' 
+							% company.logo" style="max-height: 2cm; margin-right:0.25cm; float:right;" 
+							class="text-right"/> -->
+					</div>
+				</div>
+				<t t-call="equitania.eq_external_layout_header_invoice_data"/>
+				<div class="row zero_min_height">
+					<t t-raw="0" />
+					<div class="col-xs-12">
+						<div style="font-size:6.5pt;text-decoration: underline;" />
+						<!--<div style="border-bottom: 1px solid black;"/> -->
+					</div>
+				</div>
+			</div>
+		</template>
 
-	<!-- subtotal - template for gross price -->
-	<template id="eq_subtotal_template_gross">
-	    <!-- Subtotal -->
-	    <t t-if="'subtotal' in p['category'] and p['category'].subtotal is True">
-	        <tr class="text-right subtotal">
-	            <td colspan="100">
-	            <!-- 
-	            	<t t-esc="p"></t>
-	            	 -->
-	                <strong>Subtotal: </strong>	                	               
-	                <span t-esc="calculate_sum(p['subtotal'], p['category'].id, p['lines'])" t-esc-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>	                
-	            </td>
-	        </tr>
-	    </t>
-	</template>
-	
-	<template id="external_layout_invoice">
-	    <!-- Multicompany -->
-	    <t t-if="o and 'company_id' in o">
-	        <t t-set="company" t-value="o.company_id"></t>
-	    </t>
-	    <t t-if="not o or not 'company_id' in o">
-	        <t t-set="company" t-value="res_company"></t>
-	    </t>
-	
-	    <t t-call="equitania.eq_external_layout_header_invoice" />
-	    <t t-raw="0" />
-	    <t t-call="report.external_layout_footer" />
-	</template>
+		<!-- subtotal - template for net price -->
+		<template id="eq_subtotal_template">
+			<!-- Subtotal -->
+			<t t-if="'subtotal' in p['category'] and p['category'].subtotal is True">
+				<tr class="text-right subtotal">
+					<td colspan="100">
+						<!-- <t t-esc="p"></t> -->
+						<strong>Subtotal: </strong>
+						<span t-esc="calculate(p['subtotal'], p['category'].id)"
+							t-esc-options='{"widget": "monetary", "display_currency": "o.currency_id"}' />
+						<!-- <span t-esc="p['subtotal']" t-esc-options='{"widget": "monetary", 
+							"display_currency": "o.currency_id"}'/> -->
+					</td>
+				</tr>
+			</t>
+		</template>
 
-	<template id="account.report_invoice_document" active="True">
-	    <t t-call="equitania.external_layout_invoice">
-		    <div class="page">
-		        <div class="oe_structure"/>
-		        <div class="row">
-		        
+		<!-- subtotal - template for gross price -->
+		<template id="eq_subtotal_template_gross">
+			<!-- Subtotal -->
+			<t t-if="'subtotal' in p['category'] and p['category'].subtotal is True">
+				<tr class="text-right subtotal">
+					<td colspan="100">
+						<!-- <t t-esc="p"></t> -->
+						<strong>Subtotal: </strong>
+						<span t-esc="calculate_sum(p['subtotal'], p['category'].id, p['lines'])"
+							t-esc-options='{"widget": "monetary", "display_currency": "o.currency_id"}' />
+					</td>
+				</tr>
+			</t>
+		</template>
+
+		<template id="external_layout_invoice">
+			<!-- Multicompany -->
+			<t t-if="o and 'company_id' in o">
+				<t t-set="company" t-value="o.company_id"></t>
+			</t>
+			<t t-if="not o or not 'company_id' in o">
+				<t t-set="company" t-value="res_company"></t>
+			</t>
+
+			<t t-call="equitania.eq_external_layout_header_invoice" />
+			<t t-raw="0" />
+			<t t-call="report.external_layout_footer" />
+		</template>
+
+		<template id="report_invoice_data">
+			<div class="page">
+				<div class="oe_structure" />
+				<div class="row">
+
 					<div class="col-xs-7 addressmargin">
 						<div class="row col-xs-12 returnaddress">
-							<h t-field="o.company_id.partner_id.name"/> -
-							<h t-field="o.company_id.partner_id.street"/><span t-if="o.company_id.partner_id.eq_house_no"> <span t-field="o.company_id.partner_id.eq_house_no"/></span> -
-							<h t-field="o.company_id.partner_id.zip"/>
-							<h t-field="o.company_id.partner_id.city"/>
+							<h t-field="o.company_id.partner_id.name" />
+							-
+							<h t-field="o.company_id.partner_id.street" />
+							<span t-if="o.company_id.partner_id.eq_house_no">
+								<span t-field="o.company_id.partner_id.eq_house_no" />
+							</span>
+							-
+							<h t-field="o.company_id.partner_id.zip" />
+							<h t-field="o.company_id.partner_id.city" />
 						</div>
 						<div t-if="o.partner_id.is_company">
-							<div t-field="o.partner_id.name" style="clear:left;"/>
-							<div t-if="o.partner_id.eq_name2" t-field="o.partner_id.eq_name2" style="clear:left;"/>
+							<div t-field="o.partner_id.name" style="clear:left;" />
+							<div t-if="o.partner_id.eq_name2" t-field="o.partner_id.eq_name2"
+								style="clear:left;" />
 							<div>
-								<span t-field="o.partner_id.street"/><span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no" style="margin-left:0.1cm;"/>
+								<span t-field="o.partner_id.street" />
+								<span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no"
+									style="margin-left:0.1cm;" />
 							</div>
 							<div t-if="o.partner_id.street2">
-								<div t-field="o.partner_id.street2"/>
+								<div t-field="o.partner_id.street2" />
 							</div>
 							<h>
-								<h t-field="o.partner_id.zip"/>
-								<h t-field="o.partner_id.city"/>
-								<h t-if="o.partner_id.eq_citypart">-
-									<h t-field="o.partner_id.eq_citypart"/>
+								<h t-field="o.partner_id.zip" />
+								<h t-field="o.partner_id.city" />
+								<h t-if="o.partner_id.eq_citypart">
+									-
+									<h t-field="o.partner_id.eq_citypart" />
 								</h>
 							</h>
-							<div t-field="o.partner_id.country_id.name"/>
+							<div t-field="o.partner_id.country_id.name" />
 						</div>
 						<div t-if="not o.partner_id.is_company">
-							<div t-field="o.partner_id.parent_id.name" style="clear:left;"/>
-							<div t-if="o.partner_id.parent_id.eq_name2" t-field="o.partner_id.parent_id.eq_name2" style="clear:left;"/>
-							<span t-field="o.partner_id.title.name"/> <span t-field="o.partner_id.eq_firstname" style="clear:left;"/> <span t-field="o.partner_id.name" style="clear:left;"/>
+							<div t-field="o.partner_id.parent_id.name" style="clear:left;" />
+							<div t-if="o.partner_id.parent_id.eq_name2" t-field="o.partner_id.parent_id.eq_name2"
+								style="clear:left;" />
+							<span t-field="o.partner_id.title.name" />
+							<span t-field="o.partner_id.eq_firstname" style="clear:left;" />
+							<span t-field="o.partner_id.name" style="clear:left;" />
 							<div>
-								<span t-field="o.partner_id.street"/><span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no" style="margin-left:0.1cm;"/>
+								<span t-field="o.partner_id.street" />
+								<span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no"
+									style="margin-left:0.1cm;" />
 							</div>
 							<div t-if="o.partner_id.street2">
-								<div t-field="o.partner_id.street2"/>
+								<div t-field="o.partner_id.street2" />
 							</div>
 							<h>
-								<h t-field="o.partner_id.zip"/>
-								<h t-field="o.partner_id.city"/>
-								<h t-if="o.partner_id.eq_citypart">-
-									<h t-field="o.partner_id.eq_citypart"/>
+								<h t-field="o.partner_id.zip" />
+								<h t-field="o.partner_id.city" />
+								<h t-if="o.partner_id.eq_citypart">
+									-
+									<h t-field="o.partner_id.eq_citypart" />
 								</h>
 							</h>
-							<div t-field="o.partner_id.country_id.name"/>
+							<div t-field="o.partner_id.country_id.name" />
 						</div>
 					</div>
 					<div class="col-xs-5">
@@ -189,7 +212,7 @@
 										<span>Contact person</span>
 									</td>
 									<td class="text-right">
-										<span t-field="o.user_id.eq_employee_id.name"/>
+										<span t-field="o.user_id.eq_employee_id.name" />
 									</td>
 								</tr>
 								<tr>
@@ -197,23 +220,23 @@
 										<span>Phone</span>
 									</td>
 									<td class="text-right">
-										<span t-field="o.user_id.eq_employee_id.work_phone"/>
+										<span t-field="o.user_id.eq_employee_id.work_phone" />
 									</td>
 								</tr>
-	                            <tr t-if="o.user_id.eq_employee_id.eq_work_fax">
-	                                <td>
-	                                    <span>Fax</span>
-	                                </td>
-	                                <td class="text-right">
-	                                    <span t-field="o.user_id.eq_employee_id.eq_work_fax"/>
-	                                </td>
-	                            </tr>
+								<tr t-if="o.user_id.eq_employee_id.eq_work_fax">
+									<td>
+										<span>Fax</span>
+									</td>
+									<td class="text-right">
+										<span t-field="o.user_id.eq_employee_id.eq_work_fax" />
+									</td>
+								</tr>
 								<tr>
 									<td colspan="2">
 										<span>E-Mail</span>
 										<div style="float:right;">
-	                                        <span t-field="o.user_id.eq_employee_id.work_email"/>
-	                                    </div>
+											<span t-field="o.user_id.eq_employee_id.work_email" />
+										</div>
 									</td>
 								</tr>
 							</tbody>
@@ -221,160 +244,191 @@
 					</div>
 				</div>
 				<h2>
-					<span t-if="o.type == 'out_invoice' and (o.state == 'open' or o.state == 'paid')">Invoice</span>
+					<span
+						t-if="o.type == 'out_invoice' and (o.state == 'open' or o.state == 'paid')">Invoice</span>
 					<span t-if="o.type == 'out_invoice' and o.state == 'proforma2'">Pro-forma invoice</span>
 					<span t-if="o.type == 'out_invoice' and o.state == 'draft'">Draft invoice</span>
 					<span t-if="o.type == 'out_invoice' and o.state == 'cancel'">Cancelled invoice</span>
 					<span t-if="o.type == 'out_refund'">Refund</span>
 					<span t-if="o.type == 'in_refund'">Supplier Refund</span>
 					<span t-if="o.type == 'in_invoice'">Supplier Invoice</span>
-					<span t-field="o.number"/>
+					<span t-field="o.number" />
 				</h2>
-				<p t-if="o.eq_head_text" style="margin-bottom:0.3cm!important;"><span t-field="o.eq_head_text"/></p>
+				<p t-if="o.eq_head_text" style="margin-bottom:0.3cm!important;">
+					<span t-field="o.eq_head_text" />
+				</p>
 				<!-- 1. set flag if we should show gross price -->
-				<t t-set="show_gross_price" t-value="check_if_display_gross_price(o)"/>
-				
+				<t t-set="show_gross_price" t-value="check_if_display_gross_price(o)" />
+
 				<table class="table table-condensed">
 					<thead>
 						<tr>
-	                       	<th>Seq</th>
+							<th>Seq</th>
 							<th style="min-width:2.6cm;">Item no.</th>
 							<th>Item description</th>
 							<th style="min-width:1.8cm;">Qty.</th>
 							<th class="text-right" style="min-width:2.3cm;">Unit price</th>
-							<th class="text-right" t-if="any([line.discount for line in o.invoice_line])" groups="sale.group_discount_per_so_line">Discount (%)</th>
+							<th class="text-right" t-if="any([line.discount for line in o.invoice_line])"
+								groups="sale.group_discount_per_so_line">Discount (%)</th>
 							<!-- <th class="text-right">Steuern</th> -->
 							<t t-if="show_gross_price is False">	<!-- no, show only net price -->
 								<th class="text-right" style="min-width:2.7cm;">Net price</th>
 							</t>
-							<t t-if="show_gross_price is True">		<!-- yes, show gross price -->                    	                       
-		                        <th class="text-right" style="min-width:2.7cm;">
-		                            <strong>Gross price</strong>
-		                        </th>                        
-	                        </t>
+							<t t-if="show_gross_price is True">		<!-- yes, show gross price -->
+								<th class="text-right" style="min-width:2.7cm;">
+									<strong>Gross price</strong>
+								</th>
+							</t>
 						</tr>
 					</thead>
-					<tbody class="invoice_tbody">				
-				        <t t-foreach="o.sale_layout_lines(invoice_id=o.id)" t-as="p">
-				            <!-- Name of the category -->
-				            <t t-call="equitania.category_template"/>
-				            <t t-foreach="p['lines']" t-as="l">
-									<tr>
-	                                	<td><span t-field="l.eq_pos_no"/></td> 
-										<td><span t-field="l.product_id.default_code"/></td>
-										<td><strong><span t-field="l.product_id.name"/></strong><br/><span t-field="l.name"/>
-											<div id="eq_drawing_number">
-												<t t-if="l.product_id.eq_drawing_number">
-													<p>Drawing No.: <span t-field="l.product_id.eq_drawing_number"/></p><!-- Zeigt die Zeichnungsnummer der Produktvariante an -->
-												</t>
-												<t t-if="not l.product_id.eq_drawing_number and l.product_id.product_tmpl_id.eq_drawing_number">
-													<p>Drawing No.: <span t-field="l.product_id.product_tmpl_id.eq_drawing_number"/></p><!-- Zeigt die Zeichnungsnummer des Hauptprodukts an, wenn für die Variante keine Nummer hinterlegt ist -->
-												</t>
-											</div>
-										</td>
-										<td>
-											<span t-esc="get_qty(l.quantity, o.partner_id.lang)"/>
-											<span t-field="l.uos_id"  groups="product.group_uom"/>
-										</td>
+					<tbody class="invoice_tbody">
+						<t t-foreach="o.sale_layout_lines(invoice_id=o.id)" t-as="p">
+							<!-- Name of the category -->
+							<t t-call="equitania.category_template" />
+							<t t-foreach="p['lines']" t-as="l">
+								<tr>
+									<td>
+										<span t-field="l.eq_pos_no" />
+									</td>
+									<td>
+										<span t-field="l.product_id.default_code" />
+									</td>
+									<td>
+										<strong>
+											<span t-field="l.product_id.name" />
+										</strong>
+										<br />
+										<span t-field="l.name" />
+										<div id="eq_drawing_number">
+											<t t-if="l.product_id.eq_drawing_number">
+												<p>
+													Drawing No.:
+													<span t-field="l.product_id.eq_drawing_number" />
+												</p><!-- Zeigt die Zeichnungsnummer der Produktvariante an -->
+											</t>
+											<t
+												t-if="not l.product_id.eq_drawing_number and l.product_id.product_tmpl_id.eq_drawing_number">
+												<p>
+													Drawing No.:
+													<span t-field="l.product_id.product_tmpl_id.eq_drawing_number" />
+												</p><!-- Zeigt die Zeichnungsnummer des Hauptprodukts an, wenn 
+													für die Variante keine Nummer hinterlegt ist -->
+											</t>
+										</div>
+									</td>
+									<td>
+										<span t-esc="get_qty(l.quantity, o.partner_id.lang)" />
+										<span t-field="l.uos_id" groups="product.group_uom" />
+									</td>
+									<td class="text-right">
+										<span
+											t-esc="get_price(l.price_unit, o.partner_id.lang, o.currency_id)" />
+									</td>
+									<td class="text-right" t-if="any([line.discount for line in o.invoice_line])"
+										groups="sale.group_discount_per_so_line">
+										<span t-field="l.discount" />
+									</td>
+
+									<t t-if="show_gross_price is False">	<!-- no, show only net price -->
 										<td class="text-right">
-											<span t-esc="get_price(l.price_unit, o.partner_id.lang, o.currency_id)"/>
+											<span
+												t-esc="get_standard_price(l.price_subtotal, o.partner_id.lang, o.currency_id)" />
 										</td>
-										<td class="text-right" t-if="any([line.discount for line in o.invoice_line])" groups="sale.group_discount_per_so_line"><span t-field="l.discount"/></td>
-										
-										<t t-if="show_gross_price is False">	<!-- no, show only net price -->						                        
-			                        <td class="text-right">		                        			                            			                            	
-										<span t-esc="get_standard_price(l.price_subtotal, o.partner_id.lang, o.currency_id)"/>		                            
-			                        </td>		                        
-		                        </t>
-		                        
-		                        <t t-if="show_gross_price is True">		<!-- yes, show gross price -->
-			                        <td class="text-right">
-			                        	<t t-set="gross_price" t-value="get_gross_price_invoice(l, o.partner_id.lang, o.currency_id)"/>
-			                        	<t t-set="gross_price_float" t-value="get_gross_price_as_float_invoice(l, o.partner_id.lang, o.currency_id)"/>
-			                        	
-			                        	<span t-esc="gross_price"/>			                        	
-			                        	
-			                        </td>
-		                        </t>
-		                        
-		                        <!-- 
+									</t>
+
+									<t t-if="show_gross_price is True">		<!-- yes, show gross price -->
 										<td class="text-right">
-											<span t-esc="get_standard_price(l.price_subtotal, o.partner_id.lang, o.currency_id)"/>
+											<t t-set="gross_price"
+												t-value="get_gross_price_invoice(l, o.partner_id.lang, o.currency_id)" />
+											<t t-set="gross_price_float"
+												t-value="get_gross_price_as_float_invoice(l, o.partner_id.lang, o.currency_id)" />
+
+											<span t-esc="gross_price" />
+
 										</td>
-										 -->
-									</tr>
-									<tr t-if="l.eq_move_id and l.eq_move_id.picking_id" style="border-top-style:hidden;">
-										<td colspan="7">
-											<p style="font-weight:bold;">Delivery No. <span t-field="l.eq_move_id.picking_id.name"/> from <span t-esc="l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[2] + '.' + l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[1] + '.' + l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[0]"/> / Delivery Date (the date of service)</p>
-										</td>
-									</tr>
-				            </t>
-				
-				            <!-- Subtotal -->
-				            <!-- 
-				            <t t-call="equitania.subtotal_template"/>
-							-->
-							<t t-if="show_gross_price is False">		
-		 						<t t-call="equitania.eq_subtotal_template" />
-		 					</t>
-		 					<t t-if="show_gross_price is True">		<!-- yes, show gross price -->		
-		 						<t t-call="equitania.eq_subtotal_template_gross" />
-		 					</t>
-		 					
-				            <!-- Separator -->
-				            <t t-call="equitania.separator_template"/>
-				
-				            <!-- Pagebreak -->
-				            <t t-if="'pagebreak' in p['category'] and p['category'].pagebreak is True">
-				                <t t-if="p_index &lt; p_size - 1">
+									</t>
+
+									<!-- <td class="text-right"> <span t-esc="get_standard_price(l.price_subtotal, 
+										o.partner_id.lang, o.currency_id)"/> </td> -->
+								</tr>
+								<tr t-if="l.eq_move_id and l.eq_move_id.picking_id" style="border-top-style:hidden;">
+									<td colspan="7">
+										<p style="font-weight:bold;">
+											Delivery No.
+											<span t-field="l.eq_move_id.picking_id.name" />
+											from
+											<span
+												t-esc="l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[2] + '.' + l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[1] + '.' + l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[0]" />
+											/ Delivery Date (the date of service)
+										</p>
+									</td>
+								</tr>
+							</t>
+
+							<!-- Subtotal -->
+							<!-- <t t-call="equitania.subtotal_template"/> -->
+							<t t-if="show_gross_price is False">
+								<t t-call="equitania.eq_subtotal_template" />
+							</t>
+							<t t-if="show_gross_price is True">		<!-- yes, show gross price -->
+								<t t-call="equitania.eq_subtotal_template_gross" />
+							</t>
+
+							<!-- Separator -->
+							<t t-call="equitania.separator_template" />
+
+							<!-- Pagebreak -->
+							<t
+								t-if="'pagebreak' in p['category'] and p['category'].pagebreak is True">
+								<t t-if="p_index &lt; p_size - 1">
 				                    <![CDATA[
 				                        </tbody>
 				                    </table>
 				                    <p style="page-break-before:always;"> </p>
 				                    <table class="table table-condensed">
 				                    ]]>
-				                    <thead>
-				                        <tr>
-	                                		<th>Seq.</th>
-				                        	<th style="min-width:2.6cm;">Item no.</th>
-					                        <th>Item description</th>
-					                        <th class="text-right" style="min-width:1.8cm;">Qty.</th>
-					                        <!-- <th class="text-right">Unit</th>-->
-					                        <th class="text-right" style="min-width:2.3cm;">Unit price</th>
-		                                	<th t-if="any([line.discount for line in o.invoice_line])" class="text-right">Discount (%)</th>
-					                        <th class="text-right" style="min-width:2.7cm;">Net price</th>
-				                        
-				                        
-				                        
-				                        
-				                            <!-- <th>Description</th>
-				                            <th>Quantity</th>
-				                            <th groups="product.group_uom">Unit of measure</th>
-				                            <th class="text-right">Unit Price</th>
-				                            <th class="text-right" groups="sale.group_discount_per_so_line">Discount (%)</th>
-				                            <th class="text-right">Taxes</th>
-				                            <th class="text-right">Amount</th>-->
-				                        </tr>
-				                    </thead>
+									<thead>
+										<tr>
+											<th>Seq.</th>
+											<th style="min-width:2.6cm;">Item no.</th>
+											<th>Item description</th>
+											<th class="text-right" style="min-width:1.8cm;">Qty.</th>
+											<!-- <th class="text-right">Unit</th> -->
+											<th class="text-right" style="min-width:2.3cm;">Unit price</th>
+											<th t-if="any([line.discount for line in o.invoice_line])"
+												class="text-right">Discount (%)</th>
+											<th class="text-right" style="min-width:2.7cm;">Net price</th>
+
+
+
+
+											<!-- <th>Description</th> <th>Quantity</th> <th groups="product.group_uom">Unit 
+												of measure</th> <th class="text-right">Unit Price</th> <th class="text-right" 
+												groups="sale.group_discount_per_so_line">Discount (%)</th> <th class="text-right">Taxes</th> 
+												<th class="text-right">Amount</th> -->
+										</tr>
+									</thead>
 				                    <![CDATA[
 				                        <tbody>
 				                    ]]>
-				                </t>
-				            </t>
-				        </t>
+								</t>
+							</t>
+						</t>
 					</tbody>
 				</table>
 				<div class="row padding-fix">
 					<div>
-						<table class="table table-condensed" rules="none" style="border: 1px solid #999999;">
+						<table class="table table-condensed" rules="none"
+							style="border: 1px solid #999999;">
 							<thead>
-								<tr><!-- class="border-black"-->
+								<tr><!-- class="border-black" -->
 									<td class="text-right" id="price_netto">
 										<strong>Total without taxes</strong>
 									</td>
 									<td class="text-right" t-if="o.invoice_line[0].invoice_line_tax_id">
 										<strong>
-											<span t-esc="', '.join(map(lambda x: x.name, o.invoice_line[0].invoice_line_tax_id))"/>
+											<span
+												t-esc="', '.join(map(lambda x: x.name, o.invoice_line[0].invoice_line_tax_id))" />
 										</strong>
 									</td>
 									<td class="text-right">
@@ -385,96 +439,127 @@
 							<tbody>
 								<tr>
 									<td class="text-right" id="price_netto_amount">
-										<span t-esc="get_standard_price(o.amount_untaxed, o.partner_id.lang, o.currency_id)"/>
+										<span
+											t-esc="get_standard_price(o.amount_untaxed, o.partner_id.lang, o.currency_id)" />
 									</td>
 									<td class="text-right" t-if="o.invoice_line[0].invoice_line_tax_id">
-										<span t-esc="get_standard_price(o.amount_tax, o.partner_id.lang, o.currency_id)"/>
+										<span
+											t-esc="get_standard_price(o.amount_tax, o.partner_id.lang, o.currency_id)" />
 									</td>
-									<td class="text-right">                                            
-										<span t-esc="get_standard_price(o.amount_total, o.partner_id.lang, o.currency_id)"/>
+									<td class="text-right">
+										<span
+											t-esc="get_standard_price(o.amount_total, o.partner_id.lang, o.currency_id)" />
 									</td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
 					<table>
-	                	<tbody>
-	                 		<tr t-if="o.comment">
-	                            <td style="padding:0 0.5cm 0.3cm 0; vertical-align:top;">
-	                                <p t-field="o.comment"/>
-	                            </td>
-	                        </tr>
-	                	</tbody>
-	                </table>
-					<table id="additional-invoice-info" class="col-xs-3" style="width:auto!important; max-width:50%; clear:both;">
+						<tbody>
+							<tr t-if="o.comment">
+								<td style="padding:0 0.5cm 0.3cm 0; vertical-align:top;">
+									<p t-field="o.comment" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table id="additional-invoice-info" class="col-xs-3"
+						style="width:auto!important; max-width:50%; clear:both;">
 						<tbody>
 							<tr t-if="o.payment_term">
 								<td style="padding-right:0.5cm; padding-bottom:0.3cm;">
 									Term of payment:
 								</td>
 								<td>
-									<span t-field="o.payment_term"/>
+									<span t-field="o.payment_term" />
 								</td>
 							</tr>
-							<!-- <tr t-if="o.comment">
-								<td style="padding:0 0.5cm 0.3cm 0; vertical-align:top;">
-									Notes:
+							<!-- <tr t-if="o.comment"> <td style="padding:0 0.5cm 0.3cm 0; vertical-align:top;"> 
+								Notes: </td> <td style=" vertical-align:top;"> <span t-field="o.comment"/> 
+								</td> </tr> -->
+							<tr t-if="o.eq_delivery_address" id="eq_delivery_address_spacing">
+								<td>
+									<p> <!-- Keep this line for Spacing -->
+									</p>
 								</td>
-								<td style=" vertical-align:top;">
-									<span t-field="o.comment"/>
-								</td>
-							</tr>-->
-							<tr t-if="o.eq_delivery_address" id="eq_delivery_address_spacing"><td><p> <!-- Keep this line for Spacing --></p></td><td></td></tr>
+								<td></td>
+							</tr>
 							<tr t-if="o.eq_delivery_address" id="eq_delivery_address">
 								<td style="padding-right:0.5cm;" valign="top">
 									Shipping address:
 								</td>
 								<td style="padding-bottom:0.3cm; padding-bottom:0.3cm;">
-									<div>
-										<div t-field="o.eq_delivery_address.name" style="clear:left;"/>
-										<div t-if="o.eq_delivery_address.eq_name2" t-field="o.eq_delivery_address.eq_name2" style="clear:left;"/>
+									<!-- wenn die Anschrift keine Person ist (Lieferadresse ist kein Kontakt) -->
+									<div t-if="o.eq_delivery_address.type != 'contact'">
+										<div t-if="o.eq_delivery_address.parent_id.name" t-field="o.eq_delivery_address.parent_id.name" style="clear:left;" />
+										<div t-if="o.eq_delivery_addres.parent_ids.eq_name2" t-field="o.eq_delivery_address.eq_name2"
+											style="clear:left;" />
 										<div>
-											<span t-field="o.eq_delivery_address.street"/><span t-if="o.eq_delivery_address.eq_house_no" t-field="o.eq_delivery_address.eq_house_no" style="margin-left:0.1cm;"/>
+											<span t-field="o.eq_delivery_address.street" />
+											<span t-if="o.eq_delivery_address.eq_house_no" t-field="o.eq_delivery_address.eq_house_no"
+												style="margin-left:0.1cm;" />
 										</div>
 										<div t-if="o.eq_delivery_address.street2">
-											<div t-field="o.eq_delivery_address.street2"/>
+											<div t-field="o.eq_delivery_address.street2" />
 										</div>
 										<h>
-											<h t-field="o.eq_delivery_address.zip"/>
-											<h t-field="o.eq_delivery_address.city"/>
-											<h t-if="o.eq_delivery_address.eq_citypart">-
-												<h t-field="o.eq_delivery_address.eq_citypart"/>
+											<h t-field="o.eq_delivery_address.zip" />
+											<h t-field="o.eq_delivery_address.city" />
+											<h t-if="o.eq_delivery_address.eq_citypart">
+												-
+												<h t-field="o.eq_delivery_address.eq_citypart" />
 											</h>
 										</h>
-										<div t-field="o.eq_delivery_address.country_id.name"/>
+										<div t-field="o.eq_delivery_address.country_id.name" />
+									</div>
+									
+									<!-- wenn die Anschrift eine Person ist (Lieferadresse IST ein Kontakt) -->
+									<div t-if="o.eq_delivery_address.type == 'contact'">
+										<div t-if="o.eq_delivery_address.parent_id.name" t-field="o.eq_delivery_address.parent_id.name" style="clear:left;" />
+										<div t-if="o.eq_delivery_address.parent_id.eq_name2" t-field="o.eq_delivery_address.eq_name2"
+											style="clear:left;" />
+									<span t-field="o.eq_delivery_address.title.name" />
+									<span t-field="o.eq_delivery_address.eq_firstname" style="clear:left;" />
+									<span t-field="o.eq_delivery_address.name" style="clear:left;" />
+										<div>
+											<span t-field="o.eq_delivery_address.street" />
+											<span t-if="o.eq_delivery_address.eq_house_no" t-field="o.eq_delivery_address.eq_house_no"
+												style="margin-left:0.1cm;" />
+										</div>
+										<div t-if="o.eq_delivery_address.street2">
+											<div t-field="o.eq_delivery_address.street2" />
+										</div>
+										<h>
+											<h t-field="o.eq_delivery_address.zip" />
+											<h t-field="o.eq_delivery_address.city" />
+											<h t-if="o.eq_delivery_address.eq_citypart">
+												-
+												<h t-field="o.eq_delivery_address.eq_citypart" />
+											</h>
+										</h>
+										<div t-field="o.eq_delivery_address.country_id.name" />
 									</div>
 								</td>
-		                      </tr>
-							<!-- <tr t-if="o.eq_order.partner_shipping_id != o.eq_order.partner_id and o.eq_order.partner_shipping_id != False">
-								<td style="padding-right:0.5cm; font-weight:bold;" valign="top">
-									Lieferanschrift:
-								</td>
-								<td>
-									<div>
-									<div t-field="o.eq_order.partner_shipping_id.name" style="clear:left;"/>
-									<div t-field="o.eq_order.partner_shipping_id.street"/>
-									<div t-if="o.eq_order.partner_shipping_id.street2">
-										<div t-field="o.eq_order.partner_shipping_id.street2"/>
-									</div>
-									<h>
-										<h t-field="o.eq_order.partner_shipping_id.zip"/>
-										<h t-field="o.eq_order.partner_shipping_id.city"/>
-									</h>
-									<div t-field="o.eq_order.partner_shipping_id.country_id.name"/>
-								</div>
-							</td>
-	                      </tr>-->
+							</tr>
+							<!-- <tr t-if="o.eq_order.partner_shipping_id != o.eq_order.partner_id 
+								and o.eq_order.partner_shipping_id != False"> <td style="padding-right:0.5cm; 
+								font-weight:bold;" valign="top"> Lieferanschrift: </td> <td> <div> <div t-field="o.eq_order.partner_shipping_id.name" 
+								style="clear:left;"/> <div t-field="o.eq_order.partner_shipping_id.street"/> 
+								<div t-if="o.eq_order.partner_shipping_id.street2"> <div t-field="o.eq_order.partner_shipping_id.street2"/> 
+								</div> <h> <h t-field="o.eq_order.partner_shipping_id.zip"/> <h t-field="o.eq_order.partner_shipping_id.city"/> 
+								</h> <div t-field="o.eq_order.partner_shipping_id.country_id.name"/> </div> 
+								</td> </tr> -->
 						</tbody>
 					</table>
 				</div><!-- <p t-field="o.comment"/> -->
-				<div class="oe_structure"/>
-	        </div>
-	    </t>
-	</template>
-</data>
+				<div class="oe_structure" />
+			</div>
+		</template>
+
+		<template id="account.report_invoice_document" active="True">
+			<t t-call="equitania.external_layout_invoice">
+				<t t-call="equitania.report_invoice_data" />
+			</t>
+		</template>
+	</data>
 </openerp>
