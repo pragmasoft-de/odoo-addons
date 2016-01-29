@@ -141,7 +141,7 @@ class res_partner(models.Model):
                 for partner in res_partners:
                     partner.customer = vals["customer"]            
                         
-        return super(eq_res_partner_ref, self).write(vals)
+        return super(res_partner, self).write(vals)
     
     
     """ method extended from eq_address_extension_new_api.py """

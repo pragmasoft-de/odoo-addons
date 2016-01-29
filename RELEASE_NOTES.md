@@ -1,4 +1,9 @@
 ### 29.1.2016
+### equitania, 1.0.183
+#### FIX
+-changes on res_partner.py,eq_css.xml,eq_header.xml
+
+### 29.1.2016
 ### equitania, 1.0.182
 #### FIX
 -megred develop branch --> develop9.0

@@ -22,7 +22,7 @@
 {
     'name': 'Equitania Erweiterungsmodul',
     'license': 'AGPL-3',
-    'version': '1.0.182',
+    'version': '1.0.183',
     'description': """
         Equitania Software GmbH
     """,
@@ -53,7 +53,7 @@
         'sale_view.xml',
         'hr_view.xml',
 #         'views/eq_footer.xml',
-#         'views/eq_header.xml',
+        'views/eq_header.xml',
 #         'views/eq_report_purchase_order.xml',
 #         'views/eq_report_purchase_quotation.xml',
 #         'views/eq_report_sale_order.xml',
@@ -77,7 +77,7 @@
         'wizard/eq_date_done_change_view.xml',
 #         'wizard/stock_transfer_details_view.xml',  #object - stock.transfer_details was not available on Odoo9
 #         'views/eq_purchase_view.xml',
-#         'views/eq_css.xml',
+        'views/eq_css.xml',
         #'views/eq_portal_sale_data.xml',
 #         'views/eq_sale_order_action_data.xml',
 #         'views/eq_website_quotation_data.xml',
