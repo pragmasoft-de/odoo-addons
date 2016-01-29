@@ -4,6 +4,7 @@
 - Rechnungs-Report: Zeigt nun auch korrekt die abweichende Lieferanschrift im unteren Report-Bereich für Kontakte
 #### Änderung
 - Verkaufs-Report: wurde erweitert für die neue Briefpapier-Variante
+- Umstellung der Lieferschein-Reports auf die neue Variante, damit es später für Briefpapiere auch verwendet werden kann
 ### eq_plain_reports, 1.0.1
 #### CHG
 - SaleOrder-Report: ist nun auch als Plain-Version (für Briefpapier) umgesetzt
