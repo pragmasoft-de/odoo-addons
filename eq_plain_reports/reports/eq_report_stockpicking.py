@@ -22,37 +22,9 @@
 import time
 from openerp.osv import osv
 from openerp.report import report_sxw
-
-class eq_report_stockpicking(report_sxw.rml_parse):
-    
-    def __init__(self, cr, uid, name, context):
-        super(eq_report_stockpicking, self).__init__(cr, uid, name, context=context)
-        
-        self.localcontext.update({
-            'get_qty':self.get_qty,
-            'get_price': self.get_price,
-            'get_standard_price': self.get_standard_price,
-            'get_weight': self.get_weight,
-        })
-        
-    
-    def get_qty(self, object, language):
-        return self.pool.get("eq_report_helper").get_qty(self.cr, self.uid, object, language, 'Sale Quantity Report')
-           
-    
-    def get_price(self, object, language, currency_id):                
-        return self.pool.get("eq_report_helper").get_price(self.cr, self.uid, object, language, 'Sale Price Report', currency_id)
-    
-    
-    def get_standard_price(self, object, language, currency_id):
-        return self.pool.get("eq_report_helper").get_standard_price(self.cr, self.uid, object, language, currency_id)
-    
-    def get_weight(self, object, language):
-        return self.pool.get("eq_report_helper").get_qty(self.cr, self.uid, object, language, 'Sale Weight Report')      
-    
     
 class report_lunchorder(osv.AbstractModel):
-    _name = 'report.stock.report_picking'
-    _inherit = 'report.abstract_report'
-    _template = 'stock.report_picking'
-    _wrapped_report_class = eq_report_stockpicking
+    _name = 'report.eq_plain_reports.report_stockpicking_plain'
+    _inherit = 'report.stock.report_picking'
+    #die inherit wird aus dem equitania report abgeleitet, aus dessen 'name'
+    _template = 'eq_plain_reports.report_stockpicking_plain'

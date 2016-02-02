@@ -5,6 +5,10 @@
 > Abschluss vom Standard-Umbau
 > FIX vom ReportHeader für Lieferscheine
 > FIX von der Übersetzung für Lieferscheine
+### eq_plain_reports, 1.0.2
+#### ADD
+- Lieferschein Plain Report:
+> Fertiggestellt
 
 ### 29.01.2016
 ### equitania, 1.0.127
