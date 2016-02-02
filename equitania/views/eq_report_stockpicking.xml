@@ -392,41 +392,24 @@
 						t-field-options='{"widget": "contact", "fields": ["address", "name", "phone", "fax"], "no_marker": true}' />
 				</div>
 			</xpath>
-			<xpath expr="//th[@name='td_sched_date_h']" position="after">
-				<th t-if="o.picking_type_id.code == 'outgoing'">
-					<strong>Carrier</strong>
-				</th>
-				<th>
-					<strong>Weight</strong>
-				</th>
-			</xpath>
-			<xpath expr="//td[@name='td_sched_date']" position="after">
-				<td t-if="o.picking_type_id.code == 'outgoing'">
-					<span t-field="o.carrier_id" />
-				</td>
-				<td>
-					<span t-field="o.weight" />
-				</td>
-			</xpath>
 		</template>
 
-		<template id="stock.report_picking_document">
+<!-- 		<template id="stock.report_picking">
 			<t t-call="equitania.external_layout_stock_picking">
 				<t t-call="equitania.report_picking_data"></t>
 			</t>
-		</template>
+		</template> -->
 
-<!-- 
+
 		<template id="stock.report_picking" active="True">
 			<t t-call="report.html_container">
 				<t t-foreach="docs" t-as="o">
 					<t t-call="equitania.external_layout_stock_picking">
-				<t t-call="equitania.report_picking_data"></t>
-
+						<t t-call="equitania.report_picking_data"></t>
 					</t>
 				</t>
 			</t>
-		</template> -->
+		</template>
 
 
 

@@ -662,7 +662,7 @@ msgstr "Position"
 
 #. module: equitania
 #: view:website:equitania.eq_report_stockpicking_return
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 msgid "Item description"
 msgstr "Beschreibung"
 
@@ -1527,7 +1527,7 @@ msgstr "Rechnung"
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:equitania.report_saleorder_data
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 msgid "margin-right:4px;"
 msgstr "margin-right:4px;"
 
@@ -1662,7 +1662,7 @@ msgstr "Angebot"
 #: view:website:equitania.report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 #: view:website:external_layout_return_picking
 msgid "Seq"
 msgstr "Pos"
@@ -1673,7 +1673,7 @@ msgstr "Pos"
 #: view:website:equitania.report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 #: view:website:external_layout_return_picking
 msgid "Item no."
 msgstr "Artikelnr."
@@ -1694,7 +1694,7 @@ msgstr "Beschreibung"
 #: view:website:equitania.report_invoice_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 #: view:website:external_layout_return_picking
 msgid "Qty."
 msgstr "Menge"
@@ -1947,85 +1947,102 @@ msgid "Your request no."
 msgstr "Ihre Anfragenr."
 
 #. module: equitania
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 #: view:website:external_layout_return_picking
 msgid "Customer no."
 msgstr "Kundennr."
 
 #. module: equitania
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 #: view:website:external_layout_return_picking
 msgid "Your reference no."
 msgstr "Ihre Referenznr."
 
 #. module: equitania
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 #: view:website:external_layout_return_picking
 msgid "Commitment Date"
 msgstr "Bestätigungsdatum"
 
 #. module: equitania
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 #: view:website:external_layout_return_picking
 msgid "Delivery Date"
 msgstr "Lieferdatum"
 
 #. module: equitania
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 #: view:website:external_layout_return_picking
 msgid "Supplier Address:"
 msgstr "Lieferadresse:"
 
 #. module: equitania
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 #: view:website:external_layout_return_picking
 msgid "Warehouse Address:"
 msgstr "Lageradresse:"
 
 #. module: equitania
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 #: view:website:external_layout_return_picking
 msgid "Our reference no."
 msgstr "Unsere Referenznr."
 
 #. module: equitania
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 #: view:website:external_layout_return_picking
 msgid "Scheduled date"
 msgstr "Geplantes Datum"
 
 #. module: equitania
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 #: view:website:external_layout_return_picking
 msgid "Weight"
 msgstr "Gewicht"
 
 #. module: equitania
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 #: view:website:external_layout_return_picking
+msgid "Carrier"
+msgstr "Frachtführer"
+
+#. module: equitania
+#: view:website:equitania.report_picking_data
+#: view:website:external_layout_return_picking
+msgid "Product"
+msgstr "Artikel"
+
+#. module: equitania
+#: view:website:equitania.report_picking_data
+#: view:website:external_layout_return_picking
+msgid "Packing list:"
+msgstr "Packliste/Lieferschein:"
+
+#. module: equitania
+#: view:website:equitania.report_picking_data
 msgid "Source"
 msgstr "Ursprungsort"
 
 #. module: equitania
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 #: view:website:external_layout_return_picking
 msgid "Destination"
 msgstr "Zielort"
 
 #. module: equitania
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 #: view:website:external_layout_return_picking
 msgid "Invoice address:"
 msgstr "Rechnungsadresse:"
 
 #. module: equitania
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 #: view:website:external_layout_return_picking
 msgid "Goods received on date:"
 msgstr "Waren erhalten am:"
 
 #. module: equitania
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 #: view:website:external_layout_return_picking
 msgid "Signature"
 msgstr "Unterschrift"
@@ -2454,7 +2471,7 @@ msgstr "\n"
 "</div>"
 
 #. module: equitania
-#: view:website:stock.report_picking
+#: view:website:equitania.report_picking_data
 msgid "Delivery note:"
 msgstr "Lieferschein:"
 

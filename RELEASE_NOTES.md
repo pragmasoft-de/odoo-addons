@@ -1,3 +1,11 @@
+### 02.02.2016
+### equitania, 1.0.128
+#### Fix
+- Lieferschein Reports:
+> Abschluss vom Standard-Umbau
+> FIX vom ReportHeader für Lieferscheine
+> FIX von der Übersetzung für Lieferscheine
+
 ### 29.01.2016
 ### equitania, 1.0.127
 #### Fix
