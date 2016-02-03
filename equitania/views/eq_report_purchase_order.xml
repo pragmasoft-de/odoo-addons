@@ -17,7 +17,7 @@
                         <tr>
                             <td/>
                         </tr>
-                        <tr>
+                        <tr t-if="o.partner_id.eq_creditor_ref">
                             <td>
                                 <span>Supplier no.</span>
                             </td>
@@ -25,7 +25,7 @@
                                 <span t-field="o.partner_id.eq_creditor_ref" id="eq_creditor_ref"/>
                             </td>
                         </tr>
-                        <tr>
+                        <tr t-if="o.partner_ref">
                             <td>
                                 <span>Your order reference</span>
                             </td>
@@ -33,7 +33,7 @@
 								<div class="referencecontainer"><span t-field="o.partner_ref"/></div>
                             </td>
                         </tr>
-                        <tr>
+                        <tr t-if="o.name">
                             <td>
                                 <span>Our order reference</span>
                             </td>

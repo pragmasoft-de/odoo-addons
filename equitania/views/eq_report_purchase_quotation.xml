@@ -1,270 +1,324 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-<data>
-<template id="eq_external_layout_header_purchase_quotation">
-    <div class="header">
-        <div class="row zero_min_height reportlogo">
-            <div>
-                <img t-if="company.eq_report_logo" t-att-src="'data:image/png;base64,%s' % company.eq_report_logo" style="margin-right:15px; float:right;" class="text-right"/>
-                <!--<img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 2cm; margin-right:0.25cm; float:right;" class="text-right"/>-->
-            </div>
-        </div>
-		<div class="row">
-			<div class="col-xs-7"/>
-	        <div class="col-xs-5">
-                    <table t-if="not o.origin" style="width:100%">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <span>Your request no.</span>
-                                </td>
-                                <td class="text-right">
-                                    <span t-field="o.name"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span>Your order reference</span>
-                                </td>
-                                <td class="text-right">
-                                    <span t-field="o.partner_ref"/>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table t-if="o.origin" style="width:100%">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <span>Your request no.</span>
-                                </td>
-                                <td class="text-right">
-                                    <span t-field="o.name"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span>Your order reference</span>
-                                </td>
-                                <td class="text-right">
-                                    <div class="referencecontainer"><span t-field="o.partner_ref"/></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span>Your message</span>
-                                </td>
-                                <td class="text-right">
-                                    <span t-field="o.origin"/>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-			</div>
-		</div>
-        <div class="row zero_min_height">
-   			<t t-raw="0" />
-            <div class="col-xs-12">
-                <div style="font-size:6.5pt;text-decoration: underline;"/>
-                <!--<div style="border-bottom: 1px solid black;"/>--></div>
-        </div>
-    </div>
-</template>
-
-<template id="external_layout_purchase_quotation">
-    <!-- Multicompany -->
-    <t t-if="o and 'company_id' in o">
-        <t t-set="company" t-value="o.company_id"></t>
-    </t>
-    <t t-if="not o or not 'company_id' in o">
-        <t t-set="company" t-value="res_company"></t>
-    </t>
-
-    <t t-call="equitania.eq_external_layout_header_purchase_quotation" />
-    <t t-raw="0" />
-    <t t-call="report.external_layout_footer" />
-</template>
-
-<template id="purchase.report_purchasequotation_document" active="True">
-    <t t-call="equitania.external_layout_purchase_quotation">
-	    <div class="page">
-	        <div class="oe_structure"/>
-            <div class="row">
-                <div class="col-xs-7 addressmargin">
-                    <div class="row col-xs-12 returnaddress" >
-                        <h t-field="o.company_id.partner_id.name"/> -
-						<h t-field="o.company_id.partner_id.street"/><span t-if="o.company_id.partner_id.eq_house_no"> <span t-field="o.company_id.partner_id.eq_house_no"/></span> -
-                        <h t-field="o.company_id.partner_id.zip"/><h>&#xa0;</h>
-                        <h t-field="o.company_id.partner_id.city"/>
-                    </div>
-                    <div t-field="o.partner_id.name" style="clear:left;"/>
-                    <div t-if="o.partner_id.eq_name2" t-field="o.partner_id.eq_name2" style="clear:left;"/>
-					<div>
-						<span t-field="o.partner_id.street"/><span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no" style="margin-left:0.1cm;"/>
+	<data>
+		<template id="eq_external_layout_header_purchase_quotation_data">
+			<div class="header">
+				<div class="row">
+					<div class="col-xs-7" />
+					<div class="col-xs-5">
+						<table t-if="not o.origin" style="width:100%">
+							<tbody>
+								<tr t-if="o.name">
+									<td>
+										<span>Your request no.</span>
+									</td>
+									<td class="text-right">
+										<span t-field="o.name" />
+									</td>
+								</tr>
+								<tr t-if="o.partner_ref">
+									<td>
+										<span>Your order reference</span>
+									</td>
+									<td class="text-right">
+										<span t-field="o.partner_ref" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<table t-if="o.origin" style="width:100%">
+							<tbody>
+								<tr t-if="o.name">
+									<td>
+										<span>Your request no.</span>
+									</td>
+									<td class="text-right">
+										<span t-field="o.name" />
+									</td>
+								</tr>
+								<tr t-if="o.partner_ref">
+									<td>
+										<span>Your order reference</span>
+									</td>
+									<td class="text-right">
+										<div class="referencecontainer">
+											<span t-field="o.partner_ref" />
+										</div>
+									</td>
+								</tr>
+								<tr t-if="o.origin">
+									<td>
+										<span>Your message</span>
+									</td>
+									<td class="text-right">
+										<span t-field="o.origin" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
-                    <div t-if="o.partner_id.street2">
-                        <div t-field="o.partner_id.street2"/>
-                    </div>
-                   	<h>
-                        <h t-field="o.partner_id.zip"/><h>&#xa0;</h>
-                        <h t-field="o.partner_id.city"/>
-						<h t-if="o.partner_id.eq_citypart">-
-							<h t-field="o.partner_id.eq_citypart"/>
+				</div>
+				<div class="row zero_min_height">
+					<t t-raw="0" />
+					<div class="col-xs-12">
+						<div style="font-size:6.5pt;text-decoration: underline;" />
+						<!--<div style="border-bottom: 1px solid black;"/> -->
+					</div>
+				</div>
+			</div>
+		</template>
+
+		<!-- header -->
+		<template id="eq_external_layout_header_purchase_quotation">
+			<div class="header">
+				<div class="row zero_min_height reportlogo">
+					<div>
+						<img t-if="company.eq_report_logo"
+							t-att-src="'data:image/png;base64,%s' % company.eq_report_logo"
+							style="margin-right:15px; float:right;" class="text-right" />
+						<!--<img t-if="company.logo" t-att-src="'data:image/png;base64,%s' 
+							% company.logo" style="max-height: 2cm; margin-right:0.25cm; float:right;" 
+							class="text-right"/> -->
+					</div>
+				</div>
+				<t t-call="equitania.eq_external_layout_header_purchase_quotation_data" />
+				<div class="row zero_min_height">
+					<t t-raw="0" />
+					<div class="col-xs-12">
+						<div style="font-size:6.5pt;text-decoration: underline;" />
+						<!--<div style="border-bottom: 1px solid black;"/> -->
+					</div>
+				</div>
+			</div>
+		</template>
+
+		<template id="external_layout_purchase_quotation">
+			<!-- Multicompany -->
+			<t t-if="o and 'company_id' in o">
+				<t t-set="company" t-value="o.company_id"></t>
+			</t>
+			<t t-if="not o or not 'company_id' in o">
+				<t t-set="company" t-value="res_company"></t>
+			</t>
+
+			<t t-call="equitania.eq_external_layout_header_purchase_quotation" />
+			<t t-raw="0" />
+			<t t-call="report.external_layout_footer" />
+		</template>
+
+		<template id="report_purchasequotation_data" active="True">
+			<div class="page">
+				<div class="oe_structure" />
+				<div class="row">
+					<div class="col-xs-7 addressmargin">
+						<div class="row col-xs-12 returnaddress">
+							<h t-field="o.company_id.partner_id.name" />
+							-
+							<h t-field="o.company_id.partner_id.street" />
+							<span t-if="o.company_id.partner_id.eq_house_no">
+								<span t-field="o.company_id.partner_id.eq_house_no" />
+							</span>
+							-
+							<h t-field="o.company_id.partner_id.zip" />
+							<h>&#xa0;</h>
+							<h t-field="o.company_id.partner_id.city" />
+						</div>
+						<div t-field="o.partner_id.name" style="clear:left;" />
+						<div t-if="o.partner_id.eq_name2" t-field="o.partner_id.eq_name2"
+							style="clear:left;" />
+						<div>
+							<span t-field="o.partner_id.street" />
+							<span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no"
+								style="margin-left:0.1cm;" />
+						</div>
+						<div t-if="o.partner_id.street2">
+							<div t-field="o.partner_id.street2" />
+						</div>
+						<h>
+							<h t-field="o.partner_id.zip" />
+							<h>&#xa0;</h>
+							<h t-field="o.partner_id.city" />
+							<h t-if="o.partner_id.eq_citypart">
+								-
+								<h t-field="o.partner_id.eq_citypart" />
+							</h>
 						</h>
-                    </h>
-                   	<div t-field="o.partner_id.country_id.name"/>
-                </div>
-                <div class="col-xs-5">
-                    <h class="contactpersonheader" t-if="o.eq_contact_person_id">
-                        <strong>For further information, please contact</strong>
-                    </h>
-                    <table style="width:100%;" t-if="o.eq_contact_person_id">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <span>Contact person</span>
-                                </td>
-                                <td class="text-right">
-                                    <span t-field="o.eq_contact_person_id.name"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span>Phone</span>
-                                </td>
-                                <td class="text-right">
-                                    <span t-field="o.eq_contact_person_id.work_phone"/>
-                                </td>
-                            </tr>
-                            <tr t-if="o.eq_contact_person_id.eq_work_fax">
-                                <td>
-                                    <span>Fax</span>
-                                </td>
-                                <td class="text-right">
-                                    <span t-field="o.eq_contact_person_id.eq_work_fax"/>
-                                </td>
-                            </tr>
-  							<tr>
-								<td colspan="2">
-									<span>E-Mail</span>
-									<div style="float:right;">
-                                        <span t-field="o.eq_contact_person_id.work_email"/>
-                                    </div>
+						<div t-field="o.partner_id.country_id.name" />
+					</div>
+					<div class="col-xs-5">
+						<h class="contactpersonheader" t-if="o.eq_contact_person_id">
+							<strong>For further information, please contact</strong>
+						</h>
+						<table style="width:100%;" t-if="o.eq_contact_person_id">
+							<tbody>
+								<tr>
+									<td>
+										<span>Contact person</span>
+									</td>
+									<td class="text-right">
+										<span t-field="o.eq_contact_person_id.name" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span>Phone</span>
+									</td>
+									<td class="text-right">
+										<span t-field="o.eq_contact_person_id.work_phone" />
+									</td>
+								</tr>
+								<tr t-if="o.eq_contact_person_id.eq_work_fax">
+									<td>
+										<span>Fax</span>
+									</td>
+									<td class="text-right">
+										<span t-field="o.eq_contact_person_id.eq_work_fax" />
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<span>E-Mail</span>
+										<div style="float:right;">
+											<span t-field="o.eq_contact_person_id.work_email" />
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<h2>
+					Purchase quotation
+					<span t-field="o.name" />
+				</h2>
+				<p t-if="o.eq_head_text" style="margin-bottom:0.3cm!important;">
+					<span t-field="o.eq_head_text" />
+				</p>
+				<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>
+								<strong>Item description</strong>
+							</th>
+							<th class="text-center" t-if="o.show_delivery_date">
+								<strong>Delivery date</strong>
+							</th>
+							<th class="text-right" style="min-width:1.8cm;">
+								<strong>Qty.</strong>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr t-foreach="o.order_line" t-as="order_line">
+							<td>
+								<strong>
+									<span t-field="order_line.product_id.name" />
+								</strong>
+								<div t-if="order_line.name and order_line.name != ' '">
+									<br />
+									<span t-field="order_line.name" />
+								</div>
+							</td>
+							<td class="text-center" t-if="o.show_delivery_date">
+								<span t-field="order_line.get_delivery_date" />
+							</td>
+							<td class="text-right">
+								<span t-esc="get_qty(order_line.product_qty, o.partner_id.lang)" />
+								<span t-field="order_line.product_uom" groups="product.group_uom" />
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div>
+					<table>
+						<tbody>
+							<tr t-if="o.notes">
+								<td styles=" vertical-align:top;">
+									<p t-field="o.notes" />
 								</td>
 							</tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <h2>Purchase quotation
-                <span t-field="o.name"/>
-            </h2>
-			<p t-if="o.eq_head_text" style="margin-bottom:0.3cm!important;"><span t-field="o.eq_head_text"/></p>
-			<table class="table table-condensed">
-                <thead>
-                    <tr>
-                        <th>
-                            <strong>Item description</strong>
-                        </th>
-                        <th class="text-center" t-if="o.show_delivery_date">
-                            <strong>Delivery date</strong>
-                        </th>
-                        <th class="text-right" style="min-width:1.8cm;">
-                            <strong>Qty.</strong>
-                        </th>
-                    </tr>
-                </thead>
-				<tbody>
-				    <tr t-foreach="o.order_line" t-as="order_line">
-				        <td>
-				            <strong><span t-field="order_line.product_id.name"/></strong>
-				            <div t-if="order_line.name and order_line.name != ' '">
-					            <br/>
-					            <span t-field="order_line.name"/>
-				            </div>
-				        </td>
-				        <td class="text-center" t-if="o.show_delivery_date">
-				            <span t-field="order_line.get_delivery_date"/>
-				        </td>
-				        <td class="text-right">
-				            <span t-esc="get_qty(order_line.product_qty, o.partner_id.lang)"/>
-				            <span t-field="order_line.product_uom" groups="product.group_uom"/>
-				        </td>
-				    </tr>
-				</tbody>
-			</table>
-			<div>
-                <table>
-                	<tbody>
-                        <tr t-if="o.notes">
-                            <td styles=" vertical-align:top;">
-                                <p t-field="o.notes"/>
-                            </td>
-                        </tr>
-                	</tbody>
-                </table>
-                	<table class="col-xs-3" style="width:90%;">
-	            	<tr>
-	            		<td style="vertical-align:top; width:50%;" t-if="o.payment_term_id or o.incoterm_id">
-	            			<table class="col-xs-3" style="width:auto!important; max-width:90%; min-width:8cm;">
-				                <tbody>
-				                    <tr style="vertical-align:top;">
-				                        <td t-if="o.payment_term_id" style="padding-right:0.5cm; padding-bottom:0.3cm;">
-				                            Term of payment:
-				                        </td>
-				                        <td t-if="o.payment_term_id">
-				                            <span t-field="o.payment_term_id"/>
-				                        </td>
-				                    </tr>
-				                    <tr style="vertical-align:top;">
-				                        <td t-if="o.incoterm_id" style="padding-right:0.5cm; padding-bottom:0.3cm;">
-				                            Incoterm:
-				                        </td>
-				                        <td t-if="o.incoterm_id">
-				                            <span t-field="o.incoterm_id.name"/>
-				                        </td>
-				                    </tr>
-				                </tbody>
-				            </table>
-	            		</td>
-	            		<td style="vertical-align:top; width:50%;">
-	            			<table t-if="o.picking_type_id.warehouse_id.partner_id" class="col-xs-3" style="width:auto!important; max-width:90%; min-width:8cm;">
-				                <tbody>
-				                    <tr style="vertical-align:top;">
-				                    	<td style="padding-right:0.5cm; font-weight:bold;">
-				                    		Deliver to:
-				                    	</td>
-				                    </tr>
-				                    <tr>
-				                    	<td>
-				                    		<div t-field="o.picking_type_id.warehouse_id.partner_id.name"/>
-				                    		<div t-if="o.picking_type_id.warehouse_id.partner_id.eq_name2" t-field="o.picking_type_id.warehouse_id.partner_id.eq_name2"/>
-											<div>
-												<span t-field="o.picking_type_id.warehouse_id.partner_id.street"/><span t-if="o.picking_type_id.warehouse_id.partner_id.eq_house_no" t-field="o.picking_type_id.warehouse_id.partner_id.eq_house_no" style="margin-left:0.1cm;"/>
-											</div>
-							                <div t-if="o.picking_type_id.warehouse_id.partner_id.street2">
-							                    <div t-field="o.picking_type_id.warehouse_id.partner_id.street2"/>
-							                </div>
-							                <h t-if="o.picking_type_id.warehouse_id.partner_id.zip">
-							                    <h t-field="o.picking_type_id.warehouse_id.partner_id.zip"/><h>&#xa0;</h>
-							                    <h t-field="o.picking_type_id.warehouse_id.partner_id.city"/>
-												<h t-if="o.picking_type_id.warehouse_id.partner_id.eq_citypart">-
-													<h t-field="o.picking_type_id.warehouse_id.partner_id.eq_citypart"/>
+						</tbody>
+					</table>
+					<table class="col-xs-3" style="width:90%;">
+						<tr>
+							<td style="vertical-align:top; width:50%;" t-if="o.payment_term_id or o.incoterm_id">
+								<table class="col-xs-3"
+									style="width:auto!important; max-width:90%; min-width:8cm;">
+									<tbody>
+										<tr style="vertical-align:top;">
+											<td t-if="o.payment_term_id" style="padding-right:0.5cm; padding-bottom:0.3cm;">
+												Term of payment:
+											</td>
+											<td t-if="o.payment_term_id">
+												<span t-field="o.payment_term_id" />
+											</td>
+										</tr>
+										<tr style="vertical-align:top;">
+											<td t-if="o.incoterm_id" style="padding-right:0.5cm; padding-bottom:0.3cm;">
+												Incoterm:
+											</td>
+											<td t-if="o.incoterm_id">
+												<span t-field="o.incoterm_id.name" />
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+							<td style="vertical-align:top; width:50%;">
+								<table t-if="o.picking_type_id.warehouse_id.partner_id"
+									class="col-xs-3" style="width:auto!important; max-width:90%; min-width:8cm;">
+									<tbody>
+										<tr style="vertical-align:top;">
+											<td style="padding-right:0.5cm; font-weight:bold;">
+												Deliver to:
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<div t-field="o.picking_type_id.warehouse_id.partner_id.name" />
+												<div t-if="o.picking_type_id.warehouse_id.partner_id.eq_name2"
+													t-field="o.picking_type_id.warehouse_id.partner_id.eq_name2" />
+												<div>
+													<span t-field="o.picking_type_id.warehouse_id.partner_id.street" />
+													<span
+														t-if="o.picking_type_id.warehouse_id.partner_id.eq_house_no"
+														t-field="o.picking_type_id.warehouse_id.partner_id.eq_house_no"
+														style="margin-left:0.1cm;" />
+												</div>
+												<div t-if="o.picking_type_id.warehouse_id.partner_id.street2">
+													<div t-field="o.picking_type_id.warehouse_id.partner_id.street2" />
+												</div>
+												<h t-if="o.picking_type_id.warehouse_id.partner_id.zip">
+													<h t-field="o.picking_type_id.warehouse_id.partner_id.zip" />
+													<h>&#xa0;</h>
+													<h t-field="o.picking_type_id.warehouse_id.partner_id.city" />
+													<h t-if="o.picking_type_id.warehouse_id.partner_id.eq_citypart">
+														-
+														<h t-field="o.picking_type_id.warehouse_id.partner_id.eq_citypart" />
+													</h>
 												</h>
-							                </h>
-				                            <div t-field="o.picking_type_id.warehouse_id.partner_id.state_id"/>
-				                            <div t-field="o.picking_type_id.warehouse_id.partner_id.country_id"/>
-				                    	</td>
-				                    </tr>
-				                </tbody>
-							</table>
-						</td>
-					</tr>
-				</table>
+												<div t-field="o.picking_type_id.warehouse_id.partner_id.state_id" />
+												<div t-field="o.picking_type_id.warehouse_id.partner_id.country_id" />
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="oe_structure" />
 			</div>
-            <div class="oe_structure"/>
-        </div>
-    </t>
-</template>
-</data>
+
+		</template>
+
+
+		<template id="purchase.report_purchasequotation_document"
+			active="True">
+			<t t-call="equitania.external_layout_purchase_quotation">
+				<t t-call="equitania.report_purchasequotation_data" />
+			</t>
+		</template>
+
+	</data>
 </openerp>

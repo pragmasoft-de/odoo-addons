@@ -7,7 +7,7 @@
 				<div class="col-xs-5">
 					<table style="width:100%">
 						<tbody>
-							<tr>
+							<tr t-if="o.name">
 								<td>
 									<span>Order no.</span>
 								</td>
@@ -31,7 +31,7 @@
 									<span t-field="o.partner_id.eq_customer_ref" id="eq_customer_ref" />
 								</td>
 							</tr>
-							<tr>
+							<tr t-if="o.name">
 								<td>
 									<span>Your reference no.</span>
 								</td>
@@ -202,17 +202,17 @@
 						</div>
 					</div>
 					<div class="col-xs-5">
-						<h class="contactpersonheader" t-if="o.user_id.eq_employee_id">
+						<h class="contactpersonheader" t-if="o.user_id">
 							<strong>For further information, please contact</strong>
 						</h>
-						<table style="width:100%;" t-if="o.user_id.eq_employee_id">
+						<table style="width:100%;" t-if="o.user_id">
 							<tbody>
 								<tr>
 									<td>
 										<span>Contact person</span>
 									</td>
 									<td class="text-right">
-										<span t-field="o.user_id.eq_employee_id.name" />
+										<span t-field="o.user_id.name" />
 									</td>
 								</tr>
 								<tr>
@@ -220,22 +220,22 @@
 										<span>Phone</span>
 									</td>
 									<td class="text-right">
-										<span t-field="o.user_id.eq_employee_id.work_phone" />
+										<span t-field="o.user_id.phone" />
 									</td>
 								</tr>
-								<tr t-if="o.user_id.eq_employee_id.eq_work_fax">
+								<tr t-if="o.user_id.fax">
 									<td>
 										<span>Fax</span>
 									</td>
 									<td class="text-right">
-										<span t-field="o.user_id.eq_employee_id.eq_work_fax" />
+										<span t-field="o.user_id.fax" />
 									</td>
 								</tr>
 								<tr>
 									<td colspan="2">
 										<span>E-Mail</span>
 										<div style="float:right;">
-											<span t-field="o.user_id.eq_employee_id.work_email" />
+											<span t-field="o.user_id.login" />
 										</div>
 									</td>
 								</tr>

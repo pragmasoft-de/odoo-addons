@@ -1,3 +1,8 @@
+### 03.02.2016
+### equitania, 1.0.129
+#### Änderung
+- Reports Verkauf/Rechnung: Statt dem Sachbearbeiter, den Verkäufer in den Kontaktinformationen drucken
+
 ### 02.02.2016
 ### equitania, 1.0.128
 #### Fix
