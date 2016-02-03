@@ -24,6 +24,37 @@
             	<field name="partner_id" position="before">
             		<field name="eq_customer_ref" readonly="1" class="oe_inline"/>
             	</field>
+            	<notebook position="inside">
+                    <page string="Head Text">
+						<field name="eq_head_text" placeholder="Dear Sir or Madam," nolabel="1"/>
+                    </page>
+                    <page string="Foot Text">
+                    	<field name="note" nolabel="1"/>
+                    </page>
+            	</notebook>
+            </field>
+        </record>
+        
+    	<!-- Sale -->
+        <record id="eq_sale_order_form_quote" model="ir.ui.view">
+            <field name="name">eq.sale.order.form.quote</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="website_quote.sale_order_form_quote" />
+            <field name="arch" type="xml">
+            	<page string="Suggested Products" position="replace"/>
+            </field>
+        </record>
+        
+    	<!-- Sale -->
+        <record id="eq_sale_view_inherit123" model="ir.ui.view">
+            <field name="name">eq.sale.view.inherit123</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_crm.sale_view_inherit123" />
+            <field name="arch" type="xml">
+				<field name="categ_ids" position="replace"/>
+				<field name="origin" position="before">
+					<field name="categ_ids" widget="many2many_tags"/>
+				</field>
             </field>
         </record>
 		

@@ -45,23 +45,16 @@
             <field name="inherit_id" ref="sale.view_order_form" />
             <field name="arch" type="xml">
                 <field name="invoiced" postion="replace">
-                <field name="partner_shipping_id" position="after">
-                	<fild name="invoiced"/>
+	                <field name="partner_shipping_id" position="after">
+	                	<fild name="invoiced"/>
+	                </field>
                 </field>
-                </field>
+                <field name="user_id" position="replace"/>
 	            <field name="pricelist_id" position="after">
                     <field name="eq_contact_person_id"/>
+                    <field name="user_id"/>
 				</field>
-                <xpath expr="//notebook" position="before">
-					<label for="eq_head_text" string="Headtext"/>
-					<div colspan="4">
-						<field name="eq_head_text" placeholder="Dear Sir or Madam," nolabel="1"/>
-					</div>
-                </xpath>
-                <field name="note" position="replace">
-                	<label for="note"/>
-					<field name="note"/>
-                </field>
+                <field name="note" position="replace"/>
 	            <button name="action_button_confirm" states="draft" position="replace">
 	            	<button name="action_button_confirm_optional" states="draft" string="Confirm Sale" type="object" groups="base.group_user"/>
 	            </button>
@@ -70,6 +63,7 @@
 	            </button>
             </field>
         </record>
+        
         <!-- Sale Order Tree View -->
         <record id="eq_sale_order_tree" model="ir.ui.view">
             <field name="name">eq.sale.order.tree</field>
@@ -168,16 +162,16 @@
 	            <field name="pricelist_id" position="after">
                     <field name="eq_contact_person_id"/>
                 </field>
-                <xpath expr="//notebook" position="before">
-					<label for="eq_head_text" string="Headtext"/>
-					<div colspan="4">
-						<field name="eq_head_text" placeholder="Dear Sir or Madam," nolabel="1"/>
-					</div>
-                </xpath>
                 <xpath expr="//field[@name='notes']" position="replace">
-                	<label for="notes"/>
-                	<field name="notes"/>
                 </xpath>
+            	<notebook position="inside">
+                    <page string="Head Text">
+						<field name="eq_head_text" placeholder="Dear Sir or Madam," nolabel="1"/>
+                    </page>
+                    <page string="Foot Text">
+                    	<field name="notes" nolabel="1"/>
+                    </page>
+            	</notebook>
             </field>
         </record>
         
@@ -212,27 +206,27 @@
             <field name="model">account.invoice</field>
             <field name="inherit_id" ref="account.invoice_form" />
             <field name="arch" type="xml">
+                <field name="user_id" position="replace"/>
 	            <field name="account_id" position="after">
                     <field name="eq_contact_person_id"/>
+                	<field name="user_id"/>
                 </field>
                 <field name="origin" positione="after">
                     <field name="eq_customer_ref"/>
                 </field>
-                <field name="comment" positione="replace">
-                    <field name="comment"/>
-                </field>
-                <xpath expr="//notebook" position="before">
-					<label for="eq_head_text" string="Headtext"/>
-					<div colspan="4">
+                <label for="comment" position="replace"/>
+                <field name="comment" position="replace"/>
+                <xpath expr="//notebook" position="inside">
+                    <page string="Head Text">
 						<field name="eq_head_text" placeholder="Dear Sir or Madam," nolabel="1"/>
-					</div>
+                    </page>
+                    <page string="Foot Text">
+                    	<field name="comment" nolabel="1"/>
+                    </page>
                 </xpath>
                 <xpath expr="//page/group/group/field[@name='origin']" position="after">
                     <field name="eq_ref_number"/>
                 </xpath>
-                <field name="comment" position="replace">
-                    <field name="comment"/>
-                </field>
             </field>
         </record>
         
@@ -241,16 +235,21 @@
             <field name="model">account.invoice</field>
             <field name="inherit_id" ref="account.invoice_supplier_form" />
             <field name="arch" type="xml">
-            	<xpath expr="//notebook" position="before">
-					<label for="eq_head_text" string="Headtext"/>
-					<div colspan="4">
-						<field name="eq_head_text" placeholder="Dear Sir or Madam," nolabel="1"/>
-					</div>
-                </xpath>
-            
-                <field name="comment" position="replace">
-                    <field name="comment"/>
+                <field name="user_id" position="replace"/>
+	            <field name="journal_id" position="after">
+                    <field name="eq_contact_person_id"/>
+                	<field name="user_id"/>
                 </field>
+                <label for="comment" position="replace"/>
+                <field name="comment" position="replace"/>
+            	<xpath expr="//notebook" position="inside">
+                    <page string="Head Text">
+						<field name="eq_head_text" placeholder="Dear Sir or Madam," nolabel="1"/>
+                    </page>
+                    <page string="Foot Text">
+                    	<field name="comment" nolabel="1"/>
+                    </page>
+                </xpath>
             </field>
        	</record>
             

@@ -1,4 +1,8 @@
 ### 03.02.2016
+### equitania, 1.0.130
+#### Änderung
+- Verkauf/Einkauf/Rechnung: Kopf- und Fußtext in seperate Reiter eingefügt. Kontaktperson zu Sachbearbeiter umbenannt.
+- Verkauf/Rechnung Einkäufer unter den Sachbearbeiter gefügt.
 ### equitania, 1.0.129
 #### Änderung
 - Reports Verkauf/Rechnung: Statt dem Sachbearbeiter, den Verkäufer in den Kontaktinformationen drucken

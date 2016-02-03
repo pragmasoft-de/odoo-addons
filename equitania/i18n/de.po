@@ -532,11 +532,29 @@ msgid "Head Text"
 msgstr "Kopftext"
 
 #. module: equitania
-#: view:account.invoice:equitania.eq_invoice_form
+#: field:account.invoice,eq_head_text:0
+#: field:purchase.order,eq_head_text:0
+#: view:sale.order:equitania.eq_sale_order_from_view_eq_customer_ref
 #: view:purchase.order:equitania.eq_purchase_order_form
-#: view:sale.order:equitania.eq_sale_order_form
-msgid "Headtext"
+#: view:account.invoice:equitania.eq_invoice_supplier_form
+#: view:account.invoice:equitania.eq_invoice_form
+#: field:sale.order,eq_head_text:0
+msgid "Head Text"
 msgstr "Kopftext"
+
+#. module: equitania
+#: view:sale.order:equitania.eq_sale_order_from_view_eq_customer_ref
+#: view:purchase.order:equitania.eq_purchase_order_form
+#: view:account.invoice:equitania.eq_invoice_supplier_form
+#: view:account.invoice:equitania.eq_invoice_form
+msgid "Foot Text"
+msgstr "Fußtext"
+
+#. module: equitania
+#: field:sale.order,user_id:0
+#: field:account.invoice,user_id:0
+msgid "Salesperson"
+msgstr "Verkäufer (Druck)"
 
 #. module: equitania
 #: view:res.company:equitania.eq_company_custom_fields_form_view
