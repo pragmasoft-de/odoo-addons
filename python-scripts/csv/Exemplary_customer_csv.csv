@@ -1,0 +1,5 @@
+Unternehmen?,Kundennummer,Brief Begrüßung,Nachname,Vorname,Firmenname,function,Straße,Hausnummer,PLZ,Pforzheim,Telefonnummer,Mobil,Fax,Email,Land,Zahlungsbedingungen,Schlagwörter
+FALSCH,10079,Sehr geehrter Herr Mustermann,Mustermann,Max,, ,Musterstraße ,1,99999,Musterstadt,+49 (89) 1234567,+49 (173) 1234567,+49 (173) 1234568,m.mustermann@seinprovider.de,DE,Sofortige Zahlung,Mitarbeiter
+WAHR,10075,Sehr geehrte Frau Mustermann,Mustermann,Erika,Musterfirma, ,Musterstraße,1,99999,Musterstadt,+49 (89) 1234567,+49 (173) 2345678,+49 (173) 2345679,e.mustermann@seinprovider.de,DE,15 Tage,Beratungsleistungen
+FALSCH,10071,Sehr geehrter Herr Normalverbraucher,Normalverbraucher,Otto, ,Dr.,Beispielstraße,9,11111,Beispielstadt,1111 22222,,,otto.normalverbraucher@seinprovider.de,DE,30 Tage netto,Mitarbeiter
+FALSCH,10088,Sehr geehrter Herr Voorbeeld,Voorbeeld,Victor, ,Dipl.Ing,Beispielweg,11,22222,Amsterstadt,0000 11111,,,victor.voorbeeld@seinprovider.de,NL,35.00%,Komponenten
