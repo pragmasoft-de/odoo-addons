@@ -1,4 +1,9 @@
 ### 04.02.2016
+### equitania, 1.0.132
+#### Änderung
+- Report Papierformat geändert: Die Maße für den Kopfbereich der Papierformate wurde aktualisiert, Neu:
+> Kopfrand (headerspacing) = 47
+> Kopfzeilenabstand (margin_top) = 47
 ### equitania, 1.0.131
 #### Änderung
 - Die Felder für Telefon, Mobil und Fax werden direkt im Benutzer angezeigt.
