@@ -1,3 +1,8 @@
+### 04.02.2016
+### equitania, 1.0.131
+#### Änderung
+- Die Felder für Telefon, Mobil und Fax werden direkt im Benutzer angezeigt.
+
 ### 03.02.2016
 ### equitania, 1.0.130
 #### Änderung
