@@ -1,3 +1,9 @@
+### 04.02.2016
+### equitania, 1.0.184
+#### FIX
+- Fixed error in migrated functionality of res_users. It's possible to save users again
+
+
 ### 29.1.2016
 ### equitania, 1.0.183
 #### FIX

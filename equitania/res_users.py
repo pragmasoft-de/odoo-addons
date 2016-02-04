@@ -31,36 +31,33 @@ class eq_res_users(models.Model):
     eq_custom01 = fields.Char(size=64) # field added from eq_company_custom_fields.py            
 
     
-    """ added this functionality from eq_res_users_new_api.py """
     @api.model    
     def create(self, vals):
-                
+        """
+            Extension of default create method
+            @vals: values to be set
+            @return: new created res.user
+        """
+        
         # default call - create new user and save automaticaly created new partner_id            
-        new_user =  super(eq_res_users_new_api, self).create(vals)
-            
+        new_user =  super(eq_res_users, self).create(vals)
+        
         # check if we can find at least one record in res_partner with same email as user provided
         if new_user.login : #fixed the issue for users
             partner = self.env['res.partner'].search([('email', '=',new_user.login), ('customer', '=', True)])
-            #print "-------------- partner: ", partner
             if len(partner) > 1:
-                #print "----- tuple -----"
-                existing_partner_id = partner[0].id
+                existing_partner_id = partner[0].id         # it's a tuple
             else:
-                #print "----- single ------"
-                existing_partner_id = partner.id
+                existing_partner_id = partner.id            # it's a single record
                 
-            #print "------- existing_partner_id: ", existing_partner_id
                                                                     
-            new_generated_partner_id = new_user.partner_id.id
-            #print "------- new_generated_partner_id:", new_generated_partner_id
+            new_generated_partner_id = new_user.partner_id.id   # save id of new & automaticaly generated partner_id
             
             # yes, we have an existing partner, so there's no need to use new created one. just use existing partner and delete new one
-            #if partner.id is not False:
             if existing_partner_id is not False:
-                if existing_partner_id != new_generated_partner_id:   
-                    #print "---- ok, it's call from backend ILLINGEN - deleted new generated record"         
+                if existing_partner_id != new_generated_partner_id:     # ok, it's call from backend ILLINGEN - deleted new generated record"                            
                     new_user.partner_id = existing_partner_id                                                        
                     wrong_partner = self.env['res.partner'].search([('id', '=', new_generated_partner_id)])     # get new + automaticaly generated partner and delete him - we don't need him
                     wrong_partner.unlink() 
-                     
+        
         return new_user
