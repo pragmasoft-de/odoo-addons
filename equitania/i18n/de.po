@@ -236,12 +236,12 @@ msgstr "Bestätigt"
 #: field:account.invoice,eq_contact_person_id:0
 #: field:purchase.order,eq_contact_person_id:0
 msgid "Contact Person"
-msgstr "Sachbearbeiter"
+msgstr "Sachbearbeiter(in)"
 
 #. module: equitania
 #: field:sale.order,eq_contact_person_id:0
 msgid "Contact Person Sale"
-msgstr "Kontaktperson Verkauf"
+msgstr "Sachbearbeiter(in)"
 
 #. module: equitania
 #: view:res.partner:equitania.eq_partner_extension_form_view
@@ -554,7 +554,7 @@ msgstr "Fußtext"
 #: field:sale.order,user_id:0
 #: field:account.invoice,user_id:0
 msgid "Salesperson"
-msgstr "Verkäufer (Druck)"
+msgstr "Ansprechpartner(in) im Verkauf"
 
 #. module: equitania
 #: view:res.company:equitania.eq_company_custom_fields_form_view
