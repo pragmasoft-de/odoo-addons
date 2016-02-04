@@ -1,5 +1,8 @@
 ### 04.02.2016
+### eq_quotation_enhancement, 1.0.12
 ### equitania, 1.0.132
+#### Änderung
+- ID für die Übersetzung nachgepflegt, für die neuen Angebote-Reports
 #### Änderung
 - Report Papierformat geändert: Die Maße für den Kopfbereich der Papierformate wurde aktualisiert, Neu:
 > Kopfrand (headerspacing) = 49

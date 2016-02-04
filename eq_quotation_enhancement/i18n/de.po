@@ -48,6 +48,6 @@ msgid "Default the quotation template which will be used in every new quotation.
 msgstr "Diese Vorlage wird standardmäßig bei jedem neu erstellten Angebot verwendet."
 
 #. module: eq_quotation_enhancement
-#: view:website:equitania.eq_external_layout_header_sale_order
+#: view:website:equitania.eq_external_layout_header_sale_order_data
 msgid "Expiry Date"
 msgstr "Gültig bis"
