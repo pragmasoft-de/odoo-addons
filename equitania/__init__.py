@@ -19,9 +19,9 @@
 #
 ##############################################################################
 
-
-import wizard
 import eq_install_func
+import res_users
+import wizard
 import eq_partner_extension
 import eq_lead_referred
 import sale
@@ -33,12 +33,8 @@ import reports
 import res_config
 import res_partner
 import eq_report_helper
-import res_users
-import hr
 import product
 import eq_clean_data
-import eq_email
-import res_users_old
 import stock_old
 import company
 import crm
@@ -48,3 +44,11 @@ import sale_old
 import product_old
 import purchase
 import eq_open_sale_order_line
+
+# NOTE: causing big problem right now - it's not possible to save users with this module installed !
+# NOTE: try to create new user and save
+#import eq_email
+
+# NOTE: causing next problem - it's not possible to save users with this module installed !
+# NOTE: try to change employee by existing user and save
+#import hr

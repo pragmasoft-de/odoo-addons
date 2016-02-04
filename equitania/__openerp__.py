@@ -22,7 +22,7 @@
 {
     'name': 'Equitania Erweiterungsmodul',
     'license': 'AGPL-3',
-    'version': '1.0.183',
+    'version': '1.0.185',
     'description': """
         Equitania Software GmbH
     """,
@@ -40,18 +40,18 @@
     'data': [
         'security/equitania_security.xml',
         'security/ir.model.access.csv',
-        'security/menuitems_managed_admin.xml',
+        'security/menuitems_managed_admin.xml',        
         'wizard/eq_multy_assign_product_no_view.xml',
         'eq_reports_view.xml',
         'eq_pricelist_item_search_view.xml',
         'eq_modules_first_view.xml',
         'eq_company_custom_fields_view.xml',
-        'eq_sale_order_seq_view.xml',
+        'eq_sale_order_seq_view.xml',        
         'eq_report_extension_view.xml',
         'eq_lead_referred_view.xml',
         'eq_open_sale_order_line_view.xml',
         'sale_view.xml',
-        'hr_view.xml',
+        #'hr_view.xml',            # NOTE: causing an error !
 #         'views/eq_footer.xml',
         'views/eq_header.xml',
 #         'views/eq_report_purchase_order.xml',
@@ -73,12 +73,12 @@
         'res_users_view.xml',
         'res_partner_view.xml',
         'stock_view.xml',
-        'product_view.xml',
+        #'product_view.xml',            # NOTE: causing an error !
         'wizard/eq_date_done_change_view.xml',
 #         'wizard/stock_transfer_details_view.xml',  #object - stock.transfer_details was not available on Odoo9
 #         'views/eq_purchase_view.xml',
         'views/eq_css.xml',
-        #'views/eq_portal_sale_data.xml',
+        #'views/eq_portal_sale_data.xml',    # NOTE: causing an error !
 #         'views/eq_sale_order_action_data.xml',
 #         'views/eq_website_quotation_data.xml',
         'account_invoice_view.xml',
