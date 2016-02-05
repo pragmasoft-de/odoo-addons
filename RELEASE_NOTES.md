@@ -1,3 +1,8 @@
+### 05.02.2016
+### equitania, 1.0.186
+#### FIX
+- Fixed problem with using hr. From now on, it's possible to use it together with res_users again
+
 ### 04.02.2016
 ### equitania, 1.0.185
 #### FIX

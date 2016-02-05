@@ -25,58 +25,70 @@ from openerp import SUPERUSER_ID
 
 class eq_hr_employee(models.Model):
     _inherit = 'hr.employee'
-    
-    
+
+
     eq_work_fax = fields.Char('Work Fax')
 
-    
-    @api.v7
-    def write(self, cr, uid, ids, values, context={}):
-        if context == None:
-            context = {}
-            
-        if type(ids) is not list: ids = [ids]
-            
-        if 'user_id' in values and 'do_not_repeat' not in context:
-            user_obj = self.pool.get('res.users')
-            if values['user_id']:
-                if values['user_id'] != self.browse(cr, uid, ids).user_id.id:
-                    #Removes the employee from all users, except the current one.
-                    emp_ids_to_del = self.search(cr, SUPERUSER_ID, [('user_id', '=', values['user_id'])])
-                    if len(emp_ids_to_del) != 0:
-                        for emp_id in emp_ids_to_del:
-                            self.write(cr, SUPERUSER_ID, emp_id, {'user_id': False}, context)
-                    user_ids_to_del = user_obj.search(cr, SUPERUSER_ID, [('eq_employee_id', 'in', ids)])
-                    if len(user_ids_to_del) != 0:
-                        user_obj.write(cr, SUPERUSER_ID, user_ids_to_del, {'eq_employee_id': False}, context={'do_not_repeat': True})
-                    #Sets the employee_id for the user.
-                    for emp_id in ids:
-                        user_obj.write(cr, SUPERUSER_ID, values['user_id'], {'eq_employee_id': emp_id}, context={'do_not_repeat': True})
-            else:
-                #Removes the employee from all the users.
-                user_ids_to_del = user_obj.search(cr, SUPERUSER_ID, [('eq_employee_id', 'in', ids)])
-                user_obj.write(cr, SUPERUSER_ID, user_ids_to_del, {'eq_employee_id': False}, context={'do_not_repeat': True})
-                
-        res = super(eq_hr_employee, self).write(cr, uid, ids, values, context)
-            
-        return res
-    
-    @api.v7
-    def create(self, cr, uid, values, context={}):
-        if context == None:
-            context = {}
-            
-        res = super(eq_hr_employee, self).create(cr, uid, values, context)
-        if 'user_id' in values and 'do_not_repeat' not in context:
-            if values['user_id']:
-                user_obj = self.pool.get('res.users')
-                
-                emp_ids_to_del = self.search(cr, SUPERUSER_ID, [('user_id', '=', values['user_id'])])
+
+    @api.model
+    def create(self, vals):
+        """
+            Extension of default create method
+            @vals: values to be set
+            @return: new created hr.employee
+        """
+
+        res = super(eq_hr_employee, self).create(vals)
+        if 'user_id' in vals and 'do_not_repeat' not in self._context:
+            if vals['user_id']:
+                user_obj = self.env['res.users']
+                emp_ids_to_del = self.search([('user_id', '=', vals['user_id'])])               #Removes the employee from all users, except the current one.
                 if len(emp_ids_to_del) != 0:
                     for emp_id in emp_ids_to_del:
                         if emp_id != res:
-                            self.write(cr, SUPERUSER_ID, emp_id, {'user_id': False}, context)
-                        
-                user_obj.write(cr, uid, values['user_id'], {'eq_employee_id': res}, context={'do_not_repeat': True})
-                        
+                            emp_id.user_id = False
+
+                user = user_obj.search([('id', '=', vals['user_id'])])
+                check = user.with_context(do_not_repeat = True).write({'eq_employee_id': res.id})
+
+        return res
+
+    @api.multi
+    def write(self, vals):
+        """
+            Extension of default write method
+            @vals: values to be set
+            @return: true = record updated
+        """
+
+        if 'user_id' in vals and 'do_not_repeat' not in self._context:
+            user_obj = self.env['res.users']
+            if vals['user_id']:
+                if vals['user_id'] != self.search([('user_id', '=', vals['user_id'])]):
+                    emp_ids_to_del = self.search([('user_id', '=', vals['user_id'])])           #Removes the employee from all users, except the current one.
+                    if len(emp_ids_to_del) != 0:
+                        for emp_id in emp_ids_to_del:
+                            emp_id.user_id = False
+
+                    user_ids_to_del = user_obj.search([('eq_employee_id', 'in', self._ids)])
+                    if len(user_ids_to_del) != 0:
+                        for user_id in user_ids_to_del:
+                            user = user_obj.search([('id', '=', user_id.id)])
+                            user.with_context(do_not_repeat = True).write({'eq_employee_id': False})
+
+
+                    #Sets the employee_id for the user.
+                    for emp_id in self._ids:
+                        user = user_obj.search([('id', '=', vals['user_id'])])
+                        user.with_context(do_not_repeat = True).write({'eq_employee_id': emp_id})
+
+            else:
+                # Employee has deleted his link to user to NULL, so delete all links
+                user_ids_to_del = user_obj.search([('eq_employee_id', 'in', self._ids)])        #Removes the employee from all the users.
+                if len(user_ids_to_del) != 0:
+                    for user_id in user_ids_to_del:
+                        user = user_obj.search([('id', '=', user_id.id)])
+                        user.with_context(do_not_repeat = True).write({'eq_employee_id': False})
+
+        res = super(eq_hr_employee, self).write(vals)
         return res
