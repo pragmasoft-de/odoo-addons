@@ -31,8 +31,6 @@ class res_partner(models.Model):
             Show debitor credit number
             @return: False by default
         """
-        
-        print "------- NEW - _show_deb_cred_number ---------------"
         result = {}
                 
         for partner in self:
@@ -44,8 +42,7 @@ class res_partner(models.Model):
             elif partner.eq_creditor_ref != 'False' and partner.eq_creditor_ref:
                 deb_cred = partner.eq_creditor_ref
             result[partner.id] = deb_cred
-        
-        print "------ _show_deb_cred_number: ", result    
+            
         return result
             
     @api.model
@@ -127,44 +124,39 @@ class res_partner(models.Model):
     eq_lead_referred_id = fields.Many2one('eq.lead.referred', 'Referred By') # field extended from eq_lead_referred.py
     eq_foreign_ref = fields.Char('Foreign reference') # field extended from eq_foreign_ref.py    
     eq_deb_cred_number = fields.Char(compute='_show_deb_cred_number', store=False)      # added the field from eq_report_extension.py
+    eq_customer_ref = fields.Char('Customer Number', size=64)  # added the field from eq_custom_ref.py
+    eq_creditor_ref =  fields.Char('Supplier Number', size=64) # added the field from eq_custom_ref.py
+    eq_name2 = fields.Char('Name2')
+    eq_house_no = fields.Char('House number')
+    eq_letter_salutation = fields.Char('Salutation')
+    eq_citypart = fields.Char('Disctirct')
+    eq_custom01 = fields.Char(size=64)
+    eq_birthday = fields.Date('Birthday')
+    eq_default_invoice_address = fields.Many2one('res.partner', 'Invoice Address')
+    eq_default_delivery_address = fields.Many2one('res.partner', 'Delivery Address')
+    eq_deliver_condition_id = fields.Many2one('eq.delivery.conditions', 'Delivery Condition')
+    eq_deliver_condition_id =  fields.Many2one('eq.delivery.conditions', 'Delivery Condition')
+    eq_incoterm =  fields.Many2one('stock.incoterms', 'Incoterm')
     
-
     
-    #@api.model
-    def name_get(self):
+    """ added the method from eq_custom_ref.py """
+    @api.one    
+    def eq_customer_update(self):
         """
-            Extension of default name_get function
-            @return: Name to be displayed
-        """
+            Update customer reference no and save it into eq_customer_ref
+        """        
         
-        context = self.env.context        
-        res = []        
-        for record in self:
-            name = record.name
-            
-            if record.parent_id and not record.is_company:
-                name =  "%s, %s" % (record.parent_id.name, name)
+        #Gets the Partner
+        partner = self      
                 
-                if record.type == 'contact':
-                    name = "%s, %s %s %s" % (record.parent_id.name, (record.title.name if record.title else ''), (record.eq_firstname if record.eq_firstname else ''), record.name)
-                    
-                if context.get('show_address_only'):
-                    name = self._display_address(cr, uid, record, without_company=True, context=context)
-                    
-                if context.get('show_address'):
-                    name = name + "\n" + self._display_address(cr, uid, record, without_company=True, context=context)
-            
-            name = name.replace('\n\n','\n')
-            name = name.replace('\n\n','\n')
-            
-       
-            if context.get('show_email') and record.email:
-                name = "%s <%s>" % (name, record.email)
-            
-            res.append((record.id, name))
-        
-        return res
-
+        #If the field isn't filled, it should do this
+        if not partner[0].eq_customer_ref:                
+                ref = self.env['ir.sequence'].get('eq_customer_ref')            #Gets the sequence and sets it in the apropriate field
+                vals = {
+                    'eq_customer_ref': ref,
+                    'ref': ref,
+                }
+                super(res_partner, self).write(vals)
     
     @api.one
     @api.depends('name', 'eq_firstname')
@@ -269,4 +261,63 @@ class res_partner(models.Model):
                     else:
                         new_res.append((partner_id.id, "%s %s %s %s" % ( deb_num + company_name, (partner_id.title.name if partner_id.title else ''), (partner_id.eq_firstname if partner_id.eq_firstname else ''), partner_id.name + ' / ' + type)))
             return new_res
-        return res 
+        return res
+            
+    """ added the method from eq_custom_ref.py """
+    @api.one      
+    def eq_creditor_update(self):
+        #Gets the Partner
+        partner = self
+        
+        #If the field isn't filled, it should do this
+        if not partner[0].eq_creditor_ref:
+            #Gets the sequence and sets it in the apropriate field            
+            vals = {
+                'eq_creditor_ref': self.env['ir.sequence'].get('eq_creditor_ref')
+            }
+            super(res_partner, self).write(vals)
+        
+    """
+    @api.model
+    def name_get(self):                
+        context = self.env.context        
+        res = []        
+        for record in self:
+            name = record.name
+            
+            if record.parent_id and not record.is_company:
+                name =  "%s, %s" % (record.parent_id.name, name)
+                
+                if record.type == 'contact':
+                    name = "%s, %s %s %s" % (record.parent_id.name, (record.title.name if record.title else ''), (record.eq_firstname if record.eq_firstname else ''), record.name)
+                    
+                if context.get('show_address_only'):
+                    name = self._display_address(cr, uid, record, without_company=True, context=context)
+                    
+                if context.get('show_address'):
+                    name = name + "\n" + self._display_address(cr, uid, record, without_company=True, context=context)
+            
+            name = name.replace('\n\n','\n')
+            name = name.replace('\n\n','\n')
+            
+       
+            if context.get('show_email') and record.email:
+                name = "%s <%s>" % (name, record.email)
+            
+            res.append((record.id, name))
+        
+        return res
+    """
+        
+    
+    """ added the method from eq_custom_ref.py """
+    @api.v7
+    def on_change_customer_ref(self, cr, uid, ids, eq_customer_ref, context=None):
+        """
+            OnChange Handler
+        """
+        
+        print "eq_customer_ref: ", eq_customer_ref
+        vals = {}
+        vals['ref'] = eq_customer_ref
+        return {'value': vals} 

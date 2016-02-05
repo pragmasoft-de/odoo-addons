@@ -1,4 +1,11 @@
 ### 05.02.2016
+### equitania, 1.0.189
+#### FIX
+- Fixed _show_deb_cred_number, eq_customer_update, eq_creditor_update, on_change_customer_ref
+- Fixed problem with sequences
+- Added new XML-File with definition of sequences
+
+### 05.02.2016
 ### equitania, 1.0.188
 #### FIX
 - Fixed funktion _show_deb_cred_number in res_partner

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+		<!-- Customer Sequence -->        
+        <record id="seq_customer_ref" model="ir.sequence">
+            <field name="name">Customer Number</field>
+            <field name="code">eq_customer_ref</field>
+            <field name="number_next">10001</field>
+            <field name="padding">5</field>
+            <field eval="1" name="number_increment"/>
+        </record>
+
+
+		<!-- Creditor sequence -->
+		<record id="seq_kreditpr_ref" model="ir.sequence">
+            <field name="name">Creditor Number</field>
+            <field name="code">eq_creditor_ref</field>
+            <field name="number_next">70001</field>
+            <field name="padding">5</field>
+            <field eval="1" name="number_increment"/>
+        </record>
+        
+    </data>
+</openerp>
