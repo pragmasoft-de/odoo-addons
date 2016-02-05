@@ -1,4 +1,9 @@
 ### 05.02.2016
+### equitania, 1.0.188
+#### FIX
+- Fixed funktion _show_deb_cred_number in res_partner
+
+### 05.02.2016
 ### equitania, 1.0.187
 #### FIX
 - Fixed Name_Get in res_partner

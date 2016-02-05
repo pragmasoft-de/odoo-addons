@@ -25,6 +25,29 @@ from openerp import models, fields, api, _
 class res_partner(models.Model):
     _inherit = 'res.partner'
     
+    """ added the method from eq_report_extension.py """
+    def _show_deb_cred_number(self):
+        """
+            Show debitor credit number
+            @return: False by default
+        """
+        
+        print "------- NEW - _show_deb_cred_number ---------------"
+        result = {}
+                
+        for partner in self:
+            deb_cred = False
+            if partner.eq_customer_ref != 'False' and partner.eq_customer_ref and partner.eq_creditor_ref != 'False' and partner.eq_creditor_ref:
+                deb_cred = partner.eq_customer_ref + ' / ' + partner.eq_creditor_ref
+            elif partner.eq_customer_ref != 'False' and partner.eq_customer_ref:
+                deb_cred = partner.eq_customer_ref
+            elif partner.eq_creditor_ref != 'False' and partner.eq_creditor_ref:
+                deb_cred = partner.eq_creditor_ref
+            result[partner.id] = deb_cred
+        
+        print "------ _show_deb_cred_number: ", result    
+        return result
+            
     @api.model
     def name_search(self, name, args=None, operator='ilike', limit=100):
         """ name_search(name='', args=None, operator='ilike', limit=100) -> records
@@ -102,11 +125,12 @@ class res_partner(models.Model):
     eq_prospective_customer = fields.Boolean(string="Prospective user",required=False, default=False)
     eq_unlocked_for_webshop = fields.Boolean(string="Unlocked for webshop",required=False, default=False)    
     eq_lead_referred_id = fields.Many2one('eq.lead.referred', 'Referred By') # field extended from eq_lead_referred.py
-    eq_foreign_ref = fields.Char('Foreign reference') # field extended from eq_foreign_ref.py
-    
+    eq_foreign_ref = fields.Char('Foreign reference') # field extended from eq_foreign_ref.py    
+    eq_deb_cred_number = fields.Char(compute='_show_deb_cred_number', store=False)      # added the field from eq_report_extension.py
     
 
-    @api.model
+    
+    #@api.model
     def name_get(self):
         """
             Extension of default name_get function
@@ -140,6 +164,7 @@ class res_partner(models.Model):
             res.append((record.id, name))
         
         return res
+
     
     @api.one
     @api.depends('name', 'eq_firstname')

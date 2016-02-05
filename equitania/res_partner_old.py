@@ -64,6 +64,7 @@ class eq_partner_extension(osv.osv):
         return dict(self.name_get(cr, uid, ids, context=context))
     
     """ added the method from eq_report_extension.py """
+    """
     def _show_deb_cred_number(self, cr, uid, ids, name, arg, context={}):
         print "--------------- OLD - _show_deb_cred_number -----------------"
         
@@ -78,7 +79,9 @@ class eq_partner_extension(osv.osv):
                 deb_cred = partner.eq_creditor_ref
             result[partner.id] = deb_cred
             
+        print "------ _show_deb_cred_number: ", result
         return result
+    """
     
     _display_name = lambda self, *args, **kwargs: self._display_name_compute(*args, **kwargs)
     
@@ -107,7 +110,7 @@ class eq_partner_extension(osv.osv):
         'eq_letter_salutation': fields.char('Salutation'),
         'eq_creditor_ref': fields.char('Supplier Number', size=64), # added the field from eq_custom_ref.py
         'eq_customer_ref': fields.char('Customer Number', size=64), # added the field from eq_custom_ref.py
-        'eq_deb_cred_number': fields.function(_show_deb_cred_number, type='char', store=False) # added the field from eq_report_extension.py
+#'eq_deb_cred_number': fields.function(_show_deb_cred_number, type='char', store=False) # added the field from eq_report_extension.py
         }
     
     _defaults = {
