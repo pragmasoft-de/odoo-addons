@@ -26,7 +26,10 @@ class eq_partner_extension(osv.osv):
     _inherit = "res.partner"
     _name = "res.partner"
     
+    
+    """
     def name_get(self, cr, uid, ids, context=None):
+        print "--------------- OLD - name_get -----------------"
         if context is None:
             context = {}
         if isinstance(ids, (int, long)):
@@ -48,8 +51,12 @@ class eq_partner_extension(osv.osv):
                 name = "%s <%s>" % (name, record.email)
             res.append((record.id, name))
         return res
+    """
+    
     
     def _display_name_compute(self, cr, uid, ids, name, args, context=None):
+        print "--------------- OLD - _display_name_compute -----------------"
+        
         context = dict(context or {})
         context.pop('show_address', None)
         context.pop('show_address_only', None)
@@ -58,6 +65,8 @@ class eq_partner_extension(osv.osv):
     
     """ added the method from eq_report_extension.py """
     def _show_deb_cred_number(self, cr, uid, ids, name, arg, context={}):
+        print "--------------- OLD - _show_deb_cred_number -----------------"
+        
         result = {}
         for partner in self.browse(cr, uid, ids, context):
             deb_cred = False
@@ -108,6 +117,8 @@ class eq_partner_extension(osv.osv):
     
     """ added the method from eq_custom_ref.py """
     def eq_creditor_update(self, cr, uid, ids, context=None):
+        print "--------------- OLD - eq_creditor_update -----------------"
+        
         #Gets the Partner
         partner = self.pool.get('res.partner').browse(cr, uid, ids, context=context)
 
@@ -122,6 +133,8 @@ class eq_partner_extension(osv.osv):
 
     """ added the method from eq_custom_ref.py """
     def eq_customer_update(self, cr, uid, ids, context=None):
+        print "--------------- OLD - eq_customer_update -----------------"
+        
         #Gets the Partner
         partner = self.pool.get('res.partner').browse(cr, uid, ids, context=context)
 
@@ -138,6 +151,8 @@ class eq_partner_extension(osv.osv):
     
     """ added the method from eq_custom_ref.py """
     def on_change_customer_ref(self, cr, uid, ids, eq_customer_ref, context=None):
+        print "--------------- OLD - on_change_customer_ref -----------------"
+        
         vals = {}
         vals['ref'] = eq_customer_ref
         return {'value': vals}

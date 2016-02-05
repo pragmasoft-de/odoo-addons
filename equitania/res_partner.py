@@ -95,15 +95,51 @@ class res_partner(models.Model):
         res = super(res_partner, self).name_search(name, args=args, operator=operator, limit=limit)
         return res
     
+    
     eq_delivery_date_type_purchase = fields.Selection([('cw', 'Calendar week'), ('date', 'Date')], string="Delivery Date Purchase", help="If nothing is selected, the default from the settings will be used.")
     eq_delivery_date_type_sale = fields.Selection([('cw', 'Calendar week'), ('date', 'Date')], string="Delivery Date Sale", help="If nothing is selected, the default from the settings will be used.")    
-    eq_complete_description = fields.Char(compute='_generate_complete_description', store=True)    
-    
+    eq_complete_description = fields.Char(compute='_generate_complete_description', store=True)        
     eq_prospective_customer = fields.Boolean(string="Prospective user",required=False, default=False)
-    eq_unlocked_for_webshop = fields.Boolean(string="Unlocked for webshop",required=False, default=False)
-    
+    eq_unlocked_for_webshop = fields.Boolean(string="Unlocked for webshop",required=False, default=False)    
     eq_lead_referred_id = fields.Many2one('eq.lead.referred', 'Referred By') # field extended from eq_lead_referred.py
     eq_foreign_ref = fields.Char('Foreign reference') # field extended from eq_foreign_ref.py
+    
+    
+
+    @api.model
+    def name_get(self):
+        """
+            Extension of default name_get function
+            @return: Name to be displayed
+        """
+        
+        context = self.env.context        
+        res = []        
+        for record in self:
+            name = record.name
+            
+            if record.parent_id and not record.is_company:
+                name =  "%s, %s" % (record.parent_id.name, name)
+                
+                if record.type == 'contact':
+                    name = "%s, %s %s %s" % (record.parent_id.name, (record.title.name if record.title else ''), (record.eq_firstname if record.eq_firstname else ''), record.name)
+                    
+                if context.get('show_address_only'):
+                    name = self._display_address(cr, uid, record, without_company=True, context=context)
+                    
+                if context.get('show_address'):
+                    name = name + "\n" + self._display_address(cr, uid, record, without_company=True, context=context)
+            
+            name = name.replace('\n\n','\n')
+            name = name.replace('\n\n','\n')
+            
+       
+            if context.get('show_email') and record.email:
+                name = "%s <%s>" % (name, record.email)
+            
+            res.append((record.id, name))
+        
+        return res
     
     @api.one
     @api.depends('name', 'eq_firstname')
@@ -123,8 +159,7 @@ class res_partner(models.Model):
                 record.eq_complete_description = result  
             else:
                 record.eq_complete_description = record.name
-                
-                
+                                
     """ method extended from  eq_lead_referred.py  """    
     @api.multi
     def write(self, vals):                
@@ -142,8 +177,7 @@ class res_partner(models.Model):
                     partner.customer = vals["customer"]            
                         
         return super(res_partner, self).write(vals)
-    
-    
+        
     """ method extended from eq_address_extension_new_api.py """
     @api.model
     def name_search(self, name, args=None, operator='ilike', limit=100):
