@@ -1,3 +1,8 @@
+### 05.02.2016
+### eq_plain_reports, 1.0.3
+#### ADD
+- Descriptiondatei befüllt mit: aktuellem Stand der Umsetzung und Anleitung zur Nutzung der Plain Reports (Briefpapier-Anpassungen)
+
 ### 04.02.2016
 ### eq_quotation_enhancement, 1.0.12
 ### equitania, 1.0.132

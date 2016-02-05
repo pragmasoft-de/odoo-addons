@@ -3,7 +3,7 @@
     'description': 'Reports ohne Header und Footer',
     #'image': 'Clean_description.jpg',
     'category': 'Reports',
-    'version': '1.0.2',
+    'version': '1.0.3',
     'author': 'Equitania GmbH',
     'depends': ['equitania'],
     'data': [
