@@ -3,7 +3,7 @@
     'description': 'Reports ohne Header und Footer',
     #'image': 'Clean_description.jpg',
     'category': 'Reports',
-    'version': '1.0.3',
+    'version': '1.0.4',
     'author': 'Equitania GmbH',
     'depends': ['equitania'],
     'data': [
@@ -13,6 +13,7 @@
         'views/report_invoice_plain.xml',
         'views/report_sale_order_plain.xml',
         'views/report_stockpicking_plain.xml',
+        'views/report_stockpicking_return_plain.xml',
     ],
     'application': True,
 }

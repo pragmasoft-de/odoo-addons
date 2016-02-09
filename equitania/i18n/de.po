@@ -173,7 +173,7 @@ msgid "Client Order Reference"
 msgstr "Referenz"
 
 #. module: equitania
-#: view:website:equitania.eq_external_layout_header_return_picking
+#: view:website:equitania.eq_external_layout_header_return_picking_data
 #: view:website:equitania.eq_external_layout_header_stock_picking_data
 msgid "Commitment Date"
 msgstr "Bestätigungsdatum"
@@ -309,7 +309,7 @@ msgstr "Kundennummer"
 
 #. module: equitania
 #: view:website:equitania.eq_external_layout_header_invoice_data
-#: view:website:equitania.eq_external_layout_header_return_picking
+#: view:website:equitania.eq_external_layout_header_return_picking_data
 #: view:website:equitania.eq_external_layout_header_sale_order_data
 #: view:website:equitania.eq_external_layout_header_stock_picking_data
 msgid "Customer no."
@@ -372,7 +372,7 @@ msgstr "Lieferbedingungen"
 #: view:sale.config.settings:equitania.eq_view_sale_config_settings
 #: field:sale.order.line,eq_delivery_date:0
 #: field:stock.transfer_details_items,eq_delivery_date:0
-#: view:website:equitania.eq_external_layout_header_return_picking
+#: view:website:equitania.eq_external_layout_header_return_picking_data
 #: view:website:equitania.eq_external_layout_header_stock_picking_data
 msgid "Delivery Date"
 msgstr "Lieferdatum"
@@ -1473,7 +1473,7 @@ msgstr "Ihre Bestellnr."
 
 #. module: equitania
 #: view:website:equitania.eq_external_layout_header_invoice_data
-#: view:website:equitania.eq_external_layout_header_return_picking
+#: view:website:equitania.eq_external_layout_header_return_picking_data
 #: view:website:equitania.eq_external_layout_header_sale_order_data
 #: view:website:equitania.eq_external_layout_header_stock_picking_data
 msgid "Your reference no."

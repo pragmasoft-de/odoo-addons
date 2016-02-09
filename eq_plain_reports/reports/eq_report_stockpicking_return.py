@@ -21,34 +21,9 @@
 
 import time
 from openerp.osv import osv
-from openerp.report import report_sxw
-
-class eq_report_stockpicking_return(report_sxw.rml_parse):
-    
-    def __init__(self, cr, uid, name, context):
-        super(eq_report_stockpicking_return, self).__init__(cr, uid, name, context=context)
-        
-        self.localcontext.update({
-            'get_qty':self.get_qty,
-            'get_price': self.get_price,
-            'get_standard_price': self.get_standard_price,
-        })
-        
-    
-    def get_qty(self, object, language):
-        return self.pool.get("eq_report_helper").get_qty(self.cr, self.uid, object, language, 'Sale Quantity Report')
-           
-    
-    def get_price(self, object, language, currency_id):                
-        return self.pool.get("eq_report_helper").get_price(self.cr, self.uid, object, language, 'Sale Price Report', currency_id)
-    
-    
-    def get_standard_price(self, object, language, currency_id):
-        return self.pool.get("eq_report_helper").get_standard_price(self.cr, self.uid, object, language, currency_id)
-          
+from openerp.report import report_sxw          
     
 class report_lunchorder(osv.AbstractModel):
-    _name = 'report.equitania.eq_report_stockpicking_return'
-    _inherit = 'report.abstract_report'
-    _template = 'equitania.eq_report_stockpicking_return'
-    _wrapped_report_class = eq_report_stockpicking_return
+    _name = 'report.eq_plain_reports.report_stockpicking_return_plain'
+    _inherit = 'report.equitania.eq_report_stockpicking_return'
+    _template = 'eq_plain_reports.report_stockpicking_return_plain'

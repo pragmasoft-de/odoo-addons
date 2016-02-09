@@ -2,9 +2,12 @@
 ### equitania, 1.0.133
 #### Änderung
 - Rück-Lieferschein auf die neue Variante umgebaut
+### eq_plain_reports 1.0.4
+#### NEU
+- Rück-Lieferschein als Plain-Report erstellt
 
 ### 05.02.2016
-### eq_plain_reports, 1.0.3
+### eq_plain_reports 1.0.3
 #### ADD
 - Descriptiondatei befüllt mit: aktuellem Stand der Umsetzung und Anleitung zur Nutzung der Plain Reports (Briefpapier-Anpassungen)
 
