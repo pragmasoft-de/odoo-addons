@@ -1,3 +1,8 @@
+### 09.02.2016
+### equitania, 1.0.133
+#### Änderung
+- Rück-Lieferschein auf die neue Variante umgebaut
+
 ### 05.02.2016
 ### eq_plain_reports, 1.0.3
 #### ADD

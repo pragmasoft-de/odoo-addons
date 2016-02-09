@@ -101,7 +101,7 @@ msgid "Bank:"
 msgstr "Bank:"
 
 #. module: equitania
-#: view:website:equitania.eq_report_stockpicking_return
+#: view:website:equitania.eq_report_stockpicking_return_data
 msgid "Barcode"
 msgstr "Barcode"
 
@@ -393,7 +393,7 @@ msgid "Delivery date"
 msgstr "Liefertermin"
 
 #. module: equitania
-#: view:website:equitania.eq_report_stockpicking_return
+#: view:website:equitania.eq_report_stockpicking_return_data
 msgid "Delivery return"
 msgstr "Rücklieferschein"
 
@@ -403,7 +403,7 @@ msgid "Description"
 msgstr "Beschreibung"
 
 #. module: equitania
-#: view:website:equitania.eq_report_stockpicking_return
+#: view:website:equitania.eq_report_stockpicking_return_data
 msgid "Destination"
 msgstr "Zielort"
 
@@ -510,7 +510,7 @@ msgid "Geschäftsführer"
 msgstr "Geschäftsführer"
 
 #. module: equitania
-#: view:website:equitania.eq_report_stockpicking_return
+#: view:website:equitania.eq_report_stockpicking_return_data
 msgid "Goods received on date:"
 msgstr "Ware erhalten am:"
 
@@ -578,7 +578,7 @@ msgstr "IBAN:"
 #: field:eq_multy_assign_product_no,id:0 field:eq_open_sale_order_line,id:0
 #: field:eq_pricelist_item_search,id:0 field:eq_report_helper,id:0
 #: field:report.account.report_invoice,id:0
-#: field:report.equitania.eq_report_stockpicking_return,id:0
+#: field:report.equitania.eq_report_stockpicking_return_data,id:0
 #: field:report.equitania.report_open_sale_order_line,id:0
 #: field:report.purchase.report_purchaseorder,id:0
 #: field:report.purchase.report_purchasequotation,id:0
@@ -654,7 +654,7 @@ msgid "Invoice Out"
 msgstr "Ausgangsre."
 
 #. module: equitania
-#: view:website:equitania.eq_report_stockpicking_return
+#: view:website:equitania.eq_report_stockpicking_return_data
 msgid "Invoice address:"
 msgstr "Rechnungsanschrift:"
 
@@ -679,7 +679,7 @@ msgid "Item"
 msgstr "Position"
 
 #. module: equitania
-#: view:website:equitania.eq_report_stockpicking_return
+#: view:website:equitania.eq_report_stockpicking_return_data
 #: view:website:equitania.report_picking_data
 msgid "Item description"
 msgstr "Beschreibung"
@@ -868,7 +868,7 @@ msgstr "Unsere Bestellnr."
 
 #. module: equitania
 #: view:website:equitania.eq_external_layout_header_sale_order_data
-#: view:website:equitania.eq_report_stockpicking_return
+#: view:website:equitania.eq_report_stockpicking_return_data
 msgid "Our reference no."
 msgstr "Belegreferenz"
 
@@ -1034,7 +1034,7 @@ msgid "Purchase order"
 msgstr "Bestellung"
 
 #. module: equitania
-#: view:website:equitania.eq_report_stockpicking_return
+#: view:website:equitania.eq_report_stockpicking_return_data
 msgid "Qty."
 msgstr "Menge"
 
@@ -1145,7 +1145,7 @@ msgid "Save"
 msgstr "Speichern"
 
 #. module: equitania
-#: view:website:equitania.eq_report_stockpicking_return
+#: view:website:equitania.eq_report_stockpicking_return_data
 msgid "Scheduled date"
 msgstr "Geplante Lieferung"
 
@@ -1199,7 +1199,7 @@ msgstr "Trennzeichen [equitania]"
 #: field:account.invoice.line,eq_pos_no:0
 #: field:eq_open_sale_order_line,eq_pos:0
 #: field:purchase.order.line,eq_sequence:0 field:stock.move,eq_pos_no:0
-#: view:website:equitania.eq_report_stockpicking_return
+#: view:website:equitania.eq_report_stockpicking_return_data
 msgid "Seq"
 msgstr "Pos"
 
@@ -1250,12 +1250,12 @@ msgid "Show the Delivery Date on the Sale Order [equitania]"
 msgstr "Liefertermin auf Angebot und Auftragsbestätigung anzeigen [equitania]"
 
 #. module: equitania
-#: view:website:equitania.eq_report_stockpicking_return
+#: view:website:equitania.eq_report_stockpicking_return_data
 msgid "Signature"
 msgstr "Unterschrift"
 
 #. module: equitania
-#: view:website:equitania.eq_report_stockpicking_return
+#: view:website:equitania.eq_report_stockpicking_return_data
 msgid "Source"
 msgstr "Aus Lager"
 
@@ -1268,7 +1268,7 @@ msgstr "Status"
 
 #. module: equitania
 #: field:eq_open_sale_order_line,eq_state:0
-#: view:website:equitania.eq_report_stockpicking_return
+#: view:website:equitania.eq_report_stockpicking_return_data
 msgid "Status"
 msgstr "Status"
 
@@ -1441,7 +1441,7 @@ msgid "Volume, weight and net weight from product variant [equitania]"
 msgstr "Volumen, Gewicht und Nettogewicht in der Produktvariante festlegen [equitania]"
 
 #. module: equitania
-#: view:website:equitania.eq_report_stockpicking_return
+#: view:website:equitania.eq_report_stockpicking_return_data
 msgid "Warehouse Address:"
 msgstr "Lager Anschrift:"
 
@@ -1541,7 +1541,7 @@ msgstr "Rechnung"
 #. module: equitania
 #: view:website:account.report_invoice_document
 #: view:website:equitania.report_invoice_data
-#: view:website:equitania.eq_report_stockpicking_return
+#: view:website:equitania.eq_report_stockpicking_return_data
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 #: view:website:equitania.report_saleorder_data
