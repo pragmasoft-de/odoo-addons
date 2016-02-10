@@ -62,6 +62,7 @@ class eq_sale_order_line(models.Model):
                     rec.order_id.signal_workflow('ship_recreate')
             rec.create_order_line_del_message()
         return super(eq_sale_order_line, self).unlink()
+
     
 class eq_sale_order(models.Model):
     _inherit = 'sale.order'
@@ -105,56 +106,7 @@ class eq_sale_order(models.Model):
             result['comment'] = foot
 
         return result
-        
-            
-    
-    """
-    @api.v7
-    def manual_invoice(self, cr, uid, ids, context=None):
-        
-        mod_obj = self.pool.get('ir.model.data')
-        
-        # create invoices through the sales orders' workflow
-        inv_ids0 = set(inv.id for sale in self.browse(cr, uid, ids, context) for inv in sale.invoice_ids)
-        self.signal_workflow(cr, uid, ids, 'manual_invoice')
-        inv_ids1 = set(inv.id for sale in self.browse(cr, uid, ids, context) for inv in sale.invoice_ids)
-        
-        # determine newly created invoices
-        new_inv_ids = list(inv_ids1 - inv_ids0)
-
-        res = mod_obj.get_object_reference(cr, uid, 'account', 'invoice_form')
-        res_id = res and res[1] or False,
-        
-        # get saved defaults
-        invoice_obj = self.pool.get('account.invoice')
-        invoice_list = invoice_obj.browse(cr, uid, new_inv_ids, context)
-        for invoice in invoice_list:
-            head = self.get_setting(cr, uid, "eq.head.text.invoice")
-            print "--- head: ", head
-            if head is not None:
-                invoice.eq_head_text = head
-            
-            foot = self.get_setting(cr, uid, "eq.foot.text.invoice")
-            print "---- foot: ", foot
-            if foot is not None:
-                invoice.comment = foot
-        
-        
-        return {
-            'name': _('Customer Invoices'),
-            'view_type': 'form',
-            'view_mode': 'form',
-            'view_id': [res_id],
-            'res_model': 'account.invoice',
-            'context': "{'type':'out_invoice'}",
-            'type': 'ir.actions.act_window',
-            'nodestroy': True,
-            'target': 'current',
-            'res_id': new_inv_ids and new_inv_ids[0] or False,
-        }
-    """
-        
-        
+                        
     @api.cr_uid_ids_context
     def _amount_all(self, cr, uid, ids, field_name, arg, context=None):
         cur_obj = self.pool.get('res.currency')

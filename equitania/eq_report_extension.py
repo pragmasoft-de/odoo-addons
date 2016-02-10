@@ -457,6 +457,20 @@ class eq_report_extension_stock_picking(osv.osv):
                 'eq_ref_number': fields.char('Sale Order Referenc', size=64),
                 }
     
+    def get_setting(self, cr, uid, settingName):
+        """
+            Get value of actual setting
+            @cr:
+            @uid:
+            @settingName:
+            @return:
+        """
+        result = self.pool.get('ir.config_parameter').get_param(cr, uid, settingName)
+        if result == "":
+            return None            
+        return result
+    
+    
     #Adds the customer ref number to the picking list. Gets data from context which is set in the method action_ship_create of the sale.order
     def create(self, cr, user, vals, context={}):
         if context:
@@ -478,10 +492,26 @@ class eq_report_extension_stock_picking(osv.osv):
             elif (picking.move_lines[0].purchase_line_id):
                 head_text = picking.move_lines[0].purchase_line_id[0].order_id.eq_head_text
                 comment = picking.move_lines[0].purchase_line_id[0].order_id.notes
-                
+        
+        # Original version implemented by Artur
+        """
         vals['eq_head_text'] = head_text
         vals['comment'] = comment
-                
+        """
+        
+        # New version implemented by Sody
+        head = self.get_setting(cr, uid, "eq.head.text.invoice")
+        if head is not None:
+            vals['eq_head_text'] = head
+        
+        foot = self.get_setting(cr, uid, "eq.foot.text.invoice")
+        if foot is not None:
+            vals['comment'] = foot
+        
+        print "-------- vals: ", vals
+        print "---- vals['eq_head_text']: ", vals['eq_head_text']
+        print "---- vals['comment']: ", vals['comment']
+        
         
         #picking.move_lines[0].purchase_line_id[0].order_id.eq_head_text
         #picking.move_lines[0].procurement_id.sale_line_id.order_id
