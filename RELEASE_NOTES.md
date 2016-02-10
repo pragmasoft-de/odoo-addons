@@ -1,4 +1,9 @@
 ### 10.02.2016
+### equitania, 1.0.135
+#### Erweiterung
+- Erweiterung der Funktionalität für Rechnung (Kopf- und Fußtext) für den Fall "Rechnung auf Basis Auslieferung" 
+
+### 10.02.2016
 ### equitania, 1.0.134
 #### Erweiterung
 - Erweiterung der Funktionalität für Zahlungsbedingugen (Wildcards)
