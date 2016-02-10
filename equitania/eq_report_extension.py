@@ -410,7 +410,9 @@ class eq_report_extension_invoice(osv.osv):
                 'comment': fields.html('Additional Information'),
                 }
     _defaults = {
-                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False 
+                'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False,
+                'eq_head_text': lambda obj, cr, uid, context: obj.pool.get('ir.config_parameter').get_param(cr, uid, "eq.head.text.invoice"),
+                'comment': lambda obj, cr, uid, context: obj.pool.get('ir.config_parameter').get_param(cr, uid, "eq.foot.text.invoice"), 
                 }
     
 class eq_report_extension_invoice(osv.osv):
@@ -507,12 +509,7 @@ class eq_report_extension_stock_picking(osv.osv):
         foot = self.get_setting(cr, uid, "eq.foot.text.invoice")
         if foot is not None:
             vals['comment'] = foot
-        
-        print "-------- vals: ", vals
-        print "---- vals['eq_head_text']: ", vals['eq_head_text']
-        print "---- vals['comment']: ", vals['comment']
-        
-        
+                
         #picking.move_lines[0].purchase_line_id[0].order_id.eq_head_text
         #picking.move_lines[0].procurement_id.sale_line_id.order_id
         
