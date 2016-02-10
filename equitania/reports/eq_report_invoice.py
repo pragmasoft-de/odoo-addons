@@ -51,6 +51,7 @@ class stock_picking(report_sxw.rml_parse):
             'get_gross_price_as_float_invoice': self.get_gross_price_as_float_invoice,
             'check_if_display_gross_price': self.check_if_display_gross_price,
             'calculate_sum': self.calculate_sum,
+            'get_eq_payment_terms': self.get_eq_payment_terms,
         })
         
     def get_pickings(self, object):
@@ -167,7 +168,20 @@ class stock_picking(report_sxw.rml_parse):
             result = input - total_price
             return result
 
+    def get_eq_payment_terms(self, object, language, currency_id):
+        """
+            Show payment terms with custom text using 2 kinds of placeholders.
+            Date1 & Date2 = Placeholder for Date that will be calculated and replaced
+            Value1 % Value2 = Placehold for Value that will be calculated and replaced            
+            @object: account.invoice object
+            @language: actual language
+            @currency_id: actual currency_id of given invoice
+            @return: Return new string with formated & calculated date and prices            
+        """
+        
+        return self.pool.get("eq_report_helper").get_eq_payment_terms(self.cr, self.uid, object, language, currency_id)
     
+        
 class report_invoice(osv.AbstractModel):
     _name = 'report.account.report_invoice'
     _inherit = 'report.abstract_report'

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<!-- Extension of account payment term view -->
+    	<record id="account_payment_term_form_view" model="ir.ui.view">
+            <field name="name">account.payment.term.form</field>
+            <field name="model">account.payment.term</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account.view_payment_term_form"/>
+            <field name="arch" type="xml">       
+	        	<xpath expr="//label[@for='note']" position="replace">
+					<label for="note" class="eq_help_discount"/>			<!-- show little help using css from Joe -->
+	        	</xpath>
+            </field>
+        </record>
+            
+	</data>
+</openerp>

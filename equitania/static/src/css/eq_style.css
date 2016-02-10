@@ -10,5 +10,30 @@ Erweiterung für Template-Variablen ================Start */
 
 label.eq_db_variant:after{content:"V";color:#666;font-size:9px;padding:0 3px;height:18px;display:inline-block;border:1px solid #ddd;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;background:#fff} label.eq_db_variant:hover:after{content:"Variante" !important}
 
+
 /* ==================================================
 Erweiterung für Template-Variablen ================Ende */
+
+label.eq_help_discount:after{content:"?";color:#666;font-weight:bold;font-size:10px;padding:0 3px;height:auto;vertical-align:top;display:inline-block;border:1px solid #ddd;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;background:#e0f5fc;} 
+
+
+label.eq_help_discount:hover:after{content:"Beispiel Vorlage: \A
+
+Bitte zahlen Sie bis zum [Date1] mit 2% Skonto Betrag [Value1] und bis zum [Date2] ohne Abzüge Betrag [Value2]. \A
+
+ \A
+
+Date1 = Zahlschluss inkl. Rabatt \A
+
+Value1 = Zahlbetrag inkl. Rabatt \A
+
+Date2 = Zahlschluss ohne Rabatt \A
+
+Value2 = Zahlbetrag ohne Rabatt \A
+
+ \A
+
+Beispiel Ergebnis: \A
+
+Bitte zahlen Sie bis zum 15.02.2016 mit 2% Skonto Betrag € 156,70 und bis zum 30.02.2016 ohne Abzüge Betrag € 159,90." !important;
+white-space:pre; font-weight:normal;}

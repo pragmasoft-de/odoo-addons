@@ -471,7 +471,10 @@
 									Term of payment:
 								</td>
 								<td>
+									<!-- 
 									<span t-field="o.payment_term" />
+									 -->		
+									<span t-esc="get_eq_payment_terms(o, o.partner_id.lang, o.currency_id)"/>							
 								</td>
 							</tr>
 							<!-- <tr t-if="o.comment"> <td style="padding:0 0.5cm 0.3cm 0; vertical-align:top;"> 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<!-- Extension of config page for sale -->
+		<record id="eq_view_sale_config_settings_texts" model="ir.ui.view">
+		     <field name="name">eq.view.sale.config.settings.texts</field>
+		     <field name="model">sale.config.settings</field>
+		     <field name="inherit_id" ref="base_setup.view_sale_config_settings"/>
+		     <field name="arch" type="xml">
+                <form string="Configure Sales" position="inside">
+                    <separator string="Invoices"/>
+		     		<group>
+                    	<label for="id" string="Texts"/>
+	                	<div>
+	                		<div>
+	                			<label for="eq_head_text_invoice"/>
+		                        <field name="eq_head_text_invoice"/>		                        
+	                        </div>
+	                        <div>
+	                        	<label for="eq_foot_text_invoice"/>
+		                        <field name="eq_foot_text_invoice"/>		                                        	
+	                		</div>
+	                    </div>
+	                </group>
+                </form>
+		     </field>
+		</record>
+
+	</data>
+</openerp>

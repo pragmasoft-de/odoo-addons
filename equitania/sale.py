@@ -68,6 +68,93 @@ class eq_sale_order(models.Model):
     
     eq_customer_ref = fields.Char(string="", related="partner_id.eq_customer_ref")
 
+
+    def get_setting(self, cr, uid, settingName):
+        """
+            Get value of actual setting
+            @cr:
+            @uid:
+            @settingName:
+            @return:
+        """
+        result = self.pool.get('ir.config_parameter').get_param(cr, uid, settingName)
+        if result == "":
+            return None            
+        return result
+
+
+    @api.v7
+    def _prepare_invoice(self, cr, uid, order, lines, context=None):
+        """
+            Override of default _prepare_invoice method. We'll set value from 2 new fields from settings (eq_head_text and eq_foo_text)
+            @cr: cursor
+            @uid: user id
+            @order: current sale order
+            @lines: lines of current sale order
+            @context: context
+            @return: dictionary with all values of actual sale order that will be saved during standard create of an invoice
+        """
+        
+        result = super(eq_sale_order, self)._prepare_invoice(cr, uid, order, lines, context=context)        
+        head = self.get_setting(cr, uid, "eq.head.text.invoice")
+        if head is not None:
+            result['eq_head_text'] = head
+        
+        foot = self.get_setting(cr, uid, "eq.foot.text.invoice")
+        if foot is not None:
+            result['comment'] = foot
+
+        return result
+        
+            
+    
+    """
+    @api.v7
+    def manual_invoice(self, cr, uid, ids, context=None):
+        
+        mod_obj = self.pool.get('ir.model.data')
+        
+        # create invoices through the sales orders' workflow
+        inv_ids0 = set(inv.id for sale in self.browse(cr, uid, ids, context) for inv in sale.invoice_ids)
+        self.signal_workflow(cr, uid, ids, 'manual_invoice')
+        inv_ids1 = set(inv.id for sale in self.browse(cr, uid, ids, context) for inv in sale.invoice_ids)
+        
+        # determine newly created invoices
+        new_inv_ids = list(inv_ids1 - inv_ids0)
+
+        res = mod_obj.get_object_reference(cr, uid, 'account', 'invoice_form')
+        res_id = res and res[1] or False,
+        
+        # get saved defaults
+        invoice_obj = self.pool.get('account.invoice')
+        invoice_list = invoice_obj.browse(cr, uid, new_inv_ids, context)
+        for invoice in invoice_list:
+            head = self.get_setting(cr, uid, "eq.head.text.invoice")
+            print "--- head: ", head
+            if head is not None:
+                invoice.eq_head_text = head
+            
+            foot = self.get_setting(cr, uid, "eq.foot.text.invoice")
+            print "---- foot: ", foot
+            if foot is not None:
+                invoice.comment = foot
+        
+        
+        return {
+            'name': _('Customer Invoices'),
+            'view_type': 'form',
+            'view_mode': 'form',
+            'view_id': [res_id],
+            'res_model': 'account.invoice',
+            'context': "{'type':'out_invoice'}",
+            'type': 'ir.actions.act_window',
+            'nodestroy': True,
+            'target': 'current',
+            'res_id': new_inv_ids and new_inv_ids[0] or False,
+        }
+    """
+        
+        
     @api.cr_uid_ids_context
     def _amount_all(self, cr, uid, ids, field_name, arg, context=None):
         cur_obj = self.pool.get('res.currency')

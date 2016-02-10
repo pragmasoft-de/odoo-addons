@@ -1,3 +1,9 @@
+### 10.02.2016
+### equitania, 1.0.134
+#### Erweiterung
+- Erweiterung der Funktionalität für Zahlungsbedingugen (Wildcards)
+- Erweiterung der Funktionalität für Rechnung (Kopf- und Fußtext)
+
 ### 09.02.2016
 ### equitania, 1.0.133
 #### Änderung

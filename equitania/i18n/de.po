@@ -2539,3 +2539,23 @@ msgstr "Hierdurch wird bei der Anfrage und Bestellung die Rechnungs- und Liefera
 #: model:ir.actions.report.xml,name:stock.action_report_picking view:stock.move:stock.view_move_search field:stock.transfer_details,picking_id:0
 msgid "Picking"
 msgstr "Kommissionierung/Lieferschein"
+
+#. module: equitania
+#: view:sale.config.settings:equitania.eq_view_sale_config_settings_texts
+msgid "Invoices"
+msgstr "Rechnungen"
+
+#. module: equitania
+#: view:sale.config.settings:equitania.eq_view_sale_config_settings_texts
+msgid "Texts"
+msgstr "Texte"
+
+#. module: equitania
+#: field:sale.config.settings,eq_head_text_invoice:0
+msgid "Invoice head text [equitania]"
+msgstr "Kopftext [equitania]"
+
+#. module: equitania
+#: field:sale.config.settings,eq_foot_text_invoice:0
+msgid "Invoice foot text [equitania]"
+msgstr "Fußtext [equitania]"
