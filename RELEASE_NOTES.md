@@ -1,3 +1,8 @@
+### 12.02.2016
+### equitania, 1.0.137
+#### Fix
+- Richtigen Helptext für die Benutzergruppe Lieferanten einblenden eingefügt.
+
 ### 10.02.2016
 ### equitania, 1.0.136
 #### Erweiterung

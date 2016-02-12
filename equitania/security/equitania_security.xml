@@ -11,7 +11,8 @@
 		<record id="base.group_sale_manager" model="res.groups">
 			<field name="name">Manager</field>
 			<field name="comment">the user will have an access to the sales
-				configuration as well as statistic reports.</field>
+				configuration as well as statistic reports.
+			</field>
 			<field name="category_id" ref="base.module_category_sales_management" />
 			<field name="implied_ids" eval="[(4, ref('base.group_sale_salesman_all_leads'))]" />
 			<field name="users" eval="[(4, ref('base.user_root'))]" />
@@ -43,16 +44,18 @@
 		<record id="purchase_in_products" model="res.groups">
 			<field name="name">Show Procurements Tab in Products</field>
 			<field name="comment">The user will see the procurements tab in the
-				products.</field>
+				products.
+			</field>
 		</record>
 
 		<record id="supplier_in_account" model="res.groups">
 			<field name="name">Show Supplier Menu in Accounting</field>
-			<field name="comment">The user will see the procurements tab in the
-				products.</field>
+			<field name="comment">The user will see the supplier tab in accounting.
+			</field>
 		</record>
 
-		<menuitem id="account.menu_finance_payables" name="Suppliers" parent="account.menu_finance" groups="equitania.supplier_in_account"
+		<menuitem id="account.menu_finance_payables" name="Suppliers"
+			parent="account.menu_finance" groups="equitania.supplier_in_account"
 			sequence="3" />
 
 	</data>
