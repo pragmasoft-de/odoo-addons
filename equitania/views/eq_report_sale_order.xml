@@ -249,7 +249,7 @@
 						</table>
 					</div>
 				</div>
-				<h2 style="margin-bottom:25px; margin-top:25px">
+				<h2 style="margin-bottom:25px; margin-top:25px" class="reporttitle">
 					<span t-if="o.state not in ['draft','sent']">Sale order </span>
 					<span t-if="o.state in ['draft','sent']">Quotation </span>
 					<span t-field="o.name" />

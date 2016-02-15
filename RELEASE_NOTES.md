@@ -1,7 +1,7 @@
 ### 15.02.2016
 ### equitania, 1.0.138
 #### Erweiterung
-- Report Sale Order: Erweitern einer CSS Klasse für weitere Änderungen an Reports
+- Report Sale Order: Erweitern von zwei CSS Klassen für weitere Änderungen an Reports
 
 ### 12.02.2016
 ### equitania, 1.0.137
