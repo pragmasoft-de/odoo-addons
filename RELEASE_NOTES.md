@@ -1,3 +1,8 @@
+### 16.02.2016
+### equitania, 1.0.139
+#### Erweiterung
+- Richtige Übersetzung für das Feld "Bundesland" des Interessenten eingefügt.
+
 ### 15.02.2016
 ### equitania, 1.0.138
 #### Erweiterung
