@@ -282,7 +282,7 @@
 							</th>
 							<th t-if="any([line.discount for line in o.order_line])"
 								class="text-right">
-								<strong>Discount (%)</strong>
+								<strong style="white-space: nowrap;">Discount (%)</strong>
 							</th>
 							<t t-if="show_gross_price is False">	<!-- no, show only net price -->
 								<th class="text-right" style="min-width:2.7cm;">
@@ -404,7 +404,7 @@
 											<th class="text-right" style="min-width:1.8cm;">Qty.</th>
 											<th class="text-right" style="min-width:2.3cm;">Unit price</th>
 											<th t-if="any([line.discount for line in o.order_line])"
-												class="text-right">Discount (%)</th>
+												class="text-right" style="white-space: nowrap;">Discount (%)</th>
 											<th class="text-right" style="min-width:2.7cm;">Net price</th>
 										</tr>
 									</thead>

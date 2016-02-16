@@ -2,6 +2,7 @@
 ### equitania, 1.0.139
 #### Erweiterung
 - Richtige Übersetzung für das Feld "Bundesland" des Interessenten eingefügt.
+- SaleOrderReport: Kleine Anpassung für die Kopfzeile bei Rabatten
 
 ### 15.02.2016
 ### equitania, 1.0.138
