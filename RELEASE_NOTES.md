@@ -1,3 +1,8 @@
+### 19.02.2016
+### eq_google_shopping_feed, 1.0.3
+#### Fix
+- Indexfehler  products[0].ids korrigiert
+
 ### 16.02.2016
 ### equitania, 1.0.139
 #### Erweiterung

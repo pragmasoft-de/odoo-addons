@@ -101,8 +101,10 @@ class EqGoogleShoppingFeed(http.Controller):
      def generate_positions(self, contry_code):
          """ generates position for datarow from db """         
          positions = []         
-         products = http.request.env['product.template'].search([('state', '=', 'sellable')]),         
-         for id in products[0].ids:
+         products = http.request.env['product.template'].search([('state', '=', 'sellable')])         # original
+         #products = http.request.env['product.template'].search([])                                     # new         
+         #for id in products[0].ids:                                                                    # original
+         for id in products.ids:                                                                        # new         
             product = http.request.env['product.template'].browse(id)
             id = product.id                                                 # id
             title = product.name                                            # titel
@@ -120,7 +122,7 @@ class EqGoogleShoppingFeed(http.Controller):
             image_link = self.generate_image_link(id)                       # image_link
             condition = "new"                                               # condition
             availability = "in stock"                                       # availability
-            price = product.list_price                                      # price
+            price = product.list_price                                      # price            
             brand = "todo"                                                  # brand
             mpn = "todo"                                                    # mpn
             shipping = "DE::Standard:0"                                     # shipping
