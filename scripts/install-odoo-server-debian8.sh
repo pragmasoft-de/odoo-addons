@@ -88,13 +88,18 @@ cp  $mysourcepath/odoo.py $myserverpath
 
 echo "Copy equitania addons"
 # odoo-addons
-cp -r $myaddpath/eq_no_ad $myserverpath/addons
-cp -r $myaddpath/equitania $myserverpath/addons
-cp -r $myaddpath/eq_mail_extension $myserverpath/addons
 cp -r $myaddpath/base_report_to_printer $myserverpath/addons
 cp -r $myaddpath/eq_google_shopping_feed $myserverpath/addons
 cp -r $myaddpath/eq_info_for_product_product $myserverpath/addons
+cp -r $myaddpath/eq_mail_extension $myserverpath/addons
+cp -r $myaddpath/eq_no_ad $myserverpath/addons
+cp -r $myaddpath/eq_plain_reports $myserverpath/addons
+cp -r $myaddpath/eq_quotation_enhancement $myserverpath/addons
+cp -r $myaddpath/eq_stock_account_compatibility $myserverpath/addons
 cp -r $myaddpath/eq_snom $myserverpath/addons
+cp -r $myaddpath/equitania $myserverpath/addons
+cp -r $myaddpath/equitania_limit_address_sale $myserverpath/addons
+cp -r $myaddpath/web_clean_navbar $myserverpath/addons
 
 echo "Copy third party addons"
 # odoo-addons
@@ -119,8 +124,11 @@ cp -r $myocapath/attachment_preview $myserverpath/addons
 cp -r $myocapath/auditlog $myserverpath/addons
 cp -r $myocapath/database_cleanup $myserverpath/addons
 cp -r $myocapath/disable_openerp_online $myserverpath/addons
+cp -r $myocapath/email_template_template $myserverpath/addons
 cp -r $myocapath/mass_editing $myserverpath/addons
 cp -r $myocapath/product_attribute_multi_type $myserverpath/addons
+cp -r $myocapath/product_variant_cost_price $myserverpath/addons
+cp -r $myocapath/report_custom_filename $myserverpath/addons
 cp -r $myocapath/web_context_tunnel $myserverpath/addons
 cp -r $myocapath/web_dialog_size $myserverpath/addons
 cp -r $myocapath/web_export_view $myserverpath/addons
@@ -129,6 +137,7 @@ cp -r $myocapath/web_last_viewed_records $myserverpath/addons
 cp -r $myocapath/web_searchbar_full_width $myserverpath/addons
 cp -r $myocapath/web_sheet_full_width $myserverpath/addons
 cp -r $myocapath/web_shortcuts $myserverpath/addons
+cp -r $myocapath/web_translate_dialog $myserverpath/addons
 
 echo "Insert the password for the databasemanager | Geben Sie das Passwort für den Databasemanager ein:"
 read myadminpwd
@@ -142,12 +151,12 @@ sed -i "s/$old/$new/g" $mybasepath/config.py
 cp  $mybasepath/config.py $myserverpath/openerp/tools
 
 echo "Preparing favicon for later exchange.."
-cp  $myserverpath/addons/web/static/src/img/favicon.ico $mybasepath/ 
+cp  $myserverpath/addons/web/static/src/img/favicon.ico $mybasepath/
 
 echo "Changing rights.."
-chown -R odoo:odoo $myserverpath 
-chown -R odoo:odoo $mysourcepath 
-chown -R odoo:odoo $mybasepath 
+chown -R odoo:odoo $myserverpath
+chown -R odoo:odoo $mysourcepath
+chown -R odoo:odoo $mybasepath
 
 cp $myscriptpath/server-install-helpers/odoo-server.conf /etc/odoo-server.conf
 chown odoo:odoo /etc/odoo-server.conf
@@ -159,20 +168,5 @@ chmod 755 /etc/logrotate.d/odoo-server
 cp $myscriptpath/server-install-helpers/odoo.init.d /etc/init.d/odoo-server
 chmod +x /etc/init.d/odoo-server
 update-rc.d odoo-server defaults
-
-echo "Do you want to use standard port 80 against 8069 and install nginx | Wollen Sie eine Port-Umleitung auf Standard Port 80 und nginx installieren [Y/n]:"
-read myport
-
-if [ "$myport" = "Y" ]; then
-  echo "nginx will be install..."
-  apt-get update
-  apt-get install nginx
-  cp $myscriptpath/server-install-helpers/odoo.nginx /etc/nginx/sites-available/odoo.nginx
-  rm /etc/nginx/sites-enabled/default 
-  ln -s /etc/nginx/sites-available/odoo.nginx /etc/nginx/sites-enabled/odoo.nginx
-  cp $myscriptpath/server-install-helpers/nginx.conf /etc/nginx/nginx.conf
-else
-  echo "nginx is not installed!"
-fi
 
 echo "Finished!"

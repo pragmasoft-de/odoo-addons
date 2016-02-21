@@ -178,5 +178,16 @@ cd ..
 rm Imaging-1.1.7.tar.gz
 rm -r Imaging-1.1.7/
 
+echo "Do you want to use standard port 80 against 8069 and install nginx | Wollen Sie eine Port-Umleitung auf Standard Port 80 und nginx installieren [Y/n]:"
+read myport
+
+if [ "$myport" = "Y" ]; then
+  echo "nginx will be install..."
+  apt-get update
+  apt-get install nginx
+else
+  echo "nginx is not installed!"
+fi
+
 
 echo "Finished!"
