@@ -23,7 +23,7 @@
 
 myscriptpath="$PWD"
 mybasepath="/opt/odoo"
-mysourcepath=$mybasepath"/odoo"
+mysourcepath=$mybasepath"/myodoo-server"
 myserverpath=$mybasepath"/odoo-server"
 myaddpath=$mybasepath"/odoo-addons"
 my3rdpath=$mybasepath"/odoo-third-party-modules"
@@ -82,7 +82,6 @@ echo "Copy doc..."
 cp -r $mysourcepath/openerp $myserverpath
 echo "Copy openerp..."
 echo "Copy files..."
-cp  $mysourcepath/openerp-server $myserverpath
 cp  $mysourcepath/openerp-wsgi.py $myserverpath
 cp  $mysourcepath/odoo.py $myserverpath
 

@@ -25,7 +25,15 @@ echo "Prepare Debian"
 apt-get update && apt-get dist-upgrade && apt-get autoremove
 
 echo "Tools zip, unzip, mc(Midnight Comander) and htop will be install.."
-apt-get install mc zip unzip htop ca-certificates ntp apt-transport-https
+apt-get install -y --no-install-recommends \
+			mc  \
+			zip \
+			unzip \
+			htop \
+			ca-certificates \
+			ntp  \
+			apt-transport-https \
+			needrestart
 
 echo "Do you want install postgresql ? / Wollen Sie die PostgreSQL-DB installieren  (Y/n):"
 read mypsql
@@ -127,7 +135,7 @@ pip install passlib \
 
 echo "npm packages will be install.."
 curl -sL https://deb.nodesource.com/setup_0.12 | bash -
-apt-get install nodejs
+apt-get install -y --no-install-recommends nodejs
 npm install -g less less-plugin-clean-css
 ln -s /usr/bin/nodejs /usr/bin/node
 
