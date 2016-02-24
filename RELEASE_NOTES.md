@@ -1,3 +1,8 @@
+### 24.02.2016
+### equitania, 1.0.140
+#### Fix
+- Die Benutzergruppe "Reiter Beschaffung in den Produkten anzeigen" hat bei manchen Systemen nicht funktioniert.
+
 ### 19.02.2016
 ### eq_google_shopping_feed, 1.0.3
 #### Fix

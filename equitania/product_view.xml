@@ -40,35 +40,37 @@
 				</form>
 			</field>
 		</record>
-		
+
 		<!-- Cost Price History Search View -->
-		<record id="eq_product_template_standard_price_history_search_view" model="ir.ui.view">
+		<record id="eq_product_template_standard_price_history_search_view"
+			model="ir.ui.view">
 			<field name="name">eq.product.template.standard_price_history.search.view
 			</field>
 			<field name="model">product.template.standard_price_history</field>
 			<field name="arch" type="xml">
 				<search string="Search History">
-	                    <field name="eq_product_id"/>
-						<field name="eq_old_price"/>
-						<field name="eq_new_price"/>
-						<field name="create_uid"/>
-						<field name="create_date"/>
-						
-						<group expand="0" string="Group By">
-						    <filter string="Product" context="{'group_by' : 'eq_product_id'}"/>
-						</group>
-			</search>
+					<field name="eq_product_id" />
+					<field name="eq_old_price" />
+					<field name="eq_new_price" />
+					<field name="create_uid" />
+					<field name="create_date" />
+
+					<group expand="0" string="Group By">
+						<filter string="Product" context="{'group_by' : 'eq_product_id'}" />
+					</group>
+				</search>
 			</field>
 		</record>
-		
+
 		<!-- Cost Price History Action -->
-        <record id="eq_template_standard_price_history_action" model="ir.actions.act_window">
-            <field name="name">Cost Price History</field>
-            <field name="res_model">product.template.standard_price_history</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="context">{'search_default_eq_product_id': active_id, 'default_eq_product_id': active_id}</field>
-        </record>
+		<record id="eq_template_standard_price_history_action" model="ir.actions.act_window">
+			<field name="name">Cost Price History</field>
+			<field name="res_model">product.template.standard_price_history</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="context">{'search_default_eq_product_id': active_id,
+				'default_eq_product_id': active_id}</field>
+		</record>
 
 		<!-- Product Template - form view -->
 		<record id="eq_product_template_form_view_sale_order_button_inherit"
@@ -96,8 +98,7 @@
 			<field name="inherit_id" ref="product.product_template_form_view" />
 			<field name="arch" type="xml">
 				<xpath expr="//page[@string='Procurements']" position="attributes">
-					<attribute name="groups">equitania.purchase_in_products
-					</attribute>
+					<attribute name="groups">equitania.purchase_in_products</attribute>
 				</xpath>
 			</field>
 		</record>
@@ -125,7 +126,8 @@
 					<attribute name="class">oe_inline</attribute>
 				</field>
 				<field name="standard_price" position="after">
-					<button string="Show Price History" type="action" name="%(eq_template_standard_price_history_action)d" class="oe_inline oe_link"/>
+					<button string="Show Price History" type="action"
+						name="%(eq_template_standard_price_history_action)d" class="oe_inline oe_link" />
 				</field>
 
 				<!-- (future use?) min. order quantity for product.template -->
