@@ -26,5 +26,48 @@
 				</xpath>
 			</field>
 		</record>
+		
+		
+		
+		<record id="eq_res_users" model="ir.ui.view">
+			<field name="name">eq.res.users</field>
+			<field name="model">res.users</field>
+			<field name="inherit_id" ref="base.view_users_form" />
+			<field name="arch" type="xml">
+				<!-- set readonly to false because we would like to have a possibility 
+					to change selected partner -->
+				<field name="partner_id" position="replace">
+					<field name="partner_id" readonly="0" required="0"
+						groups="base.group_no_one" attrs="{'invisible': [('id', '=', False)]}" />
+				</field>
+
+				<field name="partner_id" position="after">
+					<field name="eq_employee_id" />
+				</field>
+				<xpath expr="//div[@class='oe_title']" position="inside">
+					<group>
+						<field name="phone" />
+						<field name="mobile" />
+						<field name="fax" />
+					</group>
+				</xpath>
+			</field>
+		</record>
+		
+		
+		<!-- Extension of Res_User View -->
+		<record id="eq_view_users_form_view" model="ir.ui.view">
+            <field name="name">eq.view.users.form.view</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+            <field name="arch" type="xml">
+	            <data>
+	                <field name="signature" position="after">
+	                    <field name="eq_signature" widget='image' class="oe_avatar oe_left" options='{"preview_image": "eq_signature"}'/>
+	                </field>
+	            </data>
+            </field>
+        </record>
+		
 	</data>
 </openerp>

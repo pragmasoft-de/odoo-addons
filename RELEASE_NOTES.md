@@ -1,4 +1,9 @@
 ### 24.02.2016
+### equitania, 1.0.141
+#### Erweiterung
+- Die Maske "User -> Einstellungen ->" um neue Image Feld für Unterschrift erweitert 
+
+### 24.02.2016
 ### equitania, 1.0.140
 #### Fix
 - Die Benutzergruppe "Reiter Beschaffung in den Produkten anzeigen" hat bei manchen Systemen nicht funktioniert.

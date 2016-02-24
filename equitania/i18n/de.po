@@ -1250,6 +1250,7 @@ msgid "Show the Delivery Date on the Sale Order [equitania]"
 msgstr "Liefertermin auf Angebot und Auftragsbestätigung anzeigen [equitania]"
 
 #. module: equitania
+#: field:res.users,eq_signature:0
 #: view:website:equitania.eq_report_stockpicking_return_data
 msgid "Signature"
 msgstr "Unterschrift"

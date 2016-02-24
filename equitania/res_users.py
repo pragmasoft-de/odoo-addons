@@ -40,7 +40,8 @@ class eq_res_users(osv.osv):
         return result
     
     _columns = {
-                'eq_employee_id': fields.many2one('hr.employee', 'Employee', copy=False)
+                'eq_employee_id': fields.many2one('hr.employee', 'Employee', copy=False),
+                'eq_signature' : fields.binary('Signature'),
                 }
 
     _defaults = {
