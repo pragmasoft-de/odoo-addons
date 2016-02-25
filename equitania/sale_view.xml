@@ -24,6 +24,7 @@
             	<field name="partner_id" position="before">
             		<field name="eq_customer_ref" readonly="1" class="oe_inline"/>
             	</field>
+            	
             	<notebook position="inside">
                     <page string="Head Text">
 						<field name="eq_head_text" placeholder="Dear Sir or Madam," nolabel="1"/>
@@ -55,6 +56,18 @@
 				<field name="origin" position="before">
 					<field name="categ_ids" widget="many2many_tags"/>
 				</field>
+            </field>
+        </record>
+        
+        
+        <record id="eq_sale_stock_uos_view" model="ir.ui.view">
+            <field name="name">eq.sale.stock.uos.view</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_stock.view_order_form_inherit"/>
+            <field name="arch" type="xml">
+				<xpath expr="//field[@name='order_line']/form//field[@name='product_uos_qty']" position="attributes">
+					<attribute name="context">{'partner_id':parent.partner_id, 'quantity':product_uos_qty, 'pricelist':parent.pricelist_id, 'uom':product_uom, 'uos_qty_change':True, 'company_id': parent.company_id}</attribute>
+				</xpath>	
             </field>
         </record>
 		

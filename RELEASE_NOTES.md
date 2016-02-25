@@ -1,3 +1,8 @@
+### 25.02.2016
+### equitania, 1.0.142
+#### Änderung
+- Anpassung für Zusammensetzen des Beschreibungstextes der Produkte in Angeboten
+
 ### 24.02.2016
 ### equitania, 1.0.141
 #### Erweiterung

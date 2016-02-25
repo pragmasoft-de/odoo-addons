@@ -280,7 +280,13 @@ class eq_report_extension_sale_order_line(osv.osv):
         vals['value']['product_uos_qty'] = qty * product_id.uos_coeff
         
         # set product name only after first change of quantity - it's our workaround for refresh problem after each change of quantity
-        if name is False:                   # name is set, don't reset it again !           
+        
+        if vals.get("value", False):
+            vals['value'].pop('name', None)
+            
+        if not context.get('uom_qty_change', False) and not context.get('uos_qty_change', False):
+        
+        #if name is False:                   # name is set, don't reset it again !           
             if not eq_use_internal_descriptionion and product_id.description_sale:
                 vals['value']['name'] = product_id.description_sale
             elif eq_use_internal_descriptionion and product_id.description:
