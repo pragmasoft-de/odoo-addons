@@ -1,3 +1,8 @@
+### 25.02.2016
+### equitania, 1.0.142
+#### Bugfix
+- Fehler auf der Rechnung mit Sektionen korrigiert
+
 ### 24.02.2016
 ### equitania, 1.0.141
 #### Erweiterung
