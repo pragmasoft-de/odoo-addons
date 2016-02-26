@@ -131,7 +131,8 @@ pip install passlib \
 	&& pip install markupsafe \
 	&& pip install pytz \
 	&& pip install Jinja2==2.3 \
-	&& pip install odoorpc
+	&& pip install odoorpc \
+	&& pip install pillow==2.6.0
 
 echo "npm packages will be install.."
 curl -sL https://deb.nodesource.com/setup_0.12 | bash -
@@ -176,15 +177,6 @@ if [ "$mypos" = "Y" ]; then
 else
   echo "PoS is not prepared!"
 fi
-
-echo "Python Image Library will be install.."
-wget http://effbot.org/downloads/Imaging-1.1.7.tar.gz
-tar fzvx Imaging-1.1.7.tar.gz
-cd Imaging-1.1.7
-python setup.py install
-cd ..
-rm Imaging-1.1.7.tar.gz
-rm -r Imaging-1.1.7/
 
 echo "Do you want to use standard port 80 against 8069 and install nginx | Wollen Sie eine Port-Umleitung auf Standard Port 80 und nginx installieren [Y/n]:"
 read myport
