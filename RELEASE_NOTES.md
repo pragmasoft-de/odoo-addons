@@ -1,4 +1,12 @@
 ### 29.02.2016
+### equitania, 1.0.144
+#### Erweiterung
+- Ungenaue Suche für die standard und erweiterte Suche eingebaut.
+- Beschreibung:
+- Um alle Kunden zu finden, die sich im PLZ Bereich 75XXX befinden, müssen man bei der Suche "|75%" eingeben.
+- Das Zeichen "|" (Pipe) gibt an, dass die Zeichen "%" und '_' anders interpretiert werden. Das Prozentzeichen "%" steht für eine unbestimmte Anzahl beliebiger Zeichen
+- und der -Unterstrich "_" für genau ein beliebiges Zeichen.
+
 ### equitania, 1.0.143
 #### Änderung
 - Vor- und Zuname der Chance aus dem eq_bms Modul umgezogen.

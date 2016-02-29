@@ -19,34 +19,20 @@
 #
 ##############################################################################
 
-import models
-import wizard
-import eq_install_func
-import eq_address_extension
-import eq_address_extension_new_api
-import eq_custom_ref
-import eq_pricelist_item_search
-import eq_company_custom_fields
-import eq_sale_order_seq
-import eq_partner_extension
-import eq_report_extension
-import eq_lead_referred
-import eq_open_sale_order_line
-import res_groups
-import stock
-import sale
-import sale_layout
-import reports
-import res_config
-import res_partner
-import eq_report_helper
-import res_users
-import hr
-import product
-import eq_foreign_ref
-import eq_res_users_new_api
-import eq_clean_data
-import eq_email
-import sale_config
-import crm
-import models
+from openerp import models, fields, api, _
+original_search_read = models.BaseModel.search_read
+
+class BaseModelExtend(models.AbstractModel):
+    _name = 'basemodel.extend'
+    
+    def _register_hook(self, cr):
+        @api.cr_uid_context
+        def search_read(self, cr, uid, domain=None, fields=None, offset=0, limit=None, order=None, context=None):
+            for dom in domain:
+                if isinstance(dom, list) and isinstance(dom[2], str) and dom[2][0] == "|":
+                    dom[1] = "=ilike"
+                    dom[2] = dom[2][1:]
+            return original_search_read(self, cr, uid, domain, fields, offset, limit, order, context)
+        models.BaseModel.search_read = search_read
+        
+        return super(BaseModelExtend, self)._register_hook(cr)
