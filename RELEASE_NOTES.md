@@ -1,3 +1,8 @@
+### 29.02.2016
+### equitania, 1.0.143
+#### Änderung
+- Vor- und Zuname der Chance aus dem eq_bms Modul umgezogen.
+
 ### 25.02.2016
 ### equitania, 1.0.142
 #### Änderung

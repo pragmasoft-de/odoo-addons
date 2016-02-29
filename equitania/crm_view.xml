@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+		<!-- Lead Form View -->
+		<record id="crm_lead_form_ext" model="ir.ui.view">
+			<field name="name">crm.lead.form.ext</field>
+			<field name="model">crm.lead</field>
+			<field name="inherit_id" ref="crm.crm_case_form_view_leads" />
+			<field name="arch" type="xml">
+				<field name="title" position="replace" />
+				<field name="contact_name" position="replace" />
+				<field name="email_from" position="before">
+					<group colspan="2">
+						<field name="title" placeholder="Title" />
+						<field name="firstname" placeholder="Firstname" />
+						<field name="lastname" placeholder="Lastname" />
+						<field name="birthdate" />
+					</group>
+				</field>
+				<field name="phone" position="after">
+					<field name="website" />
+				</field>
+			</field>
+		</record>
+
+		<!-- Oppertunity Form View -->
+		<record model="ir.ui.view" id="crm_case_form_view_oppor_ext">
+			<field name="name">crm.case.form.view.oppor.ext</field>
+			<field name="model">crm.lead</field>
+			<field name="inherit_id" ref="crm.crm_case_form_view_oppor" />
+			<field name="arch" type="xml">
+				<field name="contact_name" position="replace" />
+				<field name="title" position="replace"/>
+				<field name="function" position="before">
+					<field name="title" placeholder="Title" />
+					<field name="firstname" placeholder="Firstname" />
+					<field name="lastname" placeholder="Lastname" />
+					<field name="birthdate" />
+				</field>
+			</field>
+		</record>
+	</data>
+</openerp>
