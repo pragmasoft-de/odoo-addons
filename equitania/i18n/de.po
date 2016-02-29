@@ -1086,7 +1086,7 @@ msgstr "Reportkonfiguration"
 #. module: equitania
 #: model:ir.ui.menu,name:equitania.Report_configuration
 msgid "Report Layout Categories"
-msgstr "Report Layout Kategorien"
+msgstr "Report Sektionen"
 
 #. module: equitania
 #: view:purchase.config.settings:equitania.eq_view_purchase_config_settings_delivery

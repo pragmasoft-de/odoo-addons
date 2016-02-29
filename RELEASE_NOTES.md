@@ -1,4 +1,7 @@
 ### 29.02.2016
+### equitania, 1.0.145
+#### Erweiterung
+- Sectionen für den Report können übersetzt werden. Menüeintrag umbennant in "Report Sektionen".
 ### equitania, 1.0.144
 #### Erweiterung
 - Ungenaue Suche für die standard und erweiterte Suche eingebaut.
