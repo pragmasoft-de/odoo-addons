@@ -1,4 +1,17 @@
 ### 01.03.2016
+### equitania, 1.0.147
+#### Fix + Erweiterung
+CRM/Lead/Interessent
+- Uebersetzungen nachgepflegt (auch Placeholder)
+- Feldvergroesserung
+- Hausnummer
+- PLZ, Stadt, Stadtteil untereinander
+- Feld Stadtteil hinzugefuegt
+- Neue Felder bei Wandlung zum Kunden beruecksichtigt
+- Disctrict in District umbenannt
+
+
+### 01.03.2016
 ### equitania, 1.0.146
 #### Fix
 - Dateinamen geändert, sodass die ungenaue Suche funktioniert.

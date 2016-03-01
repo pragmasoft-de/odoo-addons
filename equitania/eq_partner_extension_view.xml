@@ -88,7 +88,7 @@
 					<field name="zip" placeholder="ZIP" style="width: 102px" attrs="{'readonly': [('use_parent_address','=',True)]}"/>
 	                <div>
 	                    <field name="city" placeholder="City" style="width: 50%%" attrs="{'readonly': [('use_parent_address','=',True)]}"/>
-	                    <field name="eq_citypart" placeholder="Disctrict" style="width: 50%%" attrs="{'readonly': [('use_parent_address','=',True)]}"/>
+	                    <field name="eq_citypart" placeholder="District" style="width: 50%%" attrs="{'readonly': [('use_parent_address','=',True)]}"/>
                         <field name="country_id" placeholder="Country" style="width: 50%%" options='{"no_open": True, "no_create": True}' attrs="{'readonly': [('use_parent_address','=',True)]}"/>
 	                    <field name="state_id" class="oe_no_button" placeholder="State" style="width: 50%%" options='{"no_open": True}' on_change="onchange_state(state_id)" attrs="{'readonly': [('use_parent_address','=',True)]}"/>		
 					</div>
@@ -103,7 +103,7 @@
 					<field name="zip" placeholder="ZIP" style="width: 102px"/>
 	                <div attrs="{'invisible': [('use_parent_address','=', True)]}">
 	                    <field name="city" placeholder="City" style="width: 50%%"/>
-	                    <field name="eq_citypart" placeholder="Disctrict" style="width: 50%%"/>
+	                    <field name="eq_citypart" placeholder="District" style="width: 50%%"/>
                         <field name="country_id" placeholder="Country" style="width: 50%%" options='{"no_open": True, "no_create": True}'/>
 	                    <field name="state_id" class="oe_no_button" placeholder="State" style="width: 50%%" options='{"no_open": True}' on_change="onchange_state(state_id)"/>		
 					</div>

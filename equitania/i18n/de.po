@@ -112,6 +112,7 @@ msgstr "Basispreis"
 
 #. module: equitania
 #: field:res.partner,eq_birthday:0
+#: field:crm.lead,birthdate:0
 msgid "Birthday"
 msgstr "Geburtstag"
 
@@ -409,12 +410,8 @@ msgstr "Zielort"
 
 #. module: equitania
 #: field:res.company,eq_citypart:0 field:res.partner,eq_citypart:0
-msgid "Disctirct"
-msgstr "Bezirk"
-
-#. module: equitania
 #: view:res.partner:equitania.eq_partner_extension_form_view
-msgid "Disctrict"
+msgid "District"
 msgstr "Stadtteil"
 
 #. module: equitania
@@ -482,10 +479,20 @@ msgid "Finished"
 msgstr "Abgeschlossen"
 
 #. module: equitania
+#: view:crm.lead:equitania.crm_case_form_view_oppor_ext
+#: view:crm.lead:equitania.crm_lead_form_ext
 #: view:res.partner:equitania.eq_partner_extension_form_view
 #: field:res.partner,eq_firstname:0
+#: field:crm.lead,firstname:0
 msgid "Firstname"
 msgstr "Vorname"
+
+#. module: equitania
+#: view:crm.lead:equitania.crm_case_form_view_oppor_ext
+#: view:crm.lead:equitania.crm_lead_form_ext
+#: field:crm.lead,lastname:0
+msgid "Lastname"
+msgstr "Nachname"
 
 #. module: equitania
 #: field:res.partner,eq_foreign_ref:0
@@ -557,6 +564,8 @@ msgid "Salesperson"
 msgstr "Ansprechpartner(in) im Verkauf"
 
 #. module: equitania
+#: view:crm.lead:equitania.crm_case_form_view_oppor_ext
+#: view:crm.lead:equitania.crm_lead_form_ext
 #: view:res.company:equitania.eq_company_custom_fields_form_view
 #: view:res.partner:equitania.eq_partner_extension_form_view
 msgid "House no"
@@ -2567,3 +2576,9 @@ msgstr "Fußtext [equitania]"
 #: view:crm.lead:crm.crm_case_form_view_oppor field:crm.lead,state_id:0
 msgid "State"
 msgstr "Bundesland"
+
+#. module: equitania
+#: view:crm.lead:equitania.crm_case_form_view_oppor_ext
+#: view:crm.lead:equitania.crm_lead_form_ext
+msgid "District"
+msgstr "Stadtteil"

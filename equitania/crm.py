@@ -44,7 +44,10 @@ class eq_crm_lead(models.Model):
     category_ids = fields.Many2many(
         'res.partner.category', string='Tags')
     website = fields.Char('Website')
-    birthdate = fields.Date('Birthdate')
+    birthdate = fields.Date('Birthday')
+    eq_citypart = fields.Char('District')
+    eq_house_no = fields.Char('House Number')
+    
     
     
     def _convert_opportunity_data(self, cr, uid, lead, customer, section_id=False, context=None):
@@ -93,7 +96,9 @@ class eq_crm_lead(models.Model):
             'country_id': lead.country_id and lead.country_id.id or False,
             'state_id': lead.state_id and lead.state_id.id or False,
             'is_company': is_company,
-            'type': 'contact'
+            'type': 'contact',
+            'eq_citypart': lead.eq_citypart,
+            'eq_house_no': lead.eq_house_no, 
         }
         if not is_company:
             vals[fistname_column] = firstname
