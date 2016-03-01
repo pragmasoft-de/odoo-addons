@@ -6,7 +6,7 @@
 		<template id="eq_external_layout_header_stock_picking_data">
 			<div class="row">
 				<div class="col-xs-7" />
-				<div class="col-xs-5">
+				<div class="col-xs-5 headerdata2">
 					<table style="width:100%;float:right;">
 						<tbody>
 							<tr>
@@ -36,8 +36,7 @@
 									<span>Commitment Date</span>
 								</td>
 								<td class="text-right" t-if="o.date">
-									<span
-										t-esc="o.date.split(' ')[0].split('-')[2] + '.' + o.date.split(' ')[0].split('-')[1] + '.' + o.date.split(' ')[0].split('-')[0]" />
+									<span t-esc="o.date.split(' ')[0].split('-')[2] + '.' + o.date.split(' ')[0].split('-')[1] + '.' + o.date.split(' ')[0].split('-')[0]" />
 									<!-- <span t-esc="o.date.split(' ')[0]"/> -->
 								</td>
 							</tr>
@@ -168,7 +167,7 @@
 					<div class="col-xs-5">
 					</div>
 				</div>
-				<h2 style="margin-bottom:25px; margin-top:25px">
+				<h2 class="reporttitle" style="margin-bottom:25px; margin-top:25px">
 					<!--<span t-field="o.picking_type_id"/> -->
 					<span t-if="o.state == 'done'">Delivery note:</span>
 					<span t-if="not o.state == 'done'">Packing list:</span>

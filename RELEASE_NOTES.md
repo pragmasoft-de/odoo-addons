@@ -1,7 +1,21 @@
 ### 01.03.2016
-### equitania, 1.0.147
+### equitania, 1.0.149
 #### Fix
 - Im Lieferschein wird die Produktbeschreibung als Text gespeichert, wodurch die Formatierung nicht verloren geht.
+### equitania, 1.0.148
+#### Fix
+CRM/Lead/Interessent
+- "Unternehmensanschrift verwenden" wird nun standardgemaeß gesetzt 
+### equitania, 1.0.147
+#### Fix + Erweiterung
+CRM/Lead/Interessent
+- Uebersetzungen nachgepflegt (auch Placeholder)
+- Feldvergroesserung
+- Hausnummer
+- PLZ, Stadt, Stadtteil untereinander
+- Feld Stadtteil hinzugefuegt
+- Neue Felder bei Wandlung zum Kunden beruecksichtigt
+- Disctrict in District umbenannt
 ### equitania, 1.0.146
 #### Fix
 - Dateinamen geändert, sodass die ungenaue Suche funktioniert.
