@@ -259,6 +259,11 @@ class stock_picking_extension(osv.osv):
 
 class stock_move_extension(osv.osv):
     _inherit = ['stock.move']
+    
+    _columns = {
+        'name': fields.text('Description', required=True, select=True),
+        }
+    
     def _get_invoice_line_vals(self, cr, uid, move, partner, inv_type, context=None):
         
         res = super(stock_move_extension, self)._get_invoice_line_vals(cr, uid, move, partner, inv_type, context)

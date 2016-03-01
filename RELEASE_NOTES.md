@@ -1,4 +1,7 @@
 ### 01.03.2016
+### equitania, 1.0.147
+#### Fix
+- Im Lieferschein wird die Produktbeschreibung als Text gespeichert, wodurch die Formatierung nicht verloren geht.
 ### equitania, 1.0.146
 #### Fix
 - Dateinamen geändert, sodass die ungenaue Suche funktioniert.
