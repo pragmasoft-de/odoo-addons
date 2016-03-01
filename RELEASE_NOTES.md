@@ -1,3 +1,8 @@
+### 01.03.2016
+### equitania, 1.0.146
+#### Fix
+- Dateinamen geändert, sodass die ungenaue Suche funktioniert.
+
 ### 29.02.2016
 ### equitania, 1.0.145
 #### Erweiterung

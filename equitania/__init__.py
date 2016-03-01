@@ -49,4 +49,4 @@ import eq_clean_data
 import eq_email
 import sale_config
 import crm
-import models
+import eq_models
