@@ -103,6 +103,7 @@ class eq_crm_lead(models.Model):
         if not is_company:
             vals[fistname_column] = firstname
             vals[surname_column] = lastname
+            vals['use_parent_address']= True
         partner = partner.create(cr, uid, vals, context=context)
         partner_pool = self.pool.get('res.partner')
         partner = partner_pool.browse(cr, uid, partner, context=context)

@@ -1,4 +1,11 @@
 ### 01.03.2016
+### equitania, 1.0.148
+#### Fix
+CRM/Lead/Interessent
+- "Unternehmensanschrift verwenden" wird nun standardgemaeß gesetzt 
+
+
+### 01.03.2016
 ### equitania, 1.0.147
 #### Fix + Erweiterung
 CRM/Lead/Interessent
