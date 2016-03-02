@@ -52,7 +52,8 @@ class eq_product_template(osv.osv):
             (select id from product_product where product_tmpl_id = %d) 
             and sol.state not in ('cancel', 'done') 
             and (select state from sale_order where id = sol.order_id) not in ('sent', 'draft'))) 
-            and state != 'done'""" % (id))
+            and state not in ('done', 'cancel')
+            and picking_id is not null""" % (id))
             open = cr.fetchone()[0] or 0
             cr.execute("""select sum(product_uom_qty) from sale_order_line where product_id in (select id from product_product where product_tmpl_id = %d) and state != 'cancel' and (select state from sale_order where id = order_id) not in ('sent', 'draft')""" % (id))
             all = cr.fetchone()[0] or 0
@@ -122,7 +123,8 @@ class eq_product_product(osv.osv):
             (select id from sale_order_line as sol where sol.product_id  = %d 
             and sol.state not in ('cancel', 'done') 
             and (select state from sale_order where id = sol.order_id) not in ('sent', 'draft'))) 
-            and state != 'done'""" % (id))
+            state not in ('done', 'cancel')
+            and picking_id is not null""" % (id))
             open = cr.fetchone()[0] or 0
             cr.execute("""select sum(product_uom_qty) from sale_order_line where product_id = %d and state != 'cancel' 
             and (select state from sale_order where id = order_id) not in ('sent', 'draft')""" % (id))

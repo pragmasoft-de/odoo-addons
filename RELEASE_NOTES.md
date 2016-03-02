@@ -1,4 +1,7 @@
 ### 02.03.2016
+### equitania, 1.0.152
+#### Fix
+- Offene Menge der Verkäufe im Produkt wird richtig berechnet.
 ### equitania, 1.0.151
 #### Fix
 - Offene Menge bei der Verkaufspositionen wird richtig berechnet.
