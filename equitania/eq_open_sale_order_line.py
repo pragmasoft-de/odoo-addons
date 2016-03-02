@@ -69,7 +69,7 @@ class eq_open_sale_order_line(models.Model):
 FROM sale_order_line main
 LEFT join (select sum(SM.product_qty)  as Qleft,sale_line_id FROM 
 stock_move SM left join procurement_order PO on PO.id=  SM.procurement_id
-where SM.state::text <> 'done'::text AND SM.state::text <> 'cancel'::text 
+where SM.state::text <> 'done'::text AND SM.state::text <> 'cancel'::text and SM.picking_id IS NOT NULL
 GROUP BY sale_line_id ) re on  re .sale_line_id=main.id
    GROUP BY main.order_id,re.Qleft,
    ( SELECT sale_order.client_order_ref FROM sale_order WHERE sale_order.id = main.order_id),
@@ -80,8 +80,5 @@ GROUP BY sale_line_id ) re on  re .sale_line_id=main.id
     main.product_uom_qty ,
     main.product_id,
            ( SELECT product_template.eq_drawing_number FROM product_template  WHERE product_template.id = (( SELECT product_product.product_tmpl_id
-                   FROM product_product WHERE product_product.id = main.product_id))), main.state, main.id
-                 
-   
-             )
+                   FROM product_product WHERE product_product.id = main.product_id))), main.state, main.id)
             """)

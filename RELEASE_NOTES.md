@@ -1,4 +1,7 @@
 ### 02.03.2016
+### equitania, 1.0.151
+#### Fix
+- Offene Menge bei der Verkaufspositionen wird richtig berechnet.
 ### equitania, 1.0.150
 #### Fix
 - Die Methode product_id_change kann ohne context aufgerufen werden.
