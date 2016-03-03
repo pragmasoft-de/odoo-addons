@@ -2593,3 +2593,8 @@ msgstr "Bundesland"
 #: view:crm.lead:equitania.crm_lead_form_ext
 msgid "District"
 msgstr "Stadtteil"
+
+#. module: document
+#: selection:document.directory,type:0
+msgid "Folders per resource"
+msgstr "Verzeichnisse pro Ressource"
