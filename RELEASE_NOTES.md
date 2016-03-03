@@ -1,3 +1,8 @@
+### 03.03.2016
+### equitania, 1.0.153
+#### Änderung
+- Incoterm wird zu Incoterm übersetzt.
+
 ### 02.03.2016
 ### equitania, 1.0.152
 #### Fix

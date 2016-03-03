@@ -609,8 +609,19 @@ msgstr "Ein- & Ausgang"
 
 #. module: equitania
 #: field:res.partner,eq_incoterm:0
+#: field:res.partner,eq_incoterm:0
+#: field:purchase.order,incoterm_id:0
+#: field:sale.order,incoterm:0
 msgid "Incoterm"
 msgstr "Incoterm"
+
+#. modules: equitania
+#: view:website:eq_framework_agreement.report_framework_agreement
+#: view:website:equitania.report_purchasequotation_data
+#: view:website:equitania.report_saleorder_data
+#: view:website:purchase.report_purchaseorder_document
+msgid "Incoterm:"
+msgstr "Incoterm:"
 
 #. module: equitania
 #: field:product.product,eq_index:0 field:product.template,eq_index:0
