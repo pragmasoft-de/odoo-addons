@@ -4,11 +4,6 @@
 #    Odoo Addon, Open Source Management Solution
 #    Copyright (C) 2014-now Equitania Software GmbH(<http://www.equitania.de>).
 #
-#
-#    Adaptation of the module intero_hhw
-#    Copyright (C) 2014 Intero Technologies GmbH(<http://intero-technologies.de>).
-#
-#
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
 #    published by the Free Software Foundation, either version 3 of the

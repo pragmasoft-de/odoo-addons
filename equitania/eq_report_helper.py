@@ -1,8 +1,8 @@
-## -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#    Odoo Addon, Open Source Management Solution
+#    Copyright (C) 2014-now Equitania Software GmbH(<http://www.equitania.de>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -29,6 +29,41 @@ from openerp.report import report_sxw
 class eq_report_helper(osv.osv_memory):
     
     _name = "eq_report_helper"
+    
+    
+    def get_user_infos(self, cr, uid, context = None):
+        """
+            Get user info (name + phone) of actual logged user on odoo
+            @cr: cursor
+            @uid: user id
+            @context: context
+            @return: user info (name + phone)
+        """        
+        sql = "select partner_id from res_users where id = " + str(uid)        
+        cr.execute(sql)
+        partner_id = cr.fetchone()[0]
+                
+        sql_2 = "select name, phone from res_partner where id = " + str(partner_id) 
+        cr.execute(sql_2)
+        record = cr.fetchone()
+        result = record[0]
+        if record[1]:
+            result = record[0] + ", " + record[1]
+        
+        return result
+    
+    def get_user_signature(self, cr, uid, context = None):
+        """
+            Get user signature of actual logged user on odoo
+            @cr: cursor
+            @uid: user id
+            @context: context
+            @return: user signature
+        """        
+        sql = "select eq_signature from res_users where id = " + str(uid)        
+        cr.execute(sql)
+        result = cr.fetchone()[0]
+        return result
             
     def get_qty(self, cr, uid, object, language, param_name, context = None):
         """

@@ -1,8 +1,8 @@
-## -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#    Odoo Addon, Open Source Management Solution
+#    Copyright (C) 2014-now Equitania Software GmbH(<http://www.equitania.de>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -47,9 +47,11 @@ class eq_report_sale_order(report_sxw.rml_parse):
             'get_gross_price_as_float': self.get_gross_price_as_float,
             'check_if_display_gross_price': self.check_if_display_gross_price,
             'calculate_sum': self.calculate_sum,
+            'get_user_infos': self.get_user_infos,
+            'get_user_signature': self.get_user_signature,
         })
+            
         
-    
     def get_qty(self, object, language):
         return self.pool.get("eq_report_helper").get_qty(self.cr, self.uid, object, language, 'Sale Quantity Report')
                
@@ -66,7 +68,7 @@ class eq_report_sale_order(report_sxw.rml_parse):
             @return: True = display gross price
         """
         return self.pool.get("eq_report_helper").check_if_display_gross_price(self.cr, self.uid, object)
-    
+                
     """
     def check_if_display_gross_price(self, object):
         self.display_gross_price =  self.pool.get("eq_report_helper").check_if_display_gross_price(self.cr, self.uid, object)
@@ -93,7 +95,22 @@ class eq_report_sale_order(report_sxw.rml_parse):
         """
         return self.pool.get("eq_report_helper").get_gross_price_as_float(self.cr, self.uid, object, language, currency_id)
     
-        
+    def get_user_infos(self):
+        """
+            Get user info (name + phone)
+            @cr: cursor
+            @uid: user id
+            @context: context
+            @return: user info (name + phone)
+        """            
+        return self.pool.get("eq_report_helper").get_user_infos(self.cr, self.uid, self.uid)
+    
+    def get_user_signature(self):
+        """
+            Get user signature of actual logged user on odoo
+            @return: user signature
+        """
+        return self.pool.get("eq_report_helper").get_user_signature(self.cr, self.uid, self.uid)
         
     def append_price(self, input_price, category_no):
         """

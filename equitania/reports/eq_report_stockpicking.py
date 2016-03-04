@@ -1,8 +1,8 @@
-## -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#    Odoo Addon, Open Source Management Solution
+#    Copyright (C) 2014-now Equitania Software GmbH(<http://www.equitania.de>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -33,8 +33,27 @@ class eq_report_stockpicking(report_sxw.rml_parse):
             'get_price': self.get_price,
             'get_standard_price': self.get_standard_price,
             'get_weight': self.get_weight,
+            'get_user_infos': self.get_user_infos,
+            'get_user_signature': self.get_user_signature,
         })
         
+    
+    def get_user_infos(self):
+        """
+            Get user info (name + phone)
+            @cr: cursor
+            @uid: user id
+            @context: context
+            @return: user info (name + phone)
+        """            
+        return self.pool.get("eq_report_helper").get_user_infos(self.cr, self.uid, self.uid)
+    
+    def get_user_signature(self):
+        """
+            Get user signature of actual logged user on odoo
+            @return: user signature
+        """
+        return self.pool.get("eq_report_helper").get_user_signature(self.cr, self.uid, self.uid)
     
     def get_qty(self, object, language):
         return self.pool.get("eq_report_helper").get_qty(self.cr, self.uid, object, language, 'Sale Quantity Report')

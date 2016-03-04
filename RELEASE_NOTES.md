@@ -1,3 +1,8 @@
+### 04.03.2016
+### equitania, 1.0.155
+#### Erweiterung
+- Erweiterung der Basisklassen für Sale-Reports um 2 neue Funktion (GetUserInfo und GetUserSignature). Die Funktionen sind im ReportHelper
+
 ### 03.03.2016
 ### equitania, 1.0.154
 #### Änderung
