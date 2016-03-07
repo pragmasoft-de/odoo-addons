@@ -161,13 +161,21 @@ class stock_picking(report_sxw.rml_parse):
         return None
     
     def calculate_sum(self, input, category_no, lines):
-        result = 0
+        """
+            Calculate total price as sum of each position
+            @input: input data
+            @category_no: category
+            @lines: all invoice lines of actual invoice
+            @return: calculated sum
+        """
         
+        result = 0                
         for line in lines:
-            if line.eq_optional is False:
-                quantity = line.product_uom_qty
-                price = line.price_unit
-                result += quantity * price  
+            #if line.eq_optional is False:                # this field is only on sale_order relevant
+            #quantity = line.product_uom_qty              # the field product_uom_qty doesn't exist in account_invoice_line
+            quantity = line.quantity
+            price = line.price_unit
+            result += quantity * price  
 
         return result
         
