@@ -117,14 +117,14 @@ class eq_product_product(osv.osv):
     
     def _eq_sale_count(self, cr, uid, ids, name, arg, context=None):
         res = {}
-        for id in ids:
+        for id in ids:            
             cr.execute("""select sum(product_uom_qty) from stock_move where procurement_id in 
             (select id from procurement_order where sale_line_id in 
             (select id from sale_order_line as sol where sol.product_id  = %d 
             and sol.state not in ('cancel', 'done') 
             and (select state from sale_order where id = sol.order_id) not in ('sent', 'draft'))) 
-            state not in ('done', 'cancel')
-            and picking_id is not null""" % (id))
+            and state not in ('done', 'cancel')
+            and picking_id is not null""" % (id))                    
             open = cr.fetchone()[0] or 0
             cr.execute("""select sum(product_uom_qty) from sale_order_line where product_id = %d and state != 'cancel' 
             and (select state from sale_order where id = order_id) not in ('sent', 'draft')""" % (id))

@@ -1,4 +1,9 @@
 ### 07.03.2016
+### equitania, 1.0.157
+#### Bugfix
+- Fehler im SQL-Statement in der Funktion _eq_sale_count(...) behoben. Jetzt kann man neue Produkte speichern
+
+### 07.03.2016
 ### equitania, 1.0.156
 #### Bugfix
 - Fehler in der Funktion calculate_sum(..) beseitigt. Bei der Rechnungsposition gibt es das Feld eq_optional und product_uom_qty nicht
