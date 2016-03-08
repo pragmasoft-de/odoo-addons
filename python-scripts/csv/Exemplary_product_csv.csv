@@ -1,5 +1,5 @@
-Artikelnummer(default_code);Bezeichnung(name);Interne Kategorie (categ_id);Lieferanten;EAN;Kann eingekauft werden(purchase_ok);Kann verkauft werden (sale_ok);Einstandspreis(standard_price);Allgemeiner Preis(lst_price)
-11111;Beispiel-Artikel 1;All;O GmbH;1234567891019;0;1;399.99;470
-22222;Beispiel-Artikel 2;All;A GmbH;1234567891026;0;0;2.99;4.7
-33333;Beispiel-Artikel 3;All;Z GmbH;1234567891033;1;1;40.99;45
-44444;Beispiel-Artikel 4;All;X GmbH;1234567891040;1;0;99.99;120
+Artikelnummer(default_code),Bezeichnung(name),Interne Kategorie (categ_id),Lieferanten,EAN,Kann eingekauft werden(purchase_ok),Kann verkauft werden (sale_ok),Einstandspreis(standard_price),Allgemeiner Preis(lst_price)
+11111,Beispiel-Artikel 1,All,O GmbH,1234567891019,0,1,399.99,470
+22222,Beispiel-Artikel 2,All,A GmbH,1234567891026,0,0,2.99,4.7
+33333,Beispiel-Artikel 3,All,Z GmbH,1234567891033,1,1,40.99,45
+44444,Beispiel-Artikel 4,All,X GmbH,1234567891040,1,0,99.99,120
