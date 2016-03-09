@@ -354,7 +354,7 @@
 						</tbody>
 					</table>
 				</div>
-				<div style="display:inline-block;">
+				<div style="display:inline-block;" id="signature_block">
 					<table style="margin-top:0.5cm;">
 						<tr>
 							<td>Goods received on date:</td>

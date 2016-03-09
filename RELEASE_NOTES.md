@@ -1,3 +1,8 @@
+### 09.03.2016
+### equitania, 1.0.158
+#### Änderung
+- Erweitern der Lieferscheine um eine ID
+
 ### 07.03.2016
 ### equitania, 1.0.157
 #### Bugfix
