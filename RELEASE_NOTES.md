@@ -1,3 +1,8 @@
+### 15.03.2016
+### equitania, 1.0.159
+#### Fix
+- Hausnummer der Firma wird im Partnerdatensatz gespeichert, genau wie der Rest der Adresse.
+
 ### 09.03.2016
 ### equitania, 1.0.158
 #### Änderung

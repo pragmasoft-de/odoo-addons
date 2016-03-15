@@ -28,6 +28,23 @@ from openerp.osv import fields, osv, orm
 class eq_company_custom_fields(osv.osv):
     _name = 'res.company'
     _inherit = 'res.company'
+    
+    def _get_house_no(self, cr, uid, ids, field_names, arg, context=None):
+        """ Read the 'address' functional fields. """
+        result = {}
+        part_obj = self.pool.get('res.partner')
+        for company in self.browse(cr, uid, ids, context=context):
+            if company.partner_id and company.partner_id.eq_house_no:
+                result[company.id] = company.partner_id.eq_house_no
+        return result
+
+    def _set_house_no(self, cr, uid, company_id, name, value, arg, context=None):
+        """ Write the 'address' functional fields. """
+        company = self.browse(cr, uid, company_id, context=context)
+        if company.partner_id:
+            part_obj = self.pool.get('res.partner')
+            part_obj.write(cr, uid, [company.partner_id.id], {'eq_house_no': value}, context=context)
+        return True
 
     _columns = {
         'eq_custom_1': fields.char('Chief labeling', size=50, help="The content of this field may be used in the header or footer of reports."),
@@ -37,7 +54,7 @@ class eq_company_custom_fields(osv.osv):
         'eq_report_logo': fields.binary('Company Report Logo'),
         'eq_company_ean': fields.char('Company EAN13', size=7),
         'eq_citypart': fields.char('Disctirct'),
-        'eq_house_no': fields.char('House number'),
+        'eq_house_no': fields.function(_get_house_no, fnct_inv=_set_house_no, size=128, type='char', string="House number"),
         
     }
 
