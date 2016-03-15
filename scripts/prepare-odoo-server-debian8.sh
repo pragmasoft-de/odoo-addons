@@ -1,6 +1,7 @@
 #!/bin/bash
 # Mit diesem Skript werden alle Pakete für den Odoo Betrieb unter Debian installiert
 # Skript muss mit root-Rechten ausgeführt werden
+# Version 1.2.0 - Stand 15.03.2016
 ##############################################################################
 #
 #    Shell Script for Odoo, Open Source Management Solution
@@ -26,168 +27,135 @@ apt-get update && apt-get dist-upgrade && apt-get autoremove
 
 echo "Tools zip, unzip, mc(Midnight Comander) and htop will be install.."
 apt-get install -y --no-install-recommends \
-			mc  \
-			zip \
-			unzip \
-			htop \
-			ca-certificates \
-			ntp  \
-			apt-transport-https \
-			needrestart
+        mc \
+        zip \
+        unzip \
+        htop \
+        ca-certificates \
+        ntp  \
+        apt-transport-https \
+        needrestart \
+        curl \
+        ghostscript \
+        graphviz \
+        antiword \
+        poppler-utils \
+        curl \
+        build-essential \
+        libfreetype6-dev \
+        libjpeg-dev \
+        wget \
+        sqlite3 \
+        geoip-bin \
+        geoip-database \
+        node-less \
+        node-clean-css
 
-echo "Do you want install postgresql ? / Wollen Sie die PostgreSQL-DB installieren  (Y/n):"
-read mypsql
-
-if [ "$mypsql" = "Y" ]; then
-  echo "PostgreSQL will be install..."
-  apt-get install postgresql
-else
-  echo "PostgreSQL is not installed!"
-fi
-
-echo "apt-get packages will be install.."
-apt-get install -y --no-install-recommends \
-			ghostscript \
-			graphviz \
-			antiword \
-			poppler-utils \
-			curl \
-			build-essential \
-			libfreetype6-dev \
-			libjpeg-dev \
-			wget \
-			sqlite3
+while true; do
+    read -p "Do you want install PostgreSQL? [y/n] / Wollen Sie die PostgreSQL-DB installieren? [j/n]: " yn
+    case $yn in
+        [YyJj]* ) echo "PostgreSQL will be install / PostgreSQL wird installiert ..."
+                    apt-get install -y --no-install-recommends \
+                            postgresql-9.4 \
+                            postgresql-client-9.4
+        break;;
+        [Nn]* ) echo "PostgreSQL is not installed! / PostgreSQL wurde nicht installiert!"
+                        break;;
+        * ) echo "Please answer (y)es or (n)o. / Bitte antworten sie mit (j)a oder (n)ein";;
+    esac
+done
 
 echo "apt-get python packages will be install.."
 apt-get install -y --no-install-recommends \
-		python-pip \
-		python-magic \
-		python-dateutil \
-		python-pypdf \
-		python-requests \
-		python-feedparser \
-		python-gdata \
-		python-ldap \
-		python-libxslt1 \
-		python-lxml \
-		python-mako \
-		python-openid \
-		python-psycopg2 \
-		python-pybabel \
-		python-pychart \
-		python-pydot \
-		python-pyparsing \
-		python-reportlab \
-		python-simplejson \
-		python-tz \
-		python-vatnumber \
-		python-vobject \
-		python-webdav \
-		python-werkzeug \
-		python-xlwt \
-		python-yaml \
-		python-zsi \
-		python-docutils \
-		python-psutil \
-		python-unittest2 \
-		python-mock \
-		python-jinja2 \
-		python-dev \
-		python-pdftools \
-		python-decorator \
-		python-openssl \
-		python-babel \
-		python-imaging \
-		python-reportlab-accel \
-		python-paramiko \
-		python-software-properties \
-		python-matplotlib \
-		python-support \
-		python-passlib \
-		python-pyinotify \
-		python-gevent
+        python-pip \
+        python-magic \
+        python-dateutil \
+        python-pypdf \
+        python-requests \
+        python-feedparser \
+        python-gdata \
+        python-ldap \
+        python-libxslt1 \
+        python-lxml \
+        python-mako \
+        python-openid \
+        python-psycopg2 \
+        python-pybabel \
+        python-pychart \
+        python-pydot \
+        python-pyparsing \
+        python-reportlab \
+        python-simplejson \
+        python-tz \
+        python-vatnumber \
+        python-vobject \
+        python-webdav \
+        python-werkzeug \
+        python-xlwt \
+        python-yaml \
+        python-zsi \
+        python-docutils \
+        python-psutil \
+        python-unittest2 \
+        python-mock \
+        python-jinja2 \
+        python-dev \
+        python-pdftools \
+        python-decorator \
+        python-openssl \
+        python-babel \
+        python-imaging \
+        python-reportlab-accel \
+        python-paramiko \
+        python-software-properties \
+        python-matplotlib \
+        python-support \
+        python-passlib \
+        python-pyinotify \
+        python-gevent
 
 echo "pip packages will be install.."
 pip install passlib \
-	&& pip install beautifulsoup4 \
-	&& pip install evdev \
-	&& pip install reportlab \
-	&& pip install qrcode \
-	&& pip install polib \
-	&& pip install unidecode \
-	&& pip install validate_email \
-	&& pip install pyDNS \
-	&& pip install pysftp \
-	&& pip install python-slugify \
-	&& pip install six==1.4 \
-	&& pip install paramiko==1.9.0 \
-	&& pip install pycrypto==2.4 \
-	&& pip install pyinotify \
-	&& pip install ecdsa==0.11 \
-	&& pip install sphinx \
-	&& pip install babel==1.3 \
-	&& pip install Pygments==2.0 \
-	&& pip install docutils==0.11 \
-	&& pip install markupsafe \
-	&& pip install pytz \
-	&& pip install Jinja2==2.3 \
-	&& pip install odoorpc \
-	&& pip install pillow==2.6.0
-
-echo "npm packages will be install.."
-curl -sL https://deb.nodesource.com/setup_0.12 | bash -
-apt-get install -y --no-install-recommends nodejs
-npm install -g less less-plugin-clean-css
-ln -s /usr/bin/nodejs /usr/bin/node
-
-echo "Do you want install barcodes? / Wollen Sie die Barcodes installieren (Y/n):"
-read myfonts
-
-if [ "$myfonts" = "Y" ]; then
-  echo "Barcodes will be install..."
-  wget http://www.reportlab.com/ftp/pfbfer.zip
-  unzip pfbfer.zip -d fonts
-  mv fonts /usr/lib/python2.7/dist-packages/reportlab/
-  rm pfbfer.zip
-else
-  echo "Barcodes is not installed!"
-fi
+    && pip install beautifulsoup4 \
+    && pip install evdev \
+    && pip install reportlab \
+    && pip install qrcode \
+    && pip install polib \
+    && pip install unidecode \
+    && pip install validate_email \
+    && pip install pyDNS \
+    && pip install pysftp \
+    && pip install python-slugify \
+    && pip install six==1.4 \
+    && pip install paramiko==1.9.0 \
+    && pip install pycrypto==2.4 \
+    && pip install pyinotify \
+    && pip install ecdsa==0.11 \
+    && pip install sphinx \
+    && pip install babel==1.3 \
+    && pip install Pygments==2.0 \
+    && pip install docutils==0.11 \
+    && pip install markupsafe \
+    && pip install pytz \
+    && pip install Jinja2==2.3 \
+    && pip install odoorpc \
+    && pip install pillow==2.6.0 \
+    && pip install pyserial \
+    && pip install pyusb==1.0.0rc1
 
 
-echo "Do you want install module HTML2PDF? / Wollen Sie das Modul HTML2PDF installieren (Y/n):"
-read mypdf
+echo "Barcodes will be install..."
+wget http://www.reportlab.com/ftp/pfbfer.zip
+unzip pfbfer.zip -d fonts
+mv fonts /usr/lib/python2.7/dist-packages/reportlab/
+rm pfbfer.zip
 
-if [ "$mypdf" = "Y" ]; then
-  echo "HTML2PDF will be install..."
-  wget http://www.openerp24.de/fileadmin/content/dateien/wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
-  dpkg -i wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
-  rm wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
-  apt-get -f install
-else
-  echo "HTML2PDF is not installed!"
-fi
+echo "WKHTML2PDF will be install..."
+curl -k -o wkhtmltox.deb -SL https://release.myodoo.de/wkhtmltox-0.12.1.2_linux-jessie-amd64.deb \
+    && echo '40e8b906de658a2221b15e4e8cd82565a47d7ee8 wkhtmltox.deb' | sha1sum -c - \
+    && dpkg --force-depends -i wkhtmltox.deb \
+    && apt-get -y install -f --no-install-recommends \
+    && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false -o APT::AutoRemove::SuggestsImportant=false npm \
+    && rm -rf /var/lib/apt/lists/* wkhtmltox.deb
 
-echo "Do you want use the PointOfSale (PoS)? / Wollen Sie Odoo mit Kassenmodul verwenden(Y/n):"
-read mypos
-
-if [ "$mypos" = "Y" ]; then
-  echo "PoS will be install..."
-  pip install pyserial
-  pip install pyusb
-else
-  echo "PoS is not prepared!"
-fi
-
-echo "Do you want to use standard port 80 against 8069 and install nginx | Wollen Sie eine Port-Umleitung auf Standard Port 80 und nginx installieren [Y/n]:"
-read myport
-
-if [ "$myport" = "Y" ]; then
-  echo "nginx will be install..."
-  apt-get update
-  apt-get install nginx
-else
-  echo "nginx is not installed!"
-fi
-
-
-echo "Finished!"
+echo "System is prepared now for Odoo - System ist jetzt für Odoo vorbereitet!"
