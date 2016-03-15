@@ -144,16 +144,16 @@
 				<div class="row">
 					<div class="col-xs-7 addressmargin">
 						<div class="row col-xs-12 returnaddress">
-							<h t-field="o.company_id.partner_id.name" />
+							<h t-field="o.company_id.name" />
 							-
-							<h t-field="o.company_id.partner_id.street" />
-							<span t-if="o.company_id.partner_id.eq_house_no">
-								<span t-field="o.company_id.partner_id.eq_house_no" />
+							<h t-field="o.company_id.street" />
+							<span t-if="o.company_id.eq_house_no">
+								<span t-field="o.company_id.eq_house_no" />
 							</span>
 							-
-							<h t-field="o.company_id.partner_id.zip" />
+							<h t-field="o.company_id.zip" />
 							<h>&#xa0;</h>
-							<h t-field="o.company_id.partner_id.city" />
+							<h t-field="o.company_id.city" />
 						</div>
 						<div t-if="o.partner_id.is_company">
 							<div t-field="o.partner_id.name" style="clear:left;" />

@@ -1,3 +1,8 @@
+### 15.03.2016
+### equitania, 1.0.159
+#### Änderung
+- Reports: Die Absendeadresse greift nun direkt auf die Firmendaten, und nichtmehr auf den Partner darunter
+
 ### 09.03.2016
 ### equitania, 1.0.158
 #### Änderung
