@@ -1,6 +1,7 @@
 ### 15.03.2016
 ### equitania, 1.0.159
-#### Änderung
+#### Fix
+- Hausnummer der Firma wird im Partnerdatensatz gespeichert, genau wie der Rest der Adresse.
 - Reports: Die Absendeadresse greift nun direkt auf die Firmendaten, und nichtmehr auf den Partner darunter
 
 ### 09.03.2016
