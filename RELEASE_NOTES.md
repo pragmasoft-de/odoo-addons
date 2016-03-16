@@ -1,3 +1,8 @@
+### 16.03.2016
+### equitania, 1.0.160
+#### Fix
+- Rechnung-Reports: Übersetzungskorrekt für das Lieferdatum
+
 ### 15.03.2016
 ### equitania, 1.0.159
 #### Fix

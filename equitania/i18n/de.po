@@ -1923,6 +1923,18 @@ msgid "Delivery No."
 msgstr "Lieferscheinnr."
 
 #. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:equitania.report_invoice_data
+msgid "from"
+msgstr "vom"
+
+#. module: equitania
+#: view:website:account.report_invoice_document
+#: view:website:equitania.report_invoice_data
+msgid "/ Delivery Date (the date of service)"
+msgstr "/ Lieferdatum (Leistungstag)"
+
+#. module: equitania
 #: view:website:purchase.report_purchaseorder_document
 #: view:website:purchase.report_purchasequotation_document
 msgid "Deliver to:"
