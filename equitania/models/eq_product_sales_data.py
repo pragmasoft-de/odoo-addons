@@ -19,9 +19,28 @@
 #
 ##############################################################################
 
-import eq_date_done_change
-import eq_multy_assign_product_no
-import stock_transfer_details
-import sale_line_invoice
-import eq_product_analysis
-import eq_product_sales
+
+import time
+from openerp import models, fields, api, _
+
+class eq_product_sales_data_master(models.TransientModel):
+    
+    _name = 'eq.product.sales.data.master'
+    
+
+
+class eq_product_sales_data(models.TransientModel):
+    
+    _name = 'eq.product.sales.data'
+    
+    parent_id = fields.Many2one('eq.product.sales.data.master', string='Parent ID', ondelete='cascade', required=True)
+    
+    article_number = fields.Char(string="Article number")
+    ean = fields.Char(string="EAN")
+    article_desc = fields.Char(string="Article description")
+    supplier = fields.Char(string="Supplier")
+    sale_quantity = fields.Float(string="Sale quantity")
+    sale_sum_total = fields.Float(string="Sum total")
+    sale_quantity_prev_year = fields.Float(string="Sale quantity previous year")
+    sale_change = fields.Float(string="Change")
+    

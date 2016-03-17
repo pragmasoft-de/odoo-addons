@@ -20,3 +20,5 @@
 ##############################################################################
 
 import eq_purchase
+import eq_product_sales_data
+import eq_product_analysis_data

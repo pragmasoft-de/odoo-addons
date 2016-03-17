@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+	<data>
+		<!-- Definition of report -->
+		<report id="equitania_rep_product_analysis_action2" string="EQ Product Analysis Report2"
+			model="eq.product.sales.data" report_type="qweb-pdf"
+			file="equitania.eq_product_analysis_report" name="equitania.eq_product_analysis_report" />
+
+		<!-- Definition of UI for our report -->
+		<template id="eq_product_analysis_report">
+			<t t-call="report.html_container">
+				<t t-foreach="docs" t-as="o">
+					<t t-call="report.internal_layout">
+						<div class="page">
+							<h2 class="text-center">DB1 Auswertung</h2>
+							<table>
+								<tr>
+									<td style="padding-right:20px;">
+										<span>DB1 Auswertung</span>
+									</td>
+									<td>
+										<span>von:</span>
+										<t t-esc="get_date_from()"></t>
+										<br />
+										<span>bis:</span>
+										<t t-esc="get_date_to()"></t>
+									</td>
+								</tr>
+							</table>
+							<br />
+							<table class="table table-condensed">
+								<thead>
+									<th>Produkt</th>
+									<th>EAN</th>
+									<th>Lieferant</th>
+									<th>Rohertrag (€)</th>
+									<th>Handelsspanne in %</th>
+								</thead>
+								<tbody>
+									<tr t-foreach="get_records()" t-as="record">
+										<td>
+											<t t-esc="record.article_number" />
+											<br />
+											<t t-esc="record.article_desc" />
+										</td>
+										<td t-esc="record.ean"></td>
+										<td t-esc="record.supplier"></td>
+										<td t-esc="format_number(record.gross_profit)"></td>
+										<td t-esc="format_number(record.gross_margin)"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</t>
+				</t>
+			</t>
+		</template>
+
+
+	</data>
+</openerp>

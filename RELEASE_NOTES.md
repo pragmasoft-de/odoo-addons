@@ -1,3 +1,8 @@
+### 17.03.2016
+### equitania, 1.0.161
+#### Änderung
+- Reports für Renner-/Pennerliste
+
 ### 16.03.2016
 ### equitania, 1.0.160
 #### Fix
