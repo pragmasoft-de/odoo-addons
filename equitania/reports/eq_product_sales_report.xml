@@ -3,7 +3,7 @@
 	<data>
 		<!-- Definition of report -->
 		<report id="equitania_rep_product_analysis_action"
-			    string="EQ Product Analysis Report"		    
+			    string="EQ Product Sales Report"		    
 			    model="eq.product.sales.data"		    		   
 			    report_type="qweb-pdf"
 			    file="equitania.eq_product_sales_report" 

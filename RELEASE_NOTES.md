@@ -1,4 +1,9 @@
 ### 18.03.2016
+### equitania, 1.0.163
+#### Fix
+- Korrektur für Reportnamen
+
+### 18.03.2016
 ### equitania, 1.0.162
 #### Fix
 - Korrektur für __openerp__.py

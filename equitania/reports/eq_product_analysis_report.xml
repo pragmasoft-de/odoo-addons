@@ -2,7 +2,7 @@
 <openerp>
 	<data>
 		<!-- Definition of report -->
-		<report id="equitania_rep_product_analysis_action2" string="EQ Product Analysis Report2"
+		<report id="equitania_rep_product_analysis_action2" string="EQ Product Analysis Report"
 			model="eq.product.sales.data" report_type="qweb-pdf"
 			file="equitania.eq_product_analysis_report" name="equitania.eq_product_analysis_report" />
 

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0 Build 160302\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-17 17:07+0000\n"
-"PO-Revision-Date: 2016-03-17 17:07+0000\n"
+"POT-Creation-Date: 2016-03-18 10:37+0000\n"
+"PO-Revision-Date: 2016-03-18 10:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -345,7 +345,7 @@ msgstr "Sachbearbeiter(in)"
 #: view:website:equitania.report_purchasequotation_data
 #: view:website:equitania.report_saleorder_data
 msgid "Contact person"
-msgstr "Kontaktperson"
+msgstr "Ansprechpartner"
 
 #. module: equitania
 #: model:ir.actions.act_window,name:equitania.eq_template_standard_price_history_action
@@ -376,6 +376,10 @@ msgstr "Create New Customer"
 #: field:eq.date.done.change,create_uid:0
 #: field:eq.delivery.conditions,create_uid:0
 #: field:eq.lead.referred,create_uid:0
+#: field:eq.product.analysis.data,create_uid:0
+#: field:eq.product.analysis.data.master,create_uid:0
+#: field:eq.product.sales.data,create_uid:0
+#: field:eq.product.sales.data.master,create_uid:0
 #: field:eq_info_optional,create_uid:0
 #: field:eq_install_func,create_uid:0
 #: field:eq_multy_assign_product_no,create_uid:0
@@ -392,6 +396,10 @@ msgstr "Erstellt von"
 #: field:eq.date.done.change,create_date:0
 #: field:eq.delivery.conditions,create_date:0
 #: field:eq.lead.referred,create_date:0
+#: field:eq.product.analysis.data,create_date:0
+#: field:eq.product.analysis.data.master,create_date:0
+#: field:eq.product.sales.data,create_date:0
+#: field:eq.product.sales.data.master,create_date:0
 #: field:eq_info_optional,create_date:0
 #: field:eq_install_func,create_date:0
 #: field:eq_multy_assign_product_no,create_date:0
@@ -559,7 +567,7 @@ msgstr "Rabatt (%)"
 #: field:res.company,eq_citypart:0
 #: field:res.partner,eq_citypart:0
 msgid "Disctirct"
-msgstr "Bezirk"
+msgstr "Disctirct"
 
 #. module: equitania
 #: view:crm.lead:equitania.crm_case_form_view_oppor_ext
@@ -627,19 +635,19 @@ msgid "EQ Product Analysis"
 msgstr "DB 1 Auswertung"
 
 #. module: equitania
-#: model:ir.actions.report.xml,name:equitania.equitania_rep_product_analysis_action
-msgid "EQ Product Analysis Report"
-msgstr "DB 1 Auswertung"
-
-#. module: equitania
 #: model:ir.actions.report.xml,name:equitania.equitania_rep_product_analysis_action2
-msgid "EQ Product Analysis Report2"
+msgid "EQ Product Analysis Report"
 msgstr "DB 1 Auswertung"
 
 #. module: equitania
 #: model:ir.actions.act_window,name:equitania.action_eq_product_sales_report_wiz
 #: model:ir.ui.menu,name:equitania.menu_product_sales_report
 msgid "EQ Product Sales"
+msgstr "Renner/Penner Liste"
+
+#. module: equitania
+#: model:ir.actions.report.xml,name:equitania.equitania_rep_product_analysis_action
+msgid "EQ Product Sales Report"
 msgstr "Renner/Penner Liste"
 
 #. module: equitania
@@ -852,6 +860,10 @@ msgstr "IBAN:"
 #: field:eq.date.done.change,id:0
 #: field:eq.delivery.conditions,id:0
 #: field:eq.lead.referred,id:0
+#: field:eq.product.analysis.data,id:0
+#: field:eq.product.analysis.data.master,id:0
+#: field:eq.product.sales.data,id:0
+#: field:eq.product.sales.data.master,id:0
 #: field:eq_info_optional,id:0
 #: field:eq_install_func,id:0
 #: field:eq_multy_assign_product_no,id:0
@@ -935,7 +947,7 @@ msgstr "Rechnungsadresse"
 #: view:product.product:equitania.eq_product_product_form_view
 #: view:product.template:equitania.eq_product_product_template_only_form_view
 msgid "Invoice In"
-msgstr "Eingangsre."
+msgstr "EIngangsre."
 
 #. module: equitania
 #: model:ir.model,name:equitania.model_account_invoice_line
@@ -1045,6 +1057,10 @@ msgstr "Lagerbuchung"
 #: field:eq.date.done.change,write_uid:0
 #: field:eq.delivery.conditions,write_uid:0
 #: field:eq.lead.referred,write_uid:0
+#: field:eq.product.analysis.data,write_uid:0
+#: field:eq.product.analysis.data.master,write_uid:0
+#: field:eq.product.sales.data,write_uid:0
+#: field:eq.product.sales.data.master,write_uid:0
 #: field:eq_info_optional,write_uid:0
 #: field:eq_install_func,write_uid:0
 #: field:eq_multy_assign_product_no,write_uid:0
@@ -1062,6 +1078,10 @@ msgstr "Zuletzt bearbeitet von"
 #: field:eq.date.done.change,write_date:0
 #: field:eq.delivery.conditions,write_date:0
 #: field:eq.lead.referred,write_date:0
+#: field:eq.product.analysis.data,write_date:0
+#: field:eq.product.analysis.data.master,write_date:0
+#: field:eq.product.sales.data,write_date:0
+#: field:eq.product.sales.data.master,write_date:0
 #: field:eq_info_optional,write_date:0
 #: field:eq_install_func,write_date:0
 #: field:eq_multy_assign_product_no,write_date:0
@@ -1310,7 +1330,7 @@ msgstr "Auftrags Nr."
 #. module: equitania
 #: view:website:equitania.eq_external_layout_header_purchase_order
 msgid "Our order reference"
-msgstr "Unsere Bestellnr."
+msgstr "Unsere Referenznr."
 
 #. module: equitania
 #: view:website:equitania.eq_external_layout_header_sale_order_data
@@ -1377,7 +1397,7 @@ msgstr "Pickauftragsassistent"
 #. module: equitania
 #: model:ir.model,name:equitania.model_stock_transfer_details_items
 msgid "Picking wizard items"
-msgstr "Artikel in Pickauftragsassistent"
+msgstr "Arttikel in Pickauftragsassistent"
 
 #. module: equitania
 #: selection:equitania.product.analysis.report.wiz,output_type:0
@@ -1755,7 +1775,7 @@ msgstr "Anzahlungsrechnung"
 #. module: equitania
 #: model:ir.model,name:equitania.model_sale_order
 msgid "Sales Order"
-msgstr "Verkaufsauftrag"
+msgstr "Verkaufsaufträge"
 
 #. module: equitania
 #: model:ir.model,name:equitania.model_sale_order_line
@@ -1872,7 +1892,7 @@ msgstr "Setzt den Verkäufer als Kontaktperson."
 #: view:website:equitania.report_invoice_data
 #: view:website:equitania.report_saleorder_data
 msgid "Shipping address:"
-msgstr "Lieferadresse:"
+msgstr "Versandadresse:"
 
 #. module: equitania
 #: field:purchase.config.settings,default_use_calendar_week:0
@@ -1946,7 +1966,7 @@ msgstr "Unterschrift"
 #: view:website:equitania.eq_report_stockpicking_return_data
 #: view:website:equitania.report_picking_data
 msgid "Source"
-msgstr "Aus Lager"
+msgstr "Ursprungsort"
 
 #. module: equitania
 #: field:equitania.product.analysis.report.wiz,date_start:0
@@ -1961,7 +1981,7 @@ msgstr "Von"
 #: view:product.template:equitania.eq_product_product_template_only_form_view
 #: view:res.partner:equitania.eq_partner_extension_form_view
 msgid "State"
-msgstr "Status"
+msgstr "Bundesland"
 
 #. module: equitania
 #: field:eq_open_sale_order_line,eq_state:0
@@ -1973,7 +1993,7 @@ msgstr "Status"
 #. module: equitania
 #: model:ir.model,name:equitania.model_stock_move
 msgid "Stock Move"
-msgstr "Bestandsbuchung"
+msgstr "Lagerbuchung"
 
 #. module: equitania
 #: view:crm.lead:equitania.crm_lead_form_ext
@@ -2019,7 +2039,7 @@ msgstr "Lieferant"
 #. module: equitania
 #: view:website:equitania.report_picking_data
 msgid "Supplier Address:"
-msgstr "Lieferadresse:"
+msgstr "Lieferanten Anschrift"
 
 #. module: equitania
 #: view:website:equitania.report_invoice_data
@@ -2326,7 +2346,7 @@ msgstr "Ihre Nachricht"
 #: view:website:equitania.eq_external_layout_header_purchase_order
 #: view:website:equitania.eq_external_layout_header_purchase_quotation_data
 msgid "Your order reference"
-msgstr "Ihre Referenznr."
+msgstr "Ihre Bestellnr."
 
 #. module: equitania
 #: view:website:equitania.eq_external_layout_header_invoice_data
