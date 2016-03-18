@@ -35,11 +35,11 @@ eq_sale_order_seq()
 
 class eq_sale_order_line_seq(osv.osv):
     _inherit = "sale.order.line"
-    SEQUENCE_VALUE = 10
-    
+    SEQUENCE_VALUE = 1 #alt:10; 18.03.2016 erster Wert für Sequence auf 1 gesetzt
+     
     def default_get(self, cr, uid, ids, context=None):
         res =  super(eq_sale_order_line_seq, self).default_get(cr, uid, ids, context=context)
-        
+         
         # small bugfix for our exceltool
         next_sequence = self.SEQUENCE_VALUE
         if context is not None:        
@@ -49,12 +49,12 @@ class eq_sale_order_line_seq(osv.osv):
                 if 'ref_ids' in context_keys:
                     if len(context.get('ref_ids')) > 0:
                         next_sequence = (len(context.get('ref_ids')) + 1) * self.SEQUENCE_VALUE
-        
+         
         res.update({'sequence': next_sequence})
         return res
     
         
-eq_sale_order_seq()
+#eq_sale_order_seq()
 
 
 class eq_product_name_is_ref(osv.osv):
