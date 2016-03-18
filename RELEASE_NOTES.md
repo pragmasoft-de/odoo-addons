@@ -1,3 +1,8 @@
+### 18.03.2016
+### equitania, 1.0.162
+#### Fix
+- Korrektur für __openerp__.py
+
 ### 17.03.2016
 ### equitania, 1.0.161
 #### Änderung
