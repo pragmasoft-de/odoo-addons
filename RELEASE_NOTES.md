@@ -1,4 +1,9 @@
 ### 18.03.2016
+### equitania, 1.0.165
+#### Änderung
+- Verbesserung für Übersetzung
+
+### 18.03.2016
 ### equitania, 1.0.164
 #### Änderung
 - Anpassungen der Ansicht für Angebotserstellung

@@ -6,8 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0 Build 160302\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-18 10:37+0000\n"
-"PO-Revision-Date: 2016-03-18 10:37+0000\n"
+"POT-Creation-Date: 2016-03-18 16:49+0000\n"
+"PO-Revision-Date: 2016-03-18 16:49+0000\n"
+"Last-Translator: <>\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -245,6 +246,11 @@ msgid "Change done date"
 msgstr "Change done date"
 
 #. module: equitania
+#: view:sale.order:equitania.eq_sale_order_from_view_eq_customer_ref
+msgid "Change the order of the lines in the edit mode by Drag&Drop"
+msgstr "Sortieren Sie die Reihenfolge im Bearbeitungsmodus per Drag&Drop"
+
+#. module: equitania
 #: field:res.company,eq_custom_1:0
 msgid "Chief labeling"
 msgstr "Bezeichnung"
@@ -271,7 +277,7 @@ msgstr "Comma Separated Values (csv)"
 #: view:website:equitania.eq_external_layout_header_return_picking_data
 #: view:website:equitania.eq_external_layout_header_stock_picking_data
 msgid "Commitment Date"
-msgstr "Bestätigungsdatum"
+msgstr "Bestelldatum"
 
 #. module: equitania
 #: model:ir.model,name:equitania.model_res_company
@@ -716,7 +722,7 @@ msgstr "Sonderfall"
 #: view:website:equitania.report_purchasequotation_data
 #: view:website:equitania.report_saleorder_data
 msgid "Fax"
-msgstr "Telefax"
+msgstr "Fax"
 
 #. module: equitania
 #: view:website:report.external_layout_footer
@@ -727,6 +733,11 @@ msgstr "Fax:"
 #: field:stock.transfer_details_items,eq_line_finished:0
 msgid "Finished"
 msgstr "Abgeschlossen"
+
+#. module: equitania
+#: field:mrp.production,eq_finished_work_preperation:0
+msgid "Finished Work Preperation"
+msgstr "Arbeitsvorbereitung abgeschlossen"
 
 #. module: equitania
 #: view:crm.lead:equitania.crm_case_form_view_oppor_ext
@@ -906,7 +917,7 @@ msgstr "Incoterm"
 #: view:website:equitania.report_purchasequotation_data
 #: view:website:equitania.report_saleorder_data
 msgid "Incoterm:"
-msgstr "Incoterm:"
+msgstr "Lieferbedingungen:"
 
 #. module: equitania
 #: field:product.product,eq_index:0
@@ -1157,6 +1168,11 @@ msgid "Managed Admin"
 msgstr "Managed Admin"
 
 #. module: equitania
+#: model:ir.model,name:equitania.model_mrp_production
+msgid "Manufacturing Order"
+msgstr "Fertigungsauftrag"
+
+#. module: equitania
 #: model:sale_layout.category,name:equitania.sale_layout_cat_2
 msgid "Material"
 msgstr "Material"
@@ -1382,7 +1398,7 @@ msgstr "Telefon"
 #. module: equitania
 #: model:ir.model,name:equitania.model_stock_picking
 msgid "Picking List"
-msgstr "Pickliste"
+msgstr "Lieferschein"
 
 #. module: equitania
 #: model:ir.actions.report.xml,name:equitania.eq_report_picking_return_action
@@ -1480,6 +1496,11 @@ msgstr "Drucken"
 #: view:website:equitania.report_invoice_data
 msgid "Pro-forma invoice"
 msgstr "Pro-Forma Rechnung"
+
+#. module: equitania
+#: model:ir.model,name:equitania.model_procurement_order
+msgid "Procurement"
+msgstr "Beschaffung"
 
 #. module: equitania
 #: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
@@ -1633,7 +1654,7 @@ msgstr "Angebotsdatum"
 #. module: equitania
 #: view:website:equitania.eq_external_layout_header_sale_order_data
 msgid "Quotation no."
-msgstr "Angebotsnr."
+msgstr "Angebots Nr."
 
 #. module: equitania
 #: field:product.product,eq_rrp:0
@@ -1691,7 +1712,7 @@ msgstr "Reportkonfiguration"
 #. module: equitania
 #: model:ir.ui.menu,name:equitania.Report_configuration
 msgid "Report Layout Categories"
-msgstr "Report Sektionen"
+msgstr "Report Layout Kategorien"
 
 #. module: equitania
 #: view:purchase.config.settings:equitania.eq_view_purchase_config_settings_delivery
@@ -1775,7 +1796,7 @@ msgstr "Anzahlungsrechnung"
 #. module: equitania
 #: model:ir.model,name:equitania.model_sale_order
 msgid "Sales Order"
-msgstr "Verkaufsaufträge"
+msgstr "Verkaufsauftrag"
 
 #. module: equitania
 #: model:ir.model,name:equitania.model_sale_order_line
@@ -1871,7 +1892,7 @@ msgstr "Pos"
 #: view:website:equitania.report_invoice_data
 #: view:website:equitania.report_saleorder_data
 msgid "Seq."
-msgstr "Seq."
+msgstr "Pos."
 
 #. module: equitania
 #: field:sale_layout.category,sequence:0
@@ -2328,6 +2349,11 @@ msgid "When an overdelivery occures it will automaticly join the positions of th
 msgstr "Wenn eine Überlieferung auftritt, werden die Positionen im Lieferschein zusammengefasst."
 
 #. module: equitania
+#: model:ir.model,name:equitania.model_wizard_valuation_history
+msgid "Wizard that opens the stock valuation history table"
+msgstr "Dieser Assistent öffnet die Übersicht für die Lagerbestandshistorie"
+
+#. module: equitania
 #: field:hr.employee,eq_work_fax:0
 msgid "Work Fax"
 msgstr "Fax (geschäftlich)"
@@ -2346,7 +2372,7 @@ msgstr "Ihre Nachricht"
 #: view:website:equitania.eq_external_layout_header_purchase_order
 #: view:website:equitania.eq_external_layout_header_purchase_quotation_data
 msgid "Your order reference"
-msgstr "Ihre Bestellnr."
+msgstr "Ihre Referenznr."
 
 #. module: equitania
 #: view:website:equitania.eq_external_layout_header_invoice_data
@@ -2354,7 +2380,7 @@ msgstr "Ihre Bestellnr."
 #: view:website:equitania.eq_external_layout_header_sale_order_data
 #: view:website:equitania.eq_external_layout_header_stock_picking_data
 msgid "Your reference no."
-msgstr "Ihre Referenznr."
+msgstr "Referenz des Kunden"
 
 #. module: equitania
 #: view:website:equitania.eq_external_layout_header_purchase_quotation_data
@@ -2436,7 +2462,7 @@ msgstr "equitania_reports_manager"
 #. module: equitania
 #: view:website:equitania.report_invoice_data
 msgid "from"
-msgstr "ab"
+msgstr "vom"
 
 #. module: equitania
 #: code:addons/equitania/eq_address_extension_new_api.py:82
