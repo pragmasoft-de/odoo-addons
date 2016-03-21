@@ -1,3 +1,9 @@
+### 21.03.2016
+### equitania, 1.0.166
+#### Änderung
+- Telefon, Fax und Mail aus der Formansicht der Benutzer entfernt.
+- Produktbeschreibung wird in der Position geändert, sobald das Produkt geändert wird.
+
 ### 18.03.2016
 ### equitania, 1.0.165
 #### Änderung
