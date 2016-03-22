@@ -102,6 +102,10 @@
                			<field name="default_eq_use_internal_description"/>
                			<label for="default_eq_use_internal_description"/>
                		</div>
+               		<div>
+                        <field name="default_use_manual_position_numbering"/>
+                        <label for="default_use_manual_position_numbering"/>
+                    </div>
 				</div>
                 <form string="Configure Sales" position="inside">
                     <separator string="Reports"/>
@@ -301,18 +305,26 @@
             <field name="inherit_id" ref="account.invoice_form" />
             <field name="arch" type="xml">          
             	 
+            	 <!-- alter Stand: eq_pos_no statt sequence -->
+            	 <xpath expr="//page[@string='Invoice Lines']/field[@name='invoice_line']/tree/field[@name='sequence']" position="replace"> 
+            		<field name="eq_pos_no" readonly="True"/>
+                </xpath>
+            	 
             	 <!-- Todo: replace entfernen und sequence anzeigen für Verschieben der Positionen -->
+            	 <!-- 
             	<xpath expr="//page[@string='Invoice Lines']/field[@name='invoice_line']/tree/field[@name='sequence']" position="after"> 
             		<field name="eq_pos_no" readonly="True"/>
                 </xpath>
-                <!--
+               
+                
                 <xpath expr="//field[@name='invoice_line']/tree" position="attributes">
 					<attribute name="editable"/>
 				</xpath>
-				<xpath expr="//field[@name='invoice_line']/tree/field[@name='sequence']" position="attributes">
+                
+                <xpath expr="//field[@name='invoice_line']/tree/field[@name='sequence']" position="attributes">
 					<attribute name="widget"/>
 				</xpath>
-				-->
+ -->
             </field>
         </record>
           

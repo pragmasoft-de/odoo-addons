@@ -39,7 +39,7 @@ class eq_report_extension_sale_settings(osv.osv_memory):
         ir_values.set_default(cr, uid, 'sale.order', 'show_delivery_date', config.default_show_delivery_date)
         ir_values.set_default(cr, uid, 'sale.order', 'use_calendar_week', config.default_use_calendar_week)
         ir_values.set_default(cr, uid, 'sale.order.line', 'eq_use_internal_description', config.default_eq_use_internal_description)
-            
+        ir_values.set_default(cr, uid, 'sale.order', 'default_use_manual_position_numbering', config.default_use_manual_position_numbering)    
         
     
     def get_default_use_sale_settings_eq(self, cr, uid, fields, context=None):
@@ -48,11 +48,13 @@ class eq_report_extension_sale_settings(osv.osv_memory):
         show_delivery_date = ir_values.get_default(cr, uid, 'sale.order', 'show_delivery_date')
         use_calendar_week = ir_values.get_default(cr, uid, 'sale.order', 'use_calendar_week')
         eq_use_internal_description = ir_values.get_default(cr, uid, 'sale.order.line', 'eq_use_internal_description')
+        use_manual_numbering = ir_values.get_default(cr, uid, 'sale.order', 'default_use_manual_position_numbering')
         return {
                 'default_use_sales_person_as_contact': salesperson,
                 'default_show_delivery_date': show_delivery_date,
                 'default_use_calendar_week': use_calendar_week,
                 'default_eq_use_internal_description': eq_use_internal_description,
+                'default_use_manual_position_numbering': use_manual_numbering,
                 }
     
     _columns = {
@@ -60,6 +62,7 @@ class eq_report_extension_sale_settings(osv.osv_memory):
                 'default_show_delivery_date': fields.boolean('Show the Delivery Date on the Sale Order [equitania]', help='The delivery date will be shown in the Sale Order', default_model='sale.order'),
                 'default_use_calendar_week': fields.boolean('Show Calendar Week for Delivery Date [equitania]', help='The delivery date will be shown as a calendar week', default_model='sale.order'),
                 'default_eq_use_internal_description': fields.boolean('Use internal description for sale orders [equitania]', help='The internal description will be used for sale orders not the sale description', default_model='sale.order.line'),
+                'default_use_manual_position_numbering': fields.boolean('Set position numbers manually [equitania]', help='Activate to set position numbers for an order line.', default_model='sale.order'),
                 }
 
 class eq_report_extension_purchase_settings(osv.osv_memory):
@@ -232,6 +235,7 @@ class eq_report_extension_sale_order_line(osv.osv):
                 result[order_line.id] = False
         
         return result
+    
 
     _columns = {
                 'get_delivery_date': fields.function(_get_delivery_date, string="Delivery", type='char', methode=True, store=False),
@@ -453,6 +457,9 @@ class eq_report_extension_invoice(osv.osv):
             
             # save sequence into our new field    
             vals["eq_pos_no"] = result_id.eq_pos_no
+            
+            #neu: Sequenz für Invoiceline
+            vals["sequence"] = result_id.eq_pos_no
 
         # use standard save functionality and save it
         return super(eq_report_extension_invoice, self).create(cr, user, vals, context)

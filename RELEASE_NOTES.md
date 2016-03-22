@@ -1,3 +1,8 @@
+### 22.03.2016
+### equitania, 1.0.167
+#### Erweiterung
+- Konfigurationsmöglichkeit für manuelles Setzen der Positionsnummer
+
 ### 18.03.2016
 ### equitania, 1.0.165
 #### Änderung

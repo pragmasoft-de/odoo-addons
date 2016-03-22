@@ -109,6 +109,11 @@ msgid "Access Groups"
 msgstr "Berechtigungsgruppen"
 
 #. module: equitania
+#: help:sale.config.settings,default_use_manual_position_numbering:0
+msgid "Activate to set position numbers for an order line."
+msgstr "Manuelle Vergabe der Positionsnummer."
+
+#. module: equitania
 #: field:sale_layout.category,pagebreak:0
 msgid "Add pagebreak"
 msgstr "Seitenwechsel hinzufügen"
@@ -1881,6 +1886,12 @@ msgstr "Reihenfolge"
 #: model:sale_layout.category,name:equitania.sale_layout_cat_1
 msgid "Services"
 msgstr "Services"
+
+#. module: equitania
+#: field:sale.config.settings,default_use_manual_position_numbering:0
+msgid "Set position numbers manually [equitania]"
+msgstr "Manuelle Eingabe der Positionsnummer [equitania]"
+
 
 #. module: equitania
 #: help:sale.config.settings,default_use_sales_person_as_contact:0

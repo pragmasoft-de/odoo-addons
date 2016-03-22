@@ -27,8 +27,8 @@ from openerp.osv import fields, osv, orm
 
 class eq_sale_order_seq(osv.osv):
     _inherit = "sale.order"
-    _columns = { 
-    }    
+    #_columns = { 
+    #}    
     
 
 eq_sale_order_seq()
@@ -39,20 +39,43 @@ class eq_sale_order_line_seq(osv.osv):
      
     def default_get(self, cr, uid, ids, context=None):
         res =  super(eq_sale_order_line_seq, self).default_get(cr, uid, ids, context=context)
+        
+        ir_values = self.pool.get('ir.values')
+        use_manual_numbering= ir_values.get_default(cr, uid, 'sale.order', 'default_use_manual_position_numbering')
+        sequence_interval = self.SEQUENCE_VALUE
+        if (use_manual_numbering):
+            sequence_interval = 10
          
         # small bugfix for our exceltool
-        next_sequence = self.SEQUENCE_VALUE
+        next_sequence = sequence_interval#self.SEQUENCE_VALUE
         if context is not None:        
             if context:
                 context_keys = context.keys()
-                next_sequence = self.SEQUENCE_VALUE
+                next_sequence = sequence_interval#self.SEQUENCE_VALUE
                 if 'ref_ids' in context_keys:
                     if len(context.get('ref_ids')) > 0:
-                        next_sequence = (len(context.get('ref_ids')) + 1) * self.SEQUENCE_VALUE
+                        next_sequence = (len(context.get('ref_ids')) + 1) * sequence_interval#self.SEQUENCE_VALUE
          
         res.update({'sequence': next_sequence})
+        res.update({'eq_use_manual_position_numbering': use_manual_numbering})
         return res
     
+    
+    def _compute_manual_position_numbering_option(self, cr, uid, ids, field_name, arg, context):
+        """ function field wird nur verwendet, damit es nicht in DB gespeichert wird"""
+        res = {}
+        
+        ir_values = self.pool.get('ir.values')
+        use_manual_numbering= ir_values.get_default(cr, uid, 'sale.order', 'default_use_manual_position_numbering')
+        
+        for id in ids:
+           res[id]  = use_manual_numbering
+        return res
+    
+    _columns = {
+                'eq_use_manual_position_numbering': fields.function(_compute_manual_position_numbering_option, string=" ", store=False, method=True, type="boolean"),
+                }
+
         
 #eq_sale_order_seq()
 
