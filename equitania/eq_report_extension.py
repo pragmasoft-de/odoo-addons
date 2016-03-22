@@ -288,7 +288,7 @@ class eq_report_extension_sale_order_line(osv.osv):
         if vals.get("value", False):
             vals['value'].pop('name', None)
             
-        if context and not context.get('uom_qty_change', False) and not context.get('uos_qty_change', False):
+        if context != None and not context.get('uom_qty_change', False) and not context.get('uos_qty_change', False):
         
         #if name is False:                   # name is set, don't reset it again !           
             if not eq_use_internal_descriptionion and product_id.description_sale:
