@@ -33,8 +33,19 @@ class res_partner(models.Model):
         args = args or []
         if name:
             # Be sure name_search is symetric to name_get
+            #Todo: parent_ids ermitteln 
             name = name.split(' / ')[-1]
-            args = ['|','|','|',('eq_firstname', operator, name),('name', operator, name),('eq_customer_ref', 'ilike', name),('eq_creditor_ref', 'ilike', name)] + args
+            #alte Version: Suche nach Firmennamen einer Kontaktperson für Chancen funktionierte nicht
+            #args = ['|','|','|',('eq_firstname', operator, name),('name', operator, name),('eq_customer_ref', 'ilike', name),('eq_creditor_ref', 'ilike', name)] + args
+            #neu:
+            argsParents = ['|','|','|',('eq_firstname', operator, name),('name', operator, name),('eq_customer_ref', 'ilike', name),('eq_creditor_ref', 'ilike', name)] + args
+            #Erweiterung für Suche in Chancen
+            resParents = self.search(argsParents, limit=limit)
+            if (resParents and resParents.ids):
+                args = ['|','|','|','|',('parent_id','in',resParents.ids),('eq_firstname', operator, name),('name', operator, name),('eq_customer_ref', 'ilike', name),('eq_creditor_ref', 'ilike', name)] + args
+            else:
+                args = ['|','|','|',('eq_firstname', operator, name),('name', operator, name),('eq_customer_ref', 'ilike', name),('eq_creditor_ref', 'ilike', name)] + args    
+                
         if ir_values_obj.get_default('sale.order', 'default_search_only_company'):
             if self.env.context.has_key('main_address'):
                 args += [('is_company', '=', True)]
@@ -45,6 +56,7 @@ class res_partner(models.Model):
             args = [x for x in args if 'is_company' not in x]
         categories = self.search(args, limit=limit)
         res = categories.name_get()
+        #IDs ermitteln und erneute Suche 
         
         if self.env.context is None:
             self.env.context = {}

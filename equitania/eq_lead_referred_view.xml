@@ -17,8 +17,15 @@
 		<record id="eq_view_crm_case_opportunities_filter" model="ir.ui.view">
 			<field name="name">CRM - Opportunities Search</field>
 			<field name="model">crm.lead</field>
+			
+			<!-- Suchanpassung des oca-Moduls überschrieben: priority gesetzt, filter_domain neu überschrieben mit Standardwert  -->
+			<field name="priority" eval="24"/>
 			<field name="inherit_id" ref="crm.view_crm_case_opportunities_filter" />
-			<field name="arch" type="xml">
+			<field name="arch" type="xml">			
+				<field name="name" position="attributes">
+					<attribute name="filter_domain">['|','|','|',('partner_id','ilike',self),('partner_name','ilike',self),('email_from','ilike',self),('name', 'ilike', self)]</attribute>
+				</field>
+			
 				<field name="user_id" position="after">
 					<field name="eq_lead_referred_name" />
 				</field>

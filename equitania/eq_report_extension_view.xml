@@ -305,17 +305,24 @@
             <field name="inherit_id" ref="account.invoice_form" />
             <field name="arch" type="xml">          
             	 
+            	  
             	 <!-- alter Stand: eq_pos_no statt sequence -->
+            	 <!--
             	 <xpath expr="//page[@string='Invoice Lines']/field[@name='invoice_line']/tree/field[@name='sequence']" position="replace"> 
             		<field name="eq_pos_no" readonly="True"/>
                 </xpath>
-            	 
+            	 -->
             	 <!-- Todo: replace entfernen und sequence anzeigen für Verschieben der Positionen -->
-            	 <!-- 
-            	<xpath expr="//page[@string='Invoice Lines']/field[@name='invoice_line']/tree/field[@name='sequence']" position="after"> 
-            		<field name="eq_pos_no" readonly="True"/>
+            	
+            	
+            	<xpath expr="//page[@string='Invoice Lines']/field[@name='invoice_line']" position="before">
+                    <label string="Change the order of the lines in the edit mode by Drag&#38;Drop"/>
                 </xpath>
-               
+            	
+            	<xpath expr="//page[@string='Invoice Lines']/field[@name='invoice_line']/tree/field[@name='sequence']" position="replace"> 
+            		<field name="sequence" string="Pos"  readonly="True"/>            		
+                </xpath>
+               <!--  -->
                 
                 <xpath expr="//field[@name='invoice_line']/tree" position="attributes">
 					<attribute name="editable"/>
@@ -324,7 +331,7 @@
                 <xpath expr="//field[@name='invoice_line']/tree/field[@name='sequence']" position="attributes">
 					<attribute name="widget"/>
 				</xpath>
- -->
+ 
             </field>
         </record>
           

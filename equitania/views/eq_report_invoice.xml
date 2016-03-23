@@ -289,7 +289,7 @@
 							<t t-foreach="p['lines']" t-as="l">
 								<tr>
 									<td>
-										<span t-field="l.eq_pos_no" />
+										<span t-field="l.sequence" /><!-- sequence -->
 									</td>
 									<td>
 										<span t-field="l.product_id.default_code" />

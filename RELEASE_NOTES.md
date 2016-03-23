@@ -1,4 +1,10 @@
 ### 23.03.2016
+### equitania, 1.0.169
+#### Änderung
+- Verschieben von Rechnungspositionen
+- Suche für Chancen angepasst
+
+### 23.03.2016
 ### equitania, 1.0.168
 #### Änderung
 - Übersetzung angepasst

@@ -56,8 +56,8 @@ class eq_sale_order_line_seq(osv.osv):
                     if len(context.get('ref_ids')) > 0:
                         next_sequence = (len(context.get('ref_ids')) + 1) * sequence_interval#self.SEQUENCE_VALUE
          
-        res.update({'sequence': next_sequence})
-        res.update({'eq_use_manual_position_numbering': use_manual_numbering})
+        res.update({'sequence': next_sequence, 'eq_use_manual_position_numbering': use_manual_numbering})
+        #res.update({'eq_use_manual_position_numbering': use_manual_numbering})
         return res
     
     

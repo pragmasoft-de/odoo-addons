@@ -258,6 +258,7 @@ msgid "Change done date"
 msgstr "Change done date"
 
 #. module: equitania
+#: view:account.invoice:equitania.eq_invoice_line_tree_extension
 #: view:sale.order:equitania.eq_sale_order_from_view_eq_customer_ref
 msgid "Change the order of the lines in the edit mode by Drag&Drop"
 msgstr "Sortieren Sie die Reihenfolge im Bearbeitungsmodus per Drag&Drop"
