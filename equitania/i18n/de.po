@@ -1987,11 +1987,15 @@ msgstr "Von"
 #. module: equitania
 #: view:crm.lead:equitania.crm_case_form_view_oppor_ext
 #: view:crm.lead:equitania.crm_lead_form_ext
-#: view:product.product:equitania.eq_product_product_form_view
-#: view:product.template:equitania.eq_product_product_template_only_form_view
 #: view:res.partner:equitania.eq_partner_extension_form_view
 msgid "State"
 msgstr "Bundesland"
+
+#. module: equitania
+#: view:product.product:equitania.eq_product_product_form_view
+#: view:product.template:equitania.eq_product_product_template_only_form_view
+msgid "State"
+msgstr "Status"
 
 #. module: equitania
 #: field:eq_open_sale_order_line,eq_state:0
