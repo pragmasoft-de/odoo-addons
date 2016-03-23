@@ -164,7 +164,7 @@
 							<!--<p t-if="o.partner_id.vat">VAT: <span t-field="o.partner_id.vat"/></p> -->
 						</div>
 					</div>
-					<div class="col-xs-5">
+					<div class="col-xs-5 headerdata2">
 					</div>
 				</div>
 				<h2 class="reporttitle" style="margin-bottom:25px; margin-top:25px">
