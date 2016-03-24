@@ -3,11 +3,23 @@
 #### Fix
 - Korrektur für Übersetzungen
 
+### 24.03.2016
+### eq_project_extension, 1.0.0
+#### Erweiterung
+- Initiale Modul-Erstellung
+- Schlagwörter (der Aufgaben) haben eine eigene Spalte in der Account.Analytic.Line-Ansicht bekommen
+
 ### 23.03.2016
 ### equitania, 1.0.169
 #### Änderung
 - Verschieben von Rechnungspositionen
 - Suche für Chancen angepasst
+#### Änderung
+- Stadtteil wird übernommen, wenn der Haken bei "Unternehmensanschrift verwenden" gesetzt wird.
+- Stadtteil und Hausnummer werden für bestehende Kontakte übernommen.
+### equitania, 1.0.169
+#### Änderung
+- Hausnummer wird übernommen, wenn der Haken bei "Unternehmensanschrift verwenden" gesetzt wird.
 
 ### 23.03.2016
 ### equitania, 1.0.168

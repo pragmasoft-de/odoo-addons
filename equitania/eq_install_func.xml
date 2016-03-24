@@ -4,5 +4,6 @@
     <function model="eq_install_func" name="_set_paper_format"/>
   	<function model="eq_install_func" name="_load_translation"/>
     <function model="eq_install_func" name="_set_group_for_users"/>
+    <function model="eq_install_func" name="set_eq_address_fields"/>
   </data>
 </openerp>

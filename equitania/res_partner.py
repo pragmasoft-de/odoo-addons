@@ -26,6 +26,12 @@ class res_partner(models.Model):
     _inherit = 'res.partner'
     
     @api.model
+    def _address_fields(self):
+        res = super(res_partner, self)._address_fields()
+        res.append("eq_house_no", "eq_citypart")
+        return res
+    
+    @api.model
     def name_search(self, name, args=None, operator='ilike', limit=100):
         """ name_search(name='', args=None, operator='ilike', limit=100) -> records
 
