@@ -28,7 +28,7 @@ class res_partner(models.Model):
     @api.model
     def _address_fields(self):
         res = super(res_partner, self)._address_fields()
-        res.append("eq_house_no")
+        res.append("eq_house_no", "eq_citypart")
         return res
     
     @api.model

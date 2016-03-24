@@ -319,3 +319,10 @@ class eq_install_func(osv.osv):
                                             }
                                     ir_translation_obj.create(cr, uid, vals)                                    
         return True
+    
+    def set_eq_address_fields(self, cr, uid, ids=False, context=None, eval=None):
+        sql_query = """UPDATE res_partner child
+        SET eq_house_no = (SELECT eq_house_no FROM res_partner parent WHERE parent.id = child.parent_id),
+        eq_citypart = (SELECT eq_citypart FROM res_partner parent WHERE parent.id = child.parent_id)
+        WHERE use_parent_address = True"""
+        cr.execute(sql_query)

@@ -1,13 +1,11 @@
 ### 24.03.2016
+### equitania, 1.0.170
+#### Änderung
+- Stadtteil wird übernommen, wenn der Haken bei "Unternehmensanschrift verwenden" gesetzt wird.
+- Stadtteil und Hausnummer werden für bestehende Kontakte übernommen.
 ### equitania, 1.0.169
 #### Änderung
 - Hausnummer wird übernommen, wenn der Haken bei "Unternehmensanschrift verwenden" gesetzt wird.
-
-##### Folgende SQL Script ausführen, damit die Hausnummer für bestehende Kontakte gesetzt wird
-
-- UPDATE res_partner child
-- SET eq_house_no = (SELECT eq_house_no FROM res_partner parent WHERE parent.id = child.parent_id)
-- WHERE use_parent_address = True;
 
 ### 24.03.2016
 ### eq_project_extension, 1.0.0
