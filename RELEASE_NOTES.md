@@ -1,3 +1,9 @@
+### 24.03.2016
+### eq_project_extension, 1.0.0
+#### Erweiterung
+- Initiale Modul-Erstellung
+- Schlagwörter (der Aufgaben) haben eine eigene Spalte in der Account.Analytic.Line-Ansicht bekommen
+
 ### 23.03.2016
 ### equitania, 1.0.168
 #### Änderung
