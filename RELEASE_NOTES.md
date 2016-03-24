@@ -8,6 +8,7 @@
 ### equitania, 1.0.168
 #### Änderung
 - Übersetzung angepasst
+- Lieferschein-Report wurde um eine CSS Klasse erweitert
 
 ### 22.03.2016
 ### equitania, 1.0.167
