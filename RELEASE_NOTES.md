@@ -2,6 +2,7 @@
 ### equitania, 1.0.172
 #### Änderung
 - Produktvorlage wird in der Fromansicht de Produktvariante angezeigt
+- Lieferschein-Report um eine ID erweitert und einen fixen Abstand ersetzt
 ### equitania, 1.0.171
 #### Änderung
 - Anpassung für Rechnungen
