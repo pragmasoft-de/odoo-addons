@@ -1,4 +1,10 @@
 ### 24.03.2016
+### equitania, 1.0.171
+#### Änderung
+- Anpassung für Rechnungen
+
+
+### 24.03.2016
 ### equitania, 1.0.170
 #### Fix
 - Korrektur für Übersetzungen
