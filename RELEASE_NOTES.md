@@ -1,3 +1,8 @@
+### 24.03.2016
+### equitania, 1.0.170
+#### Fix
+- Korrektur für Übersetzungen
+
 ### 23.03.2016
 ### equitania, 1.0.169
 #### Änderung

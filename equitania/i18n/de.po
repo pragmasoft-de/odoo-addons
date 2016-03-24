@@ -290,7 +290,7 @@ msgstr "Comma Separated Values (csv)"
 #: view:website:equitania.eq_external_layout_header_return_picking_data
 #: view:website:equitania.eq_external_layout_header_stock_picking_data
 msgid "Commitment Date"
-msgstr "Bestelldatum"
+msgstr "Bestätigungsdatum"
 
 #. module: equitania
 #: model:ir.model,name:equitania.model_res_company
@@ -581,7 +581,7 @@ msgstr "Rabatt (%)"
 #. module: equitania
 #: field:res.company,eq_citypart:0 field:res.partner,eq_citypart:0
 msgid "Disctirct"
-msgstr "Disctirct"
+msgstr "Bezirk"
 
 #. module: equitania
 #: view:crm.lead:equitania.crm_case_form_view_oppor_ext
@@ -728,7 +728,7 @@ msgstr "Sonderfall"
 #: view:website:equitania.report_purchasequotation_data
 #: view:website:equitania.report_saleorder_data
 msgid "Fax"
-msgstr "Fax"
+msgstr "Telefax"
 
 #. module: equitania
 #: view:website:report.external_layout_footer
@@ -952,7 +952,7 @@ msgstr "Rechnungsadresse"
 #: view:product.product:equitania.eq_product_product_form_view
 #: view:product.template:equitania.eq_product_product_template_only_form_view
 msgid "Invoice In"
-msgstr "EIngangsre."
+msgstr "Eingangsre."
 
 #. module: equitania
 #: model:ir.model,name:equitania.model_account_invoice_line
@@ -1334,7 +1334,7 @@ msgstr "Auftrags Nr."
 #. module: equitania
 #: view:website:equitania.eq_external_layout_header_purchase_order
 msgid "Our order reference"
-msgstr "Unsere Referenznr."
+msgstr "Unsere Bestellnr."
 
 #. module: equitania
 #: view:website:equitania.eq_external_layout_header_sale_order_data
@@ -1386,7 +1386,7 @@ msgstr "Telefon"
 #. module: equitania
 #: model:ir.model,name:equitania.model_stock_picking
 msgid "Picking List"
-msgstr "Lieferschein"
+msgstr "Pickliste"
 
 #. module: equitania
 #: model:ir.actions.report.xml,name:equitania.eq_report_picking_return_action
@@ -1401,7 +1401,7 @@ msgstr "Pickauftragsassistent"
 #. module: equitania
 #: model:ir.model,name:equitania.model_stock_transfer_details_items
 msgid "Picking wizard items"
-msgstr "Arttikel in Pickauftragsassistent"
+msgstr "Artikel in Pickauftragsassistent"
 
 #. module: equitania
 #: selection:equitania.product.analysis.report.wiz,output_type:0
@@ -1903,7 +1903,7 @@ msgstr "Setzt den Verkäufer als Kontaktperson."
 #: view:website:equitania.report_invoice_data
 #: view:website:equitania.report_saleorder_data
 msgid "Shipping address:"
-msgstr "Versandadresse:"
+msgstr "Lieferadresse:"
 
 #. module: equitania
 #: field:purchase.config.settings,default_use_calendar_week:0
@@ -1977,7 +1977,7 @@ msgstr "Unterschrift"
 #: view:website:equitania.eq_report_stockpicking_return_data
 #: view:website:equitania.report_picking_data
 msgid "Source"
-msgstr "Ursprungsort"
+msgstr "Aus Lager"
 
 #. module: equitania
 #: field:equitania.product.analysis.report.wiz,date_start:0
@@ -2008,7 +2008,7 @@ msgstr "Status"
 #. module: equitania
 #: model:ir.model,name:equitania.model_stock_move
 msgid "Stock Move"
-msgstr "Lagerbuchung"
+msgstr "Bestandsbuchung"
 
 #. module: equitania
 #: view:crm.lead:equitania.crm_lead_form_ext
@@ -2054,7 +2054,7 @@ msgstr "Lieferant"
 #. module: equitania
 #: view:website:equitania.report_picking_data
 msgid "Supplier Address:"
-msgstr "Lieferanten Anschrift"
+msgstr "Lieferadresse"
 
 #. module: equitania
 #: view:website:equitania.report_invoice_data
@@ -2368,7 +2368,7 @@ msgstr "Ihre Nachricht"
 #: view:website:equitania.eq_external_layout_header_purchase_order
 #: view:website:equitania.eq_external_layout_header_purchase_quotation_data
 msgid "Your order reference"
-msgstr "Ihre Referenznr."
+msgstr "Ihre Bestellnr."
 
 #. module: equitania
 #: view:website:equitania.eq_external_layout_header_invoice_data
@@ -2376,7 +2376,7 @@ msgstr "Ihre Referenznr."
 #: view:website:equitania.eq_external_layout_header_sale_order_data
 #: view:website:equitania.eq_external_layout_header_stock_picking_data
 msgid "Your reference no."
-msgstr "Referenz des Kunden"
+msgstr "Ihre Referenznr."
 
 #. module: equitania
 #: view:website:equitania.eq_external_layout_header_purchase_quotation_data
