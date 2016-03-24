@@ -1,7 +1,10 @@
 ### 24.03.2016
-### equitania, 1.0.171
+### equitania, 1.0.172
 #### Änderung
 - Produktvorlage wird in der Fromansicht de Produktvariante angezeigt
+### equitania, 1.0.171
+#### Änderung
+- Anpassung für Rechnungen
 ### equitania, 1.0.170
 #### Fix
 - Korrektur für Übersetzungen
