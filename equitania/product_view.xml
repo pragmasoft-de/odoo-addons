@@ -113,6 +113,9 @@
 				<field name="sales_count" position="replace">
 					<field name="eq_sale_count" widget="statinfo" />
 				</field>
+				<field name="active" position="after">
+					<field name="product_tmpl_id" readonly="1"/>
+				</field>
 			</field>
 		</record>
 
