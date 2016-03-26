@@ -1,7 +1,11 @@
+### 26.03.2016
+### equitania, 1.0.173
+#### Änderung
+- Abhängigkeit zu account_cancel ergänzt, da dies immer gebraucht wird 
 ### 24.03.2016
 ### equitania, 1.0.172
 #### Änderung
-- Produktvorlage wird in der Fromansicht de Produktvariante angezeigt
+- Produktvorlage wird in der Formansicht de Produktvariante angezeigt
 - Lieferschein-Report um eine ID erweitert und einen fixen Abstand ersetzt
 ### equitania, 1.0.171
 #### Änderung

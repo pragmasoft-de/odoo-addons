@@ -45,7 +45,7 @@ if [ "$(dpkg -s git|grep -c installed)" = 0 ]; then
 fi
 
 echo "Prepare PostgreSQL"
-adduser odoo --home /opt/odoo
+adduser odoo --home /opt/odoo --gecos "" --disabled-login
 
 echo "Geben Sie das Passwort für den User odoo innerhalb der PostgreSQL an (Leerlassen für kein Passwort): "
 read myodoopwd
