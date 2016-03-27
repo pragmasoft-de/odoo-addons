@@ -1,15 +1,18 @@
 ### 26.03.2016
 ### equitania, 1.0.173
 #### Änderung
-- Abhängigkeit zu account_cancel ergänzt, da dies immer gebraucht wird 
+- Abhängigkeit zu account_cancel ergänzt, da dies immer gebraucht wird
+-  
 ### 24.03.2016
 ### equitania, 1.0.172
 #### Änderung
 - Produktvorlage wird in der Formansicht de Produktvariante angezeigt
 - Lieferschein-Report um eine ID erweitert und einen fixen Abstand ersetzt
+
 ### equitania, 1.0.171
 #### Änderung
 - Anpassung für Rechnungen
+
 ### equitania, 1.0.170
 #### Fix
 - Korrektur für Übersetzungen
@@ -28,6 +31,7 @@
 #### Änderung
 - Stadtteil wird übernommen, wenn der Haken bei "Unternehmensanschrift verwenden" gesetzt wird.
 - Stadtteil und Hausnummer werden für bestehende Kontakte übernommen.
+
 ### equitania, 1.0.169
 #### Änderung
 - Hausnummer wird übernommen, wenn der Haken bei "Unternehmensanschrift verwenden" gesetzt wird.
@@ -48,7 +52,6 @@
 #### Änderung
 - Telefon, Fax und Mail aus der Formansicht der Benutzer entfernt.
 - Produktbeschreibung wird in der Position geändert, sobald das Produkt geändert wird.
-
 
 ### 18.03.2016
 ### equitania, 1.0.165
