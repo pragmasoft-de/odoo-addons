@@ -24,6 +24,7 @@
 #
 ##############################################################################
 import xmlrpclib
+import os
 
 username = "admin"
 pwd = "***"
@@ -46,4 +47,9 @@ lang_vals = {
 
 lang_id = sock.execute(dbname, uid, pwd, 'base.language.install', 'create', lang_vals)
 
+
+print "Starte mit dem Neuladen der Übersetzungen..."
 sock.execute(dbname, uid, pwd, 'base.language.install', 'lang_install', [lang_id])
+print "Übersetzungen geladen!"
+print "Starten jetzt den Odoo-Server neu:"
+os.system('/etc/init.d/odoo-server restart')

@@ -6,7 +6,7 @@
 # Wenn "Computing parent left and right for table ir_ui_menu..." [crtl]+[c] drücken,
 # da das Update fertig ist. Danach als root User den Server wieder starten.
 # /etc/init.d/odoo-server start
-# Version 1.2.2 - Stand 29.03.2016
+# Version 1.2.3 - Stand 29.03.2016
 ##############################################################################
 #
 #    Shell Script for Odoo, Open Source Management Solution
@@ -47,6 +47,12 @@ echo "oca-modules path: "$myocapath
 cd $mybasepath
 # Alte Installation entfernen
 if [ -d $myserverpath ]; then
+  echo "$myserverpath wird jetzt gesichert..."
+  now=$(date +"%Y-%m-%d_%H-%M-%S")
+  filename="odoo-server.$now.zip"
+  mybackup=$mybackuppath"/"$filename
+  zip -r "$mybackup"  "$myserverpath/"
+  echo "Backup des Servers ist unter der Bezeichnung $mybackup zu finden..."
   rm -rf $myserverpath
   echo "Remove old server files.."
 fi
@@ -65,7 +71,7 @@ if [ "$mydb" != "" ]; then
   filename="$mydb.$now.gz"
   mybackup=$mybackuppath"/"$filename
   pg_dump $mydb | gzip > $mybackup
-  echo "Backup liegt unter der Bezeichnung $mybackup zu finden..."
+  echo "Backup ist unter der Bezeichnung $mybackup zu finden..."
 else
   echo "Es werden keine Backups durchgeführt!"
 fi
