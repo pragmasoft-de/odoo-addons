@@ -26,7 +26,31 @@ from openerp.tools.float_utils import float_compare, float_round
 
 class stock_picking_extension(osv.osv):
     _inherit = ['stock.picking']
+    
+    _columns = {
+        'eq_sale_order_id': fields.many2one('sale.order', 'SaleOrder'),
+    }
+    
+    
+    def create(self, cr, user, vals, context=None):
+        """
+            Extended version of create method. We're using this in process "Confirm an order" to be able to set linke between sale order and stock_picking.
+            It's a quit simple solution to save sale_order_id defined as many2one field eq_sale_order_id.
+            @cr: cursor
+            @user: actual user
+            @vals: values to be saved
+            @context: context
+            @return: defaul result
+        """
+        context = context or {}
+        sale_order_obj = self.pool.get('sale.order')
+        sale_order_ids = sale_order_obj.search(cr, user, [("name", "=", vals["origin"])])       # let's find linked sale_order to be able to save it's ID in our field
+        if len(sale_order_ids) > 0:
+            vals['eq_sale_order_id'] = sale_order_ids[0]                                        # ok, we've got it...save it
         
+        return super(stock_picking_extension, self).create(cr, user, vals, context)
+    
+    
     def _prepare_values_extra_move(self, cr, uid, op, product, remaining_qty, context=None):
         """
         Calculates and sets the UOS for the move line.

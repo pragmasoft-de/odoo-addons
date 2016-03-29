@@ -1,4 +1,9 @@
 ### 29.03.2016
+### equitania, 1.0.175
+#### Erweiterung
+- Methode create(...) der Klasse "stock_picking_extension" erweitert. Ab jetzt ist Verlinkung auf sale_order im Feld eq_sale_order gespeichert
+
+### 29.03.2016
 ### equitania, 1.0.174
 #### Fix
 - In der res_partner.py bei der Funktion _address_fields: append() mit extend() ersetzt, da mehrere Argumente einer Liste hinzugefügt werden sollen.
