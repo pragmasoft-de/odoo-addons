@@ -1,3 +1,8 @@
+### 29.03.2016
+### equitania, 1.0.174
+#### Fix
+- In der res_partner.py bei der Funktion _address_fields: append() mit extend() ersetzt, da mehrere Argumente einer Liste hinzugefügt werden sollen.
+
 ### 26.03.2016
 ### equitania, 1.0.173
 #### Änderung
