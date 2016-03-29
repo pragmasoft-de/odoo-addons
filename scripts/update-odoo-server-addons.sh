@@ -6,7 +6,7 @@
 # Wenn "Computing parent left and right for table ir_ui_menu..." [crtl]+[c] drücken,
 # da das Update fertig ist. Danach als root User den Server wieder starten.
 # /etc/init.d/odoo-server start
-# Version 1.2.1 - Stand 29.03.2016
+# Version 1.2.2 - Stand 29.03.2016
 ##############################################################################
 #
 #    Shell Script for Odoo, Open Source Management Solution
@@ -30,7 +30,7 @@
 mybasepath="/opt/odoo"
 mysourcepath=$mybasepath"/myodoo-server"
 myserverpath=$mybasepath"/odoo-server"
-myadpath=$mybasepath"/odoo-addons"
+myaddpath=$mybasepath"/odoo-addons"
 mybackuppath=$mybasepath"/backup"
 my3rdpath=$mybasepath"/odoo-third-party-modules"
 myocapath=$mybasepath"/oca-modules"
@@ -83,8 +83,8 @@ else
   echo "Clone lastest branch myodoo-server.."
 fi
 
-if [ -d $myadpath ]; then
-  cd $myadpath
+if [ -d $myaddpath ]; then
+  cd $myaddpath
   git pull https://github.com/equitania/odoo-addons.git
   echo "Pull lastest branch odoo-addons.."
 else
@@ -202,7 +202,7 @@ if [ "$mydb" != "" ]; then
   echo "$mydb wird jetzt aktualisiert..."
   echo "Wechsele Pfad.."
   cd $myserverpath
-  ./odoo.py --update=all --workers=0 --no-xmlrpc --stop-after-init --database= $mydb
+  ./odoo.py --update=all --workers=0 --no-xmlrpc --stop-after-init --database=$mydb
 else
   echo "Es werden keine Aktualisierungen durchgeführt!"
 fi
