@@ -1,7 +1,7 @@
 #!/bin/bash
 # Mit diesem Skript installiert Odoo unter /opt/odoo und bindet es in den Autostart ein
 # Skript muss mit root-Rechten ausgeführt werden
-# Version 1.2.0 - Stand 15.03.2016
+# Version 1.2.1 - Stand 29.03.2016
 ##############################################################################
 #
 #    Shell Script for Odoo, Open Source Management Solution
@@ -74,11 +74,11 @@ echo "Clone lastest branch odoo-addons.."
 
 cd $mybasepath
 git clone -b 8.0 --single-branch https://github.com/equitania/odoo-third-party-modules.git
-echo "Clone lastest branch odoo-addons.."
+echo "Clone lastest branch odoo-third-party-modules.."
 
 cd $mybasepath
 git clone -b 8.0 --single-branch https://github.com/equitania/oca-modules.git
-echo "Clone lastest branch odoo-addons.."
+echo "Clone lastest branch oca-modules.."
 
 mkdir $myserverpath
 echo "Create odoo-server"
@@ -92,9 +92,9 @@ echo "Copy openerp..."
 echo "Copy files..."
 cp  $mysourcepath/openerp-wsgi.py $myserverpath
 cp  $mysourcepath/odoo.py $myserverpath
+cp  $mysourcepath/openerp-gevent $myserverpath
 
 echo "Copy equitania addons"
-# odoo-addons
 cp -r $myaddpath/base_report_to_printer $myserverpath/addons
 cp -r $myaddpath/eq_google_shopping_feed $myserverpath/addons
 cp -r $myaddpath/eq_info_for_product_product $myserverpath/addons
@@ -109,7 +109,6 @@ cp -r $myaddpath/equitania_limit_address_sale $myserverpath/addons
 cp -r $myaddpath/web_clean_navbar $myserverpath/addons
 
 echo "Copy third party addons"
-# odoo-addons
 cp -r $my3rdpath/auto_backup $myserverpath/addons
 cp -r $my3rdpath/dlt_germany_cities $myserverpath/addons
 cp -r $my3rdpath/mail_check_immediately $myserverpath/addons
@@ -127,7 +126,6 @@ cp -r $my3rdpath/web_easy_switch_company $myserverpath/addons
 cp -r $my3rdpath/web_polymorphic_field $myserverpath/addons
 
 echo "Copy oca addons"
-# odoo-addons
 cp -r $myocapath/attachment_preview $myserverpath/addons
 cp -r $myocapath/auditlog $myserverpath/addons
 cp -r $myocapath/crm_action $myserverpath/addons
