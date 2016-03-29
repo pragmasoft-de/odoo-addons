@@ -101,6 +101,9 @@
 	  background-color:red!important;
 	   display:none!important; 
 	} 
+	ul, ol {
+		margin-left:0.6cm;
+	}
 </template>
 </data>
 </openerp>

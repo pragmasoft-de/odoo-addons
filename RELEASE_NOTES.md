@@ -1,4 +1,7 @@
 ### 29.03.2016
+### equitania, 1.0.176
+#### Änderung
+- Einkaufsreport auf die neuen Templates umgestellt
 ### equitania, 1.0.175
 #### Erweiterung
 - Methode create(...) der Klasse "stock_picking_extension" erweitert. Ab jetzt ist Verlinkung auf sale_order im Feld eq_sale_order gespeichert

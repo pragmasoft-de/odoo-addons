@@ -362,6 +362,7 @@ msgstr "Sachbearbeiter(in)"
 #. module: equitania
 #: view:website:equitania.report_invoice_data
 #: view:website:equitania.report_purchasequotation_data
+#: view:website:equitania.report_purchaseorder_data
 #: view:website:equitania.report_saleorder_data
 msgid "Contact person"
 msgstr "Ansprechpartner"
@@ -489,6 +490,7 @@ msgstr "Löschen"
 
 #. module: equitania
 #: view:website:equitania.report_purchasequotation_data
+#: view:website:equitania.report_purchaseorder_data
 msgid "Deliver to:"
 msgstr "Lieferung an:"
 
@@ -548,6 +550,7 @@ msgstr "Liefertermin"
 
 #. module: equitania
 #: view:website:equitania.report_saleorder_data
+#: view:website:equitania.report_purchaseorder_data
 msgid "Delivery date:"
 msgstr "Lieferdatum:"
 
@@ -629,6 +632,7 @@ msgstr "Zeichnungsnummer"
 #. module: equitania
 #: view:website:equitania.report_invoice_data
 #: view:website:equitania.report_purchasequotation_data
+#: view:website:equitania.report_purchaseorder_data
 #: view:website:equitania.report_saleorder_data
 msgid "E-Mail"
 msgstr "E-Mail"
@@ -726,6 +730,7 @@ msgstr "Sonderfall"
 #. module: equitania
 #: view:website:equitania.report_invoice_data
 #: view:website:equitania.report_purchasequotation_data
+#: view:website:equitania.report_purchaseorder_data
 #: view:website:equitania.report_saleorder_data
 msgid "Fax"
 msgstr "Telefax"
@@ -764,6 +769,7 @@ msgstr "Fußtext"
 #. module: equitania
 #: view:website:equitania.report_invoice_data
 #: view:website:equitania.report_purchasequotation_data
+#: view:website:equitania.report_purchaseorder_data
 #: view:website:equitania.report_saleorder_data
 msgid "For further information, please contact"
 msgstr "Bei Fragen wenden Sie sich bitte an:"
@@ -910,6 +916,7 @@ msgstr "Incoterm"
 
 #. module: equitania
 #: view:website:equitania.report_purchasequotation_data
+#: view:website:equitania.report_purchaseorder_data
 #: view:website:equitania.report_saleorder_data
 msgid "Incoterm:"
 msgstr "Incoterm:"
@@ -1012,6 +1019,7 @@ msgstr "Position"
 #: view:website:equitania.report_invoice_data
 #: view:website:equitania.report_picking_data
 #: view:website:equitania.report_purchasequotation_data
+#: view:website:equitania.report_purchaseorder_data
 #: view:website:equitania.report_saleorder_data
 msgid "Item description"
 msgstr "Beschreibung"
@@ -1020,6 +1028,7 @@ msgstr "Beschreibung"
 #: view:website:equitania.eq_report_stockpicking_return_data
 #: view:website:equitania.report_invoice_data
 #: view:website:equitania.report_picking_data
+#: view:website:equitania.report_purchaseorder_data
 #: view:website:equitania.report_saleorder_data
 msgid "Item no."
 msgstr "Artikelnr."
@@ -1219,6 +1228,7 @@ msgstr "Bezeichnung2"
 #. module: equitania
 #: view:website:equitania.report_invoice_data
 #: view:website:equitania.report_saleorder_data
+#: view:website:equitania.report_purchaseorder_data
 msgid "Net price"
 msgstr "Nettopreis"
 
@@ -1320,7 +1330,7 @@ msgid "Optional"
 msgstr "Optional"
 
 #. module: equitania
-#: view:website:equitania.eq_external_layout_header_purchase_order
+#: view:website:equitania.eq_external_layout_header_purchase_order_data
 #: view:website:equitania.eq_external_layout_header_sale_order_data
 msgid "Order date"
 msgstr "Bestelldatum"
@@ -1332,7 +1342,7 @@ msgid "Order no."
 msgstr "Auftrags Nr."
 
 #. module: equitania
-#: view:website:equitania.eq_external_layout_header_purchase_order
+#: view:website:equitania.eq_external_layout_header_purchase_order_data
 msgid "Our order reference"
 msgstr "Unsere Bestellnr."
 
@@ -1379,6 +1389,7 @@ msgstr "Partner"
 #. module: equitania
 #: view:website:equitania.report_invoice_data
 #: view:website:equitania.report_purchasequotation_data
+#: view:website:equitania.report_purchaseorder_data
 #: view:website:equitania.report_saleorder_data
 msgid "Phone"
 msgstr "Telefon"
@@ -1580,6 +1591,7 @@ msgstr "Interessent"
 #: model:ir.model,name:equitania.model_purchase_order
 #: view:purchase.order.line:equitania.eq_purchase_order_line_form2_inherit
 #: view:purchase.order.line:equitania.eq_purchase_order_line_tree_inherit
+#: view:website:equitania.report_purchaseorder_data
 msgid "Purchase Order"
 msgstr "Bestellung"
 
@@ -1614,6 +1626,7 @@ msgstr "Bestellungen"
 #: view:website:equitania.report_invoice_data
 #: view:website:equitania.report_picking_data
 #: view:website:equitania.report_purchasequotation_data
+#: view:website:equitania.report_purchaseorder_data
 #: view:website:equitania.report_saleorder_data
 msgid "Qty."
 msgstr "Menge"
@@ -2083,7 +2096,7 @@ msgstr "Liefer-Gutschrift"
 
 #. module: equitania
 #: view:website:equitania.eq_external_layout_header_invoice_data
-#: view:website:equitania.eq_external_layout_header_purchase_order
+#: view:website:equitania.eq_external_layout_header_purchase_order_data
 msgid "Supplier no."
 msgstr "Lieferantennr."
 
@@ -2105,6 +2118,7 @@ msgstr "Tel:"
 #. module: equitania
 #: view:website:equitania.report_invoice_data
 #: view:website:equitania.report_purchasequotation_data
+#: view:website:equitania.report_purchaseorder_data
 #: view:website:equitania.report_saleorder_data
 msgid "Term of payment:"
 msgstr "Zahlungskonditionen:"
@@ -2232,12 +2246,14 @@ msgstr "Gesamtmenge übrig"
 #. module: equitania
 #: view:website:equitania.report_invoice_data
 #: view:website:equitania.report_saleorder_data
+#: view:website:equitania.report_purchaseorder_data
 msgid "Total sum"
 msgstr "Gesamtsumme"
 
 #. module: equitania
 #: view:website:equitania.report_invoice_data
 #: view:website:equitania.report_saleorder_data
+#: view:website:equitania.report_purchaseorder_data
 msgid "Total without taxes"
 msgstr "Summe ohne Steuern"
 
@@ -2259,6 +2275,7 @@ msgstr "Nicht kategorisiert"
 #. module: equitania
 #: view:website:equitania.report_invoice_data
 #: view:website:equitania.report_saleorder_data
+#: view:website:equitania.report_purchaseorder_data
 msgid "Unit price"
 msgstr "Einzelpreis"
 
@@ -2365,7 +2382,7 @@ msgid "Your message"
 msgstr "Ihre Nachricht"
 
 #. module: equitania
-#: view:website:equitania.eq_external_layout_header_purchase_order
+#: view:website:equitania.eq_external_layout_header_purchase_order_data
 #: view:website:equitania.eq_external_layout_header_purchase_quotation_data
 msgid "Your order reference"
 msgstr "Ihre Bestellnr."
