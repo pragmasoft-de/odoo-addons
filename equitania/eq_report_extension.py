@@ -98,6 +98,7 @@ class eq_report_extension_sale_order(osv.osv):
                 'note': fields.html('Terms and conditions'),
                 'show_delivery_date': fields.boolean('Show Delivery Date'),
                 'use_calendar_week': fields.boolean('Use Calendar Week for Delivery Date [equitania]'),
+                'eq_use_page_break_after_header': fields.boolean(string='Page break after header text [equitania]'),
                 }
     _defaults = {
                 'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False,
@@ -192,6 +193,7 @@ class eq_report_extension_sale_order(osv.osv):
             'section_id': order.section_id.id,
             'eq_contact_person_id': order.eq_contact_person_id.id,
             'eq_head_text': order.eq_head_text,
+            'eq_use_page_break_after_header': order.eq_use_page_break_after_header,
         }
         return invoice_vals
     
@@ -418,6 +420,7 @@ class eq_report_extension_invoice(osv.osv):
                 'eq_ref_number': fields.char('Sale Order Referenc', size=64),
                 'eq_delivery_address': fields.many2one('res.partner', 'Delivery Address'),
                 'comment': fields.html('Additional Information'),
+                'eq_use_page_break_after_header': fields.boolean(string='Page break after header text [equitania]'),
                 }
     _defaults = {
                 'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False,

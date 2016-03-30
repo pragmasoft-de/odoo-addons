@@ -37,6 +37,13 @@
             	<xpath expr="//field[@name='order_line']" position="before">
                     <label string="Change the order of the lines in the edit mode by Drag&#38;Drop"/>
                 </xpath>
+                
+                <xpath expr="//field[@name='eq_head_text']" position="before">                    
+                    <field name="eq_use_page_break_after_header"></field>
+                    <label string="Page break after header text [equitania]"></label>
+                </xpath>
+                
+                
             </field>
         </record>
         

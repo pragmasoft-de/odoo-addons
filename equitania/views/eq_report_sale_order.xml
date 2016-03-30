@@ -254,10 +254,14 @@
 					<span t-if="o.state in ['draft','sent']">Quotation </span>
 					<span t-field="o.name" />
 				</h2>
+				
 				<p t-if="o.eq_head_text" style="margin-bottom:0.3cm!important;">
 					<span t-field="o.eq_head_text" />
 				</p>
-
+				
+				<!-- Pagebreak after headertext -->
+				<p t-if="o.eq_use_page_break_after_header" style="page-break-after:always;"> </p>
+								
 				<!-- 1. set flag if we should show gross price -->
 				<t t-set="show_gross_price" t-value="check_if_display_gross_price(o)" />
 

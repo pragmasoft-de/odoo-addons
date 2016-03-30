@@ -223,6 +223,10 @@
                 <field name="comment" position="replace"/>
                 <xpath expr="//notebook" position="inside">
                     <page string="Head Text">
+                    	                    
+                    	<field name="eq_use_page_break_after_header"></field>
+                    	<label string="Page break after header text [equitania]"></label>
+                    
 						<field name="eq_head_text" placeholder="Dear Sir or Madam," nolabel="1"/>
                     </page>
                     <page string="Foot Text">
@@ -317,8 +321,8 @@
             	
             	<xpath expr="//page[@string='Invoice Lines']/field[@name='invoice_line']" position="before">
                     <label string="Change the order of the lines in the edit mode by Drag&#38;Drop"/>
-                </xpath>
-            	
+                </xpath>            	            
+                 
             	<xpath expr="//page[@string='Invoice Lines']/field[@name='invoice_line']/tree/field[@name='sequence']" position="replace"> 
             		<field name="sequence" string="Pos"  readonly="True"/>            		
                 </xpath>
