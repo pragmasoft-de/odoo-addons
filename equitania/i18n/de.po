@@ -2583,13 +2583,13 @@ msgstr "{'search_default_supplier':1, 'default_supplier':1, 'default_customer':0
 #. module: equitania
 #: view:sale.order:equitania.eq_sale_order_from_view_eq_customer_ref
 #: field:sale.order,eq_use_page_break_after_header:0
-msgid "Page break after header text [equitania]"
-msgstr "Seitenumbruch nach Kopftext [equitania]"
+msgid "Page break after header text"
+msgstr "Seitenumbruch nach Kopftext"
 
 #. module: equitania
 #: view:account.invoice:equitania.eq_invoice_form
 #: field:account.invoice,eq_use_page_break_after_header:0
 #: view:sale.order:equitania.eq_sale_order_from_view_eq_customer_ref
 #: field:sale.order,eq_use_page_break_after_header:0
-msgid "Page break after header text [equitania]"
-msgstr "Seitenumbruch nach Kopftext [equitania]"
+msgid "Page break after header text"
+msgstr "Seitenumbruch nach Kopftext"

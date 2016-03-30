@@ -1,6 +1,11 @@
 ### 30.03.2016
-### equitania, 1.0.177
+### equitania, 1.0.178
 #### Änderung
+- Textänderung -> den Text "[equitani]" zeigen wir bei der Erweiterung "Seitenumbruch nach Kopftext" icht mehr an
+
+### 30.03.2016
+### equitania, 1.0.177
+#### Erweiterung
 - Erweiterung um "Seitenumbruch nach Kopftext" --> Verkaufsbelege (Angebot, AB und Rechnung)
 
 ### 29.03.2016

@@ -22,7 +22,7 @@
 {
     'name': 'Equitania Erweiterungsmodul',
     'license': 'AGPL-3',
-    'version': '1.0.177',
+    'version': '1.0.178',
     'description': """
         Equitania Software GmbH
     """,

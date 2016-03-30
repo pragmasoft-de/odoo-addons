@@ -40,7 +40,7 @@
                 
                 <xpath expr="//field[@name='eq_head_text']" position="before">                    
                     <field name="eq_use_page_break_after_header"></field>
-                    <label string="Page break after header text [equitania]"></label>
+                    <label string="Page break after header text"></label>
                 </xpath>
                 
                 
