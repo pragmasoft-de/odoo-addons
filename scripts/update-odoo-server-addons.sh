@@ -6,7 +6,7 @@
 # Wenn "Computing parent left and right for table ir_ui_menu..." [crtl]+[c] drücken,
 # da das Update fertig ist. Danach als root User den Server wieder starten.
 # /etc/init.d/odoo-server start
-# Version 1.2.3 - Stand 29.03.2016
+# Version 1.2.4 - Stand 30.03.2016
 ##############################################################################
 #
 #    Shell Script for Odoo, Open Source Management Solution
@@ -43,6 +43,11 @@ echo "Backup path: "$mybackuppath
 echo "odoo-third-party-modules path: "$my3rdpath
 echo "oca-modules path: "$myocapath
 
+if [ ! -d $mybackuppath ]; then
+  echo "Backup-Ordner anlegen"
+  mkdir $mybackuppath
+fi
+
 
 cd $mybasepath
 # Alte Installation entfernen
@@ -55,11 +60,6 @@ if [ -d $myserverpath ]; then
   echo "Backup des Servers ist unter der Bezeichnung $mybackup zu finden..."
   rm -rf $myserverpath
   echo "Remove old server files.."
-fi
-
-if [ ! -d $mybackuppath ]; then
-  echo "Backup-Ordner anlegen"
-  mkdir $mybackuppath
 fi
 
 echo "Geben Sie eine Datenbank an, die Sie  mit -u all aktualisieren wollen:"

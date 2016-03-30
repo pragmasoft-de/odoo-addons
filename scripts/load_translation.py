@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # Mit diesem Skript werden alle Übersetzungen auf Deutsch neu geladen
 # With this script you can backup odoo db on postgresql incl. filestore under Docker
-# Version 1.0.0
-# Date 29.02.2016
+# Version 1.0.1
+# Date 30.03.2016
 ##############################################################################
 #
 #    Shell Script for Odoo, Open Source Management Solution
@@ -51,5 +51,5 @@ lang_id = sock.execute(dbname, uid, pwd, 'base.language.install', 'create', lang
 print "Starte mit dem Neuladen der Übersetzungen..."
 sock.execute(dbname, uid, pwd, 'base.language.install', 'lang_install', [lang_id])
 print "Übersetzungen geladen!"
-print "Starten jetzt den Odoo-Server neu:"
+print "Odoo-Server wird jetzt neu gestartet!"
 os.system('/etc/init.d/odoo-server restart')
