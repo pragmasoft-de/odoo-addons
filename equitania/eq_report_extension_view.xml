@@ -170,7 +170,9 @@
                 <xpath expr="//field[@name='notes']" position="replace">
                 </xpath>
             	<notebook position="inside">
-                    <page string="Head Text">
+                    <page string="Head Text">                                   
+                		<field name="eq_use_page_break_after_header"></field>
+                    	<label string="Page break after header text"></label>                    
 						<field name="eq_head_text" placeholder="Dear Sir or Madam," nolabel="1"/>
                     </page>
                     <page string="Foot Text">

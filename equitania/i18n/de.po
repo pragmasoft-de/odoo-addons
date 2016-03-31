@@ -2589,6 +2589,8 @@ msgstr "Seitenumbruch nach Kopftext"
 #. module: equitania
 #: view:account.invoice:equitania.eq_invoice_form
 #: field:account.invoice,eq_use_page_break_after_header:0
+#: view:purchase.order:equitania.eq_purchase_order_form
+#: field:purchase.order,eq_use_page_break_after_header:0
 #: view:sale.order:equitania.eq_sale_order_from_view_eq_customer_ref
 #: field:sale.order,eq_use_page_break_after_header:0
 msgid "Page break after header text"

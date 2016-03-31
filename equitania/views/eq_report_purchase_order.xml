@@ -168,6 +168,9 @@
         </h2>
 		<p t-if="o.eq_head_text" style="margin-bottom:0.3cm!important;"><span t-field="o.eq_head_text"/></p>
 		
+		<!-- Pagebreak after headertext -->
+		<p t-if="o.eq_use_page_break_after_header" style="page-break-after:always;"> </p>
+				
         <p>
             <span t-field="o.origin"/>
         </p>

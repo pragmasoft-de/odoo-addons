@@ -312,6 +312,7 @@ class eq_report_extension_purchase_order(osv.osv):
                 'show_delivery_date': fields.boolean('Show the Delivery Date'),
                 'use_calendar_week': fields.boolean('Use Calendar Week for Delivery Date [equitania]'),
                 'notes': fields.html('Terms and conditions'),
+                'eq_use_page_break_after_header': fields.boolean(string='Page break after header text'),
                 }
     _defaults = {
                 'eq_contact_person_id': lambda obj, cr, uid, context: obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])[0] if len(obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])) >= 1 else obj.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)]) or False
