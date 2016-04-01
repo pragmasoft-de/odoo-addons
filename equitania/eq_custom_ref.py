@@ -226,6 +226,8 @@ class eq_product_template(osv.osv):
             prod_rec = replace(prod_rec, ' ', '')
             if seperator: 
                 prod_rec = replace(prod_rec, seperator, '')
+            else:
+                seperator=""
         else:
             prod_rec = ''
             seperator = ''
@@ -408,8 +410,11 @@ class eq_product_product(osv.osv):
         seperator = ir_values.get_default(cr, uid, 'product.product', 'default_eq_seperator')
         #Deletes all spaces in the string
         if prod_rec:
-            prod_rec = replace(prod_rec, ' ', '')
+            prod_rec = replace(prod_rec, ' ', '')   
             if seperator: 
+                prod_rec = replace(prod_rec, seperator, '')
+            else:
+                seperator=''
                 prod_rec = replace(prod_rec, seperator, '')
         else:
             prod_rec = ''

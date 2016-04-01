@@ -1,3 +1,8 @@
+### 01.04.2016
+### equitania, 1.0.180
+#### FIX
+- Nummerngenerator bei Produkten: Fehler abgefangen (def eq_product_number_update), wenn Trennzeichen nicht gesetzt. Außerdem ist der aneinandergekettete String nun Leerzeichen frei (Seperator kann kein Leerzeichen sein).
+
 ### 31.03.2016
 ### equitania, 1.0.179
 #### Erweiterung
