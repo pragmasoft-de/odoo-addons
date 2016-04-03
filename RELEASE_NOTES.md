@@ -1,3 +1,8 @@
+### 03.04.2016
+### equitania, 1.1.0
+#### FIX Übersetzungen
+
+
 ### 01.04.2016
 ### equitania, 1.0.180
 #### FIX
