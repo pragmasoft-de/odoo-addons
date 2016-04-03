@@ -2582,3 +2582,8 @@ msgstr "Seitenumbruch nach Kopftext"
 msgid "Page break after header text"
 msgstr "Seitenumbruch nach Kopftext"
 
+#. module: equitania
+#: view:sale.order:equitania.sale.view_order_form
+#: field:sale.order,eq_customer_ref:0
+msgid "Customer Number"
+msgstr "Kundennr."
