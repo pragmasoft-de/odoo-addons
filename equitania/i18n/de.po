@@ -1401,12 +1401,12 @@ msgstr "Rücklieferschein"
 #. module: equitania
 #: model:ir.model,name:equitania.model_stock_transfer_details
 msgid "Picking wizard"
-msgstr "Pickauftragsassistent"
+msgstr "Kommissionierungsassistent"
 
 #. module: equitania
 #: model:ir.model,name:equitania.model_stock_transfer_details_items
 msgid "Picking wizard items"
-msgstr "Artikel in Pickauftragsassistent"
+msgstr "Artikel in Kommissionierungsassistent"
 
 #. module: equitania
 #: selection:equitania.product.analysis.report.wiz,output_type:0
