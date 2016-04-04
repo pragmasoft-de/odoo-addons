@@ -185,6 +185,7 @@ cp -r $myocapath/project_task_materials $myserverpath/addons
 cp -r $myocapath/project_task_materials_stock $myserverpath/addons
 cp -r $myocapath/report_custom_filename $myserverpath/addons
 cp -r $myocapath/sale_order_project $myserverpath/addons
+cp -r $myocapath/sale_order_revision $myserverpath/addons
 cp -r $myocapath/web_context_tunnel $myserverpath/addons
 cp -r $myocapath/web_dialog_size $myserverpath/addons
 cp -r $myocapath/web_export_view $myserverpath/addons
