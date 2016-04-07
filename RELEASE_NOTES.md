@@ -1,7 +1,11 @@
 ### 03.04.2016
+### equitania, 1.1.1
+#### Fix
+- Die Lieferanschrift in der Rechnung und dem Angebot/Auftrag angepasst.
+
+### 03.04.2016
 ### equitania, 1.1.0
 #### FIX Übersetzungen
-
 
 ### 01.04.2016
 ### equitania, 1.0.180
