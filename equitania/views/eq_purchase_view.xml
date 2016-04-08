@@ -27,7 +27,7 @@
 			<field name="arch" type="xml">
 				<data>
 				<xpath expr="/tree[@string='Purchase Order Lines']" position="replace">
-					<tree string="Purchase Order Lines" fonts="bold:eq_qty_left > 0" colors="grey:state=='cancel';blue:state == 'draft';red:state in ('done')">
+					<tree string="Purchase Order Lines" create="false" fonts="bold:eq_qty_left > 0" colors="grey:state=='cancel';blue:state == 'draft';red:state in ('done')">
 						<field name="eq_sequence" />
 						<field name="order_id" string="Purchase Order"/>
 						<field name="eq_purchase_supplier_order_ref"/>

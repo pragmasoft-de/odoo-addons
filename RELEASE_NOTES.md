@@ -1,3 +1,10 @@
+### 08.04.2016
+### equitania, 1.1.2
+#### Erweiterung
+- Ticket 2513: Button "Anlegen" für Positionsansicht wurde entfernt (führte zur Anlage von Positionen ohne Auftragskopf
+- Ticket 2534: Neues Feld für Anzeige des Produkttemplates (für automatische Erzeugung des Templates über die Varianten)
+
+
 ### 03.04.2016
 ### equitania, 1.1.1
 #### Fix

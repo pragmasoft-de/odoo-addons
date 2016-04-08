@@ -113,9 +113,15 @@
 				<field name="sales_count" position="replace">
 					<field name="eq_sale_count" widget="statinfo" />
 				</field>
+				<!-- 08.04.2016 Änderung: product_tmpl_id verhindert Anlage über Variantenansicht
 				<field name="active" position="after">
 					<field name="product_tmpl_id" readonly="1"/>
 				</field>
+				-->
+				<field name="active" position="after">
+					<field name="eq_display_prod_tmpl_id" readonly="1"/>
+				</field>
+				
 			</field>
 		</record>
 

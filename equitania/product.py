@@ -21,10 +21,19 @@
 
 from openerp.osv import fields, osv, orm
 
-from openerp import models, api
+from openerp import models, api, fields as fields_V8
 
 class eq_product_product_new_api(models.Model):
     _inherit = "product.product"
+    
+    @api.depends('product_tmpl_id')
+    def _get_product_tmpl_id(self):
+        for rec in self:
+            rec.eq_display_prod_tmpl_id = rec.product_tmpl_id
+    
+    eq_display_prod_tmpl_id = fields_V8.Many2one(string="Product Template", comodel_name="product.template", compute="_get_product_tmpl_id", store=False)
+    #computed
+    
     
     @api.model
     def name_search(self, name, args=None, operator='ilike', limit=100):
@@ -136,6 +145,7 @@ class eq_product_product(osv.osv):
                 'eq_sale_count': fields.function(_eq_sale_count, type="char", string='Sales'),                
                 'eq_rrp': fields.float(string='RRP'),
                 'eq_sale_min_qty': fields.integer(string='Min. order quantity'),
+                
                 }
     
     _defaults = {

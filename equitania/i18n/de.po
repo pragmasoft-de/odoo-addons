@@ -1524,8 +1524,10 @@ msgstr "Produktnummern Generator"
 
 #. module: equitania
 #: model:ir.model,name:equitania.model_product_template
+#: field:product.product,eq_display_prod_tmpl_id:0
 msgid "Product Template"
 msgstr "Produktvorlage"
+
 
 #. module: equitania
 #: field:equitania.product.analysis.report.wiz,product_category_id:0
