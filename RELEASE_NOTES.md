@@ -1,4 +1,7 @@
 ### 08.04.2016
+### equitania, 1.1.4
+#### Änderung
+- Bestellung-Report enthält nun bei dem Summenblock die Möglichkeit für die Anzeige mehrerer Steuersätze (z.B. 19% + 7% usw)
 ### equitania, 1.1.3
 #### FIX
 - Steuern werden richtig berechnet und angezeigt.

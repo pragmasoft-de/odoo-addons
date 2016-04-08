@@ -32,8 +32,20 @@ class eq_report_purchase_order(report_sxw.rml_parse):
             'get_qty':self.get_qty,
             'get_price': self.get_price,
             'get_standard_price': self.get_standard_price,
+            'get_tax': self.get_tax,
         })
         
+    def get_tax(self, object, tax_id, language, currency_id):
+        amount_net = 0;
+        for line in object.order_line:
+            if tax_id.id in [x.id for x in line.taxes_id]:                
+                 amount_net += line.price_subtotal
+                 
+        tax_amount = 0
+        for tex in self.pool.get('account.tax')._compute(self.cr, self.uid, [tax_id], amount_net, 1):
+            tax_amount += tex['amount']
+            
+        return self.pool.get("eq_report_helper").get_price(self.cr, self.uid, tax_amount, language, 'Sale Price Report', currency_id)
     
     def get_qty(self, object, language):
         return self.pool.get("eq_report_helper").get_qty(self.cr, self.uid, object, language, 'Purchase Quantity Report')
