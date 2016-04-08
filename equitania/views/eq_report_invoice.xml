@@ -146,7 +146,7 @@
 						<div class="row col-xs-12 returnaddress">
 							<h t-field="o.company_id.name" />
 							-
-							<h t-field="o.company_id.street" />
+							<span t-field="o.company_id.street" />
 							<span t-if="o.company_id.eq_house_no">
 								<span t-field="o.company_id.eq_house_no" />
 							</span>
@@ -160,8 +160,7 @@
 								style="clear:left;" />
 							<div>
 								<span t-field="o.partner_id.street" />
-								<span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no"
-									style="margin-left:0.1cm;" />
+								<span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no" />
 							</div>
 							<div t-if="o.partner_id.street2">
 								<div t-field="o.partner_id.street2" />
@@ -185,8 +184,7 @@
 							<span t-field="o.partner_id.name" style="clear:left;" />
 							<div>
 								<span t-field="o.partner_id.street" />
-								<span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no"
-									style="margin-left:0.1cm;" />
+								<span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no" />
 							</div>
 							<div t-if="o.partner_id.street2">
 								<div t-field="o.partner_id.street2" />
@@ -430,11 +428,19 @@
 									<td class="text-right" id="price_netto">
 										<strong>Total without taxes</strong>
 									</td>
+									<!--  NEUE STEUERSPALTE -->
+									<td class="text-right" t-foreach="o.tax_line" t-as="tax_line">
+										<strong>
+											<span t-esc="tax_line.name" />
+										</strong>
+									</td>
+									
+									<!--  ALTE STEUERSPALTE
 									<td class="text-right" t-if="o.invoice_line[0].invoice_line_tax_id">
 										<strong>
 											<span t-esc="', '.join(map(lambda x: x.name, o.invoice_line[0].invoice_line_tax_id))" />
 										</strong>
-									</td>
+									</td>-->
 									<td class="text-right">
 										<strong>Total sum</strong>
 									</td>
@@ -446,10 +452,17 @@
 										<span
 											t-esc="get_standard_price(o.amount_untaxed, o.partner_id.lang, o.currency_id)" />
 									</td>
+																		<!--  NEUE STEUERSPALTE -->
+									<td class="text-right" t-foreach="o.tax_line" t-as="tax_line">
+										<strong>
+											<span t-esc="get_standard_price(tax_line.amount, o.partner_id.lang, o.currency_id)" />
+										</strong>
+									</td>
+									<!--  ALTE STeuerspalte
 									<td class="text-right" t-if="o.invoice_line[0].invoice_line_tax_id">
 										<span
 											t-esc="get_standard_price(o.amount_tax, o.partner_id.lang, o.currency_id)" />
-									</td>
+									</td>-->
 									<td class="text-right">
 										<span
 											t-esc="get_standard_price(o.amount_total, o.partner_id.lang, o.currency_id)" />

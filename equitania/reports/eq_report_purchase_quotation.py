@@ -34,7 +34,6 @@ class eq_report_purchase_quotation(report_sxw.rml_parse):
             'get_standard_price': self.get_standard_price,
         })
         
-    
     def get_qty(self, object, language):
         return self.pool.get("eq_report_helper").get_qty(self.cr, self.uid, object, language, 'Purchase Quantity Report')
            

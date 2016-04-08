@@ -1,9 +1,22 @@
 ### 08.04.2016
-### equitania, 1.1.2
+### equitania, 1.1.5
 #### Erweiterung
 - Ticket 2513: Button "Anlegen" für Positionsansicht wurde entfernt (führte zur Anlage von Positionen ohne Auftragskopf
 - Ticket 2534: Neues Feld für Anzeige des Produkttemplates (für automatische Erzeugung des Templates über die Varianten)
-
+### equitania, 1.1.4
+#### Änderung
+- Rechnungs-Report enthält nun bei dem Summenblock die Möglichkeit für die Anzeige mehrerer Steuersätze (z.B. 19% + 7% usw)
+### equitania, 1.1.4
+#### Änderung
+- Bestellung-Report enthält nun bei dem Summenblock die Möglichkeit für die Anzeige mehrerer Steuersätze (z.B. 19% + 7% usw)
+### equitania, 1.1.3
+#### FIX
+- Steuern werden richtig berechnet und angezeigt.
+### equitania, 1.1.2
+#### Änderung & FIX
+- FIX: Abstände in den Adressanschriften für Hausnummer und PLZ wurden korrigiert
+- Änderung: Angebots-Report enthält nun bei dem Summenblock die Möglichkeit für die Anzeige mehrerer Steuersätze (z.B. 19% + 7% usw)
+>>>>>>> branch 'develop' of git@github.com:equitania/odoo-addons.git
 
 ### 03.04.2016
 ### equitania, 1.1.1

@@ -99,19 +99,19 @@
                 <div class="row col-xs-12 returnaddress">
                     <h t-field="o.company_id.name"/> -
 					<h t-field="o.company_id.street"/><span t-if="o.company_id.eq_house_no"> <span t-field="o.company_id.eq_house_no"/></span> -
-                    <h t-field="o.company_id.zip"/><h>&#xa0;</h>
+                    <h t-field="o.company_id.zip"/>
                     <h t-field="o.company_id.city"/>
                 </div>
                 <div t-field="o.partner_id.name" style="clear:left;"/>
                    <div t-if="o.partner_id.eq_name2" t-field="o.partner_id.eq_name2" style="clear:left;"/>
 				<div>
-					<span t-field="o.partner_id.street"/><span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no" style="margin-left:0.1cm;"/>
+					<span t-field="o.partner_id.street"/><span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no"/>
 				</div>
                 <div t-if="o.partner_id.street2">
                     <div t-field="o.partner_id.street2"/>
                 </div>
                 <h>
-                    <h t-field="o.partner_id.zip"/><h>&#xa0;</h>
+                    <h t-field="o.partner_id.zip"/>
                     <h t-field="o.partner_id.city"/>
 					<h t-if="o.partner_id.eq_citypart">-
 						<h t-field="o.partner_id.eq_citypart"/>
@@ -251,11 +251,12 @@
                             <td class="text-right">
                                 <strong>Total without taxes<!-- Preis Netto --></strong>
                             </td>
-                            <td class="text-right">
-                                <strong>
-                                    <span t-esc="', '.join(map(lambda x: x.name, o.order_line[0].taxes_id))"/>
-                                </strong>
-                            </td>
+							<!--  NEUE STEUERSPALTE -->
+							<td class="text-right" t-foreach="set([x.taxes_id for x in o.order_line])" t-as="tax_line">
+								<strong>
+									<span t-esc="tax_line.name" />
+								</strong>
+							</td>
                             <td class="text-right">
                                 <strong>Total sum<!-- Preis Brutto --></strong>
                             </td>
@@ -266,9 +267,13 @@
                             <td class="text-right">
                                 <span t-esc="get_standard_price(o.amount_untaxed, o.partner_id.lang, o.currency_id)"/>
                             </td>
-                            <td class="text-right">
-                                <span t-esc="get_standard_price(o.amount_tax, o.partner_id.lang, o.currency_id)"/>
-                            </td>
+							<!--  NEUE STEUERSPALTE -->
+							<td class="text-right" t-foreach="set([x.taxes_id for x in o.order_line])" t-as="tax_line">
+								<strong>
+									<span
+								t-esc="get_tax(o, tax_line, o.partner_id.lang, o.currency_id)" />
+								</strong>
+							</td>
                             <td class="text-right">
                                 <span t-esc="get_standard_price(o.amount_total, o.partner_id.lang, o.currency_id)"/>
                             </td>
@@ -322,13 +327,13 @@
 			                    		<div t-field="o.picking_type_id.warehouse_id.partner_id.name"/>
 			                    		<div t-if="o.picking_type_id.warehouse_id.partner_id.eq_name2" t-field="o.picking_type_id.warehouse_id.partner_id.eq_name2"/>
 			                            <div>
-											<span t-field="o.picking_type_id.warehouse_id.partner_id.street"/><span t-if="o.picking_type_id.warehouse_id.partner_id.eq_house_no" t-field="o.picking_type_id.warehouse_id.partner_id.eq_house_no" style="margin-left:0.1cm;"/>
+											<span t-field="o.picking_type_id.warehouse_id.partner_id.street"/><span t-if="o.picking_type_id.warehouse_id.partner_id.eq_house_no" t-field="o.picking_type_id.warehouse_id.partner_id.eq_house_no" />
 										</div>
 						                <div t-if="o.picking_type_id.warehouse_id.partner_id.street2">
 						                    <div t-field="o.picking_type_id.warehouse_id.partner_id.street2"/>
 						                </div>
 						                <h t-if="o.picking_type_id.warehouse_id.partner_id.zip">
-						                    <h t-field="o.picking_type_id.warehouse_id.partner_id.zip"/><h>&#xa0;</h>
+						                    <h t-field="o.picking_type_id.warehouse_id.partner_id.zip"/>
 						                    <h t-field="o.picking_type_id.warehouse_id.partner_id.city"/>
 											<h t-if="o.picking_type_id.warehouse_id.partner_id.eq_citypart">-
 												<h t-field="o.picking_type_id.warehouse_id.partner_id.eq_citypart"/>
