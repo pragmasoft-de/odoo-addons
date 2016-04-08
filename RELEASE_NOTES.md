@@ -1,3 +1,9 @@
+### 08.04.2016
+### equitania, 1.1.2
+#### Änderung & FIX
+- FIX: Abstände in den Adressanschriften für Hausnummer und PLZ wurden korrigiert
+- Änderung: Angebots-Report enthält nun bei dem Summenblock die Möglichkeit für die Anzeige mehrerer Steuersätze (z.B. 19% + 7% usw)
+
 ### 03.04.2016
 ### equitania, 1.1.1
 #### Fix

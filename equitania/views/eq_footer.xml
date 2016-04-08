@@ -22,7 +22,7 @@
 	                <td style="">
 	                    <span t-field="company.name"/><br/>
 	                    <h t-field="o.company_id.partner_id.street"/><span t-if="o.company_id.partner_id.eq_house_no"> <span t-field="o.company_id.partner_id.eq_house_no"/></span><br/>
-						<div t-if="o.company_id.partner_id.street2">
+						<div t-if="o.company_id.partner_id.street2" >
 							<div t-field="o.company_id.partner_id.street2"/>
 						</div>
 						<div><span t-field="company.zip"/> <span t-field="company.city"/></div>
@@ -32,9 +32,7 @@
 	                    <div t-if="company.phone">
 	                        Tel: <span t-field="company.phone"/>
 	                    </div>
-	                    <div t-if="company.fax">
-	                        Fax: <span t-field="company.fax"/>
-	                    </div>
+	                    <span t-if="company.fax"> Fax: <span t-field="company.fax"/> </span>
 	                </td>
 	                <td style="">
 	                    <span t-field="company.website"/><br/>
@@ -54,9 +52,9 @@
 	                </td>
 	                <td t-foreach="company.bank_ids" t-as="bank">
 	                    <div t-if="bank.footer">
-	                        <strong>Bank:</strong> <span t-field="bank.bank.name"/><br/>
-		                    <strong>BIC:</strong> <span t-field="bank.bank_bic"/><br/>
-	                        <strong>IBAN:</strong> <span t-field="bank.acc_number"/>
+	                        <span>Bank:</span> <span t-field="bank.bank.name"/><br/>
+		                    <span>BIC:</span> <span t-field="bank.bank_bic"/><br/>
+	                        <span>IBAN:</span> <span t-field="bank.acc_number"/>
 	                	</div>
 	                </td>
 	                <!-- <td rowspan="3" width="40" style="margin:0; padding:0;" margin="0" padding="0">

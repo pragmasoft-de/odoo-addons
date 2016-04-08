@@ -127,7 +127,6 @@
 								<h t-field="o.partner_id.street" />
 								-
 								<h t-field="o.partner_id.zip" />
-								<h>&#xa0;</h>
 								<h t-field="o.partner_id.city" />
 								-
 								<h t-field="o.partner_id.country_id.name" />
@@ -145,7 +144,6 @@
 								<h t-field="o.partner_id.street" />
 								-
 								<h t-field="o.partner_id.zip" />
-								<h>&#xa0;</h>
 								<h t-field="o.partner_id.city" />
 								-
 								<h t-field="o.partner_id.country_id.name" />
@@ -157,15 +155,13 @@
 								style="clear:left;" />
 							<div>
 								<span t-field="o.company_id.partner_id.street" />
-								<span t-if="o.company_id.partner_id.eq_house_no" t-field="o.company_id.partner_id.eq_house_no"
-									style="margin-left:0.1cm;" />
+								<span t-if="o.company_id.partner_id.eq_house_no" t-field="o.company_id.partner_id.eq_house_no" />
 							</div>
 							<div t-if="o.company_id.partner_id.street2">
 								<div t-field="o.company_id.partner_id.street2" />
 							</div>
 							<h>
 								<h t-field="o.company_id.partner_id.zip" />
-								<h>&#xa0;</h>
 								<h t-field="o.company_id.partner_id.city" />
 								<h t-if="o.company_id.partner_id.eq_citypart">
 									-
@@ -307,14 +303,13 @@
 										<div>
 											<span t-field="o.sale_id.partner_invoice_id.street" />
 											<span t-if="o.sale_id.partner_invoice_id.eq_house_no"
-												t-field="o.sale_id.partner_invoice_id.eq_house_no" style="margin-left:0.1cm;" />
+												t-field="o.sale_id.partner_invoice_id.eq_house_no" />
 										</div>
 										<div t-if="o.sale_id.partner_invoice_id.street2">
 											<div t-field="o.sale_id.partner_invoice_id.street2" />
 										</div>
 										<h>
 											<h t-field="o.sale_id.partner_invoice_id.zip" />
-											<h>&#xa0;</h>
 											<h t-field="o.sale_id.partner_invoice_id.city" />
 										</h>
 										<div t-field="o.sale_id.partner_invoice_id.country_id.name" />
@@ -333,14 +328,13 @@
 										<div>
 											<span t-field="o.sale_id.partner_invoice_id.street" />
 											<span t-if="o.sale_id.partner_invoice_id.eq_house_no"
-												t-field="o.sale_id.partner_invoice_id.eq_house_no" style="margin-left:0.1cm;" />
+												t-field="o.sale_id.partner_invoice_id.eq_house_no" />
 										</div>
 										<div t-if="o.sale_id.partner_invoice_id.street2">
 											<div t-field="o.sale_id.partner_invoice_id.street2" />
 										</div>
 										<h>
 											<h t-field="o.sale_id.partner_invoice_id.zip" />
-											<h>&#xa0;</h>
 											<h t-field="o.sale_id.partner_invoice_id.city" />
 											<h t-if="o.sale_id.partner_invoice_id.eq_citypart">
 												-
