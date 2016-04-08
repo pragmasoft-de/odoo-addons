@@ -451,7 +451,7 @@
 									<td class="text-right" t-foreach="set([x.tax_id for x in o.order_line])" t-as="tax_line">
 										<strong>
 											<span
-										t-esc="get_standard_price(sum([x.eq_amount_tax for x in o.order_line if x.tax_id.id == tax_line.id]) * (o.eq_amount_net / o.amount_untaxed) if o.eq_amount_net and o.amount_untaxed else 1, o.partner_id.lang, o.currency_id)" />
+										t-esc="get_tax(o, tax_line, o.partner_id.lang, o.currency_id)" />
 										</strong>
 									</td>
 									<!--  ALTE STeuerspalte

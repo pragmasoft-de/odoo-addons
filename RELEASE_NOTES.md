@@ -1,4 +1,7 @@
 ### 08.04.2016
+### equitania, 1.1.3
+#### FIX
+- Steuern werden richtig berechnet und angezeigt.
 ### equitania, 1.1.2
 #### Änderung & FIX
 - FIX: Abstände in den Adressanschriften für Hausnummer und PLZ wurden korrigiert
