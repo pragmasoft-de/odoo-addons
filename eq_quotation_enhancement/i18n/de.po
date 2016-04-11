@@ -38,6 +38,11 @@ msgid "Sales Order"
 msgstr "Verkaufsauftrag"
 
 #. module: eq_quotation_enhancement
+#: field:purchase.order,template_id:0
+msgid "Quote Template"
+msgstr "Vorlage"
+
+#. module: eq_quotation_enhancement
 #: field:sale.config.settings,default_template_id:0
 msgid "Default sale order template [eq_quotation_enhancement]"
 msgstr "Standard Angebotsvorlage [eq_quotation_enhancement]"

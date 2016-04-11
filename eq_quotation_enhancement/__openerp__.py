@@ -22,7 +22,7 @@
 {
     'name': 'Equitania Quotation Enhancement',
     'license': 'AGPL-3',
-    'version': '1.0.12',
+    'version': '1.0.13',
     'description': """
         Equitania Software GmbH
     """,
@@ -40,6 +40,7 @@
         'res_config_view.xml',
         'website_quote_view.xml',
         'views/eq_saleorder_quotation_enhancement.xml',
+        'purchase_view.xml',
     ],
     #Demodata
     'demo': [],

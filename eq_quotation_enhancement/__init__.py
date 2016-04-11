@@ -21,4 +21,5 @@
 
 import res_config
 import website_quote
+import purchase
 #import reports
