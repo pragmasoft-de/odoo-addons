@@ -1,3 +1,14 @@
+### 11.04.2016
+### equitania, 1.1.6
+#### Erweiterung
+- Ticket 1700: Begonnen mit Erweiterung der Suchfunktion für Adressen
+
+### 11.04.2016
+### equitania, 1.0.13
+#### Erweiterung
+- Ticket 1861: Erweiterungen für Textvorlagen für Einkäufe
+
+
 ### 08.04.2016
 ### equitania, 1.1.5
 #### Erweiterung

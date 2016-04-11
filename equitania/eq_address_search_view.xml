@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+    	<!-- search support    	
+		<record id="eq_partner_extension_search_view" model="ir.ui.view">
+			<field name="name">eq_partner_extension.search.view</field>
+			<field name="inherit_id" ref="base.view_res_partner_filter"/>
+			<field name="model">eq.address.search</field>			
+			<field name="arch" type="xml">
+			
+				<search string="Tasks">
+                    <field name="name" string="Tasks"/>
+                    <field name="categ_ids"/>
+                    <field name="partner_id"/>
+                    <field name="project_id"/>
+                    <field name="reviewer_id"/>
+                </search>												 
+			</field>			
+		</record>
+		--> 
+		
+		<!-- eq.address.search Item Form -->
+        <record id="eq_address_search_form_view" model="ir.ui.view">
+            <field name="name">eq_address_search_form_view</field>
+            <field name="model">eq.address.search</field>
+            <field name="arch" type="xml">
+	            <form string="Address search">
+	            	<field name="name"/>	
+	                <field name="eq_partner_id"/>
+	                <field name="eq_crm_lead_id"/>
+	                <field name="phone"/>
+	                <field name="zip"/>
+	                <field name="city"/>
+            	</form>
+            </field>
+        </record>         
+         
+	    <!-- eq.address.search Tree View -->
+        <record id="eq_address_search_tree_view" model="ir.ui.view">
+            <field name="name">eq.address.search.tree</field>
+            <field name="model">eq.address.search</field>
+            <field name="arch" type="xml">
+                <tree string="Address search">
+                    <field name="name"/>
+                    <field name="eq_partner_id"/>
+                    <field name="eq_crm_lead_id"/>
+                    <field name="phone"/>
+                    <field name="zip"/>
+                    <field name="city"/>
+                                  
+                </tree>                               
+            </field>
+        </record>
+        
+	</data>
+</openerp>
+		

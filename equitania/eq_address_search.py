@@ -19,35 +19,28 @@
 #
 ##############################################################################
 
-import models
-import wizard
-import eq_install_func
-import eq_address_extension
-import eq_address_extension_new_api
-import eq_custom_ref
-import eq_pricelist_item_search
-import eq_company_custom_fields
-import eq_sale_order_seq
-import eq_partner_extension
-import eq_report_extension
-import eq_lead_referred
-import eq_open_sale_order_line
-import res_groups
-import stock
-import sale
-import sale_layout
-import reports
-import res_config
-import res_partner
-import eq_report_helper
-import res_users
-import hr
-import product
-import eq_foreign_ref
-import eq_res_users_new_api
-import eq_clean_data
-import eq_email
-import sale_config
-import crm
-import eq_models
-#import eq_address_search
+from openerp import models, fields, api
+from openerp import tools
+
+class EQ_Address_Search(models.Model):
+    _name = "eq.address.search"
+    _auto=False
+    
+    eq_partner_id = fields.Many2one('res.partner', string="Partner")
+    eq_crm_lead_id = fields.Many2one('crm.lead', string="Lead")
+    res_partner = fields.Boolean('Partner')
+    name = fields.Char(string="Name")
+    city = fields.Char(string="City")
+    phone = fields.Char(string="Phone")
+    zip = fields.Char(size=24, string="Zip")
+    
+    
+    def init(self, cr):
+        tools.drop_view_if_exists(cr, 'eq_address_search')
+        cr.execute("""
+        CREATE OR REPLACE VIEW eq_address_search AS (            
+            select name, id as eq_partner_id, null as eq_crm_lead_id, true as res_partner, city, phone, zip from res_partner
+            union 
+            select name, null as eq_partner_id, id as eq_crm_lead_id, false as res_partner, city, phone, zip from crm_lead
+        )
+        """)
