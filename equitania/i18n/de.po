@@ -2463,7 +2463,7 @@ msgstr "equitania_reports_manager"
 #. module: equitania
 #: view:website:equitania.report_invoice_data
 msgid "from"
-msgstr "ab"
+msgstr "vom"
 
 #. module: equitania
 #: code:addons/equitania/eq_address_extension_new_api.py:82
