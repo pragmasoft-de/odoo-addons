@@ -499,7 +499,7 @@ class eq_report_extension_stock_picking(osv.osv):
     
     #Adds the customer ref number to the invoice (Create from picking list)
     def _create_invoice_from_picking(self, cr, uid, picking, vals, context=None):    
-        vals['eq_ref_number'] = picking.eq_ref_number
+        #vals['eq_ref_number'] = picking.eq_ref_number
         vals['eq_delivery_address'] = picking.partner_id.id
         
         head_text = ''
@@ -532,6 +532,18 @@ class eq_report_extension_stock_picking(osv.osv):
         
         
         return super(eq_report_extension_stock_picking, self)._create_invoice_from_picking(cr, uid, picking, vals, context)
+    
+    
+    def _invoice_create_line(self, cr, uid, moves, journal_id, inv_type='out_invoice', context=None):
+        invoice_obj = self.pool.get('account.invoice')
+        
+        invoice_ids = super(eq_report_extension_stock_picking, self)._invoice_create_line(cr, uid, moves, journal_id, inv_type=inv_type, context=context)
+        invoices = invoice_obj.browse(cr, uid, invoice_ids, context=context)
+        
+        for invoice in invoices:
+            ref_numbers = set([x.eq_move_id.picking_id.eq_ref_number for x in invoice.invoice_line if x.eq_move_id and x.eq_move_id.picking_id.eq_ref_number])
+            invoice_obj.write(cr, uid, invoice.id, {'eq_ref_number': ", ".join(ref_numbers)})
+        return invoice_ids
     
     def _get_invoice_vals(self, cr, uid, key, inv_type, journal_id, move, context=None):
         res = super(eq_report_extension_stock_picking, self)._get_invoice_vals(cr, uid, key, inv_type, journal_id, move, context)

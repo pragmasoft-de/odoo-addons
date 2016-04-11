@@ -8,14 +8,14 @@
 				<div class="col-xs-5">
 					<table style="width:100%">
 						<tbody>
-							<tr t-if="o.name">
+							<!-- <tr t-if="o.name">
 								<td>
 									<span>Order no.</span>
 								</td>
 								<td class="text-right">
 									<span t-field="o.name" />
 								</td>
-							</tr>
+							</tr> -->
 							<tr t-if="o.type == 'in_invoice'">
 								<td>
 									<span>Supplier no.</span>
@@ -32,7 +32,7 @@
 									<span t-field="o.partner_id.eq_customer_ref" id="eq_customer_ref" />
 								</td>
 							</tr>
-							<tr t-if="o.eq_ref_number">
+							<!-- <tr t-if="o.eq_ref_number">
 								<td>
 									<span>Your reference no.</span>
 								</td>
@@ -41,7 +41,7 @@
 										<span t-field="o.eq_ref_number" />
 									</div>
 								</td>
-							</tr>
+							</tr> -->
 							<tr>
 								<td>
 									<span>Invoice no.</span>
@@ -356,14 +356,18 @@
 								</tr>
 								<tr t-if="l.eq_move_id and l.eq_move_id.picking_id" style="border-top-style:hidden;">
 									<td colspan="7">
-										<p style="font-weight:bold;">
+										<span style="font-weight:bold;" t-if="l.eq_move_id and l.eq_move_id.picking_id.eq_ref_number">
+											<strong>Customer Reference: <span t-field="l.eq_move_id.picking_id.eq_ref_number"/> / Order No: <span t-field="l.eq_move_id.picking_id.origin"/></strong>
+										</span>
+										<br/>
+										<span style="font-weight:bold;">
 											Delivery No.
 											<span t-field="l.eq_move_id.picking_id.name" />
 											from
 											<span
 												t-esc="l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[2] + '.' + l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[1] + '.' + l.eq_move_id.picking_id.date_done.split(' ')[0].split('-')[0]" />
 											/ Delivery Date (the date of service)
-										</p>
+										</span>
 									</td>
 								</tr>
 							</t>

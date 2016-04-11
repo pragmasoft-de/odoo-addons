@@ -1,5 +1,5 @@
 ### 11.04.2016
-### equitania, 1.1.6
+### equitania, 1.1.8
 #### Erweiterung
 - Ticket 1700: Begonnen mit Erweiterung der Suchfunktion für Adressen
 
@@ -8,6 +8,11 @@
 #### Erweiterung
 - Ticket 1861: Erweiterungen für Textvorlagen für Einkäufe
 
+### equitania, 1.1.7
+#### Erweiterung
+- Kundenreferenz und Auftrags-Nr wird in der Position dargestellt. Für den Rechnugnsreport.
+### equitania, 1.1.6
+#### Fix Übersetzung
 
 ### 08.04.2016
 ### equitania, 1.1.5
@@ -27,7 +32,7 @@
 #### Änderung & FIX
 - FIX: Abstände in den Adressanschriften für Hausnummer und PLZ wurden korrigiert
 - Änderung: Angebots-Report enthält nun bei dem Summenblock die Möglichkeit für die Anzeige mehrerer Steuersätze (z.B. 19% + 7% usw)
->>>>>>> branch 'develop' of git@github.com:equitania/odoo-addons.git
+
 
 ### 03.04.2016
 ### equitania, 1.1.1
