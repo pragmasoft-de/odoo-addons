@@ -1,4 +1,7 @@
 ### 11.04.2016
+### equitania, 1.1.7
+#### Erweiterung
+- Kundenreferenz und Auftrags-Nr wird in der Position dargestellt. Für den Rechnugnsreport.
 ### equitania, 1.1.6
 #### Fix Übersetzung
 

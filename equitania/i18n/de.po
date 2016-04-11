@@ -1330,7 +1330,6 @@ msgid "Order date"
 msgstr "Bestelldatum"
 
 #. module: equitania
-#: view:website:equitania.eq_external_layout_header_invoice_data
 #: view:website:equitania.eq_external_layout_header_sale_order_data
 msgid "Order no."
 msgstr "Auftrags Nr."
@@ -2589,3 +2588,13 @@ msgstr "Seitenumbruch nach Kopftext"
 #: field:sale.order,eq_customer_ref:0
 msgid "Customer Number"
 msgstr "Kundennr."
+
+#. module: equitania
+#: view:website:equitania.report_invoice_data
+msgid "Customer Reference:"
+msgstr "Kundenreferenz:"
+
+#. module: equitania
+#: view:website:equitania.report_invoice_data
+msgid "/ Order No:"
+msgstr "/ Auftrag-Nr:"
