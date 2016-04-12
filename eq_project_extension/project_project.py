@@ -19,34 +19,5 @@
 #
 ##############################################################################
 
-{
-    'name': 'Project Extension',
-    'version': '1.0.1',
-    'description': """
-        Improves and extends several views related to projects
-    """,
-    'author': 'Equitania Software GmbH',
-    'website': 'www.myodoo.de',
-    'depends': ['myodoo'],
-    'category' : 'General Improvements',
-    #What it Improves e.g Sale, Purchase, Accounting
-    'summary': 'account.analytic.lines, project.task.work, project.project',
-    #Only on initialization
-    #'init': [
-    #         'eq_install_func.xml', 
-    #         ],
-    'data': [
-        #'security/eq_module_template_rule.xml',
-        #'security/eq_module_template_security.xml',
-        #'security/ir.model.access.csv',
-        'account_analytic_line_view.xml',
-        'project_task_view.xml',
-        'project_project_view.xml',
-    ],
-    #Demodata
-    'demo': [],
-    #Activates css for the view
-    #'css': ['base.css'],
-    'installable': True,
-    'auto_install': False,
-}
+#Old API, Remove New API import if the Old API is used. Otherwise you'll get an import error.
+from openerp import models, fields, api, _

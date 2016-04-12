@@ -1,3 +1,72 @@
-## The fastest way to create a translation, is to go into the "Setting" of Odoo and to click on "Export Translation" which is in "Import / Export".
-## In the new window you need to select the Language, the fiel format "PO File" and the Module. Afterwards click on "Export" and a new Window with the
-## Downloadlink for the *.po File will show up.
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* eq_project_extension
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0 Build 160302\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-12 13:58+0000\n"
+"PO-Revision-Date: 2016-04-12 13:58+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: eq_project_extension
+#: model:ir.model,name:eq_project_extension.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Analytische Buchung"
+
+#. module: eq_project_extension
+#: view:account.analytic.line:eq_project_extension.eq_project_extension_view_account_analytic_line_filter
+msgid "Day"
+msgstr "Tag"
+
+#. module: eq_project_extension
+#: field:account.analytic.line,eq_filter_by_day:0
+msgid "Days"
+msgstr "Tage"
+
+#. module: eq_project_extension
+#: view:project.task:eq_project_extension.eq_project_extension_view_task_kanban
+msgid "Delete"
+msgstr "Entfernen"
+
+#. module: eq_project_extension
+#: view:project.task:eq_project_extension.eq_project_extension_view_task_kanban
+msgid "Edit..."
+msgstr "Bearbeiten ..."
+
+#. module: eq_project_extension
+#: view:account.analytic.line:eq_project_extension.eq_project_extension_view_account_analytic_line_filter
+msgid "Product"
+msgstr "Produkt"
+
+#. module: eq_project_extension
+#: model:ir.model,name:eq_project_extension.model_project_task_work
+msgid "Project Task Work"
+msgstr "Erledigte Aufgaben"
+
+#. module: eq_project_extension
+#: view:project.task:eq_project_extension.eq_project_extension_view_task_kanban
+msgid "Remaining Time"
+msgstr "Verbleibende Zeit"
+
+#. module: eq_project_extension
+#: view:account.analytic.line:eq_project_extension.eq_project_extension_view_account_analytic_line_filter
+msgid "Tags"
+msgstr "Schlagwörter"
+
+#. module: eq_project_extension
+#: view:project.project:eq_project_extension.eq_project_extension_edit_project
+msgid "false"
+msgstr "false"
+
+#. module: eq_project_extension
+#: view:project.task:eq_project_extension.eq_project_extension_view_task_kanban
+msgid "oe_kanban_text_red"
+msgstr "oe_kanban_text_red"
+

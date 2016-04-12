@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 	<data>
-		<record id="eq_view_account_analytic_line_tree_myodoo" model="ir.ui.view">
+	
+		<record id="eq_project_extension_view_account_analytic_line_tree" model="ir.ui.view">
 			<field name="name">account.analytic.line.tree</field>
 			<field name="model">account.analytic.line</field>
 			<field name="inherit_id" ref="account.view_account_analytic_line_tree" />
 			<field name="arch" type="xml">
 				<data>
 					<field name="account_id" position="after">
-						<field name="eq_tags" />
+						<field name="eq_tags" string="Tags" />
 					</field>
 				</data>
 			</field>
 		</record>
 
-		<record id="eq_view_account_analytic_line_filter_myodoo" model="ir.ui.view">
+		<record id="eq_project_extension_view_account_analytic_line_filter" model="ir.ui.view">
 			<field name="name">account.analytic.line.filter</field>
 			<field name="model">account.analytic.line</field>
 			<field name="inherit_id" ref="account.view_account_analytic_line_filter" />
 			<field name="arch" type="xml">
 				<filter string="Product" position="after">
-					<filter name="group_tags" string="Tags" context="{'group_by':'user_id'}" />
+					<filter name="group_tags" string="Tags" context="{'group_by':'user_id'}"/>
+					<filter name="group_tags" string="Day" context="{'group_by':'eq_filter_by_day'}"/>
 				</filter>
 			</field>
 		</record>

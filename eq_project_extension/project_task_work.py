@@ -21,29 +21,8 @@
 
 #Old API, Remove New API import if the Old API is used. Otherwise you'll get an import error.
 from openerp import models, fields, api, _
-from datetime import datetime
 
-class account_analytic_line(models.Model):
-    _inherit = 'account.analytic.line'
-     
-    eq_tags = fields.Many2many('project.category', string='Tags', compute='_add_tags', readonly=False)
-    eq_filter_by_day = fields.Char(string='Days', compute='_get_day_from_date', readonly=False, store=True)
+class project_task_work(models.Model):
+    _inherit = 'project.task.work'
     
-    def _add_tags(self):
-        
-        hr_object = self.env['hr.analytic.timesheet']
-        project_work_object = self.env['project.task.work']
-        project_task_object = self.env['project.task']
-        for record in self:
-               
-            eq_id_layaway = hr_object.search([('line_id', '=', record.id)]).id      
-            eq_id_layaway = project_work_object.search([('hr_analytic_timesheet_id', '=', eq_id_layaway)]).task_id
-            record.eq_tags =  project_task_object.search([('id', '=', eq_id_layaway.id)]).categ_ids
-
-    @api.depends('date')
-    def _get_day_from_date(self):
-        
-        for record in self:
-            
-            month_day = datetime.strptime(record.date, '%Y-%m-%d')
-            record.eq_filter_by_day = month_day.strftime('%d. %b')
+    eq_to_invoice = fields.Many2one(default=1)
