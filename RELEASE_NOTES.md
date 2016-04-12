@@ -1,9 +1,8 @@
 ### 12.04.2016
 ### equitania, 1.1.11
 #### Erweiterung
-- Ticket 1700: Erweiterung für Suche über alle Adresstabellen
+- Ticket 1700: Erweiterung für Suche über alle Adresstabellen und Korrektur für Query für Ermittlung der Daten 
 
-=======
 ### equitania, 1.1.10
 #### Fix
 - Übersetzung für "Vermittelt durch" angepasst.

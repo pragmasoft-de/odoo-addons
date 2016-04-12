@@ -58,7 +58,7 @@ class EQ_Address_Search(models.Model):
                 
                 UNION 
                 
-                SELECT coalesce(partner_name, name) as name, contact_name, null as eq_partner_id, id as eq_crm_lead_id, false as res_partner, city, phone, zip FROM crm_lead WHERE coalesce(partner_id,0) = 0
+                SELECT coalesce(NULLIF(partner_name,''), name) as name, contact_name, null as eq_partner_id, id as eq_crm_lead_id, false as res_partner, city, phone, zip FROM crm_lead WHERE coalesce(partner_id,0) = 0
                 
            ) a
        )
