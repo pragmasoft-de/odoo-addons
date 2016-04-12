@@ -50,4 +50,4 @@ import eq_email
 import sale_config
 import crm
 import eq_models
-#import eq_address_search
+import eq_address_search

@@ -1,10 +1,16 @@
+### 12.04.2016
+### equitania, 1.1.9
+#### Erweiterung
+- Ticket 1700: Erweiterung für Suche über alle Adresstabellen
+
+
 ### 11.04.2016
 ### equitania, 1.1.8
 #### Erweiterung
 - Ticket 1700: Begonnen mit Erweiterung der Suchfunktion für Adressen
 
 ### 11.04.2016
-### equitania, 1.0.13
+### eq_quotation_enhancement, 1.0.13
 #### Erweiterung
 - Ticket 1861: Erweiterungen für Textvorlagen für Einkäufe
 
