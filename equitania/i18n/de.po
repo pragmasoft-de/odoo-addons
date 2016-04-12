@@ -1663,10 +1663,19 @@ msgid "Reason"
 msgstr "Grund"
 
 #. module: equitania
-#: field:crm.lead,eq_lead_referred_id:0 field:crm.lead,eq_lead_referred_name:0
 #: field:res.partner,eq_lead_referred_id:0
+msgid "Referred By ID"
+msgstr "Vermittelt durch ID"
+
+#. module: equitania
+#: field:crm.lead,eq_lead_referred_id:0 field:crm.lead,eq_lead_referred_name:0
 msgid "Referred By"
 msgstr "Vermittelt durch"
+
+#. module: crm
+#: field:crm.lead,referred:0
+msgid "Referred By"
+msgstr "Vermittelt durch (Alt)"
 
 #. module: equitania
 #: view:eq.lead.referred:equitania.eq_lead_referred_form

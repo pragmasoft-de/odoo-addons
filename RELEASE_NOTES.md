@@ -1,4 +1,9 @@
 ### 12.04.2016
+### equitania, 1.1.10
+#### Fix
+- Übersetzung für "Vermittelt durch" angepasst.
+
+### 12.04.2016
 ### equitania, 1.1.9
 #### Fix
 - Übersetzung angepasst.
