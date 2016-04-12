@@ -1,8 +1,17 @@
 ### 12.04.2016
-### equitania, 1.1.9
+### equitania, 1.1.11
 #### Erweiterung
 - Ticket 1700: Erweiterung für Suche über alle Adresstabellen
 
+=======
+### equitania, 1.1.10
+#### Fix
+- Übersetzung für "Vermittelt durch" angepasst.
+
+### 12.04.2016
+### equitania, 1.1.9
+#### Fix
+- Übersetzung angepasst.
 
 ### 11.04.2016
 ### equitania, 1.1.8
