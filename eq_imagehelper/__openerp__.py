@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 ##############################################################################
 #
 #    Odoo Addon, Open Source Management Solution
@@ -20,16 +19,28 @@
 #
 ##############################################################################
 
-# definition of your tables and fields goes here
-
-from openerp import models, fields, api
-
-# class eq_website_template(models.Model):
-#     _name = 'eq_website_template.eq_website_template'
-
-#     name = fields.Char()
-
-
-
-
-        
+{
+    'name': 'eq_imagehelper',
+    'version': '1.0.0',
+    'description': """
+        Imagehelper - use it to resize reference images
+    """,
+    'author': 'Equitania Software GmbH',
+    'website': 'www.myodoo.de',
+    'depends': ['base_setup'],
+    'category' : 'General Improvements',
+    #What it Improves e.g Sale, Purchase, Accounting
+    'summary': '',
+    #Only on initialization
+    #'init': [
+    #         'eq_install_func.xml', 
+    #         ],
+    'data': [        
+    ],
+    #Demodata
+    'demo': [],
+    #Activates css for the view
+    #'css': ['base.css'],
+    'installable': True,
+    'auto_install': False,
+}

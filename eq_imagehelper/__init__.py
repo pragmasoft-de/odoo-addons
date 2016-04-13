@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 ##############################################################################
 #
 #    Odoo Addon, Open Source Management Solution
@@ -20,16 +19,4 @@
 #
 ##############################################################################
 
-# definition of your tables and fields goes here
-
-from openerp import models, fields, api
-
-# class eq_website_template(models.Model):
-#     _name = 'eq_website_template.eq_website_template'
-
-#     name = fields.Char()
-
-
-
-
-        
+import ImageHelper

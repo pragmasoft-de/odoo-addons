@@ -1,3 +1,9 @@
+### 13.04.2016
+### eq_imagehelper, 1.0.0
+#### Erweiterung
+- Neues Modul mit dem man die Größe der Referenzbildern optimieren kann
+Aufruf: http://localhost:8069/reset_images
+
 ### 12.04.2016
 ### equitania, 1.1.11
 #### Erweiterung
@@ -33,15 +39,19 @@
 #### Erweiterung
 - Ticket 2513: Button "Anlegen" für Positionsansicht wurde entfernt (führte zur Anlage von Positionen ohne Auftragskopf
 - Ticket 2534: Neues Feld für Anzeige des Produkttemplates (für automatische Erzeugung des Templates über die Varianten)
+
 ### equitania, 1.1.4
 #### Änderung
 - Rechnungs-Report enthält nun bei dem Summenblock die Möglichkeit für die Anzeige mehrerer Steuersätze (z.B. 19% + 7% usw)
+
 ### equitania, 1.1.4
 #### Änderung
 - Bestellung-Report enthält nun bei dem Summenblock die Möglichkeit für die Anzeige mehrerer Steuersätze (z.B. 19% + 7% usw)
+
 ### equitania, 1.1.3
 #### FIX
 - Steuern werden richtig berechnet und angezeigt.
+
 ### equitania, 1.1.2
 #### Änderung & FIX
 - FIX: Abstände in den Adressanschriften für Hausnummer und PLZ wurden korrigiert

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+	 	<!-- Template for a Security Rule -->
+		<!-- 
+		<record id="property_rule_'your_unique_name'" model="ir.rule">
+		    <field name="name">Name of the Rule</field>
+		    <field name="model_id" ref="eq_module_template.model_in_the_ir.model.acces.csv"/>
+		    <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+		    <field name="groups" eval="[(4,ref('model.user_group_id'))]"/>
+		</record>
+	    -->
+	</data>
+</openerp>
