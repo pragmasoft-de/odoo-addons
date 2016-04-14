@@ -1,7 +1,8 @@
 ### 14.04.2016
 ### equitania, 1.1.12
 #### Erweiterung
-- Ticket 1867: Umwandeln eines Kunden in eine Chance
+- Attritutwerte der Produktvariante werden nun unter der Produktvariante angezeigt und wurden beschreibbar gemacht (im Kern war dies schon vorhanden aber nur readonly, außerdem wurden die Attributwerte durch das Equitania-Paket ausgeblendet).
+- Sequenz bei den Attributen eingefügt, Logik von eq_website_customerportal ins Equitania-Modul verschoben, um ein doppeltes Feld zu vermeiden.
 
 ### 13.04.2016
 ### eq_imagehelper, 1.0.0
