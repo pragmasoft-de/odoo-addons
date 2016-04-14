@@ -1,3 +1,8 @@
+### 14.04.2016
+### equitania, 1.1.12
+#### Erweiterung
+- Das Feld "Vermittelt durch" im Interessenten/Chance umbennant, sodass deie Bezeichnung nun eindeutig ist.
+
 ### 13.04.2016
 ### eq_imagehelper, 1.0.0
 #### Erweiterung
