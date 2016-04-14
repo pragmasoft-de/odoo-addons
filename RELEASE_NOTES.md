@@ -1,3 +1,8 @@
+### 14.04.2016
+### equitania, 1.1.12
+#### Erweiterung
+- Ticket 1867: Umwandeln eines Kunden in eine Chance
+
 ### 13.04.2016
 ### eq_imagehelper, 1.0.0
 #### Erweiterung
