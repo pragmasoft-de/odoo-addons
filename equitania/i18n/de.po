@@ -204,6 +204,7 @@ msgstr "Kalenderwoche"
 
 #. module: equitania
 #: view:eq.date.done.change:equitania.eq_date_done_form_view
+#: view:eq.product.select.case.section.wiz:equitania.eq_select_crm_case_section_wiz
 #: view:eq_info_optional:equitania.eq_info_optional_form_view
 #: view:eq_pricelist_item_search:equitania.eq_pricelist_item_search_form_view
 #: view:equitania.product.analysis.report.wiz:equitania.eq_product_analysis_report_wiz_view
@@ -2495,6 +2496,7 @@ msgstr "oe_left"
 
 #. module: equitania
 #: view:eq.date.done.change:equitania.eq_date_done_form_view
+#: view:eq.product.select.case.section.wiz:equitania.eq_select_crm_case_section_wiz
 #: view:eq_info_optional:equitania.eq_info_optional_form_view
 #: view:eq_multy_assign_product_no:equitania.eq_multy_assign_product_no_form_view
 #: view:eq_pricelist_item_search:equitania.eq_pricelist_item_search_form_view
@@ -2650,3 +2652,18 @@ msgstr "Adressen"
 #: field:eq.address.search,contact_name:0
 msgid "Contact name"
 msgstr "Partner"
+
+#. module: equitania
+#: model:ir.actions.act_window,name:equitania.partner_change_to_lead_action
+msgid "Change customer to lead"
+msgstr "Kunden in Chance umwandeln"
+
+#. module: equitania
+#: field:eq.product.select.case.section.wiz,crm_case_section_id:0
+msgid "Sales Team"
+msgstr "Verkaufsteam"
+
+#. module: equitania
+#: view:eq.product.select.case.section.wiz:equitania.eq_select_crm_case_section_wiz
+msgid "Change to lead"
+msgstr "In Chance umwandeln"

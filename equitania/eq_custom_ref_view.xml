@@ -242,6 +242,7 @@
                     		<!-- removed standard css class to archive bigger width for name -->
 							<field name="name"  modifiers="{'required': true}"/>							 							 
 						</h3>
+						<field name="attribute_value_ids" widget="many2many_tags"/>
 					</div>
                 </xpath>
                                 

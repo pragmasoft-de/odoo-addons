@@ -145,7 +145,7 @@ class eq_product_product(osv.osv):
                 'eq_sale_count': fields.function(_eq_sale_count, type="char", string='Sales'),                
                 'eq_rrp': fields.float(string='RRP'),
                 'eq_sale_min_qty': fields.integer(string='Min. order quantity'),
-                
+                'attribute_value_ids': fields.many2many('product.attribute.value', id1='prod_id', id2='att_id', string='Attributes', readonly=False, ondelete='restrict'),
                 }
     
     _defaults = {
@@ -162,3 +162,12 @@ class eq_product_template_standard_price_history(osv.osv):
                 'create_uid': fields.many2one('res.users', string="User"),
                 'create_date': fields.datetime(string="Create Date"),
                 }
+    
+    
+class eq_product_attribute_value(osv.osv):
+    _inherit = 'product.attribute.value'
+    _order = 'attribute_id, sequence'
+    
+    
+    
+    
