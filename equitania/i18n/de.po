@@ -204,6 +204,7 @@ msgstr "Kalenderwoche"
 
 #. module: equitania
 #: view:eq.date.done.change:equitania.eq_date_done_form_view
+#: view:eq.product.select.case.section.wiz:equitania.eq_select_crm_case_section_wiz
 #: view:eq_info_optional:equitania.eq_info_optional_form_view
 #: view:eq_pricelist_item_search:equitania.eq_pricelist_item_search_form_view
 #: view:equitania.product.analysis.report.wiz:equitania.eq_product_analysis_report_wiz_view
@@ -266,6 +267,7 @@ msgstr "Bezeichnung"
 #: view:crm.lead:equitania.crm_case_form_view_oppor_ext
 #: view:crm.lead:equitania.crm_lead_form_ext
 #: view:res.partner:equitania.eq_partner_extension_form_view
+#: field:eq.address.search,city:0
 msgid "City"
 msgstr "Stadt"
 
@@ -888,6 +890,7 @@ msgstr "IBAN:"
 #: field:report.purchase.report_purchaseorder,id:0
 #: field:report.purchase.report_purchasequotation,id:0
 #: field:report.sale.report_saleorder,id:0
+#: field:eq.address.search,id:0
 #: field:report.stock.report_picking,id:0 field:sale_layout.category,id:0
 msgid "ID"
 msgstr "ID"
@@ -1381,6 +1384,7 @@ msgstr "Ansprechpartner"
 
 #. module: equitania
 #: view:website:equitania.report_invoice_data
+#: field:eq.address.search,phone:0
 #: view:website:equitania.report_purchasequotation_data
 #: view:website:equitania.report_purchaseorder_data
 #: view:website:equitania.report_saleorder_data
@@ -1663,10 +1667,20 @@ msgid "Reason"
 msgstr "Grund"
 
 #. module: equitania
-#: field:crm.lead,eq_lead_referred_id:0 field:crm.lead,eq_lead_referred_name:0
 #: field:res.partner,eq_lead_referred_id:0
+#: field:crm.lead,eq_lead_referred_id:0 
+msgid "Referred By ID"
+msgstr "Vermittelt durch ID"
+
+#. module: equitania
+#: field:crm.lead,eq_lead_referred_name:0
 msgid "Referred By"
 msgstr "Vermittelt durch"
+
+#. module: crm
+#: field:crm.lead,referred:0
+msgid "Referred By"
+msgstr "Vermittelt durch (Alt)"
 
 #. module: equitania
 #: view:eq.lead.referred:equitania.eq_lead_referred_form
@@ -2482,6 +2496,7 @@ msgstr "oe_left"
 
 #. module: equitania
 #: view:eq.date.done.change:equitania.eq_date_done_form_view
+#: view:eq.product.select.case.section.wiz:equitania.eq_select_crm_case_section_wiz
 #: view:eq_info_optional:equitania.eq_info_optional_form_view
 #: view:eq_multy_assign_product_no:equitania.eq_multy_assign_product_no_form_view
 #: view:eq_pricelist_item_search:equitania.eq_pricelist_item_search_form_view
@@ -2598,3 +2613,57 @@ msgstr "Kundenreferenz:"
 #: view:website:equitania.report_invoice_data
 msgid "/ Order No:"
 msgstr "/ Auftrag-Nr:"
+
+#. module: equitania
+#: field:eq.address.search,eq_crm_lead_id:0
+msgid "Lead"
+msgstr "Interessent"
+
+#. module: equitania
+#: field:eq.address.search,name:0
+msgid "Name"
+msgstr "Name"
+
+#. module: equitania
+#: field:eq.address.search,eq_partner_id:0
+#: field:eq.address.search,res_partner:0
+msgid "Partner"
+msgstr "Kunde/Lieferant"
+
+#. module: equitania
+#: field:eq.address.search,zip:0
+msgid "Zip"
+msgstr "PLZ"
+
+#. module: equitania
+#: view:eq.address.search:equitania.eq_address_search_form_view
+#: view:eq.address.search:equitania.eq_address_search_tree_view
+#: view:eq.address.search:equitania.eq_address_search_view
+msgid "Address search"
+msgstr "Adressen"
+
+#. module: equitania
+#: model:ir.actions.act_window,name:equitania.action_address_search_form
+#: model:ir.ui.menu,name:equitania.menu_address_search_form
+msgid "Address Search"
+msgstr "Adressen"
+
+#. module: equitania
+#: field:eq.address.search,contact_name:0
+msgid "Contact name"
+msgstr "Partner"
+
+#. module: equitania
+#: model:ir.actions.act_window,name:equitania.partner_change_to_lead_action
+msgid "Change customer to lead"
+msgstr "Kunden in Chance umwandeln"
+
+#. module: equitania
+#: field:eq.product.select.case.section.wiz,crm_case_section_id:0
+msgid "Sales Team"
+msgstr "Verkaufsteam"
+
+#. module: equitania
+#: view:eq.product.select.case.section.wiz:equitania.eq_select_crm_case_section_wiz
+msgid "Change to lead"
+msgstr "In Chance umwandeln"

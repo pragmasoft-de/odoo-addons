@@ -21,6 +21,13 @@
 
 from openerp import http
 
+# OLD API
+#attachments_obj = http.request.registry['ir.attachment'].sudo()
+
+# NEW API
+#attachments_obj = http.request.env['ir.attachment'].sudo()
+
+
 # class EqWebsiteTemplate(http.Controller):
 #     @http.route('/eq_website_template/eq_website_template/', auth='public')
 #     def index(self, **kw):

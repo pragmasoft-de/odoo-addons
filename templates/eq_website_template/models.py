@@ -28,3 +28,8 @@ from openerp import models, fields, api
 #     _name = 'eq_website_template.eq_website_template'
 
 #     name = fields.Char()
+
+
+
+
+        

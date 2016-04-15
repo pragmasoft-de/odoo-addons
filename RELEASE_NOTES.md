@@ -1,3 +1,26 @@
+### 14.04.2016
+### equitania, 1.1.12
+#### Erweiterung
+- Attritutwerte der Produktvariante werden nun unter der Produktvariante angezeigt und wurden beschreibbar gemacht (im Kern war dies schon vorhanden aber nur readonly, außerdem wurden die Attributwerte durch das Equitania-Paket ausgeblendet).
+- Sequenz bei den Attributen eingefügt, Logik von eq_website_customerportal ins Equitania-Modul verschoben, um ein doppeltes Feld zu vermeiden.
+#### Änderung
+- Das Feld "Vermittelt durch" im Interessenten/Chance umbennant, sodass deie Bezeichnung nun eindeutig ist.
+
+### 13.04.2016
+### eq_imagehelper, 1.0.0
+#### Erweiterung
+- Neues Modul mit dem man die Größe der Referenzbildern optimieren kann
+Aufruf: http://localhost:8069/reset_images
+
+### 12.04.2016
+### equitania, 1.1.11
+#### Erweiterung
+- Ticket 1700: Erweiterung für Suche über alle Adresstabellen und Korrektur für Query für Ermittlung der Daten 
+
+### equitania, 1.1.10
+#### Fix
+- Übersetzung für "Vermittelt durch" angepasst.
+
 ### 12.04.2016
 ### equitania, 1.1.9
 #### Fix
@@ -9,7 +32,7 @@
 - Ticket 1700: Begonnen mit Erweiterung der Suchfunktion für Adressen
 
 ### 11.04.2016
-### equitania, 1.0.13
+### eq_quotation_enhancement, 1.0.13
 #### Erweiterung
 - Ticket 1861: Erweiterungen für Textvorlagen für Einkäufe
 
@@ -24,15 +47,19 @@
 #### Erweiterung
 - Ticket 2513: Button "Anlegen" für Positionsansicht wurde entfernt (führte zur Anlage von Positionen ohne Auftragskopf
 - Ticket 2534: Neues Feld für Anzeige des Produkttemplates (für automatische Erzeugung des Templates über die Varianten)
+
 ### equitania, 1.1.4
 #### Änderung
 - Rechnungs-Report enthält nun bei dem Summenblock die Möglichkeit für die Anzeige mehrerer Steuersätze (z.B. 19% + 7% usw)
+
 ### equitania, 1.1.4
 #### Änderung
 - Bestellung-Report enthält nun bei dem Summenblock die Möglichkeit für die Anzeige mehrerer Steuersätze (z.B. 19% + 7% usw)
+
 ### equitania, 1.1.3
 #### FIX
 - Steuern werden richtig berechnet und angezeigt.
+
 ### equitania, 1.1.2
 #### Änderung & FIX
 - FIX: Abstände in den Adressanschriften für Hausnummer und PLZ wurden korrigiert

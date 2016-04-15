@@ -25,3 +25,4 @@ import stock_transfer_details
 import sale_line_invoice
 import eq_product_analysis
 import eq_product_sales
+import eq_partner_wiz
