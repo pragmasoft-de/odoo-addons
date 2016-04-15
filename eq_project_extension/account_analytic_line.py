@@ -26,14 +26,15 @@ from datetime import datetime
 class account_analytic_line(models.Model):
     _inherit = 'account.analytic.line'
      
-    eq_tags = fields.Many2many('project.category', string='Tags', compute='_add_tags', readonly=False)
-    eq_filter_by_day = fields.Char(string='Days', compute='_get_day_from_date', readonly=False, store=True)
+    eq_tags = fields.Many2many('project.category', compute='_add_tags', readonly=False)
+    eq_filter_by_day = fields.Char(compute='_get_day_from_date', readonly=False, store=True)
     
     def _add_tags(self):
         
         hr_object = self.env['hr.analytic.timesheet']
         project_work_object = self.env['project.task.work']
         project_task_object = self.env['project.task']
+        
         for record in self:
                
             eq_id_layaway = hr_object.search([('line_id', '=', record.id)]).id      
