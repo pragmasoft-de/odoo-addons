@@ -2100,7 +2100,7 @@ msgstr "Referenznr. des Lieferanten"
 #. module: equitania
 #: view:website:equitania.report_invoice_data
 msgid "Supplier Refund"
-msgstr "Liefer-Gutschrift"
+msgstr "Liefer-Rechnungskorrektur"
 
 #. module: equitania
 #: view:website:equitania.eq_external_layout_header_invoice_data
