@@ -2667,3 +2667,9 @@ msgstr "Verkaufsteam"
 #: view:eq.product.select.case.section.wiz:equitania.eq_select_crm_case_section_wiz
 msgid "Change to lead"
 msgstr "In Chance umwandeln"
+
+#. module: equitania
+#: model:ir.actions.act_window,name:equitania.pricelistversionposition_action
+#: model:ir.ui.menu,name:equitania.pricelistversionposition_menu
+msgid "Pricelistversionsposition"
+msgstr "Preislistenversionspositionen"

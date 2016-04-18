@@ -1,3 +1,10 @@
+### 18.04.2016
+### equitania, 1.1.13
+#### Erweiterung
+- Änderungen bezügl. Attributwerte auskommentiert.
+- Unter Preislisten eine weitere Unterkategorie "Preislistenversionspositionen" hinzugefügt, welche alle Preislistenversionspositionen anzeigt.
+- Hier nun auch Gruppierung nach Preislistenversion, Produkte, Regelbezeichnung, Produkt-Vorlage und Produktkategorie
+
 ### 15.04.2016
 ### eq_project_extension, 1.0.3
 #### Erweiterung

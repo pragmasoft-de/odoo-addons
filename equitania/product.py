@@ -141,16 +141,143 @@ class eq_product_product(osv.osv):
             res[id] = '%d / %d' % (open, all)
         return res
     
+    # TODO: ! Step 1
+#     def copy(self, cr, uid, id, default=None, context=None):
+#         
+#         print "*** COPY ***"
+#         print "* id: ", id
+#         print "* default: ", default
+#         print "* context: ", context
+        
+#         sql = "delete from product_attribute_value_product_product_rel where prod_id = '" + str(id) + "'"
+#         cr.execute(sql)
+#         record = cr.fetchone()
+     
+        
+        
+        """
+        hier noch attribute löschen        
+        """
+        
+        """
+        old_id = context['active_id']        
+        
+        self.new_product_template = self.copy_product(cr, uid, ids, context)
+        self.copy_bom(old_id, cr, uid, ids, context)
+        self.copy_workplan(cr, uid, ids, context)
+        
+        # open new created copy of product on new page
+        return self.open_product(cr, uid, self.new_product_template.id, context)
+        """
+    
+    # def _get_partner_code_name(self, cr, uid, ids, product, partner_id, context=None):
+#     def _get_product_tmpl_id_for_product(self, cr, uid, ignored_product_id, context=None):
+#         
+#         sql = "select product_tmpl_id from product_product where id = '" + str(ignored_product_id) + "'"
+#         cr.execute(sql)
+#         record = cr.fetchone()
+#         return record[0]
+#     
+#     def _get_products_for_template(self, cr, uid, ignored_product_id, context=None):        
+#         result = []
+#         product_tmpl_id = self._get_product_tmpl_id_for_product(cr, uid, ignored_product_id, context)                
+#         """
+#         select id from product_product where product_tmpl_id = 196 and id != 4478
+#         
+#         select id from product_product where product_tmpl_id = product_tmpl_id and id != ignored_product_id
+#         
+#         liefert eine liste mit allen product_ids zurück
+#         
+#         [1, 2, 3, 4,]
+#         """
+#         list_product_ids = "select id from product_product where product_tmpl_id =" + str(product_tmpl_id) + "and id !=" + str(ignored_product_id)
+#         cr.execute(list_product_ids)
+#         records = cr.fetchall()
+#         for record in records:
+#             result.append(record[0])
+#         
+#         return result
+#     
+#     
+#     # TODO: ! das implementieren !
+#     def write(self, cr, uid, ids, values, context={}):
+#         if context == None:    
+#             context = {}
+#                 
+#         print "***** write *****"
+#         print "* values: ", values
+#         print type(values)
+#         
+#         attribute_ids = []
+#         if 'attribute_value_ids' in values:
+#             attr_ids = values['attribute_value_ids']
+#             for x in attr_ids:
+#                 attribute_ids = x[2]
+#                                         
+#                           
+#             # hier logik implementieren
+#             product_id = ids
+#             print "attribute_ids: ", attribute_ids            
+#             count_of_attributes_from_user = len(attribute_ids)
+#             
+#             
+#             # get attributes of EACH saved product.product 
+#             existing_product_ids_for_actual_template = self._get_products_for_template(cr, uid, ids[0], context)            
+#             print"existing_product_ids_for_actual_template:", existing_product_ids_for_actual_template
+#             
+#             save_is_possible = True
+#             for existing_product_id in existing_product_ids_for_actual_template:            
+#                 attributes_from_db = []
+#                 sql = "select att_id from product_attribute_value_product_product_rel where prod_id = '" + str(existing_product_id) + "'"
+#                 cr.execute(sql)
+#                 records = cr.fetchall()
+#                 for record in records:
+#                     att_id = record[0]
+#                     print "att_id: ", att_id
+#                     attributes_from_db.append(att_id)
+#                   
+#                 count_of_attributes_from_db = len(attributes_from_db)
+#                 print "attributes_from_db: ", attributes_from_db
+#                 print "count_of_attributes_from_db: ", count_of_attributes_from_db
+#                                                             
+#                 if count_of_attributes_from_db == count_of_attributes_from_user:
+#                     print"Anzahl ist gleich"
+#                     if attributes_from_db == attribute_ids:
+#                         print"Attribute sind auch gleich"
+#                         #Fehlermeldung
+#                         save_is_possible = False                
+#             
+#             if save_is_possible:
+#                 return super(eq_product_product, self).write(cr, uid, ids, values, context=context)
+#         
+        #can_save = False
+        
+       
+#         if can_save:
+#             res = super(eq_product_product, self).write(cr, uid, ids, values, context=context)
+#             print "* write - result: ", res
+#         else:
+#             # warnung ausgeben
+#             print "*** update nicht möglich, variante bereits vorhanden ***"
+#         
+#         return res
+#       
+    
+    
+    
+    
     _columns = {
                 'eq_sale_count': fields.function(_eq_sale_count, type="char", string='Sales'),                
                 'eq_rrp': fields.float(string='RRP'),
                 'eq_sale_min_qty': fields.integer(string='Min. order quantity'),
-                'attribute_value_ids': fields.many2many('product.attribute.value', id1='prod_id', id2='att_id', string='Attributes', readonly=False, ondelete='restrict'),
+                #'attribute_value_ids': fields.many2many('product.attribute.value', id1='prod_id', id2='att_id', string='Attributes', readonly=False, ondelete='restrict', copy=False),
+                #'attribute_value_ids': fields.many2many('product.attribute.value', id1='prod_id', id2='att_id', string='Attributes', readonly=True, ondelete='restrict', copy=False),
                 }
     
     _defaults = {
                  'eq_sale_min_qty': 0,
-    }
+     }
+    
     
 class eq_product_template_standard_price_history(osv.osv):
     _name = 'product.template.standard_price_history'
@@ -167,6 +294,9 @@ class eq_product_template_standard_price_history(osv.osv):
 class eq_product_attribute_value(osv.osv):
     _inherit = 'product.attribute.value'
     _order = 'attribute_id, sequence'
+    
+    
+    
     
     
     
