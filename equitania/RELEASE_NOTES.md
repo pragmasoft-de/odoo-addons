@@ -1,6 +1,11 @@
 ## Modul equitania
 
 #### 19.04.2016
+#### Version 1.1.15
+##### Änderung
+- Das Feld Kontatk-Name wird im Interessenten und der Chance angezeigt.
+
+#### 19.04.2016
 #### Version 1.1.14
 ##### FIX
 - Fehler durch nicht-definierte Ansicht behoben.
