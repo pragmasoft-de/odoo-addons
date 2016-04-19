@@ -1,538 +1,579 @@
-### 19.04.2016
-### equitania, 1.1.14
-#### FIX
+## Modul equitania
+
+#### 19.04.2016
+#### Version 1.1.14
+##### FIX
 - Fehler durch nicht-definierte Ansicht behoben.
 
-### 18.04.2016
-### equitania, 1.1.13
-#### Erweiterung
+
+#### 18.04.2016
+#### Version 1.1.13
+##### Erweiterung
 - Änderungen bezügl. Attributwerte auskommentiert.
 - Unter Preislisten eine weitere Unterkategorie "Preislistenversionspositionen" hinzugefügt, welche alle Preislistenversionspositionen anzeigt.
 - Hier nun auch Gruppierung nach Preislistenversion, Produkte, Regelbezeichnung, Produkt-Vorlage und Produktkategorie
 
-### 15.04.2016
-### eq_project_extension, 1.0.3
-#### Erweiterung
-- Attribute eines Projekts sind nun readonly, wenn das Projekt nicht den Status "offen" ist
-- Aufgaben können nur für Projekte erstellt werden, die den Status "offen" haben
 
-### 15.04.2016
-### eq_project_extension, 1.0.2
-#### Erweiterung
-- Übersetzung hinzugefügt
-- Aufgaben können nun nach Kalendertag sortiert werden
-- Das Feld "eq_to_invoice" hat einen Default-Wert bekommen
-
-### 14.04.2016
-### equitania, 1.1.12
-#### Erweiterung
-- Attritutwerte der Produktvariante werden nun unter der Produktvariante angezeigt und wurden beschreibbar gemacht (im Kern war dies schon vorhanden aber nur readonly, außerdem wurden die Attributwerte durch das Equitania-Paket ausgeblendet).
+#### 14.04.2016
+#### Version 1.1.12
+##### Erweiterung
+- Attributwerte der Produktvariante werden nun unter der Produktvariante angezeigt und wurden beschreibbar gemacht (im Kern war dies schon vorhanden aber nur readonly, außerdem wurden die Attributwerte durch das Equitania-Paket ausgeblendet).
 - Sequenz bei den Attributen eingefügt, Logik von eq_website_customerportal ins Equitania-Modul verschoben, um ein doppeltes Feld zu vermeiden.
-#### Änderung
-- Das Feld "Vermittelt durch" im Interessenten/Chance umbennant, sodass deie Bezeichnung nun eindeutig ist.
 
-### 13.04.2016
-### eq_imagehelper, 1.0.0
-#### Erweiterung
-- Neues Modul mit dem man die Größe der Referenzbildern optimieren kann
-Aufruf: http://localhost:8069/reset_images
 
-### 12.04.2016
-### equitania, 1.1.11
-#### Erweiterung
+##### Änderung
+- Das Feld "Vermittelt durch" im Interessenten/Chance umbenannt, sodass die Bezeichnung nun eindeutig ist.
+
+
+#### 12.04.2016
+#### Version 1.1.11
+##### Erweiterung
 - Ticket 1700: Erweiterung für Suche über alle Adresstabellen und Korrektur für Query für Ermittlung der Daten 
 
-### equitania, 1.1.10
-#### Fix
+
+#### Version 1.1.10
+##### Fix
 - Übersetzung für "Vermittelt durch" angepasst.
 
-### 12.04.2016
-### equitania, 1.1.9
-#### Fix
+
+#### 12.04.2016
+#### Version 1.1.9
+##### Fix
 - Übersetzung angepasst.
 
-### 11.04.2016
-### equitania, 1.1.8
-#### Erweiterung
+
+#### 11.04.2016
+#### Version 1.1.8
+##### Erweiterung
 - Ticket 1700: Begonnen mit Erweiterung der Suchfunktion für Adressen
 
-### 11.04.2016
-### eq_quotation_enhancement, 1.0.13
-#### Erweiterung
-- Ticket 1861: Erweiterungen für Textvorlagen für Einkäufe
 
-### equitania, 1.1.7
-#### Erweiterung
-- Kundenreferenz und Auftrags-Nr wird in der Position dargestellt. Für den Rechnugnsreport.
-### equitania, 1.1.6
-#### Fix Übersetzung
+#### Version 1.1.7
+##### Erweiterung
+- Kundenreferenz und Auftrags-Nr wird in der Position dargestellt. Für den Rechnungsreport.
 
-### 08.04.2016
-### equitania, 1.1.5
-#### Erweiterung
+
+#### Version 1.1.6
+##### Fix Übersetzung
+
+
+#### 08.04.2016
+#### Version 1.1.5
+##### Erweiterung
 - Ticket 2513: Button "Anlegen" für Positionsansicht wurde entfernt (führte zur Anlage von Positionen ohne Auftragskopf
 - Ticket 2534: Neues Feld für Anzeige des Produkttemplates (für automatische Erzeugung des Templates über die Varianten)
 
-### equitania, 1.1.4
-#### Änderung
-- Rechnungs-Report enthält nun bei dem Summenblock die Möglichkeit für die Anzeige mehrerer Steuersätze (z.B. 19% + 7% usw)
 
-### equitania, 1.1.4
-#### Änderung
-- Bestellung-Report enthält nun bei dem Summenblock die Möglichkeit für die Anzeige mehrerer Steuersätze (z.B. 19% + 7% usw)
+#### Version 1.1.4
+##### Änderung
+- Rechnungs-Report enthält nun bei dem Summenblock die Möglichkeit für die Anzeige mehrerer Steuersätze (z.B. 19% + 7% usw.)
 
-### equitania, 1.1.3
-#### FIX
+
+#### Version 1.1.4
+##### Änderung
+- Bestellung-Report enthält nun bei dem Summenblock die Möglichkeit für die Anzeige mehrerer Steuersätze (z.B. 19% + 7% usw.)
+
+
+#### Version 1.1.3
+##### FIX
 - Steuern werden richtig berechnet und angezeigt.
 
-### equitania, 1.1.2
-#### Änderung & FIX
+
+#### Version 1.1.2
+##### Änderung & FIX
 - FIX: Abstände in den Adressanschriften für Hausnummer und PLZ wurden korrigiert
-- Änderung: Angebots-Report enthält nun bei dem Summenblock die Möglichkeit für die Anzeige mehrerer Steuersätze (z.B. 19% + 7% usw)
+- Änderung: Angebots-Report enthält nun bei dem Summenblock die Möglichkeit für die Anzeige mehrerer Steuersätze (z.B. 19% + 7% usw.)
 
 
-### 03.04.2016
-### equitania, 1.1.1
-#### Fix
+#### 03.04.2016
+#### Version 1.1.1
+##### Fix
 - Die Lieferanschrift in der Rechnung und dem Angebot/Auftrag angepasst.
 
-### 03.04.2016
-### equitania, 1.1.0
-#### FIX Übersetzungen
 
-### 01.04.2016
-### equitania, 1.0.180
-#### FIX
-- Nummerngenerator bei Produkten: Fehler abgefangen (def eq_product_number_update), wenn Trennzeichen nicht gesetzt. Außerdem ist der aneinandergekettete String nun Leerzeichen frei (Seperator kann kein Leerzeichen sein).
+#### 03.04.2016
+#### Version 1.1.0
+##### FIX Übersetzungen
 
-### 31.03.2016
-### equitania, 1.0.179
-#### Erweiterung
+
+#### 01.04.2016
+#### Version 1.0.180
+##### FIX
+- Nummerngenerator bei Produkten: Fehler abgefangen (def eq_product_number_update), wenn Trennzeichen nicht gesetzt. Außerdem ist der aneinandergekettete String nun Leerzeichen frei (Separator kann kein Leerzeichen sein).
+
+
+#### 31.03.2016
+#### Version 1.0.179
+##### Erweiterung
 - Erweiterung um "Seitenumbruch nach Kopftext" --> Einkaufsbelege
 
-### 30.03.2016
-### equitania, 1.0.178
-#### Änderung
+
+#### 30.03.2016
+#### Version 1.0.178
+##### Änderung
 - Textänderung -> den Text "[equitania]" zeigen wir bei der Erweiterung "Seitenumbruch nach Kopftext" icht mehr an
 
-### 30.03.2016
-### equitania, 1.0.177
-#### Erweiterung
+
+#### 30.03.2016
+#### Version 1.0.177
+##### Erweiterung
 - Erweiterung um "Seitenumbruch nach Kopftext" --> Verkaufsbelege (Angebot, AB und Rechnung)
 
-### 29.03.2016
-### equitania, 1.0.176
-#### Änderung
+
+#### 29.03.2016
+#### Version 1.0.176
+##### Änderung
 - Einkaufsreport auf die neuen Templates umgestellt
 
-### equitania, 1.0.175
-#### Erweiterung
+
+#### Version 1.0.175
+##### Erweiterung
 - Methode create(...) der Klasse "stock_picking_extension" erweitert. Ab jetzt ist Verlinkung auf sale_order im Feld eq_sale_order gespeichert
 
-### 29.03.2016
-### equitania, 1.0.174
-#### Fix
+
+#### 29.03.2016
+#### Version 1.0.174
+##### Fix
 - In der res_partner.py bei der Funktion _address_fields: append() mit extend() ersetzt, da mehrere Argumente einer Liste hinzugefügt werden sollen.
 
-### 26.03.2016
-### equitania, 1.0.173
-#### Änderung
+
+#### 26.03.2016
+#### Version 1.0.173
+##### Änderung
 - Abhängigkeit zu account_cancel ergänzt, da dies immer gebraucht wird
--  
-### 24.03.2016
-### equitania, 1.0.172
-#### Änderung
+
+
+#### 24.03.2016
+#### Version 1.0.172
+##### Änderung
 - Produktvorlage wird in der Formansicht de Produktvariante angezeigt
 - Lieferschein-Report um eine ID erweitert und einen fixen Abstand ersetzt
 
-### equitania, 1.0.171
-#### Änderung
+
+#### Version 1.0.171
+##### Änderung
 - Anpassung für Rechnungen
 
-### equitania, 1.0.170
-#### Fix
+
+#### Version 1.0.170
+##### Fix
 - Korrektur für Übersetzungen
 
-### 24.03.2016
-### eq_project_extension, 1.0.0
-#### Erweiterung
-- Initiale Modul-Erstellung
-- Schlagwörter (der Aufgaben) haben eine eigene Spalte in der Account.Analytic.Line-Ansicht bekommen
 
-### 23.03.2016
-### equitania, 1.0.169
-#### Änderung
+#### 23.03.2016
+#### Version 1.0.169
+##### Änderung
 - Verschieben von Rechnungspositionen
 - Suche für Chancen angepasst
-#### Änderung
+
+
+##### Änderung
 - Stadtteil wird übernommen, wenn der Haken bei "Unternehmensanschrift verwenden" gesetzt wird.
 - Stadtteil und Hausnummer werden für bestehende Kontakte übernommen.
 
-### equitania, 1.0.169
-#### Änderung
+#### Version 1.0.169
+##### Änderung
 - Hausnummer wird übernommen, wenn der Haken bei "Unternehmensanschrift verwenden" gesetzt wird.
 
-### 23.03.2016
-### equitania, 1.0.168
-#### Änderung
+
+#### 23.03.2016
+#### Version 1.0.168
+##### Änderung
 - Übersetzung angepasst
 - Lieferschein-Report wurde um eine CSS Klasse erweitert
 
-### 22.03.2016
-### equitania, 1.0.167
-#### Erweiterung
+
+#### 22.03.2016
+#### Version 1.0.167
+##### Erweiterung
 - Konfigurationsmöglichkeit für manuelles Setzen der Positionsnummer
 
-### 21.03.2016
-### equitania, 1.0.166
-#### Änderung
+
+#### 21.03.2016
+#### Version 1.0.166
+##### Änderung
 - Telefon, Fax und Mail aus der Formansicht der Benutzer entfernt.
 - Produktbeschreibung wird in der Position geändert, sobald das Produkt geändert wird.
 
-### 18.03.2016
-### equitania, 1.0.165
-#### Änderung
+
+#### 18.03.2016
+#### Version 1.0.165
+##### Änderung
 - Verbesserung für Übersetzung
 
-### 18.03.2016
-### equitania, 1.0.164
-#### Änderung
+
+#### 18.03.2016
+#### Version 1.0.164
+##### Änderung
 - Anpassungen der Ansicht für Angebotserstellung
 
-### 18.03.2016
-### equitania, 1.0.163
-#### Fix
+
+#### 18.03.2016
+#### Version 1.0.163
+##### Fix
 - Korrektur für Reportnamen
 
-### 18.03.2016
-### equitania, 1.0.162
-#### Fix
+
+#### 18.03.2016
+#### Version 1.0.162
+##### Fix
 - Korrektur für __openerp__.py
 
-### 17.03.2016
-### equitania, 1.0.161
-#### Änderung
+
+#### 17.03.2016
+#### Version 1.0.161
+##### Änderung
 - Reports für Renner-/Pennerliste
 
-### 16.03.2016
-### equitania, 1.0.160
-#### Fix
+
+#### 16.03.2016
+#### Version 1.0.160
+##### Fix
 - Rechnung-Reports: Übersetzungskorrekt für das Lieferdatum
 
-### 15.03.2016
-### equitania, 1.0.159
-#### Fix
+
+#### 15.03.2016
+#### Version 1.0.159
+##### Fix
 - Hausnummer der Firma wird im Partnerdatensatz gespeichert, genau wie der Rest der Adresse.
 - Reports: Die Absendeadresse greift nun direkt auf die Firmendaten, und nichtmehr auf den Partner darunter
 
-### 09.03.2016
-### equitania, 1.0.158
-#### Änderung
+
+#### 09.03.2016
+#### Version 1.0.158
+##### Änderung
 - Erweitern der Lieferscheine um eine ID
 
-### 07.03.2016
-### equitania, 1.0.157
-#### Bugfix
+
+#### 07.03.2016
+#### Version 1.0.157
+##### Bugfix
 - Fehler im SQL-Statement in der Funktion _eq_sale_count(...) behoben. Jetzt kann man neue Produkte speichern
 
-### 07.03.2016
-### equitania, 1.0.156
-#### Bugfix
+
+#### 07.03.2016
+#### Version 1.0.156
+##### Bugfix
 - Fehler in der Funktion calculate_sum(..) beseitigt. Bei der Rechnungsposition gibt es das Feld eq_optional und product_uom_qty nicht
 
-### 04.03.2016
-### equitania, 1.0.155
-#### Erweiterung
+
+#### 04.03.2016
+#### Version 1.0.155
+##### Erweiterung
 - Erweiterung der Basisklassen für Sale-Reports um 2 neue Funktion (GetUserInfo und GetUserSignature). Die Funktionen sind im ReportHelper
 
-### 03.03.2016
-### equitania, 1.0.154
-#### Änderung
+
+#### 03.03.2016
+#### Version 1.0.154
+##### Änderung
 - Übersetzung angepasst.
-### equitania, 1.0.153
-#### Änderung
+
+
+#### Version 1.0.153
+##### Änderung
 - Incoterm wird zu Incoterm übersetzt.
 
-### 02.03.2016
-### equitania, 1.0.152
-#### Fix
+
+
+#### 02.03.2016
+#### Version 1.0.152
+##### Fix
 - Offene Menge der Verkäufe im Produkt wird richtig berechnet.
-### equitania, 1.0.151
-#### Fix
+
+
+#### Version 1.0.151
+##### Fix
 - Offene Menge bei der Verkaufspositionen wird richtig berechnet.
-### equitania, 1.0.150
-#### Fix
+
+
+#### Version 1.0.150
+##### Fix
 - Die Methode product_id_change kann ohne context aufgerufen werden.
 
-### 01.03.2016
-### equitania, 1.0.149
-#### Fix
+
+#### 01.03.2016
+#### Version 1.0.149
+##### Fix
 - Im Lieferschein wird die Produktbeschreibung als Text gespeichert, wodurch die Formatierung nicht verloren geht.
-### equitania, 1.0.148
-#### Fix
+
+
+#### Version 1.0.148
+##### Fix
 CRM/Lead/Interessent
-- "Unternehmensanschrift verwenden" wird nun standardgemaeß gesetzt 
-### equitania, 1.0.147
-#### Fix + Erweiterung
+- "Unternehmensanschrift verwenden" wird nun standard gesetzt 
+
+
+#### Version 1.0.147
+##### Fix + Erweiterung
 CRM/Lead/Interessent
-- Uebersetzungen nachgepflegt (auch Placeholder)
-- Feldvergroesserung
+- Übersetzungen nachgepflegt (auch Placeholder)
+- Feldvergrösserung
 - Hausnummer
 - PLZ, Stadt, Stadtteil untereinander
 - Feld Stadtteil hinzugefuegt
-- Neue Felder bei Wandlung zum Kunden beruecksichtigt
+- Neue Felder bei Wandlung zum Kunden berücksichtigt
 - Disctrict in District umbenannt
-### equitania, 1.0.146
-#### Fix
+
+
+#### Version 1.0.146
+##### Fix
 - Dateinamen geändert, sodass die ungenaue Suche funktioniert.
 
-### 29.02.2016
-### equitania, 1.0.145
-#### Erweiterung
-- Sectionen für den Report können übersetzt werden. Menüeintrag umbennant in "Report Sektionen".
-### equitania, 1.0.144
-#### Erweiterung
+#### 29.02.2016
+#### Version 1.0.145
+##### Erweiterung
+- Selectionen für den Report können übersetzt werden. Menüeintrag umbenannt in "Report Sektionen".
+
+
+#### Version 1.0.144
+##### Erweiterung
 - Ungenaue Suche für die standard und erweiterte Suche eingebaut.
 - Beschreibung:
 - Um alle Kunden zu finden, die sich im PLZ Bereich 75XXX befinden, müssen man bei der Suche "|75%" eingeben.
 - Das Zeichen "|" (Pipe) gibt an, dass die Zeichen "%" und '_' anders interpretiert werden. Das Prozentzeichen "%" steht für eine unbestimmte Anzahl beliebiger Zeichen
 - und der -Unterstrich "_" für genau ein beliebiges Zeichen.
 
-### equitania, 1.0.143
-#### Änderung
+
+#### Version 1.0.143
+##### Änderung
 - Vor- und Zuname der Chance aus dem eq_bms Modul umgezogen.
 
-### 25.02.2016
-### equitania, 1.0.142
-#### Änderung
+
+#### 25.02.2016
+#### Version 1.0.142
+##### Änderung
 - Anpassung für Zusammensetzen des Beschreibungstextes der Produkte in Angeboten
-#### Bugfix
+##### Bugfix
 - Fehler auf der Rechnung mit Sektionen korrigiert
 
-### 24.02.2016
-### equitania, 1.0.141
-#### Erweiterung
+
+#### 24.02.2016
+#### Version 1.0.141
+##### Erweiterung
 - Die Maske "User -> Einstellungen ->" um neue Image Feld für Unterschrift erweitert 
 
-### 24.02.2016
-### equitania, 1.0.140
-#### Fix
+
+#### 24.02.2016
+#### Version 1.0.140
+##### Fix
 - Die Benutzergruppe "Reiter Beschaffung in den Produkten anzeigen" hat bei manchen Systemen nicht funktioniert.
 
-### 19.02.2016
-### eq_google_shopping_feed, 1.0.3
-#### Fix
-- Indexfehler  products[0].ids korrigiert
 
-### 16.02.2016
-### equitania, 1.0.139
-#### Erweiterung
+#### 16.02.2016
+#### Version 1.0.139
+##### Erweiterung
 - Richtige Übersetzung für das Feld "Bundesland" des Interessenten eingefügt.
 - SaleOrderReport: Kleine Anpassung für die Kopfzeile bei Rabatten
 
-### 15.02.2016
-### equitania, 1.0.138
-#### Erweiterung
+
+#### 15.02.2016
+#### Version 1.0.138
+##### Erweiterung
 - Report Sale Order: Erweitern von zwei CSS Klassen für weitere Änderungen an Reports
 
-### 12.02.2016
-### equitania, 1.0.137
-#### Fix
+
+#### 12.02.2016
+#### Version 1.0.137
+##### Fix
 - Richtigen Helptext für die Benutzergruppe Lieferanten einblenden eingefügt.
 
-### 10.02.2016
-### equitania, 1.0.136
-#### Erweiterung
+
+#### 10.02.2016
+#### Version 1.0.136
+##### Erweiterung
 - Erweiterung der Funktionalität für Rechnung (Kopf- und Fußtext) für den Fall "Rechnung direkt unter Ausgangsrechnungen erstellen"
 
-### 10.02.2016
-### equitania, 1.0.135
-#### Erweiterung
+
+#### 10.02.2016
+#### Version 1.0.135
+##### Erweiterung
 - Erweiterung der Funktionalität für Rechnung (Kopf- und Fußtext) für den Fall "Rechnung auf Basis Auslieferung" 
 
-### 10.02.2016
-### equitania, 1.0.134
-#### Erweiterung
-- Erweiterung der Funktionalität für Zahlungsbedingugen (Wildcards)
+
+#### 10.02.2016
+#### Version 1.0.134
+##### Erweiterung
+- Erweiterung der Funktionalität für Zahlungsbedingungen (Wildcards)
 - Erweiterung der Funktionalität für Rechnung (Kopf- und Fußtext)
 
-### 09.02.2016
-### equitania, 1.0.133
-#### Änderung
+
+#### 09.02.2016
+#### Version 1.0.133
+##### Änderung
 - Rück-Lieferschein auf die neue Variante umgebaut
-### eq_plain_reports 1.0.4
-#### NEU
-- Rück-Lieferschein als Plain-Report erstellt
 
-### 05.02.2016
-### eq_plain_reports 1.0.3
-#### ADD
-- Descriptiondatei befüllt mit: aktuellem Stand der Umsetzung und Anleitung zur Nutzung der Plain Reports (Briefpapier-Anpassungen)
 
-### 04.02.2016
-### eq_quotation_enhancement, 1.0.12
-### equitania, 1.0.132
-#### Änderung
-- ID für die Übersetzung nachgepflegt, für die neuen Angebote-Reports
-#### Änderung
+#### 04.02.2016
+#### Version 1.0.132
+##### Änderung
 - Report Papierformat geändert: Die Maße für den Kopfbereich der Papierformate wurde aktualisiert, Neu:
 > Kopfrand (headerspacing) = 49
 > Kopfzeilenabstand (margin_top) = 49
-### equitania, 1.0.131
-#### Änderung
+
+
+#### Version 1.0.131
+##### Änderung
 - Die Felder für Telefon, Mobil und Fax werden direkt im Benutzer angezeigt.
 
-### 03.02.2016
-### equitania, 1.0.130
-#### Änderung
-- Verkauf/Einkauf/Rechnung: Kopf- und Fußtext in seperate Reiter eingefügt. Kontaktperson zu Sachbearbeiter umbenannt.
+
+#### 03.02.2016
+#### Version 1.0.130
+##### Änderung
+- Verkauf/Einkauf/Rechnung: Kopf- und Fußtext in separate Reiter eingefügt. Kontaktperson zu Sachbearbeiter umbenannt.
 - Verkauf/Rechnung Einkäufer unter den Sachbearbeiter gefügt.
-### equitania, 1.0.129
-#### Änderung
+
+
+#### Version 1.0.129
+##### Änderung
 - Reports Verkauf/Rechnung: Statt dem Sachbearbeiter, den Verkäufer in den Kontaktinformationen drucken
 
-### 02.02.2016
-### equitania, 1.0.128
-#### Fix
+
+#### 02.02.2016
+#### Version 1.0.128
+##### Fix
 - Lieferschein Reports:
 > Abschluss vom Standard-Umbau
 > FIX vom ReportHeader für Lieferscheine
 > FIX von der Übersetzung für Lieferscheine
-### eq_plain_reports, 1.0.2
-#### ADD
-- Lieferschein Plain Report:
-> Fertiggestellt
 
-### 29.01.2016
-### equitania, 1.0.127
-#### Fix
+
+#### 29.01.2016
+#### Version 1.0.127
+##### Fix
 - Rechnungs-Report: Zeigt nun auch korrekt die abweichende Lieferanschrift im unteren Report-Bereich für Kontakte
-#### Änderung
+##### Änderung
 - Verkaufs-Report: wurde erweitert für die neue Briefpapier-Variante
 - Umstellung der Lieferschein-Reports auf die neue Variante, damit es später für Briefpapiere auch verwendet werden kann
-### eq_plain_reports, 1.0.1
-#### CHG
-- SaleOrder-Report: ist nun auch als Plain-Version (für Briefpapier) umgesetzt
 
-### 28.01.2016
-### equitania, 1.0.126
-#### Fix
+
+#### 28.01.2016
+#### Version 1.0.126
+##### Fix
 - Nicht übermittelten Code eingefügt.
-### equitania, 1.0.125
-#### Fix
+
+
+#### Version 1.0.125
+##### Fix
 - Titel + Name wird für Endkunden in der Suche angezeigt.
-#### Erweiterung
+
+
+##### Erweiterung
 - Lieferscheine Reports: Erweitern um die Logik ob die Rechnungsadresse ein Kontakt ist oder nicht, entsprechend auch Name und Titel abbilden.
 
-### 28.01.2016
-### eq_quotation_enhancement, 1.0.11
-#### Fix
-- Für die onchange Methode wird nicht das gesamte Feld "partner_id" überschrieben, sondern nur das Attribute "on_change".
 
-### 21.01.2016
-### equitania, 1.0.124
-#### Fix
+#### 21.01.2016
+#### Version 1.0.124
+##### Fix
 - Übersetzungsfehler (ID für Templates) korrigiert
 
-### 20.01.2016
-### equitania, 1.0.123
-#### Erweiterung
+
+#### 20.01.2016
+#### Version 1.0.123
+##### Erweiterung
 - Der Menüpunkt "Lieferanten" ist nur für die neu erstellte Gruppe "Bereich 'Lieferanten' in Finanzen anzeigen" sichtbar. Standardmäßig für alle Benutzer aktiviert.
-### equitania, 1.0.122
-#### Änderung
+
+
+#### Version 1.0.122
+##### Änderung
 - Änderung der Lokalisierung von Lieferschein
 
-### 19.01.2016
-### equitania, 1.0.121
-#### Änderung
-- Die Beschränkung der Liefer- und Rechnugnsadresse ins equitania_limit_address_sale Modul ausgelagert und über die Einstellungen installierbar gemacht.
-### equitania_limit_address_sale, 1.0.0
-#### Neu
-- Beschränkt die Liefer- und Rechnungsadresse bei Angeboten und Aufträgen auf die Unteradressen der Hauptadresse.
 
-### 19.01.2016
-### equitania, 1.0.120
-#### Erweiterung
+#### 19.01.2016
+#### Version 1.0.121
+##### Änderung
+- Die Beschränkung der Liefer- und Rechnnugsadresse ins equitania_limit_address_sale Modul ausgelagert und über die Einstellungen installierbar gemacht.
+
+
+#### 19.01.2016
+#### Version 1.0.120
+##### Erweiterung
 - Suche nach "Vermittelt durch" in die Interessenten und Chancen eingefügt..
 
-### 18.01.2016
-### equitania, 1.0.121
-#### Erweiterung
+
+#### 18.01.2016
+#### Version 1.0.121
+##### Erweiterung
 - Vorbereitung für neue Report-Header (invoice und saleorder umgestellt)
 
-### 18.01.2016
-### eq_quotation_enhancement, 1.0.10
-#### Änderung
-- ID Referenz aktualisiert
 
-
-### 18.01.2016
-### equitania, 1.0.120
-#### Fix
+#### 18.01.2016
+#### Version 1.0.120
+##### Fix
 - Zugriffsrechte für die Preishistorie hinzugefügt.
 
-### 15.01.2016
-### equitania, 1.0.119
-#### Erweiterung
+
+#### 15.01.2016
+#### Version 1.0.119
+##### Erweiterung
 - Anpassung des Mailversandes: gültige E-Mailadresse für Return-Path
 - Report Headers um eine CSS Klasse erweitert für bessere Änderungen im Headerbereich
 
-### 14.01.2016
-### equitania, 1.0.118
-#### Erweiterung
+
+#### 14.01.2016
+#### Version 1.0.118
+##### Erweiterung
 - Preishistorie für den Anschaffungspreis eingefügt.
 
-### 11.01.2016
-### equitania, 1.0.117
-#### Verbesserung
+
+#### 11.01.2016
+#### Version 1.0.117
+##### Verbesserung
 - Lokalisierung für "Delivery note" erweitert
 
-### 7.01.2016
-### equitania, 1.0.116
-#### Änderung
+
+#### 7.01.2016
+#### Version 1.0.116
+##### Änderung
 - Die Gruppe "Lagerort" auf der Lasche "Bestand" wurde für Produkte und Varianten ausgeblendet
 
-### 4.01.2016
-### equitania, 1.0.115
-#### Änderung
+
+#### 4.01.2016
+#### Version 1.0.115
+##### Änderung
 - Fehlende Datei eq_sale_order_action_data.xml hinzugefügt
 
-### 23.12.2015
-### equitania, 1.0.114
-#### Änderung
+
+#### 23.12.2015
+#### Version 1.0.114
+##### Änderung
 - Anzeige des Lieferdatums für Positionen in Auftragsformular
 
-### 22.12.2015
-### equitania, 1.0.113
-#### Änderung
+
+#### 22.12.2015
+#### Version 1.0.113
+##### Änderung
 - Änderung der Email-Vorlagen
 
-### 22.12.2015
-### equitania, 1.0.112
-#### Änderung
+
+#### 22.12.2015
+#### Version 1.0.112
+##### Änderung
 -  Email-Vorlage für unsere englische Version von "Send by Email (Online Quote)" hinzugefügt - auch mit funktionierendem Feld eq_house_no
 
-### 22.12.2015
-### equitania, 1.0.111
-#### Änderung
+
+#### 22.12.2015
+#### Version 1.0.111
+##### Änderung
 - Anrede für Firmen geändert
 
-### 22.12.2015
-### equitania, 1.0.110
-#### Änderung
+
+#### 22.12.2015
+#### Version 1.0.110
+##### Änderung
 - Anrede "Hello" auf "Dear" geändert
 
-### 22.12.2015
-### equitania, 1.0.109
-#### Erweiterung
+
+#### 22.12.2015
+#### Version 1.0.109
+##### Erweiterung
 - Anrede wird ab jetzt in beiden Sprachen mit dieser Logik gesetzt:
 1. res_partner is company => Sehr geehrte Damen & Herren,
 2. res_partner is not company => oder Sehr geehrte(r)
 
 
-### 22.12.2015
-### equitania, 1.0.108
-#### Erweiterung
+#### 22.12.2015
+#### Version 1.0.108
+##### Erweiterung
 -  Email-Vorlage für unsere englische Version von "Sale Order Portal" hinzugefügt - endlich auch mit funktionierendem Feld eq_house_no
 
 ! Wichtig ! Damit es korrekt funktioniert, muss man diese Schritte ausführen:
@@ -540,428 +581,478 @@ CRM/Lead/Interessent
 2. Update mit -u equitania ausführen
 3. Jetzt sind alle Änderungen da
 
-### 22.12.2015
-### equitania, 1.0.107
-#### Erweiterung
+
+#### 22.12.2015
+#### Version 1.0.107
+##### Erweiterung
 - Email-Vorlage für unsere englische Version von "Sale Order Portal" hinzugefügt. Im Moment aber wegen einem Fehler in der Vererbung deaktviert 
 
-### 21.12.2015
-### equitania, 1.0.106
-#### Bugfix
+
+#### 21.12.2015
+#### Version 1.0.106
+##### Bugfix
 - Benutzergruppe "Reiter 'Beschaffung' im Produkt anzeigen" wird beim Update oder der Installation für alle Benutzer gesetzt.
 
-### 17.12.2015
-### equitania, 1.0.106
-#### Erweiterung
-- Email-Template für Bestellbestätigun (Portal) verbessert
-### equitania, 1.0.102
-#### Verbesserung
-- Texte aus Auftag und Bestellung in Rechnung übernehmen
 
-### 17.12.2015
-### eq_stock_account_compatibility, 1.0.1
-#### Erweiterung
-- Icon und Beschreibung eingefügt.
+#### 17.12.2015
+#### Version 1.0.106
+##### Erweiterung
+- Email-Template für Bestellbestätigung (Portal) verbessert
 
-### 17.12.2015
-### eq_stock_account_compatibility, 1.0.0
-#### Veröffentlichung
-- Kompatibilitätsmodul für das equitania und stock_account Modul, wodurch die Berechnung des Lagerwertes (Durchschnitt) funktioniert.
-- Aktuelle Bestandsbewertung des Lagers überarbeitet, sodass nicht stock.moves für die id genutzt werden, sondern die stock.quants. Somit fehlen keine Einträge, wenn in einem stock.move unterscheidliche stock.quants hinterlegt sind.
-### equitania
+
+#### Version 1.0.102
+##### Verbesserung
+- Texte aus Auftrag und Bestellung in Rechnung übernehmen
+
+
+#### 17.12.2015
 #### Erweiterung, 1.0.105
 - Der Reiter "Beschaffung" kann über die Gruppen ausgeblendet werden.
-### equitania
+
+
 #### Bugfix, 1.0.104
 - Fehlende Datei hinzugefügt.
-### equitania
-#### Bugfix, 1.0.103
+
+
+##### Bugfix, 1.0.103
 - Fehlerhafte compute function überarbeitet.
-#### Bugfix, 1.0.102
+
+
+##### Bugfix, 1.0.102
 - Durchschnittspreis im "Berichtswesen/Einkauf/Statistik Einkauf" wird wie folgt berechnet (Gesamtpreis/Menge).
 
 
-### 15.12.2015
-### equitania, 1.0.101
-#### Bugfix
+#### 15.12.2015
+#### Version 1.0.101
+##### Bugfix
 - Lieferant wird in der Ausgangsrechnung richtig dargestellt.
 
-### 10.12.2015
-### equitania, 1.0.100
-#### Bugfix
+
+#### 10.12.2015
+#### Version 1.0.100
+##### Bugfix
 - context wird in der Methode "_get_items_from_po" erwartet.
-### equitania, 1.0.99
-#### Änderung
-- Werte für die stock_transfer_details_items werden in einer seperaten Methode erstellt, damit es in der Vererbung verändert werden kann.
-### equitania, 1.0.98
-#### Bugfix
+
+
+#### Version 1.0.99
+##### Änderung
+- Werte für die stock_transfer_details_items werden in einer separaten Methode erstellt, damit es in der Vererbung verändert werden kann.
+
+
+#### Version 1.0.98
+##### Bugfix
 - Deutsche Übersetzung für "Only show Products of selected supplier [equitania]" eingefügt.
 
-### 04.12.2015
-### equitania, 1.0.97
-#### Erweiterung
-- Produkt- und Lieferantenfilterung, anhand der Lieferanten in den Produkten, in die Anfragen und Bestellungen eingefügt. Lässt sicht über die Einstellungen aktivieren. Funktioniert nur für Anfragen und Bestellungen, die nach der Aktivierung erstellt wurden.
 
-### 04.10.2015
-### equitania, 1.0.96
-#### Erweiterung
+#### 04.12.2015
+#### Version 1.0.97
+##### Erweiterung
+- Produkt- und Lieferantenfilterung, anhand der Lieferanten in den Produkten, in die Anfragen und Bestellungen eingefügt. Lässt sich über die Einstellungen aktivieren. Funktioniert nur für Anfragen und Bestellungen, die nach der Aktivierung erstellt wurden.
+
+
+#### 04.10.2015
+#### Version 1.0.96
+##### Erweiterung
 - Lieferschein: Ab jetzt zeigen wird bei der Adresse diese Felder: Anrede, Vorname und Nachname
 
-### 30.11.2015
-### equitania, 1.0.95
-#### Erweiterung
+
+#### 30.11.2015
+#### Version 1.0.95
+##### Erweiterung
 - Footer: Die feste Bezeichnung "Geschäftsführer" ist nun entfernt, stattdessen heißen Zusatzfeld 1-4: nun Bezeichnung (z.b. Geschäftsführer) und 1. - 3. Person für den Report
 INFO: Ggf. muss man im Backend eine "Übersetzung laden" für die deutsche Sprache um die neuen Bezeichnungen zu erhalten.
 
-### 12.11.2015
-### equitania, 1.0.94
-#### Erweiterung
+
+#### 12.11.2015
+#### Version 1.0.94
+##### Erweiterung
 - Deutsche Übersetzung für den Menüpunkt "Bestellpositionen" hinzugefügt.
 
-### 05.11.2015
-### equitania, 1.0.93
-#### Fix
+
+#### 05.11.2015
+#### Version 1.0.93
+##### Fix
 - Deutsche Übersetzung für die Kundennummer im Angebot/Auftrag hinzugefügt.
 
-### 05.11.2015
-### equitania, 1.0.92
-#### Verbesserung
-- Reports: Referenzeinträge des Kunden können nun nurnoch 2 Zeilen in der Länge betragen (inkl. Umbruch im Report). Alles was zuviel ist, wird abgeschnitten, damit der Report korrekt angezeigt bleibt und die Anschrift nicht abgeschnitten wird.
 
-### 29.10.2015
-### equitania, 1.0.91
-#### Erweiterung
+#### 05.11.2015
+#### Version 1.0.92
+##### Verbesserung
+- Reports: Referenzeinträge des Kunden können nun nur noch 2 Zeilen in der Länge betragen (inkl. Umbruch im Report). Alles was zu viel ist, wird abgeschnitten, damit der Report korrekt angezeigt bleibt und die Anschrift nicht abgeschnitten wird.
+
+
+#### 29.10.2015
+#### Version 1.0.91
+##### Erweiterung
 - Kennzeichnung der Felder, die nur für die Variante gelten, eingefügt.
 
-### equitania, 1.0.90
-#### Erweiterung
+
+#### Version 1.0.90
+##### Erweiterung
 - Kundennummer über den Kunden im Verkaufsauftrag eingefügt.
 
-### 28.10.2015
-### equitania, 1.0.89
-#### Bugfix
+
+#### 28.10.2015
+#### Version 1.0.89
+##### Bugfix
 - Beim Ändern des Kunden im Angebot/Verkaufsauftrag kann False nicht mehr als context übergeben werden.
 
-### 26.10.2015
-### equitania, 1.0.88
-#### Erweiterung
+
+#### 26.10.2015
+#### Version 1.0.88
+##### Erweiterung
 - Listen- und Formansicht für das Feld "Vermittelt durch", welches sich im Kunden und Chance/Interessent befindet, eingefügt.
-#### Bugfix
+
+
+##### Bugfix
 - Option "Suche nur nach Firmen in den Angeboten und Verkaufsaufträgen [equitania]" im Einkauf
 
-### 19.10.2015
-### equitania, 1.0.87
-#### Änderung
+
+#### 19.10.2015
+#### Version 1.0.87
+##### Änderung
 - Abhängigkeiten korrigiert.
 
-### 19.10.2015
-### equitania, 1.0.86
-#### Änderung
+
+#### 19.10.2015
+#### Version 1.0.86
+##### Änderung
 - Abhängigkeiten zum 'website', 'website_report', 'website_quote', 'eq_quotation_enhancement' Modul hinzugefügt.
 
-### 16.10.2015
-### equitania, 1.0.85
-#### Bugfix
+#### 16.10.2015
+#### Version 1.0.85
+##### Bugfix
 - Reports mit Positionen ohne Steuer konnten nicht generiert werden.
 
-### 14.10.2015
-### equitania, 1.0.84
-#### Bugfix
-- Alle Benutzer, die Zugriff auf die Produkte haben, können die Produktnummernfolge generieren.
 
-### 12.10.2015
-### equitania, 1.0.83
-#### Erweiterung
+#### 14.10.2015
+#### Version 1.0.84
+##### Bugfix
+- Alle Benutzer, die Zugriff auf die Produkte haben, können die Produktnummerfolge generieren.
+
+
+#### 12.10.2015
+#### Version 1.0.83
+##### Erweiterung
 - Defaultwerte der Maske "Pricelist items" werden ab jetzt gesetzt
 - Änderung der Funktion "product_id_change". Ab jetzt wird der Produkttext nur einmal gesetzt und wird nach der Änderung der Menge nicht mehr ersetzt
 
-### 09.10.2015
-### equitania, 1.0.82
-#### Erweiterung
+
+#### 09.10.2015
+#### Version 1.0.82
+##### Erweiterung
 - Ab jetzt kann man auf der Maske "Benutzer" den zugehörigen Partner auswählen. Es ist nicht mehr readonly
 - Der Preis "price_surcharge" wird ab jetzt auch in der Tabelle "Pricelist Items" in neuer Spalte "Preis" angezeigt
 
-### 02.10.2015
-### equitania, 1.0.81
-#### Erweiterung
+
+#### 02.10.2015
+#### Version 1.0.81
+##### Erweiterung
 - Die Tabelle product.product um neues Feld eq_sale_min_qty erweitert
 - Die Maske "Variante - Productdetail" um das Feld eq_sale_min_qty erweitert
 
 
-### 02.10.2015
-### equitania, 1.0.80
-#### Erweiterung
+#### 02.10.2015
+#### Version 1.0.80
+##### Erweiterung
 - Methode zum Löschen unnötiger Einträge überarbeitet.
 
-### 01.10.2015
-### equitania, 1.0.79
-#### Erweiterung
-- Methode zum Löschen unnötiger Einträge in der ir_model_data Tabelle erweitert, sodass nun auch uninstallierte Module aus der ir_module_module Tabelle entfernt werden.
 
-### 01.10.2015
-### equitania, 1.0.78
-#### Erweiterung
+#### 01.10.2015
+#### Version 1.0.79
+##### Erweiterung
+- Methode zum Löschen unnötiger Einträge in der ir_model_data Tabelle erweitert, sodass nun auch nicht installierte Module aus der ir_module_module Tabelle entfernt werden.
+
+
+#### 01.10.2015
+#### Version 1.0.78
+##### Erweiterung
 - Methode eingefügt, die unnötige Einträge in der ir_model_data Tabelle entfernt.
 
-### 01.10.2015
-### equitania, 1.0.77
-#### Bugfix
-- Gruppeneinschränkung für den Menüeintrag "Einstellungen/Projekte" entfernt, da die Installation des Modules "Projekte" keine Vorraussetzung für dieses Modul ist.
 
-### 30.09.2015
-### equitania, 1.0.76
-#### Bugfix
+#### 01.10.2015
+#### Version 1.0.77
+##### Bugfix
+- Gruppeneinschränkung für den Menüeintrag "Einstellungen/Projekte" entfernt, da die Installation des Modules "Projekte" keine Voraussetzung für dieses Modul ist.
+
+
+#### 30.09.2015
+#### Version 1.0.76
+##### Bugfix
 - Fehlende PLZ in der Infozeile bei der Rechnungsadresse auf der Masken (Angebotsanfrage und Auftrag) korrigiert
 
-### 30.09.2015
-### equitania, 1.0.75
-#### Erweiterung
+
+#### 30.09.2015
+#### Version 1.0.75
+##### Erweiterung
 - Wichtige Kontrolle für Auswertung des Feldes eq_house_no hinzugefügt
 - Strasse, Hausnummer, PLZ, Ort und Land wird ab jetzt auch auf diesen Masken angezeigt (Angebotsanfrage, Bestellung, Eingangsrechnung, Ausgangsrechnung, Auftrag)
 - Default Widget wurde deaktiviert
 
-### 29.09.2015
-### equitania, 1.0.74
-#### Bugfix
+
+#### 29.09.2015
+#### Version 1.0.74
+##### Bugfix
 - Bugfix im Report "eq_report_sale_order" in der Berechnung für optionale Positionen
 
-#### Erweiterung
-- Hausnummer auf der Maske SaleOrder (Angebot, Vertrag) etc. wird ba jetzt bei der Lieferadresse und Rechnungsadresse angezeigt
 
-### 18.09.2015
-### equitania, 1.0.73
-#### Bugfix
+##### Erweiterung
+- Hausnummer auf der Maske SaleOrder (Angebot, Vertrag) etc. wird jetzt bei der Lieferadresse und Rechnungsadresse angezeigt
+
+
+#### 18.09.2015
+#### Version 1.0.73
+##### Bugfix
 - Bei der Funktion "Lieferung stornieren" wurden für die Rücklieferung andere Quants genommen. Nicht die der Lieferung.
 
-### 18.09.2015
-### equitania, 1.0.72
-#### Bugfix
-- Die action_button_conifrm methode im Verkaufsauftrag wird richtig aufgerufen.
 
-### 15.09.2015
-### equitania, 1.0.71
-#### Erweiterung
+#### 18.09.2015
+#### Version 1.0.72
+##### Bugfix
+- Die action_button_conifrm Methode im Verkaufsauftrag wird richtig aufgerufen.
+
+
+#### 15.09.2015
+#### Version 1.0.71
+##### Erweiterung
 - Erweiterung der Reportlogik für alle Belege im Verkauf (optionale Positionen und Bruttopreis)
 
-### 14.09.2015
-### equitania, 1.0.70
-#### Bugfix
-- Fußtext wird in der Formansicht der Ein-/Ausgangrechnung richtig dargestellt.
 
-### 11.09.2015
-### equitania, 1.0.69
-#### Bugfix
-- Änderung an einer XMl Datei auskommentiert, welche das knowledge Modul benötigt.
+#### 14.09.2015
+#### Version 1.0.70
+##### Bugfix
+- Fußtext wird in der Formansicht der Ein-/Ausgangsrechnung richtig dargestellt.
 
-#### Erweiterung
+
+#### 11.09.2015
+#### Version 1.0.69
+##### Bugfix
+- Änderung an einer XML Datei auskommentiert, welche das knowledge Modul benötigt.
+
+
+##### Erweiterung
 - Erweiterung in Darstellung von "Nachname, Vorname" für Kunden mit dem Flag "is_company=False" im Treeview und Kanban
 
-### 10.09.2015
-### equitania, 1.0.68
-#### Erweiterung
+
+#### 10.09.2015
+#### Version 1.0.68
+##### Erweiterung
 - Deutsche Übersetzung für den UVP eingefügt.
 
-### 09.09.2015
-### equitania, 1.0.67
-#### Erweiterung
+
+#### 09.09.2015
+#### Version 1.0.67
+##### Erweiterung
 - Den UVP(RRP) in die Produktvarianten eingefügt.
 
-### 08.09.2015
-### equitania, 1.0.66
-#### Erweiterung
-- Wichtige Änderung in der eq_res_users. Ab jetzt wird keine funktion copy(...) mehr ausgeführt. Es hat nur zu einem Problem mit SignUp geführt.
+
+#### 08.09.2015
+#### Version 1.0.66
+##### Erweiterung
+- Wichtige Änderung in der eq_res_users. Ab jetzt wird keine Funktion copy(...) mehr ausgeführt. Es hat nur zu einem Problem mit SignUp geführt.
 - Wichtige Änderung in der eq_res_users_new_api. Neue Version funktioniert nach dem Refactoring von eq_res_users korrekt im Webshop und auch in der Anpassung für Illingen
 
-### 02.09.2015
-### equitania, 1.0.65
-#### Bugfix
+
+#### 02.09.2015
+#### Version 1.0.65
+##### Bugfix
 - Kreditoren- und Debitorennummer wird in der Kanban Ansicht und den Feldern für Partner richtig dargestellt.
-#### Änderung
+##### Änderung
 - Fußtext in der Formansicht für Ein-/Ausgangsrechnungen auf die gesamte Breite erweitert.
 
-### 31.08.2015
-### equitania, 1.0.64
-#### Erweiterung
+
+#### 31.08.2015
+#### Version 1.0.64
+##### Erweiterung
 - Ab jetzt kann man auf der Maske "Verkauf - Kunden" auch nach eq_name2 suchen
-- Bei Anlage eines Benutzers wird ab jetzt immer beprüft ob es bereits Kunden mit der E-Mail Adresse gibt. Falls ja, wird gleich die Verlinkung zwischen dem Benutzer und Kunden gesetzt.
+- Bei Anlage eines Benutzers wird ab jetzt immer geprüft ob es bereits Kunden mit der E-Mail Adresse gibt. Falls ja, wird gleich die Verlinkung zwischen dem Benutzer und Kunden gesetzt.
 
-### 26.08.2015
-### eq_snom, 1.0.2
-#### Erweiterung
-- Umstellung auf client call. Ab jetzt wird http get direkt aus javascript ausgeführt
-#### Bugfix
-- Fehlerhafte zuweisung der related fields behoben.
 
-### 24.08.2015
-### eq_snom
-#### Bugfix, 1.0.1
-- Write Methode überarbeitet, sodass Benutzer die eigenen Snom Daten eintragen können.
-
-### 21.08.2015
-### equitania
-#### Bugfix, 1.0.63
+#### 21.08.2015
+##### Bugfix, 1.0.63
 - Benutzer können wieder kopiert werden.
 
-### 19.08.2015
-### equitania
-#### Erweiterung, 1.0.62
+
+#### 19.08.2015
+##### Erweiterung, 1.0.62
 - Optionale Positionen in die Auftragspositionen eingefügt.
 -- In der Listenansicht im Angebot werden die optionalen Positionen blau dargestellt.
 -- In dem gedruckten Angebot werden die Zwischensummen der optionalen Positionen in Klammern dargestellt.
 
-### 17.08.2015
-### equitania
-#### Änderung, 1.0.61
+
+#### 17.08.2015
+##### Änderung, 1.0.61
 - Reports: Die Positionen und Schriftgröße der Reports wurde angepasst um potentielle Fehler vorzubeugen
 
-### 13.08.2015
-### equitania
-#### Bugfix, 1.0.60
+
+#### 13.08.2015
+##### Bugfix, 1.0.60
 - Die Felder "Belegnr. des Kunden" und "Referenz / Beschreibung" werden bei allen Abrechnungstypen richtig erfasst.
 
-### 11.08.2015
-### equitania
-#### Bugfix, 1.0.59
+
+#### 11.08.2015
+##### Bugfix, 1.0.59
 - Neues Addon: Snom-Telefonunterstützung. Es können direkt Telefonate aus dem Kundenstamm gestartet werden.
 
-### 10.08.2015
-### equitania
-#### Bugfix, 1.0.58
+
+#### 10.08.2015
+##### Bugfix, 1.0.58
 - Überlieferung wird auch zusammengefasst, wenn ein Produkt nur teilweise verfügbar ist.
 
-### 06.08.2015
-### equitania
-#### Erweiterung, 1.0.57
+
+#### 06.08.2015
+##### Erweiterung, 1.0.57
 - Das Feld "Vermittelt durch" ist ab jetzt auch bei Kunden, deren Kontakten und bei Interessenten
 - Alle Klassen in der Datei eq_lead_referred.py wurden auf neue API umgestellt
 - Die DE.PO Datei wurde um neuen Eintrag erweitert. Diesmal habe ich es wirklich manuell gemacht
 
-### 03.08.2015
-### equitania
-#### Änderung, 1.0.56
+
+#### 03.08.2015
+##### Änderung, 1.0.56
 - Abstände von Zahlungskonditionen, Lieferbedingungen, Rechnungsanschrift und Lieferanschrift am Fuß von Rechnungen, Angeboten und Einkäufen verbessert.
 
-### 29.07.2015
-### equitania
-#### Änderung, 1.0.55
+#### 29.07.2015
+##### Änderung, 1.0.55
 - Lieferscheinnummer wird in der Rechnung unter jeder Position angezeigt.
 
-### 29.07.2015
-### equitania
-#### Erweiterung, 1.0.54
+
+#### 29.07.2015
+##### Erweiterung, 1.0.54
 - id für ein td Element eingefügt
-#### BUGFIX, 1.0.53
-- Fehlerhafte Abfrage überarbeitet, wodurch vorher keine Lieferung durchgeführt werden konnte, wenn Überleiferungen in einer Position angezeigt werden sollten.
+
+
+##### BUGFIX, 1.0.53
+- Fehlerhafte Abfrage überarbeitet, wodurch vorher keine Lieferung durchgeführt werden konnte, wenn Überlieferungen in einer Position angezeigt werden sollten.
 - Verkaufseinheit in der Verkaufsposition wird beim Ändern der Menge abgeändert.
-#### Erweiterung
+
+##### Erweiterung
 - Fußtext (Notiz/Geschäftsbedingung) im Verkauf/Einkauf von der Darstellung in der Form und den Report überarbeitet.
 -- Report: Direkt unter die Positionen und ohne der Information "Notiz".
 -- Form: Feld wird auf der ganzen Breite angezeigt.
-#### BUGFIX, 1.0.52
+
+
+##### BUGFIX, 1.0.52
 - Übersetzungsfehler in Reports behoben.
 
-### 23.07.2015
-### equitania
-#### BUGFIX, 1.0.51
+
+#### 23.07.2015
+##### BUGFIX, 1.0.51
 - Fehler behoben, der Auftritt wenn bereits erstellte Lieferungen geliefert werden.
 
-### 23.07.2015
-### equitania
-#### Änderung, 1.0.49
-- Anischt der Partner angepasst.
--- Schlagwörte auf volle Breite.
--- Briefanrede nach dem Geburtstag
--Übersetzung angepasst.
-#### Änderung, 1.0.50
+
+#### 23.07.2015
+##### Änderung, 1.0.49
+- Ansicht der Partner angepasst.
+- Schlagworte auf volle Breite.
+- Briefanrede nach dem Geburtstag
+- Übersetzung angepasst.
+
+
+##### Änderung, 1.0.50
 - Startwert der Sequenz der Debitoren-/Kreditorennummer um 1 erhöht.
 
-### 22.07.2015
-### equitania, 1.0.48
-#### Änderung
-- Den Fix für die Leerzeichen in die Reports direkt eingefügt.
-- Breifeanrede zu den Kontakten hinzugefügt.
 
-### 21.07.2015
-### equitania, 1.0.47
-#### Erweiterung
+#### 22.07.2015
+#### Version 1.0.48
+##### Änderung
+- Den Fix für die Leerzeichen in die Reports direkt eingefügt.
+- Briefanrede zu den Kontakten hinzugefügt.
+
+
+#### 21.07.2015
+#### Version 1.0.47
+##### Erweiterung
 - Positionen beim Liefern haben einen direkten Bezug zu den Lieferscheinpositionen.
 
-### 17.07.2015
-### equitania, 1.0.46
-#### Bugfix
+
+#### 17.07.2015
+#### Version 1.0.46
+##### Bugfix
 - Hausnummer des Unternehmens in die Reports eingefügt.
 
-### 10.07.2015
-### equitania, 1.0.45
-#### Bugfix
+
+#### 10.07.2015
+#### Version 1.0.45
+##### Bugfix
 - Die offene Menge der Verkäufe bei den Produkten und Produktvarianten zeigt nun den richtigen Wert.
 
-### 07.07.2015
-### equitania, 1.0.44
-#### Bugfix
+
+#### 07.07.2015
+#### Version 1.0.44
+##### Bugfix
 - Feld eq_qty_left als float erfasst.
-####Erweiterung
+#####Erweiterung
 - Kopf- und Fußtext auf html umgestellt.
 
-### 07.07.2015
-### equitania, 1.0.43
-#### Bugfix
+
+#### 07.07.2015
+#### Version 1.0.43
+##### Bugfix
 - Der Text zum einfügen eines Snippets wird im report nicht angezeigt.
-#### Erweiterung
+
+
+##### Erweiterung
 - Kopftext auf html umgestellt.
 - Geschäftsbedingungen auf html umgestellt.
 
-### 29.06.2015
-### equitania
-#### Bugfix, 1.0.42
+
+#### 29.06.2015
+##### Bugfix, 1.0.42
 - Übersetzung für Webseiten und Reports überarbeitet. Manche Begriffe wurden nicht übersetzt.
 
-### 23.06.2015
-### equitania
-#### Bugfix, 1.0.41
+
+#### 23.06.2015
+##### Bugfix, 1.0.41
 - Eins zu Eins Beziehung zwischen Mitarbeiter und Benutzer wird wieder richtig hergestellt.
 - Mitarbeiter ließ sich nicht mit einem Benutzer erstellen.
 
-### 23.06.2015
-### equitania
-#### Erweiterung, 1.0.40
-- Papierformate werden bei neuinstallation und update angelegt und Reports werden automatisch zugeteilt.
-#### FIX, 1.0.39
-- Überleiferung war nicht möglich.
-#### FIX, 1.0.38
+#### 23.06.2015
+##### Erweiterung, 1.0.40
+- Papierformate werden bei Neuinstallation und update angelegt und Reports werden automatisch zugeteilt.
+
+
+##### FIX, 1.0.39
+- Überlieferung war nicht möglich.
+
+
+##### FIX, 1.0.38
 - Vereinzelte Lieferscheine ließen sich nicht abschließen.
 
-### 23.06.2015, 1.0.37
-### equitania
-#### Erweiterung
+
+#### 23.06.2015, 1.0.37
+##### Erweiterung
 - Die Reports werden bei der Installation den Papierformaten zugeordnet.
 
-### 22.06.2015, 1.0.36
-### equitania
-#### Änderung
+
+#### 22.06.2015, 1.0.36
+##### Änderung
 - Papierformate für die neuen Reports angepasst. Werden bei einer Neuinstallation neu gesetzt.
-#### FIX
+
+
+##### FIX
 - Bei einer Unterlieferung wird die Verkaufsmenge richtig gesetzt, wodurch dir Rechnung mit der korrekten Menge erstellt wird.
-- Bei erzwungenenen Teillieferungen (nicht auf Lager) wird die Lieferung von davor nicht addiert.
+- Bei erzwungenen Teillieferungen (nicht auf Lager) wird die Lieferung von davor nicht addiert.
 
-### 19.06.2015, 1.0.35
-### equitania
-#### Änderung
-- Rechnung- und Lieferadresse bekommen auch den Zusatzt Starße und Stadt, wenn die Option in den Verkaufseinstellungen aktiviert ist.
 
-### 18.06.2015, 1.0.34
-### equitania
-#### Änderung
+#### 19.06.2015, 1.0.35
+##### Änderung
+- Rechnung- und Lieferadresse bekommen auch den Zusatz Straße und Stadt, wenn die Option in den Verkaufseinstellungen aktiviert ist.
+
+
+#### 18.06.2015, 1.0.34
+##### Änderung
 - Die Änderungen am partner_id Feld zusammengefasst. Nur die nötigen Attribute werden geändert.
-- Die Optionen für die Ädresserweiterungen werden nun immer angezeigt.
+- Die Optionen für die Adresserweiterungen werden nun immer angezeigt.
 - Beim "Verkäufe" Button im Produkt wird die Menge aus Angeboten nicht mehr berücksichtigt.
-#### Erweiterung
-- Hausnummer in die Unternehmendsdaten eingefügt.
 
-### 12.06.2015, 1.0.33
-### equitania
-#### Änderung
+
+##### Erweiterung
+- Hausnummer in die Unternehmensdaten eingefügt.
+
+#### 12.06.2015, 1.0.33
+##### Änderung
 - Reports und Header überarbeitet. Informationsblock wird auf allen Seiten gedruckt.
+
 
 ##### Vor dem Update folgende SQL Script ausführen
 
@@ -984,233 +1075,235 @@ INFO: Ggf. muss man im Backend eine "Übersetzung laden" für die deutsche Sprac
 - set header_spacing = 55, margin_top = 60
 - where id = 1;
 
-### 9.06.2015, 1.0.32
-### equitania
-#### Bugfix
+
+#### 9.06.2015, 1.0.32
+##### Bugfix
 - Zeilenumbrüche werden auf den Reports wieder richtig angezeigt.
 
-### 9.06.2015, 1.0.31
-### equitania
-#### Bugfix
+
+#### 9.06.2015, 1.0.31
+##### Bugfix
 - Fehlenden Context eingefügt.
 
-### 29.05.2015, 1.0.30
-### equitania
-#### Verbesserung
-- Auswahl bei Standardliefer- und rechnungsadresse auf die eigenen Partner-Kontakte beschränkt
+
+#### 29.05.2015, 1.0.30
+##### Verbesserung
+- Auswahl bei Standardliefer- und Rechnungsadresse auf die eigenen Partner-Kontakte beschränkt
 - Kundenreferenznr. wird beim Duplizieren übertragen
 
-### 28.05.2015, 1.0.28
-### equitania
-#### Bugfix
+
+#### 28.05.2015, 1.0.28
+##### Bugfix
 - Benutzer mit eingetragenem Mitarbeiter lässt sich wieder erstellen.
 - Logik für die 1zu1 Verbindung zwischen Mitarbeiter und Benutzer funktioniert wieder.
 
-### 28.05.2015, 1.0.27
-### equitania
-#### Verbesserung
+
+#### 28.05.2015, 1.0.27
+##### Verbesserung
 - Deutsche Übersetzung für Ein-/Ausgangsrechnung angepasst.
 
-### 27.05.2015, 1.0.26
-### equitania
-#### Bugfix
+
+#### 27.05.2015, 1.0.26
+##### Bugfix
 - In der Lieferansicht, welche man über den Button "Lieferungen" im Produkt öffnet, wird nach dem richtigen Produkt gefiltert.
 
-### 27.05.2015, 1.0.25
-### equitania
-#### Bugfix
+
+#### 27.05.2015, 1.0.25
+##### Bugfix
 - Button in der Produktübersicht für die Ein-/Ausgangsrechnungen zeigt nun alle Rechnungen an.
 
-### 27.05.2015, 1.0.25
-### equitania
-#### Verbesserung
-- Button, welcher die Vekäufe im Produkt anzeigt, zeigt nun die offene Menge und die Gesamtmenge an.
 
-### 27.05.2015, 1.0.24
-### equitania
-#### Erweiterung
+#### 27.05.2015, 1.0.25
+##### Verbesserung
+- Button, welcher die Verkäufe im Produkt anzeigt, zeigt nun die offene Menge und die Gesamtmenge an.
+
+
+#### 27.05.2015, 1.0.24
+##### Erweiterung
 - Anzeigeart (Kalenderwoche/Datum) des Lieferdatums auf Kundenebene einstellbar.
 
-### 27.05.2015, 1.0.23
-### equitania
-#### Erweiterung
+
+#### 27.05.2015, 1.0.23
+##### Erweiterung
 - Filter "Ein- und Ausgang" für die Lagerbuchungen eingefügt. Lieferungen von und zu Kunden und Lieferanten.
 - Der Button "Lieferungen" in den Produkten und Produktvarianten benutzt den Filter Ein- und "Ausgang"
 
-### 19.05.2015, 1.0.22
-### equitania
-#### Erweiterung
+
+#### 19.05.2015, 1.0.22
+##### Erweiterung
 - Boolean Feld in die Lieferdetails eingefügt, wodurch die zu Liefernde Position abgeschlossen wird und im neuen Lieferschein nicht mehr aufgeführt ist.
 
-### 19.05.2015, 1.0.21
-### equitania
-#### Erweiterung
-- Button zum Öffnen der Ein-/Ausgangsrechnung in die Form Anischt der Produkte und Produktvarianten eingefügt.
+
+#### 19.05.2015, 1.0.21
+##### Erweiterung
+- Button zum Öffnen der Ein-/Ausgangsrechnung in die Form Ansicht der Produkte und Produktvarianten eingefügt.
 - Anzeige der Rechnung
 
-### 12.05.2015, 1.0.1
-### eq_info_for_product_product
-#### Bugfix
-- Lieferanten für Produktvarianten lassen sich nun auch anlegen, wenn die id der Variante nicht als id für die Templates benutzt wird.
 
-### 12.05.2015, 1.0.20
-### equitania
-#### Bugfix
+#### 12.05.2015, 1.0.20
+##### Bugfix
 - Fehlendes Hochkomma im Report "Angebotsanfrage" hinzugefügt.
 
-### 05.05.2015, 1.0.19
-### equitania
-#### Erweiterung
+
+#### 05.05.2015, 1.0.19
+##### Erweiterung
 - Beim Ein- und Verkaufsaufträgen wird als Beschreibung der Position ein Leerzeichen eingefügt, wenn für das Produkt keine Beschreibung hinterlegt ist. Dieses Leerzeichen wird auf den Reports nicht angezeigt.
 
-### 05.05.2015, 1.0.18
-### equitania
-#### Bugfix
+
+#### 05.05.2015, 1.0.18
+##### Bugfix
 - Fehler behoben, bei dem man den Verkaufsauftrag aus dem Webshop nicht erstellen konnte.
 
-### 05.05.2015, 1.0.17
-### equitania
-#### Erweiterung
-- Einstellung in den Verkauf hinzugefügt, wordurch der Verkaufstext einer Position aus der internen Beschreibung des Produktes genommen wird.
 
-### 05.05.2015, 1.0.16
-### equitania
-#### Bugfix
+#### 05.05.2015, 1.0.17
+##### Erweiterung
+- Einstellung in den Verkauf hinzugefügt, wodurch der Verkaufstext einer Position aus der internen Beschreibung des Produktes genommen wird.
+
+
+#### 05.05.2015, 1.0.16
+##### Bugfix
 - Fehlerhafte Anzeige des Produktnummern Generators in den Einstellungen behoben.
 
-### 04.05.2015, 1.0.15
-### equitania
-#### Bugfix
-- Rechnungs und Lieferadresse im Angebot/Auftrag werden nicht mehr überschrieben, sondern abgeändert.
 
-### 30.04.2015, 1.0.14
-### equitania
-#### Bugfix
+#### 04.05.2015, 1.0.15
+##### Bugfix
+- Rechnungs- und Lieferadresse im Angebot/Auftrag werden nicht mehr überschrieben, sondern abgeändert.
+
+
+#### 30.04.2015, 1.0.14
+##### Bugfix
 - Fehler behoben, bei dem die neu eingefügten Felder auf den Report nicht angezeigt wurde.
 
-### 30.04.2015, 1.0.13
-### equitania
-#### Änderung
+
+#### 30.04.2015, 1.0.13
+##### Änderung
 - Icon für den Button "Preislistenpos." in der Form View des Produktes abgeändert.
-#### Verbesserung
+
+
+##### Verbesserung
 - Reports: Adressfelder für den Stadtteil und die Hausnummer eingefügt.
 - Reports: Zweites Namensfeld eingefügt.
 - Reports: Telefax(geschäftlich) in das Mitarbeiterobjekt eingefügt.
 
-### 29.04.2015, 1.0.12
-### equitania
-#### Verbesserung
+
+#### 29.04.2015, 1.0.12
+##### Verbesserung
 - Adressfelder für den Stadtteil und die Hausnummer zum Partnerobjekt hinzugefügt und die Formanischt überarbeitet. Zweites Namensfeld hinzugefügt.
 - Feld Telefax(geschäftlich) in das Mitarbeiterobjekt eingefügt.
 
-### 24.04.2015, 1.0.11
-### equitania
-#### Verbesserung
+
+#### 24.04.2015, 1.0.11
+##### Verbesserung
 - Produktnummern können in der Listenansicht der Produkt über den Button "Mehr/Produktnummer generieren" für die ausgewählten Produkte generiert werden.
 
-### 24.04.2015, 1.0.10
-### equitania
-#### Verbesserung
-- Produktnummerngenerierung kann in der Lagereinstellungen eignestellt werden.
-- Wenn bei der Produktnummerngenerierung nur eindeutige Produktnummern erstellt werden können (min/max Prefixlänge = 0), dann wird die EAN13 des Produktes automatisch generiert.
 
-### 20.04.2015, 1.0.9
-### equitania
-#### Bugfix
+#### 24.04.2015, 1.0.10
+##### Verbesserung
+- Produktnummergenerierung kann in der Lagereinstellungen eingestellt werden.
+- Wenn bei der Produktnummergenerierung nur eindeutige Produktnummern erstellt werden können (min/max Prefixlänge = 0), dann wird die EAN13 des Produktes automatisch generiert.
+
+
+#### 20.04.2015, 1.0.9
+##### Bugfix
 - Für zusätzliche Produkte, die nur im Lieferschein erfasst werden, wird nun die richtige Beschreibung benutzt.
 
-#### Erweiterung
+
+##### Erweiterung
 - Produkte werden standardmäßig nach der Produktnummer sortiert.
 
-### 07.04.2015, 1.0.8
-### equitania
-#### Verbesserung
+
+#### 07.04.2015, 1.0.8
+##### Verbesserung
 - In allen Reports haben nun die Spalten für Artikelnummer, Preis pro Einheit und Netto-Preis eine Mindestbreite.
 
-### 01.04.2015, 1.0.7
-### equitania
-#### Bugfix
-- Seriennummernmodul funktionsfähig gemacht.
+#### 01.04.2015, 1.0.7
+##### Bugfix
+- Seriennummermodul funktionsfähig gemacht.
 
-### 01.04.2015, 1.0.6
-### equitania
-#### Bugfix
+
+#### 01.04.2015, 1.0.6
+##### Bugfix
 - Neu erstellte Lieferscheine, die über den Button "Lieferschein abbrechen" erstellt wurden, werden mit dem Rechnungsstatus abzurechnen erstellt.
 
-### 26.03.2015, 1.0.5
-### equitania
-#### Bugfix
+
+#### 26.03.2015, 1.0.5
+##### Bugfix
 - Fehlerhafte id abgeändert.
 
-### 26.03.2015, 1.0.4
-### equitania
-#### Verbesserung
+
+#### 26.03.2015, 1.0.4
+##### Verbesserung
 - Erweiterung der Tabelle res.partner um neues Feld eq_foreign_ref
 - Erweiterung der Maske, damit man das Feld in der Detailansicht der Adresse pflegen kann
 - Wenn ein Kundenauftrag oder eine Bestellung angelegt wird, ist der Inhalt des Feldes res.partner.eq_foreign_ref automatisch aus der Adresse übernommen und im Feld purchase.order."partner_ref" / sale.order."client_order_ref" gespeichert
 
 
-### 25.03.2015, 1.0.3
-### equitania
-#### Änderung
-- Die Zeichnungsnnummer aus den Reports Angebot/Auftrag, Lieferschein, Rückliefertschein und Rechnung entfernt und durch Platzhalter mit der id "eq_drawing_number" ersetzt.
+#### 25.03.2015, 1.0.3
+##### Änderung
+- Die Zeichnungsnnummer aus den Reports Angebot/Auftrag, Lieferschein, Rücklieferschein und Rechnung entfernt und durch Platzhalter mit der id "eq_drawing_number" ersetzt.
 
-### 24.03.2015, 1.0.2
-### equitania
-#### Verbesserung
+
+#### 24.03.2015, 1.0.2
+##### Verbesserung
 - Ids an die Elemente der Lieferanschrift in der Rechnung vergeben.
 
-### 23.03.2015, 1.0.1
-### equitania
-#### Änderung
-- Das Feld eq_supplier_order_ref entfernt
-* Vor dem Update muss das dazugehöre View gelöscht werden. Hierzu folgenden SQL Query benutzen:
-* delete from ir_ui_view where arch like '%eq_supplier_order_ref%'
 
-#### Bugfix
+#### 23.03.2015, 1.0.1
+##### Änderung
+- Das Feld eq_supplier_order_ref entfernt
+- Vor dem Update muss das dazugehöre View gelöscht werden. Hierzu folgenden SQL Query benutzen:
+- delete from ir_ui_view where arch like '%eq_supplier_order_ref%'
+
+
+##### Bugfix
 - Die Übersetzung des Textes "Leave Requests to Approve" im HR Modul wurde in unserer de.po Datei gespeichert, damit unsere Lokalisierung den Text selber setzen kann -> "Urlaubsanträge"
 
 
-### 20.03.2015
-### equitania
-#### Verbesserung
+#### 20.03.2015
+##### Verbesserung
 - Unnötige Zugriffsrechte entfernt
 - Finale Version unserer Lokalisierung hinzugefügt
-#### Bugfix
+
+
+##### Bugfix
 - Steuer wird bei den Rechnungspositionen automatisch gesetzt, wenn eine Rechnung von einem Lieferauftrag erstellt wird, welcher keinen Bezug zu einem Verkaufs-/Einkaufsauftrag hat.
 - Testeinträge in der de.po Datei gelöscht
 
-### 19.03.2015
-### equitania
-#### Erweiterung
+
+#### 19.03.2015
+##### Erweiterung
 - Erweiterung der Lokalisierung für Texte, die in der DB bereits vorhanden sind. Man kann also ab jetzt immer ein UPDATE der Übersetzungen durchführen
 
-### 17.03.2015
-### equitania
-#### Bugfix
+
+#### 17.03.2015
+##### Bugfix
 - Fehler bei den Unterlieferungen (Eingang) behoben. (Mengeneinheit * stimmt mit Mengeneinheit * nicht überein)
 - Feld für den Rahmenauftrag einer Auftragsposition entfernt.
 
-### 13.03.2015
-### equitania
-#### Erweiterung
+
+#### 13.03.2015
+##### Erweiterung
 - Open purchase order lines um neue Gruppierung nach Rahmenauftrag erweitert
 - Feld für die Preislistenversion in die Preislistenposition eingefügt.
-#### Bugfix
+
+##### Bugfix
 - Fehler bei den Unterlieferungen behoben. (Mengeneinheit Stück stimmt mit Mengeneinheit Stück nicht überein)
 
-#### Änderung
+
+##### Änderung
 - Änderung in der Lokalisierung für open purchase order lines -> der text "von Bestellpositionen" wird nicht mehr angezeigt
 
-#### Bugfix
+
+##### Bugfix
 - Bugfix im Aufruf der Gruppierung nach Rahmenauftragsnummer für open sale order lines
 
-### 12.03.2015
-### equitania
-#### Erweiterung
+
+#### 12.03.2015
+##### Erweiterung
 - Erweiterung der Lokalisierung für open purchase order lines
 
-### Bei Update-Fehler
+
+#### Bei Update-Fehler
 ..
 *AttributeError: Das Feld `eq_quantity_left` existiert nicht*
 
@@ -1221,31 +1314,27 @@ INFO: Ggf. muss man im Backend eine "Übersetzung laden" für die deutsche Sprac
 **Folgenden Datensatz löschen:**
 *DELETE FROM ir_ui_view WHERE name='purchase.order.line.tree' AND mode='extension';*
 
-### 11.03.2015
-### eq_framework_agreement
-#### Bugfix
-- Added small bugfix for our excel tool
 
-### 06.03.2015
-### equitania
-#### Erweiterung
+#### 06.03.2015
+##### Erweiterung
 - Button/Widget in die Produkte eingefügt, die die Preislistenpositionen anzeigen.
 
-### 04.03.2015
-### equitania
-#### Erweiterung
+
+#### 04.03.2015
+##### Erweiterung
 - Wizard für das Ändern des Lieferdatums im Lieferschein eingefügt. Änderungsgrund muss angegeben werden und Änderung wird als Nachricht dokumentiert.
 - Suche nur nach der Bezeichnung eingefügt.
 - Sortierung nach dem Feld "Produktnr." ist ab jetzt auch möglich.
-- Die Kundenmaske um die Standardliefer- und rechnungsadresse erweitert. Wird im Verkauf genutzt.
-
-#### Verbesseung
-- Performanceverbesserung des SQL Statements von Omprakash
+- Die Kundenmaske um die Standardliefer- und Rechnungsadresse erweitert. Wird im Verkauf genutzt.
 
 
+##### Verbesserung
+- Performance-Verbesserung des SQL Statements von Omprakash
 
-### Modul Equitania
-- Optimiertung der Masken für Adressen, Produkte, Verkauf, Einkauf, Fertigung uvm.
+
+#### Modul Equitania
+
+- Optimierung der Masken für Adressen, Produkte, Verkauf, Einkauf, Fertigung uvm.
 - Die Anzeige in der Partnersuche des Verkaufsauftrag um den Adresstypen erweitert. Straße, Ort einstellbar
 - In den Einstellungen wird der Reiter "Installierte Module" als erster Eintrag angezeigt und beim Öffnen aufgerufen
 - Die Unternehmensmaske um 4 Felder, die in der Fußzeile der Reports angezeigt werden, und das Firmenlogo, welches auf dem Report aufgedruckt wird
@@ -1253,11 +1342,11 @@ INFO: Ggf. muss man im Backend eine "Übersetzung laden" für die deutsche Sprac
 - Eigene Übersetzungslogik der Reports und Masken
 - Internes und externes Papierformat wird gesetzt
 - Das Feld "Vermittelt durch" in die Leads eingefügt. Enthält eine Beschreibung.
-- Alle Auftragspositionen für Einkauf und Verkauf werden noch einmal in einer seperaten Maske(Liste, Form) angezeigt
+- Alle Auftragspositionen für Einkauf und Verkauf werden noch einmal in einer separaten Maske(Liste, Form) angezeigt
 - Lieferbedingungen in den Verkaufsauftrag eingefügt
 - Die Suche nach einzelnen Positionen in Preisliste - Löschen über die Detailansicht - Widget in der Produktmaske
 - Sachbearbeiter in den Verkaufsauftrag eingefügt, Verkäufer wird automatisch eingetragen (einstellbar)
-- Eigene Logik für Tausender Serperatoren und Nachkommastellen für die Reports eingefügt (einstellbar)
+- Eigene Logik für Tausender Separatoren und Nachkommastellen für die Reports eingefügt (einstellbar)
 - Dezimalstellen für Mengen, Gewichte und Preise für Einkauf, Verkauf und Fertigung separat einstellbar
 - Liefertermin für Ein/Verkauf eingefügt. Wird auf Reports gedruckt (einstellbar KW/Datum)
 - Kopftext für die Reports eingefügt
@@ -1276,7 +1365,7 @@ INFO: Ggf. muss man im Backend eine "Übersetzung laden" für die deutsche Sprac
 - Steuer wird bei den Rechnungspositionen automatisch gesetzt, wenn eine Rechnung von einem Lieferauftrag erstellt wird, welcher keinen Bezug zu einem Verkaufs-/Einkaufsauftrag hat
 - Fremdnr. bei Kontakt pflegbar - wird automatisch im Kundenauftrag in Referenznr. eingefügt
 
-####Kontakt überarbeitet:
+##### Kontakt überarbeitet:
 
 - Feld Vorname eingefügt
 - Feld Geburtsdatum eingefügt
@@ -1285,7 +1374,7 @@ INFO: Ggf. muss man im Backend eine "Übersetzung laden" für die deutsche Sprac
 - Ersteller des Datensatzes wird als Verkäufer eingetragen (einstellbar)
 
 
-####Reports überarbeitet:
+##### Reports überarbeitet:
 
 - Angebot
 - Verkaufsauftrag
@@ -1295,4 +1384,4 @@ INFO: Ggf. muss man im Backend eine "Übersetzung laden" für die deutsche Sprac
 - Rechnung
 - Neu:  Auftragspositionen
 - Neu: Rücklieferschein
-- Das "sale_layout" Modul intigriert, wodurch sich Positionen gruppieren lassen
+- Das "sale_layout" Modul integriert, wodurch sich Positionen gruppieren lassen
