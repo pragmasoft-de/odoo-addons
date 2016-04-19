@@ -1,6 +1,12 @@
 ## Modul equitania
 
 #### 19.04.2016
+#### Version 1.1.15
+##### FIX
+- Lieferscheinreport: Die Abstände zwischen PLZ und Ort, sowie zwischen Straße und Hausnummer wurde korrigiert.
+
+
+#### 19.04.2016
 #### Version 1.1.14
 ##### FIX
 - Fehler durch nicht-definierte Ansicht behoben.
