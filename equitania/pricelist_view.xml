@@ -7,7 +7,7 @@
 			<field name="model">product.pricelist.item</field>
 			<field name="arch" type="xml">
 				<search string="Pricelistversionposition Search">
-					<!-- <field name="product_id" />	 -->
+					
 					
 					<group expand="0" string="Group By">
 							<filter string="Preislistenversion" context="{'group_by' : 'price_version_id'}"/>					
@@ -23,17 +23,19 @@
 			</field>
 		</record>
 		<!-- Tree View -->
-		<record id="eq_pricelistversionsposition_tree_view" model="ir.ui.view">
+	<!-- 	<record id="eq_pricelistversionsposition_tree_view" model="ir.ui.view">
 			<field name="name">Pricelistversionsposition</field>
 			<field name="model">product.pricelist.item</field>
 			<field name="inherit_id" ref="equitania.eq_framework_agreement_tree_view"/>
-			<!-- <field name="arch" type="xml">
+			 <field name="arch" type="xml">
 				<search string="Search History">
 					<field name="product_id" />
 					
 				</search>
-			</field>   -->
+			</field>   
 		</record>
+		 -->
+		
 		<record id="pricelistversionposition_action" model="ir.actions.act_window">
 			<field name="name">Pricelistversionsposition</field>
 			<field name="res_model">product.pricelist.item</field>

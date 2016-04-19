@@ -1,3 +1,8 @@
+### 19.04.2016
+### equitania, 1.1.14
+#### FIX
+- Fehler durch nicht-definierte Ansicht behoben.
+
 ### 18.04.2016
 ### equitania, 1.1.13
 #### Erweiterung
