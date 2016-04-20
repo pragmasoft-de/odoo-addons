@@ -1,6 +1,12 @@
 ## Modul equitania
 
 #### 20.04.2016
+#### Version 1.1.19
+##### FIX
+- Korrektur für Umwandlung eines Kunden in eine Chance
+
+
+#### 20.04.2016
 #### Version 1.1.18
 ##### FIX
 - Lieferschein-Report: Wenn die Lieferadresse ein Kontakt war, wurde dessen Firma nicht angedruckt. Dies wurde behoben.

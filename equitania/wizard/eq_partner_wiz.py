@@ -58,6 +58,7 @@ class eq_product_select_case_section_wiz(models.TransientModel):
                        'function' : partner.function,
                        'birthdate' : partner.eq_birthday,
                        'firstname' : partner.eq_firstname,
+                       'type':'opportunity'
                        }
         
         if partner.country_id:
