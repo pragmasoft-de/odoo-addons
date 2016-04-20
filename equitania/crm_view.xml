@@ -9,11 +9,9 @@
 			<field name="inherit_id" ref="crm.crm_case_form_view_leads" />
 			<field name="arch" type="xml">
 				<field name="title" position="replace" />
-				<!-- 
 				<field name="contact_name" position="attributes" >
 					<attribute name="invisible">1</attribute>
 				</field>
-				 -->
 				<field name="email_from" position="before">
 					<group colspan="2">
 						<field name="title" placeholder="Title" />
@@ -78,7 +76,7 @@
 					</div>
 				</div>
 
-				<!-- <field name="contact_name" position="replace" /> -->
+				<field name="contact_name" position="replace" />
 				<field name="title" position="replace" />
 				<field name="function" position="before">
 					<field name="title" placeholder="Title" />
