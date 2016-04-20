@@ -1,5 +1,10 @@
 ## Modul equitania
 
+#### 20.04.2016
+#### Version 1.1.16
+##### Erweiterung
+- Übersetzung für den Report "Kommissionierungsschein" implementiert.
+
 #### 19.04.2016
 #### Version 1.1.15
 ##### Änderung
