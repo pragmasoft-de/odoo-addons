@@ -132,7 +132,7 @@
 							<!--<span><strong>Customer Address:</strong></span> -->
 						</div>
 						<div t-if="o.partner_id" name="partner_header">
-							<!-- <div t-field="o.partner_id.name" style="clear:left;"/> -->
+							<div t-field="o.partner_id.parent_id.name" style="clear:left;"/>
 							<div t-if="o.partner_id.eq_name2" t-field="o.partner_id.eq_name2"
 								style="clear:left;" />
 							<span t-field="o.partner_id.title.name" />

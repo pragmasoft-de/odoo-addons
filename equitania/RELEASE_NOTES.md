@@ -1,6 +1,12 @@
 ## Modul equitania
 
 #### 20.04.2016
+#### Version 1.1.18
+##### FIX
+- Lieferschein-Report: Wenn die Lieferadresse ein Kontakt war, wurde dessen Firma nicht angedruckt. Dies wurde behoben.
+
+
+#### 20.04.2016
 #### Version 1.1.17
 ##### Änderung
 - Das Feld Pos für die Position eines Lagervorgangs sind bearbeitbar
