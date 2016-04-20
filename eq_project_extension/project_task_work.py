@@ -19,7 +19,6 @@
 #
 ##############################################################################
 
-#Old API, Remove New API import if the Old API is used. Otherwise you'll get an import error.
 from openerp import models, fields, api, _
 
 class project_task_work(models.Model):

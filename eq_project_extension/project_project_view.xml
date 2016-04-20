@@ -7,6 +7,15 @@
             <field name="model">project.project</field>
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
+            	<xpath expr='//field[@name="name"]' position='after'>
+            		<field name="eq_can_set_to_done" attrs="{'invisible': True}"/>
+           		</xpath>
+            	<xpath expr='//button[@name="set_done"]' position='replace'>
+            		<button name="set_done" string="Close Project" type="object" groups="base.group_user" attrs="{'invisible':['|', ('eq_can_set_to_done', '=', False), ('state', 'not in', ['open','pending'])]}"/>
+           		</xpath>
+            	<xpath expr='//div[@name="options_active"]' position='attributes'>
+            		<attribute name="attrs">{'invisible':[('state','!=', 'open')]}</attribute>
+            	</xpath>
             	<xpath expr='//field[@name="name"]' position='attributes'>
                     <attribute name="attrs">{'readonly':[('state','!=', 'open')]}</attribute>
                 </xpath>               
