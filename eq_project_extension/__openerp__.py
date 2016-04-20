@@ -21,7 +21,7 @@
 
 {
     'name': 'Project Extension',
-    'version': '1.0.2',
+    'version': '1.0.3',
     'description': """
         Improves and extends several views related to projects
     """,
@@ -29,24 +29,13 @@
     'website': 'www.myodoo.de',
     'depends': ['myodoo'],
     'category' : 'General Improvements',
-    #What it Improves e.g Sale, Purchase, Accounting
     'summary': 'account.analytic.lines, project.task.work, project.project',
-    #Only on initialization
-    #'init': [
-    #         'eq_install_func.xml', 
-    #         ],
     'data': [
-        #'security/eq_module_template_rule.xml',
-        #'security/eq_module_template_security.xml',
-        #'security/ir.model.access.csv',
         'account_analytic_line_view.xml',
         'project_task_view.xml',
         'project_project_view.xml',
     ],
-    #Demodata
     'demo': [],
-    #Activates css for the view
-    #'css': ['base.css'],
     'installable': True,
     'auto_install': False,
 }

@@ -19,6 +19,25 @@
 #
 ##############################################################################
 
-import account_analytic_line
-import project_task_work
-import project_project
+from openerp import models, fields, api, _
+
+class project_project(models.Model):
+    _inherit = 'project.project'
+    
+    eq_can_set_to_done = fields.Boolean(compute='_check_tasks_done', readonly=False)
+    
+    def _check_tasks_done(self):
+        
+        project_task_object = self.env['project.task']
+        
+        for record in self:
+        
+            tasks_done = project_task_object.search([('project_id', '=', record.id)])
+            
+            if ((tasks_done.filtered(lambda t: t.stage_id.id == 7 or t.stage_id.id == 8)) == (tasks_done.filtered(lambda t: t.id == t.id))):
+                
+                record.eq_can_set_to_done = True
+                
+            else:
+                
+                record.eq_can_set_to_done = False
