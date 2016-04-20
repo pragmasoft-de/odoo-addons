@@ -1,4 +1,5 @@
 ## eq_quotation_enhancement
+! Achtung, dieses Module gibt es in der abgewandelten Form bei FutureTV als eq_quotation_enhancement_futuretv - Änderungen immer auch dort nachziehen ! 
 
 #### 11.04.2016
 #### Version 1.0.13
