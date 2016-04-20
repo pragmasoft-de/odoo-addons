@@ -3,10 +3,9 @@
 #### 19.04.2016
 #### Version 1.1.15
 ##### Änderung
-- Das Feld Kontatk-Name wird im Interessenten und der Chance angezeigt.
+- Das Feld Kontakt-Name wird im Interessenten und der Chance angezeigt.
 - Lieferscheinreport: Die Abstände zwischen PLZ und Ort, sowie zwischen Straße und Hausnummer wurde korrigiert.
 
-#### 19.04.2016
 #### Version 1.1.14
 ##### FIX
 - Fehler durch nicht-definierte Ansicht behoben.
