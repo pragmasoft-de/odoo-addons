@@ -386,34 +386,25 @@
 				</div>
 			</xpath>
 		</template>
-
-<!-- 		<template id="stock.report_picking">
+		
+		<template id="report_picking_document" active="True">
 			<t t-call="equitania.external_layout_stock_picking">
 				<t t-call="equitania.report_picking_data"></t>
 			</t>
-		</template> -->
-
-
-		<template id="report_picking_document" active="True">
-			<t t-foreach="docs" t-as="o">
-				<t t-call="equitania.external_layout_stock_picking">
-					<t t-call="equitania.report_picking_data"></t>
-				</t>
-			</t>
 		</template>
-
 
 		<template id="stock.report_picking" active="True">
 			<t t-call="report.html_container">
-	            <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'equitania.report_picking_document')"/>
+	        	<t t-foreach="doc_ids" t-as="doc_id">
+		            <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'equitania.report_picking_document')"/>
+		        </t>
 			</t>
 		</template>
-
-
 
 
 		<template id="report_picking_extension" inherit_id="delivery.report_shipping2">
 			<xpath expr="//div[@name='invoice_partner']" position="replace" />
 		</template>
+		
 	</data>
 </openerp>
