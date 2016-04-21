@@ -143,6 +143,9 @@ class eq_mail_mail(osv.Model):
                 lambda self, cr, uid, context: self.pool.get('ir.values').get_default(cr, uid, 'mail.mail', 'mail_server_address'),
                 }
     
+    
+    
+    
     def send(self, cr, uid, ids, auto_commit=False, raise_exception=False, context=None):
         """ Sends the selected emails immediately, ignoring their current
             state (mails that have already been sent should not be passed
@@ -162,9 +165,13 @@ class eq_mail_mail(osv.Model):
         ir_mail_server = self.pool.get('ir.mail_server')
         ir_attachment = self.pool['ir.attachment']
         ir_values = self.pool.get('ir.values')
+       
         
         default_mail_server = ir_values.get_default(cr, uid, 'mail.mail', 'mail_server_id')
-        default_mail_address = ir_values.get_default(cr, uid, 'mail.mail', 'mail_server_address')
+        #default_mail_address = ir_values.get_default(cr, uid, 'mail.mail', 'mail_server_address')
+        address = self.pool.get('ir.mail_server').browse(cr, uid,  default_mail_server, context=context)
+        default_mail_address = getattr(address, "smtp_user", False)
+        
         
         for mail in self.browse(cr, SUPERUSER_ID, ids, context=context):
             try:
@@ -221,7 +228,7 @@ class eq_mail_mail(osv.Model):
                     mail_server = ir_mail_server.search(cr, uid, [('user_id', '=', user)], context=context)
                 
                 for email in email_list:
-                    if not mail_server:
+                    if not mail_server and default_mail_address:
                         msg = ir_mail_server.build_email(
                             email_from=default_mail_address,
                             email_to=email.get('email_to'),

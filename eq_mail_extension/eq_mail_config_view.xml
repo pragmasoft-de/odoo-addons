@@ -18,8 +18,8 @@
                         </p>
                     </div>
                     <group>
-						<field name="mail_server_id"/>
-						<field name="mail_server_address"/>
+						<field name="mail_server_id" on_change="on_change_mail_server(mail_server_id)"/>
+						<field name="mail_server_address" readonly="1"/>
                     </group>
                 </form>
             </field>
