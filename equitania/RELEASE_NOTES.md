@@ -1,6 +1,11 @@
 ## Modul equitania
 
 #### 21.04.2016
+#### Version 1.1.22
+##### Änderung
+- Anpassung für Kopf- und Fußtexte in den Einstellungen, damit diese über das neue Modul für die Dokumentenvorlagen angesprochen werden können
+
+#### 21.04.2016
 #### Version 1.1.21
 ##### FIX
 - Lieferschein/Kommisionierungsauftrag wird übersetzt.
