@@ -274,6 +274,7 @@
 							<th class="text-right" t-if="any([line.discount for line in o.invoice_line])"
 								groups="sale.group_discount_per_so_line">Discount (%)</th>
 							<!-- <th class="text-right">Steuern</th> -->
+							<th class="text-center" t-if="len(o.tax_line) > 1">VAT</th>
 							<t t-if="show_gross_price is False">	<!-- no, show only net price -->
 								<th class="text-right" style="min-width:2.7cm;">Net price</th>
 							</t>
@@ -330,6 +331,9 @@
 									<td class="text-right" t-if="any([line.discount for line in o.invoice_line])"
 										groups="sale.group_discount_per_so_line">
 										<span t-field="l.discount" />
+									</td>
+									<td class="clean-bottom text-center" t-if="len(o.tax_line) > 1">
+										<span t-field="l.invoice_line_tax_id.description" />
 									</td>
 
 									<t t-if="show_gross_price is False">	<!-- no, show only net price -->
@@ -404,6 +408,7 @@
 											<th class="text-right" style="min-width:2.3cm;">Unit price</th>
 											<th t-if="any([line.discount for line in o.invoice_line])"
 												class="text-right">Discount (%)</th>
+											<th class="text-center" t-if="len(o.tax_line) > 1">VAT</th>
 											<th class="text-right" style="min-width:2.7cm;">Net price</th>
 
 
@@ -458,9 +463,7 @@
 									</td>
 																		<!--  NEUE STEUERSPALTE -->
 									<td class="text-right" t-foreach="o.tax_line" t-as="tax_line">
-										<strong>
-											<span t-esc="get_standard_price(tax_line.amount, o.partner_id.lang, o.currency_id)" />
-										</strong>
+										<span t-esc="get_standard_price(tax_line.amount, o.partner_id.lang, o.currency_id)" />
 									</td>
 									<!--  ALTE STeuerspalte
 									<td class="text-right" t-if="o.invoice_line[0].invoice_line_tax_id">
@@ -520,8 +523,7 @@
 											style="clear:left;" />
 										<div>
 											<span t-field="o.eq_delivery_address.street" />
-											<span t-if="o.eq_delivery_address.eq_house_no" t-field="o.eq_delivery_address.eq_house_no"
-												style="margin-left:0.1cm;" />
+											<span t-if="o.eq_delivery_address.eq_house_no" t-field="o.eq_delivery_address.eq_house_no" />
 										</div>
 										<div t-if="o.eq_delivery_address.street2">
 											<div t-field="o.eq_delivery_address.street2" />
@@ -547,8 +549,7 @@
 											<span t-field="o.eq_delivery_address.name" style="clear:left;" />
 										<div>
 											<span t-field="o.eq_delivery_address.street" />
-											<span t-if="o.eq_delivery_address.eq_house_no" t-field="o.eq_delivery_address.eq_house_no"
-												style="margin-left:0.1cm;" />
+											<span t-if="o.eq_delivery_address.eq_house_no" t-field="o.eq_delivery_address.eq_house_no" />
 										</div>
 										<div t-if="o.eq_delivery_address.street2">
 											<div t-field="o.eq_delivery_address.street2" />

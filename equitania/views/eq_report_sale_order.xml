@@ -283,6 +283,9 @@
 								class="text-right">
 								<strong style="white-space: nowrap;">Discount (%)</strong>
 							</th>
+							<t t-if="len(set([line.tax_id for line in o.order_line])) > 1">
+								<th class="text-center" t-if="any([line.tax_id for line in o.order_line])">VAT</th>
+							</t>
 							<t t-if="show_gross_price is False">	<!-- no, show only net price -->
 								<th class="text-right" style="min-width:2.7cm;">
 									<strong>Net price</strong>
@@ -344,6 +347,11 @@
 										class="text-right">
 										<span t-field="line.discount" />
 									</td>
+									<t t-if="len(set([line.tax_id for line in o.order_line])) > 1">
+										<td class="text-center clean-bottom" t-if="any([line.tax_id for line in o.order_line])">
+											<span t-field="line.tax_id.description" />
+										</td>
+									</t>
 									<t t-if="show_gross_price is False">	<!-- no, show only net price -->
 										<td class="text-right">
 											<span t-if="line.eq_optional">(</span>
@@ -403,6 +411,9 @@
 											<th class="text-right" style="min-width:2.3cm;">Unit price</th>
 											<th t-if="any([line.discount for line in o.order_line])"
 												class="text-right" style="white-space: nowrap;">Discount (%)</th>
+											<t t-if="len(set([line.tax_id for line in o.order_line])) > 1">
+												<th class="text-center" t-if="any([line.tax_id for line in o.order_line])">VAT</th>
+											</t>
 											<th class="text-right" style="min-width:2.7cm;">Net price</th>
 										</tr>
 									</thead>
@@ -449,10 +460,8 @@
 									</td>
 									<!--  NEUE STEUERSPALTE -->
 									<td class="text-right" t-foreach="set([x.tax_id for x in o.order_line])" t-as="tax_line">
-										<strong>
-											<span
+										<span
 										t-esc="get_tax(o, tax_line, o.partner_id.lang, o.currency_id)" />
-										</strong>
 									</td>
 									<!--  ALTE STeuerspalte
 									<td class="text-right" t-if="o.order_line[0].tax_id">

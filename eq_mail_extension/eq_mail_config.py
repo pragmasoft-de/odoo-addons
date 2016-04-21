@@ -31,12 +31,15 @@ class eq_mail_config_settings(osv.osv_memory):
         config = self.browse(cr, uid, ids[0], context)
         ir_values.set_default(cr, uid, 'mail.mail', 'mail_server_id', config.mail_server_id and config.mail_server_id.id or False)
         ir_values.set_default(cr, uid, 'mail.mail', 'mail_server_address', config.mail_server_address or False)
+        
                 
     def get_default_mail_server(self, cr, uid, fields, context=None):
         receivable = self.pool.get('ir.values').get_default(cr, uid, 'mail.mail', 'mail_server_id')
-        address = self.pool.get('ir.values').get_default(cr, uid, 'mail.mail', 'mail_server_address')
-        return {'mail_server_id': receivable,
-                'mail_server_address': address,
+        #address = self.pool.get('ir.values').get_default(cr, uid, 'mail.mail', 'mail_server_address')
+        address = self.pool.get('ir.mail_server').browse(cr, uid,  receivable, context=context)
+        return {
+                'mail_server_id': receivable,
+                'mail_server_address': address.smtp_user,
                 }
 
     _columns = {
@@ -44,3 +47,13 @@ class eq_mail_config_settings(osv.osv_memory):
                                                         help="""The outgoing mail server that the system should user for sending e-mails."""),
                 'mail_server_address': fields.char('Default Mails Server Address'),
                 }
+    
+    
+    def on_change_mail_server(self, cr, uid, ids, mail_server_id, context=None):
+        address = self.pool.get('ir.mail_server').browse(cr, uid,  mail_server_id, context=context)
+        
+        values = {
+                'mail_server_address': address.smtp_user,
+                }
+        
+        return {'value': values}

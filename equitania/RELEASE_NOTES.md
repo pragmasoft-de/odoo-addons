@@ -1,5 +1,15 @@
 ## Modul equitania
 
+#### 21.04.2016
+#### Version 1.1.21
+##### FIX
+- Lieferschein/Kommisionierungsauftrag wird übersetzt.
+
+#### Version 1.1.20
+##### ADD
+- MwSt. Spalte auf Positionebene in Rechnungs- und Angebots-Reports, sobald 2 oder mehr unterschiedliche Steuern berechnet werden
+
+
 #### 20.04.2016
 #### Version 1.1.19
 ##### FIX

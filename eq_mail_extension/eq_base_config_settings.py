@@ -19,24 +19,18 @@
 #
 ##############################################################################
 
-{
-    'name': "Equitania E-Mail-Erweiterung",
-    'license': 'AGPL-3',
-    'version': '1.0.1',
-    'category': 'Mail',
-    'description': """Using different smptp settings for user's outgoing emails
-    Adds an default mail server for sending System E-Mails and Users without a configured outgoing mail server""",
-    'author': 'Equitania Software GmbH',
-    'category' : 'E-Mail',
-    'summary': 'E-Mail Extension',
-    'website': 'www.myodoo.de',
-    'license': 'AGPL-3',
-    "depends" : ['base', 'mail', 'base_setup', 'fetchmail', 'equitania','mail'],
-    'data': [
-             "eq_mail_extension_view.xml",
-             "eq_mail_config_view.xml",
-             "eq_base_config_settings_view.xml",
-             ],
-    "active": False,
-    "installable": True
-}
+from openerp.osv import fields, osv
+from openerp.tools.translate import _
+
+class eq_base_config_settings(osv.osv_memory):
+    _inherit = 'base.config.settings'    
+     
+                
+    def delete_alias_domain(self, cr, uid, ids=None, context=None):
+        config_parameters = self.pool.get("ir.config_parameter")
+        config_parameters.set_param(cr, uid, "mail.catchall.domain", '', context=context)
+        
+        return True
+                
+
+   

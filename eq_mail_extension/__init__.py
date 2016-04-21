@@ -21,3 +21,4 @@
 
 import eq_mail_extension
 import eq_mail_config
+import eq_base_config_settings
