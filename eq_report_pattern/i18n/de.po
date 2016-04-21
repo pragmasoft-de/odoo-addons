@@ -1,0 +1,113 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* eq_report_pattern
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.1 Build 160403\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-21 16:54+0000\n"
+"PO-Revision-Date: 2016-04-21 16:54+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: eq_report_pattern
+#: field:eq.document.template,create_uid:0
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: eq_report_pattern
+#: field:eq.document.template,create_date:0
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: eq_report_pattern
+#: view:stock.picking:eq_report_pattern.eq_stock_view_doc_template_ext
+msgid "Dear Sir or Madam,"
+msgstr "Dear Sir or Madam,"
+
+#. module: eq_report_pattern
+#: field:account.invoice,document_template_id:0
+#: view:eq.document.template:eq_report_pattern.eq_document_template_form_view
+#: field:purchase.order,document_template_id:0
+#: field:sale.order,document_template_id:0
+#: field:stock.picking,document_template_id:0
+msgid "Document Template"
+msgstr "Dokumentenvorlage"
+
+#. module: eq_report_pattern
+#: field:eq.document.template,eq_footer:0
+#: field:stock.picking,eq_footer_text:0
+msgid "Footer"
+msgstr "Fußtext"
+
+#. module: eq_report_pattern
+#: view:stock.picking:eq_report_pattern.eq_stock_view_doc_template_ext
+msgid "Footer Text"
+msgstr "Fußtext"
+
+#. module: eq_report_pattern
+#: field:eq.document.template,eq_header:0
+#: field:stock.picking,eq_header_text:0
+msgid "Header"
+msgstr "Kopftext"
+
+#. module: eq_report_pattern
+#: view:stock.picking:eq_report_pattern.eq_stock_view_doc_template_ext
+msgid "Header Text"
+msgstr "Kopftext"
+
+#. module: eq_report_pattern
+#: view:stock.picking:eq_report_pattern.eq_stock_view_doc_template_ext
+msgid "Header text"
+msgstr "Kopftext"
+
+#. module: eq_report_pattern
+#: field:eq.document.template,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: eq_report_pattern
+#: model:ir.model,name:eq_report_pattern.model_account_invoice
+msgid "Invoice"
+msgstr "Rechnung"
+
+#. module: eq_report_pattern
+#: field:eq.document.template,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: eq_report_pattern
+#: field:eq.document.template,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: eq_report_pattern
+#: field:eq.document.template,name:0
+msgid "Name"
+msgstr "Name"
+
+#. module: eq_report_pattern
+#: model:ir.model,name:eq_report_pattern.model_stock_picking
+msgid "Picking List"
+msgstr "Lieferschein"
+
+#. module: eq_report_pattern
+#: model:ir.model,name:eq_report_pattern.model_purchase_order
+msgid "Purchase Order"
+msgstr "Bestellung"
+
+#. module: eq_report_pattern
+#: model:ir.model,name:eq_report_pattern.model_sale_order
+msgid "Sales Order"
+msgstr "Verkaufsauftrag"
+
+#. module: eq_report_pattern
+#: view:sale.config.settings:eq_report_pattern.eq_disable_sale_config_settings_texts
+msgid "{'invisible':True}"
+msgstr "{'invisible':True}"
+

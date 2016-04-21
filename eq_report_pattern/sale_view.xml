@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="eq_sale_order_doc_template_form">
+            <field name="name">sale.order.doc.template.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='client_order_ref']" position="after">
+                    <field name="document_template_id" context="{'company_id': company_id}" />
+                </xpath>
+                
+                
+                
+            </field>
+        </record>
+        
+        
+		<!-- Ausblenden von eq_head_text_invoice und eq_foot_text_invoice (sale_config.xml im Modul equitania) -->
+		<record id="eq_disable_sale_config_settings_texts" model="ir.ui.view">
+		     <field name="name">eq.disable.sale.config.settings.texts</field>
+		     <field name="model">sale.config.settings</field>
+		     <field name="inherit_id" ref="equitania.eq_view_sale_config_settings_texts"/>
+		     <field name="arch" type="xml">				 
+				 <separator id="eq_config_invoice_text_separator" position="attributes">
+				 	<attribute name="attrs">{'invisible':True}</attribute>
+				 </separator>
+				 
+				 <group id="eq_default_invoice_text" position="attributes">
+				 	<attribute name="attrs">{'invisible':True}</attribute>
+				 </group>
+		     </field>
+		</record> 
+   </data>
+</openerp>
