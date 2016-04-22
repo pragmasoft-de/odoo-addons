@@ -23,6 +23,19 @@ from openerp.osv import fields, osv, orm
 from openerp.tools.translate import _
 from openerp import SUPERUSER_ID, api
 from openerp.tools.float_utils import float_compare, float_round
+from itertools import groupby
+
+
+def grouplines(self, ordered_lines, sortkey):
+    """Return lines from a specified invoice or sale order grouped by category"""
+    grouped_lines = []
+    for key, valuesiter in groupby(ordered_lines, sortkey):
+        group = {}
+        group['category'] = key
+        group['lines'] = list(v for v in valuesiter)
+        grouped_lines.append(group)
+
+    return grouped_lines
 
 class stock_picking_extension(osv.osv):
     _inherit = ['stock.picking']
@@ -31,6 +44,20 @@ class stock_picking_extension(osv.osv):
         'eq_sale_order_id': fields.many2one('sale.order', 'SaleOrder'),
     }
     
+    def sale_layout_lines(self, cr, uid, ids, picking_id=None, context=None):
+        """
+        Returns invoice lines from a specified invoice ordered by
+        sale_layout_category sequence. Used in sale_layout module.
+
+        :Parameters:
+            -'invoice_id' (int): specify the concerned invoice.
+        """
+        
+        ordered_lines = self.browse(cr, uid, picking_id, context=context).move_lines
+        # We chose to group first by category model and, if not present, by invoice name
+        sortkey = lambda x: x.procurement_id.sale_line_id.sale_layout_cat_id if x.procurement_id and x.procurement_id.sale_line_id and x.procurement_id.sale_line_id.sale_layout_cat_id else ''
+
+        return grouplines(self, ordered_lines, sortkey)
     
     def create(self, cr, user, vals, context=None):
         """

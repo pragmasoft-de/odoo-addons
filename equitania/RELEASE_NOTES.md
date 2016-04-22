@@ -1,20 +1,30 @@
 ## Modul equitania
 
 #### 22.04.2016
+#### Version 1.1.24
+##### Erweiteurng
+- Lieferscheinpositionen werden im Report nach den Sektionen aus dem Verkaufsauftrag gruppiert.
+
+
+#### 22.04.2016
 #### Version 1.1.23
 ##### Änderung
 - Verkäufer und Sachbearbeiter werden bei einer Rechnungskorrektur übernommen.
+
 
 #### 21.04.2016
 #### Version 1.1.22
 ##### Änderung
 - Anpassung für Kopf- und Fußtexte in den Einstellungen, damit diese über das neue Modul für die Dokumentenvorlagen angesprochen werden können
 
+
 #### 21.04.2016
 #### Version 1.1.21
 ##### FIX
 - Lieferschein/Kommisionierungsauftrag wird übersetzt.
 
+
+#### 21.04.2016
 #### Version 1.1.20
 ##### ADD
 - MwSt. Spalte auf Positionebene in Rechnungs- und Angebots-Reports, sobald 2 oder mehr unterschiedliche Steuern berechnet werden
@@ -37,10 +47,12 @@
 ##### Änderung
 - Das Feld Pos für die Position eines Lagervorgangs sind bearbeitbar
 
+
 #### 20.04.2016
 #### Version 1.1.16
 ##### Erweiterung
 - Übersetzung für den Report "Kommissionierungsschein" implementiert.
+
 
 #### 19.04.2016
 #### Version 1.1.15
@@ -48,6 +60,8 @@
 - Das Feld Kontakt-Name wird im Interessenten und der Chance angezeigt.
 - Lieferscheinreport: Die Abstände zwischen PLZ und Ort, sowie zwischen Straße und Hausnummer wurde korrigiert.
 
+
+#### 19.04.2016
 #### Version 1.1.14
 ##### FIX
 - Fehler durch nicht-definierte Ansicht behoben.
