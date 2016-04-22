@@ -1,6 +1,11 @@
 ## Modul equitania
 
 #### 22.04.2016
+#### Version 1.1.26
+##### Änderung
+- Erweiterungen für Adresssuche (Filter und Gruppierung)
+
+#### 22.04.2016
 #### Version 1.1.25
 ##### Änderung
 - Anpassungen für Lieferscheinreport (Kopf- und Fußtexte)

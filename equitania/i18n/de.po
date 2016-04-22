@@ -289,6 +289,7 @@ msgid "Commitment Date"
 msgstr "Bestätigungsdatum"
 
 #. module: equitania
+#: view:eq.address.search:equitania.eq_address_search_view
 #: model:ir.model,name:equitania.model_res_company
 msgid "Companies"
 msgstr "Unternehmen"
@@ -296,6 +297,7 @@ msgstr "Unternehmen"
 #. module: equitania
 #: code:addons/equitania/eq_address_extension_new_api.py:74
 #: code:addons/equitania/eq_address_extension_new_api.py:76
+#: view:eq.address.search:equitania.eq_address_search_view
 #, python-format
 msgid "Company"
 msgstr "Firma"
@@ -373,6 +375,9 @@ msgstr "Historie Anschaffungspreis"
 #. module: equitania
 #: view:crm.lead:equitania.crm_case_form_view_oppor_ext
 #: view:crm.lead:equitania.crm_lead_form_ext
+#: view:res.partner:equitania.eq_partner_extension_form_view
+#: view:eq.address.search:equitania.eq_address_search_view
+#: field:eq.address.search,country_id:0
 #: view:res.partner:equitania.eq_partner_extension_form_view
 msgid "Country"
 msgstr "Land"
@@ -816,6 +821,7 @@ msgstr "Rohertrag"
 
 #. module: equitania
 #: view:eq_open_sale_order_line:equitania.eq_open_sale_order_line_search_view
+#: view:eq.address.search:equitania.eq_address_search_view
 #: view:product.template.standard_price_history:equitania.eq_product_template_standard_price_history_search_view
 #: view:purchase.order.line:equitania.eq_purchase_order_line_search_inherit
 msgid "Group By"
@@ -2615,7 +2621,9 @@ msgid "/ Order No:"
 msgstr "/ Auftrag-Nr:"
 
 #. module: equitania
+#: view:eq.address.search:equitania.eq_address_search_view
 #: field:eq.address.search,eq_crm_lead_id:0
+#: field:eq.address.search,lead:0
 msgid "Lead"
 msgstr "Interessent"
 
@@ -2673,3 +2681,39 @@ msgstr "In Chance umwandeln"
 #: model:ir.ui.menu,name:equitania.pricelistversionposition_menu
 msgid "Pricelistversionsposition"
 msgstr "Preislistenversionspositionen"
+
+#. module: equitania
+#: view:eq.address.search:equitania.eq_address_search_view
+msgid "Customers"
+msgstr "Kunden"
+
+
+#. module: equitania
+#: view:eq.address.search:equitania.eq_address_search_view
+msgid "Customer Partners"
+msgstr "Kundenkontakte"
+
+#. module: equitania
+#: view:eq.address.search:equitania.eq_address_search_view
+msgid "Leads"
+msgstr "Interessenten"
+
+#. module: equitania
+#: view:eq.address.search:equitania.eq_address_search_view
+msgid "Persons"
+msgstr "Personen"
+
+#. module: equitania
+#: field:eq.address.search,parent_id:0
+msgid "Related Company"
+msgstr "Firma"
+
+#. module: equitania
+#: view:eq.address.search:equitania.eq_address_search_view
+msgid "Supplier Partners"
+msgstr "Lieferantenkontakte"
+
+#. module: equitania
+#: view:eq.address.search:equitania.eq_address_search_view
+msgid "Suppliers"
+msgstr "Lieferanten"
