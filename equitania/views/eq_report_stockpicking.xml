@@ -359,6 +359,10 @@
 						</tbody>
 					</table>
 				</div>
+				
+				<div style="display:inline-block;" id="additional_infos_block">
+				</div>
+				
 				<div style="display:inline-block;" id="signature_block">
 					<table style="margin-top:0.5cm;">
 						<tr>

@@ -1,5 +1,10 @@
 ## Modul equitania
 
+#### 22.04.2016
+#### Version 1.1.23
+##### Änderung
+- Anpassungen für Lieferscheinreport (Kopf- und Fußtexte)
+
 #### 21.04.2016
 #### Version 1.1.22
 ##### Änderung
