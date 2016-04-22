@@ -28,6 +28,6 @@ class eq_document_template(models.Model):
     _name = "eq.document.template"
     
     name = fields.Char(string="Name", translate=True, required=True)
-    eq_header = fields.Char(string="Header", translate=True)
-    eq_footer = fields.Char(string="Footer", translate=True)
+    eq_header = fields.Html(string="Header", translate=True)
+    eq_footer = fields.Html(string="Footer", translate=True)
     

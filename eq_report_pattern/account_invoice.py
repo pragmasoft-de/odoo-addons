@@ -40,3 +40,16 @@ class eq_account_invoice(models.Model):
         if (selected_template):
             self.eq_head_text = selected_template.eq_header
             self.comment = selected_template.eq_footer
+
+"""
+    def _prepare_invoice(self, cr, uid, order, line_ids, context=None):
+        
+        invoice_vals = super(eq_report_extension_purchase_order, self)._prepare_invoice(cr, uid, order, line_ids, context)
+        
+        invoice_vals['document_template_id'] = order.document_template_id.id
+
+        
+        return invoice_vals
+    
+    
+    """

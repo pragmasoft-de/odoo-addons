@@ -42,4 +42,28 @@ class eq_sale_order_template(models.Model):
         if (selected_template):
             self.eq_head_text = selected_template.eq_header
             self.note = selected_template.eq_footer
+            
+            
+            
+    @api.v7
+    def _prepare_invoice(self, cr, uid, order, lines, context=None):
+        """
+            Override of default _prepare_invoice method. We'll set value from 2 new fields from settings (eq_head_text and eq_foo_text)
+            @cr: cursor
+            @uid: user id
+            @order: current sale order
+            @lines: lines of current sale order
+            @context: context
+            @return: dictionary with all values of actual sale order that will be saved during standard create of an invoice
+        """
+        
+        result = super(eq_sale_order_template, self)._prepare_invoice(cr, uid, order, lines, context=context)  
+        if order:
+            result['eq_head_text'] = order.eq_head_text
+            result['comment'] = order.note
+        
+            if order.document_template_id:
+                result['document_template_id'] = order.document_template_id.id
+          
+        return result
     

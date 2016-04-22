@@ -8,7 +8,12 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='date_order']" position="after">                 
                		<field name="document_template_id" />          	             	
-            	</xpath>            	    	
+            	</xpath>            	 
+            	<!-- 
+            	<field name="template_id" position="attributes">
+                    <attribute name="attrs">{'invisible':True}</attribute>
+				</field>   	
+				-->
             </field>
 	    </record>
     </data>

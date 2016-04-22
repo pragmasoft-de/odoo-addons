@@ -29,8 +29,8 @@ class eq_stock_picking(models.Model):
     _inherit = 'stock.picking'
    
     document_template_id = fields.Many2one(comodel_name='eq.document.template', string='Document Template')#TODO: readonly falls Rechnung nicht mehr editierbar?
-    eq_header_text = fields.Char(string="Header")
-    eq_footer_text = fields.Char(string="Footer")
+    eq_header_text = fields.Html(string="Header")
+    eq_footer_text = fields.Html(string="Footer")
     
     
     @api.onchange('document_template_id')
@@ -42,3 +42,17 @@ class eq_stock_picking(models.Model):
         if (selected_template):
             self.eq_header_text = selected_template.eq_header
             self.eq_footer_text = selected_template.eq_footer
+            
+            
+    def create(self, cr, user, vals, context={}):
+        
+        sale_order_obj = self.pool.get('sale.order')
+        sale_order_ids = sale_order_obj.search(cr, user, [("name", "=", vals["origin"])]) 
+        if (sale_order_ids):
+            sale_order_origin = sale_order_obj.browse(cr, user, sale_order_ids[0])
+            if sale_order_origin:
+                vals['eq_header_text'] = sale_order_origin.eq_head_text
+                vals['eq_footer_text'] = sale_order_origin.note
+                vals['document_template_id'] = sale_order_origin.document_template_id.id
+        
+        return super(eq_stock_picking, self).create(cr, user, vals, context)

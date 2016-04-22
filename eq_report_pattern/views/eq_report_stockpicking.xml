@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<template id="eq_report_stock_picking_doc_tmpl_ext"
+			inherit_id="equitania.report_picking_data">
+			<xpath expr="//h2[@class='reporttitle']" position="after">
+
+				<t t-if="o.eq_header_text">
+					<p style="margin-bottom:0.3cm!important;">
+						<span t-field="o.eq_header_text" />
+					</p>
+				</t>
+			</xpath>
+			
+			<xpath expr="//div[@id='signature_block']" position="before">
+				<t t-if="o.eq_footer_text">				
+					<p style="margin-bottom:0.3cm!important;">
+						<span t-field="o.eq_footer_text" />
+					</p>
+				</t>
+			</xpath>
+		</template>
+	</data>
+</openerp>

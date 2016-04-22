@@ -22,7 +22,7 @@
 {
     'name': 'Equitania Report Pattern',
     'license': 'AGPL-3',
-    'version': '1.0.0',
+    'version': '1.0.1',
     'description': """
         Equitania Software GmbH
     """,
@@ -42,6 +42,7 @@
              'purchase_view.xml',
              'stock_picking_view.xml',
              'account_invoice_view.xml',
+             'views/eq_report_stockpicking.xml',
     ],
     #Demodata
     'demo': [],
