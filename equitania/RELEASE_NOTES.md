@@ -1,9 +1,16 @@
 ## Modul equitania
 
+#### 25.04.2016
+#### Version 1.1.27
+##### Änderung
+- Rechteverwaltung für Adresssuche 
+
+
 #### 22.04.2016
 #### Version 1.1.26
 ##### Änderung
 - Erweiterungen für Adresssuche (Filter und Gruppierung)
+
 
 #### 22.04.2016
 #### Version 1.1.25
