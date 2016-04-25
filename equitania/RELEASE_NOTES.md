@@ -3,6 +3,12 @@
 #### 25.04.2016
 #### Version 1.1.27
 ##### Änderung
+- Adresssuche: Verbesserungen für Rechteverwaltung und Ermittlung der Daten 
+
+
+#### 25.04.2016
+#### Version 1.1.27
+##### Änderung
 - Rechteverwaltung für Adresssuche 
 
 

@@ -48,12 +48,14 @@ class EQ_Address_Search(models.Model):
         cr.execute("""
         CREATE OR REPLACE VIEW eq_address_search AS (      
             
+        
         SELECT ROW_NUMBER() OVER(ORDER BY coalesce(eq_partner_id, eq_crm_lead_id)) id,* 
         FROM (
                 SELECT p.name, '' as contact_name, p.id as eq_partner_id, cast(c.id as int) as eq_crm_lead_id, p.city, p.phone, p.zip, p.country_id, p.is_company, p.parent_id, p.customer, p.supplier, cast(c.id as bool) as lead
                 FROM res_partner p 
                 LEFT OUTER JOIN crm_lead c on c.partner_id = p.id
                 WHERE is_company
+                and p.id not in (select partner_id from res_users where coalesce(partner_id,0)>0)
                 
                 UNION  
                 
@@ -61,14 +63,15 @@ class EQ_Address_Search(models.Model):
                 FROM res_partner p
                 LEFT OUTER JOIN crm_lead c on c.partner_id = p.id
                 WHERE not is_company
+                and p.id not in (select partner_id from res_users where coalesce(partner_id,0)>0)
                 
                 UNION 
                 
                 SELECT coalesce(NULLIF(c.partner_name,''), c.name) as name, c.contact_name, null as eq_partner_id, c.id as eq_crm_lead_id, c.city, c.phone, c.zip, c.country_id, p.is_company, p.parent_id, false as customer, false as supplier, true as lead FROM crm_lead  c
         left outer join res_partner p on p.id = c.partner_id
                 WHERE coalesce(partner_id,0) = 0
-                
-           ) a
+                and p.id not in (select partner_id from res_users where coalesce(partner_id,0)>0)
+                ) a
 
        )
         """)

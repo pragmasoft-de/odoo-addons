@@ -2717,8 +2717,3 @@ msgstr "Lieferantenkontakte"
 #: view:eq.address.search:equitania.eq_address_search_view
 msgid "Suppliers"
 msgstr "Lieferanten"
-
-#. module: equitania
-#: model:res.groups,name:equitania.address_search_menu
-msgid "Show address search menu"
-msgstr "Menu für Adresssuche in Verkauf anzeigen"
