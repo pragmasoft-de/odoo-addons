@@ -1,7 +1,14 @@
 ## Modul equitania
 
+
 #### 25.04.2016
-#### Version 1.1.27
+#### Version 1.1.29
+##### FIX
+- Angebots-Report: Umbruch für das Lieferdatum wird nun auch bei langen Zeichnungsnummern korrekt gesetzt 
+
+
+#### 25.04.2016
+#### Version 1.1.28
 ##### Änderung
 - Adresssuche: Verbesserungen für Rechteverwaltung und Ermittlung der Daten 
 
