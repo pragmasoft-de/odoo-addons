@@ -1,6 +1,12 @@
 ## Modul equitania
 
 
+#### 27.04.2016
+#### Version 1.1.30
+##### FIX
+- Schriftarten in den StandardReportsStyling auf "Open Sans" gestellt (diese Schriftart muss natürlich noch auf dem Server installiert sein)
+
+
 #### 25.04.2016
 #### Version 1.1.29
 ##### FIX
