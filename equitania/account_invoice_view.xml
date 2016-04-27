@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<record id="eq_account_invoice_form" model="ir.ui.view">
+			<field name="name">eq.account.invoice.form</field>
+			<field name="model">account.invoice</field>
+			<field name="inherit_id" ref="account.invoice_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='invoice_line']/tree//field[@name='discount']" position="after">
+					<field name="discount_display_text" class="oe_right" groups="sale.group_discount_per_so_line"></field>
+				</xpath>
+				
+				<xpath expr="//field[@name='invoice_line']/tree//field[@name='discount']" position="attributes">
+			        <attribute name="invisible">1</attribute>
+            	</xpath>
+
+			</field>
+		</record>
+		
+		<!-- 
+		<record id="eq_view_invoice_line_tree" model="ir.ui.view">
+			<field name="name">eq.view.account.invoice.line.tree</field>
+			<field name="model">account.invoice.line</field>
+			<field name="inherit_id" ref="account.view_invoice_line_tree" />
+			<field name="arch" type="xml">
+				
+				<xpath expr="//field[@name='discount']" position="after">                    
+                    <field name="discount_value" groups="sale.group_discount_per_so_line"></field>
+		            <field name="discount_display_text" groups="sale.group_discount_per_so_line" attrs="{'invisible': True}"></field>
+                </xpath>
+                
+			</field>
+			
+			</record>-->
+			
+		<record id="eq_view_invoice_line_form" model="ir.ui.view">
+			<field name="name">eq.view.account.invoice.line.form</field>
+			<field name="model">account.invoice.line</field>
+			<field name="inherit_id" ref="account.view_invoice_line_form" />
+			<field name="arch" type="xml">
+				
+				 <xpath expr="//field[@name='discount']" position="after">                    
+                    <field name="discount_value" groups="sale.group_discount_per_so_line"></field>
+		            <field name="discount_display_text" groups="sale.group_discount_per_so_line" attrs="{'invisible': True}"></field>
+                </xpath>
+				
+			</field>
+			</record>
+
+	</data>
+</openerp>

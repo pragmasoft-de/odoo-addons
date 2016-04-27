@@ -26,7 +26,28 @@ from datetime import datetime
 class eq_sale_order_line(models.Model):
     _inherit = 'sale.order.line'
     
+    
+    @api.depends('discount', 'price_unit', 'product_uom_qty')
+    def _compute_discount(self):
+        for record in self:
+            record.discount_value = record.discount / 100 * record.price_unit * record.product_uom_qty
+            
+    @api.depends('discount', 'discount_value')
+    def _compute_discount_display(self):
+        if (self and self[0].order_id and self[0].order_id.pricelist_id):            
+            currency_symbol = self[0].order_id.pricelist_id.currency_id.symbol
+            
+        rep_helper_obj = self.env['eq_report_helper']
+        for record in self:
+            discounted_txt = rep_helper_obj.get_price(record.discount, self._context['lang'], 'Sale Price Report', False)
+            discounted_value_txt = rep_helper_obj.get_price(record.discount_value, self._context['lang'], 'Sale Price Report', False) + ' ' + currency_symbol
+            
+            record.discount_display_text = discounted_txt + " %\n (" + discounted_value_txt + ")"
+    
     eq_optional = fields.Boolean(string="Optional")
+    
+    discount_value = fields.Float(compute='_compute_discount', string='Discount value', store=False, readonly=True)
+    discount_display_text = fields.Char(compute='_compute_discount_display', string='Discount', store=False, readonly=True)
     
     @api.multi
     def remove_production(self):

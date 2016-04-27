@@ -1,5 +1,10 @@
 ## Modul equitania
 
+#### 27.04.2016
+#### Version 1.1.31
+##### Erweiterung
+- Anzeige der Rabattwerte für sale_order und account_invoice
+
 
 #### 27.04.2016
 #### Version 1.1.30

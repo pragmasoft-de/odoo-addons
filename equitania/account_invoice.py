@@ -31,3 +31,35 @@ class eq_account_invoice(models.Model):
         res['eq_contact_person_id'] = invoice.eq_contact_person_id.id
         res['user_id'] = invoice.user_id.id
         return res
+    
+    
+    
+class eq_account_invoice_line(models.Model):
+    _inherit = "account.invoice.line"    
+        
+    @api.depends('discount', 'price_unit', 'quantity')
+    def _compute_discount(self):
+        for record in self:
+            record.discount_value = record.discount / 100 * record.price_unit * record.quantity
+            
+    @api.depends('discount', 'discount_value')
+    def _compute_discount_display(self):
+        currency_symbol = ''
+        if (self and self[0].invoice_id):            
+            currency_symbol = self[0].invoice_id.currency_id.symbol
+                   
+        rep_helper_obj = self.env['eq_report_helper']
+       
+        for record in self:
+            discounted_txt = rep_helper_obj.get_price(record.discount, self._context['lang'], 'Product Price', False)
+            discounted_value_txt = rep_helper_obj.get_price(record.discount_value, self._context['lang'], 'Product Price', False)
+            
+            if currency_symbol:
+                discounted_value_txt += ' ' + currency_symbol
+            
+            record.discount_display_text = discounted_txt + " %\n (" + discounted_value_txt + ")"
+        
+        
+    discount_value = fields.Float(compute='_compute_discount', string='Discount value', store=False, readonly=True)
+    discount_display_text = fields.Char(compute='_compute_discount_display', string='Discount', store=False, readonly=True)
+    

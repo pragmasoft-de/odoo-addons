@@ -1333,6 +1333,26 @@ msgid "Optional"
 msgstr "Optional"
 
 #. module: equitania
+#: field:sale.order.line,discount_value:0
+msgid "Discount value"
+msgstr "Rabatt"
+
+#. module: equitania
+#: field:sale.order.line,discount_display_text:0
+msgid "Discount"
+msgstr "Rabatt"
+
+#. module: equitania
+#: field:account.invoice.line,discount_value:0
+msgid "Discount value"
+msgstr "Rabatt"
+
+#. module: equitania
+#: field:account.invoice.line,discount_display_text:0
+msgid "Discount"
+msgstr "Rabatt"
+
+#. module: equitania
 #: view:website:equitania.eq_external_layout_header_purchase_order_data
 #: view:website:equitania.eq_external_layout_header_sale_order_data
 msgid "Order date"

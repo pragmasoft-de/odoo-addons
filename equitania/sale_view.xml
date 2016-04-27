@@ -42,6 +42,23 @@
                     <field name="eq_use_page_break_after_header"></field>
                     <label string="Page break after header text"></label>
                 </xpath>
+                                
+                <xpath expr="//field[@name='order_line']/form//div[@name='discount']" position="after">
+                	<!-- <label for="discount_value"></label> -->
+		            <field name="discount_value" groups="sale.group_discount_per_so_line"></field>
+		            <field name="discount_display_text" groups="sale.group_discount_per_so_line" attrs="{'invisible': True}"></field>
+            	</xpath>
+            	
+            	
+            	<xpath expr="//field[@name='order_line']/tree//field[@name='discount']" position="after">
+	            	<!--<div  groups="sale.group_discount_per_so_line">
+	            		  <field name="discount" groups="sale.group_discount_per_so_line"/>-->
+			            <field name="discount_display_text" class="oe_right" groups="sale.group_discount_per_so_line"></field>
+            	</xpath>
+            	
+            	<xpath expr="//field[@name='order_line']/tree//field[@name='discount']" position="attributes">
+			        <attribute name="invisible">1</attribute>
+            	</xpath>
                 
                 
             </field>
@@ -81,6 +98,6 @@
 				</xpath>	
             </field>
         </record>
-		
+        
 	</data>
 </openerp>
