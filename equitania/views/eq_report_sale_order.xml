@@ -280,8 +280,8 @@
 								<strong>Unit price</strong>
 							</th>
 							<th t-if="any([line.discount for line in o.order_line])"
-								class="text-right">
-								<strong style="white-space: nowrap;">Discount (%)</strong>
+								class="text-center">
+								<strong style="white-space: nowrap;">Discount</strong>
 							</th>
 							<t t-if="len(set([line.tax_id for line in o.order_line])) > 1">
 								<th class="text-center" t-if="any([line.tax_id for line in o.order_line])">VAT</th>
@@ -346,8 +346,9 @@
 											t-esc="get_price(line.price_unit, o.partner_id.lang, o.currency_id)" />
 									</td>
 									<td t-if="any([line.discount for line in o.order_line])"
-										class="text-right">
-										<span t-field="line.discount" />
+										class="text-center">
+										<span t-field="line.discount" /> %<br/>
+											(<span t-esc="get_price(line.discount_value, o.partner_id.lang, o.currency_id)" />)
 									</td>
 									<t t-if="len(set([line.tax_id for line in o.order_line])) > 1">
 										<td class="text-center clean-bottom" t-if="any([line.tax_id for line in o.order_line])">
@@ -412,7 +413,7 @@
 											<th class="text-right" style="min-width:1.8cm;">Qty.</th>
 											<th class="text-right" style="min-width:2.3cm;">Unit price</th>
 											<th t-if="any([line.discount for line in o.order_line])"
-												class="text-right" style="white-space: nowrap;">Discount (%)</th>
+												class="text-center" style="white-space: nowrap;">Discount</th>
 											<t t-if="len(set([line.tax_id for line in o.order_line])) > 1">
 												<th class="text-center" t-if="any([line.tax_id for line in o.order_line])">VAT</th>
 											</t>

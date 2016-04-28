@@ -271,8 +271,8 @@
 							<th>Item description</th>
 							<th style="min-width:1.8cm;">Qty.</th>
 							<th class="text-right" style="min-width:2.3cm;">Unit price</th>
-							<th class="text-right" t-if="any([line.discount for line in o.invoice_line])"
-								groups="sale.group_discount_per_so_line">Discount (%)</th>
+							<th class="text-center" t-if="any([line.discount for line in o.invoice_line])"
+								groups="sale.group_discount_per_so_line">Discount</th>
 							<!-- <th class="text-right">Steuern</th> -->
 							<th class="text-center" t-if="len(o.tax_line) > 1">VAT</th>
 							<t t-if="show_gross_price is False">	<!-- no, show only net price -->
@@ -331,9 +331,10 @@
 										<span
 											t-esc="get_price(l.price_unit, o.partner_id.lang, o.currency_id)" />
 									</td>
-									<td class="text-right" t-if="any([line.discount for line in o.invoice_line])"
+									<td class="text-center" t-if="any([line.discount for line in o.invoice_line])"
 										groups="sale.group_discount_per_so_line">
-										<span t-field="l.discount" />
+										<span t-field="l.discount" /> %<br/>
+											(<span t-esc="get_price(l.discount_value, o.partner_id.lang, o.currency_id)" />)
 									</td>
 									<td class="clean-bottom text-center" t-if="len(o.tax_line) > 1">
 										<span t-field="l.invoice_line_tax_id.description" />
@@ -410,7 +411,7 @@
 											<!-- <th class="text-right">Unit</th> -->
 											<th class="text-right" style="min-width:2.3cm;">Unit price</th>
 											<th t-if="any([line.discount for line in o.invoice_line])"
-												class="text-right">Discount (%)</th>
+												class="text-center">Discount</th>
 											<th class="text-center" t-if="len(o.tax_line) > 1">VAT</th>
 											<th class="text-right" style="min-width:2.7cm;">Net price</th>
 
@@ -419,7 +420,7 @@
 
 											<!-- <th>Description</th> <th>Quantity</th> <th groups="product.group_uom">Unit 
 												of measure</th> <th class="text-right">Unit Price</th> <th class="text-right" 
-												groups="sale.group_discount_per_so_line">Discount (%)</th> <th class="text-right">Taxes</th> 
+												groups="sale.group_discount_per_so_line">Discount</th> <th class="text-right">Taxes</th> 
 												<th class="text-right">Amount</th> -->
 										</tr>
 									</thead>

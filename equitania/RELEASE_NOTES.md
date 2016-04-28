@@ -1,5 +1,12 @@
 ## Modul equitania
 
+
+#### 28.04.2016
+#### Version 1.1.34
+##### Neu
+- Reports: Angebote und Rechnungen enthalten nun auf Auftragszeilenposition auch den tatsächlich errechneten Rabattwert in Klammern angezeigt
+
+
 #### 28.04.2016
 #### Version 1.1.33
 ##### Verbesserung

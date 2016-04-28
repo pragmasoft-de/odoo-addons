@@ -579,8 +579,8 @@ msgstr "Zielort"
 #. module: equitania
 #: view:website:equitania.report_invoice_data
 #: view:website:equitania.report_saleorder_data
-msgid "Discount (%)"
-msgstr "Rabatt (%)"
+msgid "Discount"
+msgstr "Rabatt"
 
 #. module: equitania
 #: field:res.company,eq_citypart:0 field:res.partner,eq_citypart:0
