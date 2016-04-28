@@ -1,5 +1,11 @@
 ## Modul equitania
 
+#### 28.04.2016
+#### Version 1.1.33
+##### Verbesserung
+- Reports: Beschreibungstexte zu Artikeln sind auf den Angeboten und Rechnungen nun über mehrere Spalten breit.
+
+
 #### 27.04.2016
 #### Version 1.1.32
 ##### Verbesserung

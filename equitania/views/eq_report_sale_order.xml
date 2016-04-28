@@ -317,7 +317,7 @@
 											<span t-field="line.product_id.name" />
 										</strong>
 										
-										<div style="width:12cm; margin-right:-12cm; background-color:#ddddff; ">
+										<div style="width:11cm; margin-right:-11cm; ">
 											<t t-if="line.name and line.name != ' '">
 												<br />
 												<span t-field="line.name" />

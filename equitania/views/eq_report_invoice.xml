@@ -301,23 +301,26 @@
 										<strong>
 											<span t-field="l.product_id.name" />
 										</strong>
-										<br />
-										<span t-field="l.name" />
-										<div id="eq_drawing_number">
-											<t t-if="l.product_id.eq_drawing_number">
-												<p>
-													Drawing No.:
-													<span t-field="l.product_id.eq_drawing_number" />
-												</p><!-- Zeigt die Zeichnungsnummer der Produktvariante an -->
-											</t>
-											<t
-												t-if="not l.product_id.eq_drawing_number and l.product_id.product_tmpl_id.eq_drawing_number">
-												<p>
-													Drawing No.:
-													<span t-field="l.product_id.product_tmpl_id.eq_drawing_number" />
-												</p><!-- Zeigt die Zeichnungsnummer des Hauptprodukts an, wenn 
-													für die Variante keine Nummer hinterlegt ist -->
-											</t>
+										
+										<div style="width:11cm; margin-right:-11cm; ">
+											<br />
+											<span t-field="l.name" />
+											<div id="eq_drawing_number">
+												<t t-if="l.product_id.eq_drawing_number">
+													<p>
+														Drawing No.:
+														<span t-field="l.product_id.eq_drawing_number" />
+													</p><!-- Zeigt die Zeichnungsnummer der Produktvariante an -->
+												</t>
+												<t
+													t-if="not l.product_id.eq_drawing_number and l.product_id.product_tmpl_id.eq_drawing_number">
+													<p>
+														Drawing No.:
+														<span t-field="l.product_id.product_tmpl_id.eq_drawing_number" />
+													</p><!-- Zeigt die Zeichnungsnummer des Hauptprodukts an, wenn 
+														für die Variante keine Nummer hinterlegt ist -->
+												</t>
+											</div>
 										</div>
 									</td>
 									<td>
