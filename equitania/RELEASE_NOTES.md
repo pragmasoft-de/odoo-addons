@@ -1,6 +1,12 @@
 ## Modul equitania
 
 
+#### 04.05.2016
+#### Version 1.1.35
+##### Änderung
+- Reports: Kundenreferenz und Auftragsnummer in der Rechnungsposition überarbeitet
+
+
 #### 28.04.2016
 #### Version 1.1.34
 ##### Neu

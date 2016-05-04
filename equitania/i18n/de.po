@@ -2637,8 +2637,8 @@ msgstr "Kundenreferenz:"
 
 #. module: equitania
 #: view:website:equitania.report_invoice_data
-msgid "/ Order No:"
-msgstr "/ Auftrag-Nr:"
+msgid "Order No:"
+msgstr "Auftrag-Nr:"
 
 #. module: equitania
 #: view:eq.address.search:equitania.eq_address_search_view

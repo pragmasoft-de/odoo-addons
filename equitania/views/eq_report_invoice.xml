@@ -365,7 +365,13 @@
 								<tr t-if="l.eq_move_id and l.eq_move_id.picking_id" style="border-top-style:hidden;">
 									<td colspan="7">
 										<span style="font-weight:bold;" t-if="l.eq_move_id and l.eq_move_id.picking_id.eq_ref_number">
-											<strong>Customer Reference: <span t-field="l.eq_move_id.picking_id.eq_ref_number"/> / Order No: <span t-field="l.eq_move_id.picking_id.origin"/></strong>
+											<strong>Customer Reference: <span t-field="l.eq_move_id.picking_id.eq_ref_number"/></strong>
+										</span>
+										<span>
+											<strong> / </strong>
+										</span>
+										<span style="font-weight:bold;" t-if="l.eq_move_id and l.eq_move_id.picking_id.origin">
+											<strong>Order No: <span t-field="l.eq_move_id.picking_id.origin"/></strong>
 										</span>
 										<br/>
 										<span style="font-weight:bold;">
