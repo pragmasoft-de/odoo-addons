@@ -23,7 +23,7 @@ import time
 from openerp.osv import osv
 from openerp.report import report_sxw
 
-class eq_report_purchase_quotation(osv.AbstractModel):
+class eq_report_purchase_quotation_plain(osv.AbstractModel):
     _name = 'report.eq_plain_reports.report_purchasequotation_plain'
-    _inherit = 'purchase.report_purchasequotation'
+    _inherit = 'report.purchase.report_purchasequotation'
     _template = 'eq_plain_reports.report_purchasequotation_plain'

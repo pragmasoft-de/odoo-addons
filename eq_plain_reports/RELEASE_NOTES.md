@@ -1,5 +1,11 @@
 ## Modul eq_plain_reports
 
+
+#### Version 1.0.5
+##### NEU
+- Einkaufs-Reports fertiggestellt
+
+
 #### Version 1.0.4
 ##### NEU
 - Rück-Lieferschein als Plain-Report erstellt
