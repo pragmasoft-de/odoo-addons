@@ -1,6 +1,12 @@
 ## Modul equitania
 
 
+#### 09.05.2016
+#### Version 1.1.36
+##### Änderung
+- Formatierung eines Sql Queries angepasst
+
+
 #### 04.05.2016
 #### Version 1.1.35
 ##### Änderung

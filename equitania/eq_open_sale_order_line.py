@@ -53,32 +53,127 @@ class eq_open_sale_order_line(models.Model):
         tools.drop_view_if_exists(cr, 'eq_open_sale_order_line')
         cr.execute("""
         CREATE OR REPLACE VIEW eq_open_sale_order_line AS (
-            
-  select min(main.id) AS id,main.order_id AS eq_order_id,
- ( SELECT sale_order.client_order_ref FROM sale_order WHERE sale_order.id = main.order_id) AS eq_client_order_ref,
-   ( SELECT res_partner.eq_customer_ref  FROM res_partner WHERE res_partner.id = (( SELECT sale_order.partner_id FROM sale_order  WHERE sale_order.id = main.order_id))) AS eq_customer_no,
-    ( SELECT sale_order.partner_id  FROM sale_order  WHERE sale_order.id = main.order_id) AS eq_customer,
-      main.eq_delivery_date,
-    main.sequence AS eq_pos,
-    main.product_uom_qty AS eq_quantity,
-    re.Qleft  as eq_quantity_left,   
-     main.product_id AS eq_product_no,
- ( SELECT product_template.eq_drawing_number FROM product_template WHERE product_template.id = (( SELECT product_product.product_tmpl_id FROM product_product WHERE product_product.id = main.product_id))) AS eq_drawing_no,
-    main.state AS eq_state
+            SELECT 
+                min(main.id) AS id,
+                main.order_id AS eq_order_id,
+                (
+                    SELECT 
+                        sale_order.client_order_ref 
+                    FROM 
+                        sale_order 
+                    WHERE 
+                        sale_order.id = main.order_id
+                ) AS eq_client_order_ref,
+                (
+                    SELECT 
+                        res_partner.eq_customer_ref 
+                    FROM
+                        res_partner 
+                    WHERE res_partner.id = (
+                        SELECT 
+                            sale_order.partner_id 
+                        FROM 
+                            sale_order 
+                        WHERE 
+                            sale_order.id = main.order_id
+                        )
+                ) AS eq_customer_no,
+                ( 
+                    SELECT 
+                        sale_order.partner_id 
+                    FROM 
+                        sale_order 
+                    WHERE 
+                        sale_order.id = main.order_id
+                ) AS eq_customer,
+                main.eq_delivery_date,
+                main.sequence AS eq_pos,
+                main.product_uom_qty AS eq_quantity,
+                re.Qleft  as eq_quantity_left,   
+                main.product_id AS eq_product_no,
+                (
+                    SELECT 
+                        product_template.eq_drawing_number 
+                    FROM 
+                        product_template 
+                    WHERE 
+                        product_template.id = ( 
+                            SELECT 
+                                product_product.product_tmpl_id 
+                            FROM 
+                                product_product 
+                            WHERE 
+                                product_product.id = main.product_id
+                            )
+                ) AS eq_drawing_no,
+                main.state AS eq_state
    
-FROM sale_order_line main
-LEFT join (select sum(SM.product_qty)  as Qleft,sale_line_id FROM 
-stock_move SM left join procurement_order PO on PO.id=  SM.procurement_id
-where SM.state::text <> 'done'::text AND SM.state::text <> 'cancel'::text and SM.picking_id IS NOT NULL
-GROUP BY sale_line_id ) re on  re .sale_line_id=main.id
-   GROUP BY main.order_id,re.Qleft,
-   ( SELECT sale_order.client_order_ref FROM sale_order WHERE sale_order.id = main.order_id),
-   ( SELECT res_partner.eq_customer_ref  FROM res_partner WHERE res_partner.id = (( SELECT sale_order.partner_id FROM sale_order  WHERE sale_order.id = main.order_id))),
-    ( SELECT sale_order.partner_id  FROM sale_order  WHERE sale_order.id = main.order_id),
-      main.eq_delivery_date,
-    main.sequence ,
-    main.product_uom_qty ,
-    main.product_id,
-           ( SELECT product_template.eq_drawing_number FROM product_template  WHERE product_template.id = (( SELECT product_product.product_tmpl_id
-                   FROM product_product WHERE product_product.id = main.product_id))), main.state, main.id)
+            FROM
+                sale_order_line main
+            LEFT JOIN 
+                ( 
+                    SELECT 
+                        sum(SM.product_qty) AS Qleft,
+                        sale_line_id 
+                    FROM 
+                        stock_move SM left join procurement_order PO on PO.id=  SM.procurement_id
+                    WHERE 
+                        SM.state::text <> 'done'::text AND SM.state::text <> 'cancel'::text and SM.picking_id IS NOT NULL
+                    GROUP BY sale_line_id
+                ) 
+                re on  re .sale_line_id=main.id
+            GROUP BY 
+                main.order_id,re.Qleft,
+                (
+                    SELECT 
+                        sale_order.client_order_ref 
+                    FROM 
+                        sale_order 
+                    WHERE 
+                        sale_order.id = main.order_id
+                ),
+                (
+                    SELECT 
+                        res_partner.eq_customer_ref 
+                    FROM 
+                        res_partner 
+                    WHERE 
+                        res_partner.id = (  
+                            SELECT 
+                                sale_order.partner_id 
+                            FROM 
+                                sale_order  
+                            WHERE 
+                                sale_order.id = main.order_id
+                            )
+                ),
+                (
+                    SELECT 
+                        sale_order.partner_id 
+                    FROM 
+                        sale_order 
+                    WHERE 
+                        sale_order.id = main.order_id
+                ),
+                main.eq_delivery_date,
+                main.sequence ,
+                main.product_uom_qty ,
+                main.product_id,
+                (
+                    SELECT 
+                        product_template.eq_drawing_number 
+                    FROM 
+                        product_template 
+                    WHERE 
+                        product_template.id = (
+                            SELECT 
+                                product_product.product_tmpl_id
+                            FROM 
+                                product_product 
+                            WHERE 
+                                product_product.id = main.product_id)
+                ),
+                 main.state, 
+                 main.id
+        )
             """)
