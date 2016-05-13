@@ -25,9 +25,31 @@ from datetime import datetime
 class account_analytic_line(models.Model):
     _inherit = 'account.analytic.line'
      
-    eq_tags = fields.Many2many('project.category', compute='_add_tags', readonly=False)
+    eq_tags_id = fields.Many2many('project.category', compute='_add_tags', readonly=False)
+    #eq_project_classification_id = fields.Many2one(comodel_name='project.classification',search='_search_total', compute='_add_classification', readonly=False)
+    eq_project_classification_id = fields.Many2one(comodel_name='project.classification',compute='_add_classification', readonly=False)
     eq_filter_by_day = fields.Char(compute='_get_day_from_date', readonly=False, store=True)
     
+    #def _search_total(self, operator, operand):
+        
+        
+    #@api.depends('product_id.name')
+    def _add_classification(self):
+        hr_object = self.env['hr.analytic.timesheet']
+        project_work_object = self.env['project.task.work']
+        project_task_object = self.env['project.task']
+        
+        for record in self:
+            analytic_timesheet = hr_object.search([('line_id', '=', record.id)])
+            analytic_timesheet_id = analytic_timesheet.id    
+            project_task_work = project_work_object.search([('hr_analytic_timesheet_id', '=', analytic_timesheet_id)])
+            project_task_work_id = project_task_work.task_id
+            project_task = project_task_object.search([('id', '=', project_task_work_id.id)])
+            project_rec = project_task.project_id
+            classification_rec = project_rec.classification_id
+            record.eq_project_classification_id = classification_rec.id
+       
+        
     def _add_tags(self):
         
         hr_object = self.env['hr.analytic.timesheet']
@@ -36,9 +58,12 @@ class account_analytic_line(models.Model):
         
         for record in self:
                
-            eq_id_layaway = hr_object.search([('line_id', '=', record.id)]).id      
-            eq_id_layaway = project_work_object.search([('hr_analytic_timesheet_id', '=', eq_id_layaway)]).task_id
-            record.eq_tags =  project_task_object.search([('id', '=', eq_id_layaway.id)]).categ_ids
+            analytic_timesheet = hr_object.search([('line_id', '=', record.id)])
+            analytic_timesheet_id = analytic_timesheet.id    
+            project_task_work = project_work_object.search([('hr_analytic_timesheet_id', '=', analytic_timesheet_id)])
+            project_task_work_id = project_task_work.task_id
+            project_task =  project_task_object.search([('id', '=', project_task_work_id.id)])
+            record.eq_tags_id = project_task.categ_ids
 
     @api.depends('date')
     def _get_day_from_date(self):

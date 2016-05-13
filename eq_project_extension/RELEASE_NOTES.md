@@ -1,5 +1,11 @@
 ## Modul eq_project_extension
 
+#### 13.05.2016
+#### Version 1.0.4
+##### ADD
+- Klassifizierung vom Projekt wird nun als Spalte unter "Abrechnen von Aufgaben" angezeigt.
+
+
 #### 20.04.2016
 #### Version 1.0.3
 ##### Erweiterung
