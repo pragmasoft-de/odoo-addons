@@ -21,13 +21,13 @@
 
 {
     'name': 'Extend action',
-    'version': '1.0.0',
+    'version': '1.0.1',
     'description': """
         Extend OCA Module crm_action to sort the actions in the right form
     """,
     'author': 'Equitania Software GmbH',
     'website': 'www.myodoo.de',
-    'depends': ['base_setup','crm_action'],
+    'depends': ['base_setup','crm_action','crm_lead_code'],
     'category' : 'General Improvements',
     #What it Improves e.g Sale, Purchase, Accounting
     'summary': '',
