@@ -1,5 +1,21 @@
 ## Modul equitania
 
+### Unterstützung OpenSans Font
+
+Dazu muss der Zeichensatz installiert werden.
+
+Vorgehensweise unter Debian:
+
+`wget https://release.myodoo.de/fonts/opensans.zip`
+
+`unzip opensans.zip`
+
+`mv opensans /usr/share/fonts/truetype/`
+
+`rm opensans.zip`
+
+`fc-cache -f -v`
+
 
 #### 09.05.2016
 #### Version 1.1.36

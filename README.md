@@ -6,16 +6,7 @@ Die Benutzung erfolgt OHNE GEWÄHR und auf eigene Gefahr.
 
 ### Zum Inhalt ###
 
-* Der Inhalte basieren ausschließlich für die Odoo Version ab Version 8.
-* Erweitere Ansicht des Adresstyps bei abweichenden Rechnungs- und Lieferadressen
-* odoo Werbeblocker und Deaktivierung der "Phone home" Logik
-* Umstrukturierung der App Einstellungen, damit die lokalen Module verwendet werden
-* Report auf Basis von QWEB für Einkauf und Verkauf mit dynamischem Fussfeldern z.B. für Geschäftsführer
-* DATEV Konforme Kunden- und Rechnungsnummer Generierung 
-* Erweiterung um Lieferanten-Nummer
-* Nummerngenerator für Artikelnummern
-* Erweiterung um Zeichnungsnummer bei Produkten
-* Produktsuche in den Preislisten-Versionen 
+* [Leseprobe Das Odoo Kochbuch](https://leanpub.com/odoo-kochbuch/read#equitania)
 
 **GIT Commits werden mit folgenden Präfixes zu versehen:**
 
@@ -29,7 +20,7 @@ Bei mehreren die Commits nichts zusammenfassen, sondern separieren.
 
 ### Installation ###
 
-* Siehe Installation www.myodoo.de
+* [Leseprobe Das Odoo Kochbuch](https://leanpub.com/odoo-kochbuch/read)
 
 ### Kontaktdaten ###
 
