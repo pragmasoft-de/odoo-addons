@@ -143,12 +143,21 @@ pip install passlib \
     && pip install pyserial \
     && pip install pyusb==1.0.0rc1
 
+echo "OpenSans font will be install..."
+wget https://release.myodoo.de/fonts/opensans.zip
+unzip opensans.zip
+mv opensans /usr/share/fonts/truetype/
+rm opensans.zip
 
 echo "Barcodes will be install..."
 wget http://www.reportlab.com/ftp/pfbfer.zip
 unzip pfbfer.zip -d fonts
 mv fonts /usr/lib/python2.7/dist-packages/reportlab/
 rm pfbfer.zip
+
+# font cache empty
+fc-cache -f -v
+
 
 echo "WKHTML2PDF will be install..."
 curl -k -o wkhtmltox.deb -SL https://release.myodoo.de/wkhtmltox-0.12.1.2_linux-jessie-amd64.deb \
