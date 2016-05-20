@@ -1,5 +1,16 @@
 ## Modul eq_project_extension
 
+#### 20.05.2016
+#### Version 1.0.5
+##### ADD
+- Durch das OCA-Modul "project_gtd" wurde das Schließen der Projektstufen verursacht, wenn keine Aufgaben darin enthalten sind. Dies wurde nun behoben.
+- Projekte können nicht mehr abgeschlossen werden, wenn nicht alle dazugehörigen Aufgaben entweder abgeschlossen oder abgebrochen sind.
+- Es ist nun nicht mehr möglich neue Aufgaben zu einem Projekt hinzuzufügen, wenn der Status des Projektes "Abgebrochen" oder "Erledigt" ist.
+- Ein Projekt, welches einen Status "Abgebrochen" oder "Erledigt" hat kann nicht mehr berarbeitet werden.
+- Es sind nun keine Änderungen an einer Aufgabe mehr möglich, sofern sich diese in der Phase "Erledigt" oder "Abgebrochen" befindet.
+- Eine Aufgabe kann nun nur noch mit dem Projektstatus "offen" innerhalb der Phasen verschoben werden.
+
+
 #### 13.05.2016
 #### Version 1.0.4
 ##### ADD

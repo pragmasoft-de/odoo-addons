@@ -79,3 +79,29 @@ msgstr "Klassifizierung"
 #: view:account.analytic.line:eq_project_extension.eq_project_extension_view_account_analytic_line_tree
 msgid "Project Classification"
 msgstr "Projekt Klassifizierung"
+
+#. module: eq_project_extension
+#: code:addons/eq_project_extension/project.py:94
+#, python-format
+msgid "Error"
+msgstr "Fehlermeldung"
+
+#. module: eq_project_extension
+#: code:addons/eq_project_extension/project.py:94
+#, python-format
+msgid "The project is already closed or cancelled."
+msgstr "Das Projekt wurde bereits auf Erledigt oder Abgebrochen gesetzt."
+
+#. module: eq_project_extension
+#: code:addons/eq_project_extension/project.py:130
+#, python-format
+msgid "The task is already done or cancelled."
+msgstr "Die Aufgabe ist bereits Erledigt oder Abgebrochen."
+
+#. module: eq_project_extension
+#: code:addons/eq_project_extension/project_project.py:66
+#, python-format
+msgid "Edit cancelled. \n"
+"The project is already closed or cancelled."
+msgstr "Bearbeitung fehlgeschlagen. \n"
+"Das Projekt ist bereits geschlossen oder abgebrochen."

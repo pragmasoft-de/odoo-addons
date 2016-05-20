@@ -20,6 +20,7 @@
 ##############################################################################
 
 from openerp import models, fields, api, _
+from openerp.exceptions import except_orm, Warning, RedirectWarning
 
 class project_project(models.Model):
     _inherit = 'project.project'
@@ -34,10 +35,40 @@ class project_project(models.Model):
         
             tasks_done = project_task_object.search([('project_id', '=', record.id)])
             
-            if ((tasks_done.filtered(lambda t: t.stage_id.id == 7 or t.stage_id.id == 8)) == (tasks_done.filtered(lambda t: t.id == t.id))):
+            if ((tasks_done.filtered(lambda t: t.stage_id.id == 23 or t.stage_id.id == 8)) == (tasks_done.filtered(lambda t: t.id == t.id))):
                 
                 record.eq_can_set_to_done = True
                 
             else:
                 
                 record.eq_can_set_to_done = False
+    
+#     def create(self, cr, uid, vals, context=None):
+#         if context is None:
+#             context = {}
+#         # Prevent double project creation when 'use_tasks' is checked + alias management
+#         create_context = dict(context, project_creation_in_progress=True,
+#                               alias_model_name=vals.get('alias_model', 'project.task'),
+#                               alias_parent_model_name=self._name)
+#  
+#         if vals.get('type', False) not in ('template', 'contract'):
+#             vals['type'] = 'contract'
+#  
+#         project_id = super(project_project, self).create(cr, uid, vals, context=create_context)
+#         project_rec = self.browse(cr, uid, project_id, context=context)
+#         self.pool.get('mail.alias').write(cr, uid, [project_rec.alias_id.id], {'alias_parent_thread_id': project_id, 'alias_defaults': {'project_id': project_id}}, context)
+#         return project_id
+#      
+#      
+    def write(self, cr, uid, ids, vals, context=None):
+        project_state = vals.get('state')
+        if project_state != 'open':
+            raise Warning(_('Edit cancelled. \nThe project is already closed or cancelled.'))
+        else:
+            print"project_state", project_state
+            # if alias_model has been changed, update alias_model_id accordingly
+            if vals.get('alias_model'):
+                model_ids = self.pool.get('ir.model').search(cr, uid, [('model', '=', vals.get('alias_model', 'project.task'))])
+                vals.update(alias_model_id=model_ids[0])
+            return super(project_project, self).write(cr, uid, ids, vals, context=context)
+            

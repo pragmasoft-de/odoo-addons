@@ -22,3 +22,4 @@
 import account_analytic_line
 import project_task_work
 import project_project
+import project
