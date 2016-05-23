@@ -132,4 +132,8 @@ class task(osv.osv):
                     raise Warning(_('The project is already done or cancelled.'))
         else: 
             super(task, self).write(cr, uid, ids, vals, context=context)
+            
+            
+        
+    
                

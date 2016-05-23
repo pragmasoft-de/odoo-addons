@@ -2,6 +2,11 @@
 
 
 #### 23.05.2016
+#### Version 1.0.7
+##### ADD
+- In einer Aufgabe können bei "Erledigt durch" nur noch Mitarbeiter ausgewählt werden.
+
+#### 23.05.2016
 #### Version 1.0.6
 ##### ADD
 - Eine Aufgabe, welche "Erledigt" oder "Abgebrochen" ist kann nun zwischen den Phasen verschoben werden.

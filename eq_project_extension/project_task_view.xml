@@ -87,5 +87,17 @@
 			</field>
 		</record>
 		
+	<record id="eq_view_task_form2_extension" model="ir.ui.view">
+            <field name="name">project.task.form</field>
+            <field name="model">project.task</field>
+			<field name="inherit_id" ref="project.view_task_form2" />
+			<field name="arch" type="xml">
+				<data>
+					<xpath expr="//field[@name='work_ids']/tree/field[@name='user_id']" position="attributes">
+						<attribute name="domain">"[('eq_employee_id','!=', False)]</attribute>
+					</xpath>
+				</data>
+			</field>
+		</record> 
 	</data>
 </openerp>
