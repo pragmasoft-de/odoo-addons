@@ -61,14 +61,15 @@ class project_project(models.Model):
 #      
 #      
     def write(self, cr, uid, ids, vals, context=None):
-        project_state = vals.get('state')
-        if project_state != 'open':
-            raise Warning(_('Edit cancelled. \nThe project is already closed or cancelled.'))
-        else:
-            print"project_state", project_state
-            # if alias_model has been changed, update alias_model_id accordingly
-            if vals.get('alias_model'):
-                model_ids = self.pool.get('ir.model').search(cr, uid, [('model', '=', vals.get('alias_model', 'project.task'))])
-                vals.update(alias_model_id=model_ids[0])
-            return super(project_project, self).write(cr, uid, ids, vals, context=context)
-            
+        project_recs = self.browse(cr, uid, ids, context)
+        for rec in project_recs:
+            project_state = rec.state
+            if project_state != 'open' and 'state' not in vals:
+                raise Warning(_('Edit cancelled. \nThe project is already closed or cancelled.'))
+            else:
+                # if alias_model has been changed, update alias_model_id accordingly
+                if vals.get('alias_model'):
+                    model_ids = self.pool.get('ir.model').search(cr, uid, [('model', '=', vals.get('alias_model', 'project.task'))])
+                    vals.update(alias_model_id=model_ids[0])
+                return super(project_project, self).write(cr, uid, ids, vals, context=context)
+                

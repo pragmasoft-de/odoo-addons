@@ -21,6 +21,7 @@
 
 from openerp import models, fields, api, _
 from openerp.osv import fields, osv
+from openerp.exceptions import except_orm, Warning, RedirectWarning
 
 
 class task(osv.osv):
@@ -73,7 +74,6 @@ class task(osv.osv):
         project_id = vals.get('project_id')
         project = self.pool.get('project.project').browse(cr, uid, project_id, context)
         project_state = project.state
-        print"project_state", project_state
         context = dict(context or {})
         if project_state != 'close' and project_state != 'cancelled':
             # for default stage
@@ -91,112 +91,45 @@ class task(osv.osv):
         else:
             raise osv.except_osv(_('Error'), _('The project is already closed or cancelled.'))
 
-#     def write(self, cr, uid, ids, vals, context=None):
-#         tasks = self.browse(cr, uid, ids, context)
-#         for rec in tasks:
-#             task_status = rec.stage_id.name
-#             print "TASK_STATUS", task_status 
-#             if task_status != 'Erledigt' and task_status != 'Abgebrochen':
-#             
-#                 if isinstance(ids, (int, long)):
-#                     ids = [ids]
-#                 
-#                 # stage change: update date_last_stage_update
-#                 if 'stage_id' in vals:
-#                     vals['date_last_stage_update'] = fields.datetime.now()
-#                 # user_id change: update date_start
-#                 if vals.get('user_id') and 'date_start' not in vals:
-#                     vals['date_start'] = fields.datetime.now()
-#         
-#                 # Overridden to reset the kanban_state to normal whenever
-#                 # the stage (stage_id) of the task changes.
-#                 if vals and not 'kanban_state' in vals and 'stage_id' in vals:
-#                     new_stage = vals.get('stage_id')
-#                     vals_reset_kstate = dict(vals, kanban_state='normal')
-#                     for t in self.browse(cr, uid, ids, context=context):
-#                         write_vals = vals_reset_kstate if t.stage_id.id != new_stage else vals
-#                         super(task, self).write(cr, uid, [t.id], write_vals, context=context)
-#                     result = True
-#                 else:
-#                     result = super(task, self).write(cr, uid, ids, vals, context=context)
-#         
-#                 if any(item in vals for item in ['stage_id', 'remaining_hours', 'user_id', 'kanban_state']):
-#                     self._store_history(cr, uid, ids, context=context)
-#                 return result
-#             else:
-#                 raise osv.except_osv(_('Error'), _('The task is already done or cancelled.'))
-
-#     def write(self, cr, uid, ids, vals, context=None):
-#         tasks = self.browse(cr, uid, ids, context)
-#         for rec in tasks:
-#             task_status = rec.stage_id.name
-#             project_state = rec.project_id.state
-#             print "TASK_STATUS", task_status 
-#             print "PROJECT_STATUS", project_state 
-#             if project_state != 'open':
-#                 raise osv.except_osv(_('Error'), _('The task is already done or cancelled.'))
-#             else:
-#                 if isinstance(ids, (int, long)):
-#                     ids = [ids]
-#                  
-#                 # stage change: update date_last_stage_update
-#                 if 'stage_id' in vals:
-#                     vals['date_last_stage_update'] = fields.datetime.now()
-#                 # user_id change: update date_start
-#                 if vals.get('user_id') and 'date_start' not in vals:
-#                     vals['date_start'] = fields.datetime.now()
-#          
-#                 # Overridden to reset the kanban_state to normal whenever
-#                 # the stage (stage_id) of the task changes.
-#                 if vals and not 'kanban_state' in vals and 'stage_id' in vals:
-#                     new_stage = vals.get('stage_id')
-#                     vals_reset_kstate = dict(vals, kanban_state='normal')
-#                     for t in self.browse(cr, uid, ids, context=context):
-#                         write_vals = vals_reset_kstate if t.stage_id.id != new_stage else vals
-#                         super(task, self).write(cr, uid, [t.id], write_vals, context=context)
-#                     result = True
-#                 else:
-#                     result = super(task, self).write(cr, uid, ids, vals, context=context)
-#          
-#                 if any(item in vals for item in ['stage_id', 'remaining_hours', 'user_id', 'kanban_state']):
-#                     self._store_history(cr, uid, ids, context=context)
-#                 return result
-
 
     def write(self, cr, uid, ids, vals, context=None):
         tasks = self.browse(cr, uid, ids, context)
-        for rec in tasks:
-            task_status = rec.stage_id.name
-            project_state = rec.project_id.state
-            print "TASK_STATUS", task_status 
-            print "PROJECT_STATUS", project_state 
-            if project_state != 'close' and project_state != 'cancelled':
-                if isinstance(ids, (int, long)):
-                    ids = [ids]
+        if 'message_last_post' not in vals:
+            for rec in tasks:
+                task_status = rec.stage_id.name
+                project_state = rec.project_id.state
+
+                if project_state != 'close' and project_state != 'cancelled':
+                    if task_status != 'Abgebrochen' and task_status != 'Erledigt' or 'stage_id' in vals:
+                        if isinstance(ids, (int, long)):
+                            ids = [ids]
+                          
+                        # stage change: update date_last_stage_update
+                        if 'stage_id' in vals:
+                            vals['date_last_stage_update'] = fields.datetime.now()
+                        # user_id change: update date_start
+                        if vals.get('user_id') and 'date_start' not in vals:
+                            vals['date_start'] = fields.datetime.now()
                   
-                # stage change: update date_last_stage_update
-                if 'stage_id' in vals:
-                    vals['date_last_stage_update'] = fields.datetime.now()
-                # user_id change: update date_start
-                if vals.get('user_id') and 'date_start' not in vals:
-                    vals['date_start'] = fields.datetime.now()
-          
-                # Overridden to reset the kanban_state to normal whenever
-                # the stage (stage_id) of the task changes.
-                if vals and not 'kanban_state' in vals and 'stage_id' in vals:
-                    new_stage = vals.get('stage_id')
-                    vals_reset_kstate = dict(vals, kanban_state='normal')
-                    for t in self.browse(cr, uid, ids, context=context):
-                        write_vals = vals_reset_kstate if t.stage_id.id != new_stage else vals
-                        super(task, self).write(cr, uid, [t.id], write_vals, context=context)
-                    result = True
+                        # Overridden to reset the kanban_state to normal whenever
+                        # the stage (stage_id) of the task changes.
+                        if vals and not 'kanban_state' in vals and 'stage_id' in vals:
+                            new_stage = vals.get('stage_id')
+                            vals_reset_kstate = dict(vals, kanban_state='normal')
+                            for t in self.browse(cr, uid, ids, context=context):
+                                write_vals = vals_reset_kstate if t.stage_id.id != new_stage else vals
+                                super(task, self).write(cr, uid, [t.id], write_vals, context=context)
+                            result = True
+                        else:
+                            result = super(task, self).write(cr, uid, ids, vals, context=context)
+                  
+                        if any(item in vals for item in ['stage_id', 'remaining_hours', 'user_id', 'kanban_state']):
+                            self._store_history(cr, uid, ids, context=context)
+                        return result
+                    else:
+                        raise Warning(_('The task is already done or cancelled.'))
                 else:
-                    result = super(task, self).write(cr, uid, ids, vals, context=context)
-          
-                if any(item in vals for item in ['stage_id', 'remaining_hours', 'user_id', 'kanban_state']):
-                    self._store_history(cr, uid, ids, context=context)
-                return result
-  
-            else:
-                raise osv.except_osv(_('Error'), _('The task is already done or cancelled.'))
+                    raise Warning(_('The project is already done or cancelled.'))
+        else: 
+            super(task, self).write(cr, uid, ids, vals, context=context)
                

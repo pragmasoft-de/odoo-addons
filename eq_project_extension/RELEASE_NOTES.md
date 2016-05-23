@@ -1,5 +1,12 @@
 ## Modul eq_project_extension
 
+
+#### 23.05.2016
+#### Version 1.0.6
+##### ADD
+- Eine Aufgabe, welche "Erledigt" oder "Abgebrochen" ist kann nun zwischen den Phasen verschoben werden.
+- Anpassung der Projektbeschreibung
+
 #### 20.05.2016
 #### Version 1.0.5
 ##### ADD

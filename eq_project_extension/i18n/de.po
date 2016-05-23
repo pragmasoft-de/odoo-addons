@@ -105,3 +105,9 @@ msgid "Edit cancelled. \n"
 "The project is already closed or cancelled."
 msgstr "Bearbeitung fehlgeschlagen. \n"
 "Das Projekt ist bereits geschlossen oder abgebrochen."
+
+#. module: eq_project_extension
+#: code:addons/eq_project_extension/project.py:207
+#, python-format
+msgid "The project is already done or cancelled."
+msgstr "Das Projekt ist bereits Erledigt oder Abgeschlossen."

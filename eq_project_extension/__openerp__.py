@@ -21,7 +21,7 @@
 
 {
     'name': 'Project Extension',
-    'version': '1.0.5',
+    'version': '1.0.6',
     'description': """
         Improves and extends several views related to projects
     """,
@@ -29,7 +29,7 @@
     'website': 'www.myodoo.de',
     'depends': ['myodoo','project'],
     'category' : 'General Improvements',
-    'summary': 'account.analytic.lines, project.task.work, project.project',
+    'summary': 'Extend the project management views and functions',
     'data': [
         'account_analytic_line_view.xml',
         'project_task_view.xml',
