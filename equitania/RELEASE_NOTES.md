@@ -17,6 +17,12 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 23.05.2016
+#### Version 1.1.37
+##### Verbesserung
+- Den Graph View für Lagerdetailbestände(stock.quants) abgeändert, sodass er bei großen Datenmengen noch zu öffnen ist.
+
+
 #### 09.05.2016
 #### Version 1.1.36
 ##### Änderung

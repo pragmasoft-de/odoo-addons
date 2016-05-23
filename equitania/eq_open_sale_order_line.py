@@ -58,7 +58,7 @@ class eq_open_sale_order_line(models.Model):
                 main.order_id AS eq_order_id,
                 (
                     SELECT 
-                        sale_order.client_order_ref 
+                        sale_order.client_order_ref  
                     FROM 
                         sale_order 
                     WHERE 
@@ -116,9 +116,10 @@ class eq_open_sale_order_line(models.Model):
                         sum(SM.product_qty) AS Qleft,
                         sale_line_id 
                     FROM 
-                        stock_move SM left join procurement_order PO on PO.id=  SM.procurement_id
+                        procurement_order PO left join stock_move SM on PO.id =  SM.procurement_id
                     WHERE 
                         SM.state::text <> 'done'::text AND SM.state::text <> 'cancel'::text and SM.picking_id IS NOT NULL
+                        AND PO.state = 'running' AND PO.partner_dest_id IS NOT NULL
                     GROUP BY sale_line_id
                 ) 
                 re on  re .sale_line_id=main.id

@@ -3,6 +3,23 @@
     <data>
     	<!-- Support for our localization  -->
 		<function model="eq_install_func" name="_load_translation" eval="[('equitania')]"/>
+
+
+		<!-- Überschrieben, weil beim Standard das Balkendiagramm dargestellt wurde und dies zu lange zum Erstellen gebraucht hat.
+		Bei einer Datenbank mit über 4000 Einträgen hat es zu einem Absturz des Browsers und/oder Fehlermeldungen geführt.
+		Balkendiagramm wurde selbst nach einer Stunde nicht dargestellt.  -->
+       	<record model="ir.ui.view" id="stock.view_stock_quant_graph_value">
+        	<field name="name">stock.quant.graph</field>
+            <field name="model">stock.quant</field>
+            <field eval="12" name="priority"/>
+            <field name="arch" type="xml">
+                <graph string="Quants" type="pivot">
+                    <field name="location_id" type="row"/>
+                    <field name="qty" type="measure"/>
+                    <field name="inventory_value" type="measure"/>
+                </graph>
+            </field>
+        </record>
 	
         <record id="view_picking_form_cancel" model="ir.ui.view">
             <field name="name">stock.picking.form.cancel</field>
