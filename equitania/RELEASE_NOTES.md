@@ -18,6 +18,10 @@ Vorgehensweise unter Debian:
 
 
 #### 24.05.2016
+#### Version 1.1.40
+##### Erweiterung
+- Unterscheidung zwischen Rechnugnskorrektur und Gutschrift eingebaut.
+
 #### Version 1.1.39
 ##### Bugfix
 - Im Angebot/Auftrag werden die Kontakte auch über "Weitere Anzeigen" des DropDown des Partners angezeigt.

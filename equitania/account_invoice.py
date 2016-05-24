@@ -25,6 +25,8 @@ from openerp import models, fields, api, _
 class eq_account_invoice(models.Model):
     _inherit = "account.invoice"
     
+    eq_gutschrift = fields.Boolean(string="Ist eine Gutschrift")
+    
     @api.model
     def _prepare_refund(self, invoice, date=None, period_id=None, description=None, journal_id=None):
         res = super(eq_account_invoice, self)._prepare_refund(invoice, date, period_id, description, journal_id)

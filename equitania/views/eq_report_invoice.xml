@@ -248,7 +248,8 @@
 					<span t-if="o.type == 'out_invoice' and o.state == 'proforma2'">Pro-forma invoice</span>
 					<span t-if="o.type == 'out_invoice' and o.state == 'draft'">Draft invoice</span>
 					<span t-if="o.type == 'out_invoice' and o.state == 'cancel'">Cancelled invoice</span>
-					<span t-if="o.type == 'out_refund'">Refund</span>
+					<span t-if="o.type == 'out_refund' and o.eq_gutschrift == False">Refund</span>
+					<span t-if="o.type == 'out_refund' and o.eq_gutschrift != False">Gutschrift</span>
 					<span t-if="o.type == 'in_refund'">Supplier Refund</span>
 					<span t-if="o.type == 'in_invoice'">Supplier Invoice</span>
 					<span t-field="o.number" />
