@@ -22,6 +22,7 @@
 from openerp import models, fields, api, _
 from openerp.osv import osv
 from datetime import datetime
+from lxml import etree
 
 class eq_sale_order_line(models.Model):
     _inherit = 'sale.order.line'
@@ -87,6 +88,21 @@ class eq_sale_order_line(models.Model):
     
 class eq_sale_order(models.Model):
     _inherit = 'sale.order'
+    
+    @api.model
+    def fields_view_get(self, view_id=None, view_type=False, toolbar=False, submenu=False):
+        
+        ir_values_obj = self.env['ir.values']
+        
+        res = super(eq_sale_order, self).fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
+        
+        if not ir_values_obj.get_default('sale.order', 'default_search_only_company'):
+            doc = etree.XML(res['arch'])
+            for node in doc.xpath("//field[@name='partner_id']"):
+                node.set('domain', "[('customer', '=', True)]")
+            res['arch'] = etree.tostring(doc)
+            
+        return res
     
     eq_customer_ref = fields.Char(string="", related="partner_id.eq_customer_ref")
 

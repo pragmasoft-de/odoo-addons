@@ -17,6 +17,12 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 24.05.2016
+#### Version 1.1.39
+##### Bugfix
+- Im Angebot/Auftrag werden die Kontakte auch über "Weitere Anzeigen" des DropDown des Partners angezeigt.
+
+
 #### 23.05.2016
 #### Version 1.1.37
 ##### Verbesserung
