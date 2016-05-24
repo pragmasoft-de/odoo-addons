@@ -16,6 +16,11 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 24.05.2016
+#### Version 1.1.41
+##### Erweiterung
+- Attributwerte einer Produktvariante werden nun mit in den Positionstext (Beschreibung) eingefügt.
+
 
 #### 24.05.2016
 #### Version 1.1.40
