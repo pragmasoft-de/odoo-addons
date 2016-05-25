@@ -2737,3 +2737,35 @@ msgstr "Lieferantenkontakte"
 #: view:eq.address.search:equitania.eq_address_search_view
 msgid "Suppliers"
 msgstr "Lieferanten"
+
+#. module: equitania
+#: help:sale.config.settings,eq_offer_valid_duration:0
+msgid "Defines how long an offer is valid."
+msgstr "Hierrüber bestimmen Sie den Zeitraum, in dem ein Angebot gültig ist, in Tagen."
+
+#. module: equitania
+#: field:sale.config.settings,eq_offer_valid_duration:0
+msgid "Period for an valid offer in days"
+msgstr "Zeitraum in Tagen, in dem ein Angebot gültig ist,"
+
+#. module: equitania
+#: field:sale.config.settings,eq_offer_valid_duration:0
+msgid "Period for an valid offer in days"
+msgstr "Zeitraum in Tagen, in dem ein Angebot gültig ist"
+
+#. module: equitania
+#: field:res.partner,eq_sale_quotation_count:0
+msgid "# of Quotations"
+msgstr "# an Angeboten"
+
+#. module: equitania
+#: model:ir.actions.act_window,name:eq_smaract.eq_act_res_partner_quotation
+#: view:res.partner:eq_smaract.res_partner_view_buttons
+msgid "Quotations"
+msgstr "Angebote"
+
+#. module: equitania
+#: view:res.partner:eq_smaract.res_partner_view_buttons
+msgid "Sales"
+msgstr "Aufträge"
+

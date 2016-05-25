@@ -18,6 +18,10 @@ Vorgehensweise unter Debian:
 
 
 #### 25.05.2016
+#### Version 1.1.45
+##### Erweiterung
+- Smartbuttons für Angebote und Aufträge in den Kunden eingefügt.
+
 #### Version 1.1.44
 ##### Erweiterung
 - Das Feld "Gültig bis" wird bei Aufträgen ausgeblendet.
