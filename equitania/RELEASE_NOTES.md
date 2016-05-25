@@ -16,6 +16,12 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 25.05.2016
+#### Version 1.1.42
+##### Erweiterung
+- Referenzbeleg wird in der Formansicht der Angebotsanfrage/Bestellung immer angezeigt.
+
+
 #### 24.05.2016
 #### Version 1.1.41
 ##### Erweiterung
