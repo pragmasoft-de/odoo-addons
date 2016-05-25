@@ -127,3 +127,34 @@ class res_partner(models.Model):
                 record.eq_complete_description = result  
             else:
                 record.eq_complete_description = record.name
+                
+    
+    @api.onchange('title', 'name', 'lang')
+    def onchange_title_to_letter_salutation(self):
+        
+        title = self.title.name
+        name = self.name
+        lang = self.lang
+    
+        if lang == 'de_DE':   
+            if title and name:
+                if title == 'Frau' or title == 'Frl.':
+                    self.eq_letter_salutation = 'Sehr geehrte ' + title + " " + name + ","
+                else:
+                    self.eq_letter_salutation = 'Sehr geehrter ' + title + " " + name + ","
+            elif title is False and name is False:
+                salutation= 'Sehr geehrte Damen und Herren,'
+                self.eq_letter_salutation = salutation
+            elif title is False and name: 
+                salutation= 'Sehr geehrte Damen und Herren,'
+                self.eq_letter_salutation = salutation
+            elif title and name is False:
+                if title == 'Frau' or title == 'Frl.':
+                    self.eq_letter_salutation = 'Sehr geehrte ' + title + ","
+                else:
+                    self.eq_letter_salutation = 'Sehr geehrter ' + title + ","
+        elif self.lang == 'en_US':
+            self.eq_letter_salutation = "Dear " 
+
+        
+        

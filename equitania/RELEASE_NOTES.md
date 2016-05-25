@@ -16,6 +16,13 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+
+#### 25.05.2016
+#### Version 1.1.43
+##### Erweiterung
+- Beim "Anlegen" eines Kunden wird die Briefanrede direkt gesetzt. Wenn die Sprache eines Kunden auf Englisch gesetzt wird, so wechselt die Briefanrede auf "Dear ".
+
+
 #### 25.05.2016
 #### Version 1.1.42
 ##### Erweiterung
