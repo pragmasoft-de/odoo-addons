@@ -18,6 +18,10 @@ Vorgehensweise unter Debian:
 
 
 #### 25.05.2016
+#### Version 1.1.47
+##### Bugfix
+- Fehlerhaftes Feld.
+
 #### Version 1.1.46
 ##### Bugfix
 - Fehlendes Feld eingefügt.
