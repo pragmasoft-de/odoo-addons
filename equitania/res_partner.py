@@ -102,11 +102,9 @@ class res_partner(models.Model):
         return res
 
     def _sale_quotation_count(self):
-        res = dict(map(lambda x: (x,0), ids))
         # The current user may not have access rights for sale orders
         for partner in self:
-            for partner in self.browse(cr, uid, ids, context):
-                partner.eq_sale_quotation_count = len(partner.sale_order_ids.filtered(lambda record: record.state in ('draft', 'sent', 'cancel'))) + len(partner.mapped('child_ids.sale_order_ids').filtered(lambda record: record.state in ('draft', 'sent', 'cancel')))
+            partner.eq_sale_quotation_count = len(partner.sale_order_ids.filtered(lambda record: record.state in ('draft', 'sent', 'cancel'))) + len(partner.mapped('child_ids.sale_order_ids').filtered(lambda record: record.state in ('draft', 'sent', 'cancel')))
 
     
     eq_delivery_date_type_purchase = fields.Selection([('cw', 'Calendar week'), ('date', 'Date')], string="Delivery Date Purchase", help="If nothing is selected, the default from the settings will be used.")
