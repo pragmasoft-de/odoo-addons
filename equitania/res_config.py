@@ -77,3 +77,28 @@ class eq_stock_config_settings(osv.osv_memory):
                 'default_eq_seperator': fields.char('Seperator [equitania]'),
                 'module_eq_info_for_product_product': fields.boolean('Volume, weight and net weight from product variant [equitania]', help="The volume, weight and net weight will be set in the product variant (product.product)."),
                 }
+
+class sm_account_config_settings(osv.osv_memory):
+    _inherit = 'sale.config.settings'
+    
+    def set_validation_period(self, cr, uid, ids, context=None):
+        config_parameter_obj = self.pool.get('ir.config_parameter')
+        
+        config_rec = self.browse(cr, uid, ids, context=context)
+        
+        config_parameter_obj.set_param(cr, uid, 'offer.valid.duration', config_rec.eq_offer_valid_duration or '0.0', context=context)
+            
+    def get_default_validation_period(self, cr, uid, ids, context=None):
+        config_parameter_obj = self.pool.get('ir.config_parameter')
+         
+        validation_period_str = config_parameter_obj.get_param(cr, uid, 'offer.valid.duration', context=context) or '0'
+
+        validation_period = int(validation_period_str)
+         
+        return {
+                'eq_offer_valid_duration': validation_period,
+                }
+    
+    _columns= {
+               'eq_offer_valid_duration': fields.integer(string="Period for an valid offer in days", help="Defines how long an offer is valid.")
+               }

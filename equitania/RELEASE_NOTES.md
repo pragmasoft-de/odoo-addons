@@ -18,6 +18,11 @@ Vorgehensweise unter Debian:
 
 
 #### 25.05.2016
+#### Version 1.1.44
+##### Erweiterung
+- Das Feld "Gültig bis" wird bei Aufträgen ausgeblendet.
+- Es kann ein Zeitraum für die Gültigkeit eines Produktes definiert werden. Das Feld "Gültig bis" im Angebot wird entsprechend gesetzt.
+
 #### Version 1.1.43
 ##### Erweiterung
 - Beim "Anlegen" eines Kunden wird die Briefanrede direkt gesetzt. Wenn die Sprache eines Kunden auf Englisch gesetzt wird, so wechselt die Briefanrede auf "Dear ".

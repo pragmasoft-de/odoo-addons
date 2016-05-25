@@ -96,6 +96,9 @@
 				<xpath expr="//field[@name='order_line']/form//field[@name='product_uos_qty']" position="attributes">
 					<attribute name="context">{'partner_id':parent.partner_id, 'quantity':product_uos_qty, 'pricelist':parent.pricelist_id, 'uom':product_uom, 'uos_qty_change':True, 'company_id': parent.company_id}</attribute>
 				</xpath>	
+				<field name="validity_date" position="attributes">
+					<attribute name="attrs">{'invisible': [('state', 'not in', ('draft', 'sent', 'cancel'))]}</attribute>
+				</field>
             </field>
         </record>
         

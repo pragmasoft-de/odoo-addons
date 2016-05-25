@@ -21,7 +21,8 @@
 
 from openerp import models, fields, api, _
 from openerp.osv import osv
-from datetime import datetime
+from datetime import datetime, timedelta
+from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as OE_DTFORMAT
 from lxml import etree
 
 class eq_sale_order_line(models.Model):
@@ -88,6 +89,20 @@ class eq_sale_order_line(models.Model):
     
 class eq_sale_order(models.Model):
     _inherit = 'sale.order'
+
+    @api.model
+    def default_get(self, fields_list):
+        res = super(eq_sale_order, self).default_get(fields_list)
+        config_parameter_obj = self.env['ir.config_parameter']
+         
+        validation_period_str = config_parameter_obj.get_param('offer.valid.duration') or '0'
+        validation_period = int(validation_period_str)
+        
+        validity_period = timedelta(days=validation_period)
+        
+        validity_data = datetime.now() + validity_period
+        res['validity_date'] = validity_data.strftime(OE_DTFORMAT)
+        return res
     
     @api.model
     def fields_view_get(self, view_id=None, view_type=False, toolbar=False, submenu=False):
