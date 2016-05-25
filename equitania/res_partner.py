@@ -100,6 +100,17 @@ class res_partner(models.Model):
                 args.append(['id', 'in', suppliers])
         res = super(res_partner, self).name_search(name, args=args, operator=operator, limit=limit)
         return res
+
+    def _sale_quotation_count(self):
+        res = dict(map(lambda x: (x,0), ids))
+        # The current user may not have access rights for sale orders
+        for partner in self:
+            try:
+                for partner in self.browse(cr, uid, ids, context):
+                    partner.eq_sale_quotation_count = len(partner.sale_order_ids.filtered(lambda record: record.state in ('draft', 'sent', 'cancel'))) + len(partner.mapped('child_ids.sale_order_ids').filtered(lambda record: record.state in ('draft', 'sent', 'cancel')))
+            except:
+                pass
+
     
     eq_delivery_date_type_purchase = fields.Selection([('cw', 'Calendar week'), ('date', 'Date')], string="Delivery Date Purchase", help="If nothing is selected, the default from the settings will be used.")
     eq_delivery_date_type_sale = fields.Selection([('cw', 'Calendar week'), ('date', 'Date')], string="Delivery Date Sale", help="If nothing is selected, the default from the settings will be used.")    
@@ -107,6 +118,7 @@ class res_partner(models.Model):
     
     eq_prospective_customer = fields.Boolean(string="Prospective user",required=False, default=False)
     eq_unlocked_for_webshop = fields.Boolean(string="Unlocked for webshop",required=False, default=False)
+    eq_sale_quotation_count = fields.Integer(compute="_sale_quotation_count", string='# of Quotations'),
     
     
     @api.one

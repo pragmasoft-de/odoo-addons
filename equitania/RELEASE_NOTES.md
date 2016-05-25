@@ -18,6 +18,10 @@ Vorgehensweise unter Debian:
 
 
 #### 25.05.2016
+#### Version 1.1.46
+##### Bugfix
+- Fehlendes Feld eingefügt.
+
 #### Version 1.1.45
 ##### Erweiterung
 - Smartbuttons für Angebote und Aufträge in den Kunden eingefügt.
