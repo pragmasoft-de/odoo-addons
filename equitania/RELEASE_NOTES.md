@@ -18,6 +18,10 @@ Vorgehensweise unter Debian:
 
 
 #### 25.05.2016
+#### Version 1.1.50
+##### Änderung
+- Feldname angepasst.
+
 #### Version 1.1.49
 ##### Bugfix
 - Aktionen für die Smartbuttons überarbeitet.

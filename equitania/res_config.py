@@ -100,5 +100,5 @@ class sm_account_config_settings(osv.osv_memory):
                 }
     
     _columns= {
-               'eq_offer_valid_duration': fields.integer(string="Period for an valid offer in days", help="Defines how long an offer is valid.")
+               'eq_offer_valid_duration': fields.integer(string="Period for an valid offer in days [equitania]", help="Defines how long an offer is valid.")
                }
