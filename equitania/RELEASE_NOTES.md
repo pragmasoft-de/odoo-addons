@@ -18,6 +18,10 @@ Vorgehensweise unter Debian:
 
 
 #### 25.05.2016
+#### Version 1.1.49
+##### Bugfix
+- Aktionen für die Smartbuttons überarbeitet.
+
 #### Version 1.1.48
 ##### Bugfix
 - Methode auf neue API umgeschrieben.

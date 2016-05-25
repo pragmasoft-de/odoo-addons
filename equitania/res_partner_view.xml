@@ -120,12 +120,12 @@
             <field name="groups_id" eval="[(4, ref('base.group_sale_salesman'))]"/>
             <field name="arch" type="xml">
                 <xpath expr="//button[@name='%(sale.act_res_partner_2_sale_order)d']" position="replace">
-                    <button class="oe_inline oe_stat_button" type="action" name="eq_smaract.eq_act_res_partner_quotation" 
+                    <button class="oe_inline oe_stat_button" type="action" name="equitania.eq_act_res_partner_quotation" 
                         attrs="{'invisible': [('customer', '=', False)]}"
                         icon="fa-strikethrough">
                         <field string="Quotations" name="eq_sale_quotation_count" widget="statinfo"/>
                     </button>
-                    <button class="oe_inline oe_stat_button" type="action" name="eq_smaract.eq_act_res_partner_order" 
+                    <button class="oe_inline oe_stat_button" type="action" name="equitania.eq_act_res_partner_order" 
                         attrs="{'invisible': [('customer', '=', False)]}"
                         icon="fa-strikethrough">
                         <field string="Sales" name="sale_order_count" widget="statinfo"/>
