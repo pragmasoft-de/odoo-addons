@@ -12,7 +12,7 @@ Body
 </ul>
 <p>For questions please ask our team.</p>
 <p><br></p>
-<p>Grettings from ${object.company_id.city or ''}</p>
+<p>Greetings from ${object.company_id.city or ''}</p>
 <p><br></p>
 <p>
 ${object.company_id.name or ''}<br>

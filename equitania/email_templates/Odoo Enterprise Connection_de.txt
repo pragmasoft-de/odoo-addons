@@ -5,14 +5,14 @@ ${object.company_id.name} Einladung zur Registrierung auf unserem System
 Body
 #######
 <p>Hallo ${object.partner_id.title.name or ''} ${object.partner_id.name},<br></p>
-<p>dies ist automatisches E-Mail, um Ihre E-Mail-Adresse zu verifizieren und sich in unserem Kundenportal mit einem Passwort zu registrieren.&nbsp;</p>
+<p>dies ist ein automatisches E-Mail, um Ihre E-Mail-Adresse zu verifizieren und sich in unserem Kundenportal mit einem Passwort zu registrieren.&nbsp;</p>
 <p>Klicken Sie bitte auf den folgenden Link:</p>
 <ul>
 <li><a href="${object.signup_url}">Auf "${object.company_id.name}" registrieren<br></a></li>
 </ul>
 <p>Bei Fragen wenden Sie sich bitte an unser Team.</p>
 <p><br></p>
-<p>Einen Gruss aus ${object.company_id.city or ''} sendet Ihnen</p>
+<p>Einen Gruß aus ${object.company_id.city or ''} sendet Ihnen</p>
 <p><br></p>
 <p>
 ${object.company_id.name or ''}<br>
