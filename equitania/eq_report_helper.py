@@ -253,11 +253,13 @@ class eq_report_helper(osv.osv_memory):
             
                 # calculate date and replace it
                 if d1_set is False:
-                    payment_term_result = payment_term_result.replace("[Date1]", recalculated_date.strftime(date_format))                                                            
-                    d1_set = True
+                    if payment_term_result is True:
+                        payment_term_result = payment_term_result.replace("[Date1]", recalculated_date.strftime(date_format))                                                            
+                        d1_set = True
                 else:
-                    payment_term_result = payment_term_result.replace("[Date2]", recalculated_date.strftime(date_format))
-                    d2_set = True
+                    if payment_term_result is True:
+                        payment_term_result = payment_term_result.replace("[Date2]", recalculated_date.strftime(date_format))
+                        d2_set = True
         
         
             # calculate price and replace it    
@@ -271,11 +273,13 @@ class eq_report_helper(osv.osv_memory):
             
             # and now set price...make sure that you set price for each placeholder                    
             if v1_set is False: 
-                payment_term_result = payment_term_result.replace("[Value1]", total_value)
-                v1_set = True
+                if payment_term_result is True:
+                    payment_term_result = payment_term_result.replace("[Value1]", total_value)
+                    v1_set = True
             else:
-                payment_term_result = payment_term_result.replace("[Value2]", total_value)
-                v2_set = True
+                if payment_term_result is True:
+                    payment_term_result = payment_term_result.replace("[Value2]", total_value)
+                    v2_set = True
         
         return payment_term_result
     

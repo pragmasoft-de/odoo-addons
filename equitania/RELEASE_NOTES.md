@@ -16,6 +16,10 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 30.05.2016
+#### Version 1.1.51
+##### FIX
+- Fehlermeldung bei dem Druck von Ausgangsrechnungen tritt nun nicht mehr auf. Die Bedingung für das Ersetzen des Wertes und des Datums wird nun nur ausgeführt, wenn ein Wert in "Date" (Zahlungsfrist: Platzhalter für das Datum) und "Value" (Zahlungsfrist: Platzhalter für den entsprechenden Wert) vorhanden ist.
 
 #### 25.05.2016
 #### Version 1.1.50
