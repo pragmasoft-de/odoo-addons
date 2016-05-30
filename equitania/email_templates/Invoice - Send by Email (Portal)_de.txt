@@ -6,22 +6,24 @@
         
      <p style="border-left: 1px solid #002852; margin-left: 10px;">
         &nbsp;&nbsp; <strong><u>Ihre Rechnungsinformationen</u></strong><br>
-<br>
+        <br>
         &nbsp;&nbsp;Rechnungsnummer: <strong>${object.number}</strong><br>
-        &nbsp;&nbsp;Rechnungsbetrag: <strong>${object.amount_total} ${object.currency_id.name}</strong><br>
+        &nbsp;&nbsp;Rechnungsbetrag: <strong>${("%.2f" % (object.amount_total)).replace(".", ",")} ${object.currency_id.name}</strong><br>
         &nbsp;&nbsp;Rechnungsdatum: <strong>${object.date_invoice}</strong><br>
         % if object.origin:
          &nbsp;&nbsp;Unsere Auftragsreferenz: <strong>${object.origin} </strong><br>
        % endif
+
+
         % if object.user_id:
-        &nbsp;&nbsp;Ihr Ansprechpartner: <a href="mailto:${object.user_id.email or ''}?subject=Invoice%20${object.number}">${object.user_id.name}</a>
+       &nbsp;&nbsp;Ihr Ansprechpartner:  ${object.user_id.title.name} ${object.user_id.eq_firstname}  <a href="mailto:${object.user_id.email or ''}?subject=Invoice%20${object.number}">${object.user_id.name}</a>
         % endif
   </p> 
-  
- &lt;% set signup_url = object.get_signup_url() %&gt;
-    % if signup_url:
 
-    <p>
+ % set signup_url = object.get_signup_url()
+    % if signup_url:
+  
+<p>
     Sie können über das Portal auch online auf diese Rechnung zugreifen und bezahlen:
     </p>
         <a style="display:block; width: 150px; height:20px; color: #FFF; font-family: Open Sans, 'Lucida Grande', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: bold; text-align: center; text-decoration: none !important; line-height: 1; padding: 5px 0px 0px 0px; background-color: #002852; border-radius: 5px 5px; background-repeat: repeat no-repeat;" href="${signup_url}">Rechnung ansehen</a>
@@ -68,6 +70,6 @@
                 Web :&nbsp;<a href="${object.company_id.website}">${object.company_id.website}</a>
             </div>
         % endif
-        <p></p>
+        
     </div>
 </div>

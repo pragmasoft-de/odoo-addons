@@ -9,13 +9,13 @@
         &nbsp;&nbsp; <strong><u>Ihre Rechnungsinformationen</u></strong><br>
 <br>
         &nbsp;&nbsp;Rechnungsnummer: <strong>${object.number}</strong><br>
-        &nbsp;&nbsp;Rechnungsbetrag: <strong>${object.amount_total} ${object.currency_id.name}</strong><br>
+        &nbsp;&nbsp;Rechnungsbetrag: <strong>${("%.2f" % (object.amount_total)).replace(".", ",")} ${object.currency_id.name}</strong><br>
         &nbsp;&nbsp;Rechnungsdatum: <strong>${object.date_invoice}</strong><br>
         % if object.origin:
         &nbsp;&nbsp;Bestellnummer: <strong>${object.origin}</strong><br>
         % endif
         % if object.user_id:
-        &nbsp;&nbsp;Ihr Ansprechpartner: <a href="mailto:${object.user_id.email or ''}?subject=Invoice%20${object.number}">${object.user_id.name}</a>
+        &nbsp;&nbsp;Ihr Ansprechpartner:  ${object.user_id.title.name} ${object.user_id.eq_firstname}  <a href="mailto:${object.user_id.email or ''}?subject=Invoice%20${object.number}">${object.user_id.name}</a>
         % endif
     </p>
     
