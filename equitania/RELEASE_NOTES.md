@@ -17,6 +17,10 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 #### 30.05.2016
+#### Version 1.1.54
+##### CHG
+- Rechnungen und Angebote/Aufträge werden absteigend nach dem Datum sortiert dargestellt
+
 #### Version 1.1.53
 ##### CHG
 - Bei den Email Templates: Sales Order - Send by Email und Sales Order - Send by Email (Portal) zusätzlich noch ein noupdate="1" hinzugefügt. Somit werden diese Templates nach dem diese bearbeitet wurden nicht mehr durch ein Update überspielt.
