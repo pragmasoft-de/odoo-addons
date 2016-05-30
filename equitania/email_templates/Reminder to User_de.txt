@@ -1,0 +1,6 @@
+<p>Bei dieser Verkaufschance gibt es bereits seit mindestens 5 Tagen keine Aktivität. Hier sind die Details:</p>
+<ul>
+<li>Name: ${object.name}</li>
+<li>ID: ${object.id}</li>
+<li>Beschreibung: ${object.description}</li>
+</ul>

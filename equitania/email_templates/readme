@@ -12,3 +12,35 @@ update ir_translation
 set value = $$ //template// $$
 where name = 'email.template,body_html' and lang = 'de_DE' and res_id = //template_id//
 
+
+
+/* Comment J.Eberle 30.05.2016*/ 
+
+Angepasste Vorlagen: 
+Invoice - Send by Email (Portal)_de.txt
+Invoice - Send by Email (Portal)_en.txt
+Invoice - Send by Email_de.txt
+Invoice - Send by Email_en.txt
+
+
+Nicht angepasste Vorlagen:
+
+Bestellung eingegangen_de.txt
+Bestellung eingegangen_en.txt
+Purchase Order - Send by Email_de.txt
+Purchase Order - Send by Email_en.txt
+Partner Mass Mail_de.txt
+Partner Mass Mail_en.txt
+Meeting Invitation_de.txt
+Meeting Invitation_en.txt
+Lead Mass Mail_de.txt
+Lead Mass Mail_en.txt
+Lead Opportunity Mass Mail_de.txt
+Lead Opportunity Mass Mail_en.txt
+Reminder to User_de.txt
+Reminder to User_en.txt
+Reset Password_de.txt
+Reset Password_en.txt
+RFQ - Send by Email_de.txt
+RFQ - Send by Email_en.txt
+

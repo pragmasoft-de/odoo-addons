@@ -1,0 +1,6 @@
+<p>This opportunity did not have any activity since at least 5 days. Here are some details:</p>
+<ul>
+<li>Name: ${object.name}</li>
+<li>ID: ${object.id}</li>
+<li>Description: ${object.description}</li>
+</ul>
