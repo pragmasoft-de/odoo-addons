@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="eq_zugferd_invoice_form" model="ir.ui.view">
+            <field name="name">eq.zugferd.account.invoice.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                	<xpath expr="//button[@string='Print']" position="after">
+						<button name="invoice_zugferd" type="object" string="Create ZUGFeRD" attrs="{'invisible':['|',('sent','=',True), ('state', '!=', 'open')]}" class="oe_highlight" groups="base.group_user"/>
+					</xpath>
+    		</field>
+    	</record>   
+	</data>
+</openerp>
