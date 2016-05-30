@@ -1,10 +1,10 @@
 <openerp>
     <!-- Mail template is done in a NOUPDATE block
          so users can freely customize/delete them -->
-    <data noupdate="0">
+    <data noupdate="1">
 
         <!--Email template -->
-        <record id="portal_sale.email_template_edi_sale" model="email.template">
+        <record id="portal_sale.email_template_edi_sale" model="email.template" forcecreate="False">
             <field name="name">Sales Order - Send by Email (Portal)</field>
             <field name="email_from">${(object.user_id.email or '')|safe}</field>
             <field name="subject">${object.company_id.name|safe} ${object.state in ('draft', 'sent') and 'Quotation' or 'Order'} (Ref ${object.name or 'n/a' })</field>

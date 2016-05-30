@@ -89,6 +89,8 @@ class eq_sale_order_line(models.Model):
     
 class eq_sale_order(models.Model):
     _inherit = 'sale.order'
+    
+    _order = "date_order DESC"
 
     @api.model
     def default_get(self, fields_list):

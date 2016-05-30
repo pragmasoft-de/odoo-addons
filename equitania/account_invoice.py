@@ -24,6 +24,7 @@ from openerp import models, fields, api, _
 
 class eq_account_invoice(models.Model):
     _inherit = "account.invoice"
+    _order = "date_invoice DESC"
     
     eq_gutschrift = fields.Boolean(string="Ist eine Gutschrift")
     

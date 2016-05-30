@@ -1,9 +1,9 @@
 <openerp>
 	
-    <data noupdate="0">
+    <data noupdate="1">
 
         <!--Email template -->
-        <record id="sale.email_template_edi_sale" model="email.template">
+        <record id="sale.email_template_edi_sale" model="email.template" forcecreate="False">
             <field name="name">Sales Order - Send by Email</field>
             <field name="email_from">${(object.user_id.email or '')|safe}</field>
             <field name="subject">${object.company_id.name|safe} ${object.state in ('draft', 'sent') and 'Quotation' or 'Order'} (Ref ${object.name or 'n/a' })</field>
