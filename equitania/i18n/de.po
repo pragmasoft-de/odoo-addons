@@ -2764,3 +2764,7 @@ msgstr "Angebote"
 msgid "Sales"
 msgstr "Aufträge"
 
+#. module: equitania
+#: field:email.template,eq_email_template_version:0
+msgid "Version Number"
+msgstr "Versionsnummer"

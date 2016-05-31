@@ -17,6 +17,11 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 #### 31.05.2016
+#### Version 1.1.56
+##### ADD
+- Deutsche Übersetzung zur "Version Number" eingefügt.
+
+#### 31.05.2016
 #### Version 1.1.55
 ##### ADD
 - Bei den Email Templates ein zusätzlichen Integer-Feld mit der Versionsnummer eingefügt.
