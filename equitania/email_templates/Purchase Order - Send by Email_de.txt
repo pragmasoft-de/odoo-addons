@@ -1,15 +1,16 @@
 
-<div style="font-family: Open Sans,'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+<div style="font-family: Open Sans,'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 13px; color: rgb(34, 34, 34); background-color: #FFF;">
 
-    <p>Hallo ${object.partner_id.name},</p>
+    <p>Sehr geehrte(r) ${object.partner_id.name},</p>
     
-    <p>hiermit senden wir Ihnen die ${object.state in ('draft', 'sent') and 'request for quotation' or 'purchase order confirmation'} für ${object.company_id.name}: </p>
+    <p>hiermit senden wir Ihnen die ${object.state in ('draft', 'sent') and 'Angebotsanfrage' or 'Bestellung'} für ${object.company_id.name}: </p>
     
-    <p style="border-left: 1px solid #8e0000; margin-left: 30px;">
-       &nbsp;&nbsp;<strong>REFERENZEN</strong><br>
+    <p style="border-left: 1px solid #002852; margin-left: 10px;">
+       &nbsp;&nbsp;<strong>Bestelldetails</strong><br>
        &nbsp;&nbsp;Bestellnummer: <strong>${object.name}</strong><br>
-       &nbsp;&nbsp;Betrag: <strong>${object.amount_total} ${object.currency_id.name}</strong><br>
-       &nbsp;&nbsp;Datum: ${object.date_order}<br>
+       &nbsp;&nbsp;Betrag: <strong>${('%0.2f' % (object.amount_total)).replace(".", ",")} ${object.currency_id.name}</strong><br>
+
+       &nbsp;&nbsp;Datum: <strong>${object.date_order}</strong><br>
        % if object.origin:
        &nbsp;&nbsp;Unsere Referenz: ${object.origin}<br>
        % endif
@@ -25,20 +26,26 @@
     <p>Bei Fragen, kontaktieren Sie uns bitte.</p>
     <p>Vielen Dank!</p>
     <br>
+    <p>Mit freundlichen Grüßen,</p>
     <br>
-    <div style="width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
-        <h3 style="margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;">
-            <strong style="text-transform:uppercase;">${object.company_id.name}</strong></h3>
+     <br>
+      <br>
+    <div style="width: auto; margin: 0px; padding: 0px; background-color: #002852; background-repeat: repeat no-repeat;">
+        <h3 style="margin: 0px; padding: 2px 14px; font-size: 16px; color: #FFF;">
+                    <strong>${object.company_id.name}</strong></h3>
     </div>
-    <div style="width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;">
+    <div style="width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #FFF;">
         <span style="color: #222; margin-bottom: 5px; display: block; ">
         % if object.company_id.street:
-            ${object.company_id.street}<br>
+            ${object.company_id.street}
         % endif
+        % if object.company_id.eq_house_no:
+           ${object.company_id.eq_house_no}<br>
+        % endif  
         % if object.company_id.street2:
             ${object.company_id.street2}<br>
         % endif
-        % if object.company_id.city or object.company_id.zip:
+                % if object.company_id.city or object.company_id.zip:
             ${object.company_id.zip} ${object.company_id.city}<br>
         % endif
         % if object.company_id.country_id:
@@ -47,7 +54,7 @@
         </span>
         % if object.company_id.phone:
             <div style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
-                Tel.:&nbsp; ${object.company_id.phone}
+                Telefon:&nbsp; ${object.company_id.phone}
             </div>
         % endif
         % if object.company_id.website:
