@@ -13,7 +13,7 @@ set value = $$ //template// $$
 where name = 'email.template,body_html' and lang = 'de_DE' and res_id = //template_id//
 
 
-/* Comment J.Eberle 30.05.2016*/ 
+/* Comment J.Eberle 31.05.2016*/ 
 
 Angepasste Vorlagen: 
 Invoice - Send by Email (Portal)_de.txt
