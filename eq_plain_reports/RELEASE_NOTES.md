@@ -1,6 +1,12 @@
 ## Modul eq_plain_reports
 
 
+#### 31.05.2016
+#### Version 1.0.6
+##### ADD
+- Übersetzungsdatei de.po in Ordner i18n eingefügt
+
+
 #### Version 1.0.5
 ##### NEU
 - Einkaufs-Reports fertiggestellt

@@ -1,0 +1,83 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* eq_plain_reports
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.1 Build 160504\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-31 10:48+0000\n"
+"PO-Revision-Date: 2016-05-31 12:49+0200\n"
+"Last-Translator: Julia Eberle <j.eberle@equitania.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: de\n"
+"X-Generator: Poedit 1.8.7\n"
+
+#. module: eq_plain_reports
+#: model:ir.actions.report.xml,name:eq_plain_reports.purchasequotation_order_plain
+msgid "Anfrage eines Angebotes für Briefpapier"
+msgstr "Anfrage eines Angebotes für Briefpapier"
+
+#. module: eq_plain_reports
+#: model:ir.actions.report.xml,name:eq_plain_reports.sale_order_plain
+msgid "Angebot / Bestellung für Briefpapier"
+msgstr "Angebot / Bestellung für Briefpapier"
+
+#. module: eq_plain_reports
+#: model:ir.actions.report.xml,name:eq_plain_reports.purchase_order_plain
+msgid "Bestellung für Briefpapier"
+msgstr "Bestellung für Briefpapier"
+
+#. module: eq_plain_reports
+#: field:report.eq_plain_reports.report_invoice_plain,display_name:0
+#: field:report.eq_plain_reports.report_purchase_plain,display_name:0
+#: field:report.eq_plain_reports.report_purchasequotation_plain,display_name:0
+#: field:report.eq_plain_reports.report_sale_order_plain,display_name:0
+#: field:report.eq_plain_reports.report_stockpicking_plain,display_name:0
+#: field:report.eq_plain_reports.report_stockpicking_return_plain,display_name:0
+msgid "Display Name"
+msgstr "Name anzeigen"
+
+#. module: eq_plain_reports
+#: field:report.eq_plain_reports.report_invoice_plain,id:0
+#: field:report.eq_plain_reports.report_purchase_plain,id:0
+#: field:report.eq_plain_reports.report_purchasequotation_plain,id:0
+#: field:report.eq_plain_reports.report_sale_order_plain,id:0
+#: field:report.eq_plain_reports.report_stockpicking_plain,id:0
+#: field:report.eq_plain_reports.report_stockpicking_return_plain,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: eq_plain_reports
+#: model:ir.actions.report.xml,name:eq_plain_reports.account_stockpicking_plain
+msgid "Kommissionierung/Lieferschein für Briefpapier"
+msgstr "Kommissionierung/Lieferschein für Briefpapier"
+
+#. module: eq_plain_reports
+#: field:report.eq_plain_reports.report_invoice_plain,__last_update:0
+#: field:report.eq_plain_reports.report_purchase_plain,__last_update:0
+#: field:report.eq_plain_reports.report_purchasequotation_plain,__last_update:0
+#: field:report.eq_plain_reports.report_sale_order_plain,__last_update:0
+#: field:report.eq_plain_reports.report_stockpicking_plain,__last_update:0
+#: field:report.eq_plain_reports.report_stockpicking_return_plain,__last_update:0
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: eq_plain_reports
+#: model:ir.actions.report.xml,name:eq_plain_reports.account_invoices_plain
+msgid "Rechnungen für Briefpapier"
+msgstr "Rechnungen für Briefpapier"
+
+#. module: eq_plain_reports
+#: model:ir.actions.report.xml,name:eq_plain_reports.account_stockpicking_return_plain
+msgid "Rücklieferschein für Briefpapier"
+msgstr "Rücklieferschein für Briefpapier"
+
+#. module: eq_plain_reports
+#: view:website:eq_plain_reports.external_layout_footer_plain
+msgid "Seite"
+msgstr "Seite"
