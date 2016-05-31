@@ -1,52 +1,55 @@
 
-<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
-    % if object.partner_id.is_company:
-		<p>Dear Ladies and Gentlemen,</p>    	
+<div style="font-family: Open Sans, 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 13px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	% if object.partner_id.is_company:
+		<p>Dear Sir or Madam,</p>    	
     % endif
     % if object.partner_id.is_company == False:
     	<p>Dear ${object.partner_id.title.name} ${object.partner_id.name},</p>
-    % endif        	
+    % endif        	       
     <p>
-     ${object.state in ('draft', 'sent') and 'we have received your request and will contact you immediately because of the order confirmation.' or 'we hereby confirm the following orde.'}
+     ${object.state in ('draft', 'sent') and 'we have received your request and will contact you immediately because of the order confirmation.' or 'we hereby confirm the following order.'}
     </p>       
     
-% for line in object.order_line:
 
+
+%for line in object.order_line:
+ 
 % endfor
 <table class="table table-condensed">
     <thead>
         <tr>
             <th>Productnumber</th>
             <th>Product</th>
-            <th>Quantity</th>
-            <th>Price/unit</th>
-            <th>Total</th>
+            <th style="text-align:right">Quantity</th>
+            <th style="text-align:right">Price/unit</th>
+            <th style="text-align:right">Total</th>
         </tr>
+
     </thead>
 <tbody><tr>
         <td>${line.product_id.default_code}</td>
         <td>${line.product_id.name}</td>
         <td style="text-align:right">${'%0.0f' % line.product_uom_qty}</td>
-        <td style="text-align:right">${'%0.2f' % line.price_unit} ${object.currency_id.symbol}</td>
-        <td style="text-align:right">${'%0.2f' % (line.price_unit * line.product_uom_qty)} ${object.currency_id.symbol}</td>
+        <td style="text-align:right">${('%0.2f' % (line.price_unit)).replace(".", ",")} ${object.currency_id.symbol}</td>
+       <td style="text-align:right">${('%0.2f' % (line.price_unit * line.product_uom_qty)).replace(".", ",")} ${object.currency_id.symbol}</td>
 </tr></tbody>
 </table>
     <p>If you have any question, do not hesitate to contact us.</p>
     <p>Thank you for choosing ${object.company_id.name or 'us'}!</p>
     <br>
     <br>
-    <div style="width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
-        <h3 style="margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;">
-            <strong style="text-transform:uppercase;">${object.company_id.name}</strong></h3>
+    <div style="width: auto; margin: 0px; padding: 0px; background-color: #002852; background-repeat: repeat no-repeat;">
+        <h3 style="margin: 0px; padding: 2px 14px; font-size: 16px; color: #FFF;">
+            <strong>${object.company_id.name}</strong></h3>
     </div>
-    <div style="width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;">
+    <div style="width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #FFF;">
         <span style="color: #222; margin-bottom: 5px; display: block; ">
         % if object.company_id.street:
             ${object.company_id.street}
         % endif
         % if object.company_id.eq_house_no:
            ${object.company_id.eq_house_no}<br>
-        % endif        
+        % endif           
         % if object.company_id.street2:
             ${object.company_id.street2}<br>
         % endif
@@ -64,10 +67,10 @@
         % endif
         % if object.company_id.website:
             <div>
-                Web :&nbsp;<a href="${object.company_id.website}">${object.company_id.website}</a>
+                Web:&nbsp;<a href="${object.company_id.website}">${object.company_id.website}</a>
             </div>
         % endif
-        <p></p>
+       
     </div>
 </div>
-            
+

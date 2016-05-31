@@ -8,23 +8,22 @@
        &nbsp;&nbsp;<strong><u>References</u></strong><br>
        <br>
        &nbsp;&nbsp;Invoice number: <strong>${object.number}</strong><br>
-       &nbsp;&nbsp;Invoice total: <strong>${object.amount_total} ${object.currency_id.name}</strong><br>
+       &nbsp;&nbsp;Invoice total: <strong>${("%.2f" % (object.amount_total)).replace(".", ",")} ${object.currency_id.name}</strong><br>
        &nbsp;&nbsp;Invoice date: <strong>${object.date_invoice}</strong><br>
        % if object.origin:
        &nbsp;&nbsp;Order reference: <strong>${object.origin}</strong><br>
        % endif
        % if object.user_id:
-       &nbsp;&nbsp;Your contact: <a href="mailto:${object.user_id.email or ''}?subject=Invoice%20${object.number}">${object.user_id.name}</a>
+   &nbsp;&nbsp;Your contact: ${object.user_id.title.name} ${object.user_id.eq_firstname}  <a href="mailto:${object.user_id.email or ''}?subject=Invoice%20${object.number}"> ${object.user_id.name}</a>
        % endif
     </p>  
-
- &lt;% set signup_url = object.get_signup_url() %&gt;
+ % set signup_url = object.get_signup_url()
     % if signup_url:
    
     <p>
     You can access the invoice document and pay online via our Customer Portal:
     </p>
-        <a style="display:block; width: 150px; height:20px; margin-left: 120px; color: #FFF; font-family: Open Sans, 'Lucida Grande', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: bold; text-align: center; text-decoration: none !important; line-height: 1; padding: 5px 0px 0px 0px; background-color: #002852; border-radius: 5px 5px; background-repeat: repeat no-repeat;" href="${signup_url}">View Invoice</a>
+        <a style="display:block; width: 150px; height:20px;  color: #FFF; font-family: Open Sans, 'Lucida Grande', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: bold; text-align: center; text-decoration: none !important; line-height: 1; padding: 5px 0px 0px 0px; background-color: #002852; border-radius: 5px 5px; background-repeat: repeat no-repeat;" href="${signup_url}">View Invoice</a>
     % endif
     
     % if object.paypal_url:

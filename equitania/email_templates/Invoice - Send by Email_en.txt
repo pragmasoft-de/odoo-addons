@@ -8,13 +8,13 @@
     <p style="border-left: 1px solid #002852; margin-left: 10px;">
        &nbsp;&nbsp;<strong>References</strong><br>
        &nbsp;&nbsp;Invoice number: <strong>${object.number}</strong><br>
-       &nbsp;&nbsp;Invoice total: <strong>${object.amount_total} ${object.currency_id.name}</strong><br>
+       &nbsp;&nbsp;Invoice total: <strong>${("%.2f" % (object.amount_total)).replace(".", ",")} ${object.currency_id.name}</strong><br>
        &nbsp;&nbsp;Invoice date:  <strong>${object.date_invoice} </strong><br>
        % if object.origin:
        &nbsp;&nbsp;Order reference:  <strong>${object.origin} </strong><br>
        % endif
        % if object.user_id:
-       &nbsp;&nbsp;Your contact: <a href="mailto:${object.user_id.email or ''}?subject=Invoice%20${object.number}">${object.user_id.name}</a>
+       &nbsp;&nbsp;Your contact: ${object.user_id.title.name} ${object.user_id.eq_firstname}  <a href="mailto:${object.user_id.email or ''}?subject=Invoice%20${object.number}"> ${object.user_id.name}</a>
        % endif
     </p>  
     
