@@ -21,10 +21,14 @@
 import xmlrpclib
 from datetime import datetime, timedelta
 
-username = "user"
+username = "username"
 pwd = "pw"
 dbname = "dbname"
 baseurl = "http://localhost:8069"
+
+version_number = 1
+
+print "Email-Template Import wird gestartet..."
 
 sock_common = xmlrpclib.ServerProxy(baseurl + "/xmlrpc/common")
 
@@ -32,213 +36,345 @@ uid = sock_common.login(dbname, username, pwd)
 
 sock = xmlrpclib.ServerProxy(baseurl + "/xmlrpc/object")
 
-list_id = sock.execute(dbname, uid, pwd, 'email.template', 'search', [])
+list_id = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("eq_email_template_version","=",0)])
+#list_id = sock.execute(dbname, uid, pwd, 'email.template', 'search', ["|",("eq_email_template_version","=",0),("eq_email_template_version","<",version_number)])
+
+dict = sock.execute(dbname, uid, pwd, 'email.template', 'read', list_id,['display_name'])
+
+for i in dict:
+    print 'Template "' + i['display_name'] + '" wurde gelöscht'
+    
+
+    
+#list_id = sock.execute(dbname, uid, pwd, 'email.template', 'search', [])
 sock.execute(dbname, uid, pwd, 'email.template', 'unlink', list_id)
 
 
 #############1. Sales Order - Send by Email_en #############
 ############################################################
-
-
-email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Sales Order - Send by Email_en.txt","r")
-body_html = email_temp_file.read()
+template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Sales Order - Send by Email")])
 
 sale_order_model_id = sock.execute(dbname, uid, pwd, 'ir.model', 'search',[("model","=", "sale.order")])
 sale_order_xml_id = sock.execute(dbname, uid, pwd, 'ir.actions.report.xml', 'search',[("model","=", "sale.order")])
 
+if template_name == []:
 
-Email_Template_en = {
-    'name': 'Sales Order - Send by Email',
-    'model_id': sale_order_model_id[0],
-    'subject': "${object.company_id.name|safe} ${object.state in ('draft', 'sent') and 'Quotation' or 'Order'} (Ref ${object.name or 'n/a' })", 
-    'body_html': body_html,
-    'email_from': "${(object.user_id.email or '')|safe}",
-    'partner_to': '${object.partner_invoice_id.id}',
-    'lang': '${object.partner_id.lang}',
-    'report_template': sale_order_xml_id[0],
-    'report_name': "${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
-    'auto_delete': True,
-                        }     
-   
-template_id = sock.execute(dbname, uid, pwd, 'email.template', 'create', Email_Template_en,{})               
-print "Email-Template erstellt: Sales Order - Send by Email_en"
+    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Sales Order - Send by Email_en.txt","r")
+    body_html = email_temp_file.read()
+    
 
-
-#############2. Sales Order - Send by Email_de #############
-############################################################
-
-
-email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Sales Order - Send by Email_de.txt","r")
-body_html = email_temp_file.read()
-
-
-Email_Template_de = {
-    'name': 'Sales Order - Send by Email',
-    'model_id': sale_order_model_id[0],
-    'subject': "${object.company_id.name|safe} ${object.state in ('draft', 'sent') and 'Angebot' or 'Auftrag'} (Ref ${object.name or 'n/a' })", 
-    'body_html': body_html,
-    'email_from': "${(object.user_id.email or '')|safe}",
-    'partner_to': '${object.partner_invoice_id.id}',
-    'lang': '${object.partner_id.lang}',
-    'report_template': sale_order_xml_id[0],
-    'report_name': "${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
-    'auto_delete': True,
-                        }     
-      
-sock.execute(dbname, uid, pwd, 'email.template', 'write',template_id, Email_Template_de,{'lang':'de_DE'})            
-print "Email-Template erstellt: Sales Order - Send by Email_de"
+    Email_Template_en = {
+        'name': 'Sales Order - Send by Email',
+        'eq_email_template_version': version_number,
+        'model_id': sale_order_model_id[0],
+        'subject': "${object.company_id.name|safe} ${object.state in ('draft', 'sent') and 'Quotation' or 'Order'} (Ref ${object.name or 'n/a' })", 
+        'body_html': body_html,
+        'email_from': "${(object.user_id.email or '')|safe}",
+        'partner_to': '${object.partner_invoice_id.id}',
+        'lang': '${object.partner_id.lang}',
+        'report_template': sale_order_xml_id[0],
+        'report_name': "${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
+        'auto_delete': True,
+                            }     
+       
+    template_id = sock.execute(dbname, uid, pwd, 'email.template', 'create', Email_Template_en,{})               
+    print "Email-Template erstellt: Sales Order - Send by Email_en"
+    
+    
+#################2. Sales Order - Send by Email_de #############
+################################################################
+    
+    
+    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Sales Order - Send by Email_de.txt","r")
+    body_html = email_temp_file.read()
+    
+    
+    Email_Template_de = {
+        'name': 'Sales Order - Send by Email',
+         'eq_email_template_version': version_number,
+        'model_id': sale_order_model_id[0],
+        'subject': "${object.company_id.name|safe} ${object.state in ('draft', 'sent') and 'Angebot' or 'Auftrag'} (Ref ${object.name or 'n/a' })", 
+        'body_html': body_html,
+        'email_from': "${(object.user_id.email or '')|safe}",
+        'partner_to': '${object.partner_invoice_id.id}',
+        'lang': '${object.partner_id.lang}',
+        'report_template': sale_order_xml_id[0],
+        'report_name': "${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
+        'auto_delete': True,
+                            }     
+          
+    sock.execute(dbname, uid, pwd, 'email.template', 'write',template_id, Email_Template_de,{'lang':'de_DE'})            
+    print "Email-Template erstellt: Sales Order - Send by Email_de"
 
 
 #############3. Sales Order - Send by Email (Portal)_en #############
 #####################################################################
 
+template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Sales Order - Send by Email (Portal)")])
 
-email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Sales Order - Send by Email (Portal)_en.txt","r")
-body_html = email_temp_file.read()
+if template_name == []:
 
-
-Email_Template_en = {
-    'name': 'Sales Order - Send by Email (Portal)',
-    'model_id': sale_order_model_id[0],
-    'subject': "${object.company_id.name|safe} ${object.state in ('draft', 'sent') and 'Quotation' or 'Order'} (Ref ${object.name or 'n/a' })", 
-    'body_html': body_html,
-    'email_from': "${(object.user_id.email or '')|safe}",
-    'partner_to': '${object.partner_invoice_id.id}',
-    'lang': '${object.partner_id.lang}',
-    'report_template': sale_order_xml_id[0],
-    'report_name': "${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
-    'auto_delete': True,
-                        }     
-   
-template_id = sock.execute(dbname, uid, pwd, 'email.template', 'create', Email_Template_en, {})               
-print "Email-Template erstellt: Sales Order - Send by Email (Portal)_en"
-
-
-#############4. Sales Order - Send by Email (Portal)_de #############
-#####################################################################
-
-email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Sales Order - Send by Email (Portal)_de.txt","r")
-
-body_html = email_temp_file.read()
-
-
-Email_Template_de = {
-    'name': 'Sales Order - Send by Email (Portal)',
-    'model_id': sale_order_model_id[0],
-    'subject': "${object.company_id.name|safe} ${object.state in ('draft', 'sent') and 'Angebot' or 'Auftrag'} (Ref ${object.name or 'n/a' })", 
-    'body_html': body_html,
-    'email_from': "${(object.user_id.email or '')|safe}",
-    'partner_to': '${object.partner_invoice_id.id}',
-    'lang': '${object.partner_id.lang}',
-    'report_template': sale_order_xml_id[0],
-    'report_name': "${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
-    'auto_delete': True,
-                        }     
-      
-sock.execute(dbname, uid, pwd, 'email.template', 'write',template_id, Email_Template_de,{'lang':'de_DE'})            
-print "Email-Template erstellt: Sales Order - Send by Email (Portal)_de"
+    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Sales Order - Send by Email (Portal)_en.txt","r")
+    body_html = email_temp_file.read()
+    
+    
+    Email_Template_en = {
+        'name': 'Sales Order - Send by Email (Portal)',
+        'eq_email_template_version': version_number,
+        'model_id': sale_order_model_id[0],
+        'subject': "${object.company_id.name|safe} ${object.state in ('draft', 'sent') and 'Quotation' or 'Order'} (Ref ${object.name or 'n/a' })", 
+        'body_html': body_html,
+        'email_from': "${(object.user_id.email or '')|safe}",
+        'partner_to': '${object.partner_invoice_id.id}',
+        'lang': '${object.partner_id.lang}',
+        'report_template': sale_order_xml_id[0],
+        'report_name': "${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
+        'auto_delete': True,
+                            }     
+       
+    template_id = sock.execute(dbname, uid, pwd, 'email.template', 'create', Email_Template_en, {})               
+    print "Email-Template erstellt: Sales Order - Send by Email (Portal)_en"
+    
+    
+##############4. Sales Order - Send by Email (Portal)_de #############
+######################################################################
+    
+    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Sales Order - Send by Email (Portal)_de.txt","r")
+    
+    body_html = email_temp_file.read()
+    
+    
+    Email_Template_de = {
+        'name': 'Sales Order - Send by Email (Portal)',
+        'eq_email_template_version': version_number,
+        'model_id': sale_order_model_id[0],
+        'subject': "${object.company_id.name|safe} ${object.state in ('draft', 'sent') and 'Angebot' or 'Auftrag'} (Ref ${object.name or 'n/a' })", 
+        'body_html': body_html,
+        'email_from': "${(object.user_id.email or '')|safe}",
+        'partner_to': '${object.partner_invoice_id.id}',
+        'lang': '${object.partner_id.lang}',
+        'report_template': sale_order_xml_id[0],
+        'report_name': "${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
+        'auto_delete': True,
+                            }     
+          
+    sock.execute(dbname, uid, pwd, 'email.template', 'write',template_id, Email_Template_de,{'lang':'de_DE'})            
+    print "Email-Template erstellt: Sales Order - Send by Email (Portal)_de"
 
 
 #############5. Sales Order - Send by Email (Online Quote)_en #############
 ###########################################################################
 
+template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Sales Order - Send by Email (Online Quote)")])
 
-email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Sales Order - Send by Email (Online Quote)_en.txt","r")
-body_html = email_temp_file.read()
-
-
-Email_Template_en = {
-    'name': 'Sales Order - Send by Email (Online Quote)',
-    'model_id': sale_order_model_id[0],
-    'subject': "${object.company_id.name|safe} ${object.state in ('draft', 'sent') and 'Quotation' or 'Order'} (Ref ${object.name or 'n/a' })", 
-    'body_html': body_html,
-    'email_from': "${(object.user_id.email or '')|safe}",
-    'partner_to': '${object.partner_invoice_id.id}',
-    'lang': '${object.partner_id.lang}',
-    'report_template': sale_order_xml_id[0],
-    'report_name': "${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
-    'auto_delete': True,
-                        }     
-      
-template_id = sock.execute(dbname, uid, pwd, 'email.template', 'create', Email_Template_en, {})            
-print "Email-Template erstellt: Sales Order - Send by Email (Online Quote)_en"
+if template_name == []:
 
 
-#############6. Sales Order - Send by Email (Online Quote)_de #############
-###########################################################################
-
-
-email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Sales Order - Send by Email (Online Quote)_de.txt","r")
-body_html = email_temp_file.read()
-
-
-Email_Template_de = {
-    'name': 'Sales Order - Send by Email (Online Quote)',
-    'model_id': sale_order_model_id[0],
-    'subject': "${object.company_id.name|safe} ${object.state in ('draft', 'sent') and 'Angebot' or 'Auftrag'} (Ref ${object.name or 'n/a' })", 
-    'body_html': body_html,
-    'email_from': "${(object.user_id.email or '')|safe}",
-    'partner_to': '${object.partner_invoice_id.id}',
-    'lang': '${object.partner_id.lang}',
-    'report_template': sale_order_xml_id[0],
-    'report_name': "${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
-    'auto_delete': True,
-                        }     
-      
-template_id = sock.execute(dbname, uid, pwd, 'email.template', 'write', template_id, Email_Template_de,{'lang':'de_DE'})            
-print "Email-Template erstellt: Sales Order - Send by Email (Online Quote)_de"
+    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Sales Order - Send by Email (Online Quote)_en.txt","r")
+    body_html = email_temp_file.read()
+    
+    
+    Email_Template_en = {
+        'name': 'Sales Order - Send by Email (Online Quote)',
+        'eq_email_template_version': version_number,
+        'model_id': sale_order_model_id[0],
+        'subject': "${object.company_id.name|safe} ${object.state in ('draft', 'sent') and 'Quotation' or 'Order'} (Ref ${object.name or 'n/a' })", 
+        'body_html': body_html,
+        'email_from': "${(object.user_id.email or '')|safe}",
+        'partner_to': '${object.partner_invoice_id.id}',
+        'lang': '${object.partner_id.lang}',
+        'report_template': sale_order_xml_id[0],
+        'report_name': "${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
+        'auto_delete': True,
+                            }     
+          
+    template_id = sock.execute(dbname, uid, pwd, 'email.template', 'create', Email_Template_en, {})            
+    print "Email-Template erstellt: Sales Order - Send by Email (Online Quote)_en"
+    
+    
+##############6. Sales Order - Send by Email (Online Quote)_de #############
+############################################################################
+    
+    
+    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Sales Order - Send by Email (Online Quote)_de.txt","r")
+    body_html = email_temp_file.read()
+    
+    
+    Email_Template_de = {
+        'name': 'Sales Order - Send by Email (Online Quote)',
+        'eq_email_template_version': version_number,
+        'model_id': sale_order_model_id[0],
+        'subject': "${object.company_id.name|safe} ${object.state in ('draft', 'sent') and 'Angebot' or 'Auftrag'} (Ref ${object.name or 'n/a' })", 
+        'body_html': body_html,
+        'email_from': "${(object.user_id.email or '')|safe}",
+        'partner_to': '${object.partner_invoice_id.id}',
+        'lang': '${object.partner_id.lang}',
+        'report_template': sale_order_xml_id[0],
+        'report_name': "${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
+        'auto_delete': True,
+                            }     
+          
+    template_id = sock.execute(dbname, uid, pwd, 'email.template', 'write', template_id, Email_Template_de,{'lang':'de_DE'})            
+    print "Email-Template erstellt: Sales Order - Send by Email (Online Quote)_de"
 
 
 #############7. Invoice - Send by Email en ################################
 ###########################################################################
 
 
-email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Invoice - Send by Email_en.txt","r")
-body_html = email_temp_file.read()
-
 invoice_model_id = sock.execute(dbname, uid, pwd, 'ir.model', 'search',[("model","=", "account.invoice")])
 invoice_xml_id = sock.execute(dbname, uid, pwd, 'ir.actions.report.xml', 'search',[("model","=", "account.invoice")])
 
-Email_Template_en = {
-    'name': 'Invoice - Send by Email',
-    'model_id': invoice_model_id[0],
-    'subject': "${object.company_id.name} Invoice (Ref ${object.number or 'n/a'})", 
-    'body_html': body_html,
-    'email_from': "${(object.user_id.email or object.company_id.email or 'noreply@localhost')|safe}",
-    'partner_to': '${object.partner_id.id}',
-    'lang': '${object.partner_id.lang}',
-    'report_template': invoice_xml_id[0],
-    'report_name': "Invoice_${(object.number or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
-    'auto_delete': True,
-                        }     
-      
-template_id = sock.execute(dbname, uid, pwd, 'email.template', 'create', Email_Template_en, {})            
-print "Email-Template erstellt: Invoice - Send by Email_en"
+template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Invoice - Send by Email")])
+
+if template_name == []:
+
+    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Invoice - Send by Email_en.txt","r")
+    body_html = email_temp_file.read()
+    
+    Email_Template_en = {
+        'name': 'Invoice - Send by Email',
+        'eq_email_template_version': version_number,
+        'model_id': invoice_model_id[0],
+        'subject': "${object.company_id.name} Invoice (Ref ${object.number or 'n/a'})", 
+        'body_html': body_html,
+        'email_from': "${(object.user_id.email or object.company_id.email or 'noreply@localhost')|safe}",
+        'partner_to': '${object.partner_id.id}',
+        'lang': '${object.partner_id.lang}',
+        'report_template': invoice_xml_id[0],
+        'report_name': "Invoice_${(object.number or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
+        'auto_delete': True,
+                            }     
+          
+    template_id = sock.execute(dbname, uid, pwd, 'email.template', 'create', Email_Template_en, {})            
+    print "Email-Template erstellt: Invoice - Send by Email_en"
+    
+    
+##############8. Invoice - Send by Email de ################################
+############################################################################
+    
+    
+    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Invoice - Send by Email_de.txt","r")
+    body_html = email_temp_file.read()
+    
+    
+    Email_Template_de = {
+        'name': 'Invoice - Send by Email',
+        'eq_email_template_version': version_number,
+        'model_id': invoice_model_id[0],
+        'subject': "${object.company_id.name|safe} Rechnung (Ref ${object.number or 'n/a'})", 
+        'body_html': body_html,
+        'email_from': "${(object.user_id.email or object.company_id.email or 'noreply@localhost')|safe}",
+        'partner_to': '${object.partner_id.id}',
+        'lang': '${object.partner_id.lang}',
+        'report_template': invoice_xml_id[0],
+        'report_name': "Invoice_${(object.number or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
+        'auto_delete': True,
+                            }     
+          
+    template_id = sock.execute(dbname, uid, pwd, 'email.template', 'write', template_id, Email_Template_de,{'lang':'de_DE'})            
+    print "Email-Template erstellt: Invoice - Send by Email_de"
 
 
-#############8. Invoice - Send by Email de ################################
+#############9. Invoice - Send by Email (Portal) en ################################
+###########################################################################
+
+template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Invoice - Send by Email (Portal)")])
+
+if template_name == []:
+
+    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Invoice - Send by Email (Portal)_en.txt","r")
+    body_html = email_temp_file.read()
+    
+    
+    Email_Template_en = {
+        'name': 'Invoice - Send by Email (Portal)',
+        'eq_email_template_version': version_number,
+        'model_id': invoice_model_id[0],
+        'subject': "${object.company_id.name} Invoice (Ref ${object.number or 'n/a'})", 
+        'body_html': body_html,
+        'email_from': "${(object.user_id.email or object.company_id.email or 'noreply@localhost')|safe}",
+        'partner_to': '${object.partner_id.id}',
+        'lang': '${object.partner_id.lang}',
+        'report_template': invoice_xml_id[0],
+        'report_name': "Invoice_${(object.number or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
+        'auto_delete': True,
+                            }     
+          
+    template_id = sock.execute(dbname, uid, pwd, 'email.template', 'create', Email_Template_en, {})            
+    print "Email-Template erstellt: Invoice - Send by Email (Portal)_en"
+    
+    
+##############10. Invoice - Send by Email (Portal) de ################################
+############################################################################
+    
+    
+    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Invoice - Send by Email_de.txt","r")
+    body_html = email_temp_file.read()
+    
+    
+    Email_Template_de = {
+        'name': 'Invoice - Send by Email (Portal)',
+        'eq_email_template_version': version_number,
+        'model_id': invoice_model_id[0],
+        'subject': "${object.company_id.name|safe} Rechnung (Ref ${object.number or 'n/a'})", 
+        'body_html': body_html,
+        'email_from': "${(object.user_id.email or object.company_id.email or 'noreply@localhost')|safe}",
+        'partner_to': '${object.partner_id.id}',
+        'lang': '${object.partner_id.lang}',
+        'report_template': invoice_xml_id[0],
+        'report_name': "Invoice_${(object.number or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
+        'auto_delete': True,
+                            }     
+          
+    template_id = sock.execute(dbname, uid, pwd, 'email.template', 'write', template_id, Email_Template_de,{'lang':'de_DE'})            
+    print "Email-Template erstellt: Invoice - Send by Email (Portal)_de"
+
+
+#############11. Lead/Opportunity Mass Mail en ################################
 ###########################################################################
 
 
-email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Invoice - Send by Email_de.txt","r")
-body_html = email_temp_file.read()
+# email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Lead Opportunity Mass Mail_en.txt","r")
+# body_html = email_temp_file.read()
+# 
+# massmail_model_id = sock.execute(dbname, uid, pwd, 'ir.model', 'search',[("model","=", "crm.lead.forward.to.partner")])
+# massmail_xml_id = sock.execute(dbname, uid, pwd, 'ir.actions.report.xml', 'search',[("model","=", "crm.lead.forward.to.partner")])
+# 
+# Email_Template_en = {
+#     'name': 'Lead/Opportunity Mass Mail',
+#     'model_id': massmail_model_id[0],
+#     'subject': "Fwd: Lead: ${ctx['partner_id'].name}", 
+#     'body_html': body_html,
+#     'email_from': "${(user.email or '')|safe}",
+#     'email_to': "${ctx['partner_id'].email|safe}",
+#     'auto_delete': True,
+#                         }     
+#       
+# template_id = sock.execute(dbname, uid, pwd, 'email.template', 'create', Email_Template_en, {})            
+# print "Email-Template erstellt: Lead/Opportunity Mass Mail en"
 
 
-Email_Template_de = {
-    'name': 'Invoice - Send by Email',
-    'model_id': invoice_model_id[0],
-    'subject': "${object.company_id.name|safe} Rechnung (Ref ${object.number or 'n/a'})", 
-    'body_html': body_html,
-    'email_from': "${(object.user_id.email or object.company_id.email or 'noreply@localhost')|safe}",
-    'partner_to': '${object.partner_id.id}',
-    'lang': '${object.partner_id.lang}',
-    'report_template': invoice_xml_id[0],
-    'report_name': "Invoice_${(object.number or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
-    'auto_delete': True,
-                        }     
-      
-template_id = sock.execute(dbname, uid, pwd, 'email.template', 'write', template_id, Email_Template_de,{'lang':'de_DE'})            
-print "Email-Template erstellt: Invoice - Send by Email_de"
+#############12. Lead/Opportunity Mass Mail de ################################
+###########################################################################
+
+
+# email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Lead Opportunity Mass Mail_de.txt","r")
+# body_html = email_temp_file.read()
+# 
+# 
+# Email_Template_de = {
+#     'name': 'Lead/Opportunity Mass Mail',
+#     'model_id': massmail_model_id[0],
+#     'subject': "Fwd: Lead: ${ctx['partner_id'].name}", 
+#     'body_html': body_html,
+#     'email_from': "${(user.email or '')|safe}",
+#     'email_to': "${ctx['partner_id'].email|safe}",
+#     'auto_delete': True,
+#                         }     
+#       
+# template_id = sock.execute(dbname, uid, pwd, 'email.template', 'write', template_id, Email_Template_de,{'lang':'de_DE'})            
+# print "Email-Template erstellt:  Lead/Opportunity Mass Mail_de"
 
 
 #############7. Odoo Enterprise Connection_en #############################
@@ -284,3 +420,5 @@ print "Email-Template erstellt: Invoice - Send by Email_de"
 #       
 # template_id = sock.execute(dbname, uid, pwd, 'email.template', 'write', template_id, Email_Template_de,{'lang':'de_DE'})            
 # print "Email-Template erstellt: Odoo Enterprise Connection_de"
+
+print "Email-Template Import wird beendet..."
