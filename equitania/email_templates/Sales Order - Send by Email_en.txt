@@ -12,9 +12,9 @@
     
 
 
-%for line in object.order_line:
+
  
-% endfor
+
 <table class="table table-condensed">
     <thead>
         <tr>
@@ -26,13 +26,17 @@
         </tr>
 
     </thead>
-<tbody><tr>
+<tbody>
+%for line in object.order_line:
+<tr>
         <td>${line.product_id.default_code}</td>
         <td>${line.product_id.name}</td>
         <td style="text-align:right">${'%0.0f' % line.product_uom_qty}</td>
         <td style="text-align:right">${('%0.2f' % (line.price_unit)).replace(".", ",")} ${object.currency_id.symbol}</td>
        <td style="text-align:right">${('%0.2f' % (line.price_unit * line.product_uom_qty)).replace(".", ",")} ${object.currency_id.symbol}</td>
-</tr></tbody>
+</tr>
+% endfor
+</tbody>
 </table>
     <p>If you have any question, do not hesitate to contact us.</p>
     <p>Thank you for choosing ${object.company_id.name or 'us'}!</p>

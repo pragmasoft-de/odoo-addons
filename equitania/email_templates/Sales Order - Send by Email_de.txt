@@ -11,9 +11,8 @@
     <p>&nbsp;${object.state in ('draft', 'sent') and 'wir haben Ihre Anfrage erhalten und melden uns umgehend wegen der Bestellbestätigung bei Ihnen.' or 'hiermit bestätigen wir Ihnen folgende Bestellung.'}</p>
 
 
- % for line in object.order_line:
 
-% endfor
+
 <table class="table table-condensed">
     <thead>
         <tr>
@@ -24,13 +23,17 @@
             <th style="text-align:right">Summe</th>
         </tr>
     </thead>
-<tbody><tr>
+<tbody>
+ % for line in object.order_line:
+ <tr>
         <td>${line.product_id.default_code}</td>
         <td>${line.product_id.name}</td>
         <td style="text-align:right">${'%0.0f' % line.product_uom_qty}</td>
         <td style="text-align:right">${('%0.2f' % (line.price_unit)).replace(".", ",")} ${object.currency_id.symbol}  </td>
          <td style="text-align:right">${('%0.2f' % (line.price_unit * line.product_uom_qty)).replace(".", ",")} ${object.currency_id.symbol}</td>
- </tr></tbody>
+ </tr>
+ % endfor
+ </tbody>
 </table>
 
 
