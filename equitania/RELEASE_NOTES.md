@@ -16,10 +16,19 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+
 #### 01.06.2016
-#### Version 1.1.57
+#### Version 1.1.59
 ##### ADD
 - Bei den Email-Templates wird nun der ursprüngliche Editor durch ein anderes Widget verwendet. Dieses zeigt nur die "Source View".
+
+### Version 1.1.58
+#### Änderung
+- Alle Benutzer haben nur die Leserechte für die Einträge in dem Menü "Auftragspositionen"
+
+### Version 1.1.57
+#### Bugfix
+- Fehlenden Import eingefügt
 
 
 #### 31.05.2016
@@ -27,10 +36,12 @@ Vorgehensweise unter Debian:
 ##### ADD
 - Deutsche Übersetzung zur "Version Number" eingefügt.
 
+
 #### 31.05.2016
 #### Version 1.1.55
 ##### ADD
 - Bei den Email Templates ein zusätzlichen Integer-Feld mit der Versionsnummer eingefügt.
+
 
 #### 30.05.2016
 #### Version 1.1.54
@@ -41,15 +52,16 @@ Vorgehensweise unter Debian:
 ##### CHG
 - Bei den Email Templates: Sales Order - Send by Email und Sales Order - Send by Email (Portal) zusätzlich noch ein noupdate="1" hinzugefügt. Somit werden diese Templates nach dem diese bearbeitet wurden nicht mehr durch ein Update überspielt.
 
+
 #### 30.05.2016
 #### Version 1.1.52
 ##### CHG
 - Bei den Email Templates: Sales Order - Send by Email und Sales Order - Send by Email (Portal) ein forcecreate="False" hinzugefügt. Somit werden diese Templates nach dem diese gelöscht wurden bei einem Update nicht wieder erzeugt.
 
-#### 30.05.2016
 #### Version 1.1.51
 ##### FIX
 - Fehlermeldung bei dem Druck von Ausgangsrechnungen tritt nun nicht mehr auf. Die Bedingung für das Ersetzen des Wertes und des Datums wird nun nur ausgeführt, wenn ein Wert in "Date" (Zahlungsfrist: Platzhalter für das Datum) und "Value" (Zahlungsfrist: Platzhalter für den entsprechenden Wert) vorhanden ist.
+
 
 #### 25.05.2016
 #### Version 1.1.50
@@ -97,8 +109,6 @@ Vorgehensweise unter Debian:
 ##### Erweiterung
 - Attributwerte einer Produktvariante werden nun mit in den Positionstext (Beschreibung) eingefügt.
 
-
-#### 24.05.2016
 #### Version 1.1.40
 ##### Erweiterung
 - Unterscheidung zwischen Rechnugnskorrektur und Gutschrift eingebaut.

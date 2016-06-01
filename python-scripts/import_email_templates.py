@@ -21,7 +21,7 @@
 import xmlrpclib
 from datetime import datetime, timedelta
 
-username = "username"
+username = "benutzer"
 pwd = "pw"
 dbname = "dbname"
 baseurl = "http://localhost:8069"
@@ -72,8 +72,7 @@ if template_name == []:
         'email_from': "${(object.user_id.email or '')|safe}",
         'partner_to': '${object.partner_invoice_id.id}',
         'lang': '${object.partner_id.lang}',
-        'report_template': sale_order_xml_id[0],
-        'report_name': "${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
+       
         'auto_delete': True,
                             }     
        
@@ -98,8 +97,7 @@ if template_name == []:
         'email_from': "${(object.user_id.email or '')|safe}",
         'partner_to': '${object.partner_invoice_id.id}',
         'lang': '${object.partner_id.lang}',
-        'report_template': sale_order_xml_id[0],
-        'report_name': "${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}",
+        
         'auto_delete': True,
                             }     
           

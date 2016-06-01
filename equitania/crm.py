@@ -22,6 +22,7 @@
 from openerp import models, fields, api, _
 from datetime import datetime
 from openerp import tools
+from openerp.exceptions import Warning
 
 #je nach Modul
 fistname_column = 'eq_firstname'

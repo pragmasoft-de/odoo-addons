@@ -1,3 +1,0 @@
-## The fastest way to create a translation, is to go into the "Setting" of Odoo and to click on "Export Translation" which is in "Import / Export".
-## In the new window you need to select the Language, the fiel format "PO File" and the Module. Afterwards click on "Export" and a new Window with the
-## Downloadlink for the *.po File will show up.
