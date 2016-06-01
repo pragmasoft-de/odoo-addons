@@ -16,6 +16,12 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 01.06.2016
+#### Version 1.1.57
+##### ADD
+- Bei den Email-Templates wird nun der ursprüngliche Editor durch ein anderes Widget verwendet. Dieses zeigt nur die "Source View".
+
+
 #### 31.05.2016
 #### Version 1.1.56
 ##### ADD
