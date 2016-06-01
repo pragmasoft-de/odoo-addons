@@ -18,6 +18,10 @@ Vorgehensweise unter Debian:
 
 
 ### 01.06.2016
+### Version 1.1.58
+#### Änderung
+- Alle Benutzer haben nur die Leserechte für die Einträge in dem Menü "Auftragspositionen"
+
 ### Version 1.1.57
 #### Bugfix
 - Fehlenden Import eingefügt
