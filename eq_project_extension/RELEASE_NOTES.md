@@ -1,6 +1,11 @@
 ## Modul eq_project_extension
 
 #### 02.06.2016
+#### Version 1.0.9
+##### FIX
+- Dependency zu Modul myodoo muss nun doch vorhanden sein.
+
+#### 02.06.2016
 #### Version 1.0.8
 ##### FIX
 - Dependency zu Modul myodoo entfernt.
