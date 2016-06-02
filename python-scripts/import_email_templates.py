@@ -21,8 +21,8 @@
 import xmlrpclib
 from datetime import datetime, timedelta
 
-username = "benutzer"
-pwd = "pw"
+username = "user"
+pwd = "pwd"
 dbname = "dbname"
 baseurl = "http://localhost:8069"
 
@@ -42,7 +42,7 @@ list_id = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("eq_email
 dict = sock.execute(dbname, uid, pwd, 'email.template', 'read', list_id,['display_name'])
 
 for i in dict:
-    print 'Template "' + i['display_name'] + '" wurde gelöscht'
+    print 'Template "' + i['display_name'] + '" wurde geloescht'
     
 
     
