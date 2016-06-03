@@ -46,8 +46,11 @@
     <div style="width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #FFF;">
         <span style="color: #222; margin-bottom: 5px; display: block; ">
         % if object.company_id.street:
-            ${object.company_id.street}<br>
+            ${object.company_id.street}
         % endif
+        % if object.company_id.eq_house_no:
+           ${object.company_id.eq_house_no}<br>
+        % endif  
         % if object.company_id.street2:
             ${object.company_id.street2}<br>
         % endif
