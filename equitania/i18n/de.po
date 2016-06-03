@@ -521,12 +521,16 @@ msgstr "Lieferbedingungen"
 #: view:purchase.order.line:equitania.eq_purchase_order_line_form2_inherit
 #: view:purchase.order.line:equitania.eq_purchase_order_line_tree_inherit
 #: view:sale.config.settings:equitania.eq_view_sale_config_settings
-#: field:sale.order.line,eq_delivery_date:0
 #: field:stock.transfer_details_items,eq_delivery_date:0
 #: view:website:equitania.eq_external_layout_header_return_picking_data
 #: view:website:equitania.eq_external_layout_header_stock_picking_data
 msgid "Delivery Date"
 msgstr "Lieferdatum"
+
+#. module: equitania
+#: field:sale.order.line,eq_delivery_date:0
+msgid "Delivery Date"
+msgstr "Lieferavis"
 
 #. module: equitania
 #: field:res.partner,eq_delivery_date_type_purchase:0

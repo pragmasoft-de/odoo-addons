@@ -17,6 +17,12 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 03.06.2016
+### Version 1.1.60
+#### Änderung
+- Das Feld "Lieferdatum" in den Auftragspositionen im Verkauf in "Lieferavis" umbenannt.
+
+
 #### 01.06.2016
 #### Version 1.1.59
 ##### ADD
