@@ -59,7 +59,7 @@ class eq_product_template(osv.osv):
             (select id from procurement_order where sale_line_id in 
             (select id from sale_order_line as sol where sol.product_id in 
             (select id from product_product where product_tmpl_id = %d) 
-            and sol.state not in ('cancel', 'done') 
+            and sol.state not in ('cancel') 
             and (select state from sale_order where id = sol.order_id) not in ('sent', 'draft'))) 
             and state not in ('done', 'cancel')
             and picking_id is not null""" % (id))

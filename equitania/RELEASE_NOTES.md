@@ -17,6 +17,12 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 06.06.2016
+### Version 1.1.61
+#### Änderung
+- Bei der offenen Menge des Smart Buttons "Verkäufe" im Produkt werden nun auch die noch offenen Lieferungen von abgeschlossenen Verkaufsaufträgen beachtet.
+
+
 #### 03.06.2016
 ### Version 1.1.60
 #### Änderung
