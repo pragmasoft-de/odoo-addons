@@ -111,3 +111,13 @@ msgstr "Bearbeitung fehlgeschlagen. \n"
 #, python-format
 msgid "The project is already done or cancelled."
 msgstr "Das Projekt ist bereits Erledigt oder Abgeschlossen."
+
+#. module: eq_project_extension
+#: view:account.analytic.line:eq_project_extension.eq_project_extension_view_account_analytic_line_tree
+msgid "Customer"
+msgstr "Kunde"
+
+#. module: eq_project_extension
+#: view:account.analytic.line:eq_project_extension.eq_project_extension_view_account_analytic_line_tree
+msgid "Customer Number"
+msgstr "Kundennummer"

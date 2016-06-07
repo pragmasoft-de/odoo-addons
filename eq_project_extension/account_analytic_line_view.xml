@@ -11,6 +11,8 @@
 					<field name="account_id" position="after">
 						<field name="eq_tags_id" string="Tags" />
 						<field name="eq_project_classification_id" string="Project Classification"/>
+						<field name="eq_customer_number" string="Customer Number"/>
+						<field name="eq_company_id" string="Customer"/>
 					</field>
 				</data>
 			</field>

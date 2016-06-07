@@ -30,8 +30,42 @@ class account_analytic_line(models.Model):
     eq_project_classification_id = fields.Many2one(comodel_name='project.classification',compute='_add_classification', readonly=False)
     eq_filter_by_day = fields.Char(compute='_get_day_from_date', readonly=False, store=True)
     
+    eq_customer_number = fields.Char(compute='_get_customer_number', readonly=False)
+    eq_company_id = fields.Many2one(comodel_name='res.partner',compute='_get_company', readonly=False)
+    
     #def _search_total(self, operator, operand):
+    
+    def _get_company(self):
+        hr_object = self.env['hr.analytic.timesheet']
+        project_work_object = self.env['project.task.work']
+        project_task_object = self.env['project.task']
         
+        for record in self:
+            analytic_timesheet = hr_object.search([('line_id', '=', record.id)])
+            analytic_timesheet_id = analytic_timesheet.id    
+            project_task_work = project_work_object.search([('hr_analytic_timesheet_id', '=', analytic_timesheet_id)])
+            project_task_work_id = project_task_work.task_id
+            project_task = project_task_object.search([('id', '=', project_task_work_id.id)])
+            project_rec = project_task.project_id
+            partner_rec = project_rec.partner_id
+            record.eq_company_id = partner_rec.id
+    
+    
+    def _get_customer_number(self):
+        hr_object = self.env['hr.analytic.timesheet']
+        project_work_object = self.env['project.task.work']
+        project_task_object = self.env['project.task']
+        res_partner_object = self.env['res.partner']
+        
+        for record in self:
+            analytic_timesheet = hr_object.search([('line_id', '=', record.id)])
+            analytic_timesheet_id = analytic_timesheet.id    
+            project_task_work = project_work_object.search([('hr_analytic_timesheet_id', '=', analytic_timesheet_id)])
+            project_task_work_id = project_task_work.task_id
+            project_task = project_task_object.search([('id', '=', project_task_work_id.id)])
+            project_rec = project_task.project_id
+            partner_rec = project_rec.partner_id 
+            record.eq_customer_number = partner_rec.eq_customer_ref
         
     #@api.depends('product_id.name')
     def _add_classification(self):

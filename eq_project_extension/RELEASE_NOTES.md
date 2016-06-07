@@ -1,5 +1,11 @@
 ## Modul eq_project_extension
 
+
+#### 07.06.2016
+#### Version 1.0.10
+##### ADD
+- Unter dem Menüpunkt: "Abzurechnende Arbeitszeiten und Materialien" werden nun noch zusätzlich zwei Spalten zu dem Kunden und der dazugehörigen Kundennummer angezeigt. 
+
 #### 02.06.2016
 #### Version 1.0.9
 ##### FIX
