@@ -22,9 +22,9 @@ import xmlrpclib
 from datetime import datetime, timedelta
 
 username = "user"
-pwd = "pwd"
+pwd = "pw"
 dbname = "dbname"
-baseurl = "http://localhost:8069"
+baseurl = "localhost:8069"
 
 version_number = 1
 
@@ -246,6 +246,14 @@ if template_name == []:
           
     template_id = sock.execute(dbname, uid, pwd, 'email.template', 'create', Email_Template_en, {})            
     print "Email-Template erstellt: Invoice - Send by Email_en"
+    
+    ir_model_data ={
+        'module': 'account',
+        'name':'email_template_edi_invoice',
+        'model':'email.template',
+        'res_id': template_id,
+                }
+    identificator_id = sock.execute(dbname, uid, pwd, 'ir.model.data', 'create', ir_model_data) 
     
     
 ##############8. Invoice - Send by Email de ################################
