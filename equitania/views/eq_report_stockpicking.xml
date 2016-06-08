@@ -49,6 +49,14 @@
 										t-esc="o.date_done.split(' ')[0].split('-')[2] + '.' + o.date_done.split(' ')[0].split('-')[1] + '.' + o.date_done.split(' ')[0].split('-')[0]" />
 								</td>
 							</tr>
+							<tr class="partnervat" t-if="o.partner_id.property_account_position.name == 'Kunde EU Unternehmen (mit USt-ID)' and o.partner_id.vat">
+								<td>
+									<span>Cust. Tax-ID no.</span>
+								</td>
+								<td class="text-right">
+									<span t-field="o.partner_id.vat" />
+								</td>
+							</tr>
 							<tr>
 								<td />
 							</tr>

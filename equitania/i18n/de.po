@@ -2772,3 +2772,11 @@ msgstr "Aufträge"
 #: field:email.template,eq_email_template_version:0
 msgid "Version Number"
 msgstr "Versionsnummer"
+
+#. module: equitania
+#: view:website:equitania.report_saleorder_data
+#: view:website:equitania.report_invoice_data
+#: view:website:equitania.report_purchaseorder_data
+#: view:website:equitania.eq_external_layout_header_stock_picking_data
+msgid "Cust. Tax-ID no."
+msgstr "KD-USt-IdNr."

@@ -200,6 +200,21 @@
 							<div t-field="o.partner_id.country_id.name" />
 						</div>
 					</div>
+					<div class="col-xs-5 partnervat" t-if="o.partner_id.property_account_position.name == 'Kunde EU Unternehmen (mit USt-ID)' and o.partner_id.vat">
+						<table style="width:100%;">
+							<tbody>
+								<tr>
+									<td>
+										<span>Cust. Tax-ID no.</span>
+									</td>
+									<td class="text-right">
+										<span t-field="o.partner_id.vat" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+							
 					<div class="col-xs-5 headerdata2">
 						<h class="contactpersonheader" t-if="o.user_id">
 							<strong>For further information, please contact</strong>

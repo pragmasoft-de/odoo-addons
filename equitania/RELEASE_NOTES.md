@@ -17,6 +17,10 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 #### 07.06.2016
+### Version 1.1.63
+#### ADD
+- Reports: Lieferschein, Angebote, Rechnung... enthalten in den Kopfdaten nun die Kunden Ust.ID.Nr, wenn dieser in der Steuerzuordnung als "Kunde Ausland mit UST-ID" gekennzeichnet wurde.
+
 ### Version 1.1.62
 #### FIX
 - Warning table "stock move" wurde durch einen erzeugten Index beim Feld 'name' verursacht (select=True). Wurde dementsprechend geändert, dass nun für das Feld "name" kein Index erstellt wird. 
