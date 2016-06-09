@@ -16,6 +16,14 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 09.06.2016
+### Version 1.1.64
+#### Bugfix
+- Die Lieferantennummer im Menü "von Bestellpositionen" (Model: purchase.order.line) wird nicht in der Datenbank gespeichert.
+Sollte ein Lieferant durch einen Benutzer verändert werden, der keinen Zugriff auf die purchase.order.line hat,
+so kommt es zu einem Fehler, wenn die Lieferantennumemr geändert wird.
+
+
 #### 07.06.2016
 ### Version 1.1.63
 #### ADD

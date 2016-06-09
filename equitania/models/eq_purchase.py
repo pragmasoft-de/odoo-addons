@@ -43,10 +43,40 @@ class eq_open_purchase_order_line(models.Model):
             self.eq_sequence = self.order_id.id
     
     @api.one
-    @api.depends('partner_id.eq_customer_ref')
+    @api.depends('partner_id.eq_creditor_ref')
     def eq_compute_supplier_nos(self):
         if self.partner_id :
-            self.eq_supplier_no = self.partner_id.eq_customer_ref
+            self.eq_supplier_no = self.partner_id.eq_creditor_ref
+            
+    def eq_search_supplier_nos(self, operator, operand):
+        sql_query = """select
+            id
+        from
+            purchase_order_line
+        where
+            order_id in (
+                select 
+                    id 
+                from 
+                    purchase_order 
+                where 
+                    partner_id in (
+                        select 
+                            id 
+                        from 
+                            res_partner 
+                        where 
+                            eq_creditor_ref %s '%s%s%s'
+                        )
+                )"""
+                
+        search_ext = "%%" if operator in ("like", "ilike") else ""
+        sql_query = sql_query % (operator, search_ext, operand, search_ext)
+        self._cr.execute(sql_query)
+        query_result = self._cr.fetchall()
+        order_line_ids = [x[0] for x in query_result]
+        domain = [('id', 'in', order_line_ids)]
+        return domain
     
     @api.one
     @api.depends('product_id.product_tmpl_id.eq_drawing_number')
@@ -66,9 +96,9 @@ class eq_open_purchase_order_line(models.Model):
                 count += res.product_qty
             self.eq_qty_left = count
     
-    eq_purchase_supplier_order_ref = fields.Char(string="Supplier Order Reference",readonly= True, store= True,compute='eq_compute_purchase_supplier_ref')
-    eq_supplier_no = fields.Char(string="Supplier No",readonly= True, store= True,compute='eq_compute_supplier_nos')
-    eq_drawing_number = fields.Char(string="Drawing number",readonly= True, store= True,compute='eq_compute_product_tmpl_drawing_nos')
-    eq_sequence = fields.Integer(string="Seq",readonly= True, store= True, compute='eq_compute_sequence')
-    eq_qty_left = fields.Float(string="Quantity left", readonly=True,store=True,compute="eq_compute_qty_left")
+    eq_purchase_supplier_order_ref = fields.Char(string="Supplier Order Reference", readonly=True, store=True, compute='eq_compute_purchase_supplier_ref')
+    eq_supplier_no = fields.Char(string="Supplier No", readonly=True, store=False, compute='eq_compute_supplier_nos', search="eq_search_supplier_nos")
+    eq_drawing_number = fields.Char(string="Drawing number", readonly=True, store=True, compute='eq_compute_product_tmpl_drawing_nos')
+    eq_sequence = fields.Integer(string="Seq", readonly= True, store=True, compute='eq_compute_sequence')
+    eq_qty_left = fields.Float(string="Quantity left", readonly=True, store=True, compute="eq_compute_qty_left")
     
