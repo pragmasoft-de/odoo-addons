@@ -160,12 +160,12 @@ rm pfbfer.zip
 fc-cache -f -v
 
 
-echo "WKHTML2PDF will be repaierd..."
-apt-get install
-curl -k -o wkhtmltox.deb -SL https://release.myodoo.de/wkhtmltopdf-raspberry.zip \
-    && unzip wkhtmltopdf-raspberry.zip \
-    && cp wkhtmltopdf /usr/bin/ \
-    && chown root:root wkhtmltopdf \
-    && chmod +x wkhtmltopdf
+echo "WKHTML2PDF will be repaired..."
+curl -k -o wkhtmltopdf-raspberry.zip -SL https://release.myodoo.de/wkhtmltopdf-raspberry.zip
+unzip wkhtmltopdf-raspberry.zip
+chown root:root wkhtmltopdf
+chmod +x wkhtmltopdf
+mv -rf wkhtmltopdf /usr/bin/
+
 
 echo "System is prepared now for Odoo - System ist jetzt für Odoo vorbereitet!"
