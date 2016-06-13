@@ -1,7 +1,7 @@
 #!/bin/bash
 # Mit diesem Skript installiert Odoo unter /opt/odoo und bindet es in den Autostart ein
 # Skript muss mit root-Rechten ausgeführt werden
-# Version 1.2.1 - Stand 29.03.2016
+# Version 1.2.2 - Stand 13.06.2016
 ##############################################################################
 #
 #    Shell Script for Odoo, Open Source Management Solution
@@ -183,7 +183,7 @@ cp $myhelpers/odoo-server.conf /etc/odoo-server.conf
 chown odoo:odoo /etc/odoo-server.conf
 chmod 640 /etc/odoo-server.conf
 
-echo "Prepare logfile / Bereite Lagdatei vor ..."
+echo "Prepare logfile / Bereite Logdatei vor ..."
 mkdir /var/log/odoo
 chown odoo:root /var/log/odoo
 cp $myhelpers/logrotate /etc/logrotate.d/odoo-server

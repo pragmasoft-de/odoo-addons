@@ -1,7 +1,7 @@
 #!/bin/bash
 # Mit diesem Skript werden alle Pakete für den Odoo Betrieb unter Debian installiert
 # Skript muss mit root-Rechten ausgeführt werden
-# Version 1.2.0 - Stand 15.03.2016
+# Version 1.2.1 - Stand 13.06.2016
 ##############################################################################
 #
 #    Shell Script for Odoo, Open Source Management Solution
@@ -141,7 +141,8 @@ pip install passlib \
     && pip install odoorpc \
     && pip install pillow==2.6.0 \
     && pip install pyserial \
-    && pip install pyusb==1.0.0rc1
+    && pip install pyusb==1.0.0rc1 \
+	&& pip install phonenumbers
 
 echo "OpenSans font will be install..."
 wget https://release.myodoo.de/fonts/opensans.zip
