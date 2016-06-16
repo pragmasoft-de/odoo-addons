@@ -24,29 +24,29 @@ from openerp.http import request
 
 class EqGoogleShoppingFeed(http.Controller):
     
-     @http.route('/eq_google_shopping_feed/data_at.txt', auth='public', website=True)
+     @http.route('/eq_google_shopping_feed/data_at.xml', auth='public', website=True)
      def index_at(self, **kw):
          """ feed for austria """                          
          return self.generate_file("at")
 
-     @http.route('/eq_google_shopping_feed/data_ch.txt', auth='public', website=True)
+     @http.route('/eq_google_shopping_feed/data_ch.xml', auth='public', website=True)
      def index_ch(self, **kw):
          """ feed for switzerland """                 
          return self.generate_file("ch")
      
-     @http.route('/eq_google_shopping_feed/data_de.txt', auth='public', website=True)
+     @http.route('/eq_google_shopping_feed/data_de.xml', auth='public', website=True)
      def index_de(self, **kw):   
          """ feed for germany """              
          # ?db=eqwebsite                
          #ensure_db()
          return self.generate_file("de") 
              
-     @http.route('/eq_google_shopping_feed/data_en.txt', auth='public', website=True)
+     @http.route('/eq_google_shopping_feed/data_en.xml', auth='public', website=True)
      def index_en(self, **kw):
          """ feed for us """                 
          return self.generate_file("en")
      
-     @http.route('/eq_google_shopping_feed/data_gb.txt', auth='public', website=True)
+     @http.route('/eq_google_shopping_feed/data_gb.xml', auth='public', website=True)
      def index_gb(self, **kw):
          """ feed for uk """                 
          return self.generate_file("gb")
@@ -63,12 +63,42 @@ class EqGoogleShoppingFeed(http.Controller):
          for position in positions:     
              content += position + "\n"         
          
-         mimetype ='application/text;charset=utf-8'
-         return http.request.make_response(content)
+         content += self.generate_footer()
+        
+         
+         
+         """
+         return request.make_response(content,{
+            'Cache-Control': 'no-cache', 
+            'Content-Type': 'text/xml; charset=utf-8',
+            'Access-Control-Allow-Origin':  '*',
+            'Access-Control-Allow-Methods': 'GET',
+            })
+        """
+        
+         return request.make_response(content,{
+            'Cache-Control': 'no-cache', 
+            'Content-Type': 'text/xml; charset=utf-8',
+            })
+         
+        
                   
      def generate_header(self):
          """ generates header for google feed """
-         return "id|title|description|google_product_category|product_type|link|image_link|condition|availability|price|brand|mpn|shipping"         
+         xmlTemplate ="""<?xml version="1.0"?>
+    <feed xmlns="http://www.w3.org/2005/Atom" xmlns:g="http://base.google.com/ns/1.0">
+        <title>Example - Online Store</title>
+        <link rel="self" href="http://www.example.com"/>
+        <updated>20011-07-11T12:00:00Z</updated> 
+         """
+         #return "id|title|description|google_product_category|product_type|link|image_link|condition|availability|price|brand|mpn|shipping"      
+         return xmlTemplate  
+     
+     def generate_footer(self):
+         """ generates header for google feed """
+         xmlTemplate ="""</feed>
+         """      
+         return xmlTemplate  
 
      def set_line_text(self, line, value, placeholder, convert_to_string):
          """ generates line text from oour template """                
@@ -101,11 +131,17 @@ class EqGoogleShoppingFeed(http.Controller):
      def generate_positions(self, contry_code):
          """ generates position for datarow from db """         
          positions = []         
-         products = http.request.env['product.template'].search([('state', '=', 'sellable')])         # original
-         #products = http.request.env['product.template'].search([])                                     # new         
+         #products = http.request.env['product.template'].search([('state', '=', 'sellable')])         # original
+         #sql = "SELECT id FROM product_template where state = 'sellable'"
+         
+         sql = "SELECT id FROM product_template where website_published = True"
+         http.request.env.cr.execute(sql)
+         products = http.request.env.cr.fetchall()                
+         
+         #products = http.request.env['product.template'].search([('website_published', '=', True)])                                     # new      
          #for id in products[0].ids:                                                                    # original
-         for id in products.ids:                                                                        # new         
-            product = http.request.env['product.template'].browse(id)
+         for id in products:                                                                        # new         
+            product = http.request.env['product.template'].sudo().browse(id)
             id = product.id                                                 # id
             title = product.name                                            # titel
             description = product.description_sale                          # description
@@ -126,23 +162,65 @@ class EqGoogleShoppingFeed(http.Controller):
             brand = "todo"                                                  # brand
             mpn = "todo"                                                    # mpn
             shipping = "DE::Standard:0"                                     # shipping
+            
+            
+            #product_product = http.request.env['product.product'].sudo().search([('product_tmpl_id', '=', id)])
+            #gtin = product_product.ean13                                    #GTIN
+            
                         
             # generate lines
-            line = "@id|@title|@description|@google_product_category|@product_type|@link|@image_link|@condition|@availability|@price|@brand|@mpn|@shipping"
-            line = self.set_line_text(line, id, "@id", True)
-            line = self.set_line_text(line, title, "@title", False)
-            line = self.set_line_text(line, description, "@description", False)
-            line = self.set_line_text(line, google_product_category, "@google_product_category", False)
-            line = self.set_line_text(line, product_type, "@product_type", False)
-            line = self.set_line_text(line, link, "@link", False)
-            line = self.set_line_text(line, image_link, "@image_link", False)
-            line = self.set_line_text(line, condition, "@condition", False)
-            line = self.set_line_text(line, availability, "@availability", False)
-            line = self.set_line_text(line, price, "@price", True)
-            line = self.set_line_text(line, brand, "@brand", False)
-            line = self.set_line_text(line, mpn, "@mpn", False)
-            line = self.set_line_text(line, shipping, "@shipping", False)
+            #line = "@id|@title|@description|@google_product_category|@product_type|@link|@image_link|@condition|@availability|@price|@brand|@mpn|@shipping"
+            line = """<entry>\n"""
+            #line += """<g:id>"""+str(id)+"""</g:id>\n"""
             
+            line += """<g:id>[ID]</g:id>\n"""          
+            line = line.replace("[ID]", str(id))
+            line += """<g:title>[TITLE]</g:title>\n"""
+            line = line.replace("[TITLE]", title)
+            line += """<g:description>[DESCRIPTION]</g:description>\n"""
+            #line = line.replace("[DESCRIPTION]", str(description))
+            line += """<g:link>[LINK]</g:link>\n"""
+            line = line.replace("[LINK]", link)
+            line += """<g:image_link>[IMAGE_LINK]</g:image_link>\n"""
+            line = line.replace("[IMAGE_LINK]", image_link)
+            line += """<g:condition>[CONDITION]</g:condition>\n"""
+            line = line.replace("[CONDITION]", condition) 
+            line += """<g:availability>[AVAILABILITY]</g:availability>\n"""
+            line = line.replace("[AVAILABILITY]", availability)
+            line += """<g:price>[PRICE]</g:price>\n"""
+            line = line.replace("[PRICE]", str(price))
+            line += """<g:shipping>[SHIPPING]</g:shipping>\n"""
+            line = line.replace("[SHIPPING]", shipping)
+            line += """<g:gtin>[GTIN]</g:gtin>\n"""
+            #line = line.replace("[GTIN]", gtin)
+            line += """<g:brand>[BRAND]</g:brand>\n"""
+            #line = line.replace("[BRAND]", brand)
+            line += """<g:mpn>[MPN]</g:mpn>\n"""
+            #line = line.replace("[MPN]", mpn)
+#            line += """<g:google_product_category>[GOOGLE_PRODUCT_CATEGORY]</g:google_product_category>\n"""
+#            line = line.replace("[GOOGLE_PRODUCT_CATEGORY]", google_product_category)
+            line += """<g:product_type>[PRODUCT_TYPE]</g:product_type>\n"""
+            line = line.replace("[PRODUCT_TYPE]", product_type)
+            
+            
+            
+            
+#             line = self.set_line_text(line, id, "@id", True)
+#             line = self.set_line_text(line, title, "@title", False)
+#             line = self.set_line_text(line, description, "@description", False)
+#             line = self.set_line_text(line, google_product_category, "@google_product_category", False)
+#             line = self.set_line_text(line, product_type, "@product_type", False)
+#             line = self.set_line_text(line, link, "@link", False)
+#             line = self.set_line_text(line, image_link, "@image_link", False)
+#             line = self.set_line_text(line, condition, "@condition", False)
+#             line = self.set_line_text(line, availability, "@availability", False)
+#             line = self.set_line_text(line, price, "@price", True)
+#             #line = self.set_line_text(line, gtin, "@gtin", False)
+#             line = self.set_line_text(line, brand, "@brand", False)
+#             line = self.set_line_text(line, mpn, "@mpn", False)
+#             line = self.set_line_text(line, shipping, "@shipping", False)
+    
+            line += """</entry>"""
             positions.append(line)
-        
+                    
          return positions    

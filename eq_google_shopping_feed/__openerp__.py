@@ -34,15 +34,16 @@
     # Check https://github.com/odoo/odoo/blob/master/openerp/addons/base/module/module_data.xml
     # for the full list
     'category': 'Website',
-    'version': '1.0.3',
+    'version': '1.0.4',
 
     # any module necessary for this one to work correctly
-    'depends': ['website'],
+    'depends': ['website','product_brand'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
         'templates.xml',
+        'product_view.xml',
     ],
     # demodata - only loaded in demonstration mode
     'demo': [

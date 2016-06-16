@@ -1,0 +1,82 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* eq_google_shopping_feed
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.1 Build 160601\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-15 13:19+0000\n"
+"PO-Revision-Date: 2016-06-15 13:19+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: eq_google_shopping_feed
+#: view:product.template:eq_google_shopping_feed.eq_google_product_template_only_form_view
+msgid "Clearly Product Identification"
+msgstr "Eindeutige Produktkennzeichnungen"
+
+#. module: eq_google_shopping_feed
+#: field:product.template,eq_condition:0
+msgid "Eq condition"
+msgstr "Zustand"
+
+#. module: eq_google_shopping_feed
+#: view:product.template:eq_google_shopping_feed.eq_google_product_template_only_form_view
+msgid "General Attributes"
+msgstr "Allgemeine Produkte"
+
+#. module: eq_google_shopping_feed
+#: field:product.template,eq_google_product_category:0
+msgid "Google Product Category"
+msgstr "Google Produktkategorie"
+
+#. module: eq_google_shopping_feed
+#: view:product.template:eq_google_shopping_feed.eq_google_product_template_only_form_view
+msgid "Google Shopping Feed"
+msgstr "Google Shopping Feed"
+
+#. module: eq_google_shopping_feed
+#: selection:product.template,eq_condition:0
+msgid "New"
+msgstr "Neu"
+
+#. module: eq_google_shopping_feed
+#: view:product.template:eq_google_shopping_feed.eq_google_product_template_only_form_view
+msgid "Prices and Availability"
+msgstr "Preise und Verfügbarkeit"
+
+#. module: eq_google_shopping_feed
+#: model:ir.model,name:eq_google_shopping_feed.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: eq_google_shopping_feed
+#: field:product.template,eq_available_date:0
+msgid "Release Date"
+msgstr "Verfügbarkeitsdatum"
+
+#. module: eq_google_shopping_feed
+#: selection:product.template,eq_condition:0
+msgid "Renewed"
+msgstr "Erneuert"
+
+#. module: eq_google_shopping_feed
+#: selection:product.template,eq_condition:0
+msgid "Secondhand"
+msgstr "Gebraucht"
+
+#. module: eq_google_shopping_feed
+#: field:product.template,eq_special_offer_period:0
+msgid "Special Offer Period"
+msgstr "Sonderangebotszeitraum"
+
+#. module: eq_google_shopping_feed
+#: field:product.template,eq_special_offer_price:0
+msgid "Special Offer Price"
+msgstr "Sonderangebotspreis"
+

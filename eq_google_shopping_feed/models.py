@@ -28,3 +28,16 @@ from openerp import models, fields, api
 #     _name = 'eq_website_template.eq_website_template'
 
 #     name = fields.Char()
+
+class eq_google_product_product(models.Model):
+    _inherit = "product.template"
+    
+    #Allgemeine Attribute
+    eq_google_product_category = fields.Char('Google Product Category')
+    eq_condition = fields.Selection([('new', 'New'),('renewed', 'Renewed'),('secondhand','Secondhand')], default='new')
+    
+    #Preise und Verfügbarkeit
+    eq_available_date = fields.Date('Release Date')
+    eq_special_offer_price = fields.Float('Special Offer Price')
+    eq_special_offer_period = fields.Date('Special Offer Period')
+

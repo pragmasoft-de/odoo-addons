@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+<record id="eq_google_product_template_only_form_view" model="ir.ui.view">
+			<field name="name">eq.google.product.template.only.form.view</field>
+			<field name="model">product.template</field>
+			<field name="inherit_id" ref="product.product_template_only_form_view" />
+			<field name="arch" type="xml">
+				<!-- <field name="standard_price" position="after">
+					<field name="eq_condition"/>
+				</field> -->
+				<notebook>
+				<page string="Google Shopping Feed">
+                                <!-- <group name="Google Shopping Feed">
+                                    <field name="eq_condition"/>
+                                </group> -->
+                                <group name="general_attributes" string="General Attributes" colspan="3">
+                                	<label for="eq_google_product_category"/>
+                                        <div>
+                                            <field name="eq_google_product_category" class="oe_inline"/> 
+                                        </div>
+                                    <label for="eq_condition"/>
+                                        <div>
+                                            <field name="eq_condition" class="oe_inline"/> 
+                                        </div>
+                                    </group>
+                                    <group name="prices_availability" string="Prices and Availability" colspan="3">
+                                    <label for="eq_available_date"/>
+                                        <div>
+                                            <field name="eq_available_date" class="oe_inline"/> 
+                                        </div>
+                                    <label for="eq_special_offer_price"/>
+                                        <div>
+                                            <field name="eq_special_offer_price" class="oe_inline"/> 
+                                        </div>
+                                    <label for="eq_special_offer_period"/>
+                                        <div>
+                                            <field name="eq_special_offer_period" class="oe_inline"/> 
+                                        </div>
+                                    </group>
+                                    <group name="productidentification" string="Clearly Product Identification" colspan="3">
+                                    <label for="product_brand_id"/>
+                                        <div>
+                                            <field name="product_brand_id" class="oe_inline"/> 
+                                        </div>
+                                    </group>
+                            </page>
+                </notebook>
+			</field>
+		</record>
+</data>
+</openerp>
+
