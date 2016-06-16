@@ -2780,3 +2780,8 @@ msgstr "Versionsnummer"
 #: view:website:equitania.eq_external_layout_header_stock_picking_data
 msgid "Cust. Tax-ID no."
 msgstr "KD-USt-IdNr."
+
+#. module: equitania
+#: field:eq.address.search,categories:0
+msgid "Categories"
+msgstr "Schlagwörter"

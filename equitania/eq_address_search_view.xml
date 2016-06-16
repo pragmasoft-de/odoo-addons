@@ -13,7 +13,7 @@
 					<field name="zip" filter_domain="[('zip','ilike',self)]" />
 					<field name="city" filter_domain="[('city','ilike',self)]" />
 					<field name="contact_name" filter_domain="[('contact_name','ilike',self)]" />
-
+					<field name="categories" filter_domain="[('categories','ilike',self)]" />
 					<separator />
 					<filter string="Persons" name="type_person" domain="[('is_company','=',0)]" />
 					<filter string="Companies" name="type_company" domain="[('is_company','=',1)]" />
@@ -54,6 +54,7 @@
 								<field name="zip" />
 								<field name="city" />
 								<field name="country_id" />
+								<field name="categories" />
 							</group>
 
 							<group>
@@ -77,6 +78,7 @@
 					<field name="zip" />
 					<field name="city" />
 					<field name="country_id" />
+					<field name="categories" />
 				</tree>
 			</field>
 		</record>
