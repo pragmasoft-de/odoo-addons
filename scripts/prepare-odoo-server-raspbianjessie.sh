@@ -142,7 +142,7 @@ pip install passlib \
 	&& pip install odoorpc \
 	&& pip install pillow==2.6.0 \
 	&& pip install pyserial \
-	&& pip install pyusb==1.0.0rc1 \
+	&& pip install pyusb \
 	&& pip install phonenumbers
 
 echo "OpenSans font will be install..."
