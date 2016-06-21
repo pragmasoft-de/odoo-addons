@@ -20,7 +20,7 @@ Vorgehensweise unter Debian:
 #### 16.06.2016
 ### Version 1.1.65
 #### Änderung
-- Erweiterungen für Adresssuche (Suche nach Kategorie)
+- Erweiterungen für Adresssuche (Suche nach Schlagwörtern)
 
 
 #### 09.06.2016
