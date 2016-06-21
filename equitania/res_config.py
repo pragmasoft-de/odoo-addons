@@ -93,7 +93,7 @@ class sm_account_config_settings(osv.osv_memory):
          
         validation_period_str = config_parameter_obj.get_param(cr, uid, 'offer.valid.duration', context=context) or '0'
 
-        validation_period = int(validation_period_str)
+        validation_period = float(validation_period_str)
          
         return {
                 'eq_offer_valid_duration': validation_period,
