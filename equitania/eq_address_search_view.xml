@@ -9,7 +9,7 @@
 				<search string="Address search">
 					<field name="name" filter_domain="[('name','ilike',self)]" />
 					<!-- <field name="eq_partner_id"/> <field name="eq_crm_lead_id"/> -->
-					<field name="phone" filter_domain="[('phone','ilike',self)]" />
+					<field name="phone" filter_domain="['|',('phone','ilike',self),('phone_search','ilike',self)]" />
 					<field name="zip" filter_domain="[('zip','ilike',self)]" />
 					<field name="city" filter_domain="[('city','ilike',self)]" />
 					<field name="contact_name" filter_domain="[('contact_name','ilike',self)]" />

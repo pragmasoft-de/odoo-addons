@@ -16,6 +16,12 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 22.06.2016
+### Version 1.1.67
+#### Änderung
+- Ticket 1700: Anpassungen für Adresssuche über Telefonnummer
+
+
 #### 21.06.2016
 ### Version 1.1.66
 #### Bugfix
