@@ -34,10 +34,41 @@ class eq_google_product_product(models.Model):
     
     #Allgemeine Attribute
     eq_google_product_category = fields.Char('Google Product Category')
-    eq_condition = fields.Selection([('new', 'New'),('renewed', 'Renewed'),('secondhand','Secondhand')], default='new')
+    eq_condition = fields.Selection([('new', 'New'),('refurbished', 'Refurbished'),('used','Used')], default='new')
     
     #Preise und Verfügbarkeit
     eq_available_date = fields.Date('Release Date')
     eq_special_offer_price = fields.Float('Special Offer Price')
     eq_special_offer_period = fields.Date('Special Offer Period')
+    
+    eq_google_product_category = fields.Char('Google Product Category')
+    
+    taxonomy_id = fields.Many2one('google.product.taxonomy', 
+                                   'Taxonomy Search', 
+                                   required=False)
+    
+    
+    @api.onchange('taxonomy_id')
+    def onchange_taxonomy_id(self): 
+# Feld "eq_google_product_category" wird mit dem Namen der Kategorie befüllt   
+#         name = str(self.taxonomy_id.name)
+#         taxonomy_name = name.split(']')
+#         self.eq_google_product_category = taxonomy_name[1]
+
+# Feld "eq_google_product_category" wird mit dem Code der Kategorie befüllt   
+# Ausgabe des Codes im XML-Feed (bessere Formatierung)
+        name = str(self.taxonomy_id.name)
+        taxonomy_name = name.split('[')
+        print"Taxonomy Name:", taxonomy_name
+        taxonomy = taxonomy_name[1].split(']')
+        self.eq_google_product_category = taxonomy[0]
+        
+        
+class eq_google_product_attribute(models.Model):
+    _inherit = "product.attribute"
+    
+    
+    eq_google_attribute = fields.Selection([('color', 'Color'),('gender', 'Gender'),('age_group','Age Group'),('material','Material'),('pattern','Pattern'),('size','Size')])
+
+    
 

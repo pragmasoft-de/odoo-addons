@@ -21,3 +21,4 @@
 
 import controllers
 import models
+import google_product_taxonomy

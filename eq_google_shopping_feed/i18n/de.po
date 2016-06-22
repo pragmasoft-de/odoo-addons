@@ -80,3 +80,50 @@ msgstr "Sonderangebotszeitraum"
 msgid "Special Offer Price"
 msgstr "Sonderangebotspreis"
 
+#. module: eq_google_shopping_feed
+#: selection:product.template,eq_condition:0
+msgid "Refurbished"
+msgstr "Erneuert"
+
+#. module: eq_google_shopping_feed
+#: selection:product.template,eq_condition:0
+msgid "Used"
+msgstr "Gebraucht"
+
+#. module: eq_google_shopping_feed
+#: selection:product.attribute,eq_google_attribute:0
+msgid "Age Group"
+msgstr "Altersgruppe"
+
+#. module: eq_google_shopping_feed
+#: selection:product.attribute,eq_google_attribute:0
+msgid "Color"
+msgstr "Farbe"
+
+#. module: eq_google_shopping_feed
+#: selection:product.attribute,eq_google_attribute:0
+msgid "Gender"
+msgstr "Geschlecht"
+
+#. module: eq_google_shopping_feed
+#: view:product.attribute:eq_google_shopping_feed.attribute_form_view
+msgid "Google Product Attribute"
+msgstr "Google Produkt Attribut"
+
+#. module: eq_google_shopping_feed
+#: selection:product.attribute,eq_google_attribute:0
+msgid "Material"
+msgstr "Material"
+
+#. module: eq_google_shopping_feed
+#: selection:product.attribute,eq_google_attribute:0
+msgid "Pattern"
+msgstr "Muster"
+
+#. module: eq_google_shopping_feed
+#: selection:product.attribute,eq_google_attribute:0
+msgid "Size"
+msgstr "Größe"
+
+
+

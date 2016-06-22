@@ -1,5 +1,11 @@
 ## Modul eq_google_shopping
 
+#### 22.06.2016
+#### Version 1.0.5
+##### ADD
+- Alle notwendigen Felder eines Produkt werden nun ausgelesen und anschließend wird der Google-Shopping-Feed erstellt.
+(Diese Version enthält noch print-Statements zur Ausgabe der Produktattribute. Diese print-Statements werden für die noch zu erledigende Formatierung der Produktattribute im XML-Feed benötigt.)
+
 #### 16.06.2016
 #### Version 1.0.4
 ##### CHG
