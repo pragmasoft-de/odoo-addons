@@ -21,9 +21,9 @@
 import xmlrpclib
 from datetime import datetime, timedelta
 
-username = "user"
+username = "username"
 pwd = "pw"
-dbname = "dbname"
+dbname = "database"
 baseurl = "http://localhost:8069"
 
 version_number = 1
@@ -86,8 +86,9 @@ if template_name == []:
         'model':'email.template',
         'res_id': template_id,
                 }
-    
+     
     identificator_id = sock.execute(dbname, uid, pwd, 'ir.model.data', 'create', ir_model_data)
+    
     
     
 #################2. Sales Order - Send by Email_de #############
@@ -763,5 +764,185 @@ if template_name == []:
           
     template_id = sock.execute(dbname, uid, pwd, 'email.template', 'write', template_id, Email_Template_de,{'lang':'de_DE'})            
     print "Email-Template erstellt: Reminder to User_de" 
+    
+#############25. Meeting Invitation en ###################################################
+########################################################################################
+
+meeting_model_id = sock.execute(dbname, uid, pwd, 'ir.model', 'search',[("model","=", "calendar.attendee")])
+template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Meeting Invitation")])
+
+if template_name == []:
+
+    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Meeting Invitation_en.txt","r")
+    body_html = email_temp_file.read()
+    
+    Email_Template_en = {
+        'name': 'Meeting Invitation',
+        'eq_email_template_version': version_number,
+        'model_id': meeting_model_id[0],
+        'subject': "${object.event_id.name}",
+        'body_html': body_html,
+        'email_from': "${object.event_id.user_id.email or ''}",
+        'email_to':"${('' if object.partner_id and object.partner_id.email and object.partner_id.email==object.email else object.email|safe)}",
+        'partner_to':"${object.partner_id and object.partner_id.email and object.partner_id.email==object.email and object.partner_id.id or False }",
+        'lang': '${object.partner_id.lang}',
+        'auto_delete': True,
+                            }     
+          
+    template_id = sock.execute(dbname, uid, pwd, 'email.template', 'create', Email_Template_en, {})            
+    print "Email-Template erstellt: Meeting Invitation_en"
+    
+    ir_model_data ={
+        'module': 'calendar',
+        'name':'calendar_template_meeting_invitation',
+        'model':'email.template',
+        'res_id': template_id,
+                }
+    identificator_id = sock.execute(dbname, uid, pwd, 'ir.model.data', 'create', ir_model_data)
+    
+    
+##############26. Meeting Invitation de ###################################################
+#########################################################################################
+    
+    
+    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Meeting Invitation_de.txt","r")
+    body_html = email_temp_file.read()
+    
+    
+    Email_Template_de = {
+        'name': 'Terminanfrage',
+        'eq_email_template_version': version_number,
+        'model_id': meeting_model_id[0],
+        'subject': "${object.event_id.name}", 
+        'body_html': body_html,
+        'email_from': "${object.event_id.user_id.email or ''}",
+        'email_to':"${('' if object.partner_id and object.partner_id.email and object.partner_id.email==object.email else object.email|safe)}",
+        'partner_to':"${object.partner_id and object.partner_id.email and object.partner_id.email==object.email and object.partner_id.id or False }",
+        'lang': '${object.partner_id.lang}',
+        'auto_delete': True,
+                            }        
+          
+    template_id = sock.execute(dbname, uid, pwd, 'email.template', 'write', template_id, Email_Template_de,{'lang':'de_DE'})            
+    print "Email-Template erstellt: Meeting Invitation_de" 
+    
+#############27. Meeting Invitation Reminder en ###################################################
+########################################################################################
+
+meeting_model_id = sock.execute(dbname, uid, pwd, 'ir.model', 'search',[("model","=", "calendar.attendee")])
+template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Meeting Invitation - Reminder")])
+
+if template_name == []:
+
+    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Meeting Invitation - Reminder_en.txt","r")
+    body_html = email_temp_file.read()
+    
+    Email_Template_en = {
+        'name': 'Meeting Invitation - Reminder',
+        'eq_email_template_version': version_number,
+        'model_id': meeting_model_id[0],
+        'subject': "${object.event_id.name} - Reminder",
+        'body_html': body_html,
+        'email_from': "${object.event_id.user_id.email or ''}",
+        'email_to':"${('' if object.partner_id and object.partner_id.email and object.partner_id.email==object.email else object.email|safe)}",
+        'partner_to':"${object.partner_id and object.partner_id.email and object.partner_id.email==object.email and object.partner_id.id or False }",
+        'lang': '${object.partner_id.lang}',
+        'auto_delete': True,
+                            }     
+          
+    template_id = sock.execute(dbname, uid, pwd, 'email.template', 'create', Email_Template_en, {})            
+    print "Email-Template erstellt: Meeting Invitation Reminder_en"
+    
+    ir_model_data ={
+        'module': 'calendar',
+        'name':'calendar_template_meeting_reminder',
+        'model':'email.template',
+        'res_id': template_id,
+                }
+    identificator_id = sock.execute(dbname, uid, pwd, 'ir.model.data', 'create', ir_model_data)
+    
+    
+##############28. Meeting Invitation Reminder de ###################################################
+#########################################################################################
+    
+    
+    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Meeting Invitation - Reminder_de.txt","r")
+    body_html = email_temp_file.read()
+    
+    
+    Email_Template_de = {
+        'name': 'Terminerinnerung',
+        'eq_email_template_version': version_number,
+        'model_id': meeting_model_id[0],
+        'subject': "${object.event_id.name} - Erinnerung", 
+        'body_html': body_html,
+        'email_from': "${object.event_id.user_id.email or ''}",
+        'email_to':"${('' if object.partner_id and object.partner_id.email and object.partner_id.email==object.email else object.email|safe)}",
+        'partner_to':"${object.partner_id and object.partner_id.email and object.partner_id.email==object.email and object.partner_id.id or False }",
+        'lang': '${object.partner_id.lang}',
+        'auto_delete': True,
+                            }        
+          
+    template_id = sock.execute(dbname, uid, pwd, 'email.template', 'write', template_id, Email_Template_de,{'lang':'de_DE'})            
+    print "Email-Template erstellt: Meeting Invitation Reminder_de" 
+
+#############29. Meeting Invitation Change Date en ###################################################
+########################################################################################
+
+meeting_model_id = sock.execute(dbname, uid, pwd, 'ir.model', 'search',[("model","=", "calendar.attendee")])
+template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Meeting Invitation - Change Date")])
+
+if template_name == []:
+
+    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Meeting Invitation - Change Date_en.txt","r")
+    body_html = email_temp_file.read()
+    
+    Email_Template_en = {
+        'name': 'Meeting Invitation - Change Date',
+        'eq_email_template_version': version_number,
+        'model_id': meeting_model_id[0],
+        'subject': "${object.event_id.name} - Change Date",
+        'body_html': body_html,
+        'email_from': "${object.event_id.user_id.email or ''}",
+        'email_to':"${('' if object.partner_id and object.partner_id.email and object.partner_id.email==object.email else object.email|safe)}",
+        'partner_to':"${object.partner_id and object.partner_id.email and object.partner_id.email==object.email and object.partner_id.id or False }",
+        'lang': '${object.partner_id.lang}',
+        'auto_delete': True,
+                            }     
+          
+    template_id = sock.execute(dbname, uid, pwd, 'email.template', 'create', Email_Template_en, {})            
+    print "Email-Template erstellt: Meeting Invitation Change Date_en"
+    
+    ir_model_data ={
+        'module': 'calendar',
+        'name':'calendar_template_meeting_changedate',
+        'model':'email.template',
+        'res_id': template_id,
+                }
+    identificator_id = sock.execute(dbname, uid, pwd, 'ir.model.data', 'create', ir_model_data)
+    
+    
+##############30. Meeting Invitation Change Date de ###################################################
+#########################################################################################
+    
+    
+    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Meeting Invitation - Change Date_de.txt","r")
+    body_html = email_temp_file.read()
+    
+    
+    Email_Template_de = {
+        'name': 'Terminänderung',
+        'eq_email_template_version': version_number,
+        'model_id': meeting_model_id[0],
+        'subject': "${object.event_id.name} - Datum wurde aktualisiert", 
+        'body_html': body_html,
+        'email_from': "${object.event_id.user_id.email or ''}",
+        'email_to':"${('' if object.partner_id and object.partner_id.email and object.partner_id.email==object.email else object.email|safe)}",
+        'partner_to':"${object.partner_id and object.partner_id.email and object.partner_id.email==object.email and object.partner_id.id or False }",
+        'lang': '${object.partner_id.lang}',
+        'auto_delete': True,
+                            }        
+          
+    template_id = sock.execute(dbname, uid, pwd, 'email.template', 'write', template_id, Email_Template_de,{'lang':'de_DE'})            
+    print "Email-Template erstellt: Meeting Invitation Change Date_de" 
 
 print "Email-Template Import wird beendet..."
