@@ -1,5 +1,10 @@
 ## Modul eq_mail_extension
 
+#### 22.06.2016
+#### Version 1.0.2
+##### CHG
+- Abhängigkeit zum Equitania-Modul entfernt (Funktion load_translation wird nun nicht mehr aufgerufen).
+
 #### 21.04.2016
 #### Version 1.0.1
 ##### ADD

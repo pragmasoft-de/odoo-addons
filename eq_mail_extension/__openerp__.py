@@ -22,7 +22,7 @@
 {
     'name': "Equitania E-Mail-Erweiterung",
     'license': 'AGPL-3',
-    'version': '1.0.1',
+    'version': '1.0.2',
     'category': 'Mail',
     'description': """Using different smptp settings for user's outgoing emails
     Adds an default mail server for sending System E-Mails and Users without a configured outgoing mail server""",
@@ -31,7 +31,7 @@
     'summary': 'E-Mail Extension',
     'website': 'www.myodoo.de',
     'license': 'AGPL-3',
-    "depends" : ['base', 'mail', 'base_setup', 'fetchmail', 'equitania','mail'],
+    "depends" : ['base', 'mail', 'base_setup', 'fetchmail','mail'],
     'data': [
              "eq_mail_extension_view.xml",
              "eq_mail_config_view.xml",
