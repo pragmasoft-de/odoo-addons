@@ -1415,6 +1415,7 @@ msgstr "Ansprechpartner"
 #. module: equitania
 #: view:website:equitania.report_invoice_data
 #: field:eq.address.search,phone:0
+#: field:eq.address.search,phone_search:0
 #: view:website:equitania.report_purchasequotation_data
 #: view:website:equitania.report_purchaseorder_data
 #: view:website:equitania.report_saleorder_data
