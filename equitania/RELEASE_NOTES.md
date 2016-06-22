@@ -17,9 +17,18 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 #### 22.06.2016
-### Version 1.1.67
+### Version 1.1.69
 #### Änderung
 - Ticket 1700: Anpassungen für Adresssuche über Telefonnummer
+
+### Version 1.1.68
+#### Bugfix
+- Optionale Positionen werden bei der Steuerberechnung des Reports beachtet. Werden nicht in die Summe einberechnet.
+
+### Version 1.1.67
+#### Bugfix
+- Fehler des letzten Bugfixes aus der Version 1.1.66 trat auch beim Erstellen eines Angebotes auf. Selbe Lösung verwendet.
+
 
 
 #### 21.06.2016
@@ -27,6 +36,7 @@ Vorgehensweise unter Debian:
 #### Bugfix
 - Validation Period wurde als String 0.0 definiert und anschließend in ein Integer gecastet. Dies verursachte den Fehler "invalid literal for int() with base 10: '0.0'"
 Lösung: Typecast nun in ein Float.
+
 
 #### 16.06.2016
 ### Version 1.1.65
