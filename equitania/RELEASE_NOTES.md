@@ -17,6 +17,10 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 #### 22.06.2016
+### Version 1.1.68
+#### Bugfix
+- Optionale Positionen werden bei der Steuerberechnung des Reports beachtet. Werden nicht in die Summe einberechnet.
+
 ### Version 1.1.67
 #### Bugfix
 - Fehler des letzten Bugfixes aus der Version 1.1.66 trat auch beim Erstellen eines Angebotes auf. Selbe Lösung verwendet.

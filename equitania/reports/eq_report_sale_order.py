@@ -55,7 +55,7 @@ class eq_report_sale_order(report_sxw.rml_parse):
     def get_tax(self, object, tax_id, language, currency_id):
         amount_net = 0;
         for line in object.order_line:
-            if tax_id.id in [x.id for x in line.tax_id]:                
+            if tax_id.id in [x.id for x in line.tax_id] and not line.eq_optional:                
                  amount_net += line.price_subtotal
                  
         tax_amount = 0
