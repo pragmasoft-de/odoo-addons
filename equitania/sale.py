@@ -98,7 +98,7 @@ class eq_sale_order(models.Model):
         config_parameter_obj = self.env['ir.config_parameter']
          
         validation_period_str = config_parameter_obj.get_param('offer.valid.duration') or '0'
-        validation_period = int(validation_period_str)
+        validation_period = float(validation_period_str)
         
         validity_period = timedelta(days=validation_period)
         
