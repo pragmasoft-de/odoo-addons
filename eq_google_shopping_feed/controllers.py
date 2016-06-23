@@ -85,13 +85,21 @@ class EqGoogleShoppingFeed(http.Controller):
                   
      def generate_header(self):
          """ generates header for google feed """
+         website = http.request.env['website'].browse(1)
+         website_name = website.name
+         url = request.httprequest.url_root
+         date = website.write_date
          xmlTemplate ="""<?xml version="1.0"?>
     <feed xmlns="http://www.w3.org/2005/Atom" xmlns:g="http://base.google.com/ns/1.0">
-        <title>Example - Online Store</title>
-        <link rel="self" href="http://www.example.com"/>
-        <updated>20011-07-11T12:00:00Z</updated> 
-         """
-         #return "id|title|description|google_product_category|product_type|link|image_link|condition|availability|price|brand|mpn|shipping"      
+        <title>[TITLE]</title>
+        <link rel="self" href="[URL]"/>
+        <updated>[DATE]</updated> 
+         """ 
+         #20011-07-11T12:00:00Z 
+         xmlTemplate = xmlTemplate.replace("[TITLE]", website_name) 
+         xmlTemplate = xmlTemplate.replace("[URL]", url)  
+         xmlTemplate = xmlTemplate.replace("[DATE]", date)
+         
          return xmlTemplate  
      
      def generate_footer(self):
