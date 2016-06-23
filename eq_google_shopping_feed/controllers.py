@@ -24,29 +24,29 @@ from openerp.http import request
 
 class EqGoogleShoppingFeed(http.Controller):
     
-     @http.route('/eq_google_shopping_feed/data_at.xml', auth='public', website=True)
+     @http.route('/google_shopping_feed/data_at.xml', auth='public', website=True)
      def index_at(self, **kw):
          """ feed for austria """                          
          return self.generate_file("at")
 
-     @http.route('/eq_google_shopping_feed/data_ch.xml', auth='public', website=True)
+     @http.route('/google_shopping_feed/data_ch.xml', auth='public', website=True)
      def index_ch(self, **kw):
          """ feed for switzerland """                 
          return self.generate_file("ch")
      
-     @http.route('/eq_google_shopping_feed/data_de.xml', auth='public', website=True)
+     @http.route('/google_shopping_feed/data_de.xml', auth='public', website=True)
      def index_de(self, **kw):   
          """ feed for germany """              
          # ?db=eqwebsite                
          #ensure_db()
          return self.generate_file("de") 
              
-     @http.route('/eq_google_shopping_feed/data_en.xml', auth='public', website=True)
+     @http.route('/google_shopping_feed/data_en.xml', auth='public', website=True)
      def index_en(self, **kw):
          """ feed for us """                 
          return self.generate_file("en")
      
-     @http.route('/eq_google_shopping_feed/data_gb.xml', auth='public', website=True)
+     @http.route('/google_shopping_feed/data_gb.xml', auth='public', website=True)
      def index_gb(self, **kw):
          """ feed for uk """                 
          return self.generate_file("gb")
