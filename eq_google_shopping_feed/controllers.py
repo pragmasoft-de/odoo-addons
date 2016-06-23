@@ -78,7 +78,7 @@ class EqGoogleShoppingFeed(http.Controller):
         
          return request.make_response(content,{
             'Cache-Control': 'no-cache', 
-            'Content-Type': 'text/xml; charset=utf-8',
+            'Content-Type': 'text/xml; charset=utf-8',      # signalisiert dem Browser (Chrome), dass es sich bei der übermittelten Datei um eine XML-Datei handelt.
             })
          
         
@@ -125,12 +125,22 @@ class EqGoogleShoppingFeed(http.Controller):
              product = http.request.env['product.product'].browse(id)
              if product.image_variant is not None:
                  return request.httprequest.url_root + "website/image/product.product/" + str(id) + "/image"
+             else:
+                 return request.httprequest.url_root + "/website/image/product.template/" + str(id) + "/image"          #Wenn kein Prodúktvarianten-Bild vorhanden, dann wird das Bild vom Template genommen.
 
-         return ""
+         
          
      def generate_positions(self, contry_code):
          """ generates position for datarow from db """         
-         positions = []         
+         positions = []   
+         color = False
+         size = False     
+         gender = False
+         age_group = False
+         material = False
+         pattern = False
+         #item_group_id = False 
+         
          #products = http.request.env['product.template'].search([('state', '=', 'sellable')])         # original
          #sql = "SELECT id FROM product_template where state = 'sellable'"
          
@@ -141,7 +151,7 @@ class EqGoogleShoppingFeed(http.Controller):
 
          #products = http.request.env['product.template'].search([('website_published', '=', True)])                                     # new      
          #for id in products[0].ids:                                                                    # original
-         for id in products:                                                                        # new         
+         for id in products:                                                                               
             product = http.request.env['product.template'].sudo().browse(id)
             id = product.id                                                 # id
             #attribute_line_ids = product.attribute_line_ids
@@ -165,7 +175,6 @@ class EqGoogleShoppingFeed(http.Controller):
             link = self.generate_link(id)                                   # link
             mobile_link = link                                              # mobile_link
             image_link = self.generate_image_link(id)                       # image_link
-            print"IMAGE-LINK", image_link
             condition = product.eq_condition                                # condition
             availability = "in stock"                                       # availability
             
@@ -173,20 +182,6 @@ class EqGoogleShoppingFeed(http.Controller):
             brand = product.product_brand_id.name                           # brand
             #mpn = product.default_code                                     # mpn
             #shipping = "DE::Standard:0"                                    # shipping
-            
-            
-#             for attribute_line in attribute_line_ids:
-#                 product_attribute_name = attribute_line.attribute_id.name
-#                 print"ATTRIBUT", product_attribute_name
-#                 product_attribute_google_value = attribute_line.attribute_id.eq_google_attribute
-#                 print"GOOGLE-WERT", product_attribute_google_value
-                
-                #attribute_values = attribute_line.value_ids
-                #for attribute in attribute_values:
-                #    print"ATTRIBUT-WERT", attribute.name
-                 
-            
-            
             
             #Product_Product Objekte
             for product_obj in product_product:
@@ -213,21 +208,31 @@ class EqGoogleShoppingFeed(http.Controller):
                 
                 product_product_attr_values = product_obj.attribute_value_ids
                 for product_product_attribute in product_product_attr_values:
+                    
+                    
                     attribute_value = product_product_attribute.name
-                    print "ATTRIBUTWERT:", attribute_value
                     attribute = product_product_attribute.attribute_id.name
-                    print "ATTRIBUT:", attribute
                     google_value = product_product_attribute.attribute_id.eq_google_attribute 
-                    print "GOOGLE-WERT", google_value
-                    print"-------------------------------------------------"
+                    if google_value == 'color':
+                        color = attribute_value
+                    if google_value == 'size':
+                         size = attribute_value
+#                     if google_value == 'item_group_id':
+#                         item_group_id = attribute_value
+                    if google_value == 'gender':
+                        gender = attribute_value
+                    if google_value == 'age_group':
+                        age_group = attribute_value
+                    if google_value == 'material':
+                        material = attribute_value
+                    if google_value == 'pattern':
+                        pattern = attribute_value
             
             delivery = http.request.env['delivery.carrier'].sudo().search([('id','=',1)])
             shipping_price = str(delivery.normal_price)
             
-                
-                        
-            # generate lines
-            #line = "@id|@title|@description|@google_product_category|@product_type|@link|@image_link|@condition|@availability|@price|@brand|@mpn|@shipping"
+            
+            #Aufbau XML-FEED
             
             line = """<entry>\n"""
             line += """<g:id>[ID]</g:id>\n"""          
@@ -296,80 +301,58 @@ class EqGoogleShoppingFeed(http.Controller):
             #line += """<g:product_type>[PRODUCT_TYPE]</g:product_type>\n"""
             #line = line.replace("[PRODUCT_TYPE]", product_type)
             
-            #line += """<g:item_group_id>[ITEM_GROUP_ID]</g:item_group_id>\n"""
-            #line = line.replace("[ITEM_GROUP_ID]", item_group_id)
+            #if item_group_id != False:
+                #line += """<g:item_group_id>[ITEM_GROUP_ID]</g:item_group_id>\n"""
+                #line = line.replace("[ITEM_GROUP_ID]", item_group_id)
+                #item_group_id = False
             
-            if google_value != False and google_value == 'color' and attribute_value != False:
+            if color != False:
                 line += """<g:color>[COLOR]</g:color>\n"""
-                line = line.replace("[COLOR]", attribute_value)
-                attribute_value = False
-            else:
-                pass
+                line = line.replace("[COLOR]", color)
+                color = False
             
-            if google_value != False and google_value == 'gender':
+            if gender != False:
                 line += """<g:gender>[GENDER]</g:gender>\n"""
-                line = line.replace("[GENDER]", attribute_value)
-            else:
-                pass
+                line = line.replace("[GENDER]", gender)
+                gender = False
             
-            if google_value != False and google_value == 'age_group':
+            if age_group != False:
                 line += """<g:age_group>[AGE_GROUP]</g:age_group>\n"""
-                line = line.replace("[AGE_GROUP]", attribute_value)
-            else:
-                pass
+                line = line.replace("[AGE_GROUP]", age_group)
+                age_group = False
             
-            if google_value != False and google_value == 'material':
+            if material != False:
                 line += """<g:material>[MATERIAL]</g:material>\n"""
-                line = line.replace("[MATERIAL]", attribute_value)
-            else:
-                pass
+                line = line.replace("[MATERIAL]", material)
+                material = False
             
-            if google_value != False and google_value == 'pattern':
+            if pattern != False:
                 line += """<g:pattern>[PATTERN]</g:pattern>\n"""
-                line = line.replace("[PATTERN]", attribute_value)
-            else:
-                pass
+                line = line.replace("[PATTERN]", pattern)
+                pattern = False
             
-            if google_value != False and google_value == 'size' and attribute_value != False:
+            if size != False:
                 line += """<g:size>[SIZE]</g:size>\n"""
-                line = line.replace("[SIZE]", attribute_value)
-                attribute_value = False
+                line = line.replace("[SIZE]", size)
+                size = False
             else:
                 pass
 
-            line += """<g:unit_pricing_measure>[UNIT_PRICING_MEASURE]</g:unit_pricing_measure>\n"""
-            line = line.replace("[UNIT_PRICING_MEASURE]", unit_measure)
+            if unit_measure != '':
+                line += """<g:unit_pricing_measure>[UNIT_PRICING_MEASURE]</g:unit_pricing_measure>\n"""
+                line = line.replace("[UNIT_PRICING_MEASURE]", unit_measure)
             
-            
-            line += """<g:unit_pricing_base_measure>[UNIT_PRICING_BASE_MEASURE]</g:unit_pricing_base_measure>\n"""
-            line = line.replace("[UNIT_PRICING_BASE_MEASURE]", basic_unit)
+            if basic_unit != '':
+                line += """<g:unit_pricing_base_measure>[UNIT_PRICING_BASE_MEASURE]</g:unit_pricing_base_measure>\n"""
+                line = line.replace("[UNIT_PRICING_BASE_MEASURE]", basic_unit)
 #             if basic_price != False:
 #                 line += """<g:unit_pricing_base_measure>[UNIT_PRICING_BASE_MEASURE]</g:unit_pricing_base_measure>\n"""
 #                 line = line.replace("[UNIT_PRICING_BASE_MEASURE]", basic_price)
 #             else:
 #                 pass
             
-            
-            
-            
-            
-############## Text-File-Erstellung #################################################################
-#             line = self.set_line_text(line, id, "@id", True)
-#             line = self.set_line_text(line, title, "@title", False)
-#             line = self.set_line_text(line, description, "@description", False)
-#             line = self.set_line_text(line, google_product_category, "@google_product_category", False)
-#             line = self.set_line_text(line, product_type, "@product_type", False)
-#             line = self.set_line_text(line, link, "@link", False)
-#             line = self.set_line_text(line, image_link, "@image_link", False)
-#             line = self.set_line_text(line, condition, "@condition", False)
-#             line = self.set_line_text(line, availability, "@availability", False)
-#             line = self.set_line_text(line, price, "@price", True)
-#             #line = self.set_line_text(line, gtin, "@gtin", False)
-#             line = self.set_line_text(line, brand, "@brand", False)
-#             line = self.set_line_text(line, mpn, "@mpn", False)
-#             line = self.set_line_text(line, shipping, "@shipping", False)
-    
             line += """</entry>"""
+    
             positions.append(line)
                     
          return positions    

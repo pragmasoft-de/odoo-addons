@@ -1,5 +1,10 @@
 ## Modul eq_google_shopping
 
+#### 23.06.2016
+#### Version 1.0.6
+##### ADD
+- Produktattribute werden nun korrekt im XML-Feed eingetragen. Print-Statements entfernt. Ansicht zum Setzen der "Google-Attribute" erstellt.
+
 #### 22.06.2016
 #### Version 1.0.5
 ##### ADD
