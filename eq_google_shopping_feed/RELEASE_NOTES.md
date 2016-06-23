@@ -1,6 +1,11 @@
 ## Modul eq_google_shopping
 
 #### 23.06.2016
+#### Version 1.0.9
+##### FIX
+- Fehler behoben, welcher durch das Speichern einer nicht gesetzten Google Produkt Kategorie verursacht wurde.
+
+#### 23.06.2016
 #### Version 1.0.8
 ##### CHG
 - Aufruf der XML-Feeds nun unter Root-Url + /google_shopping_feed/data + _at.xml/_de.xml/_en.xml/_gb.xml/_ch.xml

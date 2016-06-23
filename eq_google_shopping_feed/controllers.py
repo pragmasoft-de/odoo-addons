@@ -134,7 +134,7 @@ class EqGoogleShoppingFeed(http.Controller):
              if product.image_variant is not None:
                  return request.httprequest.url_root + "website/image/product.product/" + str(id) + "/image"
              else:
-                 return request.httprequest.url_root + "/website/image/product.template/" + str(id) + "/image"          #Wenn kein Prodúktvarianten-Bild vorhanden, dann wird das Bild vom Template genommen.
+                 return request.httprequest.url_root + "website/image/product.template/" + str(id) + "/image"          #Wenn kein Prodúktvarianten-Bild vorhanden, dann wird das Bild vom Template genommen.
 
          
          

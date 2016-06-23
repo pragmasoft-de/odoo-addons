@@ -57,11 +57,11 @@ class eq_google_product_product(models.Model):
 
 # Feld "eq_google_product_category" wird mit dem Code der Kategorie befüllt   
 # Ausgabe des Codes im XML-Feed (bessere Formatierung)
-        name = str(self.taxonomy_id.name)
-        taxonomy_name = name.split('[')
-        print"Taxonomy Name:", taxonomy_name
-        taxonomy = taxonomy_name[1].split(']')
-        self.eq_google_product_category = taxonomy[0]
+        name = self.taxonomy_id.name
+        if name != False:
+            taxonomy_name = name.split('[')
+            taxonomy = taxonomy_name[1].split(']')
+            self.eq_google_product_category = taxonomy[0]
         
         
 class eq_google_product_attribute(models.Model):
