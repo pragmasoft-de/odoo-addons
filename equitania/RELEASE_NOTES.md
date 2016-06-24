@@ -16,6 +16,11 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 24.06.2016
+### Version 1.1.70
+#### FIX
+- Fehler, welcher beim Erstellen eines neuen Angebots auftrat, wurde behoben (local variable "currency_symbol" referenced before assignment). Die Variable "currency_symbol" musste initialisiert werden, falls keine Preisliste für das Produkt vorhanden ist.
+
 #### 22.06.2016
 ### Version 1.1.69
 #### Änderung

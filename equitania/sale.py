@@ -36,6 +36,7 @@ class eq_sale_order_line(models.Model):
             
     @api.depends('discount', 'discount_value')
     def _compute_discount_display(self):
+        currency_symbol = self[0].order_id.company_id.currency_id.symbol
         if (self and self[0].order_id and self[0].order_id.pricelist_id):            
             currency_symbol = self[0].order_id.pricelist_id.currency_id.symbol
             
