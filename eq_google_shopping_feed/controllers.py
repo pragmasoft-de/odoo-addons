@@ -24,29 +24,29 @@ from openerp.http import request
 
 class EqGoogleShoppingFeed(http.Controller):
     
-     @http.route('/eq_google_shopping_feed/data_at.xml', auth='public', website=True)
+     @http.route('/google_shopping_feed/data_at.xml', auth='public', website=True)
      def index_at(self, **kw):
          """ feed for austria """                          
          return self.generate_file("at")
 
-     @http.route('/eq_google_shopping_feed/data_ch.xml', auth='public', website=True)
+     @http.route('/google_shopping_feed/data_ch.xml', auth='public', website=True)
      def index_ch(self, **kw):
          """ feed for switzerland """                 
          return self.generate_file("ch")
      
-     @http.route('/eq_google_shopping_feed/data_de.xml', auth='public', website=True)
+     @http.route('/google_shopping_feed/data_de.xml', auth='public', website=True)
      def index_de(self, **kw):   
          """ feed for germany """              
          # ?db=eqwebsite                
          #ensure_db()
          return self.generate_file("de") 
              
-     @http.route('/eq_google_shopping_feed/data_en.xml', auth='public', website=True)
+     @http.route('/google_shopping_feed/data_en.xml', auth='public', website=True)
      def index_en(self, **kw):
          """ feed for us """                 
          return self.generate_file("en")
      
-     @http.route('/eq_google_shopping_feed/data_gb.xml', auth='public', website=True)
+     @http.route('/google_shopping_feed/data_gb.xml', auth='public', website=True)
      def index_gb(self, **kw):
          """ feed for uk """                 
          return self.generate_file("gb")
@@ -78,20 +78,28 @@ class EqGoogleShoppingFeed(http.Controller):
         
          return request.make_response(content,{
             'Cache-Control': 'no-cache', 
-            'Content-Type': 'text/xml; charset=utf-8',
+            'Content-Type': 'text/xml; charset=utf-8',      # signalisiert dem Browser (Chrome), dass es sich bei der übermittelten Datei um eine XML-Datei handelt.
             })
          
         
                   
      def generate_header(self):
          """ generates header for google feed """
+         website = http.request.env['website'].browse(1)
+         website_name = website.name
+         url = request.httprequest.url_root
+         date = website.write_date
          xmlTemplate ="""<?xml version="1.0"?>
     <feed xmlns="http://www.w3.org/2005/Atom" xmlns:g="http://base.google.com/ns/1.0">
-        <title>Example - Online Store</title>
-        <link rel="self" href="http://www.example.com"/>
-        <updated>20011-07-11T12:00:00Z</updated> 
-         """
-         #return "id|title|description|google_product_category|product_type|link|image_link|condition|availability|price|brand|mpn|shipping"      
+        <title>[TITLE]</title>
+        <link rel="self" href="[URL]"/>
+        <updated>[DATE]</updated> 
+         """ 
+         #20011-07-11T12:00:00Z 
+         xmlTemplate = xmlTemplate.replace("[TITLE]", website_name) 
+         xmlTemplate = xmlTemplate.replace("[URL]", url)  
+         xmlTemplate = xmlTemplate.replace("[DATE]", date)
+         
          return xmlTemplate  
      
      def generate_footer(self):
@@ -125,12 +133,22 @@ class EqGoogleShoppingFeed(http.Controller):
              product = http.request.env['product.product'].browse(id)
              if product.image_variant is not None:
                  return request.httprequest.url_root + "website/image/product.product/" + str(id) + "/image"
+             else:
+                 return request.httprequest.url_root + "website/image/product.template/" + str(id) + "/image"          #Wenn kein Prodúktvarianten-Bild vorhanden, dann wird das Bild vom Template genommen.
 
-         return ""
+         
          
      def generate_positions(self, contry_code):
          """ generates position for datarow from db """         
-         positions = []         
+         positions = []   
+         color = False
+         size = False     
+         gender = False
+         age_group = False
+         material = False
+         pattern = False
+         #item_group_id = False 
+         
          #products = http.request.env['product.template'].search([('state', '=', 'sellable')])         # original
          #sql = "SELECT id FROM product_template where state = 'sellable'"
          
@@ -138,89 +156,211 @@ class EqGoogleShoppingFeed(http.Controller):
          http.request.env.cr.execute(sql)
          products = http.request.env.cr.fetchall()                
          
+
          #products = http.request.env['product.template'].search([('website_published', '=', True)])                                     # new      
          #for id in products[0].ids:                                                                    # original
-         for id in products:                                                                        # new         
+         for id in products:                                                                               
             product = http.request.env['product.template'].sudo().browse(id)
             id = product.id                                                 # id
+            #attribute_line_ids = product.attribute_line_ids
+            
+            product_product = http.request.env['product.product'].sudo().search([('product_tmpl_id', '=', id)])
+            
             title = product.name                                            # titel
             description = product.description_sale                          # description
-                        
+                       
             if contry_code == 'at' or contry_code == 'ch' or contry_code == 'de':
-                google_product_category = "Sportartikel > Sportübungen & Fitness > Krafttrainingsgeräte"    # google_product_category
+                if product.eq_google_product_category != False:
+                    google_product_category = product.eq_google_product_category    # google_product_category
+                else:
+                    google_product_category =''
             elif contry_code == 'en' or contry_code == 'gb':
                 google_product_category = "Sporting Goods > Exercise & Fitness > Weightlifting Machines"    # google_product_category
                 
-            google_product_category = google_product_category.decode('utf-8')
+            #google_product_category = google_product_category.decode('utf-8')
             
-            product_type = "todo"                                           # product_type            
+            product_type = product.categ_id.name                            # Optional:product_type            
             link = self.generate_link(id)                                   # link
+            mobile_link = link                                              # mobile_link
             image_link = self.generate_image_link(id)                       # image_link
-            condition = "new"                                               # condition
+            condition = product.eq_condition                                # condition
             availability = "in stock"                                       # availability
-            price = product.list_price                                      # price            
-            brand = "todo"                                                  # brand
-            mpn = "todo"                                                    # mpn
-            shipping = "DE::Standard:0"                                     # shipping
+            
+  
+            brand = product.product_brand_id.name                           # brand
+            #mpn = product.default_code                                     # mpn
+            #shipping = "DE::Standard:0"                                    # shipping
+            
+            #Product_Product Objekte
+            for product_obj in product_product:
+                gtin = product_obj.ean13
+                if contry_code == 'de':                                                                            #GTIN
+                    price = str(product_obj.list_price) + ' EUR'                                                                     #Price  
+                    country = 'DE' 
+                elif contry_code == 'en':
+                    price = str(product_obj.list_price) + ' USD'
+                    country ='US'
+                availability = product_obj.qty_available                                                            #Stock
+                if product_obj.weight_net != False and product_obj.eq_basic.name != False:
+                    unit_measure = str(product_obj.weight_net) + ' ' + product_obj.eq_basic.name                    #Grundpreis Maß
+                else:
+                    unit_measure = ''
+                    
+                if product_obj.volume != False and product_obj.eq_basic.name != False:
+                    basic_unit = str(1.0) + ' ' + product_obj.eq_basic.name                                         #Grundpreiseinheitsmaß
+                else:
+                    basic_unit = ''
+                #basic_price = str(product_obj.eq_basic_price)                                                      #Grundpreiseinheit
+                
+                shipping_weight = str(product_obj.weight) + ' ' + 'kg'                                              #Bruttogewicht
+                
+                product_product_attr_values = product_obj.attribute_value_ids
+                for product_product_attribute in product_product_attr_values:
+                    
+                    
+                    attribute_value = product_product_attribute.name
+                    attribute = product_product_attribute.attribute_id.name
+                    google_value = product_product_attribute.attribute_id.eq_google_attribute 
+                    if google_value == 'color':
+                        color = attribute_value
+                    if google_value == 'size':
+                         size = attribute_value
+#                     if google_value == 'item_group_id':
+#                         item_group_id = attribute_value
+                    if google_value == 'gender':
+                        gender = attribute_value
+                    if google_value == 'age_group':
+                        age_group = attribute_value
+                    if google_value == 'material':
+                        material = attribute_value
+                    if google_value == 'pattern':
+                        pattern = attribute_value
+            
+            delivery = http.request.env['delivery.carrier'].sudo().search([('id','=',1)])
+            shipping_price = str(delivery.normal_price)
             
             
-            #product_product = http.request.env['product.product'].sudo().search([('product_tmpl_id', '=', id)])
-            #gtin = product_product.ean13                                    #GTIN
+            #Aufbau XML-FEED
             
-                        
-            # generate lines
-            #line = "@id|@title|@description|@google_product_category|@product_type|@link|@image_link|@condition|@availability|@price|@brand|@mpn|@shipping"
             line = """<entry>\n"""
-            #line += """<g:id>"""+str(id)+"""</g:id>\n"""
-            
             line += """<g:id>[ID]</g:id>\n"""          
             line = line.replace("[ID]", str(id))
             line += """<g:title>[TITLE]</g:title>\n"""
             line = line.replace("[TITLE]", title)
-            line += """<g:description>[DESCRIPTION]</g:description>\n"""
-            #line = line.replace("[DESCRIPTION]", str(description))
+            if description != False:
+                line += """<g:description>[DESCRIPTION]</g:description>\n"""
+                line = line.replace("[DESCRIPTION]", description)
+            else:
+                pass
             line += """<g:link>[LINK]</g:link>\n"""
             line = line.replace("[LINK]", link)
+            line += """<g:mobile_link>[MOBILE_LINK]</g:mobile_link>\n"""
+            line = line.replace("[MOBILE_LINK]", mobile_link)
             line += """<g:image_link>[IMAGE_LINK]</g:image_link>\n"""
             line = line.replace("[IMAGE_LINK]", image_link)
             line += """<g:condition>[CONDITION]</g:condition>\n"""
             line = line.replace("[CONDITION]", condition) 
-            line += """<g:availability>[AVAILABILITY]</g:availability>\n"""
-            line = line.replace("[AVAILABILITY]", availability)
+            if availability > 0:
+                line += """<g:availability>[AVAILABILITY]</g:availability>\n"""
+                line = line.replace("[AVAILABILITY]", 'in stock')
+            else:
+                pass
             line += """<g:price>[PRICE]</g:price>\n"""
-            line = line.replace("[PRICE]", str(price))
-            line += """<g:shipping>[SHIPPING]</g:shipping>\n"""
-            line = line.replace("[SHIPPING]", shipping)
-            line += """<g:gtin>[GTIN]</g:gtin>\n"""
-            #line = line.replace("[GTIN]", gtin)
-            line += """<g:brand>[BRAND]</g:brand>\n"""
-            #line = line.replace("[BRAND]", brand)
-            line += """<g:mpn>[MPN]</g:mpn>\n"""
-            #line = line.replace("[MPN]", mpn)
-#            line += """<g:google_product_category>[GOOGLE_PRODUCT_CATEGORY]</g:google_product_category>\n"""
-#            line = line.replace("[GOOGLE_PRODUCT_CATEGORY]", google_product_category)
-            line += """<g:product_type>[PRODUCT_TYPE]</g:product_type>\n"""
-            line = line.replace("[PRODUCT_TYPE]", product_type)
+            line = line.replace("[PRICE]", price)
+            
+            line += """<g:shipping>\n
+            <g:country>[COUNTRY]</g:country>\n
+            <g:service>Standard</g:service>\n
+            <g:price>[SHIPPING_PRICE]</g:price>\n
+            </g:shipping>\n"""  
+            line = line.replace("[COUNTRY]", country)
+            line = line.replace("[SHIPPING_PRICE]", shipping_price)
             
             
+            line += """<g:shipping_weight>[SHIPPING_WEIGHT]</g:shipping_weight>\n"""
+            line = line.replace("[SHIPPING_WEIGHT]", shipping_weight)
             
+                
+#             line += """<g:shipping_label>[SHIPPING_LABEL]</g:shipping_label>"""
+#             line = line.replace("[SHIPPING_LABEL]", shipping_label)
             
-#             line = self.set_line_text(line, id, "@id", True)
-#             line = self.set_line_text(line, title, "@title", False)
-#             line = self.set_line_text(line, description, "@description", False)
-#             line = self.set_line_text(line, google_product_category, "@google_product_category", False)
-#             line = self.set_line_text(line, product_type, "@product_type", False)
-#             line = self.set_line_text(line, link, "@link", False)
-#             line = self.set_line_text(line, image_link, "@image_link", False)
-#             line = self.set_line_text(line, condition, "@condition", False)
-#             line = self.set_line_text(line, availability, "@availability", False)
-#             line = self.set_line_text(line, price, "@price", True)
-#             #line = self.set_line_text(line, gtin, "@gtin", False)
-#             line = self.set_line_text(line, brand, "@brand", False)
-#             line = self.set_line_text(line, mpn, "@mpn", False)
-#             line = self.set_line_text(line, shipping, "@shipping", False)
-    
+            if gtin != False:
+                line += """<g:gtin>[GTIN]</g:gtin>\n"""
+                line = line.replace("[GTIN]", gtin)
+            else:
+                pass
+            if brand != False:
+                line += """<g:brand>[BRAND]</g:brand>\n"""
+                line = line.replace("[BRAND]", brand)
+            else:
+                pass
+#             if mpn != False:
+#                 line += """<g:mpn>[MPN]</g:mpn>\n"""
+#                 line = line.replace("[MPN]", mpn)
+#             else:
+#                 pass
+            if google_product_category != '': 
+                line += """<g:google_product_category>[GOOGLE_PRODUCT_CATEGORY]</g:google_product_category>\n"""
+                line = line.replace("[GOOGLE_PRODUCT_CATEGORY]", google_product_category)
+                
+            else:
+                pass
+            
+            #line += """<g:product_type>[PRODUCT_TYPE]</g:product_type>\n"""
+            #line = line.replace("[PRODUCT_TYPE]", product_type)
+            
+            #if item_group_id != False:
+                #line += """<g:item_group_id>[ITEM_GROUP_ID]</g:item_group_id>\n"""
+                #line = line.replace("[ITEM_GROUP_ID]", item_group_id)
+                #item_group_id = False
+            
+            if color != False:
+                line += """<g:color>[COLOR]</g:color>\n"""
+                line = line.replace("[COLOR]", color)
+                color = False
+            
+            if gender != False:
+                line += """<g:gender>[GENDER]</g:gender>\n"""
+                line = line.replace("[GENDER]", gender)
+                gender = False
+            
+            if age_group != False:
+                line += """<g:age_group>[AGE_GROUP]</g:age_group>\n"""
+                line = line.replace("[AGE_GROUP]", age_group)
+                age_group = False
+            
+            if material != False:
+                line += """<g:material>[MATERIAL]</g:material>\n"""
+                line = line.replace("[MATERIAL]", material)
+                material = False
+            
+            if pattern != False:
+                line += """<g:pattern>[PATTERN]</g:pattern>\n"""
+                line = line.replace("[PATTERN]", pattern)
+                pattern = False
+            
+            if size != False:
+                line += """<g:size>[SIZE]</g:size>\n"""
+                line = line.replace("[SIZE]", size)
+                size = False
+            else:
+                pass
+
+            if unit_measure != '':
+                line += """<g:unit_pricing_measure>[UNIT_PRICING_MEASURE]</g:unit_pricing_measure>\n"""
+                line = line.replace("[UNIT_PRICING_MEASURE]", unit_measure)
+            
+            if basic_unit != '':
+                line += """<g:unit_pricing_base_measure>[UNIT_PRICING_BASE_MEASURE]</g:unit_pricing_base_measure>\n"""
+                line = line.replace("[UNIT_PRICING_BASE_MEASURE]", basic_unit)
+#             if basic_price != False:
+#                 line += """<g:unit_pricing_base_measure>[UNIT_PRICING_BASE_MEASURE]</g:unit_pricing_base_measure>\n"""
+#                 line = line.replace("[UNIT_PRICING_BASE_MEASURE]", basic_price)
+#             else:
+#                 pass
+            
             line += """</entry>"""
+    
             positions.append(line)
                     
          return positions    

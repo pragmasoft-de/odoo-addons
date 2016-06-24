@@ -31,6 +31,7 @@ msgid "General Attributes"
 msgstr "Allgemeine Produkte"
 
 #. module: eq_google_shopping_feed
+#: view:product.template:eq_google_shopping_feed.eq_google_product_template_only_form_view
 #: field:product.template,eq_google_product_category:0
 msgid "Google Product Category"
 msgstr "Google Produktkategorie"
@@ -80,3 +81,113 @@ msgstr "Sonderangebotszeitraum"
 msgid "Special Offer Price"
 msgstr "Sonderangebotspreis"
 
+#. module: eq_google_shopping_feed
+#: selection:product.template,eq_condition:0
+msgid "Refurbished"
+msgstr "Erneuert"
+
+#. module: eq_google_shopping_feed
+#: selection:product.template,eq_condition:0
+msgid "Used"
+msgstr "Gebraucht"
+
+#. module: eq_google_shopping_feed
+#: selection:product.attribute,eq_google_attribute:0
+msgid "Age Group"
+msgstr "Altersgruppe"
+
+#. module: eq_google_shopping_feed
+#: selection:product.attribute,eq_google_attribute:0
+msgid "Color"
+msgstr "Farbe"
+
+#. module: eq_google_shopping_feed
+#: selection:product.attribute,eq_google_attribute:0
+msgid "Gender"
+msgstr "Geschlecht"
+
+#. module: eq_google_shopping_feed
+#: view:product.attribute:eq_google_shopping_feed.attribute_form_view
+msgid "Google Product Attribute"
+msgstr "Google Produkt Attribut"
+
+#. module: eq_google_shopping_feed
+#: selection:product.attribute,eq_google_attribute:0
+msgid "Material"
+msgstr "Material"
+
+#. module: eq_google_shopping_feed
+#: selection:product.attribute,eq_google_attribute:0
+msgid "Pattern"
+msgstr "Muster"
+
+#. module: eq_google_shopping_feed
+#: selection:product.attribute,eq_google_attribute:0
+msgid "Size"
+msgstr "Größe"
+
+#. module: eq_google_shopping_feed
+#: field:google.product.taxonomy,long_name1:0
+msgid "Categ_1"
+msgstr "Kategorie 1"
+
+#. module: eq_google_shopping_feed
+#: field:google.product.taxonomy,long_name2:0
+msgid "Categ_2"
+msgstr "Kategorie 2"
+
+#. module: eq_google_shopping_feed
+#: field:google.product.taxonomy,long_name3:0
+msgid "Categ_3"
+msgstr "Kategorie 3"
+
+#. module: eq_google_shopping_feed
+#: field:google.product.taxonomy,long_name4:0
+msgid "Categ_4"
+msgstr "Kategorie 4"
+
+#. module: eq_google_shopping_feed
+#: field:google.product.taxonomy,long_name5:0
+msgid "Categ_5"
+msgstr "Kategorie 5"
+
+#. module: eq_google_shopping_feed
+#: field:google.product.taxonomy,long_name6:0
+msgid "Categ_6"
+msgstr "Kategorie 6"
+
+#. module: eq_google_shopping_feed
+#: field:google.product.taxonomy,long_name7:0
+msgid "Categ_7"
+msgstr "Kategorie 7"
+
+#. module: eq_google_shopping_feed
+#: field:product.template,taxonomy_id:0
+msgid "Taxonomy Search"
+msgstr "Taxonmie Suche"
+
+#. module: eq_google_shopping_feed
+#: view:product.attribute:eq_google_shopping_feed.attribute_form_view
+msgid "Type"
+msgstr "Typ"
+
+#. module: eq_google_shopping_feed
+#: model:ir.model,name:eq_google_shopping_feed.model_google_product_taxonomy
+msgid "all product taxonomy of google"
+msgstr "Alle Produkt Taxonomien von Google"
+
+#. module: eq_google_shopping_feed
+#: field:google.product.taxonomy,name:0
+msgid "Complete Category"
+msgstr "Kompletter Kategorienname"
+
+#. module: eq_google_shopping_feed
+#: view:google.product.taxonomy:eq_google_shopping_feed.google_taxonomy_form_view
+#: field:google.product.taxonomy,code:0
+msgid "Code"
+msgstr "Code"
+
+#. module: eq_google_shopping_feed
+#: view:google.product.taxonomy:eq_google_shopping_feed.google_taxonomy_form_view
+msgid "Google Product Categorie"
+msgstr "Google Produkt Kategorie"

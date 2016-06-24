@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 	<data>
+<function model="google.product.taxonomy" name="_eq_load_taxonomy"/>
+
+<record id="attribute_form_view" model="ir.ui.view">
+            <field name="name">product.attribute.form</field>
+            <field name="model">product.attribute</field>
+            <field name="arch" type="xml">
+            <form >
+            
+            <label for="name" string="Name"/>
+                    <field name="name" class="oe_inline"/>
+            <label for="eq_google_attribute" string="Google Product Attribute"/>
+                    <field name="eq_google_attribute" class="oe_inline"/>
+            <label for="type" string="Type" />
+                    <field name="type" class="oe_inline"/>  
+            </form>
+            </field>
+        </record>
+
 <record id="eq_google_product_template_only_form_view" model="ir.ui.view">
 			<field name="name">eq.google.product.template.only.form.view</field>
 			<field name="model">product.template</field>
@@ -15,9 +33,11 @@
                                     <field name="eq_condition"/>
                                 </group> -->
                                 <group name="general_attributes" string="General Attributes" colspan="3">
-                                	<label for="eq_google_product_category"/>
+                                	<label for="taxonomy_id" string="Google Product Category"/>
                                         <div>
-                                            <field name="eq_google_product_category" class="oe_inline"/> 
+                                            <field name="eq_google_product_category" invisible="1"/>
+                                            <field name="taxonomy_id" placeholder="Google Product Category" />
+											<newline />
                                         </div>
                                     <label for="eq_condition"/>
                                         <div>
@@ -48,6 +68,21 @@
                 </notebook>
 			</field>
 		</record>
+		
+		<record id="google_taxonomy_form_view" model="ir.ui.view">
+            <field name="name">google.product.taxonomy.form</field>
+            <field name="model">google.product.taxonomy</field>
+            <field name="arch" type="xml">
+            <form >
+            <label for="name" string="Google Product Categorie"/>
+                    <field name="name" class="oe_inline"/>
+            <label for="code" string="Code"/>
+                    <field name="code" class="oe_inline" readonly="True"/>
+            </form>
+            </field>
+        </record>
+		
+		
 </data>
 </openerp>
 
