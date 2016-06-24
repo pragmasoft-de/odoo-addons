@@ -1,5 +1,10 @@
 ## Modul eq_google_shopping
 
+#### 24.06.2016
+#### Version 1.0.5
+##### CHG
+- Modulbeschreibung und Icon angepasst
+
 #### 16.06.2016
 #### Version 1.0.4
 ##### CHG
