@@ -1,5 +1,11 @@
 ## Modul eq_google_shopping
 
+#### 27.06.2016
+#### Version 1.0.11
+##### FIX
+- Zeichen "&,%,>,<" haben die sofortige Anzeige des entsprechenden XML-Feeds verhindert. Diese Zeichen werden nun durch den entsprechenden XML-fähigen Code ersetzt. Dadurch wird eine sofortige Ausgabe des Google-Shopping-Feeds gewährleistet.
+- "Weitere suchen"-Funktion funktioniert nun bei der Eingabe eines Begriffs in das Feld von Google Produkt Category.
+
 #### 24.06.2016
 #### Version 1.0.10
 ##### CHG

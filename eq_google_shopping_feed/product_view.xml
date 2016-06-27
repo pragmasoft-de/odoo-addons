@@ -73,12 +73,22 @@
             <field name="name">google.product.taxonomy.form</field>
             <field name="model">google.product.taxonomy</field>
             <field name="arch" type="xml">
-            <form >
-            <label for="name" string="Google Product Categorie"/>
-                    <field name="name" class="oe_inline"/>
-            <label for="code" string="Code"/>
-                    <field name="code" class="oe_inline" readonly="True"/>
-            </form>
+	            <form >
+		            <label for="name" string="Google Product Categorie"/>
+	                <field name="name" class="oe_inline"/>
+		            <label for="code" string="Code"/>
+	                <field name="code" class="oe_inline" readonly="True"/>
+	            </form>
+            </field>
+        </record>
+		
+		<record id="google_taxonomy_tree_view" model="ir.ui.view">
+            <field name="name">google.product.taxonomy.tree</field>
+            <field name="model">google.product.taxonomy</field>
+            <field name="arch" type="xml">
+	            <tree>
+	                <field name="name"/>
+	            </tree>
             </field>
         </record>
 		

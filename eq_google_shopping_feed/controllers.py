@@ -167,7 +167,15 @@ class EqGoogleShoppingFeed(http.Controller):
             product_product = http.request.env['product.product'].sudo().search([('product_tmpl_id', '=', id)])
             
             title = product.name                                            # titel
-            description = product.description_sale                          # description
+            
+            
+            description_1 = product.description_sale                        # description - original
+            
+            description_2 = description_1.replace("%", "&#37;")
+            description_3 = description_2.replace("<", "&lt;")
+            description_4 = description_3.replace(">", "&gt;")
+            description = description_4.replace("&", "&amp;")
+            
                        
             if contry_code == 'at' or contry_code == 'ch' or contry_code == 'de':
                 if product.eq_google_product_category != False:

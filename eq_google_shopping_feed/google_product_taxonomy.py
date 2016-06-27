@@ -35,13 +35,16 @@ class Eq_google_product_taxonomy(models.Model):
             categorie = [categ.long_name1, categ.long_name2, categ.long_name3, categ.long_name4, categ.long_name5, categ.long_name6, categ.long_name7]
             categorie = [x for x in categorie if x != "" and x]
             name = ' > '.join(categorie)
-            categ.name = "[" + categ.code + "]" + name
-            
+            if name and categ.code != False:
+                categ.name = "[" + categ.code + "]" + name
+                
+    def _search_name(self, operator, value):
+        return ['|', '|', '|', '|', '|', '|', '|', ('code', operator, value), ('long_name1', operator, value), ('long_name2', operator, value), ('long_name3', operator, value), ('long_name4', operator, value), ('long_name5', operator, value), ('long_name6', operator, value), ('long_name7', operator, value)]       
             
             
     
     code = fields.Char('Code', size=10)
-    name = fields.Char(string="Complete Category", compute=_get_name, store=True)
+    name = fields.Char(string="Complete Category", compute=_get_name, store=False, search="_search_name")
     long_name1 = fields.Char('Categ_1')
     long_name2 = fields.Char('Categ_2')
     long_name3 = fields.Char('Categ_3')

@@ -62,6 +62,7 @@ class eq_google_product_product(models.Model):
             taxonomy_name = name.split('[')
             taxonomy = taxonomy_name[1].split(']')
             self.eq_google_product_category = taxonomy[0]
+            print"TAXONOMY: ", self.eq_google_product_category
         
         
 class eq_google_product_attribute(models.Model):
