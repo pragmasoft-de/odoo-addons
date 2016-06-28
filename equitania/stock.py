@@ -136,7 +136,7 @@ class stock_picking_extension(osv.osv):
         for picking in pickings:
             if len(picking.move_lines[0].linked_move_operation_ids):
                 picking.move_lines[0].linked_move_operation_ids[0].unlink()
-        res = super(stock_picking_extension, self).do_transfer(cr, uid, picking_ids, context)
+        res = super(stock_picking_extension, self).do_transfer(cr, uid, picking_ids, context=context)
         return res
     
     @api.multi
@@ -190,9 +190,9 @@ class stock_picking_extension(osv.osv):
         #Return as view definition
         return self.reverse_picking_new_view(cr, uid, new_picking_id)
 
-    @api.cr_uid_ids_context
-    def _get_invoice_vals(self, cr, uid, key, inv_type, journal_id, move, context=None):
-        res = super(stock_picking_extension, self)._get_invoice_vals(cr, uid, key, inv_type, journal_id, move, context)
+    @api.model
+    def _get_invoice_vals(self, key, inv_type, journal_id, move):
+        res = super(stock_picking_extension, self)._get_invoice_vals(key, inv_type, journal_id, move)
         if move.procurement_id:
             if move.procurement_id.sale_line_id:
                 res['comment'] = move.procurement_id.sale_line_id.order_id.note

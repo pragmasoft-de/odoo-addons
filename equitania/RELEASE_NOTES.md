@@ -16,6 +16,11 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 28.06.2016
+### Version 1.1.71
+#### FIX
+- Dekorator abgeändert
+
 #### 24.06.2016
 ### Version 1.1.70
 #### FIX
