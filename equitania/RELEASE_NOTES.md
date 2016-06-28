@@ -17,6 +17,11 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 #### 28.06.2016
+### Version 1.1.73
+#### FIX
+- Korrektur für Parameter default_get für sale.order.line
+
+#### 28.06.2016
 ### Version 1.1.71
 #### FIX
 - Dekorator abgeändert

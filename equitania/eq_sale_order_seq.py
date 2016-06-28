@@ -37,8 +37,8 @@ class eq_sale_order_line_seq(osv.osv):
     _inherit = "sale.order.line"
     SEQUENCE_VALUE = 1 #alt:10; 18.03.2016 erster Wert für Sequence auf 1 gesetzt
      
-    def default_get(self, cr, uid, ids, context=None):
-        res =  super(eq_sale_order_line_seq, self).default_get(cr, uid, ids, context=context)
+    def default_get(self, cr, uid, fields, context=None):
+        res =  super(eq_sale_order_line_seq, self).default_get(cr, uid, fields, context=context)
         
         ir_values = self.pool.get('ir.values')
         use_manual_numbering= ir_values.get_default(cr, uid, 'sale.order', 'default_use_manual_position_numbering')
