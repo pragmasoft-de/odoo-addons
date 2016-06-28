@@ -22,8 +22,8 @@ import xmlrpclib
 from datetime import datetime, timedelta
 
 username = "username"
-pwd = "pw"
-dbname = "database"
+pwd = "Passwort"
+dbname = "dbname"
 baseurl = "http://localhost:8069"
 
 version_number = 1
@@ -53,11 +53,12 @@ sock.execute(dbname, uid, pwd, 'email.template', 'unlink', list_id)
 #############1. Sales Order - Send by Email_en #############
 ############################################################
 template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Sales Order - Send by Email")])
+template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Verkaufsauftrag")])
 
 sale_order_model_id = sock.execute(dbname, uid, pwd, 'ir.model', 'search',[("model","=", "sale.order")])
 sale_order_xml_id = sock.execute(dbname, uid, pwd, 'ir.actions.report.xml', 'search',[("model","=", "sale.order")])
 
-if template_name == []:
+if template_name == [] and template_name_de == []:
 
     email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Sales Order - Send by Email_en.txt","r")
     body_html = email_temp_file.read()
@@ -252,8 +253,9 @@ invoice_model_id = sock.execute(dbname, uid, pwd, 'ir.model', 'search',[("model"
 invoice_xml_id = sock.execute(dbname, uid, pwd, 'ir.actions.report.xml', 'search',[("model","=", "account.invoice")])
 
 template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Invoice - Send by Email")])
+template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Rechnung")])
 
-if template_name == []:
+if template_name == [] and template_name_de == []:
 
     email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Invoice - Send by Email_en.txt","r")
     body_html = email_temp_file.read()
@@ -381,8 +383,9 @@ rfq_model_id = sock.execute(dbname, uid, pwd, 'ir.model', 'search',[("model","="
 rfq_xml_id = sock.execute(dbname, uid, pwd, 'ir.actions.report.xml', 'search',[("report_file","=", "purchase.report_purchasequotation")])
 
 template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","RFQ - Send by Email")])
+template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Angebotsanfrage")])
 
-if template_name == []:
+if template_name == [] and template_name_de == []:
 
     email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/RFQ - Send by Email_en.txt","r")
     body_html = email_temp_file.read()
@@ -445,8 +448,9 @@ if template_name == []:
 purchase_xml_id = sock.execute(dbname, uid, pwd, 'ir.actions.report.xml', 'search',[("model","=", "purchase.order")])
 
 template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Purchase Order - Send by Email")])
+template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Bestellung")])
 
-if template_name == []:
+if template_name == [] and template_name_de == []:
 
     email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Purchase Order - Send by Email_en.txt","r")
     body_html = email_temp_file.read()
@@ -598,8 +602,9 @@ if template_name == []:
 
 password_reset_model_id = sock.execute(dbname, uid, pwd, 'ir.model', 'search',[("model","=", "res.users")])
 template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Reset Password")])
+template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Passwort zurücksetzen")])
 
-if template_name == []:
+if template_name == [] and template_name_de == []:
 
     email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Reset Password_en.txt","r")
     body_html = email_temp_file.read()
@@ -655,9 +660,10 @@ if template_name == []:
 ######################################################################################
 
 
-template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Reset Password")])
+template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Order received")])
+template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Bestellung eingegangen")])
 
-if template_name == []:
+if template_name == [] and template_name_de == []:
 
     email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Bestellung eingegangen_en.txt","r")
     body_html = email_temp_file.read()
@@ -712,8 +718,9 @@ if template_name == []:
 
 reminder_model_id = sock.execute(dbname, uid, pwd, 'ir.model', 'search',[("model","=", "crm.lead")])
 template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Reminder to User")])
+template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Erinnerung an Interessent")])
 
-if template_name == []:
+if template_name == [] and template_name_de == []:
 
     email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Reminder to User_en.txt","r")
     body_html = email_temp_file.read()
@@ -770,8 +777,9 @@ if template_name == []:
 
 meeting_model_id = sock.execute(dbname, uid, pwd, 'ir.model', 'search',[("model","=", "calendar.attendee")])
 template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Meeting Invitation")])
+template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Terminanfrage")])
 
-if template_name == []:
+if template_name == [] and template_name_de == []:
 
     email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Meeting Invitation_en.txt","r")
     body_html = email_temp_file.read()
@@ -830,8 +838,9 @@ if template_name == []:
 
 meeting_model_id = sock.execute(dbname, uid, pwd, 'ir.model', 'search',[("model","=", "calendar.attendee")])
 template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Meeting Invitation - Reminder")])
+template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Terminerinnerung")])
 
-if template_name == []:
+if template_name == [] and template_name_de == []:
 
     email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Meeting Invitation - Reminder_en.txt","r")
     body_html = email_temp_file.read()
@@ -890,8 +899,9 @@ if template_name == []:
 
 meeting_model_id = sock.execute(dbname, uid, pwd, 'ir.model', 'search',[("model","=", "calendar.attendee")])
 template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Meeting Invitation - Change Date")])
+template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name","=","Terminänderung")])
 
-if template_name == []:
+if template_name == []and template_name_de == []:
 
     email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Meeting Invitation - Change Date_en.txt","r")
     body_html = email_temp_file.read()
