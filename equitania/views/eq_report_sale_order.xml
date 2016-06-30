@@ -320,7 +320,8 @@
 
 							<!-- Lines associated -->
 							<t t-foreach="p['lines']" t-as="line">
-								<tr>
+								<!-- Normale Auftragszeile -->
+								<tr t-if="line.product_id.name and line.product_uom_qty > 0">
 									<td>
 										<span t-field="line.sequence" />
 									</td>
@@ -394,7 +395,105 @@
 										</td>
 									</t>
 								</tr>
+								<!-- Auftragszeile wenn ein Produkt ausgewählt wurde aber die Menge 0 ist -->
+								<tr style="background-color:green!important;" t-if="line.product_id.name and line.product_uom_qty == 0">
+									<td>
+										<span t-field="line.sequence" />
+									</td>
+									<td>
+										<span t-field="line.product_id.default_code" />
+									</td>
+									<td>
+										<strong>
+											<span t-field="line.product_id.name" />
+										</strong>
+										
+										<div style="width:11cm; margin-right:-11cm; ">
+											<t t-if="line.name and line.name != ' '">
+												<br />
+												<span t-field="line.name" />
+											</t>
+											<!-- Zeigt die Zeichnungsnummer der Produktvariante an -->
+											<t id="eq_drawing_number" />
+											<t t-if="o.state not in ['draft','sent']">
+												<t t-if="o.show_delivery_date">
+													<div class="clearfix"></div>
+													<strong>
+														Delivery date:
+														<span t-field="line.get_delivery_date" />
+													</strong>
+												</t>
+											</t>
+											<div id="agreement_id" />
+										</div>
+									</td>
+									<td class="text-right">
+									</td>
+									<td class="text-right">  <!-- Einzelpreis -->
+										EP
+										<span
+											t-esc="get_price(line.price_unit, o.partner_id.lang, o.currency_id)" />
+									</td>
+									<td t-if="any([line.discount for line in o.order_line])"
+										class="text-center">
+										<span t-field="line.discount" /> %<br/>
+											(<span t-esc="get_price(line.discount_value, o.partner_id.lang, o.currency_id)" />)
+									</td>
+									<t t-if="len(set([line.tax_id for line in o.order_line])) > 1">
+										<td class="text-center clean-bottom" t-if="any([line.tax_id for line in o.order_line])">
+											<span t-field="line.tax_id.description" />
+										</td>
+									</t>
+									<t t-if="show_gross_price is False">	<!-- no, show only net price -->
+										<td class="text-right">
+
+										</td>
+									</t>
+									<t t-if="show_gross_price is True">		<!-- yes, show gross price -->
+										<td class="text-right">
+
+										</td>
+									</t>
+								</tr>
+								<!-- Auftragszeile wenn kein Produkt ausgewählt wurde -->
+								<tr style="background-color:red!important;" t-if="not line.product_id.name">
+									<td style="background-color:red!important;">
+										<span t-field="line.sequence" />
+									</td>
+									<td>
+										<span t-field="line.product_id.default_code" />
+									</td>
+									<td>
+										<div style="width:11cm; margin-right:-11cm; ">
+											<t t-if="line.name and line.name != ' '">
+												<span t-field="line.name" />
+											</t>
+										</div>
+									</td>
+									<td class="text-right">
+									</td>
+									<td class="text-right">  <!-- Einzelpreis -->
+										
+									</td>
+									<td t-if="any([line.discount for line in o.order_line])"
+										class="text-center">
+									</td>
+									<t t-if="len(set([line.tax_id for line in o.order_line])) > 1">
+										<td class="text-center clean-bottom" t-if="any([line.tax_id for line in o.order_line])">
+										</td>
+									</t>
+									<t t-if="show_gross_price is False">	<!-- no, show only net price -->
+										<td class="text-right">
+										</td>
+									</t>
+									<t t-if="show_gross_price is True">		<!-- yes, show gross price -->
+										<td class="text-right">
+										</td>
+									</t>
+								</tr>
 							</t>
+							
+
 
 							<!-- Subtotal -->
 							<!-- eq_subtotal_template -->

@@ -16,6 +16,12 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+
+#### 30.06.2016
+### Version 1.1.74
+#### ADD
+- Funktion in Auftragszeilenposition: Es ist nun möglich eine Auftragszeile (in Angebote oder Rechnungen) zu erstellen, ohne ein Produkt auszuwählen. Hierdurch können Beschreibungstexte trotzdem hinzugefügt werden, z.B. um ein Angebotstext auf der Folgeseite weiterführen zu können oder Ergänzungen hinzufügen zu können.
+
 #### 28.06.2016
 ### Version 1.1.73
 #### FIX

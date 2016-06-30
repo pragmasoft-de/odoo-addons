@@ -305,7 +305,7 @@
 							<!-- Name of the category -->
 							<t t-call="equitania.category_template" />
 							<t t-foreach="p['lines']" t-as="l">
-								<tr>
+								<tr t-if="l.product_id.name and l.quantity > 0">
 									<td>
 										<span t-field="l.sequence" /><!-- sequence -->
 									</td>
@@ -346,7 +346,7 @@
 										<span
 											t-esc="get_price(l.price_unit, o.partner_id.lang, o.currency_id)" />
 									</td>
-									<td class="text-center" t-if="any([line.discount for line in o.invoice_line])"
+									<td class="text-center" t-if="[l.discount for line in o.invoice_line if line.discount]"
 										groups="sale.group_discount_per_so_line">
 										<span t-field="l.discount" /> %<br/>
 											(<span t-esc="get_price(l.discount_value, o.partner_id.lang, o.currency_id)" />)
@@ -398,6 +398,115 @@
 											/ Delivery Date (the date of service)
 										</span>
 									</td>
+								</tr>
+								
+								
+								
+								
+								<!-- Auftragszeile wenn ein Produkt ausgewählt wurde aber die Menge 0 ist -->
+								<tr style="background-color:green!important;" t-if="l.product_id.name and l.quantity == 0">
+									<td>
+										<span t-field="l.sequence" /><!-- sequence -->
+									</td>
+									<td>
+										<span t-field="l.product_id.default_code" />
+									</td>
+									<td>
+										<strong>
+											<span t-field="l.product_id.name" />
+										</strong>
+										
+										<div style="width:11cm; margin-right:-11cm; ">
+											<br />
+											<span t-field="l.name" />
+											<div id="eq_drawing_number">
+												<t t-if="l.product_id.eq_drawing_number">
+													<p>
+														Drawing No.:
+														<span t-field="l.product_id.eq_drawing_number" />
+													</p><!-- Zeigt die Zeichnungsnummer der Produktvariante an -->
+												</t>
+												<t
+													t-if="not l.product_id.eq_drawing_number and l.product_id.product_tmpl_id.eq_drawing_number">
+													<p>
+														Drawing No.:
+														<span t-field="l.product_id.product_tmpl_id.eq_drawing_number" />
+													</p><!-- Zeigt die Zeichnungsnummer des Hauptprodukts an, wenn 
+														für die Variante keine Nummer hinterlegt ist -->
+												</t>
+											</div>
+										</div>
+									</td>
+									<td>
+									</td>
+									<td class="text-right">
+										<span
+											t-esc="get_price(l.price_unit, o.partner_id.lang, o.currency_id)" />
+									</td>
+									<td class="text-center" t-if="[l.discount for line in o.invoice_line if line.discount]"
+										groups="sale.group_discount_per_so_line">
+										<span t-field="l.discount" /> %<br/>
+											(<span t-esc="get_price(l.discount_value, o.partner_id.lang, o.currency_id)" />)
+									</td>
+									<td class="clean-bottom text-center" t-if="len(o.tax_line) > 1">
+										<span t-field="l.invoice_line_tax_id.description" />
+									</td>
+
+									<t t-if="show_gross_price is False">	<!-- no, show only net price -->
+										<td class="text-right">
+										</td>
+									</t>
+
+									<t t-if="show_gross_price is True">		<!-- yes, show gross price -->
+										<td class="text-right">
+
+										</td>
+									</t>
+
+									<!-- <td class="text-right"> <span t-esc="get_standard_price(l.price_subtotal, 
+										o.partner_id.lang, o.currency_id)"/> </td> -->
+								</tr>
+								
+								
+								
+								
+								<!-- Auftragszeile wenn kein Produkt ausgewählt wurde -->
+								<tr style="background-color:red!important;" t-if="not l.product_id.name">
+									<td>
+										<span t-field="l.sequence" /><!-- sequence -->
+									</td>
+									<td>
+										<span t-field="l.product_id.default_code" />
+									</td>
+									<td>
+										<strong>
+											<span t-field="l.product_id.name" />
+										</strong>
+										
+										<div style="width:11cm; margin-right:-11cm; ">
+											<span t-field="l.name" />
+										</div>
+									</td>
+									<td>
+									</td>
+									<td class="text-right">
+									</td>
+									<td class="text-center" t-if="[l.discount for line in o.invoice_line if line.discount]"
+									groups="sale.group_discount_per_so_line">
+											
+									</td>
+									<td class="clean-bottom text-center" t-if="len(o.tax_line) > 1">
+									</td>
+
+									<t t-if="show_gross_price is False">	<!-- no, show only net price -->
+										<td class="text-right">
+										</td>
+									</t>
+
+									<t t-if="show_gross_price is True">		<!-- yes, show gross price -->
+										<td class="text-right">
+										</td>
+									</t>
 								</tr>
 							</t>
 
