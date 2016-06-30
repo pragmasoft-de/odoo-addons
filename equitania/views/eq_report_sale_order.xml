@@ -396,7 +396,7 @@
 									</t>
 								</tr>
 								<!-- Auftragszeile wenn ein Produkt ausgewählt wurde aber die Menge 0 ist -->
-								<tr style="background-color:green!important;" t-if="line.product_id.name and line.product_uom_qty == 0">
+								<tr t-if="line.product_id.name and line.product_uom_qty == 0">
 									<td>
 										<span t-field="line.sequence" />
 									</td>
@@ -456,8 +456,8 @@
 									</t>
 								</tr>
 								<!-- Auftragszeile wenn kein Produkt ausgewählt wurde -->
-								<tr style="background-color:red!important;" t-if="not line.product_id.name">
-									<td style="background-color:red!important;">
+								<tr t-if="not line.product_id.name">
+									<td >
 										<span t-field="line.sequence" />
 									</td>
 									<td>
@@ -551,7 +551,7 @@
 										<strong>Total without taxes</strong>
 									</td>
 									<!--  NEUE STEUERSPALTE -->
-									<td class="text-right" t-foreach="set([x.tax_id for x in o.order_line])" t-as="tax_line">
+									<td class="text-right" t-foreach="set([x.tax_id for x in o.order_line if has_tax_amount(o, x.tax_id)])" t-as="tax_line">
 										<strong>
 											<span t-esc="tax_line.name" />
 										</strong>
@@ -576,7 +576,7 @@
 											t-esc="get_standard_price(o.amount_untaxed, o.partner_id.lang, o.currency_id)" />
 									</td>
 									<!--  NEUE STEUERSPALTE -->
-									<td class="text-right" t-foreach="set([x.tax_id for x in o.order_line])" t-as="tax_line">
+									<td class="text-right" t-foreach="set([x.tax_id for x in o.order_line if has_tax_amount(o, x.tax_id)])" t-as="tax_line" >
 										<span
 										t-esc="get_tax(o, tax_line, o.partner_id.lang, o.currency_id)" />
 									</td>

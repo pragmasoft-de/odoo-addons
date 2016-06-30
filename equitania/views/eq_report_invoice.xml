@@ -404,7 +404,7 @@
 								
 								
 								<!-- Auftragszeile wenn ein Produkt ausgewählt wurde aber die Menge 0 ist -->
-								<tr style="background-color:green!important;" t-if="l.product_id.name and l.quantity == 0">
+								<tr  t-if="l.product_id.name and l.quantity == 0">
 									<td>
 										<span t-field="l.sequence" /><!-- sequence -->
 									</td>
@@ -471,7 +471,7 @@
 								
 								
 								<!-- Auftragszeile wenn kein Produkt ausgewählt wurde -->
-								<tr style="background-color:red!important;" t-if="not l.product_id.name">
+								<tr  t-if="not l.product_id.name">
 									<td>
 										<span t-field="l.sequence" /><!-- sequence -->
 									</td>
@@ -572,7 +572,7 @@
 										<strong>Total without taxes</strong>
 									</td>
 									<!--  NEUE STEUERSPALTE -->
-									<td class="text-right" t-foreach="o.tax_line" t-as="tax_line">
+									<td class="text-right" t-foreach="[x for x in o.tax_line if x.amount]" t-as="tax_line">
 										<strong>
 											<span t-esc="tax_line.name" />
 										</strong>
@@ -596,7 +596,7 @@
 											t-esc="get_standard_price(o.amount_untaxed, o.partner_id.lang, o.currency_id)" />
 									</td>
 																		<!--  NEUE STEUERSPALTE -->
-									<td class="text-right" t-foreach="o.tax_line" t-as="tax_line">
+									<td class="text-right" t-foreach="[x for x in o.tax_line if x.amount]" t-as="tax_line">
 										<span t-esc="get_standard_price(tax_line.amount, o.partner_id.lang, o.currency_id)" />
 									</td>
 									<!--  ALTE STeuerspalte

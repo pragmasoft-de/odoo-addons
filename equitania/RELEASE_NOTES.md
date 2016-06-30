@@ -18,6 +18,11 @@ Vorgehensweise unter Debian:
 
 
 #### 30.06.2016
+### Version 1.1.75
+#### IMP
+- Angebot & Rechnungen: Die Steuersätze welche in den Auftragspositionen ohne Wert sind (also mit 0,00 €) werden in der Zusammenrechnungen / Footer vom Report nicht mehr angezeigt
+
+#### 30.06.2016
 ### Version 1.1.74
 #### ADD
 - Funktion in Auftragszeilenposition: Es ist nun möglich eine Auftragszeile (in Angebote oder Rechnungen) zu erstellen, ohne ein Produkt auszuwählen. Hierdurch können Beschreibungstexte trotzdem hinzugefügt werden, z.B. um ein Angebotstext auf der Folgeseite weiterführen zu können oder Ergänzungen hinzufügen zu können.
