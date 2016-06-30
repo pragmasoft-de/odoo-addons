@@ -16,7 +16,7 @@
 
 
         % if object.user_id:
-       &nbsp;&nbsp;Ihr Ansprechpartner:  ${object.user_id.title.name} ${object.user_id.eq_firstname}  <a href="mailto:${object.user_id.email or ''}?subject=Invoice%20${object.number}">${object.user_id.name}</a>
+       &nbsp;&nbsp;Ihr Ansprechpartner: ${object.user_id.title.name if object.user_id.title.name else ""} <a href="mailto:${object.user_id.email or ''}?subject=Invoice%20${object.number}">${object.user_id.name}</a>
         % endif
   </p> 
 
