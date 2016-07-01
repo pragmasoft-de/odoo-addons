@@ -16,6 +16,10 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 01.07.2016
+### Version 1.1.76
+#### FIX
+- Änderung für Ermittlung der Sprache
 
 #### 30.06.2016
 ### Version 1.1.75

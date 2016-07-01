@@ -40,10 +40,11 @@ class eq_sale_order_line(models.Model):
         if (self and self[0].order_id and self[0].order_id.pricelist_id):            
             currency_symbol = self[0].order_id.pricelist_id.currency_id.symbol
             
+        lang = self.env['res.users'].sudo().browse(self._uid).lang # self._context['lang']
         rep_helper_obj = self.env['eq_report_helper']
         for record in self:
-            discounted_txt = rep_helper_obj.get_price(record.discount, self._context['lang'], 'Sale Price Report', False)
-            discounted_value_txt = rep_helper_obj.get_price(record.discount_value, self._context['lang'], 'Sale Price Report', False) + ' ' + currency_symbol
+            discounted_txt = rep_helper_obj.get_price(record.discount, lang, 'Sale Price Report', False)
+            discounted_value_txt = rep_helper_obj.get_price(record.discount_value, lang, 'Sale Price Report', False) + ' ' + currency_symbol
             
             record.discount_display_text = discounted_txt + " %\n (" + discounted_value_txt + ")"
     
