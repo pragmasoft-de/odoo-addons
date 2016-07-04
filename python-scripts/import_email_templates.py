@@ -60,7 +60,7 @@ sale_order_xml_id = sock.execute(dbname, uid, pwd, 'ir.actions.report.xml', 'sea
 
 if template_name == [] and template_name_de == []:
 
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Sales Order - Send by Email_en.txt","r")
+    email_temp_file = open("/email_templates/Sales Order - Send by Email_en.txt","r")
     body_html = email_temp_file.read()
     
 
@@ -96,7 +96,7 @@ if template_name == [] and template_name_de == []:
 ################################################################
     
     
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Sales Order - Send by Email_de.txt","r")
+    email_temp_file = open("/email_templates/Sales Order - Send by Email_de.txt","r")
     body_html = email_temp_file.read()
     
     
@@ -125,7 +125,7 @@ if template_name == [] and template_name_de == []:
 # 
 # if template_name == []:
 # 
-#     email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Sales Order - Send by Email (Portal)_en.txt","r")
+#     email_temp_file = open("/email_templates/Sales Order - Send by Email (Portal)_en.txt","r")
 #     body_html = email_temp_file.read()
 #     
 #     
@@ -158,7 +158,7 @@ if template_name == [] and template_name_de == []:
 ##############4. Sales Order - Send by Email (Portal)_de #############
 ######################################################################
 #     
-#     email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Sales Order - Send by Email (Portal)_de.txt","r")
+#     email_temp_file = open("/email_templates/Sales Order - Send by Email (Portal)_de.txt","r")
 #     
 #     body_html = email_temp_file.read()
 #     
@@ -189,7 +189,7 @@ if template_name == [] and template_name_de == []:
 # if template_name == []:
 # 
 # 
-#     email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Sales Order - Send by Email (Online Quote)_en.txt","r")
+#     email_temp_file = open("/email_templates/Sales Order - Send by Email (Online Quote)_en.txt","r")
 #     body_html = email_temp_file.read()
 #     
 #     
@@ -223,7 +223,7 @@ if template_name == [] and template_name_de == []:
 ############################################################################
 #     
 #     
-#     email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Sales Order - Send by Email (Online Quote)_de.txt","r")
+#     email_temp_file = open("/email_templates/Sales Order - Send by Email (Online Quote)_de.txt","r")
 #     body_html = email_temp_file.read()
 #     
 #     
@@ -257,7 +257,7 @@ template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [(
 
 if template_name == [] and template_name_de == []:
 
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Invoice - Send by Email_en.txt","r")
+    email_temp_file = open("/email_templates/Invoice - Send by Email_en.txt","r")
     body_html = email_temp_file.read()
     
     Email_Template_en = {
@@ -290,7 +290,7 @@ if template_name == [] and template_name_de == []:
 ############################################################################
     
     
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Invoice - Send by Email_de.txt","r")
+    email_temp_file = open("/email_templates/Invoice - Send by Email_de.txt","r")
     body_html = email_temp_file.read()
     
     
@@ -319,7 +319,7 @@ if template_name == [] and template_name_de == []:
 # 
 # if template_name == []:
 # 
-#     email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Invoice - Send by Email (Portal)_en.txt","r")
+#     email_temp_file = open("/email_templates/Invoice - Send by Email (Portal)_en.txt","r")
 #     body_html = email_temp_file.read()
 #     
 #     
@@ -353,7 +353,7 @@ if template_name == [] and template_name_de == []:
 #####################################################################################
 #     
 #     
-#     email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Invoice - Send by Email_de.txt","r")
+#     email_temp_file = open("/email_templates/Invoice - Send by Email_de.txt","r")
 #     body_html = email_temp_file.read()
 #     
 #     
@@ -387,7 +387,7 @@ template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [(
 
 if template_name == [] and template_name_de == []:
 
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/RFQ - Send by Email_en.txt","r")
+    email_temp_file = open("/email_templates/RFQ - Send by Email_en.txt","r")
     body_html = email_temp_file.read()
     
     Email_Template_en = {
@@ -420,7 +420,7 @@ if template_name == [] and template_name_de == []:
 ############################################################################
     
     
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/RFQ - Send by Email_de.txt","r")
+    email_temp_file = open("/email_templates/RFQ - Send by Email_de.txt","r")
     body_html = email_temp_file.read()
     
     
@@ -452,7 +452,7 @@ template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [(
 
 if template_name == [] and template_name_de == []:
 
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Purchase Order - Send by Email_en.txt","r")
+    email_temp_file = open("/email_templates/Purchase Order - Send by Email_en.txt","r")
     body_html = email_temp_file.read()
     
     Email_Template_en = {
@@ -485,7 +485,7 @@ if template_name == [] and template_name_de == []:
 #######################################################################################
     
     
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Purchase Order - Send by Email_de.txt","r")
+    email_temp_file = open("/email_templates/Purchase Order - Send by Email_de.txt","r")
     body_html = email_temp_file.read()
     
     
@@ -510,7 +510,7 @@ if template_name == [] and template_name_de == []:
 #############15. Lead/Opportunity Mass Mail en ################################
 ###############################################################################
 
-# email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Lead Opportunity Mass Mail_en.txt","r")
+# email_temp_file = open("/email_templates/Lead Opportunity Mass Mail_en.txt","r")
 # body_html = email_temp_file.read()
 # 
 # massmail_model_id = sock.execute(dbname, uid, pwd, 'ir.model', 'search',[("model","=", "crm.lead.forward.to.partner")])
@@ -534,7 +534,7 @@ if template_name == [] and template_name_de == []:
 ###############################################################################
 
 
-# email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Lead Opportunity Mass Mail_de.txt","r")
+# email_temp_file = open("/email_templates/Lead Opportunity Mass Mail_de.txt","r")
 # body_html = email_temp_file.read()
 # 
 # 
@@ -555,7 +555,7 @@ if template_name == [] and template_name_de == []:
 #############17. Odoo Enterprise Connection_en #############################
 ###########################################################################
 
-# email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Odoo Enterprise Connection_en.txt","r")
+# email_temp_file = open("/email_templates/Odoo Enterprise Connection_en.txt","r")
 # body_html = email_temp_file.read()
 # 
 # 
@@ -578,7 +578,7 @@ if template_name == [] and template_name_de == []:
 ###########################################################################
 
 
-# email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Odoo Enterprise Connection_de.txt","r")
+# email_temp_file = open("/email_templates/Odoo Enterprise Connection_de.txt","r")
 # body_html = email_temp_file.read()
 # 
 # 
@@ -606,7 +606,7 @@ template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [(
 
 if template_name == [] and template_name_de == []:
 
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Reset Password_en.txt","r")
+    email_temp_file = open("/email_templates/Reset Password_en.txt","r")
     body_html = email_temp_file.read()
     
     Email_Template_en = {
@@ -637,7 +637,7 @@ if template_name == [] and template_name_de == []:
 #######################################################################################
     
     
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Reset Password_de.txt","r")
+    email_temp_file = open("/email_templates/Reset Password_de.txt","r")
     body_html = email_temp_file.read()
     
     
@@ -665,7 +665,7 @@ template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [(
 
 if template_name == [] and template_name_de == []:
 
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Bestellung eingegangen_en.txt","r")
+    email_temp_file = open("/email_templates/Bestellung eingegangen_en.txt","r")
     body_html = email_temp_file.read()
     
     Email_Template_en = {
@@ -695,7 +695,7 @@ if template_name == [] and template_name_de == []:
 #######################################################################################
     
     
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Bestellung eingegangen_de.txt","r")
+    email_temp_file = open("/email_templates/Bestellung eingegangen_de.txt","r")
     body_html = email_temp_file.read()
     
     
@@ -722,7 +722,7 @@ template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [(
 
 if template_name == [] and template_name_de == []:
 
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Reminder to User_en.txt","r")
+    email_temp_file = open("/email_templates/Reminder to User_en.txt","r")
     body_html = email_temp_file.read()
     
     Email_Template_en = {
@@ -753,7 +753,7 @@ if template_name == [] and template_name_de == []:
 #########################################################################################
     
     
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Bestellung eingegangen_de.txt","r")
+    email_temp_file = open("/email_templates/Bestellung eingegangen_de.txt","r")
     body_html = email_temp_file.read()
     
     
@@ -781,7 +781,7 @@ template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [(
 
 if template_name == [] and template_name_de == []:
 
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Meeting Invitation_en.txt","r")
+    email_temp_file = open("/email_templates/Meeting Invitation_en.txt","r")
     body_html = email_temp_file.read()
     
     Email_Template_en = {
@@ -813,7 +813,7 @@ if template_name == [] and template_name_de == []:
 #########################################################################################
     
     
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Meeting Invitation_de.txt","r")
+    email_temp_file = open("/email_templates/Meeting Invitation_de.txt","r")
     body_html = email_temp_file.read()
     
     
@@ -842,7 +842,7 @@ template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [(
 
 if template_name == [] and template_name_de == []:
 
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Meeting Invitation - Reminder_en.txt","r")
+    email_temp_file = open("/email_templates/Meeting Invitation - Reminder_en.txt","r")
     body_html = email_temp_file.read()
     
     Email_Template_en = {
@@ -874,7 +874,7 @@ if template_name == [] and template_name_de == []:
 #########################################################################################
     
     
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Meeting Invitation - Reminder_de.txt","r")
+    email_temp_file = open("/email_templates/Meeting Invitation - Reminder_de.txt","r")
     body_html = email_temp_file.read()
     
     
@@ -903,7 +903,7 @@ template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [(
 
 if template_name == []and template_name_de == []:
 
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Meeting Invitation - Change Date_en.txt","r")
+    email_temp_file = open("/email_templates/Meeting Invitation - Change Date_en.txt","r")
     body_html = email_temp_file.read()
     
     Email_Template_en = {
@@ -935,7 +935,7 @@ if template_name == []and template_name_de == []:
 #########################################################################################
     
     
-    email_temp_file = open("/home/odoo/git/odoo-addons/equitania/email_templates/Meeting Invitation - Change Date_de.txt","r")
+    email_temp_file = open("/email_templates/Meeting Invitation - Change Date_de.txt","r")
     body_html = email_temp_file.read()
     
     
