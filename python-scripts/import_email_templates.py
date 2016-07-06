@@ -18,12 +18,12 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import xmlrpclib
+import xmlrpclib, os
 from datetime import datetime, timedelta
 
-username = "username"
-pwd = "Passwort"
-dbname = "dbname"
+username = "admin"
+pwd = "pwd"
+dbname = "db"
 baseurl = "http://localhost:8069"
 
 version_number = 1
@@ -49,6 +49,8 @@ for i in dict:
 #list_id = sock.execute(dbname, uid, pwd, 'email.template', 'search', [])
 sock.execute(dbname, uid, pwd, 'email.template', 'unlink', list_id)
 
+mypath = os.getcwd()
+print mypath
 
 #############1. Sales Order - Send by Email_en #############
 ############################################################
@@ -59,8 +61,7 @@ sale_order_model_id = sock.execute(dbname, uid, pwd, 'ir.model', 'search',[("mod
 sale_order_xml_id = sock.execute(dbname, uid, pwd, 'ir.actions.report.xml', 'search',[("model","=", "sale.order")])
 
 if template_name == [] and template_name_de == []:
-
-    email_temp_file = open("/email_templates/Sales Order - Send by Email_en.txt","r")
+    email_temp_file = open(mypath + "/email_templates/sales_order_send_by_email_en.txt","r")
     body_html = email_temp_file.read()
     
 
@@ -96,7 +97,7 @@ if template_name == [] and template_name_de == []:
 ################################################################
     
     
-    email_temp_file = open("/email_templates/Sales Order - Send by Email_de.txt","r")
+    email_temp_file = open(mypath + "/email_templates/sales_order_send_by_email_de.txt","r")
     body_html = email_temp_file.read()
     
     
@@ -125,7 +126,7 @@ if template_name == [] and template_name_de == []:
 # 
 # if template_name == []:
 # 
-#     email_temp_file = open("/email_templates/Sales Order - Send by Email (Portal)_en.txt","r")
+#     email_temp_file = open(mypath + "/email_templates/sales_order_send_by_email_portal_en.txt","r")
 #     body_html = email_temp_file.read()
 #     
 #     
@@ -158,7 +159,7 @@ if template_name == [] and template_name_de == []:
 ##############4. Sales Order - Send by Email (Portal)_de #############
 ######################################################################
 #     
-#     email_temp_file = open("/email_templates/Sales Order - Send by Email (Portal)_de.txt","r")
+#     email_temp_file = open(mypath + "/email_templates/sales_order_send_by_email_portal_de.txt","r")
 #     
 #     body_html = email_temp_file.read()
 #     
@@ -189,7 +190,7 @@ if template_name == [] and template_name_de == []:
 # if template_name == []:
 # 
 # 
-#     email_temp_file = open("/email_templates/Sales Order - Send by Email (Online Quote)_en.txt","r")
+#     email_temp_file = open(mypath + "/email_templates/sales_order_send_by_email_online_quote_en.txt","r")
 #     body_html = email_temp_file.read()
 #     
 #     
@@ -223,7 +224,7 @@ if template_name == [] and template_name_de == []:
 ############################################################################
 #     
 #     
-#     email_temp_file = open("/email_templates/Sales Order - Send by Email (Online Quote)_de.txt","r")
+#     email_temp_file = open(mypath + "/email_templates/sales_order_send_by_email_online_quote_de.txt","r")
 #     body_html = email_temp_file.read()
 #     
 #     
@@ -257,7 +258,7 @@ template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [(
 
 if template_name == [] and template_name_de == []:
 
-    email_temp_file = open("/email_templates/Invoice - Send by Email_en.txt","r")
+    email_temp_file = open(mypath + "/email_templates/invoice_send_by_email_en.txt","r")
     body_html = email_temp_file.read()
     
     Email_Template_en = {
@@ -290,7 +291,7 @@ if template_name == [] and template_name_de == []:
 ############################################################################
     
     
-    email_temp_file = open("/email_templates/Invoice - Send by Email_de.txt","r")
+    email_temp_file = open(mypath + "/email_templates/invoice_send_by_email_de.txt","r")
     body_html = email_temp_file.read()
     
     
@@ -319,7 +320,7 @@ if template_name == [] and template_name_de == []:
 # 
 # if template_name == []:
 # 
-#     email_temp_file = open("/email_templates/Invoice - Send by Email (Portal)_en.txt","r")
+#     email_temp_file = open(mypath + "/email_templates/invoice_send_by_email_portal_en.txt","r")
 #     body_html = email_temp_file.read()
 #     
 #     
@@ -353,7 +354,7 @@ if template_name == [] and template_name_de == []:
 #####################################################################################
 #     
 #     
-#     email_temp_file = open("/email_templates/Invoice - Send by Email_de.txt","r")
+#     email_temp_file = open(mypath + "/email_templates/invoice_send_by_email_de.txt","r")
 #     body_html = email_temp_file.read()
 #     
 #     
@@ -387,7 +388,7 @@ template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [(
 
 if template_name == [] and template_name_de == []:
 
-    email_temp_file = open("/email_templates/RFQ - Send by Email_en.txt","r")
+    email_temp_file = open(mypath + "/email_templates/rfq_send_by_email_en.txt","r")
     body_html = email_temp_file.read()
     
     Email_Template_en = {
@@ -420,7 +421,7 @@ if template_name == [] and template_name_de == []:
 ############################################################################
     
     
-    email_temp_file = open("/email_templates/RFQ - Send by Email_de.txt","r")
+    email_temp_file = open(mypath + "/email_templates/rfq_send_by_email_de.txt","r")
     body_html = email_temp_file.read()
     
     
@@ -452,7 +453,7 @@ template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [(
 
 if template_name == [] and template_name_de == []:
 
-    email_temp_file = open("/email_templates/Purchase Order - Send by Email_en.txt","r")
+    email_temp_file = open(mypath + "/email_templates/purchase_order_send_by_email_en.txt","r")
     body_html = email_temp_file.read()
     
     Email_Template_en = {
@@ -485,7 +486,7 @@ if template_name == [] and template_name_de == []:
 #######################################################################################
     
     
-    email_temp_file = open("/email_templates/Purchase Order - Send by Email_de.txt","r")
+    email_temp_file = open(mypath + "/email_templates/purchase_order_send_by_email_de.txt","r")
     body_html = email_temp_file.read()
     
     
@@ -510,7 +511,7 @@ if template_name == [] and template_name_de == []:
 #############15. Lead/Opportunity Mass Mail en ################################
 ###############################################################################
 
-# email_temp_file = open("/email_templates/Lead Opportunity Mass Mail_en.txt","r")
+# email_temp_file = open(mypath + "/email_templates/lead_opportunity_mass_mail_en.txt","r")
 # body_html = email_temp_file.read()
 # 
 # massmail_model_id = sock.execute(dbname, uid, pwd, 'ir.model', 'search',[("model","=", "crm.lead.forward.to.partner")])
@@ -534,7 +535,7 @@ if template_name == [] and template_name_de == []:
 ###############################################################################
 
 
-# email_temp_file = open("/email_templates/Lead Opportunity Mass Mail_de.txt","r")
+# email_temp_file = open(mypath + "/email_templates/lead_opportunity_mass_mail_de.txt","r")
 # body_html = email_temp_file.read()
 # 
 # 
@@ -555,7 +556,7 @@ if template_name == [] and template_name_de == []:
 #############17. Odoo Enterprise Connection_en #############################
 ###########################################################################
 
-# email_temp_file = open("/email_templates/Odoo Enterprise Connection_en.txt","r")
+# email_temp_file = open(mypath + "/email_templates/odoo_enterprise_connection_en.txt","r")
 # body_html = email_temp_file.read()
 # 
 # 
@@ -578,7 +579,7 @@ if template_name == [] and template_name_de == []:
 ###########################################################################
 
 
-# email_temp_file = open("/email_templates/Odoo Enterprise Connection_de.txt","r")
+# email_temp_file = open(mypath + "/email_templates/odoo_enterprise_connection_de.txt","r")
 # body_html = email_temp_file.read()
 # 
 # 
@@ -606,7 +607,7 @@ template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [(
 
 if template_name == [] and template_name_de == []:
 
-    email_temp_file = open("/email_templates/Reset Password_en.txt","r")
+    email_temp_file = open(mypath + "/email_templates/reset_password_en.txt","r")
     body_html = email_temp_file.read()
     
     Email_Template_en = {
@@ -637,7 +638,7 @@ if template_name == [] and template_name_de == []:
 #######################################################################################
     
     
-    email_temp_file = open("/email_templates/Reset Password_de.txt","r")
+    email_temp_file = open(mypath + "/email_templates/reset_password_de.txt","r")
     body_html = email_temp_file.read()
     
     
@@ -665,7 +666,7 @@ template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [(
 
 if template_name == [] and template_name_de == []:
 
-    email_temp_file = open("/email_templates/Bestellung eingegangen_en.txt","r")
+    email_temp_file = open(mypath + "/email_templates/bestellung_eingegangen_en.txt","r")
     body_html = email_temp_file.read()
     
     Email_Template_en = {
@@ -695,7 +696,7 @@ if template_name == [] and template_name_de == []:
 #######################################################################################
     
     
-    email_temp_file = open("/email_templates/Bestellung eingegangen_de.txt","r")
+    email_temp_file = open(mypath + "/email_templates/bestellung_eingegangen_de.txt","r")
     body_html = email_temp_file.read()
     
     
@@ -722,7 +723,7 @@ template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [(
 
 if template_name == [] and template_name_de == []:
 
-    email_temp_file = open("/email_templates/Reminder to User_en.txt","r")
+    email_temp_file = open(mypath + "/email_templates/reminder_to_user_en.txt","r")
     body_html = email_temp_file.read()
     
     Email_Template_en = {
@@ -753,7 +754,7 @@ if template_name == [] and template_name_de == []:
 #########################################################################################
     
     
-    email_temp_file = open("/email_templates/Bestellung eingegangen_de.txt","r")
+    email_temp_file = open(mypath + "/email_templates/reminder_to_user_de.txt","r")
     body_html = email_temp_file.read()
     
     
@@ -781,7 +782,7 @@ template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [(
 
 if template_name == [] and template_name_de == []:
 
-    email_temp_file = open("/email_templates/Meeting Invitation_en.txt","r")
+    email_temp_file = open(mypath + "/email_templates/meeting_invitation_en.txt","r")
     body_html = email_temp_file.read()
     
     Email_Template_en = {
@@ -813,7 +814,7 @@ if template_name == [] and template_name_de == []:
 #########################################################################################
     
     
-    email_temp_file = open("/email_templates/Meeting Invitation_de.txt","r")
+    email_temp_file = open(mypath + "/email_templates/meeting_invitation_de.txt","r")
     body_html = email_temp_file.read()
     
     
@@ -842,7 +843,7 @@ template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [(
 
 if template_name == [] and template_name_de == []:
 
-    email_temp_file = open("/email_templates/Meeting Invitation - Reminder_en.txt","r")
+    email_temp_file = open(mypath + "/email_templates/meeting_invitation_reminder_en.txt","r")
     body_html = email_temp_file.read()
     
     Email_Template_en = {
@@ -874,7 +875,7 @@ if template_name == [] and template_name_de == []:
 #########################################################################################
     
     
-    email_temp_file = open("/email_templates/Meeting Invitation - Reminder_de.txt","r")
+    email_temp_file = open(mypath + "/email_templates/meeting_invitation_reminder_de.txt","r")
     body_html = email_temp_file.read()
     
     
@@ -903,7 +904,7 @@ template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [(
 
 if template_name == []and template_name_de == []:
 
-    email_temp_file = open("/email_templates/Meeting Invitation - Change Date_en.txt","r")
+    email_temp_file = open(mypath + "/email_templates/meeting_invitation_change_date_en.txt","r")
     body_html = email_temp_file.read()
     
     Email_Template_en = {
@@ -935,7 +936,7 @@ if template_name == []and template_name_de == []:
 #########################################################################################
     
     
-    email_temp_file = open("/email_templates/Meeting Invitation - Change Date_de.txt","r")
+    email_temp_file = open(mypath + "/email_templates/meeting_invitation_change_date_de.txt","r")
     body_html = email_temp_file.read()
     
     
@@ -955,4 +956,4 @@ if template_name == []and template_name_de == []:
     template_id = sock.execute(dbname, uid, pwd, 'email.template', 'write', template_id, Email_Template_de,{'lang':'de_DE'})            
     print "Email-Template erstellt: Meeting Invitation Change Date_de" 
 
-print "Email-Template Import wird beendet..."
+print "Email-Template Import ist beendet!"
