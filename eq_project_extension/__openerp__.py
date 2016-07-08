@@ -21,13 +21,13 @@
 
 {
     'name': 'Project Extension',
-    'version': '1.0.10',
+    'version': '1.0.11',
     'description': """
         Improves and extends several views related to projects
     """,
     'author': 'Equitania Software GmbH',
     'website': 'www.myodoo.de',
-    'depends': ['project','myodoo'],
+    'depends': ['project','eq_myodoo'],
     'category' : 'General Improvements',
     'summary': 'Extend the project management views and functions',
     'data': [
