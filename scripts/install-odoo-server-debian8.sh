@@ -1,7 +1,7 @@
 #!/bin/bash
 # Mit diesem Skript installiert Odoo unter /opt/odoo und bindet es in den Autostart ein
 # Skript muss mit root-Rechten ausgeführt werden
-# Version 1.2.2 - Stand 13.06.2016
+# Version 1.2.3 - Stand 10.07.2016
 ##############################################################################
 #
 #    Shell Script for Odoo, Open Source Management Solution
@@ -61,7 +61,7 @@ read mypsqlpwd
 
 if [ "$mypsqlpwd" != "" ]; then
   echo "PostgreSQL Passwort postgres wird gesetzt ..."
-  su - postgres -c "psql -U postgres -d postgres -c "ALTER USER postgres WITH PASSWORD '$mypsqlpwd'\;"
+  su - postgres -c "psql -U postgres -d postgres -c \"ALTER USER postgres WITH PASSWORD '$mypsqlpwd';\""
 fi
 
 cd $mybasepath
