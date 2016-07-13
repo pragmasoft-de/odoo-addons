@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+  	<!-- Support for our localization  -->
+		<function model="eq_install_func" name="_load_translation" eval="[('eq_account_followup')]"/>
+</data>
+</openerp>

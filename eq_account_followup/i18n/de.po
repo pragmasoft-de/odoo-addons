@@ -1,0 +1,56 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* eq_account_followup
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-19 14:29+0000\n"
+"PO-Revision-Date: 2015-03-19 14:29+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: eq_account_followup
+#: view:website:account_followup.report_followup
+msgid "Your unpaid invoices"
+msgstr "Ihre offenen Posten"
+
+#. module: eq_account_followup
+#: view:website:account_followup.report_followup
+msgid "Financial accounting"
+msgstr "Finanzbuchhaltung"
+
+#. module: eq_account_followup
+#: view:website:account_followup.report_followup
+msgid "For further information, please contact"
+msgstr "Bei Fragen wenden Sie sich bitte an:"
+
+#. module: eq_account_followup
+#: view:website:account_followup.report_followup
+msgid "Contact person"
+msgstr "Ansprechpartner"
+
+#. module: eq_account_followup
+#: view:website:account_followup.report_followup
+msgid "Phone"
+msgstr "Telefon"
+
+#. module: eq_account_followup
+#: view:website:account_followup.report_followup
+msgid "Fax"
+msgstr "Telefax"
+
+#. module: account_followup
+#: view:website:account_followup.report_followup
+msgid "Reference"
+msgstr "Referenznummer"
+
+#. module: account_followup
+#: view:website:account_followup.report_followup
+msgid "Maturity Date"
+msgstr "Fälligkeit"

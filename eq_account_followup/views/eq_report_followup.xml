@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+
+	<template id="eq_report_followup" inherit_id="account_followup.report_followup" customize_show="True" active="True">
+		<xpath expr="//div[@class='page']" position="replace">
+			<div class="page">
+				<div class="row" style="background-color:blue; display:none;">
+					<div class="col-xs-5 col-xs-offset-7">
+
+						<div t-field="o.invoice_partner_id" t-field-options='{"widget": "contact", "fields": ["address", "name", "phone", "fax"], "no_marker": true}' />
+						<span t-field="o.partner_id.vat" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-7 addressmargin">
+						<div class="row col-xs-12 returnaddress">
+							<h t-field="o.company_id.name" />
+							-
+							<span t-field="o.company_id.street" />
+							<span t-if="o.company_id.eq_house_no">
+								<span t-field="o.company_id.eq_house_no" />
+							</span>
+							-
+							<h t-field="o.company_id.zip" />
+							<h t-field="o.company_id.city" />
+						</div>
+						<div t-if="o.partner_id.is_company">
+							<div t-field="o.partner_id.name" style="clear:left;" />
+							<div t-if="o.partner_id.eq_name2" t-field="o.partner_id.eq_name2"
+								style="clear:left;" />
+							<div>
+								<span t-field="o.partner_id.street" />
+								<span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no" />
+							</div>
+							<div t-if="o.partner_id.street2">
+								<div t-field="o.partner_id.street2" />
+							</div>
+							<h>
+								<h t-field="o.partner_id.zip" />
+								<h t-field="o.partner_id.city" />
+								<h t-if="o.partner_id.eq_citypart">
+									-
+									<h t-field="o.partner_id.eq_citypart" />
+								</h>
+							</h>
+							<div t-field="o.partner_id.country_id.name" />
+						</div>
+						<div t-if="not o.partner_id.is_company">
+							<div t-field="o.partner_id.parent_id.name" style="clear:left;" />
+							<div t-if="o.partner_id.parent_id.eq_name2" t-field="o.partner_id.parent_id.eq_name2"
+								style="clear:left;" />
+							<span t-field="o.partner_id.title.name" />
+							<span t-field="o.partner_id.eq_firstname" style="clear:left;" />
+							<span t-field="o.partner_id.name" style="clear:left;" />
+							<div>
+								<span t-field="o.partner_id.street" />
+								<span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no" />
+							</div>
+							<div t-if="o.partner_id.street2">
+								<div t-field="o.partner_id.street2" />
+							</div>
+							<h>
+								<h t-field="o.partner_id.zip" />
+								<h t-field="o.partner_id.city" />
+								<h t-if="o.partner_id.eq_citypart">
+									-
+									<h t-field="o.partner_id.eq_citypart" />
+								</h>
+							</h>
+							<div t-field="o.partner_id.country_id.name" />
+						</div>
+					</div>
+					<div class="col-xs-5">
+						<table style="width:100%;">
+							<tbody>
+								<tr>
+									<td>
+										<span>Customer ref:</span>
+									</td>
+									<td class="text-right">
+										<span t-field="o.partner_id.ref" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span>Date:</span>
+									</td>
+									<td class="text-right">
+										<span t-esc="formatLang(data['form']['date'], date=True)" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<h class="contactpersonheader" t-if="user.eq_employee_id">
+							<strong>For further information, please contact</strong><!--t-if="o.user_id"-->
+						</h>
+						<table style="width:100%;" t-if="user.eq_employee_id">
+							<tbody>
+								<tr t-if="user.eq_employee_id.name">
+									<td>
+										<span>Contact person</span>
+									</td>
+									<td class="text-right">
+										<span t-field="user.eq_employee_id.name" />
+									</td>
+								</tr>
+								<tr t-if="user.eq_employee_id.work_phone">
+									<td>
+										<span>Phone</span>
+									</td>
+									<td class="text-right">
+										<span t-field="user.eq_employee_id.work_phone" />
+									</td>
+								</tr>
+								<tr  t-if="user.eq_employee_id.eq_work_fax">
+									<td>
+										<span>Fax</span>
+									</td>
+									<td class="text-right">
+										<span t-field="user.eq_employee_id.eq_work_fax" />
+									</td>
+								</tr>
+								<tr t-if="user.eq_employee_id.work_email">
+									<td colspan="2">
+										<span>E-Mail</span>
+										<div style="float:right;">
+											<span t-field="user.eq_employee_id.work_email" />
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- <h2 class="reporttitle">
+					<span t-if="o.type == 'out_invoice' and (o.state == 'open' or o.state == 'paid')">Invoice</span>
+					<span t-if="o.type == 'out_invoice' and o.state == 'proforma2'">Pro-forma invoice</span>
+					<span t-if="o.type == 'out_invoice' and o.state == 'draft'">Draft invoice</span>
+					<span t-if="o.type == 'out_invoice' and o.state == 'cancel'">Cancelled invoice</span>
+					<span t-if="o.type == 'out_refund' and o.eq_gutschrift == False">Refund</span>
+					<span t-if="o.type == 'out_refund' and o.eq_gutschrift != False">Gutschrift</span>
+					<span t-if="o.type == 'in_refund'">Supplier Refund</span>
+					<span t-if="o.type == 'in_invoice'">Supplier Invoice</span>
+					<span t-field="o.number" />
+				</h2>-->
+				<!-- <p style="background-color:lightblue;">
+					Document: Customer account statement
+					<span t-field="o.manual_action_note" />
+				</p>-->
+				<h2 class="reporttitle">Your unpaid invoices</h2>
+
+				<p t-raw="get_text(o,data['form']['followup_id']).replace('\n', '&lt;br&gt;')" />
+				<!-- <span>Financial accounting</span><br/>-->
+				<h t-field="o.company_id.name" />
+
+				<t t-foreach="getLines(o)" t-as="cur_lines">
+					<table class="table table-condensed" style="margin-top: 30px;">
+						<thead>
+							<tr>
+								<th>Invoice Date</th>
+								<th>Reference</th>
+								<th>Description</th>
+								<th class="text-center">Maturity Date</th>
+								<th class="text-right">Amount</th>
+								<!-- <th class="text-center">Li.</th>-->
+							</tr>
+						</thead>
+						<tbody>
+							<tr t-foreach="cur_lines['line']" t-as="line">
+								<td>
+									<span t-esc="formatLang(line['date'],date = True)" />
+								</td>
+								<td>
+									<span t-esc="line['name']" />
+								</td>
+								<td>
+									<span t-esc="line['ref']" />
+								</td>
+								<td class="text-center">
+									<span
+										t-esc="line['date_maturity'] and formatLang(line['date_maturity'], date=True)" />
+								</td>
+								<td class="text-right">
+									<span
+										t-esc="formatLang(line['balance'], currency_obj=line['currency_id'])" />
+								</td>
+								<!-- <td>
+									<span t-esc="line['blocked'] and 'X' or ''" />
+								</td>-->
+							</tr>
+						</tbody>
+					</table>
+
+					<t t-set="total" t-value="reduce(lambda x,y: x+y['balance'], cur_lines['line'], 0.00)" />
+					
+					<table class="table table-condensed" rules="none"
+							style="border: 1px solid #999999;">
+							<tbody>
+								<tr>
+									<td class="text-right">
+										<span>Total:</span> 
+										<span t-esc="formatLang(total, currency_obj=cur_lines['currency'])" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					
+				</t>
+			</div>
+		</xpath>
+	</template>
+</data>
+</openerp>
