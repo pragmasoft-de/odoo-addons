@@ -165,7 +165,7 @@ msgstr "Der ausgehende E-Mail Server der vom System und Benutzern ohne einen eig
 #: code:addons/eq_mail_extension/eq_mail_extension.py:374
 #, python-format
 msgid "The two new passwords do not match."
-msgstr "Die alten Passwörter stimmen nicht überein."
+msgstr "Die neuen Passwörter stimmen nicht überein."
 
 #. module: eq_mail_extension
 #: code:addons/eq_mail_extension/eq_mail_extension.py:366

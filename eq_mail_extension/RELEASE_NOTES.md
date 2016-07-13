@@ -1,5 +1,10 @@
 ## Modul eq_mail_extension
 
+#### 13.07.2016
+#### Version 1.0.4
+##### FIX
+- Übersetzungsfehler beseitigt: "The two new passwords do not match." ----> "Die neuen (vorher: alten) Passwörter stimmen nicht überein."
+
 #### 22.06.2016
 #### Version 1.0.2
 ##### CHG
