@@ -1,19 +1,21 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* eq_google_shopping_feed
+# 	* eq_google_shopping_feed
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.1 Build 160601\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-15 13:19+0000\n"
-"PO-Revision-Date: 2016-06-15 13:19+0000\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2016-07-13 11:35+0200\n"
+"Last-Translator: Martin Schmid <m.schmid@equitania.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: de\n"
+"X-Generator: Poedit 1.8.8\n"
 
 #. module: eq_google_shopping_feed
 #: view:product.template:eq_google_shopping_feed.eq_google_product_template_only_form_view
@@ -164,7 +166,7 @@ msgstr "Kategorie 7"
 #. module: eq_google_shopping_feed
 #: field:product.template,taxonomy_id:0
 msgid "Taxonomy Search"
-msgstr "Taxonmie Suche"
+msgstr "Taxonomie Suche"
 
 #. module: eq_google_shopping_feed
 #: view:product.attribute:eq_google_shopping_feed.attribute_form_view
