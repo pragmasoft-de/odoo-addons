@@ -2786,3 +2786,8 @@ msgstr "KD-USt-IdNr."
 #: field:eq.address.search,categories:0
 msgid "Categories"
 msgstr "Schlagwörter"
+
+#. module: equitania
+#: field:sale.config.settings,eq_use_text_from_order:0
+msgid "Use text from order [equitania]"
+msgstr "Benutze Kopf- und Fusstext aus Auftrag [equitania]"

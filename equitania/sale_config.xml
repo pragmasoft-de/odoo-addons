@@ -14,10 +14,15 @@
                     	<label for="id" string="Texts"/>
 	                	<div>
 	                		<div>
+	                			<field name="eq_use_text_from_order"/>
+	                			<label for="eq_use_text_from_order"/>		                        		                       
+	                        </div>
+	                        <t t-esc="eq_use_text_from_order"></t>
+	                		<div attrs="{'invisible':[('eq_use_text_from_order','=',True)]}">
 	                			<label for="eq_head_text_invoice"/>
 		                        <field name="eq_head_text_invoice"/>		                        
 	                        </div>
-	                        <div>
+	                        <div attrs="{'invisible':[('eq_use_text_from_order','=',True)]}">
 	                        	<label for="eq_foot_text_invoice"/>
 		                        <field name="eq_foot_text_invoice"/>		                                        	
 	                		</div>

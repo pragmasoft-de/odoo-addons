@@ -16,6 +16,14 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+
+
+
+#### 01.07.2016
+### Version 1.1.78
+#### IMP
+- Erweiterung der Logik für eq_head_text auf der Rechnung. Ab jetzt kann man mit dem "eq_use_text_from_order" steuern ob man den Default- oder Equitaniatext verwenden will
+
 #### 01.07.2016
 ### Version 1.1.76
 #### FIX

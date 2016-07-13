@@ -150,17 +150,18 @@ class eq_sale_order(models.Model):
             @lines: lines of current sale order
             @context: context
             @return: dictionary with all values of actual sale order that will be saved during standard create of an invoice
-        """
+        """        
+        result = super(eq_sale_order, self)._prepare_invoice(cr, uid, order, lines, context=context)                    
+        eq_use_text_from_order = self.get_setting(cr, uid, "eq.use.text.from.order")          # sollen wir unser Text (eq_head_text) oder standard (head_text) verwenden ?        
+        if str(eq_use_text_from_order) == "False":                                          # ok, wir sollen den eq_text verwenden
+            head = self.get_setting(cr, uid, "eq.head.text.invoice")
+            if head is not None:
+                result['eq_head_text'] = head
+            
+            foot = self.get_setting(cr, uid, "eq.foot.text.invoice")
+            if foot is not None:
+                result['comment'] = foot                
         
-        result = super(eq_sale_order, self)._prepare_invoice(cr, uid, order, lines, context=context)        
-        head = self.get_setting(cr, uid, "eq.head.text.invoice")
-        if head is not None:
-            result['eq_head_text'] = head
-        
-        foot = self.get_setting(cr, uid, "eq.foot.text.invoice")
-        if foot is not None:
-            result['comment'] = foot
-
         return result
                         
     @api.cr_uid_ids_context

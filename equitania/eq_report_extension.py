@@ -500,17 +500,32 @@ class eq_report_extension_stock_picking(osv.osv):
             return None            
         return result
     
-    
-    #Adds the customer ref number to the picking list. Gets data from context which is set in the method action_ship_create of the sale.order
+        
     def create(self, cr, user, vals, context={}):
+        """
+            Adds the customer ref number to the picking list. Gets data from context which is set in the method action_ship_create of the sale.order
+            @cr: cursor
+            @user: actual user
+            @vals: values to be saved - we'll append eq_ref_number here
+            @context: context
+            @return: result of super method
+        """
+                
         if context:
             if context.get('eq_ref_number', False):
                 vals['eq_ref_number'] = context['eq_ref_number'].get(vals['origin'], False)
         return super(eq_report_extension_stock_picking, self).create(cr, user, vals, context)
-    
-    #Adds the customer ref number to the invoice (Create from picking list)
-    def _create_invoice_from_picking(self, cr, uid, picking, vals, context=None):    
-        #vals['eq_ref_number'] = picking.eq_ref_number
+        
+    def _create_invoice_from_picking(self, cr, uid, picking, vals, context=None):
+        """
+            Adds the customer ref number to the invoice (Create from picking list)
+            @cr: cursor
+            @uid: actual user
+            @picking: data from picking
+            @vals: values to be saved - we'll append/change eq_head_text nd comment here
+            @return: result from call of _create_invoice_from_picking
+        """    
+        
         vals['eq_delivery_address'] = picking.partner_id.id
         
         head_text = ''
@@ -523,24 +538,21 @@ class eq_report_extension_stock_picking(osv.osv):
                 head_text = picking.move_lines[0].purchase_line_id[0].order_id.eq_head_text
                 comment = picking.move_lines[0].purchase_line_id[0].order_id.notes
         
-        # Original version implemented by Artur
-        """
+        # Original - Texte, die aus dem Auftrag kommmen
         vals['eq_head_text'] = head_text
         vals['comment'] = comment
-        """
         
         # New version implemented by Sody
-        head = self.get_setting(cr, uid, "eq.head.text.invoice")
-        if head is not None:
-            vals['eq_head_text'] = head
-        
-        foot = self.get_setting(cr, uid, "eq.foot.text.invoice")
-        if foot is not None:
-            vals['comment'] = foot
-                
-        #picking.move_lines[0].purchase_line_id[0].order_id.eq_head_text
-        #picking.move_lines[0].procurement_id.sale_line_id.order_id
-        
+        eq_use_text_from_order = self.get_setting(cr, uid, "eq.use.text.from.order")            # sollen wir unser Text (eq_head_text) oder standard (head_text) verwenden ?        
+        if str(eq_use_text_from_order) == "False":                                              # ok, wir sollen den eq_text verwenden                                
+            head = self.get_setting(cr, uid, "eq.head.text.invoice")
+            if head is not None:
+                vals['eq_head_text'] = head
+            
+            foot = self.get_setting(cr, uid, "eq.foot.text.invoice")
+            if foot is not None:
+                vals['comment'] = foot
+             
         
         return super(eq_report_extension_stock_picking, self)._create_invoice_from_picking(cr, uid, picking, vals, context)
     
