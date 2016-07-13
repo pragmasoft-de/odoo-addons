@@ -1,5 +1,15 @@
 ## Modul eq_google_shopping
 
+#### 13.07.2016
+#### Version 1.0.13
+##### FIX
+-Modulbeschreibung Ü in Ö geändert
+
+#### 13.07.2016
+#### Version 1.0.12
+##### CHG
+-Modulbeschreibung Google Shopping Feed um den Kurzlink zum Wiki ergänzt
+
 #### 27.06.2016
 #### Version 1.0.11
 ##### FIX
