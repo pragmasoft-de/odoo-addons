@@ -96,6 +96,8 @@ cp  $mysourcepath/openerp-gevent $myserverpath
 
 echo "Copy equitania addons"
 cp -r $myaddpath/base_report_to_printer $myserverpath/addons
+cp -r $myaddpath/eq_account_followup $myserverpath/addons
+cp -r $myaddpath/eq_actions $myserverpath/addons
 cp -r $myaddpath/eq_google_shopping_feed $myserverpath/addons
 cp -r $myaddpath/eq_info_for_product_product $myserverpath/addons
 cp -r $myaddpath/eq_mail_extension $myserverpath/addons
@@ -109,7 +111,6 @@ cp -r $myaddpath/equitania_limit_address_sale $myserverpath/addons
 cp -r $myaddpath/web_clean_navbar $myserverpath/addons
 
 echo "Copy third party addons"
-cp -r $my3rdpath/auto_backup $myserverpath/addons
 cp -r $my3rdpath/dlt_germany_cities $myserverpath/addons
 cp -r $my3rdpath/mail_check_immediately $myserverpath/addons
 cp -r $my3rdpath/mail_delete_access_link $myserverpath/addons
@@ -119,9 +120,11 @@ cp -r $my3rdpath/mail_fix_553 $myserverpath/addons
 cp -r $my3rdpath/mail_fix_empty_body $myserverpath/addons
 cp -r $my3rdpath/mail_html_widget_template $myserverpath/addons
 cp -r $my3rdpath/mail_outgoing $myserverpath/addons
+cp -r $my3rdpath/project_priority_report $myserverpath/addons
 cp -r $my3rdpath/res_users_clear_access_rights $myserverpath/addons
 cp -r $my3rdpath/smsclient $myserverpath/addons
 cp -r $my3rdpath/sync_mail_forward $myserverpath/addons
+cp -r $my3rdpath/timesheet_activity_report $myserverpath/addons
 cp -r $my3rdpath/web_easy_switch_company $myserverpath/addons
 cp -r $my3rdpath/web_polymorphic_field $myserverpath/addons
 
@@ -130,10 +133,12 @@ cp -r $myocapath/attachment_preview $myserverpath/addons
 cp -r $myocapath/auditlog $myserverpath/addons
 cp -r $myocapath/crm_action $myserverpath/addons
 cp -r $myocapath/crm_lead_code $myserverpath/addons
+cp -r $myocapath/cron_run_manually $myserverpath/addons
 cp -r $myocapath/currency_rate_update $myserverpath/addons
 cp -r $myocapath/database_cleanup $myserverpath/addons
 cp -r $myocapath/disable_openerp_online $myserverpath/addons
-cp -r $myocapath/email_template_template $myserverpath/addons
+cp -r $myocapath/document_choose_directory $myserverpath/addons
+cp -r $myocapath/fetchmail_attach_from_folder $myserverpath/addons
 cp -r $myocapath/lettermgmt $myserverpath/addons
 cp -r $myocapath/mass_editing $myserverpath/addons
 cp -r $myocapath/product_attribute_multi_type $myserverpath/addons
@@ -149,8 +154,10 @@ cp -r $myocapath/project_task_materials $myserverpath/addons
 cp -r $myocapath/project_task_materials_stock $myserverpath/addons
 cp -r $myocapath/report_custom_filename $myserverpath/addons
 cp -r $myocapath/sale_order_project $myserverpath/addons
+cp -r $myocapath/web_ckeditor4 $myserverpath/addons
 cp -r $myocapath/web_context_tunnel $myserverpath/addons
 cp -r $myocapath/web_dialog_size $myserverpath/addons
+cp -r $myocapath/web_environment_ribbon $myserverpath/addons
 cp -r $myocapath/web_export_view $myserverpath/addons
 cp -r $myocapath/web_hide_db_manager_link $myserverpath/addons
 cp -r $myocapath/web_last_viewed_records $myserverpath/addons
@@ -158,6 +165,7 @@ cp -r $myocapath/web_searchbar_full_width $myserverpath/addons
 cp -r $myocapath/web_sheet_full_width $myserverpath/addons
 cp -r $myocapath/web_shortcuts $myserverpath/addons
 cp -r $myocapath/web_translate_dialog $myserverpath/addons
+cp -r $myocapath/website_menu_by_user_status $myserverpath/addons
 
 echo "Insert the password for the databasemanager | Geben Sie das Passwort für den Databasemanager ein (Leerlassen für kein Passwort): "
 read myadminpwd
