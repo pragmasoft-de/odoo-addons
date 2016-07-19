@@ -87,7 +87,7 @@
         height: 4.8cm;
     }
 	.returnaddress {
-			font-size:5.5pt;
+			font-size:7pt;
 			/*border-bottom:0.8pt solid #999;*/
             text-decoration: underline;
             margin-bottom:0.2cm;

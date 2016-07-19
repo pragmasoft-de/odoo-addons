@@ -17,7 +17,10 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
-
+#### 19.07.2016
+### Version 1.1.79
+#### IMP
+- der Klasse .returnaddress grundsätzlich Schriftgröße 7pt (von 5.5)gegeben. War sehr schwer zu lesen.(Adressfeld für eigene Adresse im Sichtfenster im Briefumschlag)
 
 #### 01.07.2016
 ### Version 1.1.78
