@@ -145,7 +145,6 @@ cp -r $myaddpath/equitania_limit_address_sale $myserverpath/addons
 cp -r $myaddpath/web_clean_navbar $myserverpath/addons
 
 echo "Copy third party addons"
-cp -r $my3rdpath/auto_backup $myserverpath/addons
 cp -r $my3rdpath/dlt_germany_cities $myserverpath/addons
 cp -r $my3rdpath/mail_check_immediately $myserverpath/addons
 cp -r $my3rdpath/mail_delete_access_link $myserverpath/addons
