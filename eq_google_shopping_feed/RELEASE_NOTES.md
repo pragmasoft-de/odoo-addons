@@ -1,6 +1,11 @@
 ## Modul eq_google_shopping
 
 #### 25.07.2016
+#### Version 1.0.15
+##### ADD
+-print Statement entfernt.
+
+#### 25.07.2016
 #### Version 1.0.14
 ##### FIX
 -Abfrage hinzugefuegt, welche verhindert, dass ein Image-Link gleich NoneType gesetzt werden kann. Dadurch trat ein Fehler auf, welcher es verhindert hat, dass der Shopping Feed ausgegeben werden konnte.
