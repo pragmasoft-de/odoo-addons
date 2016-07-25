@@ -1,0 +1,107 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* eq_product_view_template
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.1 Build 160703\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-25 09:43+0000\n"
+"PO-Revision-Date: 2016-07-25 09:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: eq_product_view_template
+#: view:product.product:eq_product_view_template.eq_product_product_exemplary_form_view
+#: field:product.product,eq_product_product_char:0
+#: field:product.product,eq_product_template_char:0
+#: view:product.template:eq_product_view_template.eq_product_template_exemplary_form_view
+#: field:product.template,eq_product_template_char:0
+msgid "Char-Field"
+msgstr "Char-Feld"
+
+#. module: eq_product_view_template
+#: field:product.product,eq_product_product_date:0
+#: field:product.product,eq_product_template_date:0
+#: field:product.template,eq_product_template_date:0
+msgid "Date-Field"
+msgstr "Date-Feld"
+
+#. module: eq_product_view_template
+#: field:product.product,eq_product_template_selection:0
+#: field:product.template,eq_product_template_selection:0
+msgid "Eq product template selection"
+msgstr "Auswahl-Feld"
+
+#. module: eq_product_view_template
+#: field:product.product,eq_product_product_float:0
+#: field:product.product,eq_product_template_float:0
+#: field:product.template,eq_product_template_float:0
+msgid "Float-Field"
+msgstr "Float-Feld"
+
+#. module: eq_product_view_template
+#: view:product.product:eq_product_view_template.eq_product_product_exemplary_form_view
+#: view:product.template:eq_product_view_template.eq_product_template_exemplary_form_view
+msgid "Header One"
+msgstr "Überschrift 1"
+
+#. module: eq_product_view_template
+#: field:product.product,eq_product_product_integer:0
+#: field:product.product,eq_product_template_integer:0
+#: field:product.template,eq_product_template_integer:0
+msgid "Integer-Field"
+msgstr "Integer-Feld"
+
+#. module: eq_product_view_template
+#: selection:product.template,eq_product_template_selection:0
+msgid "One"
+msgstr "Eins"
+
+#. module: eq_product_view_template
+#: model:ir.model,name:eq_product_view_template.model_product_product
+msgid "Product"
+msgstr "Produkt"
+
+#. module: eq_product_view_template
+#: view:product.product:eq_product_view_template.eq_product_product_exemplary_form_view
+msgid "Product Product Tab"
+msgstr "Product Product Reiter"
+
+#. module: eq_product_view_template
+#: model:ir.model,name:eq_product_view_template.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: eq_product_view_template
+#: view:product.template:eq_product_view_template.eq_product_template_exemplary_form_view
+msgid "Product Template Tab"
+msgstr "Product Template Reiter"
+
+#. module: eq_product_view_template
+#: view:product.product:eq_product_view_template.eq_product_product_exemplary_form_view
+#: view:product.template:eq_product_view_template.eq_product_template_exemplary_form_view
+msgid "Selection-Field"
+msgstr "Auswahl-Feld"
+
+#. module: eq_product_view_template
+#: field:product.product,eq_product_product_text:0
+#: field:product.product,eq_product_template_text:0
+#: field:product.template,eq_product_template_text:0
+msgid "Text-Field"
+msgstr "Text-Feld"
+
+#. module: eq_product_view_template
+#: selection:product.template,eq_product_template_selection:0
+msgid "Three"
+msgstr "Drei"
+
+#. module: eq_product_view_template
+#: selection:product.template,eq_product_template_selection:0
+msgid "Two"
+msgstr "Zwei"
+
