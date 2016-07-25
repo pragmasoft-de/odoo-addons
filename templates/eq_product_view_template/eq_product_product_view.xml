@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+<record id="eq_product_product_exemplary_form_view" model="ir.ui.view"> <!-- Name der neuen View (id) -->
+			<field name="name">eq.product.product.exemplary.form.view</field>
+			<field name="model">product.product</field> <!-- Tabelle product.product, hier müssen die Felder, welche nachfolgend gesetzt werden, vorhanden sein-->
+			<field name="inherit_id" ref="product.product_normal_form_view" /> <!-- unter ref muss die Ansicht vorhanden sein, welche erweiter werden soll. Um die korrekte Ansicht zu finden, geht man mit Hilfe des Odoo Entwicklermodus unter "Ansichten verwalten" -->
+			<field name="arch" type="xml">
+			<!-- Tab-Reiter -->
+				<notebook>
+				<page string="Product Product Tab"> 
+                                <group name="header_one" string="Header One" colspan="3">
+                                	<label for="eq_product_product_char" string="Char-Field"/> <!-- Label muss gesetzt werden, um einem Input-Feld eine Betitelung zu geben -->
+                                        <div>
+                                            <field name="eq_product_product_char"/> <!-- hier wird das Inputfeld für einen String definiert. Das Feld muss in der Tabelle product.product vorhanden sein, sonst tritt ein Fehler auf -->
+             								<newline/> <!-- verursacht einen Zeilensprung -->
+                                        </div>
+                                    <label for="eq_product_product_integer"/>
+                                        <div>
+                                            <field name="eq_product_product_integer" class="oe_inline"/> 
+                                        </div>
+                                    <label for="eq_product_product_float"/>
+                                       	<div>
+                                        	<field name="eq_product_product_float"/>
+                                        </div>
+                                    <label for="eq_product_product_date"/>
+                                       	<div>
+                                            <field name="eq_product_product_date"/>
+                                        </div>
+                                    <label for="eq_product_product_selection" string='Selection-Field'/>
+                                    	<div>
+                                            <field name="eq_product_product_selection"/>
+                                        </div>    
+                                    <label for="eq_product_product_text"/>
+                                    	<div>
+                                        	<field name="eq_product_product_text"/>  
+                                       	</div>
+                                    </group>
+                            </page>
+                </notebook>
+			</field>
+		</record>
+
+</data>
+</openerp>
+
