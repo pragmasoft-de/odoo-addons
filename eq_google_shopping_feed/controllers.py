@@ -264,8 +264,12 @@ class EqGoogleShoppingFeed(http.Controller):
             line = line.replace("[LINK]", link)
             line += """<g:mobile_link>[MOBILE_LINK]</g:mobile_link>\n"""
             line = line.replace("[MOBILE_LINK]", mobile_link)
-            line += """<g:image_link>[IMAGE_LINK]</g:image_link>\n"""
-            line = line.replace("[IMAGE_LINK]", image_link)
+            print"Image-Link: ", type(image_link)
+            if image_link:
+                line += """<g:image_link>[IMAGE_LINK]</g:image_link>\n"""
+                line = line.replace("[IMAGE_LINK]", image_link)
+            else:
+                pass
             line += """<g:condition>[CONDITION]</g:condition>\n"""
             line = line.replace("[CONDITION]", condition) 
             if availability > 0:
