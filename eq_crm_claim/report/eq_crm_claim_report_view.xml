@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="eq_view_report_crm_claim_filter" model="ir.ui.view">
+			<field name="name">eq.crm.claim.report.select</field>
+			<field name="model">crm.claim.report</field>
+			<field name="inherit_id" ref="crm_claim.view_report_crm_claim_filter" />
+			<field name="arch" type="xml">
+				<xpath
+					expr="//group[@string='Extended Filters...']//field[@name='categ_id']" position="after">
+					<field name="sub_categ_id" domain="[('object_id.model', '=', 'crm.claim')]" />
+				</xpath>
+
+				<xpath expr="//group[@string='Group By']//filter[@string='Category']" position="after">
+					<filter string="Sub-Category" context="{'group_by':'sub_categ_id'}" />
+				</xpath>
+			</field>
+		</record>
+
+	</data>
+</openerp>
+    

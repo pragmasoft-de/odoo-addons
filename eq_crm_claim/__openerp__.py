@@ -21,13 +21,13 @@
 
 {
     'name': 'Extension crm_claim',
-    'version': '1.0.0',
+    'version': '1.0.1',
     'description': """
         Extension of module crm_claim
     """,
     'author': 'Equitania Software GmbH',
     'website': 'www.myodoo.de',
-    'depends': ['base_setup','crm_claim'],
+    'depends': ['base_setup','crm_claim', 'product'],
     'category' : 'General Improvements',
     #What it Improves e.g Sale, Purchase, Accounting
     'summary': '',
@@ -37,6 +37,8 @@
     #         ],
     'data': [
         'eq_crm_claim_view.xml',
+        'eq_product_view.xml',
+        'report/eq_crm_claim_report_view.xml'
     ],
     #Demodata
     'demo': [],

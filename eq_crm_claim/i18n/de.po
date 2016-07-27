@@ -35,3 +35,59 @@ msgstr "Verantwortlicher"
 #: model:ir.model,name:eq_crm_claim.model_crm_claim_report
 msgid "CRM Claim Report"
 msgstr "CRM-Bericht Reklamationen"
+
+#. module: eq_crm_claim
+#: field:product.product,claim_count:0
+#: field:product.template,claim_count:0
+msgid "# of Claims"
+msgstr "Reklamationen"
+
+
+#. module: eq_crm_claim
+#: code:addons/eq_crm_claim/eq_product.py:54
+#: code:addons/eq_crm_claim/eq_product.py:103
+#: view:product.template:eq_crm_claim.view_claim_product_template_info_form
+#, python-format
+msgid "Claims"
+msgstr "Reklamationen"
+
+
+#. module: eq_crm_claim
+#: model:ir.model,name:eq_crm_claim.model_product_product
+msgid "Product"
+msgstr "Produkt"
+
+#. module: eq_crm_claim
+#: model:ir.model,name:eq_crm_claim.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: eq_crm_claim
+#: model:ir.model,name:eq_crm_claim.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: eq_crm_claim
+#: view:crm.claim.report:eq_crm_claim.eq_view_report_crm_claim_filter
+msgid "Sub-Category"
+msgstr "Unterkategorie"
+
+#. module: eq_crm_claim
+#: field:crm.claim,sub_categ_id:0
+#: field:crm.claim.report,sub_categ_id:0
+msgid "Sub-category"
+msgstr "Unterkategorie"
+
+
+#. module: eq_crm_claim
+#: field:crm.claim,eq_good_parts:0
+#: field:crm.claim.report,eq_good_parts:0
+msgid "Good parts"
+msgstr "Gutteile"
+
+#. module: eq_crm_claim
+#: field:crm.claim,eq_waste_parts:0
+#: field:crm.claim.report,eq_waste_parts:0
+msgid "Waste"
+msgstr "Ausschuss"
+

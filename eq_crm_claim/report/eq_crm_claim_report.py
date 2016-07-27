@@ -28,6 +28,11 @@ class eq_crm_claim_report(models.Model):
     _auto=False
     
     eq_costs = fields.Float('Costs')
+    sub_categ_id = fields.Many2one('crm.case.categ', 
+                                   'Sub-category', domain="[('section_id','=',section_id),\
+                            ('object_id.model', '=', 'crm.claim')]", required=False)
+    eq_waste_parts = fields.Float('Waste', group_operator="sum")#Ausschussteile
+    eq_good_parts = fields.Float('Good parts', group_operator="sum")#"Gut-Teile"
     
     def init(self, cr):
 
@@ -49,12 +54,15 @@ class eq_crm_claim_report(models.Model):
                     c.partner_id,
                     c.company_id,
                     c.categ_id,
+                    c.sub_categ_id,
                     c.name as subject,
                     count(*) as nbr,
                     c.priority as priority,
                     c.type_action as type_action,
                     c.create_date as create_date,
-                    c.eq_costs as eq_costs,
+                    c.eq_costs,
+                    c.eq_waste_parts,
+                    c.eq_good_parts,
                     avg(extract('epoch' from (c.date_closed-c.create_date)))/(3600*24) as  delay_close,
                     (SELECT count(id) FROM mail_message WHERE model='crm.claim' AND res_id=c.id) AS email,
                     extract('epoch' from (c.date_deadline - c.date_closed))/(3600*24) as  delay_expected
@@ -62,6 +70,6 @@ class eq_crm_claim_report(models.Model):
                     crm_claim c
                 group by c.date,\
                         c.user_id,c.section_id, c.stage_id,\
-                        c.categ_id,c.partner_id,c.company_id,c.create_date,
+                        c.categ_id, c.sub_categ_id,c.partner_id,c.company_id,c.create_date,
                         c.priority,c.type_action,c.date_deadline,c.date_closed,c.id
             )""")

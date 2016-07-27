@@ -27,6 +27,13 @@
             <field name="arch" type="xml">
                 <field name="user_id" position="after">
                     <field name="eq_costs" />
+                    <div>
+                    <field name="eq_good_parts" />
+                    <field name="eq_waste_parts" />
+                    </div>
+                </field>
+                <field name="categ_id" position="after">
+                    <field name="sub_categ_id" options="{'no_create': True, 'no_open': True}" domain="[('object_id.model', '=', 'crm.claim')]" />
                 </field>
             </field>
 

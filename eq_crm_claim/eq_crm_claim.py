@@ -27,3 +27,13 @@ class eq_crm_claim(models.Model):
     
     
     eq_costs = fields.Float('Costs')
+    
+    eq_waste_parts = fields.Float('Waste')#Ausschussteile
+    eq_good_parts = fields.Float('Good parts')#"Gut-Teile"
+    
+    sub_categ_id = fields.Many2one('crm.case.categ', 
+                                   'Sub-category', domain="[('section_id','=',section_id),\
+                            ('object_id.model', '=', 'crm.claim')]", required=False)
+    
+    
+    

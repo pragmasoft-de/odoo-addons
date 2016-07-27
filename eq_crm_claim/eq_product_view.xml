@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!--  Partners inherited form -->
+        <record id="view_claim_product_template_info_form" model="ir.ui.view">
+            <field name="name">product.template.info.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <!-- <field name="groups_id" eval="[(4, ref('base.group_sale_salesman')), (4, ref('base.group_partner_manager'))]"/> -->
+            <field name="priority" eval="50"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='buttons']" position="inside">
+                    <button class="oe_inline oe_stat_button" type="object" 
+                        name="action_view_claims_for_product" icon="fa-comments" > <!-- groups="base.group_sale_salesman" TODO-->
+                        <field string="Claims" name="claim_count" widget="statinfo"/>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+        
+        
+        
+	</data>
+</openerp>
