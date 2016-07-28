@@ -91,3 +91,41 @@ msgstr "Gutteile"
 msgid "Waste"
 msgstr "Ausschuss"
 
+
+#. module: eq_crm_claim
+#: model:ir.actions.act_window,name:eq_crm_claim.eq_crm_claim_sub_categ_action
+msgid "Claim Sub-categories"
+msgstr "Unterkategorien"
+
+#. module: eq_crm_claim
+#: model:ir.model,name:eq_crm_claim.model_eq_crm_claim_sub_category
+msgid "Sub-categories for claims"
+msgstr "Unterkategorien"
+
+#. module: eq_crm_claim
+#: model:ir.ui.menu,name:eq_crm_claim.eq_menu_crm_sub_cat-act
+msgid "Sub-categories"
+msgstr "Unterkategorien"
+
+#. module: eq_crm_claim
+#: view:eq.crm.claim.sub.category:eq_crm_claim.eq_crm_sub_categ-view
+#: view:eq.crm.claim.sub.category:eq_crm_claim.eq_crm_sub_categ_tree-view
+msgid "Case Sub-category"
+msgstr "Unterkategorie"
+
+#. module: eq_crm_claim
+#: model:ir.actions.act_window,help:eq_crm_claim.eq_crm_claim_sub_categ_action
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to create a claim sub-category.\n"
+"              </p><p>\n"
+"                Create claim sub-categories to better manage and classify your\n"
+"                claims.\n"
+"              </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                Erstelle eine neue Unterkategorie.\n"
+"              </p><p>\n"
+"                Erstelle Unterkategorien für die Verwaltung der Reklamationen.\n"
+"              </p>\n"
+"            "
+

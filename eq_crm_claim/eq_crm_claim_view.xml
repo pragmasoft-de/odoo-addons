@@ -27,17 +27,63 @@
             <field name="arch" type="xml">
                 <field name="user_id" position="after">
                     <field name="eq_costs" />
-                    <div>
+                    
                     <field name="eq_good_parts" />
                     <field name="eq_waste_parts" />
-                    </div>
+                  
                 </field>
                 <field name="categ_id" position="after">
-                    <field name="sub_categ_id" options="{'no_create': True, 'no_open': True}" domain="[('object_id.model', '=', 'crm.claim')]" />
+                    <field name="sub_categ_id" />
                 </field>
             </field>
 
         </record>
+        
+        
+        <!-- Claim sub-categories  -->
+        
+        <record id="eq_crm_sub_categ-view" model="ir.ui.view">
+            <field name="name">eq.crm.sub.categ.form</field>
+            <field name="model">eq.crm.claim.sub.category</field>
+            <field name="arch" type="xml">
+                <form string="Case Sub-category">
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="eq_crm_sub_categ_tree-view" model="ir.ui.view">
+            <field name="name">eq.crm.sub.categ.tree</field>
+            <field name="model">eq.crm.claim.sub.category</field>
+            <field name="arch" type="xml">
+                <tree string="Case Sub-category">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+
+        <record id="eq_crm_claim_sub_categ_action" model="ir.actions.act_window">
+            <field name="name">Claim Sub-categories</field>
+            <field name="res_model">eq.crm.claim.sub.category</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="eq_crm_claim.eq_crm_sub_categ_tree-view"/>
+            <!-- <field name="domain">[('object_id.model', '=', 'crm.claim')]</field>
+            <field name="context" eval="{'object_id': ref('model_crm_claim')}"/> -->
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a claim sub-category.
+              </p><p>
+                Create claim sub-categories to better manage and classify your
+                claims.
+              </p>
+            </field>
+        </record>
+
+        <menuitem action="eq_crm_claim_sub_categ_action" name="Sub-categories"
+            id="eq_menu_crm_sub_cat-act" parent="crm_claim.menu_config_claim" groups="base.group_no_one" sequence="30"/>
 	
 	</data>
 </openerp>

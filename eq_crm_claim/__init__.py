@@ -22,3 +22,4 @@
 import eq_crm_claim
 import eq_product
 import report
+import eq_crm_case_sub_category

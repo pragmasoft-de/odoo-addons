@@ -21,7 +21,7 @@
 
 {
     'name': 'Extension crm_claim',
-    'version': '1.0.1',
+    'version': '1.0.2',
     'description': """
         Extension of module crm_claim
     """,
