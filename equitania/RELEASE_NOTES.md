@@ -17,6 +17,11 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 28.07.2016
+### Version 1.1.80
+#### CHG
+- Übersetzung ergänzt (expiry date)
+
 #### 19.07.2016
 ### Version 1.1.79
 #### IMP
