@@ -1688,6 +1688,11 @@ msgid "Quotation no."
 msgstr "Angebotsnr."
 
 #. module: equitania
+#: view:website:equitania.report_saleorder_data
+msgid "Expiry Date:"
+msgstr "Angebot gültig bis:"
+
+#. module: equitania
 #: field:product.product,eq_rrp:0
 msgid "RRP"
 msgstr "UVP"
