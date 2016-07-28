@@ -18,6 +18,12 @@ Vorgehensweise unter Debian:
 
 
 #### 28.07.2016
+### Version 1.1.81
+#### CHG
+- Ticket 1700: Defaultfilter für Adresssuche entfernt
+
+
+#### 28.07.2016
 ### Version 1.1.80
 #### CHG
 - Übersetzung ergänzt (expiry date)
