@@ -1,5 +1,10 @@
 ## Modul eq_crm_claim
 
+#### 28.07.2016
+#### Version 1.0.3
+##### Änderung
+- Anpassungen der Rechte für Unterkategorie
+
 
 #### 28.07.2016
 #### Version 1.0.2

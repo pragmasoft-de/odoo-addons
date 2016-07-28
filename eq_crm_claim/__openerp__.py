@@ -21,7 +21,7 @@
 
 {
     'name': 'Extension crm_claim',
-    'version': '1.0.2',
+    'version': '1.0.3',
     'description': """
         Extension of module crm_claim
     """,
@@ -36,6 +36,7 @@
     #         'eq_install_func.xml', 
     #         ],
     'data': [
+        'security/ir.model.access.csv',
         'eq_crm_claim_view.xml',
         'eq_product_view.xml',
         'report/eq_crm_claim_report_view.xml'

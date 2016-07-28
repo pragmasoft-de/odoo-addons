@@ -83,7 +83,7 @@
         </record>
 
         <menuitem action="eq_crm_claim_sub_categ_action" name="Sub-categories"
-            id="eq_menu_crm_sub_cat-act" parent="crm_claim.menu_config_claim" groups="base.group_no_one" sequence="30"/>
+            id="eq_menu_crm_sub_cat-act" parent="crm_claim.menu_config_claim" groups="base.group_sale_salesman" sequence="30"/>
 	
 	</data>
 </openerp>
