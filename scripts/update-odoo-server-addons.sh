@@ -168,7 +168,6 @@ cp -r $myocapath/crm_lead_code $myserverpath/addons
 cp -r $myocapath/currency_rate_update $myserverpath/addons
 cp -r $myocapath/database_cleanup $myserverpath/addons
 cp -r $myocapath/disable_openerp_online $myserverpath/addons
-cp -r $myocapath/email_template_template $myserverpath/addons
 cp -r $myocapath/lettermgmt $myserverpath/addons
 cp -r $myocapath/mass_editing $myserverpath/addons
 cp -r $myocapath/product_attribute_multi_type $myserverpath/addons
