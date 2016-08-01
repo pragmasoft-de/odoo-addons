@@ -17,6 +17,11 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 01.08.2016
+### Version 1.1.82
+#### CHG
+- Lieferschein-Anschrift: Wechsel der Positionen von Partner und Kunde in der Anschrift, wenn eine abweichende Lieferanschrift gewählt wurden.
+
 #### 28.07.2016
 ### Version 1.1.81
 #### CHG
