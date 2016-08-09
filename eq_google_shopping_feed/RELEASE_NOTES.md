@@ -1,5 +1,13 @@
 ## Modul eq_google_shopping
 
+
+#### 09.08.2016
+#### Version 1.0.17
+##### ADD
+- Leerzeichen jeweils zwischen Zahl und Einheit bei Unit Pricing Measure und Unit Pricing Base Measure entfernt.
+- Produktbild wird nun korrekt angezeigt und der Image-Link wird korrekt gebildet, wenn keine Varianten gesetzt worden sind.
+- MPN nun die Artikelnummer (default_code)
+
 #### 09.08.2016
 #### Version 1.0.16
 ##### ADD

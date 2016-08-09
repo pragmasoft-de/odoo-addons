@@ -126,13 +126,14 @@ class EqGoogleShoppingFeed(http.Controller):
          return request.httprequest.url_root + "shop/product/" + str(id)                           
      
      def generate_image_link(self, id):
-         """ generates image link for our article """                                    
+         """ generates image link for our article """ 
+         print"ID: ", id                                   
          products = http.request.env['product.product'].search([('product_tmpl_id', '=', id)]),
          product = products[0]         
-         for id in product.ids:
-             product = http.request.env['product.product'].browse(id)
+         for id_variant in product.ids:
+             product = http.request.env['product.product'].browse(id_variant)
              if product.image_variant is not None:
-                 return request.httprequest.url_root + "website/image/product.product/" + str(id) + "/image"
+                 return request.httprequest.url_root + "website/image/product.product/" + str(id_variant) + "/image"
              else:
                  return request.httprequest.url_root + "website/image/product.template/" + str(id) + "/image"          #Wenn kein Prodúktvarianten-Bild vorhanden, dann wird das Bild vom Template genommen.
 
@@ -197,7 +198,7 @@ class EqGoogleShoppingFeed(http.Controller):
             
   
             brand = product.product_brand_id.name                           # brand
-            #mpn = product.default_code                                     # mpn
+            mpn = product.default_code                                      # mpn
             #shipping = "DE::Standard:0"                                    # shipping
             
             #Product_Product Objekte
@@ -211,12 +212,14 @@ class EqGoogleShoppingFeed(http.Controller):
                     country ='US'
                 availability = product_obj.qty_available                                                            #Stock
                 if product_obj.weight_net != False and product_obj.eq_basic.name != False:
-                    unit_measure = str(product_obj.weight_net) + ' ' + product_obj.eq_basic.name                    #Grundpreis Maß
+                    #unit_measure = str(product_obj.weight_net) + ' ' + product_obj.eq_basic.name                    #Grundpreis Maß
+                    unit_measure = str(product_obj.weight_net)  + product_obj.eq_basic.name
                 else:
                     unit_measure = ''
                     
                 if product_obj.volume != False and product_obj.eq_basic.name != False:
-                    basic_unit = str(1.0) + ' ' + product_obj.eq_basic.name                                         #Grundpreiseinheitsmaß
+                    #basic_unit = str(1.0) + ' ' + product_obj.eq_basic.name  
+                    basic_unit = str(1.0) + product_obj.eq_basic.name                                       #Grundpreiseinheitsmaß
                 else:
                     basic_unit = ''
                 #basic_price = str(product_obj.eq_basic_price)                                                      #Grundpreiseinheit
@@ -307,11 +310,11 @@ class EqGoogleShoppingFeed(http.Controller):
                 line = line.replace("[BRAND]", brand)
             else:
                 pass
-#             if mpn != False:
-#                 line += """<g:mpn>[MPN]</g:mpn>\n"""
-#                 line = line.replace("[MPN]", mpn)
-#             else:
-#                 pass
+            if mpn != False:
+                line += """<g:mpn>[MPN]</g:mpn>\n"""
+                line = line.replace("[MPN]", mpn)
+            else:
+                pass
             if google_product_category != '': 
                 line += """<g:google_product_category>[GOOGLE_PRODUCT_CATEGORY]</g:google_product_category>\n"""
                 line = line.replace("[GOOGLE_PRODUCT_CATEGORY]", google_product_category)
