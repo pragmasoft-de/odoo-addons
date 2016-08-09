@@ -1,5 +1,10 @@
 ## Modul eq_google_shopping
 
+#### 09.08.2016
+#### Version 1.0.16
+##### ADD
+- Nun werden nur Produkte im Google Shopping Feed angezeigt, wenn das Flag "Im Google Shopping Feed anzeigen" beim Artikel gesetzt und der Artikel im Shop veröffentlicht ist (vorher hat es ausgereicht wenn der Artikel nur veröffentlicht war).
+
 #### 25.07.2016
 #### Version 1.0.14
 ##### FIX

@@ -152,7 +152,8 @@ class EqGoogleShoppingFeed(http.Controller):
          #products = http.request.env['product.template'].search([('state', '=', 'sellable')])         # original
          #sql = "SELECT id FROM product_template where state = 'sellable'"
          
-         sql = "SELECT id FROM product_template where website_published = True"
+         #sql = "SELECT id FROM product_template where website_published = True" ####old
+         sql = "SELECT id FROM product_template where eq_activate_google_shoppingfeed = True and website_published = True"
          http.request.env.cr.execute(sql)
          products = http.request.env.cr.fetchall()                
          
@@ -264,7 +265,7 @@ class EqGoogleShoppingFeed(http.Controller):
             line = line.replace("[LINK]", link)
             line += """<g:mobile_link>[MOBILE_LINK]</g:mobile_link>\n"""
             line = line.replace("[MOBILE_LINK]", mobile_link)
-            print"Image-Link: ", type(image_link)
+            #print"Image-Link: ", type(image_link)
             if image_link:
                 line += """<g:image_link>[IMAGE_LINK]</g:image_link>\n"""
                 line = line.replace("[IMAGE_LINK]", image_link)

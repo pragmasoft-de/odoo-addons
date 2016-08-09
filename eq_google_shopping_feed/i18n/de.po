@@ -193,3 +193,8 @@ msgstr "Code"
 #: view:google.product.taxonomy:eq_google_shopping_feed.google_taxonomy_form_view
 msgid "Google Product Categorie"
 msgstr "Google Produkt Kategorie"
+
+#. module: eq_google_shopping_feed
+#: field:product.template,eq_activate_google_shoppingfeed:0
+msgid "Show in Google Shopping Feed"
+msgstr "Im Google Shopping Feed anzeigen"

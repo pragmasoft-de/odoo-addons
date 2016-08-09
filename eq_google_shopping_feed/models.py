@@ -33,6 +33,7 @@ class eq_google_product_product(models.Model):
     _inherit = "product.template"
     
     #Allgemeine Attribute
+    eq_activate_google_shoppingfeed = fields.Boolean('Show in Google Shopping Feed', default=False)
     eq_google_product_category = fields.Char('Google Product Category')
     eq_condition = fields.Selection([('new', 'New'),('refurbished', 'Refurbished'),('used','Used')], default='new')
     

@@ -33,6 +33,7 @@
                                     <field name="eq_condition"/>
                                 </group> -->
                                 <group name="general_attributes" string="General Attributes" colspan="3">
+                                	<field name="eq_activate_google_shoppingfeed"/>
                                 	<label for="taxonomy_id" string="Google Product Category"/>
                                         <div>
                                             <field name="eq_google_product_category" invisible="1"/>
