@@ -32,8 +32,13 @@ class eq_res_users(osv.osv):
         try:
             dummy,group_purchase_id = dataobj.get_object_reference(cr, SUPERUSER_ID, 'equitania', 'purchase_in_products')
             dummy,group_supplier_id = dataobj.get_object_reference(cr, SUPERUSER_ID, 'equitania', 'supplier_in_account')
+            dummy,group_access_reporting_menu_id = dataobj.get_object_reference(cr, SUPERUSER_ID, 'equitania', 'group_access_reporting')
+            dummy,group_access_employee_menu_id = dataobj.get_object_reference(cr, SUPERUSER_ID, 'equitania', 'group_access_hr_menu')
             result.append(group_purchase_id)
             result.append(group_supplier_id)
+            
+            result.append(group_access_reporting_menu_id)
+            result.append(group_access_employee_menu_id)
         except ValueError:
             # If these groups does not exists anymore
             pass

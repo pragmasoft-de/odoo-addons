@@ -1,0 +1,15 @@
+<openerp>
+	<data>
+                
+        <menuitem name="Reporting"
+            id="base.menu_reporting"
+            groups="equitania.group_access_reporting"
+            sequence="170"/>
+         
+        <menuitem name="Human Resources"
+            id="hr.menu_hr_root"
+            groups="equitania.group_access_hr_menu"
+            sequence="170"/>   
+
+	</data>
+</openerp>

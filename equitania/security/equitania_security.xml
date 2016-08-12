@@ -53,6 +53,18 @@
 			<field name="comment">The user will see the supplier tab in accounting.
 			</field>
 		</record>
+		
+		<record id="group_access_reporting" model="res.groups">
+			<field name="name">Show Reporting menu</field>
+			<field name="comment">The user will see the reporting menu.
+			</field>
+		</record>
+		
+		<record id="group_access_hr_menu" model="res.groups">
+			<field name="name">Show Employee menu</field>
+			<field name="comment">The user will see the employee menu.
+			</field>
+		</record>
 
 		<menuitem id="account.menu_finance_payables" name="Suppliers"
 			parent="account.menu_finance" groups="equitania.supplier_in_account"

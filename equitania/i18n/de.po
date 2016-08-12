@@ -2796,3 +2796,25 @@ msgstr "Schlagwörter"
 #: field:sale.config.settings,eq_use_text_from_order:0
 msgid "Use text from order [equitania]"
 msgstr "Benutze Kopf- und Fusstext aus Auftrag [equitania]"
+
+#. module: equitania
+#: model:res.groups,name:equitania.group_access_reporting
+msgid "Show Reporting menu"
+msgstr "Menu Berichtswesen anzeigen"
+
+#. module: equitania
+#: model:res.groups,comment:equitania.group_access_hr_menu
+msgid "The user will see the employee menu.\n"
+"			"
+msgstr "Hauptmenueintrag für Personal anzeigen"
+
+#. module: equitania
+#: model:res.groups,name:equitania.group_access_hr_menu
+msgid "Show Employee menu"
+msgstr "Menu Personal anzeigen"
+
+#. module: equitania
+#: model:res.groups,comment:equitania.group_access_reporting
+msgid "The user will see the reporting menu.\n"
+"			"
+msgstr "Hauptmenueintrag für Berichtswesen anzeigen"

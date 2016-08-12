@@ -16,6 +16,12 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 12.08.2016
+### Version 1.1.83
+#### CHG
+- Setzen des Zugriffs für Menueinträge Personal und Berichtswesen über neue Gruppen
+
+
 
 #### 01.08.2016
 ### Version 1.1.82
