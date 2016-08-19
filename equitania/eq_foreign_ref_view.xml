@@ -9,7 +9,7 @@
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">                              
                 <field name="email" position="after">
-                	<field name="eq_foreign_ref"/>
+                	<field name="eq_foreign_ref" attrs="{'invisible': [('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}"/>
                 </field>
 			</field>
 		</record>		

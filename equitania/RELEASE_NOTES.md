@@ -16,6 +16,13 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+
+#### 19.08.2016
+### Version 1.1.83
+#### CHG
+- Anpassungen der Partnermaske für interne Benutzer
+
+
 #### 12.08.2016
 ### Version 1.1.83
 #### CHG
