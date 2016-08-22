@@ -9,8 +9,8 @@
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//notebook/page[@name='sales_purchases']/group" position="inside">
-                	<group>
-			            <field name="eq_delivery_date_type_sale"/>
+                	<group attrs="{'invisible': [('is_company', '=', False),('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}">
+			            <field name="eq_delivery_date_type_sale" />
 			            <field name="eq_delivery_date_type_purchase"/>
                 	</group>
                 </xpath>

@@ -24,21 +24,79 @@
 		</record>
 		 
 		 
-		 		<!--  
-		 <record id="eq_partner_employee_extension_form_view" model="ir.ui.view">
+		 <!-- Erweiterung um bestimmte Felder und Tabs für interne Benutzer auszublenden -->		
+		 <record id="eq_partner_employee_extension_user_form_view" model="ir.ui.view">
             <field name="name">eq_partner_extension.form</field>
             <field name="model">res.partner</field>
-            <field name="priority">55</field>
+            <field name="priority">32</field>
             <field name="type">form</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
-            
-            	<xpath expr="//notebook/page[@string='Maps']" attrs="{'invisible': ['|',('is_company', '=', True),'&amp;','&amp;','&amp;',('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}">
-                	
+            	
+            	<!-- Tabs -->
+            	<xpath expr="//notebook/page[@string='Maps']" position="attributes">
+                	<attribute name="attrs">{'invisible': [('is_company', '=', False), ('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
                 </xpath>
+                
+                <xpath expr="//notebook/page[@name='geo_localization']" position="attributes">
+                	<attribute name="attrs">{'invisible': [('is_company', '=', False),('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
+                </xpath>
+                
+                 <xpath expr="//notebook/page[@name='accounting']" position="attributes">
+                	<attribute name="attrs">{'invisible': [('is_company', '=', False),('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
+                </xpath>
+                
+                <xpath expr="//notebook/page[@string='Profiling']" position="attributes">
+                	<attribute name="attrs">{'invisible': [('is_company', '=', False),('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
+                </xpath>
+                
+                 <xpath expr="//notebook/page[@string='Warnings']" position="attributes">
+                	<attribute name="attrs">{'invisible': [('is_company', '=', False),('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
+                </xpath>
+              <!-- 
+                 <xpath expr="//notebook/page[@string='Reference']" position="attributes">
+                	<attribute name="attrs">{'invisible': [('is_company', '=', False),('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
+                </xpath>
+                 -->
+                <!-- Felder -->
+                <xpath expr="//field[@name='section_id']" position="attributes">
+                	<attribute name="attrs">{'invisible': [('is_company', '=', False),('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
+				</xpath>
+				<!-- 
+				<xpath expr="//field[@name='eq_gtc_confirmed_timestamp']" position="attributes">
+                	<attribute name="attrs">{'invisible': [('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
+				</xpath> 
+				-->
+				<xpath expr="//field[@name='property_product_pricelist']" position="attributes">
+                	<attribute name="attrs">{'invisible': [('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
+				</xpath>
+				
+				<xpath expr="//field[@name='property_stock_customer']" position="attributes">
+                	<attribute name="attrs">{'invisible': [('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
+				</xpath>
+				
+				<xpath expr="//field[@name='property_stock_supplier']" position="attributes">
+                	<attribute name="attrs">{'invisible': [('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
+				</xpath>
+				
+				
+				<xpath expr="//field[@name='property_delivery_carrier']" position="attributes">
+                	<attribute name="attrs">{'invisible': [('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
+				</xpath>
+				<xpath expr="//field[@name='opt_out']" position="attributes">
+                	<attribute name="attrs">{'invisible': [('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
+				</xpath>
+				<xpath expr="//field[@name='notify_email']" position="attributes">
+                	<attribute name="attrs">{'invisible': [('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
+				</xpath>
+		<!-- 		
+				<xpath expr="//field[@name='eq_retpol_confirmed_timestamp']" position="attributes">
+                	<attribute name="attrs">{'invisible': [('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
+				</xpath>
+	-->
             </field>
             </record>
-            -->
+            
 		
         <record id="eq_partner_extension_form_view" model="ir.ui.view">
             <field name="name">eq_partner_extension.form</field>
@@ -172,7 +230,7 @@
 				<xpath expr="//field[@name='user_id']" position="attributes">
                 	<attribute name="attrs">{'invisible': [('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
 				</xpath>
-				<!-- 
+				 <!--
 				<xpath expr="//field[@name='section_id']" position="attributes">
                 	<attribute name="attrs">{'invisible': [('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
 				</xpath>
@@ -183,23 +241,11 @@
 				
 				<!-- 
 				
-				
-				<xpath expr="//field[@name='eq_lead_referred_id']" position="attributes">
-                	<attribute name="attrs">{'invisible': [('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
-				</xpath>
-				
-				<xpath expr="//field[@name='eq_retpol_confirmed_timestamp']" position="attributes">
-                	<attribute name="attrs">{'invisible': [('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
-				</xpath>
+								
 				
 				
-				<xpath expr="//field[@name='eq_delivery_date_type_sale']" position="attributes">
-                	<attribute name="attrs">{'invisible': [('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
-				</xpath>
 				
-				<xpath expr="//field[@name='eq_delivery_date_type_purchase']" position="attributes">
-                	<attribute name="attrs">{'invisible': [('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
-				</xpath>
+				
 				
 				<xpath expr="//field[@name='property_product_pricelist']" position="attributes">
                 	<attribute name="attrs">{'invisible': [('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>

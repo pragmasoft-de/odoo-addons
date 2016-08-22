@@ -18,6 +18,12 @@ Vorgehensweise unter Debian:
 
 
 #### 22.08.2016
+### Version 1.1.86
+#### CHG
+- Ausblenden weiterer Felder und Tabs in Partnermaske für Benutzer
+
+
+#### 22.08.2016
 ### Version 1.1.85
 #### FIX
 - Fehler für Auftragsmaske behoben
