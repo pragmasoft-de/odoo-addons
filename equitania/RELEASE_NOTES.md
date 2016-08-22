@@ -17,8 +17,14 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 22.08.2016
+### Version 1.1.85
+#### FIX
+- Fehler für Auftragsmaske behoben
+
+
 #### 19.08.2016
-### Version 1.1.83
+### Version 1.1.84
 #### CHG
 - Anpassungen der Partnermaske für interne Benutzer
 

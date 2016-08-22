@@ -129,7 +129,7 @@
                 </xpath>
                 <xpath expr="//field[@name='user_id']" position="after">
                 	<field name="eq_incoterm"/>
-                	<field name="eq_deliver_condition_id"/>
+                	<field name="eq_deliver_condition_id" attrs="{'invisible': [('is_company', '=', False),('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}" />
                 </xpath>
                 <!-- New Address -->
 				<field name="country_id" position="replace"/>
@@ -182,9 +182,6 @@
 				</xpath>
 				
 				<!-- 
-				<xpath expr="//field[@name='eq_delivery_condition_id']" position="attributes">
-                	<attribute name="attrs">{'invisible': [('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
-				</xpath>
 				
 				
 				<xpath expr="//field[@name='eq_lead_referred_id']" position="attributes">
@@ -259,7 +256,7 @@
             <field name="inherit_id" ref="sale_stock.view_order_form_inherit"/>
             <field name="arch" type="xml">
             	<field name="incoterm" position="after">
-            		<field name="eq_deliver_condition_id" attrs="{'invisible': [('is_company', '=', False),('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}"/>
+            		<field name="eq_deliver_condition_id" />
             	</field>
             </field>
         </record>
