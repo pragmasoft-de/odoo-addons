@@ -127,7 +127,7 @@ class EqGoogleShoppingFeed(http.Controller):
      
      def generate_image_link(self, id):
          """ generates image link for our article """ 
-         print"ID: ", id                                   
+                                           
          products = http.request.env['product.product'].search([('product_tmpl_id', '=', id)]),
          product = products[0]         
          for id_variant in product.ids:
@@ -148,6 +148,7 @@ class EqGoogleShoppingFeed(http.Controller):
          age_group = False
          material = False
          pattern = False
+         identifier_exists = 'false'
          #item_group_id = False 
          
          #products = http.request.env['product.template'].search([('state', '=', 'sellable')])         # original
@@ -310,11 +311,19 @@ class EqGoogleShoppingFeed(http.Controller):
                 line = line.replace("[BRAND]", brand)
             else:
                 pass
-            if mpn != False:
-                line += """<g:mpn>[MPN]</g:mpn>\n"""
-                line = line.replace("[MPN]", mpn)
+            
+            
+            if gtin == False:
+                line += """<g:google_identifier_exists>[IDENTIFIER_EXISTS]</g:google_identifier_exists>\n"""
+                line = line.replace("[IDENTIFIER_EXISTS]", identifier_exists)
             else:
                 pass
+                
+#             if mpn != False:
+#                 line += """<g:mpn>[MPN]</g:mpn>\n"""
+#                 line = line.replace("[MPN]", mpn)
+#            else:
+#                pass
             if google_product_category != '': 
                 line += """<g:google_product_category>[GOOGLE_PRODUCT_CATEGORY]</g:google_product_category>\n"""
                 line = line.replace("[GOOGLE_PRODUCT_CATEGORY]", google_product_category)
@@ -369,6 +378,8 @@ class EqGoogleShoppingFeed(http.Controller):
             if basic_unit != '':
                 line += """<g:unit_pricing_base_measure>[UNIT_PRICING_BASE_MEASURE]</g:unit_pricing_base_measure>\n"""
                 line = line.replace("[UNIT_PRICING_BASE_MEASURE]", basic_unit)
+            
+            
 #             if basic_price != False:
 #                 line += """<g:unit_pricing_base_measure>[UNIT_PRICING_BASE_MEASURE]</g:unit_pricing_base_measure>\n"""
 #                 line = line.replace("[UNIT_PRICING_BASE_MEASURE]", basic_price)

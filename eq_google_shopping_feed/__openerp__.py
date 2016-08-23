@@ -34,7 +34,7 @@
     # Check https://github.com/odoo/odoo/blob/master/openerp/addons/base/module/module_data.xml
     # for the full list
     'category': 'Website',
-    'version': '1.0.17',
+    'version': '1.0.18',
 
     # any module necessary for this one to work correctly
     'depends': ['website','product_brand','website_sale'],

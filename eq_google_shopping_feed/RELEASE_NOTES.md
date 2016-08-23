@@ -1,6 +1,11 @@
 ## Modul eq_google_shopping
 
 
+#### 23.08.2016
+#### Version 1.0.18
+##### ADD
+- Attribut "google_identifier_exists" hinzugefügt
+
 #### 09.08.2016
 #### Version 1.0.17
 ##### ADD
