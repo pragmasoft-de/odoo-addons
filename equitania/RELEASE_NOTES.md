@@ -16,6 +16,11 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 23.08.2016
+### Version 1.1.89
+#### FIX
+- Verbesserung für Ausblenden von Elementen für interne Nutzer (Reiter Maps und Geolocation)
+
 
 #### 23.08.2016
 ### Version 1.1.88

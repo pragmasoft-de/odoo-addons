@@ -31,13 +31,16 @@
 			<field name="arch" type="xml">
 
 				<!-- Tabs -->
+				<!-- 
 				<xpath expr="//notebook/page[@string='Maps']" position="attributes">
 					<attribute name="attrs">{'invisible': [('is_company', '=',
 						False), ('customer', '=', False), ('supplier', '=', False),
 						('eq_prospective_customer', '=', False),
 						('eq_unlocked_for_webshop', '=', False)]}</attribute>
 				</xpath>
+				-->
 
+<!-- 
 				<xpath expr="//notebook/page[@name='geo_localization']"
 					position="attributes">
 					<attribute name="attrs">{'invisible': [('is_company', '=',
@@ -45,7 +48,7 @@
 						('eq_prospective_customer', '=', False),
 						('eq_unlocked_for_webshop', '=', False)]}</attribute>
 				</xpath>
-
+ -->
 
 
 				
