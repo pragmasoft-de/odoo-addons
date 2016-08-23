@@ -2,6 +2,11 @@
 
 
 #### 23.08.2016
+#### Version 1.0.19
+##### FIX
+- Attribut "google_identifier_exists" auf "identifier_exists" abgeändert
+
+#### 23.08.2016
 #### Version 1.0.18
 ##### ADD
 - Attribut "google_identifier_exists" hinzugefügt

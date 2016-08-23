@@ -314,7 +314,7 @@ class EqGoogleShoppingFeed(http.Controller):
             
             
             if gtin == False:
-                line += """<g:google_identifier_exists>[IDENTIFIER_EXISTS]</g:google_identifier_exists>\n"""
+                line += """<g:identifier_exists>[IDENTIFIER_EXISTS]</g:identifier_exists>\n"""
                 line = line.replace("[IDENTIFIER_EXISTS]", identifier_exists)
             else:
                 pass
