@@ -32,7 +32,7 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
-            	
+            
             	<!-- Tabs -->
             	<xpath expr="//notebook/page[@string='Maps']" position="attributes">
                 	<attribute name="attrs">{'invisible': [('is_company', '=', False), ('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
@@ -42,9 +42,8 @@
                 	<attribute name="attrs">{'invisible': [('is_company', '=', False),('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
                 </xpath>
                 
-                 <xpath expr="//notebook/page[@name='accounting']" position="attributes">
-                	<attribute name="attrs">{'invisible': [('is_company', '=', False),('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
-                </xpath>
+                
+                
                 
                 <xpath expr="//notebook/page[@string='Profiling']" position="attributes">
                 	<attribute name="attrs">{'invisible': [('is_company', '=', False),('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
@@ -95,6 +94,21 @@
 				</xpath>
 	-->
             </field>
+            </record>
+            
+          <!-- Erweiterung um bestimmte Felder und Tabs für interne Benutzer auszublenden -->		
+		 <record id="eq_partner_employee_extension_user_form_view_2" model="ir.ui.view">
+            <field name="name">eq_partner_extension.form</field>
+            <field name="model">res.partner</field>
+            <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]"/>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+            <xpath expr="//notebook/page[@name='accounting']" position="attributes">
+                	<attribute name="attrs">{'invisible': [('is_company', '=', False),('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}</attribute>
+                </xpath> 
+            
+             </field>
             </record>
             
 		

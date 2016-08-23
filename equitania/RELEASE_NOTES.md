@@ -17,6 +17,11 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 23.08.2016
+### Version 1.1.87
+#### FIX
+- Reiter Finanzen wurde für Benutzer nicht angezeigt, welche nicht der Rechtegruppe Finanzen angehörten. Dadruch entstand nun der Fehler, dass der Reiter Finanzen für diese Benutzer nicht ausgeblendet werden konnte. Dies wurde nun behoben. 
+
 #### 22.08.2016
 ### Version 1.1.86
 #### CHG
