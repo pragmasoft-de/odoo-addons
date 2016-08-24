@@ -170,6 +170,10 @@ class EqGoogleShoppingFeed(http.Controller):
             product_product = http.request.env['product.product'].sudo().search([('product_tmpl_id', '=', id)])
             
             title = product.name                                            # titel
+            title = title.replace("%", "&#37;")
+            title = title.replace("<", "&lt;")
+            title = title.replace(">", "&gt;")
+            title = title.replace("&", "&amp;")
             
             
             description_1 = product.description_sale or ''                  # description - original
