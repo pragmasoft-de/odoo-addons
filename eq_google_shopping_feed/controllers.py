@@ -172,7 +172,7 @@ class EqGoogleShoppingFeed(http.Controller):
             title = product.name                                            # titel
             
             
-            description_1 = product.description_sale                        # description - original
+            description_1 = product.description_sale or ''                  # description - original
             
             description_2 = description_1.replace("%", "&#37;")
             description_3 = description_2.replace("<", "&lt;")
