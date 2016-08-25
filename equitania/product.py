@@ -45,8 +45,10 @@ class eq_product_product_new_api(models.Model):
             product_ids = [x[0] for x in supplierinfo]
             if args == None:
                 args = []
-            args.append(['id', 'in', product_ids])
-        res = super(eq_product_product_new_api, self).name_search(name, args=args, operator=operator, limit=limit)
+            args.append(['product_tmpl_id', 'in', product_ids])
+            #args.append(['id', 'in', product_ids])
+        res = super(eq_product_product_new_api, self).name_search(name, args=args, operator=operator, limit=limit)    
+        #res = super(eq_product_product_new_api, self).name_search(name, args=args, operator=operator, limit=limit)
         return res
 
 class eq_product_template(osv.osv):
