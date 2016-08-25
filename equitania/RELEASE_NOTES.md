@@ -17,6 +17,12 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 #### 25.08.2016
+### Version 1.1.91
+#### FIX
+- Verbesserung für Ausblenden von Elementen für interne Nutzer wegen Fehler im Formular für Kontaktpersonen
+
+
+#### 25.08.2016
 ### Version 1.1.90
 #### FIX
 - BugFix bei der name_search Methode, wleche alle product_template_id's eines Lieferanten lädt. Bei der Suche werden nun die product_template_id's verwendet (vorher product_id).
