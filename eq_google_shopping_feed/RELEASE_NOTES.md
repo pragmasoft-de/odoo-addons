@@ -1,6 +1,11 @@
 ## Modul eq_google_shopping
 
 
+#### 25.08.2016
+#### Version 1.0.20
+##### FIX
+- Grundpreiseinheitsmaß wird nun als eine Ganzzahl angezeigt.
+
 #### 23.08.2016
 #### Version 1.0.19
 ##### FIX

@@ -220,7 +220,7 @@ class EqGoogleShoppingFeed(http.Controller):
                     
                 if product_obj.volume != False and product_obj.eq_basic.name != False:
                     #basic_unit = str(1.0) + ' ' + product_obj.eq_basic.name  
-                    basic_unit = str(1.0) + product_obj.eq_basic.name                                       #Grundpreiseinheitsmaß
+                    basic_unit = str(1) + product_obj.eq_basic.name                                       #Grundpreiseinheitsmaß
                 else:
                     basic_unit = ''
                 #basic_price = str(product_obj.eq_basic_price)                                                      #Grundpreiseinheit
