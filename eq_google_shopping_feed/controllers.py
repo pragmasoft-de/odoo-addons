@@ -170,9 +170,13 @@ class EqGoogleShoppingFeed(http.Controller):
             product_product = http.request.env['product.product'].sudo().search([('product_tmpl_id', '=', id)])
             
             title = product.name                                            # titel
+            title = title.replace("%", "&#37;")
+            title = title.replace("<", "&lt;")
+            title = title.replace(">", "&gt;")
+            title = title.replace("&", "&amp;")
             
             
-            description_1 = product.description_sale                        # description - original
+            description_1 = product.description_sale or ''                  # description - original
             
             description_2 = description_1.replace("%", "&#37;")
             description_3 = description_2.replace("<", "&lt;")
@@ -211,6 +215,9 @@ class EqGoogleShoppingFeed(http.Controller):
                 elif contry_code == 'en':
                     price = str(product_obj.list_price) + ' USD'
                     country ='US'
+                elif contry_code == 'ch':
+                    price = str(product_obj.list_price) + ' CHF'
+                    country = 'CH'
                 availability = product_obj.qty_available                                                            #Stock
                 if product_obj.weight_net != False and product_obj.eq_basic.name != False:
                     #unit_measure = str(product_obj.weight_net) + ' ' + product_obj.eq_basic.name                    #Grundpreis Maß
