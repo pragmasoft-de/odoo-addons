@@ -74,34 +74,39 @@
 					<attribute name="attrs">{'invisible': [('customer', '=', False), ('supplier', 
 					'=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', 
 					'=', False)]}</attribute> </xpath> -->
+					
+					<!-- 
 				<xpath expr="//field[@name='property_product_pricelist']"
 					position="attributes">
 					<attribute name="attrs">{'invisible': [('customer', '=', False),
 						('supplier', '=', False), ('eq_prospective_customer', '=', False),
 						('eq_unlocked_for_webshop', '=', False)]}</attribute>
 				</xpath>
-
+ 			-->
+ 				<!-- Kern stock 
 				<xpath expr="//field[@name='property_stock_customer']"
 					position="attributes">
 					<attribute name="attrs">{'invisible': [('customer', '=', False),
 						('supplier', '=', False), ('eq_prospective_customer', '=', False),
 						('eq_unlocked_for_webshop', '=', False)]}</attribute>
 				</xpath>
-
+				
 				<xpath expr="//field[@name='property_stock_supplier']"
 					position="attributes">
 					<attribute name="attrs">{'invisible': [('customer', '=', False),
 						('supplier', '=', False), ('eq_prospective_customer', '=', False),
 						('eq_unlocked_for_webshop', '=', False)]}</attribute>
 				</xpath>
-
-
+				 -->
+				<!-- Kern delivery
 				<xpath expr="//field[@name='property_delivery_carrier']"
 					position="attributes">
 					<attribute name="attrs">{'invisible': [('customer', '=', False),
 						('supplier', '=', False), ('eq_prospective_customer', '=', False),
 						('eq_unlocked_for_webshop', '=', False)]}</attribute>
 				</xpath>
+				-->
+				
 				<!-- Auskommentiert da es zu Fehler im Formular für die Kontaktperson kommt
 				<xpath expr="//field[@name='opt_out']" position="attributes">
 					<attribute name="attrs">{'invisible': [('customer', '=', False),

@@ -17,6 +17,11 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 #### 26.08.2016
+
+### Version 1.1.93
+#### FIX
+- Anpassung für Modul equitania: weitere Felder werden nicht mehr ausgeblendet
+
 ### Version 1.1.92
 #### FIX
 - Verbesserung für Ausblenden von Elementen: Tab Warnings wird nicht mehr ausgeblendet
