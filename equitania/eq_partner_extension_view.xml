@@ -51,14 +51,14 @@
  -->
 
 
-				<!-- -->
+				<!-- 
 				<xpath expr="//notebook/page[@string='Warnings']" position="attributes">
 					<attribute name="attrs">{'invisible': [('is_company', '=',
 						False),('customer', '=', False), ('supplier', '=', False),
 						('eq_prospective_customer', '=', False),
 						('eq_unlocked_for_webshop', '=', False)]}</attribute>
 				</xpath>
-				 
+				 -->
 				<!-- <xpath expr="//notebook/page[@string='Reference']" position="attributes"> 
 					<attribute name="attrs">{'invisible': [('is_company', '=', False),('customer', 
 					'=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), 

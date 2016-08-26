@@ -16,6 +16,12 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 26.08.2016
+### Version 1.1.92
+#### FIX
+- Verbesserung für Ausblenden von Elementen: Tab Warnings wird nicht mehr ausgeblendet
+
+
 #### 25.08.2016
 ### Version 1.1.91
 #### FIX
