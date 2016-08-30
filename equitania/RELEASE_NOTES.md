@@ -16,6 +16,13 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+
+#### 30.08.2016
+### Version 1.1.94
+#### FIX
+- Lieferschein: Korrektur der Position der Anrede, bei kürzeren Company Adressen sowie eine IF-Abfrage für die c/o
+
+
 #### 26.08.2016
 
 ### Version 1.1.93
