@@ -25,6 +25,7 @@ username = "admin"
 pwd = "Passwort der DB"
 dbname = "Datenbankname"
 baseurl = "http://localhost:8069"
+csvfile = "csv/Exemplary_customer_csv.csv"
 
 i = 1   #Zaehlvariable 
  
@@ -34,17 +35,17 @@ uid = sock_common.login(dbname, username, pwd)
  
 sock = xmlrpclib.ServerProxy(baseurl + "/xmlrpc/object")
  
-data = open('csv/Exemplary_customer_csv.csv')
+data = open(csvfile)
 
 lines = data.readlines()
 number_of_lines = len(lines)-1
 print "Anzahl Datensätze: ", number_of_lines
     
-reader_data = open('csv/Exemplary_customer_csv.csv')
+reader_data = open(csvfile)
  
 reader = csv.reader(reader_data,delimiter=',') #delimiter bezeichnet das Trennzeichen der CSV-Datei
 
-next(reader)
+next(reader)  # Springt in nächste Zeile, da Beschreibungen nicht importiert werden.
 for row in reader:
      
     country_id = sock.execute(dbname, uid, pwd, 'res.country', 'search', [('code', '=', row[15])]) 

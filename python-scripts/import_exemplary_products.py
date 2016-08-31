@@ -26,6 +26,7 @@ username = "admin"
 pwd = "Passwort der DB"
 dbname = "Datenbankname"
 baseurl = "http://localhost:8069"
+csvfile = "csv/Exemplary_product_csv.csv"
 
 i = 1   #Zaehlvariable 
 
@@ -35,13 +36,13 @@ uid = sock_common.login(dbname, username, pwd)
 
 sock = xmlrpclib.ServerProxy(baseurl + "/xmlrpc/object")
 
-data = open('csv/Exemplary_product_csv.csv')
+data = open(csvfile)
 
 lines = data.readlines()
 number_of_lines = len(lines)-1
 print "Anzahl Datensätze: ", number_of_lines
      
-reader_data = open('csv/Exemplary_product_csv.csv')
+reader_data = open(csvfile)
  
 reader = csv.reader(reader_data,delimiter=';') #delimiter bezeichnet das Trennzeichen der CSV-Datei
 
@@ -49,7 +50,7 @@ Kategorien = {}
 Durchgang2 = []
 
 
-next(reader)
+next(reader) # Springt in nächste Zeile, da Beschreibungen nicht importiert werden.
 for row in reader:
     ProductData = {
                    'name': row[1],                                  #Bezeichnung
@@ -60,7 +61,7 @@ for row in reader:
                    'state': 'sellable',
                    'taxes_id': [(6, 0, [12])],
                    'supplier_taxes_id': [(6, 0, [14])],
-                   'lst_price': row[8],
+                   'list_price': row[8],
                    'standard_price':  row[7],
                    }
     #Produktnummer
