@@ -14,6 +14,12 @@
 					<field name="city" filter_domain="[('city','ilike',self)]" />
 					<field name="contact_name" filter_domain="[('contact_name','ilike',self)]" />
 					<field name="categories" filter_domain="[('categories','ilike',self)]" />
+					
+					
+					<field name="state_id" filter_domain="[('state_id','ilike',self)]" />
+					<field name="user_id" filter_domain="[('user_id','ilike',self)]" />
+					<field name="section_id" filter_domain="[('section_id','ilike',self)]" />
+					
 					<separator />
 					<filter string="Persons" name="type_person" domain="[('is_company','=',0)]" />
 					<filter string="Companies" name="type_company" domain="[('is_company','=',1)]" />
@@ -52,9 +58,12 @@
 								<field name="name" />
 								<field name="phone" />
 								<field name="zip" />
+								<field name="state_id" />
 								<field name="city" />
 								<field name="country_id" />
 								<field name="categories" />
+								<field name="user_id" />
+								<field name="section_id" />
 							</group>
 
 							<group>

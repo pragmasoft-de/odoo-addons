@@ -2045,9 +2045,15 @@ msgstr "Von"
 #. module: equitania
 #: view:crm.lead:equitania.crm_case_form_view_oppor_ext
 #: view:crm.lead:equitania.crm_lead_form_ext
+#: field:eq.address.search,state_id:0
 #: view:res.partner:equitania.eq_partner_extension_form_view
 msgid "State"
 msgstr "Bundesland"
+
+#. module: equitania
+#: field:eq.address.search,user_id:0
+msgid "Salesperson"
+msgstr "Verkäufer"
 
 #. module: equitania
 #: view:product.product:equitania.eq_product_product_form_view
@@ -2697,6 +2703,7 @@ msgid "Change customer to lead"
 msgstr "Kunden in Chance umwandeln"
 
 #. module: equitania
+#: field:eq.address.search,section_id:0
 #: field:eq.product.select.case.section.wiz,crm_case_section_id:0
 msgid "Sales Team"
 msgstr "Verkaufsteam"

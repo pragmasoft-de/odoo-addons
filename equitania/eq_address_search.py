@@ -42,6 +42,11 @@ class EQ_Address_Search(models.Model):
     supplier = fields.Boolean('Supplier')
     lead = fields.Boolean('Lead')
     categories = fields.Char(string="Categories")
+    
+    state_id = fields.Many2one('res.country.state', string="State")
+    user_id = fields.Many2one('res.users', string="Salesperson")
+    section_id = fields.Many2one('crm.case.section', string="Sales Team")
+    
     #Todo: Feld für Suche TelNr
     phone_search = fields.Char(string="Phone")
     
@@ -49,11 +54,11 @@ class EQ_Address_Search(models.Model):
     def init(self, cr):
         tools.drop_view_if_exists(cr, 'eq_address_search')
         cr.execute("""
-        CREATE OR REPLACE VIEW eq_address_search AS (      
-            
+        CREATE OR REPLACE VIEW eq_address_search AS (    
             SELECT ROW_NUMBER() OVER(ORDER BY coalesce(eq_partner_id, eq_crm_lead_id)) id,* 
             FROM (
-                SELECT p.name, '' as contact_name, p.id as eq_partner_id, cast(c.id as int) as eq_crm_lead_id, p.city, p.phone, p.zip, p.country_id, p.is_company, p.parent_id, p.customer, p.supplier, cast(c.id as bool) as lead,
+                SELECT p.name, '' as contact_name, p.id as eq_partner_id, cast(c.id as int) as eq_crm_lead_id, p.city, p.phone, p.zip, p.country_id, p.is_company, 
+                p.parent_id, p.customer, p.supplier, cast(c.id as bool) as lead, p.state_id, p.user_id, p.section_id,
                 (select string_agg(cat.name, ', ') from res_partner_res_partner_category_rel rel
                 left outer join res_partner_category cat on rel.category_id = cat.id
                 where rel.partner_id = p.id) as categories,
@@ -65,7 +70,8 @@ class EQ_Address_Search(models.Model):
                 
                 UNION  
                 
-                SELECT p.display_name as name, p.name as contact_name, p.id as eq_partner_id, cast(c.id as int) as eq_crm_lead_id, p.city, p.phone, p.zip, p.country_id, p.is_company, p.parent_id, p.customer, p.supplier, cast(c.id as bool) as lead,
+                SELECT p.display_name as name, p.name as contact_name, p.id as eq_partner_id, cast(c.id as int) as eq_crm_lead_id, p.city, p.phone, p.zip, p.country_id,
+                 p.is_company, p.parent_id, p.customer, p.supplier, cast(c.id as bool) as lead, p.state_id, p.user_id, p.section_id,
                 (select string_agg(cat.name, ', ') from res_partner_res_partner_category_rel rel
                 left outer join res_partner_category cat on rel.category_id = cat.id
                 where rel.partner_id = p.id) as categories,
@@ -77,7 +83,8 @@ class EQ_Address_Search(models.Model):
                 
                 UNION 
                 
-                SELECT coalesce(NULLIF(c.partner_name,''), c.name) as name, c.contact_name, null as eq_partner_id, c.id as eq_crm_lead_id, c.city, c.phone, c.zip, c.country_id, p.is_company, p.parent_id, false as customer, false as supplier, true as lead,
+                SELECT coalesce(NULLIF(c.partner_name,''), c.name) as name, c.contact_name, null as eq_partner_id, c.id as eq_crm_lead_id, c.city, c.phone, c.zip, 
+                c.country_id, p.is_company, p.parent_id, false as customer, false as supplier, true as lead, c.state_id, c.user_id, c.section_id,
                 (select string_agg(cat.name, ', ') from crm_lead_category_rel rel
                 left outer join crm_case_categ cat on rel.category_id = cat.id
                 where rel.lead_id = c.id) as categories,

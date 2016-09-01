@@ -16,6 +16,11 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 01.09.2016
+### Version 1.1.95
+#### Änderung
+- Erweiterung für Adresssuche (Ticket 1700)
+
 
 #### 30.08.2016
 ### Version 1.1.94
