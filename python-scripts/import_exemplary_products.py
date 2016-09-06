@@ -54,7 +54,7 @@ next(reader) # Springt in nächste Zeile, da Beschreibungen nicht importiert wer
 for row in reader:
     ProductData = {
                    'name': row[1],                                  #Bezeichnung
-                   'standart_price': row[7],                        #LetzterEK
+                   'standard_price': row[7],                        #LetzterEK
                    'purchase_ok': False if row[6] == '0' else True, #IstBestellartikel
                    'sale_ok': False if row[7] == '0' else True,     #IstVerkaufsartikel
                    'active': True,
