@@ -158,6 +158,8 @@
 							<div t-field="o.partner_id.name" style="clear:left;" />
 							<div t-if="o.partner_id.eq_name2" t-field="o.partner_id.eq_name2"
 								style="clear:left;" />
+							<div t-if="o.partner_id.eq_name3" t-field="o.partner_id.eq_name3"
+								style="clear:left;" />
 							<div>
 								<span t-field="o.partner_id.street" />
 								<span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no" />
@@ -178,6 +180,8 @@
 						<div t-if="not o.partner_id.is_company">
 							<div t-field="o.partner_id.parent_id.name" style="clear:left;" />
 							<div t-if="o.partner_id.parent_id.eq_name2" t-field="o.partner_id.parent_id.eq_name2"
+								style="clear:left;" />
+							<div t-if="o.partner_id.parent_id.eq_name3" t-field="o.partner_id.parent_id.eq_name3"
 								style="clear:left;" />
 							<span t-field="o.partner_id.title.name" />
 							<span t-field="o.partner_id.eq_firstname" style="clear:left;" />
@@ -655,6 +659,8 @@
 										<div t-if="o.eq_delivery_address.name" t-field="o.eq_delivery_address.name" style="clear:left;" />
 										<div t-if="o.eq_delivery_address.eq_name2" t-field="o.eq_delivery_address.eq_name2"
 											style="clear:left;" />
+										<div t-if="o.eq_delivery_address.eq_name3" t-field="o.eq_delivery_address.eq_name3"
+											style="clear:left;" />
 										<div>
 											<span t-field="o.eq_delivery_address.street" />
 											<span t-if="o.eq_delivery_address.eq_house_no" t-field="o.eq_delivery_address.eq_house_no" />
@@ -677,6 +683,8 @@
 									<div t-if="o.eq_delivery_address.type == 'contact'">
 										<div t-if="o.eq_delivery_address.parent_id.name" t-field="o.eq_delivery_address.parent_id.name" style="clear:left;" />
 										<div t-if="o.eq_delivery_address.parent_id.eq_name2" t-field="o.eq_delivery_address.parent_id.eq_name2"
+											style="clear:left;" />
+										<div t-if="o.eq_delivery_address.parent_id.eq_name3" t-field="o.eq_delivery_address.parent_id.eq_name3"
 											style="clear:left;" />
 											<span t-field="o.eq_delivery_address.title.name" />
 											<span t-field="o.eq_delivery_address.eq_firstname" style="clear:left;" />

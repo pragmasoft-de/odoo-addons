@@ -2825,3 +2825,10 @@ msgstr "Menu Personal anzeigen"
 msgid "The user will see the reporting menu.\n"
 "			"
 msgstr "Hauptmenueintrag für Berichtswesen anzeigen"
+
+#. module: equitania
+#: view:res.partner:equitania.eq_partner_extension_form_view
+#: field:res.partner,eq_name3:0
+#: field:res.users,eq_name3:0
+msgid "Name3"
+msgstr "Namenszusatz2"

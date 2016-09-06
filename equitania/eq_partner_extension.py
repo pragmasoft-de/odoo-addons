@@ -123,6 +123,7 @@ class eq_partner_extension(osv.osv):
         'eq_citypart': fields.char('Disctirct'),
         'eq_house_no': fields.char('House number'),
         'eq_name2': fields.char('Name2'),
+        'eq_name3': fields.char('Name3'),
         'eq_letter_salutation': fields.char('Salutation'),
         }
     

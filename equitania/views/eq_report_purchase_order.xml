@@ -104,6 +104,7 @@
                 </div>
                 <div t-field="o.partner_id.name" style="clear:left;"/>
                    <div t-if="o.partner_id.eq_name2" t-field="o.partner_id.eq_name2" style="clear:left;"/>
+                   <div t-if="o.partner_id.eq_name3" t-field="o.partner_id.eq_name3" style="clear:left;"/>
 				<div>
 					<span t-field="o.partner_id.street"/><span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no"/>
 				</div>
@@ -326,6 +327,7 @@
 			                    	<td>
 			                    		<div t-field="o.picking_type_id.warehouse_id.partner_id.name"/>
 			                    		<div t-if="o.picking_type_id.warehouse_id.partner_id.eq_name2" t-field="o.picking_type_id.warehouse_id.partner_id.eq_name2"/>
+			                    		<div t-if="o.picking_type_id.warehouse_id.partner_id.eq_name3" t-field="o.picking_type_id.warehouse_id.partner_id.eq_name3"/>
 			                            <div>
 											<span t-field="o.picking_type_id.warehouse_id.partner_id.street"/><span t-if="o.picking_type_id.warehouse_id.partner_id.eq_house_no" t-field="o.picking_type_id.warehouse_id.partner_id.eq_house_no" />
 										</div>

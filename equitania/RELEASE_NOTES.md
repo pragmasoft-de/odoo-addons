@@ -16,6 +16,13 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+
+#### 06.09.2016
+### Version 1.1.96
+#### Änderung
+- Neues Feld eq_name3 für Partner hinzugefügt
+
+
 #### 01.09.2016
 ### Version 1.1.95
 #### Änderung

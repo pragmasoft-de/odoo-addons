@@ -153,6 +153,8 @@
 							<div t-field="o.company_id.partner_id.name" style="clear:left;" />
 							<div t-if="o.company_id.partner_id.eq_name2" t-field="o.company_id.partner_id.eq_name2"
 								style="clear:left;" />
+							<div t-if="o.company_id.partner_id.eq_name3" t-field="o.company_id.partner_id.eq_name3"
+								style="clear:left;" />
 							<div>
 								<span t-field="o.company_id.partner_id.street" />
 								<span t-if="o.company_id.partner_id.eq_house_no" t-field="o.company_id.partner_id.eq_house_no" />
@@ -300,6 +302,8 @@
 										<div t-field="o.sale_id.partner_invoice_id.name" style="clear:left;" />
 										<div t-if="o.sale_id.partner_invoice_id.eq_name2" t-field="o.sale_id.partner_invoice_id.eq_name2"
 											style="clear:left;" />
+										<div t-if="o.sale_id.partner_invoice_id.eq_name3" t-field="o.sale_id.partner_invoice_id.eq_name3"
+											style="clear:left;" />
 										<div>
 											<span t-field="o.sale_id.partner_invoice_id.street" />
 											<span t-if="o.sale_id.partner_invoice_id.eq_house_no"
@@ -320,6 +324,9 @@
 											style="clear:left;" />
 										<div t-if="o.sale_id.partner_invoice_id.parent_id.eq_name2"
 											t-field="o.sale_id.partner_invoice_id.parent_id.eq_name2"
+											style="clear:left;" />
+										<div t-if="o.sale_id.partner_invoice_id.parent_id.eq_name3"
+											t-field="o.sale_id.partner_invoice_id.parent_id.eq_name3"
 											style="clear:left;" />
 										<span t-field="o.sale_id.partner_invoice_id.title.name" />
 										<span t-field="o.sale_id.partner_invoice_id.eq_firstname"
