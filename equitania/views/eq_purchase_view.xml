@@ -34,9 +34,16 @@
 						<field name="eq_supplier_no" />
 						<field name="partner_id" string="Supplier" />
 						<field name="date_planned"  string="Delivery Date" widget="date" width="135"/>
+						
+						<!-- wegen oca-Modulen -->
+						<field name="price_unit" string="price_unit" invisible="1"/>
+						
 						<field name="product_qty" sum="Total Quantity"/>
 						<field name="eq_qty_left" sum="Total Quantity left"/>
 						<field name="product_id" string="Product Number"/>
+						
+						
+						
 						<field name="eq_drawing_number"/>
 						<field name="state"/>
 					</tree>

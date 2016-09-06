@@ -18,6 +18,12 @@ Vorgehensweise unter Debian:
 
 
 #### 06.09.2016
+### Version 1.1.97
+#### Änderung
+- Anpassung für Bestellreport
+
+
+#### 06.09.2016
 ### Version 1.1.96
 #### Änderung
 - Neues Feld eq_name3 für Partner hinzugefügt

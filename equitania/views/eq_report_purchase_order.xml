@@ -209,9 +209,8 @@
                     <th class="text-right" style="min-width:2.3cm;">
                         <strong>Unit price<!-- Preis --></strong>
                     </th>
-                    <th class="text-right" style="min-width:2.7cm;">
-                        <strong>Net price<!-- Preis Netto --></strong>
-                    </th>
+                    <!-- Preis Netto -->
+                    <th class="text-right" style="min-width:2.7cm;"><strong>Net price</strong></th>
                 </tr>
             </thead>
             <tbody>
