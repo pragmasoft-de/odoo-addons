@@ -20,7 +20,7 @@
 ##############################################################################
 
 from openerp import http
-from openerp.addons.eq_office365 import eq_log              # unser Logger importieren
+from openerp.addons.eq_website_customerportal import eq_log              # unser Logger importieren
 
 
 # Beispiel 1 -> Nur 1 Infotext in der Konsole ausgeben
