@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 ##############################################################################
 #
 #    Odoo Addon, Open Source Management Solution
@@ -20,27 +19,25 @@
 #
 ##############################################################################
 
-# definition of your tables and fields goes here
 
-from openerp import models, fields, api
-from openerp.addons.eq_office365 import eq_log              # unser Logger importieren
-
-
-# Beispiel 1 -> Nur 1 Infotext in der Konsole ausgeben
-#eq_log.log("Exchange-Modus")
-
-# Beispiel 2 -> 2 Werte in der Konsole ausgeben
-#eq_log.log("Anzahl kontakte:", size_contacts)
-
-# Beispiel 3 -> Mehrere Werte in der Konsole ausgeben
-#eq_log.log("Anzahl kontakte:", size_contacts, "Name: ", "Sody", "Modul:", "eq_website")
-
-# class eq_website_template(models.Model):
-#     _name = 'eq_website_template.eq_website_template'
-
-#     name = fields.Char()
+import sys
+import codecs
+sys.stdout = codecs.getwriter('utf8')(sys.stdout)
+sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 
 
 
+# aktiviert / deaktiviert DEBUG Mode - bitte vor dem Release immer auf FALSE setzen, damit wir kein Prints beim Kunden in der Konsole ausgeben
+USE_DEBUG = False
 
+def log(*args):
+    """
+        Kleine Hilfsfunktion, die wir als Logger in der Konsole verwenden
+    """
+    if USE_DEBUG:
+        print '#>', args        
         
+        """
+        for a in args:
+            print '#>', a
+        """

@@ -21,3 +21,4 @@
 
 import eq_product_product
 import eq_product_template
+import eq_log

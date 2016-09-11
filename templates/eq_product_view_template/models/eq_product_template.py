@@ -21,6 +21,18 @@
 ##############################################################################
 
 from openerp import models, fields, api
+from openerp.addons.eq_office365 import eq_log              # unser Logger importieren
+
+
+# Beispiel 1 -> Nur 1 Infotext in der Konsole ausgeben
+#eq_log.log("Exchange-Modus")
+
+# Beispiel 2 -> 2 Werte in der Konsole ausgeben
+#eq_log.log("Anzahl kontakte:", size_contacts)
+
+# Beispiel 3 -> Mehrere Werte in der Konsole ausgeben
+#eq_log.log("Anzahl kontakte:", size_contacts, "Name: ", "Sody", "Modul:", "eq_website")
+
 
 class eq_product_template(models.Model):
     _inherit = "product.template"
