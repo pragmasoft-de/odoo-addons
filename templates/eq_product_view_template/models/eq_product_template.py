@@ -21,7 +21,7 @@
 ##############################################################################
 
 from openerp import models, fields, api
-from openerp.addons.eq_product_view_template import eq_log              # unser Logger importieren
+#from openerp.addons.eq_product_view_template import eq_log              # unser Logger importieren
 
 
 # Beispiel 1 -> Nur 1 Infotext in der Konsole ausgeben
