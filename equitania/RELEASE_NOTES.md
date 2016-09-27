@@ -18,6 +18,11 @@ Vorgehensweise unter Debian:
 
 
 #### 06.09.2016
+### Version 1.1.98
+#### FIX
+- In der stock.py wurde eine Abfrage auf den Typ der Rechnung (Eingangs- oder Ausgangsrechnung) hinzugefügt, sodass die richitge Steuer gezogen werden kann.
+
+#### 06.09.2016
 ### Version 1.1.97
 #### Änderung
 - Anpassung für Bestellreport
