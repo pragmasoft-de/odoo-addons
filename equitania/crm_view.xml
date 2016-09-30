@@ -86,5 +86,43 @@
 				</field>
 			</field>
 		</record>
+		
+		
+		
+		<!-- Smart Button Angebote unter Chancen -->
+	<record id="eq_open_purchases_crm_action" model="ir.actions.act_window">
+			<field name="name">Quotations</field>
+			<field name="res_model">sale.order</field>
+			<field name="domain">[('state', 'in', ('draft', 'sent', 'cancel'))]</field>
+			<field name="context">{'search_default_partner_id': id_active}</field> 
+			<!-- <field name="view_id" ref="document.view_document_file_tree" /> -->
+		</record> 
+		
+		<record model="ir.ui.view" id="crm_view_buttons">
+			<field name="name">crm.view.buttons</field>
+			<field name="model">crm.lead</field>
+			<field name="inherit_id" ref="crm.crm_case_form_view_oppor" />
+			<field name="priority" eval="20" />
+			<field name="arch" type="xml">
+				<field name="meeting_count" position="after">
+					<button type="action" class="oe_stat_button" icon="fa-strikethrough"
+						name="%(equitania.eq_open_purchases_crm_action)d" context = "{'id_active' : partner_id}">
+						<!-- context="{'search_default_partner_id': active_id,'default_partner_id': 
+							active_id}"> -->
+						<div>
+							<strong>
+								<field name="total_quot_crm" /> 
+								
+							</strong>
+							<br />
+							Quotations
+						</div>
+					</button>
+				</field>
+			</field>
+		</record>
+		
+		
+		
 	</data>
 </openerp>

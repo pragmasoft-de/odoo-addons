@@ -35,6 +35,18 @@ class eq_crm_lead(models.Model):
     
     _order = "date_action,priority desc,id desc"
     
+    def compute_quot_crm_count(self):
+        object = self.env['sale.order'] 
+        for crm in self:
+            record = object.search([('partner_id','=', crm.partner_id.id)])        
+            crm_quot_count = len(record)
+            crm.total_quot_crm = str(crm_quot_count) 
+    
+             
+    total_quot_crm = fields.Char(compute='compute_quot_crm_count')
+    
+    
+    
     firstname = fields.Char('Firstname')
     lastname = fields.Char('Lastname')
     category_ids = fields.Many2many(

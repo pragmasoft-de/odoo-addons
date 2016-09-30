@@ -2771,8 +2771,10 @@ msgid "# of Quotations"
 msgstr "# an Angeboten"
 
 #. module: equitania
-#: model:ir.actions.act_window,name:eq_smaract.eq_act_res_partner_quotation
-#: view:res.partner:eq_smaract.res_partner_view_buttons
+#: view:crm.lead:equitania.crm_view_buttons
+#: model:ir.actions.act_window,name:equitania.eq_act_res_partner_quotation
+#: model:ir.actions.act_window,name:equitania.eq_open_purchases_crm_action
+#: view:res.partner:equitania.res_partner_view_buttons
 msgid "Quotations"
 msgstr "Angebote"
 
