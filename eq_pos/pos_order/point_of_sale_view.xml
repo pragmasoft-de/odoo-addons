@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+	    <record id="return_view_pos_tree" model="ir.ui.view" >
+		    <field name="name">ret.pos.order.tree</field>
+		    <field name="model">pos.order</field>
+		    <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+		    <field name="arch" type="xml">
+		       <field name="pos_reference" position="after">
+		           <field name="back_order"/>
+		        </field>
+		    </field>
+		</record>
+		
+		<record id="return_view_pos_form" model="ir.ui.view" >
+		    <field name="name">ret.pos.order.form</field>
+		    <field name="model">pos.order</field>
+		    <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+		    <field name="arch" type="xml">
+		        <field name="pos_reference" position="after">
+		           <field name="back_order"/>
+		        </field>
+		    </field>
+		</record>
+        
+        <record id="view_pos_gift_form_ace" model="ir.ui.view" >
+            <field name="name">pos.order.gift.form.ace</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+            <field name="arch" type="xml">
+                <group name="order_total" position="replace">
+                    <group col="8">
+                        <group class="oe_left" col="8"> 
+                            <group></group>
+                            <group>
+                                <field name="gift_coupon_amt"/>
+                                <field name="bonus_discount"/>
+                            </group>
+                        </group>
+                        <group class="oe_subtotal_footer oe_right" name="order_total" >
+                            <group col="2" colspan="4"> 
+                                <field name="amount_tax"/>
+                            </group>
+                            <group  col="2" colspan="4">
+                                <div class="oe_subtotal_footer_separator oe_inline">
+                                    <label for="amount_total" />
+                                    <button name="button_dummy"
+                                        states="draft" string="(update)" class="oe_edit_only oe_link"/>
+                                </div>
+                                <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator"/>
+                            </group>
+                        </group>
+                    </group>
+                </group>
+            </field>
+        </record>
+        
+        <record id="acespritech_account_journal_form" model="ir.ui.view">
+            <field name="name">account.journal.form</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="point_of_sale.view_account_journal_pos_user_form"/>
+            <field name="arch" type="xml">
+                <field name="journal_user" position="after">
+                    <field name="pos_front_display"/>
+                </field>
+            </field>
+        </record>
+        
+        
+        <!-- search support -->
+		<record id="eq_pos_line_search_view" model="ir.ui.view">
+			<field name="name">eq.pos.line.search.view</field>
+			<field name="model">eq.pos.order.line</field>
+			<field name="arch" type="xml">
+				<search string="Address search">
+					<field name="eq_customer" filter_domain="['|',('eq_customer','ilike',self),('eq_customer_ref','ilike',self)]" />
+					<field name="eq_product_id" filter_domain="['|',('eq_product_id','ilike',self),('eq_product_default_code','ilike',self)]" />
+					<field name="eq_date_order" />
+					
+					<separator />
+					<group expand="0" string="Group By">
+						<filter string="Company" context="{'group_by': 'eq_customer'}" />
+						<filter string="Product" context="{'group_by': 'eq_product_id'}" />
+						<filter string="Order date" context="{'group_by': 'eq_date_order'}" />
+					</group>
+
+				</search>
+			</field>
+		</record>
+		
+		<record id="eq_pos_line_form_view" model="ir.ui.view">
+	            <field name="name">eq.pos.line.form.view</field>
+	            <field name="model">eq.pos.order.line</field>
+				<field name="arch" type="xml">				
+                <form string="POS lines">
+                	<group col="4" colspan="4">
+                	<field name="eq_customer"/>
+					<field name="eq_product_id"/>
+					<field name="eq_quantity"/>
+					<field name="eq_price_subtotal_incl"/>
+					<field name="eq_date_order"/>
+					</group>
+                </form>
+            </field>            		          
+	    </record>
+        
+        <!-- Defaultansicht zusammen mit den Feldern, die wir anzeigen -->
+	    <record id="eq_pos_line_tree_view" model="ir.ui.view">
+	            <field name="name">eq.pos.line.tree.view</field>
+	            <field name="model">eq.pos.order.line</field>
+				<field name="arch" type="xml">				
+                <tree string="POS lines">
+                	<field name="eq_customer"/>
+					<field name="eq_product_id"/>
+					<field name="eq_quantity"/>
+					<field name="eq_price_subtotal_incl"/>
+					<field name="eq_date_order"/>
+                </tree>
+            </field>            		          
+	    </record>
+        
+        <record model="ir.actions.act_window" id="action_pos_lines_form">
+            <field name="name">Order Lines</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">eq.pos.order.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" eval="False"/>
+            <field name="domain">[]</field>
+            <field name="search_view_id" ref="eq_pos_line_search_view" />
+        </record>
+        
+        
+        <!-- 
+        groups="group_pos_manager,group_pos_user"
+         -->
+        
+        <menuitem parent="point_of_sale.menu_point_of_sale" id="menu_point_of_sale_lines" action="action_pos_lines_form" sequence="3" />
+
+    </data>
+</openerp>

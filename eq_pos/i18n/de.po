@@ -1,0 +1,1350 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* eq_pos
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0 Build 1602003\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-21 11:08+0000\n"
+"PO-Revision-Date: 2016-03-21 11:08+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:334
+#, python-format
+msgid " Coupon selected"
+msgstr " Gutschein gewählt"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:221
+#, python-format
+msgid "% discount"
+msgstr "% Rabatt"
+
+#. module: eq_pos
+#: view:pos.order:eq_pos.view_pos_gift_form_ace
+msgid "(update)"
+msgstr "(aktualisieren)"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:486
+#: code:addons/eq_pos/static/src/xml/pos.xml:493
+#: code:addons/eq_pos/static/src/xml/pos.xml:500
+#: code:addons/eq_pos/static/src/xml/pos.xml:507
+#, python-format
+msgid "-- Coupon Information --"
+msgstr "-- Gutschein Information --"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:366
+#, python-format
+msgid "--------------------------------"
+msgstr "--------------------------------"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/screens.js:739
+#, python-format
+msgid "A Customer Name Is Required"
+msgstr "Der Kundenname ist erforderlich"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:115
+#, python-format
+msgid "Add Bonus Coupon"
+msgstr "Rückgabe-Gutschein"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:110
+#, python-format
+msgid "Add Gift Coupon"
+msgstr "Gutschein hinzufügen"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:30
+#, python-format
+msgid "All Bonus Coupons"
+msgstr "Alle Rückgabe-Gutscheine"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:27
+#, python-format
+msgid "All Coupons"
+msgstr "Alle Gutscheine"
+
+#. module: eq_pos
+#: field:bonus.return,bonus_amount:0
+#: field:pos.coupon.line,amount:0
+msgid "Amount"
+msgstr "Betrag"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1328
+#: code:addons/eq_pos/static/src/js/pos.js:1428
+#, python-format
+msgid "Amount should be greater than zero !"
+msgstr "Der Betrag muss größer als Null sein!"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:95
+#, python-format
+msgid "Amount:"
+msgstr "Betrag:"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1047
+#: code:addons/eq_pos/static/src/js/screens.js:1318
+#, python-format
+msgid "An anonymous order cannot be invoiced"
+msgstr "Ein anonymer Verkauf kann nicht in Rechnung gestellt werden"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/screens.js:1070
+#, python-format
+msgid "Back"
+msgstr "Zurück"
+
+#. module: eq_pos
+#: field:pos.order,back_order:0
+msgid "Back Order"
+msgstr "Rücknahme"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:384
+#: code:addons/eq_pos/static/src/xml/pos.xml:62
+#: code:addons/eq_pos/static/src/xml/pos.xml:86
+#, python-format
+msgid "Barcode:"
+msgstr "Barcode:"
+
+#. module: eq_pos
+#: field:pos.bonus.history,bonus_return_id:0
+msgid "Bonus Coupon"
+msgstr "Rückgabe-Gutschein"
+
+#. module: eq_pos
+#: view:pos.bonus.history:eq_pos.view_pos_bonus_history_tree
+msgid "Bonus Coupon History"
+msgstr "Rückgabe-Gutschein-Liste"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1739
+#, python-format
+msgid "Bonus Coupon Information"
+msgstr "Rückgabe-Gutschein Informationen"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:256
+#, python-format
+msgid "Bonus Coupon:"
+msgstr "Rückgabe-Gutschein:"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:138
+#, python-format
+msgid "Bonus Coupons"
+msgstr "Rückgabe-Gutscheine"
+
+#. module: eq_pos
+#: view:bonus.return:eq_pos.view_pos_bonus_form
+msgid "Bonus Details"
+msgstr "Rückgabe-Gutschein Details"
+
+#. module: eq_pos
+#: field:pos.order,bonus_discount:0
+msgid "Bonus Discount"
+msgstr "Rückgabe-Gutschein Rabatt"
+
+#. module: eq_pos
+#: model:ir.actions.act_window,name:eq_pos.action_pos_bonus
+#: model:ir.ui.menu,name:eq_pos.pos_bonus_side_menu
+msgid "Bonus Return Coupons"
+msgstr "Rückgabe-Gutscheine"
+
+#. module: eq_pos
+#: field:pos.bonus.history,name:0
+msgid "Bonus Serial"
+msgstr "Gutschein Nr."
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:457
+#, python-format
+msgid "CHANGE"
+msgstr "ÄNDERN"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:785
+#: code:addons/eq_pos/static/src/js/pos.js:1559
+#, python-format
+msgid "Can not return more products !"
+msgstr "Mehr Produkte können nicht zurückgenommen werden!"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:113
+#: code:addons/eq_pos/static/src/js/pos.js:472
+#: code:addons/eq_pos/static/src/js/pos.js:1340
+#: code:addons/eq_pos/static/src/js/pos.js:1440
+#, python-format
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1026
+#: code:addons/eq_pos/static/src/js/screens.js:1297
+#, python-format
+msgid "Cannot return change without a cash payment method"
+msgstr "Rücknahme ohne Zahlungsmethode nicht möglich"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/screens.js:1099
+#, python-format
+msgid "Cash"
+msgstr "Barkasse"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/screens.js:683
+#, python-format
+msgid "Change Customer"
+msgstr "Wechsle Kunden"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:313
+#, python-format
+msgid "Change:"
+msgstr "Ändern:"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1053
+#: code:addons/eq_pos/static/src/js/screens.js:1324
+#, python-format
+msgid "Check your internet connection and try again."
+msgstr "Prüfen Sie Ihre Internet-Verbindung und versuchen Sie es erneut."
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:86
+#: code:addons/eq_pos/static/src/js/pos.js:107
+#: code:addons/eq_pos/static/src/js/pos.js:466
+#: code:addons/eq_pos/static/src/js/pos.js:788
+#: code:addons/eq_pos/static/src/js/pos.js:823
+#: code:addons/eq_pos/static/src/js/pos.js:833
+#: code:addons/eq_pos/static/src/js/pos.js:1562
+#, python-format
+msgid "Close"
+msgstr "Schließen"
+
+#. module: eq_pos
+#: field:bonus.return,company_id:0
+#: view:eq.pos.order.line:eq_pos.eq_pos_line_search_view
+#: field:pos.coupon,company_id:0
+msgid "Company"
+msgstr "Firma"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:166
+#, python-format
+msgid "Convert to Bonus"
+msgstr "Rückgabe-Gutschein erstellen"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:94
+#, python-format
+msgid "Convert to bonus or not ?"
+msgstr "Rückgabe-Gutschein erstellen?"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/screens.js:829
+#, python-format
+msgid "Could Not Read Image"
+msgstr "Das Bild konnte nicht gelesen werden"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:197
+#: field:pos.coupon.history,coupon_id:0
+#: field:pos.coupon.line,coupon_id:0
+#, python-format
+msgid "Coupon"
+msgstr "Gutschein"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:201
+#, python-format
+msgid "Coupon Created"
+msgstr "Gutschein erstellt"
+
+#. module: eq_pos
+#: view:pos.coupon:eq_pos.view_pos_coupon_form
+msgid "Coupon Details"
+msgstr "Gutschein-Details"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:280
+#: view:pos.coupon.history:eq_pos.view_pos_coupon_history_tree
+#, python-format
+msgid "Coupon History"
+msgstr "Gutschein-Historie"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1095
+#: code:addons/eq_pos/static/src/js/pos.js:1112
+#: code:addons/eq_pos/static/src/js/pos.js:1156
+#: code:addons/eq_pos/static/src/js/pos.js:1658
+#: code:addons/eq_pos/static/src/js/pos.js:1701
+#, python-format
+msgid "Coupon Information"
+msgstr "Gutschein Informationen"
+
+#. module: eq_pos
+#: view:pos.coupon.line:eq_pos.view_pos_coupon_line_tree
+msgid "Coupon Line"
+msgstr "Gutschein-Zeile"
+
+#. module: eq_pos
+#: model:ir.ui.menu,name:eq_pos.menu_pos_coupon_submain
+msgid "Coupon Management"
+msgstr "Gutscheinverwaltung"
+
+#. module: eq_pos
+#: model:res.groups,name:eq_pos.group_coupon_manager
+msgid "Coupon Manager"
+msgstr "Gutschein-Verwalter"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:44
+#, python-format
+msgid "Coupon Name"
+msgstr "Gutschein Name"
+
+#. module: eq_pos
+#: field:pos.coupon.history,name:0
+#: field:pos.coupon.line,name:0
+msgid "Coupon Serial"
+msgstr "Gutschein Nummer"
+
+#. module: eq_pos
+#: field:product.product,validity_days:0
+msgid "Coupon Validity Days"
+msgstr "Gutschein-Gültigkeitstage"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:221
+#: code:addons/eq_pos/static/src/js/pos.js:365
+#, python-format
+msgid "Coupon is already created !"
+msgstr "Ein Gutschein ist bereits erstellt !"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:247
+#, python-format
+msgid "Coupon:"
+msgstr "Gutschein:"
+
+#. module: eq_pos
+#: view:pos.coupon:eq_pos.view_pos_coupon_form
+#: view:product.product:eq_pos.product_normal_form_view_coupon
+msgid "Coupons"
+msgstr "Gutscheine"
+
+#. module: eq_pos
+#: view:bonus.return:eq_pos.view_pos_bonus_form
+msgid "Create Bonus"
+msgstr "Erstelle Rückgabe-Gutschein"
+
+#. module: eq_pos
+#: view:bonus.return:eq_pos.view_pos_bonus_form
+msgid "Create Bonus Coupon"
+msgstr "Erstelle Rückgabe-Gutschein"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:19
+#: view:pos.coupon:eq_pos.view_pos_coupon_form
+#, python-format
+msgid "Create Coupon"
+msgstr "Gutschein erstellen"
+
+#. module: eq_pos
+#: field:bonus.return,create_uid:0
+#: field:pos.bonus.history,create_uid:0
+#: field:pos.coupon,create_uid:0
+#: field:pos.coupon.history,create_uid:0
+#: field:pos.coupon.line,create_uid:0
+msgid "Created by"
+msgstr "Erstellt durch"
+
+#. module: eq_pos
+#: field:bonus.return,create_date:0
+#: field:pos.bonus.history,create_date:0
+#: field:pos.coupon,create_date:0
+#: field:pos.coupon.history,create_date:0
+#: field:pos.coupon.line,create_date:0
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: eq_pos
+#: field:bonus.return,name:0
+#: field:pos.coupon,name:0
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/screens.js:686
+#, python-format
+msgid "Deselect Customer"
+msgstr "Abwahl des Kunden"
+
+#. module: eq_pos
+#: code:addons/eq_pos/pos_order/pos.py:102
+#: code:addons/eq_pos/pos_order/pos.py:115
+#, python-format
+msgid "Discount"
+msgstr "Rabatt"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:283
+#: code:addons/eq_pos/static/src/xml/pos.xml:386
+#, python-format
+msgid "Discount:"
+msgstr "Rabatt:"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:466
+#, python-format
+msgid "Discounts"
+msgstr "Rabatte"
+
+#. module: eq_pos
+#: field:account.journal,pos_front_display:0
+msgid "Display in POS Front"
+msgstr "Anzeige in Kassen-Vorderseite"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1333
+#, python-format
+msgid "Either date is expired or invalid barcode."
+msgstr "Entweder das Datum ist abgelaufen oder ungültiger Barcode."
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:997
+#: code:addons/eq_pos/static/src/js/screens.js:1268
+#, python-format
+msgid "Empty Order"
+msgstr "Leere Bestellung"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:185
+#, python-format
+msgid "Enter Password"
+msgstr "Passwort eingeben"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1396
+#, python-format
+msgid "Enter bonus coupon information"
+msgstr "Rückgabe-Gutschein Informationen eingeben"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1279
+#, python-format
+msgid "Enter gift coupon information"
+msgstr "Gutschein-Informationen eingeben"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/screens.js:326
+#, python-format
+msgid "Error"
+msgstr "Fehler"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/screens.js:757
+#, python-format
+msgid "Error: Could not Save Changes"
+msgstr "Fehler: Änderungen wurden nicht gespeichert"
+
+#. module: eq_pos
+#: field:pos.coupon.line,date_expiry_line:0
+msgid "Expiry Date"
+msgstr "Ablaufdatum"
+
+#. module: eq_pos
+#: model:ir.actions.act_window,name:eq_pos.action_pos_coupon
+msgid "Gift Coupon"
+msgstr "Gutschein"
+
+#. module: eq_pos
+#: field:pos.order,gift_coupon_amt:0
+msgid "Gift Coupon Amt"
+msgstr "Gutschein hinzufügen"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:126
+#, python-format
+msgid "Gift Coupons"
+msgstr "Geschenk-Gutscheine"
+
+#. module: eq_pos
+#: model:ir.ui.menu,name:eq_pos.pos_coupon_side_menu
+msgid "Gift Vouchers"
+msgstr "Geschenkgutscheine"
+
+#. module: eq_pos
+#: view:bonus.return:eq_pos.view_pos_bonus_form
+#: view:pos.coupon:eq_pos.view_pos_coupon_form
+msgid "History"
+msgstr "Historie"
+
+#. module: eq_pos
+#: field:bonus.return,bonus_history:0
+#: field:pos.coupon,coupon_history:0
+msgid "Hostory Lines"
+msgstr "Historie-Positionen"
+
+#. module: eq_pos
+#: field:bonus.return,id:0
+#: field:pos.bonus.history,id:0
+#: field:pos.coupon,id:0
+#: field:pos.coupon.history,id:0
+#: field:pos.coupon.line,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:458
+#, python-format
+msgid "Invalid Password !"
+msgstr "Ungültiges passwort !"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1433
+#, python-format
+msgid "Invalid barcode !"
+msgstr "Ungültiger barcode !"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/screens.js:1088
+#, python-format
+msgid "Invoice"
+msgstr "Rechnung"
+
+#. module: eq_pos
+#: field:product.template,is_coupon:0
+msgid "Is Coupon"
+msgstr "Ist Gutschein"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:50
+#: field:bonus.return,date_create:0
+#: field:pos.coupon.line,date_create_line:0
+#, python-format
+msgid "Issue Date"
+msgstr "Ausstellungsdatum"
+
+#. module: eq_pos
+#: model:ir.model,name:eq_pos.model_account_journal
+msgid "Journal"
+msgstr "Journal"
+
+#. module: eq_pos
+#: field:pos.coupon.line,date_recharge_line:0
+msgid "Last Recharge Date"
+msgstr "Letzte Wiederaufladung "
+
+#. module: eq_pos
+#: field:bonus.return,write_uid:0
+#: field:pos.bonus.history,write_uid:0
+#: field:pos.coupon,write_uid:0
+#: field:pos.coupon.history,write_uid:0
+#: field:pos.coupon.line,write_uid:0
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: eq_pos
+#: field:bonus.return,write_date:0
+#: field:pos.bonus.history,write_date:0
+#: field:pos.coupon,write_date:0
+#: field:pos.coupon.history,write_date:0
+#: field:pos.coupon.line,write_date:0
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: eq_pos
+#: field:pos.coupon,line_ids:0
+msgid "Lines"
+msgstr "Positionen"
+
+#. module: eq_pos
+#: model:ir.model,name:eq_pos.model_pos_order
+#: view:website:eq_pos.eq_report_sessionsummary_short
+msgid "Lines of Point of Sale"
+msgstr "Kassenumsätze"
+
+#. module: eq_pos
+#: view:bonus.return:eq_pos.view_pos_bonus_tree
+#: view:pos.coupon:eq_pos.view_pos_coupon_tree
+msgid "List of Coupons"
+msgstr "Gutschein-Scheinauflistung"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:188
+#, python-format
+msgid "Loading"
+msgstr "Wird geladen ..."
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:11
+#, python-format
+msgid "Missing Order Receipt"
+msgstr "Fehlender Kassenbeleg"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:173
+#: code:addons/eq_pos/static/src/js/pos.js:181
+#: code:addons/eq_pos/static/src/js/pos.js:182
+#: code:addons/eq_pos/static/src/js/pos.js:773
+#: code:addons/eq_pos/static/src/js/pos.js:841
+#: code:addons/eq_pos/static/src/js/pos.js:1546
+#, python-format
+msgid "Missing Receipt"
+msgstr "Fehlender Kassenbeleg"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:169
+#, python-format
+msgid "NO"
+msgstr "Nein"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1007
+#: code:addons/eq_pos/static/src/js/screens.js:1278
+#, python-format
+msgid "Negative Bank Payment"
+msgstr "Negative Bank-Zahlung"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/screens.js:942
+#, python-format
+msgid "Next Order"
+msgstr "Nächster Auftrag"
+
+#. module: eq_pos
+#: code:addons/eq_pos/pos_order/pos.py:131
+#: code:addons/eq_pos/pos_order/pos.py:146
+#, python-format
+msgid "No cash statement found for this session. Unable to record returned cash."
+msgstr "Es wurde kein Kassenbuchung für diese Sitzung gefunden. Deshalb kann keine Geldrückgabe erfolgen."
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1282
+#: code:addons/eq_pos/static/src/js/pos.js:1399
+#, python-format
+msgid "Ok"
+msgstr "Ok"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/screens.js:815
+#, python-format
+msgid "Only web-compatible Image formats such as .png or .jpeg are supported"
+msgstr "Es werden nur Web-Bildformate wie .png oder .jpeg unterstützt"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:599
+#, python-format
+msgid "Order "
+msgstr "Verkauf "
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:479
+#, python-format
+msgid "Order Barcode:"
+msgstr "Verkauf-Barcode:"
+
+#. module: eq_pos
+#: field:pos.bonus.history,pos_order:0
+#: field:pos.coupon.history,pos_order:0
+msgid "POS Order"
+msgstr "Kassenverkauf"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:199
+#, python-format
+msgid "Phone:"
+msgstr "Telefon:"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:820
+#, python-format
+msgid "Please check quantity of selected product & sold product !"
+msgstr "Bitte überprüfen Sie die Menge des ausgewählten und des verkauften Produkts!"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:142
+#: code:addons/eq_pos/static/src/js/pos.js:169
+#, python-format
+msgid "Please click on Clear Order button to continue !"
+msgstr "Bitte klicken Sie auf die 'Auftrag leeren' Schaltfläche um fortzufahren !"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:757
+#, python-format
+msgid "Please click on Create Coupon Button !"
+msgstr "Bitte klicken Sie auf die 'Gutschein erstellen' Schaltfläche !"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:463
+#, python-format
+msgid "Please enter correct password !"
+msgstr "Bitte das richtige Passwort eingeben!"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:83
+#: code:addons/eq_pos/static/src/js/pos.js:104
+#, python-format
+msgid "Please enter correct reference number !"
+msgstr "Bitte geben Sie korrekte Referenznummer ein!"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1048
+#: code:addons/eq_pos/static/src/js/screens.js:1319
+#, python-format
+msgid "Please select a client for this order. This can be done by clicking the order tab"
+msgstr "Bitte wählen Sie einen Kunden aus. Klicken Sie hierzu einfach auf den Aktenreiter für diesen Verkauf."
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1162
+#, python-format
+msgid "Please select coupon product to recharge !"
+msgstr "Bitte wählen Sie ein Gutschein-Produkt für eine Wiederaufladung !"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:768
+#, python-format
+msgid "Please select only one product coupon !"
+msgstr "Bitte selektieren Sie nur ein Gutschein-Produkt !"
+
+#. module: eq_pos
+#: model:ir.model,name:eq_pos.model_pos_order
+msgid "Point of Sale"
+msgstr "Kasse"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1096
+#: code:addons/eq_pos/static/src/js/pos.js:1113
+#: code:addons/eq_pos/static/src/js/pos.js:1157
+#: field:eq.pos.order.line,eq_price_subtotal_incl:0
+#, python-format
+msgid "Price"
+msgstr "Preis"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:488
+#, python-format
+msgid "Price:"
+msgstr "Preis:"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/screens.js:936
+#, python-format
+msgid "Print"
+msgstr "Drucken"
+
+#. module: eq_pos
+#: view:eq.pos.order.line:eq_pos.eq_pos_line_search_view
+msgid "Group By"
+msgstr "Gruppierung"
+
+#. module: eq_pos
+#: view:eq.pos.order.line:eq_pos.eq_pos_line_search_view
+#: field:eq.pos.order.line,eq_product_id:0
+#: model:ir.model,name:eq_pos.model_product_product
+#: field:pos.coupon.line,product_id:0
+msgid "Product"
+msgstr "Produkt"
+
+#. module: eq_pos
+#: model:ir.model,name:eq_pos.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:830
+#, python-format
+msgid "Product is not in order list !"
+msgstr "Das Produkt ist nicht in der Auftragsliste!"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1096
+#: code:addons/eq_pos/static/src/js/pos.js:1113
+#: code:addons/eq_pos/static/src/js/pos.js:1157
+#, python-format
+msgid "Qty"
+msgstr "Menge"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:33
+#, python-format
+msgid "Recharge Coupon"
+msgstr "Gutschein aufladen"
+
+#. module: eq_pos
+#: field:bonus.return,bonus_remaining_amt:0
+#: field:pos.coupon.line,remaining_amt:0
+msgid "Remaining Amount"
+msgstr "Verbleibender, fälliger Restbetrag"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1424
+#, python-format
+msgid "Remaining amount in coupon:  !"
+msgstr "Verbleibender Betrag im Gutschein:  !"
+
+#. module: eq_pos
+#: field:pos.coupon.line,remaining_validity_days:0
+msgid "Remaining validity days"
+msgstr "Verbleibende Gültigkeitstage"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:14
+#, python-format
+msgid "Return Mode"
+msgstr "Rückgabemodus"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:46
+#: code:addons/eq_pos/static/src/xml/pos.xml:160
+#, python-format
+msgid "Return Order"
+msgstr "Verkaufsrückgabe"
+
+#. module: eq_pos
+#: field:pos.order,parent_return_order:0
+msgid "Return Order ID"
+msgstr "Verkaufsrückgabe ID"
+
+#. module: eq_pos
+#: field:pos.order,return_process:0
+msgid "Return Process"
+msgstr "Rückgabe Vorgang"
+
+#. module: eq_pos
+#: field:pos.order.line,return_qty:0
+msgid "Return QTY"
+msgstr "Rückgabe-Menge"
+
+#. module: eq_pos
+#: field:pos.order,return_seq:0
+msgid "Return Sequence"
+msgstr "Rückgaben-Reihenfolge"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:8
+#, python-format
+msgid "Sale Mode"
+msgstr "Verkaufsmodus"
+
+#. module: eq_pos
+#: view:product.product:eq_pos.product_normal_form_view_coupon
+msgid "Sales"
+msgstr "Verkäufe"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:425
+#, python-format
+msgid "Salesman"
+msgstr "Verkäufer"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:317
+#, python-format
+msgid "Select coupon to recharge"
+msgstr "Selektieren Sie einen Gutschein für eine Wiederaufladung"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1659
+#: code:addons/eq_pos/static/src/js/pos.js:1702
+#: code:addons/eq_pos/static/src/js/pos.js:1740
+#, python-format
+msgid "Serial No"
+msgstr "Seriennummer"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:494
+#: code:addons/eq_pos/static/src/xml/pos.xml:501
+#: code:addons/eq_pos/static/src/xml/pos.xml:508
+#, python-format
+msgid "Serial No:"
+msgstr "Seriennummer:"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:367
+#, python-format
+msgid "Served by"
+msgstr "Sie wurden bedient von"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/screens.js:681
+#, python-format
+msgid "Set Customer"
+msgstr "Kunde auswählen"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:201
+#, python-format
+msgid "Shop:"
+msgstr "Shop:"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:414
+#, python-format
+msgid "Subtotal"
+msgstr "Zwischensumme"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:264
+#, python-format
+msgid "Subtotal:"
+msgstr "Zwischensumme:"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:427
+#, python-format
+msgid "TOTAL"
+msgstr "GESAMT"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:351
+#, python-format
+msgid "Tel:"
+msgstr "Tel.:"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1052
+#: code:addons/eq_pos/static/src/js/screens.js:1323
+#, python-format
+msgid "The order could not be sent"
+msgstr "Der Verkaufsauftrag konnte nicht gesendet werden"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/screens.js:830
+#, python-format
+msgid "The provided file could not be read due to an unknown error"
+msgstr "Die Datei konnte aufgrund eines unbekannten Fehlers nicht gelesen werden"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1027
+#: code:addons/eq_pos/static/src/js/screens.js:1298
+#, python-format
+msgid "There is no cash payment method available in this point of sale to handle the change.\n"
+"\n"
+" Please pay the exact amount or add a cash payment method in the point of sale configuration"
+msgstr "Es wurde noch keine Zahlungsmethode für diesen Kassenplatz angelegt, die es ermöglicht Bargeld herauszugeben.\n"
+"\n"
+"Bitte zahlen Sie deshalb den Betrag passend ein oder definieren Sie eine entsprechende Zahlungsmethode."
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:998
+#: code:addons/eq_pos/static/src/js/screens.js:1269
+#, python-format
+msgid "There must be at least one product in your order before it can be validated"
+msgstr "Es muss zumindest ein Produkt ausgewählt werden, um den Verkaufsauftrag zu bestätigen."
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:289
+#, python-format
+msgid "Total:"
+msgstr "Gesamtbetrag:"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/screens.js:814
+#, python-format
+msgid "Unsupported File Format"
+msgstr "Nicht unterstütztes Dateiformat"
+
+#. module: eq_pos
+#: field:pos.bonus.history,used_amount:0
+#: field:pos.coupon.history,used_amount:0
+msgid "Used Amount"
+msgstr "Verbrauchter Wert"
+
+#. module: eq_pos
+#: field:pos.bonus.history,used_date:0
+#: field:pos.coupon.history,used_date:0
+msgid "Used Date"
+msgstr "Verbraucht am"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:200
+#, python-format
+msgid "User:"
+msgstr "Benutzer:"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:354
+#, python-format
+msgid "VAT:"
+msgstr "Ust-IDNr.:"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:49
+#: code:addons/eq_pos/static/src/js/pos.js:440
+#: code:addons/eq_pos/static/src/js/screens.js:1078
+#, python-format
+msgid "Validate"
+msgstr "Bestätigen"
+
+#. module: eq_pos
+#: field:pos.coupon.line,validity:0
+msgid "Validity"
+msgstr "Gültigkeit"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:220
+#, python-format
+msgid "With a"
+msgstr "Mit einem"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:168
+#, python-format
+msgid "YES"
+msgstr "Ja"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/pos.js:1008
+#: code:addons/eq_pos/static/src/js/screens.js:1279
+#, python-format
+msgid "You cannot have a negative amount in a Bank payment. Use a cash payment method to return money to the customer."
+msgstr "Sie können einen negativen Betrag bei einer Bank die Zahlung nicht anwenden. Verwenden Sie eine Barzahlungsmethode, um Geld an den Kunden zurück zu erstatten."
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/js/screens.js:758
+#, python-format
+msgid "Your Internet connection is probably down."
+msgstr "Ihre Internetverbindung ist wahrscheinlich unterbrochen."
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:488
+#, python-format
+msgid "[Qty:"
+msgstr "[Menge:"
+
+#. module: eq_pos
+#: code:addons/eq_pos/pos_order/pos.py:130
+#: code:addons/eq_pos/pos_order/pos.py:145
+#, python-format
+msgid "error!"
+msgstr "Fehler!"
+
+#. module: eq_pos
+#: code:addons/eq_pos/pos_order/pos.py:136
+#: code:addons/eq_pos/pos_order/pos.py:151
+#, python-format
+msgid "return"
+msgstr "zurück"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+#: view:website:point_of_sale.report_sessionsummary
+msgid "taking:"
+msgstr "Einzahlungen:"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+#: view:website:point_of_sale.report_sessionsummary
+msgid "withdrawal:"
+msgstr "Entnahme:"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+#: view:website:point_of_sale.report_sessionsummary
+msgid "goods turnover:"
+msgstr "Warenumsatz :"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary
+#: view:website:point_of_sale.report_sessionsummary
+msgid "turnover (total):"
+msgstr "Umsätze (Gesamte Verkäufe):"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+#: view:website:point_of_sale.report_sessionsummary
+msgid "taxed turnover:"
+msgstr "Versteuerter Umsatz:"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+#: view:website:point_of_sale.report_sessionsummary
+msgid "voucher sale:"
+msgstr "Gutscheinverkauf:"
+
+#. module: eq_pos
+#: model:ir.actions.report.xml,name:eq_pos.eq_action_report_pos_session_summary
+#: model:ir.actions.report.xml,name:eq_pos.eq_action_report_pos_session_summary_short
+msgid "Session Summary - short"
+msgstr "Kassenbericht - kurz"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+#: view:website:point_of_sale.report_sessionsummary
+msgid "turnover 0%:"
+msgstr "Umsatz 0%:"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+#: view:website:point_of_sale.report_sessionsummary
+msgid "turnover 19%:"
+msgstr "Umsatz 19%:"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+#: view:website:point_of_sale.report_sessionsummary
+msgid "turnover 7%:"
+msgstr "Umsatz 7%:"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+msgid "Session Summary:"
+msgstr "Kassenbericht:"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+msgid "Responsible"
+msgstr "Kassenleitung"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+msgid "Opening Date"
+msgstr "Eröffnungsdatum"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+msgid "Closing Date"
+msgstr "Kassenabschluss"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+msgid "Reference"
+msgstr "Referenz"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+msgid "Starting Balance"
+msgstr "Anfangssaldo"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+msgid "Total Transactions"
+msgstr "Gesamtumsatz"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+#: view:website:point_of_sale.report_sessionsummary
+msgid "cash deck moving:"
+msgstr "Kassenbewegung:"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+msgid "Ending Balance"
+msgstr "Endsaldo"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+msgid "Difference"
+msgstr "Differenz"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+msgid "Statement Summary"
+msgstr "Kassenbericht"
+
+#. module: eq_pos
+#: model:ir.model,name:eq_pos.model_pos_order_line
+msgid "Lines of Point of Sale"
+msgstr "Kassenumsätze"
+
+#. module: eq_pos
+#: model:ir.model,name:eq_pos.model_pos_order
+#: view:website:eq_pos.eq_report_sessionsummary_short
+msgid "Point of Sale"
+msgstr "Kasse"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+#: view:website:point_of_sale.report_sessionsummary
+msgid "cash turnover:"
+msgstr "Kassenumsatz:"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+msgid "deposit:"
+msgstr "Einzahlungen:"
+
+#. module: eq_pos
+#: view:website:eq_pos.eq_report_sessionsummary_short
+#: view:website:point_of_sale.report_sessionsummary
+msgid "cash only turnover:"
+msgstr "Barumsatz:"
+
+#. module: eq_pos
+#: model:ir.actions.act_window,name:eq_pos.action_pos_lines_form
+#: model:ir.ui.menu,name:eq_pos.menu_point_of_sale_lines
+msgid "Order Lines"
+msgstr "Kassenumsatzpositionen"
+
+#. module: eq_pos
+#: model:ir.actions.act_window,name:eq_pos.eq_act_pos_lines
+#: view:res.partner:eq_pos.res_partner_view_buttons
+msgid "Order lines"
+msgstr "Kasse"
+
+#. module: eq_pos
+#: field:eq.pos.order.line,eq_date_order:0
+#: view:eq.pos.order.line:eq_pos.eq_pos_line_search_view
+msgid "Order date"
+msgstr "Auftragsdatum"
+
+#. module: eq_pos
+#: view:eq.pos.order.line:eq_pos.eq_pos_line_tree_view
+msgid "POS lines"
+msgstr "Kassenumsatzpositionen"
+
+#. module: eq_pos
+#: field:eq.pos.order.line,eq_pos_id:0
+msgid "Pos Order"
+msgstr "Referenz Auftrag"
+
+#. module: eq_pos
+#: field:eq.pos.order.line,eq_quantity:0
+msgid "Quantity"
+msgstr "Menge"
+
+#. module: eq_pos
+#: field:eq.pos.order.line,eq_customer:0
+msgid "Customer"
+msgstr "Kunde"
+
+#. module: eq_pos
+#: field:eq.pos.order.line,eq_customer_ref:0
+msgid "Customer ref"
+msgstr "Kundennr"
+
+#. module: eq_pos
+#: field:eq.pos.order.line,eq_product_default_code:0
+msgid "Product code"
+msgstr "Produktnr"
+
+#. module: eq_pos
+#. openerp-web
+#: code:addons/eq_pos/static/src/xml/pos.xml:235
+#, python-format
+msgid "PCE x"
+msgstr "Stück x"
