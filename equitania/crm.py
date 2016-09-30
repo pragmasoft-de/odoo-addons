@@ -56,7 +56,29 @@ class eq_crm_lead(models.Model):
     eq_citypart = fields.Char('District')
     eq_house_no = fields.Char('House Number')
     
-    
+    def on_change_partner_id(self, cr, uid, ids, partner_id, context=None):
+        values = {}
+        if partner_id:
+            partner = self.pool.get('res.partner').browse(cr, uid, partner_id, context=context)
+            partner_name = (partner.parent_id and partner.parent_id.name) or (partner.is_company and partner.name) or False
+            values = {
+                'partner_name': partner_name,
+                'contact_name': (not partner.is_company and partner.name) or False,
+                'title': partner.title and partner.title.id or False,
+                'street': partner.street,
+                'eq_house_no': partner.eq_house_no,
+                'street2': partner.street2,
+                'city': partner.city,
+                'state_id': partner.state_id and partner.state_id.id or False,
+                'country_id': partner.country_id and partner.country_id.id or False,
+                'email_from': partner.email,
+                'phone': partner.phone,
+                'mobile': partner.mobile,
+                'fax': partner.fax,
+                'zip': partner.zip,
+                'function': partner.function,
+            }
+        return {'value': values}
     
     def _convert_opportunity_data(self, cr, uid, lead, customer, section_id=False, context=None):
         res = super(eq_crm_lead, self)._convert_opportunity_data(cr, uid, lead, customer, section_id=False, context=None)

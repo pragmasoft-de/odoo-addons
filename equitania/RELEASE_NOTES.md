@@ -17,6 +17,11 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 #### 30.09.2016
+### Version 1.1.100
+#### FIX
+- Beim Anlegen eines Interessenten wurde nach der Auswahl eines Kunden die Hausnummer nicht mehr in das entsprechende Feld mit übernommen. Dies wurde nun durch die Hinzunahme des Feldes eq_house_no behoben.
+
+#### 30.09.2016
 ### Version 1.1.99
 #### ADD
 - Unter der Rubrik "Chancen" einen SmartButton hinzugefügt, welcher direkt auf die Angebote des Ansprechspartners verweist.
