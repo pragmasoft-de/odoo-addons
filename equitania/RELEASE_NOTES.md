@@ -16,6 +16,11 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 04.10.2016
+### Version 1.1.101
+#### FIX
+- Beim Umwandeln einer Chance werden nun die gesetzten Felder wie Vorname, Nachname, Geburtstag etc. mit übernommen.
+
 #### 30.09.2016
 ### Version 1.1.100
 #### FIX
