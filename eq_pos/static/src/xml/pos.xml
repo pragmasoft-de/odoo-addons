@@ -198,7 +198,10 @@
         </table>
     </t>
     
-    <!-- UI Definition for PREVIEW -->
+    
+    
+    
+    <!-- UI Definition for Print via Q-Web -->
     <t t-extend="PosTicket">
     	<t t-jquery="div.pos-sale-ticket" t-operation="replace">
 		    <div class="pos-sale-ticket">
@@ -225,11 +228,10 @@
 		        <table>
 		            <colgroup>
 		                <col width='70%' />
-		                <!-- <col width='25%' />-->
 		                <col width='30%' />
 		            </colgroup>
-		            <!-- order lines -->
 		            
+		            <!-- order lines -->		            
 		            <tr t-foreach="orderlines" t-as="orderline">
 		                <td>
 		                    <t t-esc="orderline.get_product().display_name"/>
@@ -246,9 +248,7 @@
 			                    	PCE x
 			                    <t t-esc="widget.eq_format_without_currency(orderline.get_unit_price())"/>		                    			                    			                    	
 		                    </t>
-		                </td>
-		                
-		                
+		                </td>		                		               
 		                <!-- <td class="pos-right-align">
 		                	<t t-if="orderline.get_oid()">
 		                    	-<t t-esc="orderline.get_quantity_str_with_unit()"/>
@@ -258,8 +258,7 @@
 			                    	PCE x
 			                    <t t-esc="widget.eq_format_without_currency(orderline.get_unit_price())"/>		                    			                    			                    	
 		                    </t>
-		                </td>-->		                
-		                 
+		                </td>-->		                		                 
 		                <td class="pos-right-align" style="vertical-align:bottom;">
 		                	<t t-if="orderline.get_oid()">
 		                    	-<t t-esc="widget.format_currency(orderline.get_display_price())"/>
@@ -276,18 +275,15 @@
 		        <table>
                     <t t-if="order.get_coupon_amount()">
                         <tr>
-                            <td>Coupon: a
-                            </td>
+                            <td>Coupon: </td>
                             <td class="pos-right-align">
-                                <span id="coupon_amount"><t t-esc="widget.format_currency(order.get_coupon_amount())"/></span>
+                                <span id="coupon_amount">-<t t-esc="widget.format_currency(order.get_coupon_amount())"/></span>
                             </td>
                         </tr>
-                    </t>
-                    
+                    </t>                    
                     <t t-if="order.get_bonus_return_amount()">
                         <tr>
-                            <td>Bonus Coupon: b
-                            </td>
+                            <td>Bonus Coupon: b</td>
                             <td class="pos-right-align">
                                 <span id="coupon_amount"><t t-esc="widget.format_currency(order.get_bonus_return_amount())"/></span>
                             </td>
@@ -362,7 +358,9 @@
 		</t>
 	</t>
 	
-	<!-- UI Definition for REAL PRINT -->
+	<t t-set="nbsp" t-value=" '     '.replace('  ',u'\xa0').encode('utf-8') "/>
+	
+	<!-- UI Definition for REAL PRINT via RaspberryPi -->
 	<t t-extend="XmlReceipt">
 	    <t t-jquery="receipt" t-operation="replace">
 	        <receipt align='center' width='40' value-thousands-separator='' >
@@ -412,7 +410,7 @@
 	                    <t t-if='simple'>
 	                        <line>
 	                            <left><t t-esc='line.product_name' /></left>
-	                            <right><value><t t-esc='line.price_display' /></value></right>
+	                            <right><value><t t-esc='line.price_display' /></value> <t t-esc='receipt.currency.symbol'/></right>
 	                        </line>
 	                    </t>
 	                    <t t-if='!simple'>
@@ -434,7 +432,7 @@
 	                                </value>
 	                            </left>
 	                            <right>
-	                                <value><t t-esc='line.price_display' /></value>
+	                                <value><t t-esc='line.price_display' /> <t t-esc='receipt.currency.symbol'/></value>
 	                            </right>
 	                        </line>
 	                    </t>
@@ -460,10 +458,10 @@
 	                <left><pre>        TOTAL</pre></left>
 	                <right>
 	                	<t t-if="!receipt.ret_o_id">
-	                		<value><t t-esc='receipt.total_with_tax' /></value>
+	                		<value><t t-esc='receipt.total_with_tax' /> <t t-esc='receipt.currency.symbol'/></value>
 	                	</t>
 	                	<t t-if="receipt.ret_o_id">
-	                		-<value><t t-esc='receipt.total_with_tax' /></value>
+	                		-<value><t t-esc='receipt.total_with_tax' /> <t t-esc='receipt.currency.symbol'/></value>
 	                	</t>
 	                </right>
 	            </line>	            	           
@@ -474,7 +472,11 @@
                 	<t t-foreach='receipt.eq_add_gift_coupon' t-as='gift_coupon'> 
 	                   <t t-if='gift_coupon'>
 		                   <left>Coupon <t t-esc='gift_coupon.serial_number' /></left>
-		                   <right><t t-esc='gift_coupon.price.replace(".00", "")' /></right>	                   	                       
+		                   <!-- 
+		                   Deaktiviert am 07.10.2016 und erweitert um -
+		                   <right><t t-esc='gift_coupon.price.replace(".00", "")' /></right>
+		                    -->
+		                    <right>-<t t-esc='gift_coupon.price' /> <t t-esc='receipt.currency.symbol'/></right>	                   	                       
 	                   </t>
 	                </t>
 	                </t>
@@ -486,7 +488,11 @@
                 	<t t-foreach='receipt.eq_add_bonus_coupon' t-as='bonus_coupon'> 
 	                   <t t-if='bonus_coupon'>
 		                   <left>Coupon <t t-esc='bonus_coupon.serial_number' /></left>
-		                   <right><t t-esc='bonus_coupon.price.replace(".00", "")' /></right>	                   	                       
+		                   <!--
+		                   Deaktiviert am 07.10.2016 und erweitert um - 
+		                   <right><t t-esc='bonus_coupon.price.replace(".00", "")' /></right>
+		                    -->
+		                    <right>-<t t-esc='bonus_coupon.price' /> <t t-esc='receipt.currency.symbol'/></right>	                   	                       
 	                   </t>
 	                </t>
 	                </t>
@@ -501,9 +507,11 @@
 	                    <right>
 	                    	<t t-if="receipt.ret_o_id">
 	                    		-<value><t t-esc='line.amount'/></value>
+	                    		<value><t t-esc='line.symbol'/></value>
 	                    	</t>
 	                    	<t t-if="!receipt.ret_o_id">
 	                    		<value><t t-esc='line.amount'/></value>
+	                    		<value><t t-esc='line.symbol'/></value>
 	                    	</t>
                 		</right>
 	                </line>
@@ -513,7 +521,7 @@
 				<!-- Change -->
 	            <line size='double-height'>
 	                <left><pre>        CHANGE</pre></left>
-	                <right><value><t t-esc='receipt.change' /></value></right>
+	                <right><value><t t-esc='receipt.change' /> <t t-esc='receipt.currency.symbol'/></value></right>
 	            </line>
 	            <br/>
 	            
@@ -521,14 +529,14 @@
 	            <t t-if='receipt.total_discount'>
 	                <line>
 	                    <left>Discounts</left>
-	                    <right><value><t t-esc='receipt.total_discount'/></value></right>
+	                    <right><value><t t-esc='receipt.total_discount'/></value> <t t-esc='receipt.currency.symbol'/></right>
 	                </line>
 	            </t>
 	            <t t-if='taxincluded'>
 	                <t t-foreach='receipt.tax_details' t-as='tax'>
 	                    <line>
 	                        <left><t t-esc='tax.name' /></left>
-	                        <right><value><t t-esc='tax.amount' /></value></right>
+	                        <right><value><t t-esc='tax.amount' /></value> <t t-esc='receipt.currency.symbol'/></right>
 	                    </line>
 	                </t>
 	            </t><br/>
@@ -542,8 +550,8 @@
                 
 	            <t t-foreach='receipt.orderlines' t-as='line'>
 	               <t t-if='line.coupon_serial'>
-	                    -- Coupon Information --<br/>
-                        <t t-esc='line.product_name' /> [Qty:<t t-esc='line.quantity' />  Price:<t t-esc='line.price' />]
+	                    -- A Coupon Information --<br/>
+                        <t t-esc='line.product_name' /> [Qty:<t t-esc='line.quantity' />  Price:<t t-esc='line.price' /> <t t-esc='receipt.currency.symbol'/>]
 	                   <barcode encoding="CODE39">*<t t-esc='line.coupon_serial' />*</barcode><br/>
 	               </t>
 	            </t>
@@ -563,8 +571,7 @@
                        <barcode encoding="CODE39">*<t t-esc='gift_coupon' />*</barcode><br/>
                    </t>
                 </t>
-                
-                
+                                
                 <t t-foreach='receipt.add_bonus_coupon' t-as='bonus_coupon'>
                    <t t-if='bonus_coupon'>
                    <h4>y</h4>
@@ -573,14 +580,11 @@
                        <barcode encoding="CODE39">*<t t-esc='bonus_coupon'/>*</barcode><br/>
                    </t>
                 </t>
-	            
-	            
+	            	            
 	            <!-- Footer -->
 	            <t t-if='receipt.footer'>
 	                <br/>
-	                <pre><t t-esc='receipt.footer' /></pre>
-	                <br/>
-	                <br/>
+	                <pre><t t-esc='receipt.footer' /></pre><br/><br/>
 	            </t>
 	            <br/>
 	            <div font='b'>

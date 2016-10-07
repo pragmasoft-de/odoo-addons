@@ -20,7 +20,7 @@
 ##############################################################################
 {
     'name': 'EQ POS customization',
-    'version': '1.0.28',
+    'version': '1.0.29',
     'category': 'Point of Sale',
     'description': """
 This module is used to return the products to the customer from POS Interface, Gift coupon voucher.

@@ -138,7 +138,7 @@ openerp.eq_pos = function (instance) {
         },
         
         _product_search_string: function(product){
-            var str = product.display_name;
+        	var str = product.display_name;
             if (product.ean13) {
                 str += '|' + product.ean13;
             }
@@ -1344,10 +1344,14 @@ openerp.eq_pos = function (instance) {
             var orderlines = [];
             this.get('orderLines').each(function(orderline){
                 orderlines.push(orderline.export_for_printing());
-            });
+            });            
             var paymentlines = [];
-            this.get('paymentLines').each(function(paymentline){
-                paymentlines.push(paymentline.export_for_printing());
+            this.get('paymentLines').each(function(paymentline){            	            	
+            	payment_record = paymentline.export_for_printing();
+            	payment_record.symbol = paymentline.pos.currency.symbol;
+            	paymentlines.push(payment_record);
+            	
+                //paymentlines.push(paymentline.export_for_printing());		// DEFAULT
             });
             var client  = this.get('client');
             var cashier = this.pos.cashier || this.pos.user;
@@ -2249,6 +2253,17 @@ openerp.eq_pos = function (instance) {
     });
     
     instance.point_of_sale.PosModel = instance.point_of_sale.PosModel.extend({
+    	_reformat_coupon_price: function(orderlines){
+    		// small helper that reformats couponprice to number with 2 digits
+    		for (var i=0; i < orderlines.length; i++){
+    			line = orderlines[i];
+    			if (line.coupon_serial != undefined){
+    				// reformat price
+    				line.price = line.price.toFixed(2);    			
+    			}    			
+    		}    		
+    		return orderlines;
+    	},
         _save_to_server: function (orders, options) {
             if (!orders || !orders.length) {
                 var result = $.Deferred();
@@ -2404,21 +2419,26 @@ openerp.eq_pos = function (instance) {
 	                            });
 			                }
 			                if(self.config.iface_print_via_proxy){
-                                var receipt = currentOrder.export_for_printing();
+                                var receipt = currentOrder.export_for_printing();                                
+                                
+                                // EQ: Added on 07.10.2016 - to be able to reformat price of coupons
+                                self._reformat_coupon_price(receipt.orderlines)                                
                                 var proxy_receipt = QWeb.render('XmlReceipt',{
                                     receipt: receipt, widget: self,
-                                })
+                                })                                
                                 
-//                                EQ: proxy on popup
-/*
+//                              EQ: Testdialog for Check of print - START, NOTE: !DEACTIVATE BEFORE CHECKIN !
+/*                                
                                 var dialog = new instance.web.Dialog(self, { 
                                     size: 'medium',
                                     buttons: [{text: _t("Close"), click: function() { self.parents('.modal').modal('hide'); }}],
                                 }).open();
                                 dialog.$el.html(proxy_receipt);
-*/                              
+*/                                
+//								EQ: Testdialog for Check of print - END
                                 
-                                                                                                                             
+                                                                         
+                                
                                 self.proxy.print_receipt(proxy_receipt);
                                 
                                 self.get('selectedOrder').destroy();    //finish order and go back to scan screen
@@ -3280,14 +3300,21 @@ function openerp_pos_models(instance, module){ //module is instance.point_of_sal
             this.trigger('change',this);
         },
         get_unit_price: function(){
-            return round_di(this.price || 0, this.pos.dp['Product Price'])
+            //return round_di(this.price || 0, this.pos.dp['Product Price'])
+        	var result = round_di(this.price || 0, this.pos.dp['Product Price'])
+        	console.log("result: " + result);
+        	console.log(type(result));
+        	return result
         },
         get_base_price:    function(){
             var rounding = this.pos.currency.rounding;
             return round_pr(this.get_unit_price() * this.get_quantity() * (1 - this.get_discount()/100), rounding);
         },
         get_display_price: function(){
-            return this.get_base_price();
+            var result = this.get_base_price();
+            console.log("Check1: ", result);
+            return result;
+        	//return this.get_base_price();
         },
         get_price_without_tax: function(){
             return this.get_all_prices().priceWithoutTax;
@@ -3412,6 +3439,13 @@ function openerp_pos_models(instance, module){ //module is instance.point_of_sal
         model: module.Orderline,
     });
 
+    
+    module.PaymentlineCollection = Backbone.Collection.extend({
+        model: module.Paymentline,
+    });
+    
+    
+    
     // Every Paymentline contains a cashregister and an amount of money.
     module.Paymentline = Backbone.Model.extend({
         initialize: function(attributes, options) {
@@ -3457,18 +3491,19 @@ function openerp_pos_models(instance, module){ //module is instance.point_of_sal
             };
         },
         //exports as JSON for receipt printing
-        export_for_printing: function(){
-            return {
+        export_for_printing: function(){        	        	
+            return {            	
                 amount: this.get_amount(),
                 journal: this.cashregister.journal_id[1],
             };
         },
     });
 
+    /*
     module.PaymentlineCollection = Backbone.Collection.extend({
         model: module.Paymentline,
     });
-    
+    */
 
     // An order more or less represents the content of a client's shopping cart (the OrderLines) 
     // plus the associated payment information (the Paymentlines) 
@@ -3678,8 +3713,7 @@ function openerp_pos_models(instance, module){ //module is instance.point_of_sal
             var orderlines = [];
             this.get('orderLines').each(function(orderline){
                 orderlines.push(orderline.export_for_printing());
-            });
-
+            });            
             var paymentlines = [];
             this.get('paymentLines').each(function(paymentline){
                 paymentlines.push(paymentline.export_for_printing());
