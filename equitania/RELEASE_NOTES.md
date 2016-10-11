@@ -16,6 +16,12 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+
+#### 11.10.2016
+### Version 1.1.102
+#### CHG
+- Zwei Hilfskommentare in den Templates der RechnungsReports hinzugefügt
+
 #### 04.10.2016
 ### Version 1.1.101
 #### FIX

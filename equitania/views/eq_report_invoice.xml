@@ -32,6 +32,7 @@
 									<span t-field="o.partner_id.eq_customer_ref" id="eq_customer_ref" />
 								</td>
 							</tr>
+							<!-- Die Kundenreferenznummer wird auf Auftragszeilenposition angedruckt, welche aus dem Lieferschein gezogen wird -->
 							<!-- <tr t-if="o.eq_ref_number">
 								<td>
 									<span>Your reference no.</span>
@@ -384,6 +385,7 @@
 								<tr t-if="l.eq_move_id and l.eq_move_id.picking_id" style="border-top-style:hidden;">
 									<td colspan="7">
 										<span style="font-weight:bold;" t-if="l.eq_move_id and l.eq_move_id.picking_id.eq_ref_number">
+											<!--  EVTL Bug: Referenz aus Lieferschein, nicht aus Rechnung -->
 											<strong>Customer Reference: <span t-field="l.eq_move_id.picking_id.eq_ref_number"/></strong>
 										</span>
 										<span>
