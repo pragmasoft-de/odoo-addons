@@ -142,7 +142,8 @@ pip install passlib \
     && pip install pillow==2.6.0 \
     && pip install pyserial \
     && pip install pyusb \
-	&& pip install phonenumbers
+	&& pip install phonenumbers \
+	&& pip install psycogreen
 
 echo "OpenSans font will be install..."
 wget https://release.myodoo.de/fonts/opensans.zip
