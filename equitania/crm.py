@@ -56,6 +56,17 @@ class eq_crm_lead(models.Model):
     eq_citypart = fields.Char('District')
     eq_house_no = fields.Char('House Number')
     
+    def handle_partner_assignation(self, cr, uid, ids, action='create', partner_id=False, context=None):
+        partner_ids = super(eq_crm_lead, self).handle_partner_assignation(cr, uid, ids, action=action, partner_id=partner_id, context=context)
+        for lead in self.browse(cr, uid, ids, context=context):
+            lead_vals = {
+                         'eq_house_no': lead.eq_house_no,
+                         }
+            self.pool['res.partner'].write(cr, uid, partner_ids[lead.id], lead_vals)
+        return partner_ids
+    
+    
+    
     def on_change_partner_id(self, cr, uid, ids, partner_id, context=None):
         values = {}
         if partner_id:

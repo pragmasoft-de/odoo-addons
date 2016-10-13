@@ -16,6 +16,10 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 13.10.2016
+### Version 1.1.103
+#### FIX
+- Das Feld "eq_house_no" wird nun auch bei der Umwandlung eines Interessenten zu einer Chance bei der Erstellung eines neuen Kunden mit übernommen.
 
 #### 11.10.2016
 ### Version 1.1.102
