@@ -88,6 +88,11 @@
 					<field name="city" />
 					<field name="country_id" />
 					<field name="categories" />
+					<field name="supplier" string="Supplier"/>
+					<field name="customer" string="Customer"/>
+					<!-- <field name="lead"/> -->
+					<field name="eq_chance" string="Chance"/>
+					<field name="eq_interessent" string="Interessent"/>
 				</tree>
 			</field>
 		</record>

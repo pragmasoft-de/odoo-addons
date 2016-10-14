@@ -16,6 +16,11 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 14.10.2016
+### Version 1.1.104
+#### ADD
+- Unter dem Menüunterpunkt "Adressen" wird nun angezeigt, ob die Adresse ein Lieferant, Kunde, Interessent oder Chance ist.
+
 #### 13.10.2016
 ### Version 1.1.103
 #### FIX

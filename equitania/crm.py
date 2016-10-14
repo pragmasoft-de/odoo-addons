@@ -60,7 +60,7 @@ class eq_crm_lead(models.Model):
         partner_ids = super(eq_crm_lead, self).handle_partner_assignation(cr, uid, ids, action=action, partner_id=partner_id, context=context)
         for lead in self.browse(cr, uid, ids, context=context):
             lead_vals = {
-                         'eq_house_no': lead.eq_house_no,
+                         'eq_house_no': lead.eq_house_no or '',
                          }
             self.pool['res.partner'].write(cr, uid, partner_ids[lead.id], lead_vals)
         return partner_ids

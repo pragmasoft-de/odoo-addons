@@ -50,6 +50,9 @@ class EQ_Address_Search(models.Model):
     #Todo: Feld für Suche TelNr
     phone_search = fields.Char(string="Phone")
     
+    eq_chance = fields.Boolean('Chance')
+    eq_interessent = fields.Boolean('Interessent')
+    
     #TODO JOIN
     def init(self, cr):
         tools.drop_view_if_exists(cr, 'eq_address_search')
@@ -62,7 +65,8 @@ class EQ_Address_Search(models.Model):
                 (select string_agg(cat.name, ', ') from res_partner_res_partner_category_rel rel
                 left outer join res_partner_category cat on rel.category_id = cat.id
                 where rel.partner_id = p.id) as categories,
-                regexp_replace(regexp_replace(trim(coalesce(p.phone,'')),'\+','00','g'),'[^0-9]','','g') as phone_search
+                regexp_replace(regexp_replace(trim(coalesce(p.phone,'')),'\+','00','g'),'[^0-9]','','g') as phone_search,
+                false as eq_interessent, false as eq_chance
                 FROM res_partner p 
                 LEFT OUTER JOIN crm_lead c on c.partner_id = p.id
                 WHERE is_company
@@ -75,7 +79,8 @@ class EQ_Address_Search(models.Model):
                 (select string_agg(cat.name, ', ') from res_partner_res_partner_category_rel rel
                 left outer join res_partner_category cat on rel.category_id = cat.id
                 where rel.partner_id = p.id) as categories,
-                regexp_replace(regexp_replace(trim(coalesce(p.phone,'')),'\+','00','g'),'[^0-9]','','g') as phone_search
+                regexp_replace(regexp_replace(trim(coalesce(p.phone,'')),'\+','00','g'),'[^0-9]','','g') as phone_search,
+                false as eq_interessent, false as eq_chance
                 FROM res_partner p
                 LEFT OUTER JOIN crm_lead c on c.partner_id = p.id
                 WHERE not is_company
@@ -88,11 +93,12 @@ class EQ_Address_Search(models.Model):
                 (select string_agg(cat.name, ', ') from crm_lead_category_rel rel
                 left outer join crm_case_categ cat on rel.category_id = cat.id
                 where rel.lead_id = c.id) as categories,
-                regexp_replace(regexp_replace(trim(coalesce(c.phone,'')),'\+','00','g'),'[^0-9]','','g') as phone_search
+                regexp_replace(regexp_replace(trim(coalesce(c.phone,'')),'\+','00','g'),'[^0-9]','','g') as phone_search,
+                c.type = 'lead' as eq_interessent, c.type = 'opportunity' as eq_chance
                 FROM crm_lead  c
                 left outer join res_partner p on p.id = c.partner_id
                 WHERE coalesce(partner_id,0) = 0
                 --and coalesce(p.id,0) not in (select partner_id from res_users where coalesce(partner_id,0)>0)
-            ) a
+                ) a
        )
         """)
