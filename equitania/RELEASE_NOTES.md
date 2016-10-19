@@ -16,6 +16,13 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+
+#### 19.10.2016
+### Version 1.1.105
+#### CHG
+- Feld für Anrede wird für Unternehmen nicht mehr ausgeblendet
+
+
 #### 14.10.2016
 ### Version 1.1.104
 #### ADD
