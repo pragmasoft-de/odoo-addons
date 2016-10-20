@@ -191,10 +191,10 @@
             <field name="model">product.template</field>
             <field name="inherit_id" ref="product.product_template_tree_view" />
             <field name="arch" type="xml">
+            	<field name="state" position="replace">
+            		<field name="state" invisible="1"/>
+            	</field>
             	<field name="name" position="before">
-            	<!-- 
-            		<field name="default_code"/>
-            	 -->
             		<field name="eq_default_code_copy" string="Productno."/>
             	</field>
             	<field name="categ_id" position="before">
@@ -202,8 +202,30 @@
             		<field name="eq_internal_number"/>
             		<field name="eq_index"/>
             	</field>
+            	
             </field>
         </record>
+        
+        <record id="eq_stock_tree_view" model="ir.ui.view">
+        <field name="name">eq.product.template.product.stock.tree</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="stock.view_stock_product_template_tree" />
+            <field name="arch" type="xml">
+            	<field name="qty_available" position="after">
+            		<field name="uom_id"/>
+            	</field> 
+            	
+            </field>
+        </record>
+        
+		<record id="eq_product_template_tree_view_extension" model="ir.ui.view">
+        <field name="name">product.product.product.tree</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view" />
+            <field name="arch" type="xml">
+            	<field name="attribute_value_ids" position="replace"/>
+            </field>
+        </record> 
         
         <!-- product_template - kanban view -->
         <record id="eq_product_template_kanban_view" model="ir.ui.view">
@@ -312,6 +334,7 @@
             <field name="model">product.product</field>            
             <field name="inherit_id" ref="product.product_product_tree_view" />
             <field name="arch" type="xml">
+            	
             	<field name="lst_price" position="after">
             		<field name="eq_internal_number"/>
             		<field name="eq_index"/>

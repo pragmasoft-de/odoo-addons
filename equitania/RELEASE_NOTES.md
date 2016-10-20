@@ -17,11 +17,16 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 20.10.2016
+### Version 1.1.106
+#### CHG
+- in der Produkt Template Tree View wurde der Status entfernt und hinter den tatsächlichen Bestand die Mengeneinheit gesetzt.
+- In der Product Product Tree View wurde die Spalte "Attribute" entfernt.
+
 #### 19.10.2016
 ### Version 1.1.105
 #### CHG
 - Feld für Anrede wird für Unternehmen nicht mehr ausgeblendet
-
 
 #### 14.10.2016
 ### Version 1.1.104
