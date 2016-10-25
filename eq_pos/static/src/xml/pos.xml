@@ -246,7 +246,7 @@
 		                    <t t-if="!orderline.get_oid()">		                    			                    
 		                    	<t t-esc="orderline.get_quantity_str_with_unit().replace('.000', '')"/>		                    			                    							
 			                    	PCE x
-			                    <t t-esc="widget.eq_format_without_currency(orderline.get_unit_price())"/>		                    			                    			                    	
+			                    <t t-esc="orderline.get_unit_price()"/>		                    			                    			                    	
 		                    </t>
 		                </td>		                		               
 		                <!-- <td class="pos-right-align">
