@@ -227,7 +227,8 @@ pos_order()
 class pos_order_line(osv.osv):
     _inherit = "pos.order.line"
     _columns = {
-        'return_qty': fields.integer('Return QTY', size=64)
+        'return_qty': fields.integer('Return QTY', size=64),
+        'changed_text' : fields.char('Changed Text')
     }
 pos_order_line()
 

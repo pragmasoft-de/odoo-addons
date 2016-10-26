@@ -539,7 +539,7 @@ openerp.eq_pos = function (instance) {
             this.id       = orderline_id++;
             this.oid = null;
             this.history_id = null;
-            
+            this.changed_text = "";
             this.coupon_serial = null;
         },
         
@@ -555,6 +555,12 @@ openerp.eq_pos = function (instance) {
         },
         get_coupon_history_id: function() {
         	return this.get('history_id');
+        },
+        set_changed_text: function(changed_text){
+        	this.set('changed_text', changed_text);
+        },
+        get_changed_text: function() {
+        	return this.get('changed_text');
         },
         set_quantity: function(quantity){
             if(quantity === 'remove'){
@@ -595,6 +601,7 @@ openerp.eq_pos = function (instance) {
                 price_unit: this.get_unit_price(),
                 discount: this.get_discount(),
                 product_id: this.get_product().id,
+                changed_text: this.get_changed_text(),
             };
         },
       //used to create a json of the ticket, to be sent to the printer
@@ -612,6 +619,7 @@ openerp.eq_pos = function (instance) {
                 product_description:      this.get_product().description,
                 product_description_sale: this.get_product().description_sale,
                 coupon_serial: this.get_coupon_serial(),
+                changed_text: this.get_changed_text(),
             };
         },
         set_oid: function(oid) {
@@ -1762,6 +1770,41 @@ openerp.eq_pos = function (instance) {
     });
     
     instance.point_of_sale.OrderWidget.include({
+    	init: function(parent, options) {
+            var self = this;
+            this._super(parent,options);
+            this.line_dblclick_handler = function(event){
+            	var product = this.orderline.get_product();
+            	var line = this.orderline;
+            	var old_prod_nm = product ? product.display_name : "Change Name";
+            	
+            	dialog = new instance.web.Dialog(this, {
+                    title: _t(old_prod_nm),
+                    size: 'medium',
+                    buttons: [
+                        {text: _t("Change"), click: function() {
+                        	var new_prod_nm = dialog.$el.find("input#prod_nm").val();
+                        	if(!jQuery.trim(new_prod_nm).length > 0){
+                        		return alert("Please Enter Display Name");
+                        	}
+//                        	product.display_name = new_prod_nm;
+                        	line.set_changed_text(new_prod_nm);
+                        	self.rerender_orderline(line);
+                        	this.parents('.modal').modal('hide'); 
+                        }},
+                        {text: _t("Cancel"), click: function() { 
+                            this.parents('.modal').modal('hide'); 
+                        }}
+                    ]
+                }).open();
+                dialog.$el.html(QWeb.render("change_prod_name", self));
+            };
+    	},
+    	render_orderline: function(orderline){
+    		var el_node = this._super(orderline);
+    		el_node.addEventListener('dblclick',this.line_dblclick_handler);
+    		return el_node;
+        },
         set_value: function(val) {
             var order = this.pos.get('selectedOrder');
             this.numpad_state = this.pos_widget.numpad.state;

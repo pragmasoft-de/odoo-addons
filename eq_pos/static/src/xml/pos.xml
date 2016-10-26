@@ -187,6 +187,30 @@
         </table>
     </t>
     
+    <t t-name="change_prod_name">
+        <table align="center">
+            <tr>
+                <td>Enter Display Name </td>
+                <td style="padding-left: 5px;">
+                    <input type="text" name="prod_nm" id="prod_nm" value="" style="width: 180px;"/>
+                </td>
+            </tr>
+        </table>
+    </t>
+    
+    <t t-extend="Orderline">
+        <t t-jquery="span.product-name" t-operation="replace">
+            <span class="product-name">
+                <t t-if="line.get_changed_text()">
+                    <t t-esc="line.get_changed_text()"/>
+                </t>
+                <t t-if="!line.get_changed_text()">
+                    <t t-esc="line.get_product().display_name"/>
+                </t>
+            </span>
+        </t>
+    </t>
+    
     <t t-name="salesman-password">
         <table align="center">
             <tr>
@@ -234,7 +258,12 @@
 		            <!-- order lines -->		            
 		            <tr t-foreach="orderlines" t-as="orderline">
 		                <td>
-		                    <t t-esc="orderline.get_product().display_name"/>
+		                    <t t-if="orderline.get_changed_text()">
+		                         <t t-esc="orderline.get_changed_text()"/>
+		                    </t>
+		                    <t t-if="!orderline.get_changed_text()">
+                                <t t-esc="orderline.get_product().display_name"/>
+                            </t>
 		                     <t t-if="orderline.get_discount() > 0">
 		                        <div class="pos-disc-font">
 		                            With a <t t-esc="orderline.get_discount()"/>% discount
@@ -409,12 +438,28 @@
 	                    <t t-set='simple' t-value='line.discount === 0 and line.unit_name === "Unit(s)" and line.quantity === 1' />
 	                    <t t-if='simple'>
 	                        <line>
-	                            <left><t t-esc='line.product_name' /></left>
+	                            <left>
+	                               <t t-if='line.changed_text'>
+	                                   <t t-esc='line.changed_text' />
+	                               </t>
+	                               <t t-if='!line.changed_text'>
+                                       <t t-esc='line.product_name' />
+                                   </t>
+	                            </left>
 	                            <right><value><t t-esc='line.price_display' /></value> <t t-esc='receipt.currency.symbol'/></right>
 	                        </line>
 	                    </t>
 	                    <t t-if='!simple'>
-	                        <line><left><t t-esc='line.product_name' /></left></line>
+	                        <line>
+	                           <left>
+                                   <t t-if='line.changed_text'>
+                                       <t t-esc='line.changed_text' />
+                                   </t>
+                                   <t t-if='!line.changed_text'>
+                                       <t t-esc='line.product_name' />
+                                   </t>
+                                </left>
+	                        </line>
 	                        <t t-if='line.discount !== 0'>
 	                            <line indent='1'><left>Discount: <t t-esc='line.discount' />%</left></line>
 	                        </t>
