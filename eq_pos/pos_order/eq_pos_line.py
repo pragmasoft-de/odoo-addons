@@ -35,7 +35,7 @@ class eq_pos_order_line(models.Model):
     eq_customer = fields.Many2one('res.partner', string="Customer")
     eq_customer_ref = fields.Char(string="Customer ref")  
     
-    eq_date_order = fields.Date(string="Order date")
+    eq_date_order = fields.Datetime(string="Order date")
     eq_quantity = fields.Integer(string="Quantity")
     eq_product_id = fields.Many2one('product.product', string="Product")
     eq_product_default_code = fields.Char(string="Product code")
@@ -48,7 +48,7 @@ class eq_pos_order_line(models.Model):
         CREATE OR REPLACE VIEW eq_pos_order_line AS (
             SELECT ROW_NUMBER() OVER(ORDER BY eq_pos_id) id,* 
             FROM (
-                SELECT po.id as eq_pos_id, po.partner_id as eq_customer, Date(po.date_order) as eq_date_order, line.qty as eq_quantity, 
+                SELECT po.id as eq_pos_id, po.partner_id as eq_customer, po.date_order as eq_date_order, line.qty as eq_quantity,
                 line.product_id as eq_product_id, line.price_subtotal_incl as eq_price_subtotal_incl,
                 p.eq_customer_ref as eq_customer_ref,
                 pp.default_code as eq_product_default_code,
