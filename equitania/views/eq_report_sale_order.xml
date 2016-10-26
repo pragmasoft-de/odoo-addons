@@ -58,8 +58,13 @@
 										t-esc="o.date_order.split(' ')[0].split('-')[2] + '.' + o.date_order.split(' ')[0].split('-')[1] + '.' + o.date_order.split(' ')[0].split('-')[0]" />
 								</td>
 							</tr>
-							<tr>
-								<td id="sale_header_placeholder"></td>
+							<tr t-if="o.validity_date and o.state in ['draft','sent']">
+								<td id="sale_header_placeholder">
+									<span>Expiry date</span>
+					        	</td>
+					            <td class="text-right">
+					       			<span t-field="o.validity_date"/>
+					        	</td>
 							</tr>
 						</tbody>
 					</table>
@@ -741,14 +746,14 @@
 			</div>
 		</template>
 
-		<template id="website_quote.report_saleorder_validity_date" inherit_id="equitania.report_saleorder_data">
-			<xpath expr="//div[@class='page']/div[@id='informations']"
+		<template id="report_saleorder_validity_date" inherit_id="equitania.report_saleorder_data">
+			<!-- <xpath expr="//div[@class='page']/div[@id='informations']"
 				position="inside">
 				<div t-if="o.validity_date" class="col-xs-3">
 					<strong>Expiry Date:</strong>
 					<p t-field="o.validity_date" />
 				</div>
-			</xpath>
+			</xpath>-->
 		</template>
 
 		<template id="sale.report_saleorder_document">

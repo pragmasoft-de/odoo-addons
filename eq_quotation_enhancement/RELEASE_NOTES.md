@@ -1,6 +1,13 @@
 ## eq_quotation_enhancement
 ! Achtung, dieses Module gibt es in der abgewandelten Form bei FutureTV als eq_quotation_enhancement_futuretv - Änderungen immer auch dort nachziehen ! 
 
+
+#### 26.10.2016
+#### Version 1.0.14
+##### CHG
+- Der Reportzusatz "Angebot gültig bis" wird nichtmehr manipuliert da es in der website_quote nun auch entfernt wurde
+
+
 #### 11.04.2016
 #### Version 1.0.13
 ##### Erweiterung
