@@ -1348,3 +1348,13 @@ msgstr "Produktnr"
 #, python-format
 msgid "PCE x"
 msgstr "Stück x"
+
+#. module: eq_pos
+#: field:pos.order.line,changed_text:0
+msgid "Changed Text"
+msgstr "Geänderter Text"
+
+#. module: eq_pos
+#: field:eq.pos.order.line,eq_changed_product_text:0
+msgid "Changed text"
+msgstr "Geänderter Text"

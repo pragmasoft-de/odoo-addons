@@ -76,7 +76,8 @@
 				<search string="Address search">
 					<field name="eq_customer" filter_domain="['|',('eq_customer','ilike',self),('eq_customer_ref','ilike',self)]" />
 					<field name="eq_product_id" filter_domain="['|',('eq_product_id','ilike',self),('eq_product_default_code','ilike',self)]" />
-					<field name="eq_date_order" />
+					<field name="eq_changed_product_text" />
+                    <field name="eq_date_order" />
 					
 					<separator />
 					<group expand="0" string="Group By">
@@ -113,6 +114,7 @@
                 <tree string="POS lines">
                 	<field name="eq_customer"/>
 					<field name="eq_product_id"/>
+                    <field name="eq_changed_product_text"/>
 					<field name="eq_quantity"/>
 					<field name="eq_price_subtotal_incl"/>
 					<field name="eq_date_order"/>

@@ -28,6 +28,7 @@ class eq_pos_order_line(models.Model):
     _auto = False
     _name = 'eq.pos.order.line'
     _rec_name = "eq_pos_id"
+    _order = 'eq_date_order desc'
     
     eq_pos_id = fields.Many2one('pos.order', string="Pos Order")
     #eq_customer_name = fields.Char(string="Customer name")
@@ -39,7 +40,7 @@ class eq_pos_order_line(models.Model):
     eq_product_id = fields.Many2one('product.product', string="Product")
     eq_product_default_code = fields.Char(string="Product code")
     eq_price_subtotal_incl = fields.Float(string="Price")
-
+    eq_changed_product_text = fields.Char(string = "Changed text")
     
     def init(self, cr):
         tools.drop_view_if_exists(cr, 'eq_pos_order_line')
@@ -50,7 +51,8 @@ class eq_pos_order_line(models.Model):
                 SELECT po.id as eq_pos_id, po.partner_id as eq_customer, Date(po.date_order) as eq_date_order, line.qty as eq_quantity, 
                 line.product_id as eq_product_id, line.price_subtotal_incl as eq_price_subtotal_incl,
                 p.eq_customer_ref as eq_customer_ref,
-                pp.default_code as eq_product_default_code
+                pp.default_code as eq_product_default_code,
+                line.changed_text as eq_changed_product_text
                 FROM pos_order po
                 LEFT OUTER JOIN pos_order_line line on po.id = line.order_id
                 LEFT OUTER JOIN res_partner p on p.id = po.partner_id
