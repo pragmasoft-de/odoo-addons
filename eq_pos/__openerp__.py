@@ -20,13 +20,13 @@
 ##############################################################################
 {
     'name': 'EQ POS customization',
-    'version': '1.0.36',
+    'version': '1.0.37',
     'category': 'Point of Sale',
     'description': """
 This module is used to return the products to the customer from POS Interface, Gift coupon voucher.
 """,
-    'author': "Acespritech Solutions Pvt. Ltd.",
-    'website': "www.acespritech.com",
+    'author': "Equitania Software GmbH",
+    'website': "www.myodoo.de",
     'depends': ['web', 'point_of_sale', 'base'],
     'data': [
              'security/ir.model.access.csv',

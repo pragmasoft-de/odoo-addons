@@ -190,9 +190,9 @@
     <t t-name="change_prod_name">
         <table align="center">
             <tr>
-                <td>Enter Display Name </td>
+                <td>Neuer Wert:</td>
                 <td style="padding-left: 5px;">
-                    <input type="text" name="prod_nm" id="prod_nm" value="" style="width: 180px;"/>
+                    <input type="text" name="prod_nm" id="prod_nm" value="" style="width: 360px;"/>
                 </td>
             </tr>
         </table>
