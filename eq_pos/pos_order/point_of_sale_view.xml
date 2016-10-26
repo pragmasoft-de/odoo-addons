@@ -99,6 +99,7 @@
                 	<field name="eq_customer"/>
 					<field name="eq_product_id"/>
 					<field name="eq_quantity"/>
+                    <field name="eq_changed_product_text"/>
 					<field name="eq_price_subtotal_incl"/>
 					<field name="eq_date_order"/>
 					</group>

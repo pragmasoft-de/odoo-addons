@@ -1,9 +1,16 @@
 ## Modul eq_pos
 
 #### 26.10.2016
+#### Version 1.0.36
+##### CHG
+- Kassenumsatzpositionen: Anzeige des geänderten Texts in Formansicht
+
+
+#### 26.10.2016
 #### Version 1.0.35
 ##### CHG
 - Kassenumsatzpositionen: Datum mit Uhrzeit anzeigen
+
 
 #### 26.10.2016
 #### Version 1.0.34
