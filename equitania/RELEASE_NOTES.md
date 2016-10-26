@@ -16,6 +16,10 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 26.10.2016
+### Version 1.1.107
+#### CHG
+- Der Reportzusatz "Angebot gültig bis" wird nichtmehr über ein Template manipuliert, welches für das Modul website_quote das Feld verschiebt 
 
 #### 20.10.2016
 ### Version 1.1.106

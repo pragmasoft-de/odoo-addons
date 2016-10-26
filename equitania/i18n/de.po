@@ -2443,6 +2443,14 @@ msgid "Your reference no."
 msgstr "Ihre Referenznr."
 
 #. module: equitania
+#: view:website:equitania.eq_external_layout_header_invoice_data
+#: view:website:equitania.eq_external_layout_header_return_picking_data
+#: view:website:equitania.eq_external_layout_header_sale_order_data
+#: view:website:equitania.eq_external_layout_header_stock_picking_data
+msgid "Expiry date"
+msgstr "Gültig bis"
+
+#. module: equitania
 #: view:website:equitania.eq_external_layout_header_purchase_quotation_data
 msgid "Your request no."
 msgstr "Ihre Anfragenr."
