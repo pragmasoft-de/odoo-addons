@@ -388,7 +388,7 @@
 	</t>
 	
 	<t t-set="nbsp" t-value=" '     '.replace('  ',u'\xa0').encode('utf-8') "/>
-	<t t-set="EQ_CURRENCY" t-value="EUR"></t>
+
 	<!-- UI Definition for REAL PRINT via RaspberryPi -->
 	<t t-extend="XmlReceipt">
 	    <t t-jquery="receipt" t-operation="replace">
@@ -448,9 +448,6 @@
 	                            </left>
 	                            <right><value><t t-esc='line.price_display' /></value>
 									<t t-esc='receipt.currency.symbol'/>
-									<!--
-									<t t-esc="EQ_CURRENCY"></t>
-									-->
 									</right>
 	                        </line>
 	                    </t>
@@ -485,9 +482,6 @@
 	                                <value><t t-esc='line.price_display' />
 									</value>
 									<t t-esc='receipt.currency.symbol'/>
-									<!--
-									<t t-esc="EQ_CURRENCY"></t>
-										-->
 	                            </right>
 	                        </line>
 	                    </t>
@@ -516,17 +510,11 @@
 	                		<value><t t-esc='receipt.total_with_tax' />
 							</value>
 							<t t-esc='receipt.currency.symbol'/>
-							<!--
-								<t t-esc="EQ_CURRENCY"></t>
-								-->
 	                	</t>
 	                	<t t-if="receipt.ret_o_id">
 	                		-<value><t t-esc='receipt.total_with_tax' />
 							</value>
 							<t t-esc='receipt.currency.symbol'/>
-							<!--
-							<t t-esc="EQ_CURRENCY"></t>
-							-->
 	                	</t>
 	                </right>
 	            </line>	            	           
@@ -542,10 +530,7 @@
 		                   <right><t t-esc='gift_coupon.price.replace(".00", "")' /></right>
 		                    -->
 		                    <right>-<t t-esc='gift_coupon.price' />
-								<!--
 								<t t-esc='receipt.currency.symbol'/>
-								-->
-								<t t-esc="EQ_CURRENCY"></t>
 								</right>
 	                   </t>
 	                </t>
@@ -564,9 +549,6 @@
 		                    -->
 		                    <right>-<t t-esc='bonus_coupon.price' />
 								<t t-esc='receipt.currency.symbol'/>
-								<!--
-								<t t-esc="EQ_CURRENCY"></t>
-								-->
 								</right>
 	                   </t>
 	                </t>
@@ -582,18 +564,10 @@
 	                    <right>
 	                    	<t t-if="receipt.ret_o_id">
 	                    		-<value><t t-esc='line.amount'/></value>
-	                    		<!--
-								<value><t t-esc='line.symbol'/></value>
-								<t t-esc="EQ_CURRENCY"></t>
-								-->
 								<t t-esc='line.symbol'/>
 	                    	</t>
 	                    	<t t-if="!receipt.ret_o_id">
 	                    		<value><t t-esc='line.amount'/></value>
-								<!--
-	                    		<value><t t-esc='line.symbol'/></value>
-	                    		<t t-esc="EQ_CURRENCY"></t>
-	                    		-->
 								<t t-esc='line.symbol'/>
 	                    	</t>
                 		</right>
@@ -604,13 +578,7 @@
 				<!-- Change -->
 	            <line size='double-height'>
 	                <left><pre>        CHANGE</pre></left>
-	                <right><value><t t-esc='receipt.change' />
-						<!--
-						<t t-esc='receipt.currency.symbol'/>
-						--></value>
-						<!--
-					<t t-esc="EQ_CURRENCY"></t>
-					-->
+	                <right><value><t t-esc='receipt.change' /></value>
 						<t t-esc='receipt.currency.symbol'/>
 					</right>
 	            </line>
@@ -621,12 +589,6 @@
 	                <line>
 	                    <left>Discounts</left>
 	                    <right><value><t t-esc='receipt.total_discount'/></value>
-							<!--
-							<t t-esc='receipt.currency.symbol'/>
-							-->
-							<!--
-							<t t-esc="EQ_CURRENCY"></t>
-							-->
 							<t t-esc='receipt.currency.symbol'/>
 							</right>
 	                </line>
@@ -636,12 +598,6 @@
 	                    <line>
 	                        <left><t t-esc='tax.name' /></left>
 	                        <right><value><t t-esc='tax.amount' /></value>
-								<!--
-								<t t-esc='receipt.currency.symbol'/>
-								-->
-								<!--
-							<t t-esc="EQ_CURRENCY"></t>
-							-->
 								<t t-esc='receipt.currency.symbol'/>
 							</right>
 	                    </line>
@@ -659,12 +615,6 @@
 	               <t t-if='line.coupon_serial'>
 	                    -- A Coupon Information --<br/>
                         <t t-esc='line.product_name' /> [Qty:<t t-esc='line.quantity' />  Price:<t t-esc='line.price' />
-					   <!--
-					   <t t-esc='receipt.currency.symbol'/>
-					   -->
-					   <!--
-					   <t t-esc="EQ_CURRENCY"></t>]
-					   -->
 					   <t t-esc='receipt.currency.symbol'/>]
 	                   <barcode encoding="CODE39">*<t t-esc='line.coupon_serial' />*</barcode><br/>
 	               </t>

@@ -1,6 +1,11 @@
 ## Modul eq_pos
 
 #### 26.10.2016
+#### Version 1.0.33
+##### FIX
+- Lösung für einen Fehler in Ausgabe der Währung auf dem Report
+
+#### 26.10.2016
 #### Version 1.0.32
 ##### CHG
 - Änderung in Ausgabe der Währung auf dem Report
