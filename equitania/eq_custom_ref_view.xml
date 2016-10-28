@@ -218,14 +218,14 @@
             </field>
         </record>
         
-		<record id="eq_product_template_tree_view_extension" model="ir.ui.view">
+<!-- 		<record id="eq_product_template_tree_view_extension" model="ir.ui.view">
         <field name="name">product.product.product.tree</field>
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_product_tree_view" />
             <field name="arch" type="xml">
             	<field name="attribute_value_ids" position="replace"/>
             </field>
-        </record> 
+        </record>  -->
         
         <!-- product_template - kanban view -->
         <record id="eq_product_template_kanban_view" model="ir.ui.view">

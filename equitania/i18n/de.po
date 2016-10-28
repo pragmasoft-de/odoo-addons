@@ -2846,3 +2846,18 @@ msgstr "Hauptmenueintrag für Berichtswesen anzeigen"
 #: field:res.users,eq_name3:0
 msgid "Name3"
 msgstr "Namenszusatz2"
+
+#. module: equitania
+#: field:sale.config.settings,eq_show_attributes:0
+msgid "Show attributes in product variants tree view"
+msgstr "Zeige die Spalte 'Attribute' in der Listen Ansicht unter Produktvarianten an"
+
+#. module: equitania
+#: view:sale.config.settings:equitania.eq_view_sale_config_settings_texts2
+msgid "Views"
+msgstr "Ansichten"
+
+#. module: equitania
+#: view:sale.config.settings:equitania.eq_view_sale_config_settings_texts2
+msgid "Edit Views"
+msgstr "Ansichtenbearbeitung"

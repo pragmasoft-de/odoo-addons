@@ -17,6 +17,11 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 #### 26.10.2016
+### Version 1.1.108
+#### ADD
+-  Die Spalte Attribute unter der product.product tree view lässt sich nun durch ein Flag in den Einstellungen ein- bzw. ausblenden.
+
+#### 26.10.2016
 ### Version 1.1.107
 #### CHG
 - Der Reportzusatz "Angebot gültig bis" wird nichtmehr über ein Template manipuliert, welches für das Modul website_quote das Feld verschiebt 
