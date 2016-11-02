@@ -16,6 +16,11 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 02.11.2016
+### Version 1.1.109
+#### FIX
+- Abfrage beim Einblenden der Attribute unter der product.product Tree View korrigiert, welcher bei der erstmaligen Initialisierung aufgetreten ist.
+
 #### 26.10.2016
 ### Version 1.1.108
 #### ADD

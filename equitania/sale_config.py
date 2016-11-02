@@ -35,14 +35,20 @@ class sale_config(models.TransientModel):
     
     def _show_attributes(self,cr,uid,ids):
         search_ids = self.pool.get('sale.config.settings').search(cr,uid,[])
-        last_id = search_ids and max(cr,uid,search_ids)
-        count = len(last_id)
-        count = count - 1
-        config_obj = self.pool.get('sale.config.settings').browse(cr,uid,last_id[count])
-        sh_att = config_obj.eq_show_attributes
-        ir_ui_pool = self.pool.get('ir.ui.view')
-        ir_ui_id = ir_ui_pool.search(cr,uid,[('name','=','product.product.tree')])
-        ir_ui_obj = ir_ui_pool.browse(cr,uid,ir_ui_id)
+        if search_ids != []:
+            last_id = search_ids and max(cr,uid,search_ids)
+            count = len(last_id)
+            count = count - 1
+            config_obj = self.pool.get('sale.config.settings').browse(cr,uid,last_id[count])
+            sh_att = config_obj.eq_show_attributes
+            ir_ui_pool = self.pool.get('ir.ui.view')
+            ir_ui_id = ir_ui_pool.search(cr,uid,[('name','=','product.product.tree')])
+            ir_ui_obj = ir_ui_pool.browse(cr,uid,ir_ui_id)
+        else:
+            sh_att = False
+            ir_ui_pool = self.pool.get('ir.ui.view')
+            ir_ui_id = ir_ui_pool.search(cr,uid,[('name','=','product.product.tree')])
+            ir_ui_obj = ir_ui_pool.browse(cr,uid,ir_ui_id)
         values = {}
         if sh_att == True:
             values = {
