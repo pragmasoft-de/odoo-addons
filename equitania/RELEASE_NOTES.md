@@ -17,6 +17,11 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 #### 02.11.2016
+### Version 1.1.110
+#### FIX
+- Unicode-Fehler bei Wareneingang buchen beseitigt. Außerdem einen Import für die Warning-Ausgabe hinzugefügt.
+
+#### 02.11.2016
 ### Version 1.1.109
 #### FIX
 - Abfrage beim Einblenden der Attribute unter der product.product Tree View korrigiert, welcher bei der erstmaligen Initialisierung aufgetreten ist.

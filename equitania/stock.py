@@ -24,6 +24,7 @@ from openerp.tools.translate import _
 from openerp import SUPERUSER_ID, api
 from openerp.tools.float_utils import float_compare, float_round
 from itertools import groupby
+from openerp.exceptions import Warning
 
 
 def grouplines(self, ordered_lines, sortkey):

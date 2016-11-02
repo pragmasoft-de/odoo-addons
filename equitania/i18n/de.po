@@ -2217,7 +2217,7 @@ msgstr "Der Liefertermin wird im Angebot/Verkaufsauftrag angezeigt."
 #: code:addons/equitania/stock.py:202
 #, python-format
 msgid "The destination location must be the same for all the moves of the picking."
-msgstr "Der Zielort muss für alle Bewegungen der Kosmissionierung gleich sein."
+msgstr "Der Zielort muss bei allen Bewegungen der Komissionierung gleich sein."
 
 #. module: equitania
 #: help:sale.config.settings,default_eq_use_internal_description:0
