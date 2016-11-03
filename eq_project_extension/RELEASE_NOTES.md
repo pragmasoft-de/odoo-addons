@@ -1,5 +1,9 @@
 ## Modul eq_project_extension
 
+#### 03.11.2016
+#### Version 1.0.12
+##### FIX
+- Schleife eingefügt, welche jeden Datensatz durchgeht, wenn mehrere ids zurückgegeben werden. Dadurch entsteht kein Singelton Error mehr.
 
 #### 07.06.2016
 #### Version 1.0.10

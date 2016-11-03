@@ -43,12 +43,13 @@ class account_analytic_line(models.Model):
         for record in self:
             analytic_timesheet = hr_object.search([('line_id', '=', record.id)])
             analytic_timesheet_id = analytic_timesheet.id    
-            project_task_work = project_work_object.search([('hr_analytic_timesheet_id', '=', analytic_timesheet_id)])
-            project_task_work_id = project_task_work.task_id
-            project_task = project_task_object.search([('id', '=', project_task_work_id.id)])
-            project_rec = project_task.project_id
-            partner_rec = project_rec.partner_id
-            record.eq_company_id = partner_rec.id
+            project_task_works = project_work_object.search([('hr_analytic_timesheet_id', '=', analytic_timesheet_id)])
+            for project_task_work in project_task_works:
+                project_task_work_id = project_task_work.task_id
+                project_task = project_task_object.search([('id', '=', project_task_work_id.id)])
+                project_rec = project_task.project_id
+                partner_rec = project_rec.partner_id
+                record.eq_company_id = partner_rec.id
     
     
     def _get_customer_number(self):
@@ -60,12 +61,13 @@ class account_analytic_line(models.Model):
         for record in self:
             analytic_timesheet = hr_object.search([('line_id', '=', record.id)])
             analytic_timesheet_id = analytic_timesheet.id    
-            project_task_work = project_work_object.search([('hr_analytic_timesheet_id', '=', analytic_timesheet_id)])
-            project_task_work_id = project_task_work.task_id
-            project_task = project_task_object.search([('id', '=', project_task_work_id.id)])
-            project_rec = project_task.project_id
-            partner_rec = project_rec.partner_id 
-            record.eq_customer_number = partner_rec.eq_customer_ref
+            project_task_works = project_work_object.search([('hr_analytic_timesheet_id', '=', analytic_timesheet_id)])
+            for project_task_work in project_task_works:
+                project_task_work_id = project_task_work.task_id
+                project_task = project_task_object.search([('id', '=', project_task_work_id.id)])
+                project_rec = project_task.project_id
+                partner_rec = project_rec.partner_id 
+                record.eq_customer_number = partner_rec.eq_customer_ref
         
     #@api.depends('product_id.name')
     def _add_classification(self):
@@ -76,12 +78,13 @@ class account_analytic_line(models.Model):
         for record in self:
             analytic_timesheet = hr_object.search([('line_id', '=', record.id)])
             analytic_timesheet_id = analytic_timesheet.id    
-            project_task_work = project_work_object.search([('hr_analytic_timesheet_id', '=', analytic_timesheet_id)])
-            project_task_work_id = project_task_work.task_id
-            project_task = project_task_object.search([('id', '=', project_task_work_id.id)])
-            project_rec = project_task.project_id
-            classification_rec = project_rec.classification_id
-            record.eq_project_classification_id = classification_rec.id
+            project_task_works = project_work_object.search([('hr_analytic_timesheet_id', '=', analytic_timesheet_id)])
+            for project_task_work in project_task_works:
+                project_task_work_id = project_task_work.task_id
+                project_task = project_task_object.search([('id', '=', project_task_work_id.id)])
+                project_rec = project_task.project_id
+                classification_rec = project_rec.classification_id
+                record.eq_project_classification_id = classification_rec.id
        
         
     def _add_tags(self):
@@ -94,10 +97,11 @@ class account_analytic_line(models.Model):
                
             analytic_timesheet = hr_object.search([('line_id', '=', record.id)])
             analytic_timesheet_id = analytic_timesheet.id    
-            project_task_work = project_work_object.search([('hr_analytic_timesheet_id', '=', analytic_timesheet_id)])
-            project_task_work_id = project_task_work.task_id
-            project_task =  project_task_object.search([('id', '=', project_task_work_id.id)])
-            record.eq_tags_id = project_task.categ_ids
+            project_task_works = project_work_object.search([('hr_analytic_timesheet_id', '=', analytic_timesheet_id)])
+            for project_task_work in project_task_works:
+                project_task_work_id = project_task_work.task_id
+                project_task =  project_task_object.search([('id', '=', project_task_work_id.id)])
+                record.eq_tags_id = project_task.categ_ids
 
     @api.depends('date')
     def _get_day_from_date(self):
