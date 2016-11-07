@@ -22,7 +22,7 @@
 {
     'name': 'Equitania Report Pattern',
     'license': 'AGPL-3',
-    'version': '1.0.1',
+    'version': '1.0.2',
     'description': """
         Equitania Software GmbH
     """,
@@ -37,6 +37,7 @@
     #          
     #         ],
     'data': [
+             'security/ir.model.access.csv',
              'document_template_view.xml',
              'sale_view.xml',
              'purchase_view.xml',
