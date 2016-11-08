@@ -110,6 +110,8 @@ class eq_product_template(osv.osv):
         return result
     
     def write(self, cr, uid, ids, vals, context=None):
+        if isinstance(ids, (int, long)):
+            ids = [ids]
         if 'standard_price' in vals:
             for sep_id in ids:
                 old_price = self.read(cr, uid, sep_id, ['standard_price'], context)['standard_price']

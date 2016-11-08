@@ -16,6 +16,12 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 08.11.2016
+### Version 1.1.111
+#### CHG
+- Anpassungen für überschriebene write-Methode für Produkte
+
+
 #### 02.11.2016
 ### Version 1.1.110
 #### FIX
