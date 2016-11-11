@@ -2861,3 +2861,8 @@ msgstr "Ansichten"
 #: view:sale.config.settings:equitania.eq_view_sale_config_settings_texts2
 msgid "Edit Views"
 msgstr "Ansichtenbearbeitung"
+
+#. module: equitania
+#: field:res.country,eq_active:0
+msgid "Active"
+msgstr "Aktiv"

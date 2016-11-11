@@ -16,11 +16,18 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+
+
+
+#### 11.11.2016
+### Version 1.1.112
+#### IMP
+- Erweiterung der Tabelle res_country und Pflegemaske um neues Feld eq_active
+
 #### 08.11.2016
 ### Version 1.1.111
 #### CHG
 - Anpassungen für überschriebene write-Methode für Produkte
-
 
 #### 02.11.2016
 ### Version 1.1.110
