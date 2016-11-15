@@ -1,6 +1,11 @@
 ## Modul eq_mail_extension
 
 #### 15.11.2016
+#### Version 1.0.6
+##### FIX
+- Print Statement entfernt.
+
+#### 15.11.2016
 #### Version 1.0.5
 ##### FIX
 - Übernahme einer Abfrage aus dem Equitania-Modul (siehe ReleaseNotes Equitania-Modul vom 15.01.2016: - Anpassung des Mailversandes: gültige E-Mailadresse für Return-Path)

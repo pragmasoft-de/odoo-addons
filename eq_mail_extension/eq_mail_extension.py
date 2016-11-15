@@ -161,7 +161,7 @@ class eq_mail_mail(osv.Model):
                 email sending process has failed
             :return: True
         """
-        print"EQ_MAIL_EXTENSION"
+
         context = dict(context or {})
         ir_mail_server = self.pool.get('ir.mail_server')
         ir_attachment = self.pool['ir.attachment']
