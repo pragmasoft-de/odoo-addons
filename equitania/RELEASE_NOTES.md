@@ -17,7 +17,12 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
-
+#### 15.11.2016
+### Version 1.1.113
+#### FIX
+- eq_mail.py entfernt
+- Abfrage der eq_mail.py in eq_mail_extension eingefügt (siehe ReleaseNotes).
+- Grund: Durch Übernahme dieser Abfrage wird nun wieder gewährleistet, dass bei installiertem eq_mail_extension Modul auch die dazugehörige send Methode ausgeführt wird (vorher wurde die def send Methode vom Equitania Modul ausgeführt, diese ist nun aber nicht mehr vorhanden, da Übernahme der Logik in die def send des eq_mail_extension Moduls).
 
 #### 11.11.2016
 ### Version 1.1.112
