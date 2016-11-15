@@ -161,6 +161,7 @@ class eq_mail_mail(osv.Model):
                 email sending process has failed
             :return: True
         """
+        print"EQ_MAIL_EXTENSION"
         context = dict(context or {})
         ir_mail_server = self.pool.get('ir.mail_server')
         ir_attachment = self.pool['ir.attachment']
@@ -202,11 +203,23 @@ class eq_mail_mail(osv.Model):
                 headers = {}
                 bounce_alias = self.pool['ir.config_parameter'].get_param(cr, uid, "mail.bounce.alias", context=context)
                 catchall_domain = self.pool['ir.config_parameter'].get_param(cr, uid, "mail.catchall.domain", context=context)
+
+### Übernahme der Anpassung vom Equitania Modul (siehe ReleaseNotes des Equitania Moduls vom 15.01.2016)               
                 if bounce_alias and catchall_domain:
-                    if mail.model and mail.res_id:
-                        headers['Return-Path'] = '%s-%d-%s-%d@%s' % (bounce_alias, mail.id, mail.model, mail.res_id, catchall_domain)
-                    else:
-                        headers['Return-Path'] = '%s-%d@%s' % (bounce_alias, mail.id, catchall_domain)
+                    headers['Return-Path'] = '%s@%s' % (bounce_alias, catchall_domain)
+                else:
+                    headers['Return-Path'] = mail.email_from
+                
+#### Kern-Version                
+#                 if bounce_alias and catchall_domain:
+#                     if mail.model and mail.res_id:
+#                         headers['Return-Path'] = '%s-%d-%s-%d@%s' % (bounce_alias, mail.id, mail.model, mail.res_id, catchall_domain)
+#                     else:
+#                         headers['Return-Path'] = '%s-%d@%s' % (bounce_alias, mail.id, catchall_domain)
+                        
+                        
+                        
+                        
                 if mail.headers:
                     try:
                         headers.update(eval(mail.headers))

@@ -1,5 +1,11 @@
 ## Modul eq_mail_extension
 
+#### 15.11.2016
+#### Version 1.0.5
+##### FIX
+- Übernahme einer Abfrage aus dem Equitania-Modul (siehe ReleaseNotes Equitania-Modul vom 15.01.2016: - Anpassung des Mailversandes: gültige E-Mailadresse für Return-Path)
+- Durch Übernahme dieser Abfrage wird nun wieder gewährleistet, dass bei installiertem eq_mail_extension Modul auch die dazugehörige send Methode ausgeführt wird (vorher wurde die def send Methode vom Equitania Modul ausgeführt, diese ist nun aber nicht mehr vorhanden, da Übernahme der Logik in die def send des eq_mail_extension Moduls).
+
 #### 13.07.2016
 #### Version 1.0.4
 ##### FIX
