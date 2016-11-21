@@ -1,6 +1,11 @@
 ## eq_snom
 
 #### 26.08.2015
+#### Version 1.0.3
+##### Bugfix
+- Überflüssigen Call-Button entfernt
+
+#### 26.08.2015
 #### Version 1.0.2
 ##### Erweiterung
 - Umstellung auf client call. Ab jetzt wird http get direkt aus javascript ausgeführt

@@ -53,8 +53,7 @@
 	            	<label for="phone" string="Phone"/>
             		<div colspan="1">
 	            		<field name="phone" attrs="{'invisible': [('type', '=', 'pobox')]}" style="width: 40%" />					
-						<button name="eq_call_phone_snom" type="object" string="Call" class="oe_inline" style="width: 20%"/>
-						<button name="eq_call_mobile_snom" type="object" string="Call XXX" class="oe_inline" style="width: 20%"/>							
+						<button name="eq_call_phone_snom" type="object" string="Call" class="oe_inline" style="width: 20%"/>												
 					</div>
                 </xpath>
                 <xpath expr="//field[@name='child_ids']/form/sheet/group/field[@name='mobile']" position="replace">            	
