@@ -17,6 +17,11 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 22.11.2016
+### Version 1.1.114
+#### IMP
+- Erweiterung um neue Funktion generate_line_text_with_attributes() damit man im Text einer Bestellposition auch die Attribute der Varianten ausgeben kann
+
 #### 15.11.2016
 ### Version 1.1.113
 #### FIX

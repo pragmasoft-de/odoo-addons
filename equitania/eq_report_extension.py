@@ -217,7 +217,8 @@ class eq_report_extension_sale_order(osv.osv):
 
 class eq_report_extension_sale_order_line(osv.osv):
     _inherit = "sale.order.line"
-    
+
+
     def _get_delivery_date(self, cr, uid, ids, field_name, arg, context):
         result = {}
         for order_line in self.browse(cr, uid, ids, context):
@@ -265,7 +266,37 @@ class eq_report_extension_sale_order_line(osv.osv):
                       'eq_delivery_date': eq_delivery_date
                       }
         return {'value': values,}
-    
+
+    def generate_line_text_with_attributes(self, attributes, product_id, eq_use_internal_description):
+        """
+        Erstellt den Text einer Bestellposition und verwendet dabei den Verkaufstext zusammen mit dem Text aus den Varianten (immer als [Attributwert]: [Attributtext])
+        @param attributes: Attribute, die bei eine Variante gesetzt sind
+        @param product_id: ID der Produktvariante
+        @param eq_use_internal_description: True -> wir soll das Feld Beschreibung von Template verwenden
+        @return: Bestellposition mit kompletten Text
+        """
+
+        attribute_info_list = []
+        for attribute in attributes:
+            attribute_info = attribute.attribute_id.name + ": " + attribute.name
+            attribute_info_list.append(attribute_info)
+
+        attribute_string = "\n".join(attribute_info_list)
+
+        # if name is False:                   # name is set, don't reset it again !
+        if not eq_use_internal_description and product_id.description_sale:
+            result = product_id.description_sale + "\n" + attribute_string
+        elif eq_use_internal_description and product_id.description:
+            result = product_id.product_tmpl_id.description + "\n" + attribute_string
+        else:
+            # falls kein Verkaufstext bei dem Produkt ist und Variante einen Text hat, soll man den Text der Variante ausgeben - z.B. Farbe: Rot, Blau
+            if attribute_string:
+                result = attribute_string
+            else:
+                result = ' '
+
+        return result
+
     def product_id_change(self, cr, uid, ids, pricelist, product, qty=0,
             uom=False, qty_uos=0, uos=False, name='', partner_id=False,
             lang=False, update_tax=True, date_order=False, packaging=False, fiscal_position=False, flag=False, context=None):
@@ -286,23 +317,18 @@ class eq_report_extension_sale_order_line(osv.osv):
         vals['value']['product_uos_qty'] = qty * product_id.uos_coeff
         
         attributes = product_id.attribute_value_ids
-        #print"product_attribute",product_id.attribute_value_ids.name 
-        
-        
-        
+
         # set product name only after first change of quantity - it's our workaround for refresh problem after each change of quantity
-        
         if vals.get("value", False):
             vals['value'].pop('name', None)
             
         if context != None and not context.get('uom_qty_change', False) and not context.get('uos_qty_change', False):
-        
+            # Alte Version - Beispiel: Blau, Klein
+            """
             attribute_values = ''
             attribute_list = [rec.name for rec in attributes]
             attribute_string = ", ".join(attribute_list)
-            
-                
-                
+
         #if name is False:                   # name is set, don't reset it again !           
             if not eq_use_internal_descriptionion and product_id.description_sale:
                 vals['value']['name'] = product_id.description_sale + "\n" + attribute_string
@@ -310,7 +336,12 @@ class eq_report_extension_sale_order_line(osv.osv):
                 vals['value']['name'] = product_id.product_tmpl_id.description  + "\n" + attribute_string
             else:
                 vals['value']['name'] = ' '
-        
+            """
+
+            # Neue Version - Beispiel: Farbe: Blau, Typ: Klein
+            vals['value']['name'] = self.generate_line_text_with_attributes(attributes, product_id, eq_use_internal_descriptionion)
+
+
         vals['value']['delay'] = product_id.sale_delay
         return vals
     
