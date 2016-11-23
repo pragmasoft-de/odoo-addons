@@ -269,6 +269,8 @@ class eq_report_extension_sale_order_line(osv.osv):
 
     def generate_line_text_with_attributes(self, attributes, product_id, eq_use_internal_description):
         """
+        ! WICHTIG ! - jede Änderung dieser Funktion muss man auch gleich im odoo-website\eq_website_customerportal\eq_website_sale_sale_order.py machen !
+
         Erstellt den Text einer Bestellposition und verwendet dabei den Verkaufstext zusammen mit dem Text aus den Varianten (immer als [Attributwert]: [Attributtext])
         @param attributes: Attribute, die bei eine Variante gesetzt sind
         @param product_id: ID der Produktvariante

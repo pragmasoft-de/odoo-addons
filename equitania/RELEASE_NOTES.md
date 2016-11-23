@@ -17,6 +17,14 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+
+
+
+#### 23.11.2016
+### Version 1.1.114
+#### IMP
+- Erweiterung der Dokumentation bei der Funktion generate_line_text_with_attributes
+
 #### 22.11.2016
 ### Version 1.1.114
 #### IMP
