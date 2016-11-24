@@ -1,5 +1,10 @@
 ## Modul eq_mail_extension
 
+#### 24.11.2016
+#### Version 1.0.7
+##### FIX
+- BugFix: es wird jetzt danach abgefragt, ob der in der Datenbank (ir_values) vordefinierte Mail Server überhaupt noch vorhanden ist, bevor die Send-Methode ausgeführt wird.
+
 #### 15.11.2016
 #### Version 1.0.6
 ##### FIX
