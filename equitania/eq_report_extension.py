@@ -293,7 +293,13 @@ class eq_report_extension_sale_order_line(osv.osv):
         else:
             # falls kein Verkaufstext bei dem Produkt ist und Variante einen Text hat, soll man den Text der Variante ausgeben - z.B. Farbe: Rot, Blau
             if attribute_string:
-                result = attribute_string
+                """
+                wenn kein Verkaufstext bei dem Produkt hinterlegt ist, müssen wir es so machen sonst wird der Text mit dem Attribut + Attributwert
+                wegen der Defaultdefinition im Kern nicht angezeigt.
+                Hier ist es:
+                <div class="text-muted" t-esc="'\n'.join(line.name.splitlines()[1:])"/>
+                """
+                result = "\n" + attribute_string
             else:
                 result = ' '
 

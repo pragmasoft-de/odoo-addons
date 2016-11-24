@@ -18,10 +18,13 @@ Vorgehensweise unter Debian:
 
 
 
-
+#### 24.11.2016
+### Version 1.1.116
+#### FIX
+- Attributstring wurde um neue Zeile erweitert, damit der Text wegen dem Standard "line.name.splitlines()[1:]" im Kern, korrekt angezeigt wird
 
 #### 23.11.2016
-### Version 1.1.114
+### Version 1.1.115
 #### IMP
 - Erweiterung der Dokumentation bei der Funktion generate_line_text_with_attributes
 
