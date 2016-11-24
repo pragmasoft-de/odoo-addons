@@ -44,7 +44,6 @@ class eq_mail_config_settings(osv.osv_memory):
         else:
             address = False
             receivable = False
-        print"Hier"
         return {
                 #'mail_server_id': receivable,
                 #'mail_server_address': address.smtp_user,
