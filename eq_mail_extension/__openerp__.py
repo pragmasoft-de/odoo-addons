@@ -22,7 +22,7 @@
 {
     'name': "Equitania E-Mail-Erweiterung",
     'license': 'AGPL-3',
-    'version': '1.0.7',
+    'version': '1.0.9',
     'category': 'Mail',
     'description': """Using different smptp settings for user's outgoing emails
     Adds an default mail server for sending System E-Mails and Users without a configured outgoing mail server""",

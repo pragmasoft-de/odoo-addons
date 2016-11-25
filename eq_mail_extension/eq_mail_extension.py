@@ -170,10 +170,17 @@ class eq_mail_mail(osv.Model):
         
         default_mail_server = ir_values.get_default(cr, uid, 'mail.mail', 'mail_server_id')
         #default_mail_address = ir_values.get_default(cr, uid, 'mail.mail', 'mail_server_address')
-        address = self.pool.get('ir.mail_server').browse(cr, uid,  default_mail_server, context=context)
-        default_mail_address = getattr(address, "smtp_user", False)
+        ######
+        existing_ir_mail_server = self.pool.get('ir.mail_server').search(cr,uid,[('id','=',default_mail_server)])
+        if existing_ir_mail_server != []:
+            address = self.pool.get('ir.mail_server').browse(cr, uid,  default_mail_server, context=context)
+            default_mail_address = getattr(address, "smtp_user", False)
+        else:
+            address = False
+            default_mail_address = False
+            
         
-        
+        ########
         for mail in self.browse(cr, SUPERUSER_ID, ids, context=context):
             try:
                 # TDE note: remove me when model_id field is present on mail.message - done here to avoid doing it multiple times in the sub method

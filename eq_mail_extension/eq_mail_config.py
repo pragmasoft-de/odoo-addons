@@ -35,11 +35,20 @@ class eq_mail_config_settings(osv.osv_memory):
                 
     def get_default_mail_server(self, cr, uid, fields, context=None):
         receivable = self.pool.get('ir.values').get_default(cr, uid, 'mail.mail', 'mail_server_id')
+        
         #address = self.pool.get('ir.values').get_default(cr, uid, 'mail.mail', 'mail_server_address')
-        address = self.pool.get('ir.mail_server').browse(cr, uid,  receivable, context=context)
+        existing_ir_mail_server = self.pool.get('ir.mail_server').search(cr,uid,[('id','=',receivable)])
+        if existing_ir_mail_server != []:
+            address = self.pool.get('ir.mail_server').browse(cr, uid,  receivable, context=context)
+            receivable = existing_ir_mail_server[0]
+        else:
+            address = False
+            receivable = False
         return {
-                'mail_server_id': receivable,
-                'mail_server_address': address.smtp_user,
+                #'mail_server_id': receivable,
+                #'mail_server_address': address.smtp_user,
+                'mail_server_id':existing_ir_mail_server[0] if receivable else "",
+                'mail_server_address':address.smtp_user if address else "",
                 }
 
     _columns = {
