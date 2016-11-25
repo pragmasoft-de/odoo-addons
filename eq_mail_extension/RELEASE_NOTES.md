@@ -1,5 +1,10 @@
 ## Modul eq_mail_extension
 
+#### 25.11.2016
+#### Version 1.0.7
+##### CHG
+- Modulicon und Beschreibung angepasst. 
+
 #### 15.11.2016
 #### Version 1.0.6
 ##### FIX
