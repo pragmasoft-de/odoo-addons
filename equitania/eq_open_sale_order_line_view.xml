@@ -73,7 +73,7 @@
 	                   
 						<group expand="0" string="Group By">
 						    <filter string="Saleorder" context="{'group_by' : 'eq_order_id'}"/>
-						    <filter string="Frameworkagreement" context="{'group_by' : 'eq_framework_agreement_id'}"/>
+						   <!--  <filter string="Frameworkagreement" context="{'group_by' : 'eq_framework_agreement_id'}"/> -->
 						    <filter string="Customer" context="{'group_by': 'eq_customer'}"/>
 						    <filter string="Product" context="{'group_by': 'eq_product_no'}"/>
 						</group>

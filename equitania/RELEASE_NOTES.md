@@ -17,6 +17,10 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 28.11.2016
+### Version 1.1.117
+#### FIX
+- Fehlerhafte Filterung nach Rahmenaufträgen unter "Auftragspositionen" entfernt.
 
 #### 24.11.2016
 ### Version 1.1.116
