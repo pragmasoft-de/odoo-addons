@@ -221,13 +221,19 @@ class EqGoogleShoppingFeed(http.Controller):
                 availability = product_obj.qty_available                                                            #Stock
                 if product_obj.weight_net != False and product_obj.eq_basic.name != False:
                     #unit_measure = str(product_obj.weight_net) + ' ' + product_obj.eq_basic.name                    #Grundpreis Maß
-                    unit_measure = str(product_obj.weight_net)  + product_obj.eq_basic.name
+                    if product_obj.eq_basic.name == 'Liter':
+                        unit_measure = str(product_obj.weight_net) + 'l'
+                    else:
+                        unit_measure = str(product_obj.weight_net)  + product_obj.eq_basic.name
                 else:
                     unit_measure = ''
                     
                 if product_obj.volume != False and product_obj.eq_basic.name != False:
-                    #basic_unit = str(1.0) + ' ' + product_obj.eq_basic.name  
-                    basic_unit = str(1) + product_obj.eq_basic.name                                       #Grundpreiseinheitsmaß
+                    #basic_unit = str(1.0) + ' ' + product_obj.eq_basic.name
+                    if product_obj.eq_basic.name == 'Liter':
+                        basic_unit = str(1) + 'l'
+                    else:
+                        basic_unit = str(1) + product_obj.eq_basic.name                                       #Grundpreiseinheitsmaß
                 else:
                     basic_unit = ''
                 #basic_price = str(product_obj.eq_basic_price)                                                      #Grundpreiseinheit

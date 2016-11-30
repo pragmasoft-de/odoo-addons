@@ -1,6 +1,11 @@
 ## Modul eq_google_shopping
 
 
+#### 30.11.2016
+#### Version 1.0.22
+##### FIX
+- Sobald beim Grundeinheitspreis/Grundeinheitsmaß Liter ausgewählt wurde, wird ein l gesetzt.
+
 #### 25.08.2016
 #### Version 1.0.20
 ##### FIX
