@@ -20,6 +20,7 @@
 #
 ##############################################################################
 
+from openerp.tools.translate import _                       # Support für dyn. übersetzung
 from openerp import models, fields, api
 #from openerp.addons.eq_product_view_template import eq_log              # unser Logger importieren
 

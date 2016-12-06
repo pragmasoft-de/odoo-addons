@@ -19,6 +19,7 @@
 #
 ##############################################################################
 
+from openerp.tools.translate import _                       # Support für dyn. übersetzung
 from openerp import http
 #from openerp.addons.eq_website_customerportal import eq_log              # unser Logger importieren
 

@@ -22,6 +22,7 @@
 
 # definition of your tables and fields goes here
 
+from openerp.tools.translate import _                       # Support für dyn. übersetzung
 from openerp import models, fields, api
 from openerp.addons.eq_office365 import eq_log              # unser Logger importieren
 
