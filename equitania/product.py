@@ -20,7 +20,7 @@
 ##############################################################################
 
 from openerp.osv import fields, osv, orm
-
+import openerp.addons.decimal_precision as dp
 from openerp import models, api, fields as fields_V8
 
 class eq_product_product_new_api(models.Model):
@@ -288,8 +288,8 @@ class eq_product_template_standard_price_history(osv.osv):
     
     _columns = {
                 'eq_product_id': fields.many2one('product.template', string="Product"),
-                'eq_old_price': fields.float(string="Old Price"),
-                'eq_new_price': fields.float(string="New Price"),
+                'eq_old_price': fields.float(string="Old Price", digits_compute=dp.get_precision('Product Price Purchase')),
+                'eq_new_price': fields.float(string="New Price", digits_compute=dp.get_precision('Product Price Purchase')),
                 'create_uid': fields.many2one('res.users', string="User"),
                 'create_date': fields.datetime(string="Create Date"),
                 }

@@ -136,7 +136,7 @@
 				</field>
 				<field name="standard_price" position="after">
 					<button string="Show Price History" type="action"
-						name="%(eq_template_standard_price_history_action)d" class="oe_inline oe_link" />
+						name="%(eq_template_standard_price_history_action)d" class="oe_inline oe_link" style="margin-left: 20px"/>
 				</field>
 
 				<!-- (future use?) min. order quantity for product.template -->

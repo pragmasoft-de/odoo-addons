@@ -16,6 +16,12 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 08.12.2016
+### Version 1.1.118
+#### CHG
+- Produkt-Einkaufspreis und Einkaufspreishistorie berücksichtigt nun den Dezimalstellen-Formatierer "Product Price Purchase"
+- Abstand zwischen Einkaufspreis und dem Button "Preishistorie anzeigen" vergrößert
+
 
 #### 28.11.2016
 ### Version 1.1.117

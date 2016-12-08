@@ -411,7 +411,17 @@ class eq_report_extension_purchase_order(osv.osv):
         """
         #TODO
         return super(eq_report_extension_purchase_order, self).action_invoice_create(cr, uid, ids, context)
-  
+
+
+class eq_report_extension_product_template(osv.osv):
+    _inherit = "product.template"
+
+    _columns = {
+        'standard_price': fields.property(type='float', digits_compute=dp.get_precision('Product Price Purchase'),
+                                          help="Cost price of the product template used for standard stock valuation in accounting and used as a base price on purchase orders. "
+                                               "Expressed in the default unit of measure of the product.",
+                                          groups="base.group_user", string="Cost Price")
+    }
     
     
 class eq_report_extension_purchase_order_line(osv.osv):
