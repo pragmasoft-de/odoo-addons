@@ -19,9 +19,10 @@
 #
 ##############################################################################
 
+
 from openerp.osv import fields, osv, orm
 import openerp.addons.decimal_precision as dp
-from openerp import models, api, fields as fields_V8
+from openerp import models, api, fields as fields_V8, SUPERUSER_ID
 
 class eq_product_product_new_api(models.Model):
     _inherit = "product.product"
@@ -123,6 +124,17 @@ class eq_product_template(osv.osv):
                                 }
                 self.pool.get('product.template.standard_price_history').create(cr, uid, history_vals, context=context)
         res = super(eq_product_template, self).write(cr, uid, ids, vals, context=context)
+
+
+        # Korrektur der Lokalisierung für das Feld name, damit wir kein Problem mehr mit dem Modul web_translate haben
+        actual_language = context['lang']
+        if 'name' in vals:
+            text_to_be_set = vals['name']
+            ir_translation_obj = self.pool.get('ir.translation')
+            ir_translation_record_id = ir_translation_obj.search(cr, SUPERUSER_ID, [('res_id', '=', ids[0]), ('lang', '=', actual_language), ('name', '=', 'product.template,name')])
+            ir_translation_record = ir_translation_obj.browse(cr, SUPERUSER_ID, ir_translation_record_id)
+            ir_translation_record.value = text_to_be_set
+
         return res
     
 class eq_product_product(osv.osv):

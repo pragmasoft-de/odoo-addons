@@ -16,6 +16,11 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 09.12.2016
+### Version 1.1.119
+#### FIX
+- Korrektur der Lokalisierung für das Feld name, damit wir kein Problem mehr mit dem Modul web_translate haben
+
 #### 08.12.2016
 ### Version 1.1.118
 #### CHG
