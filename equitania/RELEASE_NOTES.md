@@ -16,6 +16,12 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 12.12.2016
+### Version 1.1.120
+#### FIX
+- Select Statements in der Funktion "_set_group_for_users" angepasst. Jetzt wird die uid korrekt gesetzt (vorher wurde aufgrund der Reihenfolge 
+fälschlicherweise die gid als uid verwendet).
+
 #### 09.12.2016
 ### Version 1.1.119
 #### FIX
