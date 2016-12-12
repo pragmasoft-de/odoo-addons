@@ -31,6 +31,7 @@ class eq_install_func(osv.osv):
     
     def _set_group_for_users(self, cr, uid, ids=None, context= None):
         #Group purchase_in_products
+        #Setzt bei der Erstinstallation bei den Benutzern die Rechtegruppe "Reiter 'Beschaffung' im Produkt anzeigen"
         sql_exists_query = """
         select exists(select * from res_groups_users_rel where gid = (select res_id from ir_model_data where name = 'purchase_in_products' and module = 'equitania'))
         """
@@ -38,13 +39,14 @@ class eq_install_func(osv.osv):
         if not cr.fetchone()[0]:
             sql_insert_query = """
             insert into res_groups_users_rel
-            select (select res_id from ir_model_data where name = 'purchase_in_products' and module = 'equitania') as gid, id as uid  from res_users 
+            select id as uid,(select res_id from ir_model_data where name = 'purchase_in_products' and module = 'equitania') as gid from res_users
             where id not in 
             (select uid from res_groups_users_rel where gid = (select res_id from ir_model_data where name = 'purchase_in_products' and module = 'equitania'))
             """
             cr.execute(sql_insert_query)
             cr.commit()
         #Group supplier_in_account
+        #Setzt bei der Erstinstallation bei den Benutzern die Rechtegruppe "Bereich 'Lieferanten' in Finanzen anzeigen"
         sql_exists_query = """
         select exists(select * from res_groups_users_rel where gid = (select res_id from ir_model_data where name = 'supplier_in_account' and module = 'equitania'))
         """
@@ -52,7 +54,7 @@ class eq_install_func(osv.osv):
         if not cr.fetchone()[0]:
             sql_insert_query = """
             insert into res_groups_users_rel
-            select (select res_id from ir_model_data where name = 'supplier_in_account' and module = 'equitania') as gid, id as uid  from res_users 
+            select id as uid,(select res_id from ir_model_data where name = 'supplier_in_account' and module = 'equitania') as gid from res_users
             where id not in 
             (select uid from res_groups_users_rel where gid = (select res_id from ir_model_data where name = 'supplier_in_account' and module = 'equitania'))
             """
@@ -62,6 +64,7 @@ class eq_install_func(osv.osv):
             
             
         #Group group_access_reporting
+        #Setzt bei der Erstinstallation bei den Benutzern die Rechtegruppe "Menu Berichtswesen anzeigen"
         sql_exists_query = """
         select exists(select * from res_groups_users_rel where gid = (select res_id from ir_model_data where name = 'group_access_reporting' and module = 'equitania'))
         """
@@ -69,7 +72,7 @@ class eq_install_func(osv.osv):
         if not cr.fetchone()[0]:
             sql_insert_query = """
             insert into res_groups_users_rel
-            select (select res_id from ir_model_data where name = 'group_access_reporting' and module = 'equitania') as gid, id as uid  from res_users 
+            select id as uid,(select res_id from ir_model_data where name = 'group_access_reporting' and module = 'equitania') as gid from res_users
             where id not in 
             (select uid from res_groups_users_rel where gid = (select res_id from ir_model_data where name = 'group_access_reporting' and module = 'equitania'))
             """
@@ -78,6 +81,7 @@ class eq_install_func(osv.osv):
             
             
         #Group group_access_hr_menu
+        #Setzt bei der Erstinstallation bei den Benutzern die Rechtegruppe "Menu Personal anzeigen"
         sql_exists_query = """
         select exists(select * from res_groups_users_rel where gid = (select res_id from ir_model_data where name = 'group_access_hr_menu' and module = 'equitania'))
         """
@@ -85,7 +89,7 @@ class eq_install_func(osv.osv):
         if not cr.fetchone()[0]:
             sql_insert_query = """
             insert into res_groups_users_rel
-            select (select res_id from ir_model_data where name = 'group_access_hr_menu' and module = 'equitania') as gid, id as uid  from res_users 
+            select id as uid,(select res_id from ir_model_data where name = 'group_access_hr_menu' and module = 'equitania') as gid from res_users
             where id not in 
             (select uid from res_groups_users_rel where gid = (select res_id from ir_model_data where name = 'group_access_hr_menu' and module = 'equitania'))
             """
