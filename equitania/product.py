@@ -127,13 +127,14 @@ class eq_product_template(osv.osv):
 
 
         # Korrektur der Lokalisierung für das Feld name, damit wir kein Problem mehr mit dem Modul web_translate haben
-        actual_language = context['lang']
-        if 'name' in vals:
-            text_to_be_set = vals['name']
-            ir_translation_obj = self.pool.get('ir.translation')
-            ir_translation_record_id = ir_translation_obj.search(cr, SUPERUSER_ID, [('res_id', '=', ids[0]), ('lang', '=', actual_language), ('name', '=', 'product.template,name')])
-            ir_translation_record = ir_translation_obj.browse(cr, SUPERUSER_ID, ir_translation_record_id)
-            ir_translation_record.value = text_to_be_set
+        if 'lang' in context:       # sehr wichtig ! die Write-Methode wird ausgeführt auch wenn man in den Einstellungen etwas speichert !
+            actual_language = context['lang']
+            if 'name' in vals:
+                text_to_be_set = vals['name']
+                ir_translation_obj = self.pool.get('ir.translation')
+                ir_translation_record_id = ir_translation_obj.search(cr, SUPERUSER_ID, [('res_id', '=', ids[0]), ('lang', '=', actual_language), ('name', '=', 'product.template,name')])
+                ir_translation_record = ir_translation_obj.browse(cr, SUPERUSER_ID, ir_translation_record_id)
+                ir_translation_record.value = text_to_be_set
 
         return res
     
