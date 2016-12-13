@@ -16,6 +16,12 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+
+#### 13.12.2016
+### Version 1.1.123
+#### IMP
+- Erweiterung um bessere Kontrolle von Context, damit man kein Fehler beim Aufruf der Importfunktion bekommt
+
 #### 13.12.2016
 ### Version 1.1.122
 #### CHG
