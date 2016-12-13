@@ -17,6 +17,11 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 #### 13.12.2016
+### Version 1.1.122
+#### CHG
+- Steuerfreie Positionen werden jetzt auch in dem Rechnungsreport angezeigt (Ticket #3454).
+
+#### 13.12.2016
 ### Version 1.1.121
 #### FIX
 - Bugfix der Funktion write(..), damit man beim Speichern eine Änderung unter Einstellungen kein Fehler mit KeyError 'lang' mehr bekommt.

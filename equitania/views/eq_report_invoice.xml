@@ -294,7 +294,9 @@
 							<th class="text-center" t-if="any([line.discount for line in o.invoice_line])"
 								groups="sale.group_discount_per_so_line">Discount</th>
 							<!-- <th class="text-right">Steuern</th> -->
-							<th class="text-center" t-if="len(o.tax_line) > 1">VAT</th>
+							<!--HIER: steuerfreie Positionen werden jetzt auch angezeigt-->
+							<!--<th class="text-center" t-if="len(o.tax_line) > 1">VAT</th>-->
+							<th class="text-center">VAT</th>
 							<t t-if="show_gross_price is False">	<!-- no, show only net price -->
 								<th class="text-right" style="min-width:2.7cm;">Net price</th>
 							</t>
@@ -356,7 +358,9 @@
 										<span t-field="l.discount" /> %<br/>
 											(<span t-esc="get_price(l.discount_value, o.partner_id.lang, o.currency_id)" />)
 									</td>
-									<td class="clean-bottom text-center" t-if="len(o.tax_line) > 1">
+									<!--HIER: steuerfreie Positionen werden jetzt auch angezeigt-->
+									<!--<td class="clean-bottom text-center" t-if="len(o.tax_line) > 1">-->
+									<td class="clean-bottom text-center">
 										<span t-field="l.invoice_line_tax_id.description" />
 									</td>
 
