@@ -1,5 +1,10 @@
 ## Modul eq_stock_account_compatibility
 
+#### 14.12.2016
+#### Version 1.0.2
+##### ADD
+- Sprachdatei angelegt damit keine Warnings mehr in der Konsole angezeigt werden
+
 #### 17.12.2015
 #### Version 1.0.0
 ##### Veröffentlichung
