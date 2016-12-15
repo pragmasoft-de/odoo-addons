@@ -1,18 +1,22 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* eq_stock_account_compatibility
+#	* eq_stock_account_compatibility
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.1 Build 161001\n"
+"Project-Id-Version: Odoo Server 8.1 Build 161103\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-12 06:18+0000\n"
-"PO-Revision-Date: 2016-12-12 08:26+0200\n"
-"Last-Translator: Johann Müller <j.mueller@equitania.de>\n"
+"POT-Creation-Date: 2016-12-15 09:52+0000\n"
+"PO-Revision-Date: 2016-12-15 09:52+0000\n"
+"Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"Language: de\n"
-"X-Generator: Poedit 1.8.9\n"
+
+#. module: eq_stock_account_compatibility
+#: model:ir.model,name:eq_stock_account_compatibility.model_stock_move
+msgid "Stock Move"
+msgstr "Lagerbuchung"
+

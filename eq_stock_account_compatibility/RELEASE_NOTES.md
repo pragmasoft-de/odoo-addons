@@ -1,5 +1,10 @@
 ## Modul eq_stock_account_compatibility
 
+#### 15.12.2016
+#### Version 1.0.3
+##### CHG
+- Sprachdatei ersetzt, Beschreibung ergänzt
+
 #### 14.12.2016
 #### Version 1.0.2
 ##### ADD

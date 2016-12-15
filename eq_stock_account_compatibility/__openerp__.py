@@ -21,7 +21,7 @@
 
 {
     'name': 'Equitania Stock Account Kompatibilitätsmodul',
-    'version': '1.0.2',
+    'version': '1.0.3',
     'description': """
         Equitania Software GmbH
     """,
