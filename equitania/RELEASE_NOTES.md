@@ -17,6 +17,12 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 28.12.2016
+### Version 1.1.124
+#### FIX
+- Select Statements in der Funktion "_set_group_for_users" angepasst. Zusatz zu Version 1.1.120: uid wurde bisher zufällig gesetzt. Es wurde
+ein Zusatz in das SQL Statement eingefügt, welches uid und gid gemäß des Sub-Selects korrekt setzt.
+
 #### 13.12.2016
 ### Version 1.1.123
 #### IMP
