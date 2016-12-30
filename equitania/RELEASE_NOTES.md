@@ -15,7 +15,11 @@ Vorgehensweise unter Debian:
 `rm opensans.zip`
 
 `fc-cache -f -v`
-
+#### 30.12.2016
+### Version 1.1.126
+#### FIX    
+- Auskommentierung von "o.payment_term" wieder herausgenommen, da keine Zahlungskondition mehr angezeigt wurde 
+- Auskommentierung von eq_ref_number Zeile 39 ff. rausgenommen (fehlt noch Logik)
 
 #### 30.12.2016
 ### Version 1.1.125
