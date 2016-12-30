@@ -17,6 +17,12 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 30.12.2016
+### Version 1.1.125
+#### FIX
+- Abhängigkeit zum CK Editor 4 eingebaut (Fix für Kopf- und Fußtexte in Aufträgen) 
+
+
 #### 28.12.2016
 ### Version 1.1.124
 #### FIX
