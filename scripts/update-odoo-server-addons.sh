@@ -6,7 +6,7 @@
 # Wenn "Computing parent left and right for table ir_ui_menu..." [crtl]+[c] drücken,
 # da das Update fertig ist. Danach als root User den Server wieder starten.
 # /etc/init.d/odoo-server start
-# Version 1.2.4 - Stand 30.03.2016
+# Version 1.2.5 - Stand 30.12.2016
 ##############################################################################
 #
 #    Shell Script for Odoo, Open Source Management Solution
@@ -184,6 +184,7 @@ cp -r $myocapath/project_task_materials_stock $myserverpath/addons
 cp -r $myocapath/report_custom_filename $myserverpath/addons
 cp -r $myocapath/sale_order_project $myserverpath/addons
 cp -r $myocapath/sale_order_revision $myserverpath/addons
+cp -r $myocapath/web_ckeditor4 $myserverpath/addons
 cp -r $myocapath/web_context_tunnel $myserverpath/addons
 cp -r $myocapath/web_dialog_size $myserverpath/addons
 cp -r $myocapath/web_export_view $myserverpath/addons
