@@ -15,6 +15,15 @@ Vorgehensweise unter Debian:
 `rm opensans.zip`
 
 `fc-cache -f -v`
+
+
+
+#### 03.01.2017
+### Version 1.1.127
+#### CHG    
+- Anpassung für Einkaufspreise der Lieferanten: Dezimalstelleneinstellung über "Product Price Purchase"
+
+
 #### 30.12.2016
 ### Version 1.1.126
 #### FIX    
