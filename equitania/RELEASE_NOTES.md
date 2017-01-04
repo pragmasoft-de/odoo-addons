@@ -17,6 +17,11 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 04.01.2017
+### Version 1.1.128
+#### FIX    
+- Korrektur für Textersetzung in Rechnungsreports
+
 
 #### 03.01.2017
 ### Version 1.1.127
