@@ -21,7 +21,7 @@
 
 {
     'name': 'Project Extension',
-    'version': '1.0.12',
+    'version': '1.0.13',
     'description': """
         Improves and extends several views related to projects
     """,

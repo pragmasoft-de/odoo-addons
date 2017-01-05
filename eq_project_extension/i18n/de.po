@@ -121,3 +121,14 @@ msgstr "Kunde"
 #: view:account.analytic.line:eq_project_extension.eq_project_extension_view_account_analytic_line_tree
 msgid "Customer Number"
 msgstr "Kundennummer"
+
+
+#. module: eq_project_extension
+#: field:project.task.work,eq_time_start:0
+msgid "Begin Hour"
+msgstr "Startzeit"
+
+#. module: eq_project_extension
+#: field:project.task.work,eq_time_stop:0
+msgid "End Hour"
+msgstr "Endzeit"

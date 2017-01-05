@@ -96,6 +96,12 @@
 					<xpath expr="//field[@name='work_ids']/tree/field[@name='user_id']" position="attributes">
 						<attribute name="domain">"[('eq_employee_id','!=', False)]</attribute>
 					</xpath>
+
+
+                    <xpath expr="//field[@name='work_ids']/tree/field[@name='name']" position="after">
+						<field name="eq_time_start" widget="float_time"/>
+                        <field name="eq_time_stop" widget="float_time"/>
+					</xpath>
 				</data>
 			</field>
 		</record> 

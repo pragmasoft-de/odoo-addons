@@ -20,8 +20,105 @@
 ##############################################################################
 
 from openerp import models, fields, api, _
+from datetime import timedelta
 
 class project_task_work(models.Model):
     _inherit = 'project.task.work'
     
     eq_to_invoice = fields.Many2one(default=1)
+
+    eq_time_start = fields.Float(string='Begin Hour')
+    eq_time_stop = fields.Float(string='End Hour')
+
+    @api.onchange('eq_time_start', 'eq_time_stop')
+    def onchange_hours_start_stop(self):
+        """
+        Berechnung der geleisteten Zeit anhand des Start- und Endzeitpunktes
+        :return:
+        """
+        start = timedelta(hours=self.eq_time_start)
+        stop = timedelta(hours=self.eq_time_stop)
+        if stop < start:
+            return
+        self.hours = float((stop - start).seconds) / 3600
+
+    @api.model
+    def _create_analytic_entries(self, vals):
+        """
+        overriding from project_timesheet.py um neue Felder zu setzen
+        :param vals:
+        :return:
+        """
+        timeline_id = super(project_task_work, self)._create_analytic_entries(vals)  #calls timesheet_obj.create
+        if timeline_id:
+            timesheet_obj = self.env['hr.analytic.timesheet']
+            timeline_rec = timesheet_obj.browse(timeline_id)
+
+            update_vals = {}
+            if 'eq_time_start' in vals:
+                update_vals['time_start'] = vals['eq_time_start']
+                update_vals['aal_time_start'] = vals['eq_time_start']
+
+            if 'eq_time_stop' in vals:
+                update_vals['time_stop'] = vals['eq_time_stop']
+                update_vals['aal_time_stop'] = vals['eq_time_stop']
+
+            if update_vals:
+                timeline_rec.write(update_vals)
+
+        return timeline_id
+
+    @api.multi
+    def write(self, vals):
+        """
+
+        :param vals:
+        :return:
+        """
+        #führt in project_timesheet.py zu einem write in hr.analytic.timesheet
+        #Fehler durch Validierung beim Write falls berechnete Stundenzahl nicht das Ergebnis von Start- und Endzeitpunkt ist
+        #Zeiten in account_line müssen ebenfalls gesetzt werden
+
+
+        #request.session['eq_project_task_work'] = True
+        if self.hr_analytic_timesheet_id:
+            line_id = self.hr_analytic_timesheet_id.id
+            vals_line = {}
+            if 'eq_time_start' in vals:
+                vals_line['time_start'] = vals['eq_time_start']
+
+
+            if 'eq_time_stop' in vals:
+                vals_line['time_stop'] = vals['eq_time_stop']
+
+            if 'eq_time_start' in vals:
+                vals_line['aal_time_start'] = vals['eq_time_start']
+
+            if 'eq_time_stop' in vals:
+                vals_line['aal_time_stop'] = vals['eq_time_stop']
+
+            if 'hours' in vals:
+                vals_line['unit_amount'] = vals['hours']
+
+            if vals_line:
+                try:
+                    vals_line['skip_project_task_update'] = True
+                    timesheet = self.env['hr.analytic.timesheet'].browse(line_id)
+
+                    diff_found = False
+                    if 'eq_time_start' in vals:
+                        diff_found = timesheet.aal_time_start != vals['eq_time_start']
+                    if not diff_found and 'eq_time_stop' in vals:
+                        diff_found = timesheet.aal_time_stop != vals['eq_time_stop']
+
+                    if diff_found:
+                        timesheet.write(vals_line)
+
+                        analytic_line = self.env['account.analytic.line'].browse(self.hr_analytic_timesheet_id.line_id.id)
+                        analytic_line.write(vals_line)
+                        self.hr_analytic_timesheet_id.write(vals_line)
+                except:
+                    #Erweiterung "hr_timesheet_activity_begin_end" fehlt
+                    pass
+
+        return super(project_task_work, self).write(vals)

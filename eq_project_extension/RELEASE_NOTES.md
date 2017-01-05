@@ -1,5 +1,11 @@
 ## Modul eq_project_extension
 
+#### 05.01.2017
+#### Version 1.0.13
+##### CHG
+- Erweiterungen für Zeitenerfassung: Start- und Endzeitpunkt
+
+
 #### 03.11.2016
 #### Version 1.0.12
 ##### FIX
