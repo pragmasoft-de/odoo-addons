@@ -1,5 +1,11 @@
 ## Modul eq_project_extension
 
+
+#### 09.01.2017
+#### Version 1.0.14
+##### CHG
+- Dependency zu eq_myodoo entfernt
+
 #### 05.01.2017
 #### Version 1.0.13
 ##### CHG

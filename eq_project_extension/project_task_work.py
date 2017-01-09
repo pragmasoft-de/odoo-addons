@@ -25,7 +25,8 @@ from datetime import timedelta
 class project_task_work(models.Model):
     _inherit = 'project.task.work'
     
-    eq_to_invoice = fields.Many2one(default=1)
+    eq_to_invoice = fields.Many2one(comodel_name='hr_timesheet_invoice.factor', related="hr_analytic_timesheet_id.to_invoice",
+                    string='Timesheet Invoicing Ratio', default=1)
 
     eq_time_start = fields.Float(string='Begin Hour')
     eq_time_stop = fields.Float(string='End Hour')
