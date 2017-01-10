@@ -18,6 +18,11 @@ Vorgehensweise unter Debian:
 
 
 #### 10.01.2017
+### Version 1.1.130
+#### CHG
+- Reports Lieferschein: Captions für "Lieferadrese" wurden entfernt
+
+#### 10.01.2017
 ### Version 1.1.129
 #### ADD
 - Reports: Es ist nun möglich ein Seitenumbruch vor dem Fußtext zu erzwingen
