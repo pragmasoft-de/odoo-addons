@@ -17,6 +17,11 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 10.01.2017
+### Version 1.1.129
+#### ADD
+- Reports: Es ist nun möglich ein Seitenumbruch vor dem Fußtext zu erzwingen
+
 #### 04.01.2017
 ### Version 1.1.128
 #### FIX    

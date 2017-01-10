@@ -42,6 +42,13 @@
                     <field name="eq_use_page_break_after_header"></field>
                     <label string="Page break after header text"></label>
                 </xpath>
+
+				<!-- here -->
+
+				<xpath expr="//notebook/page[@string='Foot Text']/field[@name='note']" position="before">
+                    <field name="eq_use_page_break_before_footer"></field>
+                    <label string="Page break before footer text"></label>
+                </xpath>
                                 
                 <xpath expr="//field[@name='order_line']/form//div[@name='discount']" position="after">
                 	<!-- <label for="discount_value"></label> -->

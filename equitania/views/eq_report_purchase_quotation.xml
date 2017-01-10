@@ -233,6 +233,10 @@
 						</tr>
 					</tbody>
 				</table>
+
+				<!-- Pagebreak before footertext -->
+				<p t-if="o.eq_use_page_break_before_footer" style="page-break-after:always;"> </p>
+
 				<div>
 					<table>
 						<tbody>

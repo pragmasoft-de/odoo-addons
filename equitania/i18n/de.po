@@ -2653,6 +2653,22 @@ msgid "Page break after header text"
 msgstr "Seitenumbruch nach Kopftext"
 
 #. module: equitania
+#: view:sale.order:equitania.eq_sale_order_from_view_eq_customer_ref
+#: field:sale.order,eq_use_page_break_before_footer:0
+msgid "Page break before footer text"
+msgstr "Seitenumbruch vor dem Fußtext"
+
+#. module: equitania
+#: view:account.invoice:equitania.eq_invoice_form
+#: field:account.invoice,eq_use_page_break_before_footer:0
+#: view:purchase.order:equitania.eq_purchase_order_form
+#: field:purchase.order,eq_use_page_break_before_footer:0
+#: view:sale.order:equitania.eq_sale_order_from_view_eq_customer_ref
+#: field:sale.order,eq_use_page_break_before_footer:0
+msgid "Page break before footer text"
+msgstr "Seitenumbruch vor dem Fußtext"
+
+#. module: equitania
 #: view:sale.order:equitania.sale.view_order_form
 #: field:sale.order,eq_customer_ref:0
 msgid "Customer Number"
