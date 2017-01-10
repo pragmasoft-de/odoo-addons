@@ -19,23 +19,15 @@
 #
 ##############################################################################
 
-{
-    'name': 'Project Extension',
-    'version': '1.0.15',
-    'description': """
-        Improves and extends several views related to projects
-    """,
-    'author': 'Equitania Software GmbH',
-    'website': 'www.myodoo.de',
-    'depends': ['project','project_timesheet'],
-    'category' : 'General Improvements',
-    'summary': 'Extend the project management views and functions',
-    'data': [
-        'account_analytic_line_view.xml',
-        'project_task_view.xml',
-        'project_project_view.xml',
-    ],
-    'demo': [],
-    'installable': True,
-    'auto_install': False,
-}
+from openerp import models, fields, api, _
+from openerp.exceptions import ValidationError
+
+
+
+class hr_analytic_timesheet(models.Model):
+    _inherit = "hr.analytic.timesheet"
+
+    @api.constrains('aal_time_stop', 'aal_time_start')
+    def _check_time_input(self):
+        if self.aal_time_stop < 0 or self.aal_time_stop >= 24 or self.aal_time_start < 0 or self.aal_time_start >= 24:
+            raise ValidationError(_("Input for the time must be between 0 and 24 hours"))

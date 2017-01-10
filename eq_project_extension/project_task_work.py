@@ -21,6 +21,7 @@
 
 from openerp import models, fields, api, _
 from datetime import timedelta
+from openerp.exceptions import ValidationError
 
 class project_task_work(models.Model):
     _inherit = 'project.task.work'
@@ -31,12 +32,29 @@ class project_task_work(models.Model):
     eq_time_start = fields.Float(string='Begin Hour')
     eq_time_stop = fields.Float(string='End Hour')
 
+    @api.constrains('eq_time_stop', 'eq_time_start')
+    def _check_time_input(self):
+        if self.eq_time_start < 0 or self.eq_time_start >= 24 or self.eq_time_stop < 0 or self.eq_time_stop >= 24:
+            raise ValidationError(_("Input for the time must be between 0 and 24 hours"))
+        #     return False
+        # return True
+
+    # _constraints = [
+    #     (_check_time_input, 'Error! You cannot create recursive Categories.', ['eq_time_start','eq_time_stop'])
+    # ]
+
+
+
+
     @api.onchange('eq_time_start', 'eq_time_stop')
     def onchange_hours_start_stop(self):
         """
         Berechnung der geleisteten Zeit anhand des Start- und Endzeitpunktes
         :return:
         """
+
+        #return {'warning': {'title': 'Error!', 'message': 'Something went wrong! Please check your data'}}
+
         start = timedelta(hours=self.eq_time_start)
         stop = timedelta(hours=self.eq_time_stop)
         if stop < start:

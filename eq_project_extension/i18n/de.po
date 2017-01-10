@@ -132,3 +132,9 @@ msgstr "Startzeit"
 #: field:project.task.work,eq_time_stop:0
 msgid "End Hour"
 msgstr "Endzeit"
+
+#. module: eq_project_extension
+#: code:addons/eq_project_extension/project_task_work.py:38
+#, python-format
+msgid "Input for the time must be between 0 and 24 hours"
+msgstr "Die Angaben für die Uhrzeiten müssen zwischen 0 und 24 Uhr sein"

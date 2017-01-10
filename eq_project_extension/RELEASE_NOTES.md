@@ -1,6 +1,12 @@
 ## Modul eq_project_extension
 
 
+#### 10.01.2017
+#### Version 1.0.15
+##### CHG
+- Erweiterung für Überprüfung der eingegebenen Uhrzeiten
+
+
 #### 09.01.2017
 #### Version 1.0.14
 ##### CHG
