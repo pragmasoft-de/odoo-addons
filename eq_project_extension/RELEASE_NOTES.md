@@ -1,6 +1,11 @@
 ## Modul eq_project_extension
 
 
+#### 11.01.2017
+#### Version 1.0.16
+##### Fix
+- Überprüfung der eingegebenen Uhrzeiten für hr.analytic.timesheet entfernt
+
 #### 10.01.2017
 #### Version 1.0.15
 ##### CHG

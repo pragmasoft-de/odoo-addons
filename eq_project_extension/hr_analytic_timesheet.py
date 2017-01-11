@@ -23,11 +23,11 @@ from openerp import models, fields, api, _
 from openerp.exceptions import ValidationError
 
 
-
-class hr_analytic_timesheet(models.Model):
-    _inherit = "hr.analytic.timesheet"
-
-    @api.constrains('aal_time_stop', 'aal_time_start')
-    def _check_time_input(self):
-        if self.aal_time_stop < 0 or self.aal_time_stop >= 24 or self.aal_time_start < 0 or self.aal_time_start >= 24:
-            raise ValidationError(_("Input for the time must be between 0 and 24 hours"))
+#aktuell noch auskommentiert; evtl. direkt ins oca-Modul oder dependency einbauen
+# class hr_analytic_timesheet(models.Model):
+#     _inherit = "hr.analytic.timesheet"
+#
+#     @api.constrains('aal_time_stop', 'aal_time_start')
+#     def _check_time_input(self):
+#         if self.aal_time_stop < 0 or self.aal_time_stop >= 24 or self.aal_time_start < 0 or self.aal_time_start >= 24:
+#             raise ValidationError(_("Input for the time must be between 0 and 24 hours"))
