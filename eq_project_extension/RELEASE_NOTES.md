@@ -1,6 +1,11 @@
 ## Modul eq_project_extension
 
 
+#### 16.01.2017
+#### Version 1.0.17
+##### ADD
+- Dependency zum OCA-Modul "project_classification" hinzugefügt, da ohne Dependency eine Warning verursacht wurde (Field account.analytic.line.eq_project_classification_id with unknown comodel_name 'project.classification')
+
 #### 11.01.2017
 #### Version 1.0.16
 ##### Fix
