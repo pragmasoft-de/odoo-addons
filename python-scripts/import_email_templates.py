@@ -23,7 +23,7 @@ from datetime import datetime, timedelta
 
 username = "admin"
 pwd = "pwd"
-dbname = "db"
+dbname = "dbname"
 baseurl = "http://localhost:8069"
 
 version_number = 1
@@ -36,9 +36,9 @@ uid = sock_common.login(dbname, username, pwd)
 
 sock = xmlrpclib.ServerProxy(baseurl + "/xmlrpc/object")
 
-list_id = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("eq_email_template_version","=",0)])
+list_id = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("eq_email_template_version","=",False)])
 #list_id = sock.execute(dbname, uid, pwd, 'email.template', 'search', ["|",("eq_email_template_version","=",0),("eq_email_template_version","<",version_number)])
-
+print"list_id: ",list_id
 dict = sock.execute(dbname, uid, pwd, 'email.template', 'read', list_id,['display_name'])
 
 for i in dict:

@@ -17,12 +17,15 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
-#### 19.01.2017
+#### 10.01.2017
+### Version 1.1.130
+#### CHG
+- Reports Lieferschein: Captions für "Lieferadrese" wurden entfernt
+
+#### 10.01.2017
 ### Version 1.1.129
-#### IMP
-- Im Auftrag werden nun unter "Rechnungen anzeigen" auch Gutschriften aufgelistet.
-#### FIX
-- Report: Der Vor- und Nachname im Lieferscheint wird nur angedruckt, wenn es sich um kein Unternehmen handelt
+#### ADD
+- Reports: Es ist nun möglich ein Seitenumbruch vor dem Fußtext zu erzwingen
 
 #### 04.01.2017
 ### Version 1.1.128

@@ -1,5 +1,27 @@
 ## Modul eq_project_extension
 
+
+#### 16.01.2017
+#### Version 1.0.17
+##### ADD
+- Dependency zum OCA-Modul "project_classification" hinzugefügt, da ohne Dependency eine Warning verursacht wurde (Field account.analytic.line.eq_project_classification_id with unknown comodel_name 'project.classification')
+
+#### 11.01.2017
+#### Version 1.0.16
+##### Fix
+- Überprüfung der eingegebenen Uhrzeiten für hr.analytic.timesheet entfernt
+
+#### 10.01.2017
+#### Version 1.0.15
+##### CHG
+- Erweiterung für Überprüfung der eingegebenen Uhrzeiten
+
+
+#### 09.01.2017
+#### Version 1.0.14
+##### CHG
+- Dependency zu eq_myodoo entfernt
+
 #### 05.01.2017
 #### Version 1.0.13
 ##### CHG
