@@ -17,6 +17,13 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 19.01.2017
+### Version 1.1.129
+#### IMP
+- Im Auftrag werden nun unter "Rechnungen anzeigen" auch Gutschriften aufgelistet.
+#### FIX
+- Report: Der Vor- und Nachname im Lieferscheint wird nur angedruckt, wenn es sich um kein Unternehmen handelt
+
 #### 04.01.2017
 ### Version 1.1.128
 #### FIX    

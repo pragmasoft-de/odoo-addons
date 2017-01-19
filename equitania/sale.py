@@ -139,6 +139,37 @@ class eq_sale_order(models.Model):
             return None            
         return result
 
+    def get_refunds(self, cr, uid, ids):
+        so = self.browse(cr, uid, ids, None)
+        ids = self.pool('account.invoice').search(cr, uid, [('name', 'like', so.name),('type', '=', 'out_refund')])
+
+        return ids
+
+    def action_view_invoice(self, cr, uid, ids, context=None):
+        '''
+        This function returns an action that display existing invoices of given sales order ids. It can either be a in a list or in a form view, if there is only one invoice to show.
+        '''
+        mod_obj = self.pool.get('ir.model.data')
+        act_obj = self.pool.get('ir.actions.act_window')
+
+        result = mod_obj.get_object_reference(cr, uid, 'account', 'action_invoice_tree1')
+        id = result and result[1] or False
+        result = act_obj.read(cr, uid, [id], context=context)[0]
+        #compute the number of invoices to display
+        inv_ids = []
+        for so in self.browse(cr, uid, ids, context=context):
+            inv_ids += [invoice.id for invoice in so.invoice_ids]
+            inv_ids += so.get_refunds()
+
+        #choose the view_mode accordingly
+        if len(inv_ids)>1:
+            result['domain'] = "[('id','in',["+','.join(map(str, inv_ids))+"])]"
+        else:
+            res = mod_obj.get_object_reference(cr, uid, 'account', 'invoice_form')
+            result['views'] = [(res and res[1] or False, 'form')]
+            result['res_id'] = inv_ids and inv_ids[0] or False
+        return result
+
 
     @api.v7
     def _prepare_invoice(self, cr, uid, order, lines, context=None):
