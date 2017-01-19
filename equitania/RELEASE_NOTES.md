@@ -17,7 +17,7 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 #### 19.01.2017
-### Version 1.1.130
+### Version 1.1.131
 #### IMP
 - Im Auftrag werden nun unter "Rechnungen anzeigen" auch Gutschriften aufgelistet.
 #### FIX
