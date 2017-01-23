@@ -16,6 +16,11 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 23.01.2017
+### Version 1.1.132
+#### CHG
+- Das Feld eq_firstname ist ab jetzt auf der Detailansicht von res_partner immer eingeblendet
+
 #### 19.01.2017
 ### Version 1.1.131
 #### IMP
