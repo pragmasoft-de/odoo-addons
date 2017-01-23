@@ -17,6 +17,11 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 #### 23.01.2017
+### Version 1.1.133
+#### CHG
+- Reports: eq_firstname und eq_title.name werden nun auch in den verkaufs- und versands-reports angedruckt
+
+#### 23.01.2017
 ### Version 1.1.132
 #### CHG
 - Das Feld eq_firstname ist ab jetzt auf der Detailansicht von res_partner immer eingeblendet
