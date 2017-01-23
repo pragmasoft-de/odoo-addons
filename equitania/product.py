@@ -134,8 +134,9 @@ class eq_product_template(osv.osv):
                     text_to_be_set = vals['name']
                     ir_translation_obj = self.pool.get('ir.translation')
                     ir_translation_record_id = ir_translation_obj.search(cr, SUPERUSER_ID, [('res_id', '=', ids[0]), ('lang', '=', actual_language), ('name', '=', 'product.template,name')])
-                    ir_translation_record = ir_translation_obj.browse(cr, SUPERUSER_ID, ir_translation_record_id)
-                    ir_translation_record.value = text_to_be_set
+                    if len(ir_translation_record_id) > 0:
+                        ir_translation_record = ir_translation_obj.browse(cr, SUPERUSER_ID, ir_translation_record_id)
+                        ir_translation_record.value = text_to_be_set
 
         return res
     

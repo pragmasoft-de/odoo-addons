@@ -17,6 +17,11 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 #### 23.01.2017
+### Version 1.1.134
+#### IMP
+- Verbesserung der Logik für die Anpassung "Korrektur der Lokalisierung für das Feld name" vom Dezember 2016. Ab jetzt kann man mit dem Modul "web_translate" das Feld Name (Sprache EN) setzen
+
+#### 23.01.2017
 ### Version 1.1.133
 #### CHG
 - Reports: eq_firstname und eq_title.name werden nun auch in den verkaufs- und versands-reports angedruckt
