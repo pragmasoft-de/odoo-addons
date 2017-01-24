@@ -8,7 +8,7 @@
     		<p>Sehr geehrte(r) ${object.partner_id.title.name} ${object.partner_id.name},</p>
         % endif
     
-    <p>${object.state in ('draft', 'sent') and 'hiermit bestätigen wir Ihnen folgende Bestellung:' and 'hiermit bestätigen wir Ihnen folgende Bestellung:'}</p>
+    <p>${object.state in ('draft', 'sent') and 'hiermit bestätigen wir Ihnen folgende Bestellung:' or 'hiermit bestätigen wir Ihnen folgende Bestellung:'}</p>
 
 
 
