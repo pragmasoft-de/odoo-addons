@@ -51,7 +51,7 @@
 			<field name="name">eq_address_search_form_view</field>
 			<field name="model">eq.address.search</field>
 			<field name="arch" type="xml">
-				<form string="Address search" create="false" edit="false">
+				<form string="Address search" create="false" edit="false" delete="false">
 					<sheet>
 						<group col="4">
 							<group>
@@ -81,7 +81,7 @@
 			<field name="name">eq.address.search.tree</field>
 			<field name="model">eq.address.search</field>
 			<field name="arch" type="xml">
-				<tree string="Address search" create="false">
+				<tree string="Address search" create="false" delete="false">
 					<field name="name" />
 					<field name="phone" />
 					<field name="zip" />
