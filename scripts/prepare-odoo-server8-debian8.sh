@@ -1,7 +1,7 @@
 #!/bin/bash
 # Mit diesem Skript werden alle Pakete für den Odoo Betrieb unter Debian installiert
 # Skript muss mit root-Rechten ausgeführt werden
-# Version 1.3.0 - Stand 08.12.2016
+# Version 1.3.1 - Stand 29.01.2017
 ##############################################################################
 #
 #    Shell Script for Odoo, Open Source Management Solution
@@ -27,19 +27,25 @@ apt-get update && apt-get dist-upgrade && apt-get autoremove
 
 echo "Tools zip, unzip, mc(Midnight Comander) and htop will be install.."
 apt-get install -y --no-install-recommends \
-		needrestart \
 		ca-certificates \
 		ghostscript \
 		graphviz \
 		antiword  \
 		poppler-utils \
+		mtr \
+		dnsutils \
 		curl \
+		postgresql-client-9.4 \
 		build-essential \
 		libfreetype6-dev \
 		libjpeg-dev \
+		libpq-dev \
 		python-dev \
-		python-software-properties \
-		python-pip  \
+		libxml2-dev \
+		libxslt1-dev \
+		libldap2-dev \
+		libsasl2-dev \
+		libffi-dev \
 		wget \
 		unzip \
 		sqlite3 \
@@ -69,82 +75,88 @@ while true; do
     esac
 done
 
+echo "apt-get python packages will be install.."
+apt-get install -y --no-install-recommends \
+		python-software-properties \
+		python-pip  \
+		python-psycopg2 \
+		python-ldap \
+		python-magic \
+		python-libxslt1 \
+		python-imaging \
+		python-openssl \
+		python-renderpm \
+		python-reportlab-accel \
+		python-support \
+		python-tz \
+		python-zsi \
+		python-webdav
 
 echo "pip packages will be install.."
-pip install --upgrade pip \
-		&& pip install Babel==1.3 \
-		&& pip install argparse==1.2.1 \
-		&& pip install decorator==3.4.0 \
-		&& pip install docutils==0.12 \
-		&& pip install feedparser==5.1.3 \
-		&& pip install gevent==1.0.2 \
-		&& pip install greenlet==0.4.7 \
-		&& pip install jcconv==0.2.3 \
-		&& pip install Jinja2==2.7.3 \
-		&& pip install lxml==3.3.5 \
-		&& pip install Mako==1.0.0 \
-		&& pip install MarkupSafe==0.23 \
-		&& pip install mock==1.0.1 \
-		&& pip install ofxparse==0.15 \
-		&& pip install passlib==1.6.2 \
-		&& pip install Pillow==2.5.1 \
-		&& pip install psutil==2.1.1 \
-		&& pip install psycogreen==1.0 \
-		&& pip install psycopg2==2.5.3 \
-		&& pip install pydot==1.0.2 \
-		&& pip install pyparsing==1.5.7 \
-		&& pip install pyPdf==1.13 \
-		&& pip install Python-Chart==1.39 \
-		&& pip install python-dateutil==1.5 \
-		&& pip install python-ldap==2.4.27 \
-		&& pip install python-openid==2.2.5 \
-		&& pip install pytz==2014.4 \
-		&& pip install pyusb==1.0.0b1 \
-		&& pip install PyYAML==3.11 \
-		&& pip install pyserial==2.7 \
-		&& pip install qrcode==5.0.1 \
-		&& pip install reportlab==3.1.44 \
-		&& pip install requests==2.6.0 \
-		&& pip install six==1.7.3 \
-		&& pip install suds-jurko==0.6 \
-		&& pip install vatnumber==1.2 \
-		&& pip install vobject==0.6.6 \
-		&& pip install Werkzeug==0.9.6 \
-		&& pip install wsgiref==0.1.2 \
-		&& pip install XlsxWriter==0.9.3 \
-		&& pip install xlwt==0.7.5 \
-		&& pip install gdata==2.0.18 \
-		&& pip install magic \
-		&& pip install libxslt1 \
-		&& pip install simplejson==3.5.3 \
-		&& pip install webdav \
-		&& pip install tz \
-		&& pip install zsi \
-		&& pip install unittest2==0.5.1 \
-		&& pip install renderpm \
-		&& pip install pdftools \
-		&& pip install reportlab-accel \
-		&& pip install openssl \
-		&& pip install imaging \
-		&& pip install matplotlib \
-		&& pip install support \
-		&& pip install beautifulsoup4 \
-		&& pip install evdev \
-		&& pip install polib \
-		&& pip install unidecode \
-		&& pip install validate_email \
-		&& pip install pyDNS \
-		&& pip install python-slugify \
-		&& pip install paramiko==1.9.0 \
-		&& pip install pycrypto==2.6 \
-		&& pip install pyinotify \
-		&& pip install ecdsa==0.11 \
-		&& pip install sphinx \
-		&& pip install Pygments==2.0 \
-		&& pip install egenix-mx-base \
-		&& pip install pypdf2 \
-		&& pip install odoorpc \
-		&& pip install phonenumbers
+pip install --upgrade pip
+pip install Babel==2.3.4
+pip install decorator==4.0.10
+pip install docutils==0.12
+pip install feedparser==5.2.1
+pip install gevent==1.1.2
+pip install greenlet==0.4.10
+pip install jcconv==0.2.3
+pip install Jinja2==2.8
+pip install lxml==3.6.4
+pip install Mako==1.0.4
+pip install MarkupSafe==0.23
+pip install mock==2.0.0
+pip install ofxparse==0.15
+pip install passlib==1.6.5
+pip install Pillow==3.4.1
+pip install psutil==4.3.1
+pip install psycogreen==1.0
+pip install pydot==1.2.3
+pip install pyparsing==2.1.10
+pip install pyPdf==1.13
+pip install pyserial==3.1.1
+pip install Python-Chart==1.39
+pip install python-dateutil==2.5.3
+pip install python-openid==2.2.5
+pip install pytz==2016.7
+pip install pyusb==1.0.0
+pip install PyYAML==3.12
+pip install qrcode==5.3
+pip install reportlab==3.3.0
+pip install requests==2.11.1
+pip install six==1.10.0
+pip install suds-jurko==0.6
+pip install vatnumber==1.2
+pip install vobject==0.9
+pip install Werkzeug==0.11.11
+pip install wsgiref==0.1.2
+pip install XlsxWriter==0.9.3
+pip install xlwt==1.1.2
+pip install gdata
+pip install simplejson
+pip install unittest2
+pip install pdftools
+pip install matplotlib
+pip install beautifulsoup4
+pip install evdev
+pip install polib
+pip install unidecode
+pip install validate_email
+pip install pyDNS
+pip install python-slugify
+pip install paramiko==1.9.0
+pip install pycrypto==2.6
+pip install pyinotify
+pip install ecdsa==0.11
+pip install sphinx
+pip install Pygments==2.0
+pip install egenix-mx-base
+pip install pypdf2
+pip install odoorpc
+pip install pyelasticsearch
+pip install openpyxl
+pip install phonenumbers
+pip install pysftp
 
 echo "OpenSans font will be install..."
 wget https://release.myodoo.de/fonts/opensans.zip

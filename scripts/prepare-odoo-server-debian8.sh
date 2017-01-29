@@ -1,7 +1,7 @@
 #!/bin/bash
 # Mit diesem Skript werden alle Pakete für den Odoo Betrieb unter Debian installiert
 # Skript muss mit root-Rechten ausgeführt werden
-# Version 1.3.0 - Stand 20.10.2017
+# Version 1.3.1 - Stand 28.01.2017
 ##############################################################################
 #
 #    Shell Script for Odoo, Open Source Management Solution

@@ -6,7 +6,7 @@
 # Wenn "Computing parent left and right for table ir_ui_menu..." [crtl]+[c] drücken,
 # da das Update fertig ist. Danach als root User den Server wieder starten.
 # /etc/init.d/odoo-server start
-# Version 1.2.6 - Stand 20.01.2017
+# Version 1.2.7 - Stand 28.01.2017
 ##############################################################################
 #
 #    Shell Script for Odoo, Open Source Management Solution
