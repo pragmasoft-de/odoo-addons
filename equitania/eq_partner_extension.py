@@ -150,7 +150,6 @@ class eq_partner_extension_base_config_settings(osv.osv_memory):
     def set_default_reset_password(self, cr, uid, ids, context):
         ir_values_obj = self.pool.get('ir.values')
         config = self.browse(cr, uid, ids[0], context)
-        print"config: ", config
 
         ir_values_obj.set_default(cr, uid, 'res.users', 'default_reset_passwort',
                                   config.default_reset_passwort or False)
