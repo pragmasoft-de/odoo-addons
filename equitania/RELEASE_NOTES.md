@@ -16,11 +16,15 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 01.02.2017
+### Version 1.1.136
+#### CHG
+- Ein Flag "E-Mail Passwort zurücksetzen" in die Grundeinstellungen eingefügt, wenn dieses gesetzt, dann wird eine E-Mail zum Passwort zurücksetzen an den Benutzer versendet.
+
 #### 25.01.2017
 ### Version 1.1.135
 #### FIX
 - In der Ansicht eq_address_search ist ein Löschen über die Form-/Tree-Ansicht nicht mehr möglich.
-
 
 #### 23.01.2017
 ### Version 1.1.134

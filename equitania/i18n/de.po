@@ -2882,3 +2882,13 @@ msgstr "Ansichtenbearbeitung"
 #: field:res.country,eq_active:0
 msgid "Active"
 msgstr "Aktiv"
+
+#. module: equitania
+#: view:base.config.settings:equitania.eq_view_sale_config_settings_saleperson
+msgid "Reset Password"
+msgstr "E-Mail Passwort zurücksetzen"
+
+#. module: equitania
+#: field:base.config.settings,default_reset_passwort:0
+msgid "Send a reset-password email, if a new user will created. [equitania]"
+msgstr "Es wird eine E-Mail zum Passwort zurücksetzen versendet, sobald ein neuer Benutzer angelegt wird. [equitania]"

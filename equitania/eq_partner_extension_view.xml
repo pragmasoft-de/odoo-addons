@@ -443,6 +443,15 @@
 							</div>
 						</div>
 					</group>
+					<group>
+						<label for="id" string="Reset Password" />
+						<div>
+							<div>
+								<field name="default_reset_passwort" />
+								<label for="default_reset_passwort" />
+							</div>
+						</div>
+					</group>
 				</form>
 			</field>
 		</record>
