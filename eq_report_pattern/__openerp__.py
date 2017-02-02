@@ -22,13 +22,13 @@
 {
     'name': 'Equitania Report Pattern',
     'license': 'AGPL-3',
-    'version': '1.0.2',
+    'version': '1.0.3',
     'description': """
         Equitania Software GmbH
     """,
     'author': 'Equitania Software GmbH',
     'website': 'www.myodoo.de',
-    'depends': ['base_setup', 'equitania'],
+    'depends': ['base_setup', 'website_quote', 'equitania'],
     'category' : 'Reports',
     #What it Improves e.g Sale, Purchase, Accounting
     'summary': '',

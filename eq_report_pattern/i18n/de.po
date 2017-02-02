@@ -111,3 +111,7 @@ msgstr "Verkaufsauftrag"
 msgid "{'invisible':True}"
 msgstr "{'invisible':True}"
 
+#. module: eq_report_pattern
+#: view:eq.document.template:eq_report_pattern.eq_document_template_form_view
+msgid "Lines"
+msgstr "Positionen"

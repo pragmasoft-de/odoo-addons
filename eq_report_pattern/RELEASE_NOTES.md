@@ -1,5 +1,9 @@
 ## eq_report_pattern 
 
+#### 07.11.2016
+#### Version 1.0.3
+##### Erweiterung
+- Angebotspositionen können nun gepflegt werden. Diese werden in den Verkaufsauftrag übernommen.
 
 #### 07.11.2016
 #### Version 1.0.2
