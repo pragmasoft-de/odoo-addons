@@ -88,7 +88,19 @@ class eq_res_users(osv.osv):
     def create(self,cr, uid, values, context={}):        
         if context == None:
             context = {}
-            
+
+        ##### Überprüft, ob Flag in den Grundeinstellungen gesetzt ist und somit ein Versenden einer Reset-Passwort Email stattfinden soll
+        ir_values = self.pool.get('ir.values')
+        reset_password = ir_values.get_default(cr, uid, 'res.users', 'default_reset_passwort')
+        if not reset_password:
+            mycontext = dict(context)
+            mycontext["no_reset_password"] = True
+        else:
+            mycontext = dict(context)
+            if 'no_reset_password' in mycontext:
+                del mycontext['no_reset_password']
+        context = mycontext
+
         res = super(eq_res_users, self).create(cr, uid, values, context=context)
         
         if 'eq_employee_id' in values and 'do_not_repeat' not in context:

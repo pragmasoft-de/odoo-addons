@@ -1,7 +1,7 @@
 #!/bin/bash
 # Mit diesem Skript werden alle Pakete für den Odoo Betrieb unter Debian installiert
 # Skript muss mit root-Rechten ausgeführt werden
-# Version 1.2.1 - Stand 13.06.2016
+# Version 1.3.1 - Stand 28.01.2017
 ##############################################################################
 #
 #    Shell Script for Odoo, Open Source Management Solution
@@ -27,29 +27,39 @@ apt-get update && apt-get dist-upgrade && apt-get autoremove
 
 echo "Tools zip, unzip, mc(Midnight Comander) and htop will be install.."
 apt-get install -y --no-install-recommends \
-        mc \
-        zip \
-        unzip \
-        htop \
-        ca-certificates \
-        ntp  \
-        apt-transport-https \
-        needrestart \
-        curl \
-        ghostscript \
-        graphviz \
-        antiword \
-        poppler-utils \
-        curl \
-        build-essential \
-        libfreetype6-dev \
-        libjpeg-dev \
-        wget \
-        sqlite3 \
-        geoip-bin \
-        geoip-database \
-        node-less \
-        node-clean-css
+		ca-certificates \
+		ghostscript \
+		graphviz \
+		antiword  \
+		poppler-utils \
+		mtr \
+		dnsutils \
+		curl \
+		postgresql-client-9.4 \
+		build-essential \
+		libfreetype6-dev \
+		libjpeg-dev \
+		libpq-dev \
+		python-dev \
+		libxml2-dev \
+		libxslt1-dev \
+		libldap2-dev \
+		libsasl2-dev \
+		libffi-dev \
+		wget \
+		unzip \
+		sqlite3 \
+		nano \
+		mc \
+		geoip-bin \
+		geoip-database \
+		sudo \
+		node-less \
+		node-clean-css \
+		tesseract-ocr \
+		imagemagick \
+		xfonts-75dpi \
+		xfonts-base
 
 while true; do
     read -p "Do you want install PostgreSQL? [y/n] / Wollen Sie die PostgreSQL-DB installieren? [j/n]: " yn
@@ -67,85 +77,86 @@ done
 
 echo "apt-get python packages will be install.."
 apt-get install -y --no-install-recommends \
-        python-pip \
-        python-magic \
-        python-dateutil \
-        python-pypdf \
-        python-requests \
-        python-feedparser \
-        python-gdata \
-        python-ldap \
-        python-libxslt1 \
-        python-lxml \
-        python-mako \
-        python-openid \
-        python-psycopg2 \
-        python-pybabel \
-        python-pychart \
-        python-pydot \
-        python-pyparsing \
-        python-reportlab \
-        python-simplejson \
-        python-tz \
-        python-vatnumber \
-        python-vobject \
-        python-webdav \
-        python-werkzeug \
-        python-xlwt \
-        python-yaml \
-        python-zsi \
-        python-docutils \
-        python-psutil \
-        python-unittest2 \
-        python-mock \
-        python-jinja2 \
-        python-dev \
-        python-pdftools \
-        python-decorator \
-        python-openssl \
-        python-babel \
-        python-imaging \
-        python-reportlab-accel \
-        python-paramiko \
-        python-software-properties \
-        python-matplotlib \
-        python-support \
-        python-passlib \
-        python-pyinotify \
-        python-gevent
+		python-software-properties \
+		python-pip  \
+		python-psycopg2 \
+		python-ldap \
+		python-magic \
+		python-libxslt1 \
+		python-imaging \
+		python-openssl \
+		python-renderpm \
+		python-reportlab-accel \
+		python-support \
+		python-tz \
+		python-zsi \
+		python-webdav
 
 echo "pip packages will be install.."
-pip install passlib \
-    && pip install beautifulsoup4 \
-    && pip install evdev \
-    && pip install reportlab \
-    && pip install qrcode \
-    && pip install polib \
-    && pip install unidecode \
-    && pip install validate_email \
-    && pip install pyDNS \
-    && pip install pysftp \
-    && pip install python-slugify \
-    && pip install six==1.4 \
-    && pip install paramiko==1.9.0 \
-    && pip install pycrypto==2.4 \
-    && pip install pyinotify \
-    && pip install ecdsa==0.11 \
-    && pip install sphinx \
-    && pip install babel==1.3 \
-    && pip install Pygments==2.0 \
-    && pip install docutils==0.11 \
-    && pip install markupsafe \
-    && pip install pytz \
-    && pip install Jinja2==2.3 \
-    && pip install odoorpc \
-    && pip install egenix-mx-base \
-    && pip install pillow==2.6.0 \
-    && pip install pypdf2 \
-    && pip install pyserial \
-    && pip install pyusb \
-    && pip install phonenumbers \
-    && pip install psycogreen
+pip install --upgrade pip
+pip install Babel==2.3.4
+pip install decorator==4.0.10
+pip install docutils==0.12
+pip install feedparser==5.2.1
+pip install gevent==1.1.2
+pip install greenlet==0.4.10
+pip install jcconv==0.2.3
+pip install Jinja2==2.8
+pip install lxml==3.6.4
+pip install Mako==1.0.4
+pip install MarkupSafe==0.23
+pip install mock==2.0.0
+pip install ofxparse==0.15
+pip install passlib==1.6.5
+pip install Pillow==3.4.1
+pip install psutil==4.3.1
+pip install psycogreen==1.0
+pip install pydot==1.2.3
+pip install pyparsing==2.1.10
+pip install pyPdf==1.13
+pip install pyserial==3.1.1
+pip install Python-Chart==1.39
+pip install python-dateutil==2.5.3
+pip install python-openid==2.2.5
+pip install pytz==2016.7
+pip install pyusb==1.0.0
+pip install PyYAML==3.12
+pip install qrcode==5.3
+pip install reportlab==3.3.0
+pip install requests==2.11.1
+pip install six==1.10.0
+pip install suds-jurko==0.6
+pip install vatnumber==1.2
+pip install vobject==0.9
+pip install Werkzeug==0.11.11
+pip install wsgiref==0.1.2
+pip install XlsxWriter==0.9.3
+pip install xlwt==1.1.2
+pip install gdata
+pip install simplejson
+pip install unittest2
+pip install pdftools
+pip install matplotlib
+pip install beautifulsoup4
+pip install evdev
+pip install polib
+pip install unidecode
+pip install validate_email
+pip install pyDNS
+pip install python-slugify
+pip install paramiko==1.9.0
+pip install pycrypto==2.6
+pip install pyinotify
+pip install ecdsa==0.11
+pip install sphinx
+pip install Pygments==2.0
+pip install egenix-mx-base
+pip install pypdf2
+pip install odoorpc
+pip install pyelasticsearch
+pip install openpyxl
+pip install phonenumbers
+pip install pysftp
 
 echo "OpenSans font will be install..."
 wget https://release.myodoo.de/fonts/opensans.zip

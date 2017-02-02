@@ -16,6 +16,36 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 01.02.2017
+### Version 1.1.137
+#### CHG
+- Statement entfernt
+
+#### 01.02.2017
+### Version 1.1.136
+#### CHG
+- Ein Flag "E-Mail Passwort zurücksetzen" in die Grundeinstellungen eingefügt, wenn dieses gesetzt, dann wird eine E-Mail zum Passwort zurücksetzen an den Benutzer versendet.
+
+#### 25.01.2017
+### Version 1.1.135
+#### FIX
+- In der Ansicht eq_address_search ist ein Löschen über die Form-/Tree-Ansicht nicht mehr möglich.
+
+#### 23.01.2017
+### Version 1.1.134
+#### IMP
+- Verbesserung der Logik für die Anpassung "Korrektur der Lokalisierung für das Feld name" vom Dezember 2016. Ab jetzt kann man mit dem Modul "web_translate" das Feld Name (Sprache EN) setzen
+
+#### 23.01.2017
+### Version 1.1.133
+#### CHG
+- Reports: eq_firstname und eq_title.name werden nun auch in den verkaufs- und versands-reports angedruckt
+
+#### 23.01.2017
+### Version 1.1.132
+#### CHG
+- Das Feld eq_firstname ist ab jetzt auf der Detailansicht von res_partner immer eingeblendet
+
 #### 19.01.2017
 ### Version 1.1.131
 #### IMP

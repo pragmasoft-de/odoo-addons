@@ -194,10 +194,17 @@
 						-->
 				</xpath>
 				<xpath expr="//field[@name='name']" position="replace">
-					<!-- <field name="eq_firstname" placeholder="Firstname" attrs="{'invisible': 
-						['|', ('type', '!=', 'contact'), ('is_company', '=', True)]}"/> -->
+
+					<!-- OLI - wurde am 23.01.2017 deaktiviert -->
+					<!--
 					<field name="eq_firstname" placeholder="Firstname"
 						attrs="{'invisible': ['|',('is_company', '=', True),'&amp;','&amp;','&amp;',('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}" />
+					-->
+
+					<!-- Sody: nach Absprache mit Maddin wurde diese Zeile am 23.01.2017 eingebaut -->
+					<field name="eq_firstname" placeholder="Firstname" />
+
+
 					<field name="name" style="width: 100%%;" placeholder="Name" />
 					<field name="eq_name2" style="width: 100%%;" placeholder="Name2"
 						attrs="{'invisible': [('is_company', '=', False),('customer', '=', False), ('supplier', '=', False), ('eq_prospective_customer', '=', False), ('eq_unlocked_for_webshop', '=', False)]}" />
@@ -433,6 +440,15 @@
 							<div>
 								<field name="default_creator_saleperson" />
 								<label for="default_creator_saleperson" />
+							</div>
+						</div>
+					</group>
+					<group>
+						<label for="id" string="Reset Password" />
+						<div>
+							<div>
+								<field name="default_reset_passwort" />
+								<label for="default_reset_passwort" />
 							</div>
 						</div>
 					</group>

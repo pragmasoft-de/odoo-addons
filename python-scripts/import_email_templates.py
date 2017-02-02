@@ -38,7 +38,7 @@ sock = xmlrpclib.ServerProxy(baseurl + "/xmlrpc/object")
 
 list_id = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("eq_email_template_version","=",False)])
 #list_id = sock.execute(dbname, uid, pwd, 'email.template', 'search', ["|",("eq_email_template_version","=",0),("eq_email_template_version","<",version_number)])
-print"list_id: ",list_id
+
 dict = sock.execute(dbname, uid, pwd, 'email.template', 'read', list_id,['display_name'])
 
 for i in dict:
@@ -954,6 +954,63 @@ if template_name == []and template_name_de == []:
                             }        
           
     template_id = sock.execute(dbname, uid, pwd, 'email.template', 'write', template_id, Email_Template_de,{'lang':'de_DE'})            
-    print "Email-Template erstellt: Meeting Invitation Change Date_de" 
+    print "Email-Template erstellt: Meeting Invitation Change Date_de"
+
+#############31. Bestellbestätigung eq en ###################################################
+########################################################################################
+
+bestell_model_id = sock.execute(dbname, uid, pwd, 'ir.model', 'search', [("model", "=", "sale.order")])
+template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search',[("name", "=", "Order - Confirmation")])
+template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name", "=", "Bestellbestätigung")])
+
+if template_name == [] and template_name_de == []:
+    email_temp_file = open(mypath + "/email_templates/bestellbestaetigung_eq_en.txt", "r")
+    body_html = email_temp_file.read()
+
+    Email_Template_en = {
+        'name': 'Order - Confirmation',
+        'eq_email_template_version': version_number,
+        'model_id': bestell_model_id[0],
+        'subject': "${object.company_id.name|safe} ${object.state in ('draft', 'sent') and 'Order' or 'Order'} (Ref ${object.name or 'n/a' })",
+        'body_html': body_html,
+        'email_from': "${(object.user_id.email or '')|safe}",
+        'partner_to': '${object.partner_invoice_id.id}',
+        'lang': '${object.partner_id.lang}',
+        'auto_delete': True,
+    }
+
+    template_id = sock.execute(dbname, uid, pwd, 'email.template', 'create', Email_Template_en, {})
+    print "Email-Template erstellt: Order - Confirmation_en"
+
+
+    # ir_model_data = {
+    #     'module': 'calendar',
+    #     'name': 'calendar_template_meeting_changedate',
+    #     'model': 'email.template',
+    #     'res_id': template_id,
+    # }
+    # identificator_id = sock.execute(dbname, uid, pwd, 'ir.model.data', 'create', ir_model_data)
+
+    ##############32. Bestellbestätigung eq de ###################################################
+    #########################################################################################
+
+
+    email_temp_file = open(mypath + "/email_templates/bestellbestaetigung_eq_de.txt", "r")
+    body_html = email_temp_file.read()
+
+    Email_Template_de = {
+        'name': 'Bestellbestätigung',
+        'eq_email_template_version': version_number,
+        'model_id': bestell_model_id[0],
+        'subject': "${object.company_id.name|safe} ${object.state in ('draft', 'sent') and 'Auftrag' or 'Auftrag'} (Ref ${object.name or 'n/a' })",
+        'body_html': body_html,
+        'email_from': "${(object.user_id.email or '')|safe}",
+        'partner_to': '${object.partner_invoice_id.id}',
+        'lang': '${object.partner_id.lang}',
+        'auto_delete': True,
+    }
+
+    template_id = sock.execute(dbname, uid, pwd, 'email.template', 'write', template_id, Email_Template_de,{'lang': 'de_DE'})
+    print "Email-Template erstellt: Order - Confirmation_de"
 
 print "Email-Template Import ist beendet!"

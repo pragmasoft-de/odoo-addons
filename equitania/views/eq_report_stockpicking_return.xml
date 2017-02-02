@@ -139,9 +139,11 @@
 						</div>
 						<div t-if="o.picking_type_id.code=='outgoing' and o.partner_id">
 							<div class="row col-xs-12 returnaddress">
-								<h t-field="o.partner_id.name" style="clear:left;" />
+								<!--<h t-if="o.partner_id.title.name" t-field="o.partner_id.title.name"  />-->
+								<h t-if="o.partner_id.eq_firstname" t-field="o.partner_id.eq_firstname" />
+								<h t-field="o.partner_id.name" />
 								-
-								<h t-field="o.partner_id.street" />
+								<h t-field="o.partner_id.street" /> <span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no"/>
 								-
 								<h t-field="o.partner_id.zip" />
 								<h t-field="o.partner_id.city" />

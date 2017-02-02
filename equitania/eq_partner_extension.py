@@ -145,8 +145,23 @@ class eq_partner_extension_base_config_settings(osv.osv_memory):
         creator = ir_values_obj.get_default(cr, uid, 'res.partner', 'default_creator_saleperson')
         return {
                 'default_creator_saleperson': creator,
-                }    
-    
+                }
+
+    def set_default_reset_password(self, cr, uid, ids, context):
+        ir_values_obj = self.pool.get('ir.values')
+        config = self.browse(cr, uid, ids[0], context)
+
+        ir_values_obj.set_default(cr, uid, 'res.users', 'default_reset_passwort',
+                                  config.default_reset_passwort or False)
+
+    def get_default_reset_password(self, cr, uid, ids, context):
+        ir_values_obj = self.pool.get('ir.values')
+        reset = ir_values_obj.get_default(cr, uid, 'res.users', 'default_reset_passwort')
+        return {
+            'default_reset_passwort': reset,
+        }
+
     _columns = {
-                'default_creator_saleperson': fields.boolean('The creator of the address dataset will be set automatically as sales person. [equitania]')
+                'default_creator_saleperson': fields.boolean('The creator of the address dataset will be set automatically as sales person. [equitania]'),
+                'default_reset_passwort': fields.boolean('Send a reset-password email, if a new user will created. [equitania]')
                 }
