@@ -289,7 +289,10 @@ class eq_report_extension_sale_order_line(osv.osv):
 
         # if name is False:                   # name is set, don't reset it again !
         if not eq_use_internal_description and product_id.description_sale:
-            result = product_id.description_sale + "\n" + attribute_string
+            if product_id.description_sale.strip() == '' or product_id.description_sale == None:
+                result = attribute_string
+            else:
+                result = product_id.description_sale + "\n" + attribute_string
         elif eq_use_internal_description and product_id.description:
             result = product_id.product_tmpl_id.description + "\n" + attribute_string
         else:

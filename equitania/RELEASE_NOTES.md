@@ -16,6 +16,12 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 07.02.2017
+### Version 1.1.138
+#### FIX
+- Beim Setzen des Beschreibungstextes einer Sale Order Line werden jetzt die Leerzeichen entfernt und darauf eine Überprüfung angewandt,
+ob dann noch eine Beschreibung der Produktvariante enthalten ist (ODOO-719) => Leerzeile wird nur dann gesetzt wenn die Beschreibung der Produktvariante Zeichen enthält (ohne Leerzeichen)
+
 #### 01.02.2017
 ### Version 1.1.137
 #### CHG
