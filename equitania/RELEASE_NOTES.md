@@ -16,6 +16,13 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+
+
+#### 10.02.2017
+### Version 1.1.139
+#### CHG
+- Issue Odoo-730: Sortierung für Lagerbuchungen nach Erstellungsdatum
+
 #### 07.02.2017
 ### Version 1.1.138
 #### FIX

@@ -311,6 +311,7 @@ class stock_picking_extension(osv.osv):
 
 class stock_move_extension(osv.osv):
     _inherit = ['stock.move']
+    _order = 'create_date desc, id' #Issue Odoo-730; Basis: _order = 'date_expected desc, id'
     
     _columns = {
         'name': fields.text('Description', required=True),
