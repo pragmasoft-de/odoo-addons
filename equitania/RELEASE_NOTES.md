@@ -17,6 +17,10 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 24.02.2017
+### Version 1.1.140
+#### CHG
+- Zahlungsbedingungen: Die Bezeichnung wird in den Rechnungen nichtmehr angedruckt, nur noch der Buchungstext
 
 #### 10.02.2017
 ### Version 1.1.139
