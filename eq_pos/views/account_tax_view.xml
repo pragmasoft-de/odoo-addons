@@ -1,0 +1,20 @@
+<?xml version="1.0"?> 
+<openerp>
+    
+    <data>
+        
+        <!-- Account Tax Form view -->
+        <record id="view_accont_tax_ed_price_form" model="ir.ui.view">
+            <field name="name">view.account.tax.ed.price.form</field>
+            <field name="model">account.tax</field>
+            <field name="inherit_id" ref="account.view_tax_form"/>
+            <field name="arch" type="xml">
+                <field name="description" position="after">
+                    <field name="eq_price_percentage"/>
+                </field>
+            </field>
+        </record>
+        
+    </data>
+        
+</openerp>

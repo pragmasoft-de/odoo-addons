@@ -75,6 +75,9 @@ openerp.eq_pos = function (instance) {
                 $("span#sale_mode").css('background', '');
                 $("span#missing_return_order").css('background', '');
                 $('div.order').css('background', '#fde1fc');
+                $('.paypad-button').hide();
+                $('.return_mode_btn').show();
+                
                 dialog = new instance.web.Dialog(this, {
                     title: _t("Return Order"),
                     size: 'medium',
@@ -148,6 +151,7 @@ openerp.eq_pos = function (instance) {
                             }
                         }},
                         {text: _t("Cancel"), click: function() { 
+                        	$("span#sale_mode").click();
                             $("span#return_order").css('background', '');
                             $("span#sale_mode").css('background', 'blue');
                             $("span#missing_return_order").css('background', '');
@@ -157,6 +161,7 @@ openerp.eq_pos = function (instance) {
                     ]
                 }).open();
                 dialog.$el.html(QWeb.render("pos-return-order", self));
+                $(".close").hide();
                 dialog.$el.find("input#return_order_number").focus();
                 dialog.$el.find("button.bonus_return_required").click(function(ev) {
                     if ($(ev.target).attr('id') == 'yes_return_bonus') {
@@ -174,6 +179,8 @@ openerp.eq_pos = function (instance) {
             });
             
             $("span#sale_mode").click(function(event) {
+            	$(".paypad-button").show();
+            	$(".return_mode_btn").hide();
                 var selectedOrder = pos.get('selectedOrder');
                 if (selectedOrder.get_order_id()) {
                     alert (_t('Please click on Clear Order button to continue !'));
@@ -443,15 +450,72 @@ openerp.eq_pos = function (instance) {
             $('#return_order_ref').html('');
             $('#return_order_number').val('');
             $('#coupon_name').html('');
+            $(".paypad-button").show();
+        	$(".return_mode_btn").hide();
         }
     });
+    
+    instance.web.SearchView.include({
+        start: function() {
+            var self = this;
+
+            this.$view_manager_header = this.$el.parents(".oe_view_manager_header").first();
+
+            this.setup_global_completion();
+            this.query = new instance.web.search.SearchQuery()
+                    .on('add change reset remove', this.proxy('do_search'))
+                    .on('change', this.proxy('renderChangedFacets'))
+                    .on('add reset remove', this.proxy('renderFacets'));
+
+            if (this.options.hidden) {
+                this.$el.hide();
+            }
+            if (this.headless) {
+                this.ready.resolve();
+            } else {
+                var load_view = instance.web.fields_view_get({
+                    model: this.dataset._model,
+                    view_id: this.view_id,
+                    view_type: 'search',
+                    context: this.dataset.get_context(),
+                });
+
+                this.alive($.when(load_view)).then(function (r) {
+                    self.fields_view_get.resolve(r);
+                    return self.search_view_loaded(r);
+                }).fail(function () {
+                    self.ready.reject.apply(null, arguments);
+                });
+            }
+
+            var view_manager = this.getParent();
+            while (!(view_manager instanceof instance.web.ViewManager) &&
+                    view_manager && view_manager.getParent) {
+                view_manager = view_manager.getParent();
+            }
+          if (view_manager) {
+              this.view_manager = view_manager;
+              if (view_manager.pop) {
+                  view_manager.pop.on('switch_mode', this, function (e) {
+                      self.drawer.toggle(e === 'graph');
+                  });
+              } else {
+            	  if (typeof view_manager.on == 'function') {
+            		  view_manager.on('switch_mode', this, function (e) {
+            			  self.drawer.toggle(e === 'graph');
+            		  });
+            	  }
+              }
+          }
+            return $.when(p, this.ready);
+        },
+    });
+    
     
     instance.point_of_sale.UsernameWidget = instance.point_of_sale.UsernameWidget.extend({
     	refresh: function(){
             this.renderElement();
             $('.username').click(function() {
-            	var search_view = new instance.web.SearchView();
-            	
                 new instance.web.Model("res.users").get_func("search_read")([], ['id']).pipe(
                     function(result) {
                         initial_ids = _.map(result, function(x) {return x['id']});
@@ -460,7 +524,6 @@ openerp.eq_pos = function (instance) {
                             'res.users',
                             {
                                 title: _t('Salesman'), 
-
                                 initial_ids: initial_ids, 
                                 initial_view: 'search',
                                 disable_multiple_selection: true,
@@ -665,7 +728,8 @@ openerp.eq_pos = function (instance) {
                 
                 bonus_return_amount:    0.0,
                 bonus_return:           null,
-                bonus_name:				null,                
+                bonus_name:				null,
+                popup_open:				false,
             });
             this.selected_orderline   = undefined;
             this.selected_paymentline = undefined;
@@ -677,7 +741,6 @@ openerp.eq_pos = function (instance) {
             this.gift_coupon_price = [];            
             this.eq_gift_coupon = [];								// Gutschein
             this.eq_bonus_coupon = [];								// Rückgabegutschein
-            
             return this;
         },
         
@@ -723,6 +786,12 @@ openerp.eq_pos = function (instance) {
         },
         get_coupon_id: function(){
             return this.get('coupon_id');
+        },
+        set_popup_open: function(popup_open) {
+            this.set('popup_open', popup_open)
+        },
+        get_popup_open: function(){
+            return this.get('popup_open');
         },
         set_recharge_coupon_id: function(recharge_coupon_id) {
             this.set('recharge_coupon_id', recharge_coupon_id)
@@ -1092,8 +1161,26 @@ openerp.eq_pos = function (instance) {
             };
         },
     });
-    
+    var _PaymentScreenWidget = instance.point_of_sale.PaymentScreenWidget.prototype;
     instance.point_of_sale.PaymentScreenWidget = instance.point_of_sale.PaymentScreenWidget.extend({
+    	init: function(parent, options) {
+            var self = this;
+            _PaymentScreenWidget.init.call(this, parent, options);
+            this.hotkey_handler = function(event){
+            	var currentOrder = self.pos.get('selectedOrder');
+                if(event.which === 13){
+                    if ($('#bonus_coupon_barcode_pay').is(':focus') ||
+                    		$('#gift_coupon_barcode_pay').is(':focus') ||
+                    		$('#bonus_coupon_barcode_amt').is(':focus') || currentOrder.get_popup_open()) {
+                       return
+                    } else {
+                    	self.validate_order();
+                    }
+                }else if(event.which === 27){
+                    self.back();
+                }
+            };
+        },
         validate_order: function(options) {
             var self = this;
             options = options || {};
@@ -1345,6 +1432,7 @@ openerp.eq_pos = function (instance) {
                 
             var gift_click_count = 0;
             $('#add_gift_coupon').click(function() {
+            	currentOrder.set_popup_open(true);
                 var connection = false;
                 new instance.web.Model("pos.order").get_func("check_connection")().done(function(result) {
                     if (result) {
@@ -1423,11 +1511,13 @@ openerp.eq_pos = function (instance) {
                                             }
                                         );
                                     }
+                                    currentOrder.set_popup_open(false);
                                     this.parents('.modal').modal('hide');
                                     $('.modal').modal('hide');						// EQ: hide modal dialog and all parts of it
                                     $('.modal-dialog').hide();						// EQ: hide modal dialog and all parts of it
                                 }},
                                 {text: _t("Cancel"), click: function() { 
+                                	currentOrder.set_popup_open(false);
                                     this.parents('.modal').modal('hide');
                                 }}
                             ]
@@ -1451,6 +1541,7 @@ openerp.eq_pos = function (instance) {
                             }
                         };
                         dialog.$el.on('keypress', this.enter_barcode_handler);
+                        $(".close").hide();
                         dialog.$el.find("input#gift_coupon_barcode_pay").focus();
                         dialog.$el.find("input#gift_coupon_barcode_pay").focusout(function() {
                             var today = new Date();
@@ -1476,9 +1567,9 @@ openerp.eq_pos = function (instance) {
             });
             
             // Bonus Return Updated
-
             var bonus_click_count = 0;
             $('#add_bonus_coupon').click(function() {
+            	currentOrder.set_popup_open(true);
                 var connection = false;
                 new instance.web.Model("pos.order").get_func("check_connection")().done(function(result) {
                     if (result) {
@@ -1525,16 +1616,19 @@ openerp.eq_pos = function (instance) {
                                             }
                                         );
                                     }
+                                    currentOrder.set_popup_open(false);
                                     this.parents('.modal').modal('hide');
                                     $('.modal').modal('hide');						// EQ: hide modal dialog and all parts of it
                                     $('.modal-dialog').hide();						// EQ: hide modal dialog and all parts of it
                                 }},
                                 {text: _t("Cancel"), click: function() { 
+                                	currentOrder.set_popup_open(false);
                                     this.parents('.modal').modal('hide');
                                 }}
                             ]
                         }).open();
                         dialog.$el.html(QWeb.render("pay_bonus_coupon_info", this));
+                        $(".close").hide();
                         dialog.$el.find("input#bonus_coupon_barcode_pay").focusout(function() {
                             new instance.web.Model("bonus.return").get_func("search_read")([['name', '=', dialog.$el.find("input#bonus_coupon_barcode_pay").val()]], 
                                                                     ['bonus_remaining_amt']).pipe(
@@ -1777,7 +1871,7 @@ openerp.eq_pos = function (instance) {
             	var product = this.orderline.get_product();
             	var line = this.orderline;
             	var old_prod_nm = product ? product.display_name : "Change Name";
-            	
+            	var currentOrder = this.pos.get('selectedOrder');
             	dialog = new instance.web.Dialog(this, {
                     title: _t(old_prod_nm),
                     size: 'medium',
@@ -1790,14 +1884,18 @@ openerp.eq_pos = function (instance) {
 //                        	product.display_name = new_prod_nm;
                         	line.set_changed_text(new_prod_nm);
                         	self.rerender_orderline(line);
+                        	currentOrder.set_popup_open(false);
                         	this.parents('.modal').modal('hide'); 
                         }},
                         {text: _t("Cancel"), click: function() { 
+                        	currentOrder.set_popup_open(false);
                             this.parents('.modal').modal('hide'); 
                         }}
                     ]
                 }).open();
                 dialog.$el.html(QWeb.render("change_prod_name", self));
+                $(".close").hide();
+                currentOrder.set_popup_open(true);
             };
     	},
     	render_orderline: function(orderline){
