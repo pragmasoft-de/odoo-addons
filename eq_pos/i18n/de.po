@@ -166,7 +166,7 @@ msgstr "Rückgabe-Gutschein Informationen"
 #: code:addons/eq_pos/static/src/xml/pos.xml:315
 #, python-format
 msgid "Bonus Coupon: b"
-msgstr "Bonus Coupon: b"
+msgstr "Rückgabe-Gutschein"
 
 #. module: eq_pos
 #. openerp-web
