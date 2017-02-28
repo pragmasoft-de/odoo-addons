@@ -17,7 +17,7 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 #### 28.02.2017
-### Version 1.1.141
+### Version 1.1.142
 #### CHG
 - Erweiterung für die Suche: Leerzeichen im Suchbegriff wird als und-Verknüpfung interpretiert
 
