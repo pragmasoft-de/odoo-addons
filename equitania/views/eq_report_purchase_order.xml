@@ -102,23 +102,44 @@
                     <h t-field="o.company_id.zip"/>
                     <h t-field="o.company_id.city"/>
                 </div>
-                <div t-field="o.partner_id.name" style="clear:left;"/>
-                   <div t-if="o.partner_id.eq_name2" t-field="o.partner_id.eq_name2" style="clear:left;"/>
-                   <div t-if="o.partner_id.eq_name3" t-field="o.partner_id.eq_name3" style="clear:left;"/>
-				<div>
-					<span t-field="o.partner_id.street"/><span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no"/>
-				</div>
+                <div t-if="o.partner_id.is_company">
+                    <div  style="clear:left;">
+                        <h t-if="o.partner_id.title.name" t-field="o.partner_id.title.name"  />
+                        <h t-if="o.partner_id.eq_firstname" t-field="o.partner_id.eq_firstname" />
+                        <h t-field="o.partner_id.name" />
+                    </div>
+                    <div t-if="o.partner_id.eq_name2" t-field="o.partner_id.eq_name2"
+                        style="clear:left;" />
+                    <div t-if="o.partner_id.eq_name3" t-field="o.partner_id.eq_name3"
+                        style="clear:left;" />
+                </div>
+                <div t-if="not o.partner_id.is_company">
+                    <div t-field="o.partner_id.parent_id.name" style="clear:left;" />
+                    <div t-if="o.partner_id.parent_id.eq_name2" t-field="o.partner_id.parent_id.eq_name2"
+                        style="clear:left;" />
+                    <div t-if="o.partner_id.parent_id.eq_name3" t-field="o.partner_id.parent_id.eq_name3"
+                        style="clear:left;" />
+                    <span t-field="o.partner_id.title.name" />
+                    <span t-field="o.partner_id.eq_firstname" style="clear:left;" />
+                    <span t-field="o.partner_id.name" style="clear:left;" />
+
+                </div>
+                <div>
+                    <span t-field="o.partner_id.street" />
+                    <span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no" />
+                </div>
                 <div t-if="o.partner_id.street2">
-                    <div t-field="o.partner_id.street2"/>
+                    <div t-field="o.partner_id.street2" />
                 </div>
                 <h>
-                    <h t-field="o.partner_id.zip"/>
-                    <h t-field="o.partner_id.city"/>
-					<h t-if="o.partner_id.eq_citypart">-
-						<h t-field="o.partner_id.eq_citypart"/>
-					</h>
+                    <h t-field="o.partner_id.zip" />
+                    <h t-field="o.partner_id.city" />
+                    <h t-if="o.partner_id.eq_citypart">
+                        -
+                        <h t-field="o.partner_id.eq_citypart" />
+                    </h>
                 </h>
-                <div t-field="o.partner_id.country_id.name"/>
+                <div t-field="o.partner_id.country_id.name" />
             </div>
             <div class="col-xs-5">
                 <h class="contactpersonheader" t-if="o.eq_contact_person_id">

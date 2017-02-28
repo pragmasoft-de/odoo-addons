@@ -22,6 +22,11 @@ Vorgehensweise unter Debian:
 - Erweiterung für die Suche: Leerzeichen im Suchbegriff wird als und-Verknüpfung interpretiert
 
 
+#### 28.02.2017
+### Version 1.1.141
+#### CHG
+- Einkaufsreports: enthalten nun auch Logik für Lieferanten-Kontakte
+
 #### 24.02.2017
 ### Version 1.1.140
 #### CHG
