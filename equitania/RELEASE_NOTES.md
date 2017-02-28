@@ -17,6 +17,11 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 28.02.2017
+### Version 1.1.141
+#### CHG
+- Einkaufsreports: enthalten nun auch Logik für Lieferanten-Kontakte
+
 #### 24.02.2017
 ### Version 1.1.140
 #### CHG
