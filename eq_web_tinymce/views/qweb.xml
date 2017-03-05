@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <template id="assets_backend" name="web_tinymce assets"
+                  inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript"
+                        src="/web_tinymce/static/src/js/tinymce_basepath.js"></script>
+                <script type="text/javascript"
+                        src="/web_tinymce/static/src/js/web_tinymce.js"></script>
+                <script type="text/javascript"
+                        src="/web_tinymce/static/lib/tinymce/tinymce.min.js"></script>
+                <script type="text/javascript"
+                        src="/web_tinymce/static/lib/tinymce/jquery.tinymce.min.js"></script>
+            </xpath>
+        </template>
+    </data>
+</openerp>
