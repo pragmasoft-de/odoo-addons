@@ -63,6 +63,7 @@
             <field name="arch" type="xml">
                 <field name="journal_user" position="after">
                     <field name="pos_front_display"/>
+                    <field name="use_return_mode"/>
                 </field>
             </field>
         </record>

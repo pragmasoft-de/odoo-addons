@@ -16,7 +16,21 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 28.02.2017
+### Version 1.1.142
+#### CHG
+- Erweiterung für die Suche: Leerzeichen im Suchbegriff wird als und-Verknüpfung interpretiert
 
+
+#### 28.02.2017
+### Version 1.1.141
+#### CHG
+- Einkaufsreports: enthalten nun auch Logik für Lieferanten-Kontakte
+
+#### 24.02.2017
+### Version 1.1.140
+#### CHG
+- Zahlungsbedingungen: Die Bezeichnung wird in den Rechnungen nichtmehr angedruckt, nur noch der Buchungstext
 
 #### 10.02.2017
 ### Version 1.1.139

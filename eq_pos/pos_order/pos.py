@@ -235,10 +235,12 @@ pos_order_line()
 class account_journal(osv.osv):
     _inherit = "account.journal"
     _columns = {
-        'pos_front_display': fields.boolean('Display in POS Front')
+        'pos_front_display': fields.boolean('Display in POS Front'),
+        'use_return_mode': fields.boolean('Display In Return Mode')
     }
     _defaults = {
         'pos_front_display': False,
+        'use_return_mode': False,
     }
 account_journal()
 

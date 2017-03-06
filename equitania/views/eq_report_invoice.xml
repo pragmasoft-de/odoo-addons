@@ -663,7 +663,7 @@
 								</td>
 								<td>
 									 <!-- QUICK FIX Auskommentierung von "o.payment_term" wieder herausgenommen, da keine Zahlungskondition mehr angezeigt wurde -  Equitania JE 30.12.2016 -->
-									<span t-field="o.payment_term" />
+									<!--<span t-field="o.payment_term" />-->
 
 									<span t-esc="get_eq_payment_terms(o, o.partner_id.lang, o.currency_id)"/>							
 								</td>

@@ -28,11 +28,37 @@ class BaseModelExtend(models.AbstractModel):
     def _register_hook(self, cr):
         @api.cr_uid_context
         def search_read(self, cr, uid, domain=None, fields=None, offset=0, limit=None, order=None, context=None):
+            # alt
+            # for dom in domain:
+            #     if isinstance(dom, list) and isinstance(dom[2], str) and dom[2][0] == "|":
+            #         dom[1] = "=ilike"
+            #         dom[2] = dom[2][1:]
+            # return original_search_read(self, cr, uid, domain, fields, offset, limit, order, context)
+
+            new_dom = []
+            empty_space_found = False
             for dom in domain:
-                if isinstance(dom, list) and isinstance(dom[2], str) and dom[2][0] == "|":
-                    dom[1] = "=ilike"
-                    dom[2] = dom[2][1:]
-            return original_search_read(self, cr, uid, domain, fields, offset, limit, order, context)
+                if isinstance(dom, list) and isinstance(dom[2], str):
+                    if dom[2][0] == "|":
+                        dom[1] = "=ilike"
+                        dom[2] = dom[2][1:]
+                    elif ' ' in dom[2]:
+                        empty_space_found = True
+                        split_condition = dom[2].split(' ')
+                        for _ in range(0, len(split_condition) - 1):
+                            new_dom.append('&')
+                        for cond in split_condition:
+                            # new_dom.append(dom)
+                            new_dom.append([dom[0], 'ilike', cond])
+                        continue
+
+                new_dom.append(dom)
+            if empty_space_found:
+                return original_search_read(self, cr, uid, new_dom, fields, offset, limit, order, context)
+            else:
+                return original_search_read(self, cr, uid, domain, fields, offset, limit, order, context)
+
+
         models.BaseModel.search_read = search_read
         
         return super(BaseModelExtend, self)._register_hook(cr)
