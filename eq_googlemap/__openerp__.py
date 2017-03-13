@@ -20,10 +20,10 @@
 ##############################################################################
 
 {
-    'name': "eq_googlemap",
+    'name': "Equitania Google Map",
 
     'summary': """
-        eq_googlemap - Initialer Commit des Moduls eq_googlemap. Das Modul erweitert die Ansicht unter "Einstellungen -> Konfiguration -> Website" um neues Feld für GoogleMapsAPI""",
+        Das Modul erweitert die Ansicht unter "Einstellungen > Konfiguration > Website" um neues Feld für GoogleMapsAPI""",
     'description': """
     """,
 
@@ -33,8 +33,8 @@
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/openerp/addons/base/module/module_data.xml
     # for the full list
-    'category': 'Uncategorized',
-    'version': '1.0.0',
+    'category': 'Website',
+    'version': '1.0.1',
     'license': 'AGPL-3',
     # any module necessary for this one to work correctly
     'depends': ['base', 'website'],
