@@ -16,6 +16,13 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+
+#### 24.03.2017
+### Version 1.1.143
+#### CHG
+- Anpassungen für Ermittlung der offenen Mengen für Übersicht der Auftragspositionen
+
+
 #### 28.02.2017
 ### Version 1.1.142
 #### CHG

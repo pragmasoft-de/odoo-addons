@@ -89,42 +89,36 @@ class eq_open_sale_order_line(models.Model):
                 main.eq_delivery_date,
                 main.sequence AS eq_pos,
                 main.product_uom_qty AS eq_quantity,
-                re.Qleft  as eq_quantity_left,   
+                --re.Qleft  as eq_quantity_left,
+                sum(SM.product_qty) as eq_quantity_left,
+
                 main.product_id AS eq_product_no,
                 (
-                    SELECT 
-                        product_template.eq_drawing_number 
-                    FROM 
-                        product_template 
-                    WHERE 
-                        product_template.id = ( 
-                            SELECT 
-                                product_product.product_tmpl_id 
-                            FROM 
-                                product_product 
-                            WHERE 
+                    SELECT
+                        product_template.eq_drawing_number
+                    FROM
+                        product_template
+                    WHERE
+                        product_template.id = (
+                            SELECT
+                                product_product.product_tmpl_id
+                            FROM
+                                product_product
+                            WHERE
                                 product_product.id = main.product_id
                             )
                 ) AS eq_drawing_no,
                 main.state AS eq_state
-   
+
             FROM
                 sale_order_line main
-            LEFT JOIN 
-                ( 
-                    SELECT 
-                        sum(SM.product_qty) AS Qleft,
-                        sale_line_id 
-                    FROM 
-                        procurement_order PO left join stock_move SM on PO.id =  SM.procurement_id
-                    WHERE 
-                        SM.state::text <> 'done'::text AND SM.state::text <> 'cancel'::text and SM.picking_id IS NOT NULL
-                        AND PO.state = 'running' AND PO.partner_dest_id IS NOT NULL
-                    GROUP BY sale_line_id
-                ) 
-                re on  re .sale_line_id=main.id
-            GROUP BY 
-                main.order_id,re.Qleft,
+
+                left outer join stock_picking sp on sp.eq_sale_order_id = main.order_id
+                left outer join stock_move sm on (sm.picking_id = sp.id and main.product_id = sm.product_id
+                and sm.state::text <> 'done'::text AND sm.state::text <> 'cancel'::text and sm.picking_id IS NOT NULL)
+
+            GROUP BY
+                main.order_id,
                 (
                     SELECT 
                         sale_order.client_order_ref 
@@ -178,3 +172,136 @@ class eq_open_sale_order_line(models.Model):
                  main.id
         )
             """)
+
+
+
+    #
+    # def init(self, cr):
+    #     tools.drop_view_if_exists(cr, 'eq_open_sale_order_line')
+    #     cr.execute("""
+    #     CREATE OR REPLACE VIEW eq_open_sale_order_line AS (
+    #         SELECT
+    #             min(main.id) AS id,
+    #             main.order_id AS eq_order_id,
+    #             (
+    #                 SELECT
+    #                     sale_order.client_order_ref
+    #                 FROM
+    #                     sale_order
+    #                 WHERE
+    #                     sale_order.id = main.order_id
+    #             ) AS eq_client_order_ref,
+    #             (
+    #                 SELECT
+    #                     res_partner.eq_customer_ref
+    #                 FROM
+    #                     res_partner
+    #                 WHERE res_partner.id = (
+    #                     SELECT
+    #                         sale_order.partner_id
+    #                     FROM
+    #                         sale_order
+    #                     WHERE
+    #                         sale_order.id = main.order_id
+    #                     )
+    #             ) AS eq_customer_no,
+    #             (
+    #                 SELECT
+    #                     sale_order.partner_id
+    #                 FROM
+    #                     sale_order
+    #                 WHERE
+    #                     sale_order.id = main.order_id
+    #             ) AS eq_customer,
+    #             main.eq_delivery_date,
+    #             main.sequence AS eq_pos,
+    #             main.product_uom_qty AS eq_quantity,
+    #             re.Qleft  as eq_quantity_left,
+    #             main.product_id AS eq_product_no,
+    #             (
+    #                 SELECT
+    #                     product_template.eq_drawing_number
+    #                 FROM
+    #                     product_template
+    #                 WHERE
+    #                     product_template.id = (
+    #                         SELECT
+    #                             product_product.product_tmpl_id
+    #                         FROM
+    #                             product_product
+    #                         WHERE
+    #                             product_product.id = main.product_id
+    #                         )
+    #             ) AS eq_drawing_no,
+    #             main.state AS eq_state
+    #
+    #         FROM
+    #             sale_order_line main
+    #         LEFT JOIN
+    #             (
+    #                 SELECT
+    #                     sum(SM.product_qty) AS Qleft,
+    #                     sale_line_id
+    #                 FROM
+    #                     procurement_order PO left join stock_move SM on PO.id =  SM.procurement_id
+    #                 WHERE
+    #                     SM.state::text <> 'done'::text AND SM.state::text <> 'cancel'::text and SM.picking_id IS NOT NULL
+    #                     AND PO.state = 'running' AND PO.partner_dest_id IS NOT NULL
+    #                 GROUP BY sale_line_id
+    #             )
+    #             re on  re .sale_line_id=main.id
+    #         GROUP BY
+    #             main.order_id,re.Qleft,
+    #             (
+    #                 SELECT
+    #                     sale_order.client_order_ref
+    #                 FROM
+    #                     sale_order
+    #                 WHERE
+    #                     sale_order.id = main.order_id
+    #             ),
+    #             (
+    #                 SELECT
+    #                     res_partner.eq_customer_ref
+    #                 FROM
+    #                     res_partner
+    #                 WHERE
+    #                     res_partner.id = (
+    #                         SELECT
+    #                             sale_order.partner_id
+    #                         FROM
+    #                             sale_order
+    #                         WHERE
+    #                             sale_order.id = main.order_id
+    #                         )
+    #             ),
+    #             (
+    #                 SELECT
+    #                     sale_order.partner_id
+    #                 FROM
+    #                     sale_order
+    #                 WHERE
+    #                     sale_order.id = main.order_id
+    #             ),
+    #             main.eq_delivery_date,
+    #             main.sequence ,
+    #             main.product_uom_qty ,
+    #             main.product_id,
+    #             (
+    #                 SELECT
+    #                     product_template.eq_drawing_number
+    #                 FROM
+    #                     product_template
+    #                 WHERE
+    #                     product_template.id = (
+    #                         SELECT
+    #                             product_product.product_tmpl_id
+    #                         FROM
+    #                             product_product
+    #                         WHERE
+    #                             product_product.id = main.product_id)
+    #             ),
+    #              main.state,
+    #              main.id
+    #     )
+    #         """)
