@@ -90,7 +90,9 @@ class eq_open_sale_order_line(models.Model):
                 main.sequence AS eq_pos,
                 main.product_uom_qty AS eq_quantity,
                 --re.Qleft  as eq_quantity_left,
-                sum(SM.product_qty) as eq_quantity_left,
+                (select case when count(sm2.*) = 0 then main.product_uom_qty
+                else sum(SM.product_qty)
+                end)  as eq_quantity_left,
 
                 main.product_id AS eq_product_no,
                 (
@@ -114,6 +116,7 @@ class eq_open_sale_order_line(models.Model):
                 sale_order_line main
 
                 left outer join stock_picking sp on sp.eq_sale_order_id = main.order_id
+                left outer join stock_move sm2 on (sm2.picking_id = sp.id and main.product_id = sm2.product_id)
                 left outer join stock_move sm on (sm.picking_id = sp.id and main.product_id = sm.product_id
                 and sm.state::text <> 'done'::text AND sm.state::text <> 'cancel'::text and sm.picking_id IS NOT NULL)
 
