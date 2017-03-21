@@ -36,7 +36,7 @@ class eq_open_sale_order_line(models.Model):
     eq_customer_no = fields.Char(size=64, string="Customer No")
     eq_customer = fields.Many2one('res.partner', string="Customer")    
     eq_delivery_date = fields.Date(string="Delivery date")
-    eq_pos = fields.Integer(string="Seq")
+    #eq_pos = fields.Integer(string="Seq")
     eq_quantity = fields.Integer(string="Quantity")
     eq_quantity_left = fields.Integer(string="Quantity left")
     eq_product_no = fields.Many2one('product.product', string="Product number")
@@ -54,45 +54,51 @@ class eq_open_sale_order_line(models.Model):
         cr.execute("""
         CREATE OR REPLACE VIEW eq_open_sale_order_line AS (
             SELECT 
-                min(main.id) AS id,
+                --min(main.id) AS id,
+                row_number() over (order by main.order_id nulls last) as id,
                 main.order_id AS eq_order_id,
                 (
-                    SELECT 
-                        sale_order.client_order_ref  
-                    FROM 
-                        sale_order 
-                    WHERE 
+                    SELECT
+                        sale_order.client_order_ref
+                    FROM
+                        sale_order
+                    WHERE
                         sale_order.id = main.order_id
                 ) AS eq_client_order_ref,
                 (
-                    SELECT 
-                        res_partner.eq_customer_ref 
+                    SELECT
+                        res_partner.eq_customer_ref
                     FROM
-                        res_partner 
+                        res_partner
                     WHERE res_partner.id = (
-                        SELECT 
-                            sale_order.partner_id 
-                        FROM 
-                            sale_order 
-                        WHERE 
+                        SELECT
+                            sale_order.partner_id
+                        FROM
+                            sale_order
+                        WHERE
                             sale_order.id = main.order_id
                         )
                 ) AS eq_customer_no,
-                ( 
-                    SELECT 
-                        sale_order.partner_id 
-                    FROM 
-                        sale_order 
-                    WHERE 
+                (
+                    SELECT
+                        sale_order.partner_id
+                    FROM
+                        sale_order
+                    WHERE
                         sale_order.id = main.order_id
                 ) AS eq_customer,
                 main.eq_delivery_date,
-                main.sequence AS eq_pos,
-                main.product_uom_qty AS eq_quantity,
+                --main.sequence AS eq_pos,
+                (select sum(line2.product_uom_qty) from sale_order_line line2 where line2.order_id = main.order_id and line2.product_id = main.product_id) AS eq_quantity,
                 --re.Qleft  as eq_quantity_left,
-                (select case when count(sm2.*) = 0 then main.product_uom_qty
-                else sum(SM.product_qty)
-                end)  as eq_quantity_left,
+                (select case when count(sm2.*) = 0 then (select sum(line2.product_uom_qty) from sale_order_line line2 where line2.order_id = main.order_id and line2.product_id = main.product_id)
+                else (select sum(SM.product_qty) from stock_move SM
+		 join stock_picking sp on sp.id = sm.picking_id
+		 where sp.eq_sale_order_id = main.order_id
+		 and sm.state::text <> 'done'::text AND sm.state::text <> 'cancel'::text and sm.picking_id IS NOT NULL
+		 and sm.product_id = main.product_id)
+                end)
+                as eq_quantity_left,
 
                 main.product_id AS eq_product_no,
                 (
@@ -115,64 +121,62 @@ class eq_open_sale_order_line(models.Model):
             FROM
                 sale_order_line main
 
-                left outer join stock_picking sp on sp.eq_sale_order_id = main.order_id
+                left outer join stock_picking sp on (sp.eq_sale_order_id = main.order_id and sp.state not in ('cancel','done'))
                 left outer join stock_move sm2 on (sm2.picking_id = sp.id and main.product_id = sm2.product_id)
-                left outer join stock_move sm on (sm.picking_id = sp.id and main.product_id = sm.product_id
-                and sm.state::text <> 'done'::text AND sm.state::text <> 'cancel'::text and sm.picking_id IS NOT NULL)
-
+                --left outer join stock_move sm on (sm.picking_id = sp.id and main.product_id = sm.product_id
+                --and sm.state::text <> 'done'::text AND sm.state::text <> 'cancel'::text and sm.picking_id IS NOT NULL)
+		--where main.order_id = 15966
             GROUP BY
                 main.order_id,
                 (
-                    SELECT 
-                        sale_order.client_order_ref 
-                    FROM 
-                        sale_order 
-                    WHERE 
+                    SELECT
+                        sale_order.client_order_ref
+                    FROM
+                        sale_order
+                    WHERE
                         sale_order.id = main.order_id
                 ),
                 (
-                    SELECT 
-                        res_partner.eq_customer_ref 
-                    FROM 
-                        res_partner 
-                    WHERE 
-                        res_partner.id = (  
-                            SELECT 
-                                sale_order.partner_id 
-                            FROM 
-                                sale_order  
-                            WHERE 
+                    SELECT
+                        res_partner.eq_customer_ref
+                    FROM
+                        res_partner
+                    WHERE
+                        res_partner.id = (
+                            SELECT
+                                sale_order.partner_id
+                            FROM
+                                sale_order
+                            WHERE
                                 sale_order.id = main.order_id
                             )
                 ),
                 (
-                    SELECT 
-                        sale_order.partner_id 
-                    FROM 
-                        sale_order 
-                    WHERE 
+                    SELECT
+                        sale_order.partner_id
+                    FROM
+                        sale_order
+                    WHERE
                         sale_order.id = main.order_id
                 ),
                 main.eq_delivery_date,
-                main.sequence ,
-                main.product_uom_qty ,
+                --main.product_uom_qty ,
                 main.product_id,
                 (
-                    SELECT 
-                        product_template.eq_drawing_number 
-                    FROM 
-                        product_template 
-                    WHERE 
+                    SELECT
+                        product_template.eq_drawing_number
+                    FROM
+                        product_template
+                    WHERE
                         product_template.id = (
-                            SELECT 
+                            SELECT
                                 product_product.product_tmpl_id
-                            FROM 
-                                product_product 
-                            WHERE 
+                            FROM
+                                product_product
+                            WHERE
                                 product_product.id = main.product_id)
                 ),
-                 main.state, 
-                 main.id
+                 main.state
         )
             """)
 

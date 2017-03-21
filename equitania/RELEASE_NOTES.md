@@ -17,11 +17,15 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 21.03.2017
+### Version 1.1.145
+#### FIX
+- Anpassung Statement Auftragspositionen wegen falscher Anzeige der Restmenge/Menge.
+
 #### 15.03.2017
 ### Version 1.1.144
 #### CHG
 - Anpassungen für Ermittlung der offenen Auftragsmengen: Falls es noch keine stock_moves gibt, ist die offene Menge die Positionsmenge
-
 
 #### 14.03.2017
 ### Version 1.1.143
