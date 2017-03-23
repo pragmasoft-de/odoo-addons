@@ -17,6 +17,11 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 23.03.2017
+### Version 1.1.146
+#### CHG
+- Rechtedatei angepasst, sodass Unterschriftssignatur durch einen "normalen" Benutzer gepflegt werden kann.
+
 #### 21.03.2017
 ### Version 1.1.145
 #### FIX
