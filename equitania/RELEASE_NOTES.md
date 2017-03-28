@@ -17,6 +17,11 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 28.03.2017
+### Version 1.1.146
+#### CHG
+- Entfernung der Rechtegruppe - Managed-Admin
+
 #### 21.03.2017
 ### Version 1.1.145
 #### FIX
