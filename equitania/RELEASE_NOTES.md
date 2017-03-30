@@ -16,6 +16,33 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+
+#### 28.03.2017
+### Version 1.1.147
+#### CHG
+- Entfernung der Rechtegruppe - Managed-Admin
+
+#### 23.03.2017
+### Version 1.1.146
+#### CHG
+- Rechtedatei angepasst, sodass Unterschriftssignatur durch einen "normalen" Benutzer gepflegt werden kann.
+
+#### 21.03.2017
+### Version 1.1.145
+#### FIX
+- Anpassung Statement Auftragspositionen wegen falscher Anzeige der Restmenge/Menge.
+
+#### 15.03.2017
+### Version 1.1.144
+#### CHG
+- Anpassungen für Ermittlung der offenen Auftragsmengen: Falls es noch keine stock_moves gibt, ist die offene Menge die Positionsmenge
+
+#### 14.03.2017
+### Version 1.1.143
+#### CHG
+- Anpassungen für Ermittlung der offenen Mengen für Übersicht der Auftragspositionen
+
+
 #### 28.02.2017
 ### Version 1.1.142
 #### CHG
