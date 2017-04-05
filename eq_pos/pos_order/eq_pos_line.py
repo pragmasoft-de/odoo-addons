@@ -42,6 +42,8 @@ class eq_pos_order_line(models.Model):
     eq_price_subtotal_incl = fields.Float(string="Price")
     eq_changed_product_text = fields.Char(string = "Changed text")
     
+    #p.eq_customer_ref as eq_customer_ref,
+    
     def init(self, cr):
         tools.drop_view_if_exists(cr, 'eq_pos_order_line')
         cr.execute("""
@@ -50,7 +52,6 @@ class eq_pos_order_line(models.Model):
             FROM (
                 SELECT po.id as eq_pos_id, po.partner_id as eq_customer, po.date_order as eq_date_order, line.qty as eq_quantity,
                 line.product_id as eq_product_id, line.price_subtotal_incl as eq_price_subtotal_incl,
-                p.eq_customer_ref as eq_customer_ref,
                 pp.default_code as eq_product_default_code,
                 line.changed_text as eq_changed_product_text
                 FROM pos_order po

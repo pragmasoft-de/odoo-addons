@@ -24,4 +24,5 @@ import coupon
 import bonus_return
 import eq_report_sessionsummary
 import res_partner
+import account_tax
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

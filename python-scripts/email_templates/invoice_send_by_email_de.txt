@@ -1,12 +1,11 @@
+<div style="font-family:Open Sans, 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 13px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
 
-<div style="font-family: Open Sans,'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 13px; color: rgb(34, 34, 34); background-color: #FFF; ">
-    
-    <p>Sehr geehrte/r ${object.partner_id.title.name or ''} ${object.partner_id.name},</p>
+     <p>Sehr geehrte(r) ${object.partner_id.title.name or ''} ${object.partner_id.name},</p>
 
-    <p>Ihre Rechnung steht nun für Sie zum Abruf bereit: </p>
-    
-    <p style="border-left: 1px solid #002852; margin-left: 10px;">
-        &nbsp;&nbsp; <strong><u>Ihre Rechnungsinformationen</u></strong><br>
+    <p>Ihre Rechnung im PDF-Format senden wir Ihnen anbei.  </p>
+
+    <p>
+  <strong><u>Ihre Rechnungsinformationen</u></strong><br>
 <br>
         &nbsp;&nbsp;Rechnungsnummer: <strong>${object.number}</strong><br>
         &nbsp;&nbsp;Rechnungsbetrag: <strong>${("%.2f" % (object.amount_total)).replace(".", ",")} ${object.currency_id.name}</strong><br>
@@ -18,7 +17,7 @@
         &nbsp;&nbsp;Ihr Ansprechpartner:  ${object.user_id.title.name if object.user_id.title.name else ""}<a href="mailto:${object.user_id.email or ''}?subject=Invoice%20${object.number}">${object.user_id.name}</a>
         % endif
     </p>
-    
+
     % if object.paypal_url:
     <br>
     <p>Sie können die Rechnung per PayPal bezahlen:</p>
@@ -34,10 +33,10 @@
     <br>
     <br>
     <div style="width: auto; margin: 0px; padding: 0px;">
-        <h3 style="margin: 0px; padding: 2px 14px; font-size: 16px;">
+        <h3 style="margin: 0px; padding: 2px 0px; font-size: 16px;">
             <strong>${object.company_id.name}</strong></h3>
     </div>
-    <div style="width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #FFF;">
+    <div style="width: 347px; margin: 0px;padding: 5px 0px line-height: 16px; background-color: #FFF;">
         <span style="color: #000; margin-bottom: 5px; display: block; ">
         % if object.company_id.street:
             ${object.company_id.street}

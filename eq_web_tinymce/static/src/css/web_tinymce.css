@@ -1,0 +1,6 @@
+.openerp .oe_form_field_text_tinymce.disabled, .openerp td.oe_form_field_text_tinymce, .openerp .oe_form_field_text_tinymce_raw.disabled.openerp, .openerp td.oe_form_field_text_tinymce_raw {
+    /* here we need to reset openerp's styles to
+     * have the HTML display as (probably) intended
+     */
+    white-space: normal;
+}

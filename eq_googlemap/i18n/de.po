@@ -1,0 +1,46 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* eq_googlemap
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.1 Build 170301\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-10 16:00+0000\n"
+"PO-Revision-Date: 2017-03-10 16:00+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: eq_googlemap
+#: view:website.config.settings:eq_googlemap.eq_view_website_config_settings
+msgid "Google Maps"
+msgstr "Google Maps"
+
+#. module: eq_googlemap
+#: view:website.config.settings:eq_googlemap.eq_view_website_config_settings
+msgid "Social Media"
+msgstr "Soziale Medien"
+
+#. module: eq_googlemap
+#: model:ir.model,name:eq_googlemap.model_website
+msgid "Website"
+msgstr "Webseite"
+
+#. module: eq_googlemap
+#: view:website.config.settings:eq_googlemap.eq_view_website_config_settings
+msgid "Your google maps key"
+msgstr "Google Maps Key"
+
+#. module: eq_googlemap
+#: field:website,eq_google_maps_key:0
+msgid "eq_google_maps_key"
+msgstr "eq_google_maps_key"
+
+#. module: eq_googlemap
+#: field:website.config.settings,eq_google_maps_key:0
+msgid "googlemaps key [eq_googlemap]"
+msgstr "Google Maps Key [eq_googlemap]"
