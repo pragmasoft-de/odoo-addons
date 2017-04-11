@@ -1,0 +1,23 @@
+<div style="font-family:Open Sans, 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 13px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+<div>
+<p>Kunde: ${object.display_name}</p>
+<p>Anrede: ${object.title.name}</p>
+<p>Vorname: ${object.eq_firstname}</p>
+<p>Nachname: ${object.name}</p>
+<p>E-Mail: ${object.email}</p>
+% if object.eq_name2:
+<p>Unternehmensname: ${object.eq_name2}</p>
+% endif
+% if object.vat:
+<p>Ust-ID Nr: ${object.vat}</p>
+% endif
+% if object.eq_house_no:
+<p>Strasse: ${object.street} ${object.eq_house_no}</p>
+% else:
+<p>Strasse: ${object.street}</p>
+% endif
+<p>PLZ: ${object.zip}</p>
+<p>Stadt: ${object.city}</p>
+<p>Land: ${object.country_id.name}</p>
+</div>
+</div>
