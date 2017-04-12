@@ -17,6 +17,12 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 12.04.2017
+### Version 1.1.148
+#### FIX
+- Kleiner Reportfix für das Label der Kontaktperson
+
+
 #### 28.03.2017
 ### Version 1.1.147
 #### CHG
