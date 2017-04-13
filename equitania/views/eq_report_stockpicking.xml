@@ -202,7 +202,6 @@
 						<tr>
 							<td>
 								<span t-field="o.origin" />
-								<span t-esc="get_weight(o.weight, o.partner_id.lang)" />
 							</td>
 							<td>
 								<span t-field="o.state" />

@@ -17,6 +17,11 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 13.04.2017
+### Version 1.1.149
+#### CHG
+- Lieferschein Report: doppeltes Gewichtsfeld entfernt
+
 #### 12.04.2017
 ### Version 1.1.148
 #### FIX
