@@ -18,6 +18,13 @@ Vorgehensweise unter Debian:
 
 
 #### 13.04.2017
+### Version 1.1.150
+#### FIX
+- Fix für Bug: https://github.com/odoo/odoo/issues/1892
+- Fix für Bug: https://bugs.launchpad.net/openobject-addons/+bug/1202127
+- Fix für Bug: https://github.com/odoo/odoo/issues/6251
+
+#### 13.04.2017
 ### Version 1.1.149
 #### CHG
 - Lieferschein Report: doppeltes Gewichtsfeld entfernt
