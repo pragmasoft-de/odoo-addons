@@ -1,0 +1,733 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* eq_shipcloud
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-16 14:00+0000\n"
+"PO-Revision-Date: 2016-04-03 18:20+0200\n"
+"Last-Translator: Martin Schmid <m.schmid@equitania.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: de\n"
+"X-Generator: Poedit 1.8.7\n"
+
+#. module: eq_shipcloud
+#: code:addons/eq_shipcloud/models/eq_shipcloud.py:167
+#: code:addons/eq_shipcloud/models/eq_shipcloud.py:169
+#, python-format
+msgid " Only when a delivery method is connected with shipcloud carrier and Service a shipment at shipcloud is created."
+msgstr " Nur wenn eine Auslieferungsmethode mit einem Versandunternehmen und einem Lieferservice verbunden ist, wird auch eine Lieferung bei Shipcloud erstellt."
+
+#. module: eq_shipcloud
+#: model:ir.actions.act_window,help:eq_shipcloud.eq_shipcloud_deliverymethods_action
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                    So far you don't have any Shipcloud delivery methods created!\n"
+"                </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                    Zur Zeit sind noch keine Shipcloud Auslieferungsmethoden erstellt!\n"
+"                </p>\n"
+"            "
+
+#. module: eq_shipcloud
+#: model:ir.actions.act_window,help:eq_shipcloud.eq_shicloud_action
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                    So far you don't have any Shipments created!\n"
+"                </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                    Zur Zeit sind noch keine Lieferungen erstellt!\n"
+"                </p>\n"
+"            "
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud.config,eq_shipcloud_apikey:0
+msgid "API key"
+msgstr "API-Schlüssel"
+
+#. module: eq_shipcloud
+#: view:eq.shipcloud.config:eq_shipcloud.eq_shipcloud_config_settings
+msgid "Apply"
+msgstr "Übernehmen"
+
+#. module: eq_shipcloud
+#: view:eq.shipcloud.config:eq_shipcloud.eq_shipcloud_config_settings
+msgid "Assign delivery methods to carrier and service"
+msgstr "Auslieferungsmethoden dem Versandunternehmen zuweisen."
+
+#. module: eq_shipcloud
+#: view:eq.shipcloud.config:eq_shipcloud.eq_shipcloud_config_settings
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud.deliverymethod,eq_sc_carrier:0
+#: field:eq.shipcloud.service,eq_shipcloud_carrier:0
+msgid "Carrier"
+msgstr "Versandunternehmen"
+
+#. module: eq_shipcloud
+#: code:addons/eq_shipcloud/models/eq_carrier_service.py:44
+#: code:addons/eq_shipcloud/models/eq_carrier_service.py:55
+#, python-format
+msgid "Carrier can have only one default service."
+msgstr "Das Versandunternehmen kann nur einen standard Lieferservice haben."
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud,eq_carrier_tracking_no:0
+msgid "Carrier tracking nos"
+msgstr "Packetverfolgungsnr."
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:153
+#, python-format
+msgid "Change"
+msgstr "Ändern"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:76
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:145
+#, python-format
+msgid "Change Gross Weight"
+msgstr "Bruttogewicht ändern"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:85
+#, python-format
+msgid "Change Logistic Unit"
+msgstr "Verpackungseinheits ändern"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:80
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:83
+#, python-format
+msgid "Change destination location"
+msgstr "Ziel ändern"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:79
+#, python-format
+msgid "Change source location"
+msgstr "Quelle ändern"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:152
+#, python-format
+msgid "Close"
+msgstr "Schließen"
+
+#. module: eq_shipcloud
+#: view:eq.shipcloud.config:eq_shipcloud.eq_shipcloud_config_settings
+#: model:ir.actions.act_window,name:eq_shipcloud.action_eq_shipcloud_config_settings
+msgid "Configure Shipcloud"
+msgstr "Konfiguration Shipcloud"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:73
+#, python-format
+msgid "Create / Change Lot"
+msgstr "Seriennummer erstellen/ändern"
+
+#. module: eq_shipcloud
+#: view:eq.shipcloud:eq_shipcloud.eq_shipcloud_form
+msgid "Create Date"
+msgstr "Erstellungsdatum"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:105
+#, python-format
+msgid "Create backorder"
+msgstr "Rücklieferung erstellen"
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud.deliverymethod,eq_create_shipping_label:0
+msgid "Create shipping Label"
+msgstr "Versandetikett erstellen"
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud,create_uid:0 field:eq.shipcloud.config,create_uid:0
+#: field:eq.shipcloud.deliverymethod,create_uid:0
+#: field:eq.shipcloud.service,create_uid:0
+#: field:eq.shipdefault.logistic.unit,create_uid:0
+msgid "Created by"
+msgstr "Erstellt durch"
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud,create_date:0 field:eq.shipcloud.config,create_date:0
+#: field:eq.shipcloud.deliverymethod,create_date:0
+#: field:eq.shipcloud.service,create_date:0
+#: field:eq.shipdefault.logistic.unit,create_date:0
+msgid "Created on"
+msgstr "Erstellt am:"
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud.config,eq_def_logistic_unit:0
+#: field:eq.shipdefault.logistic.unit,eq_def_logistic_unit:0
+msgid "Default Logistic Unit"
+msgstr "Standard Verpackungseinheit"
+
+#. module: eq_shipcloud
+#: view:eq.shipcloud.config:eq_shipcloud.eq_shipcloud_config_settings
+msgid "Default logistic unit"
+msgstr "Standard Verpackungseinheit"
+
+#. module: eq_shipcloud
+#: view:eq.shipcloud.config:eq_shipcloud.eq_shipcloud_config_settings
+msgid "Delivery Methods"
+msgstr "Auslieferungsmethode"
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud.deliverymethod,eq_deliverymethod_id:0
+msgid "Delivery method"
+msgstr "Auslieferungsmethode"
+
+#. module: eq_shipcloud
+#: model:ir.actions.act_window,name:eq_shipcloud.eq_shipcloud_deliverymethods_action
+msgid "Delivery methods mapping"
+msgstr "Zuordnung Auslieferungsmethoden"
+
+#. module: eq_shipcloud
+#: help:eq.shipcloud,eq_package:0
+msgid "Denote the shipment related package"
+msgstr "Das zum Versandauftrag gehörende Packet."
+
+#. module: eq_shipcloud
+#: help:stock.picking,eq_is_processed:0
+msgid "Denotes whether the delivery order is processed or not."
+msgstr "Gibt an, ob der Auslieferungsauftrag bearbeitet wird oder nicht."
+
+#. module: eq_shipcloud
+#: help:stock.picking,eq_is_shipped:0
+msgid "Denotes whether the delivery order is shipped or not."
+msgstr "Gibt an, ob der Auslieferungsauftrag "
+
+#. module: eq_shipcloud
+#: help:stock.quant.package,eq_is_processed:0
+msgid "Denotes whether the package is processed through barcode symbol or not."
+msgstr "Gibt an, ob das Paket über den Barcode verarbeitet wird."
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud.service,eq_comments:0
+#: field:eq.shipdefault.logistic.unit,eq_description:0
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: eq_shipcloud
+#: view:stock.quant.package:eq_shipcloud.eq_view_quant_package_form_inherit1
+msgid "Destination Package"
+msgstr "Zielverpackung"
+
+#. module: eq_shipcloud
+#: view:stock.quant.package:eq_shipcloud.eq_view_quant_package_form_inherit1
+#: field:stock.quant.package,eq_desi_pack_delivery:0
+msgid "Destination Package Delivery"
+msgstr "Zielverpackung Verpackungsvorgänge"
+
+#. module: eq_shipcloud
+#: help:eq.shipcloud.deliverymethod,eq_create_shipping_label:0
+msgid "Determines if a shipping label should be created at the carrier (this means you will be charged)."
+msgstr "Bestimmt, ob ein Versandetikett gedruckt werden soll."
+
+#. module: eq_shipcloud
+#: code:addons/eq_shipcloud/models/eq_carrier_service.py:44
+#: code:addons/eq_shipcloud/models/eq_carrier_service.py:55
+#: code:addons/eq_shipcloud/models/eq_product.py:35
+#: code:addons/eq_shipcloud/models/eq_product.py:45
+#: code:addons/eq_shipcloud/models/eq_product.py:48
+#: code:addons/eq_shipcloud/models/eq_product.py:51
+#: code:addons/eq_shipcloud/models/eq_res_config.py:62
+#: code:addons/eq_shipcloud/models/eq_res_config.py:82
+#: code:addons/eq_shipcloud/models/eq_shipcloud.py:156
+#: code:addons/eq_shipcloud/models/eq_shipcloud.py:167
+#: code:addons/eq_shipcloud/models/eq_shipcloud.py:169
+#: code:addons/eq_shipcloud/models/eq_shipcloud.py:177
+#: code:addons/eq_shipcloud/models/eq_shipcloud.py:182
+#, python-format
+msgid "Error!"
+msgstr "Fehler!"
+
+#. module: eq_shipcloud
+#: field:stock.picking,eq_reason:0
+msgid "Exception Reason"
+msgstr "Ausnahmegrund:"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:124
+#, python-format
+msgid "Filter by location..."
+msgstr "Filter nach Lagerort …"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:15
+#, python-format
+msgid "From"
+msgstr "Von"
+
+#. module: eq_shipcloud
+#: view:eq.shipcloud.config:eq_shipcloud.eq_shipcloud_config_settings
+msgid "General"
+msgstr "Allgemein"
+
+#. module: eq_shipcloud
+#: view:eq.shipcloud:eq_shipcloud.eq_shipcloud_form
+msgid "Go to Label"
+msgstr "Gehe zu Etikett"
+
+#. module: eq_shipcloud
+#: view:eq.shipcloud:eq_shipcloud.eq_shipcloud_form
+msgid "Go to tracking"
+msgstr "Gehe zu Nachverfolgung"
+
+#. module: eq_shipcloud
+#: code:addons/eq_shipcloud/models/eq_stock_move.py:40
+#: code:addons/eq_shipcloud/models/eq_stock_move.py:44
+#, python-format
+msgid "Got Error while creating shipments."
+msgstr "Habe Fehler beim Erstellen der Sendungen."
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:11
+#: field:stock.pack.operation,eq_gross_weight:0
+#, python-format
+msgid "Gross weight"
+msgstr "Bruttogewicht"
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud,id:0 field:eq.shipcloud.config,id:0
+#: field:eq.shipcloud.deliverymethod,id:0 field:eq.shipcloud.service,id:0
+#: field:eq.shipdefault.logistic.unit,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud.service,eq_default:0
+msgid "Is Default"
+msgstr "Ist standard"
+
+#. module: eq_shipcloud
+#: field:stock.picking,eq_is_processed:0
+#: field:stock.quant.package,eq_is_processed:0
+msgid "Is Processed"
+msgstr "Ist verarbeitet"
+
+#. module: eq_shipcloud
+#: field:stock.picking,eq_is_shipped:0
+msgid "Is Shipped"
+msgstr "Ist versendet"
+
+#. module: eq_shipcloud
+#: field:stock.picking,eq_is_symbol_transfer:0
+msgid "Is Symbol transfer"
+msgstr "Ist Kennung übertragen"
+
+#. module: eq_shipcloud
+#: help:stock.picking,eq_state:0
+msgid "It specifies error in creating shipments"
+msgstr "It specifies error in creating shipments"
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud,eq_label_url:0 help:eq.shipcloud,eq_label_url:0
+msgid "Label URL"
+msgstr "Etikett URL"
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud,write_uid:0 field:eq.shipcloud.config,write_uid:0
+#: field:eq.shipcloud.deliverymethod,write_uid:0
+#: field:eq.shipcloud.service,write_uid:0
+#: field:eq.shipdefault.logistic.unit,write_uid:0
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud,write_date:0 field:eq.shipcloud.config,write_date:0
+#: field:eq.shipcloud.deliverymethod,write_date:0
+#: field:eq.shipcloud.service,write_date:0
+#: field:eq.shipdefault.logistic.unit,write_date:0
+msgid "Last Updated on"
+msgstr "Zuletzt verändert am"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:14
+#: model:ir.model,name:eq_shipcloud.model_product_ul
+#, python-format
+msgid "Logistic Unit"
+msgstr "Packeinheit"
+
+#. module: eq_shipcloud
+#: view:eq.shipcloud.config:eq_shipcloud.eq_shipcloud_config_settings
+msgid "Mapping"
+msgstr "Mapping"
+
+#. module: eq_shipcloud
+#: view:eq.shipcloud:eq_shipcloud.eq_shipcloud_form
+msgid "Modify Date"
+msgstr "Datum ändern"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:10
+#: field:stock.pack.operation,eq_weight_net:0
+#, python-format
+msgid "Net weight"
+msgstr "Nettogewicht"
+
+#. module: eq_shipcloud
+#: view:stock.quant.package:eq_shipcloud.eq_view_quant_package_form_inherit1
+msgid "Operations"
+msgstr "Vorgänge"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:116
+#, python-format
+msgid "Operations Processed"
+msgstr "Bearbeitete Vorgänge"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:115
+#, python-format
+msgid "Operations ToDo"
+msgstr "Zu erledigende Vorgänge"
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud,eq_package:0
+msgid "Package"
+msgstr "Verpackung"
+
+#. module: eq_shipcloud
+#: field:stock.quant.package,eq_gross_weight:0
+msgid "Package Gross weight"
+msgstr "Paket-Bruttogewicht "
+
+#. module: eq_shipcloud
+#: field:stock.quant.package,eq_weight_net:0
+msgid "Package Net weight"
+msgstr "Paket-Nettogewicht "
+
+#. module: eq_shipcloud
+#: view:stock.quant.package:eq_shipcloud.eq_view_quant_package_form_inherit1
+msgid "Package gross weight"
+msgstr "Paket-Bruttogewicht "
+
+#. module: eq_shipcloud
+#: model:ir.model,name:eq_shipcloud.model_stock_pack_operation
+msgid "Packing Operation"
+msgstr "Packvorgang"
+
+#. module: eq_shipcloud
+#: model:ir.model,name:eq_shipcloud.model_stock_quant_package
+msgid "Physical Packages"
+msgstr "Verpackungen"
+
+#. module: eq_shipcloud
+#: model:ir.model,name:eq_shipcloud.model_stock_picking
+msgid "Picking List"
+msgstr "Kommissionierungsliste/Lieferschein"
+
+#. module: eq_shipcloud
+#: model:ir.model,name:eq_shipcloud.model_stock_transfer_details
+msgid "Picking wizard"
+msgstr "Kommissionierungsauftragsassistent"
+
+#. module: eq_shipcloud
+#: code:addons/eq_shipcloud/models/eq_shipcloud.py:177
+#, python-format
+msgid "Please provide Destination packages for Shipments."
+msgstr "Geben Sie den Empfänger der Pakete ein."
+
+#. module: eq_shipcloud
+#: code:addons/eq_shipcloud/models/eq_product.py:35
+#: code:addons/eq_shipcloud/models/eq_product.py:45
+#: code:addons/eq_shipcloud/models/eq_product.py:48
+#: code:addons/eq_shipcloud/models/eq_product.py:51
+#, python-format
+msgid "Please provide Valid Logistic Unit"
+msgstr "Geben Sie eine gültige Verpackungseinheit ein"
+
+#. module: eq_shipcloud
+#: code:addons/eq_shipcloud/models/eq_shipcloud.py:156
+#, python-format
+msgid "Please provide shipcloud apikey."
+msgstr "Geben Sie den API-Schlüssel von ShipCloud ein."
+
+#. module: eq_shipcloud
+#: code:addons/eq_shipcloud/models/eq_shipcloud.py:182
+#, python-format
+msgid "Please provide valid dimensions values for packages."
+msgstr "Bitte geben Sie gültige Abmessungen für die Pakete ein."
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud,eq_price:0 help:eq.shipcloud,eq_price:0
+msgid "Price"
+msgstr "Preis"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:106
+#, python-format
+msgid "Print"
+msgstr "Drucken"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:87
+#, python-format
+msgid "Print package label"
+msgstr "Versandetikett drucken"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:9
+#, python-format
+msgid "Product"
+msgstr "Produkt"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:134
+#, python-format
+msgid "Put in Cart"
+msgstr "In Warenkorb legen"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:133
+#, python-format
+msgid "Put in Pack"
+msgstr "In Paket packen"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:86
+#, python-format
+msgid "Remove from package"
+msgstr "Aus der Verpackung entfernen"
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud.config,eq_shipcloud_sandbox_apikey:0
+msgid "Sandbox API key"
+msgstr "Sandbox-API Schlüssel"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:12
+#, python-format
+msgid "Scanned"
+msgstr "Eingescannt"
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud.deliverymethod,eq_sc_service_id:0
+#: field:eq.shipcloud.service,eq_name:0
+msgid "Service"
+msgstr "Dienst"
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud.config,eq_shipcloud_service_url:0
+msgid "Service URL"
+msgstr "Dienst URL"
+
+#. module: eq_shipcloud
+#: view:eq.shipcloud:eq_shipcloud.eq_shipcloud_form
+#: view:eq.shipcloud:eq_shipcloud.eq_shipcloud_tree
+#: model:ir.ui.menu,name:eq_shipcloud.menu_eq_shipcloud_config_settings
+msgid "Shipcloud"
+msgstr "Shipcloud"
+
+#. module: eq_shipcloud
+#: view:eq.shipcloud.config:eq_shipcloud.eq_shipcloud_config_settings
+msgid "Shipcloud Configuration"
+msgstr "Shipcloud Konfiguration"
+
+#. module: eq_shipcloud
+#: help:eq.shipcloud.deliverymethod,eq_sc_service_id:0
+#: view:eq.shipcloud.service:eq_shipcloud.eq_shipcloud_service_form
+msgid "Shipcloud Service"
+msgstr "Shipcloud Versanddienste"
+
+#. module: eq_shipcloud
+#: view:eq.shipcloud.deliverymethod:eq_shipcloud.eq_shipcloud_deliverymethods_form
+#: view:eq.shipcloud.deliverymethod:eq_shipcloud.eq_shipcloud_deliverymethods_tree
+#: help:eq.shipcloud.deliverymethod,eq_deliverymethod_id:0
+msgid "Shipcloud delivery method"
+msgstr "Shipcloud Versand Methoden"
+
+#. module: eq_shipcloud
+#: help:eq.shipcloud,eq_id:0
+msgid "Shipcloud shipments ID"
+msgstr "Shipcloud Versand ID"
+
+#. module: eq_shipcloud
+#: model:ir.model,name:eq_shipcloud.model_eq_shipcloud_service
+msgid "Shiplcoud Carrier/service"
+msgstr "Shiplcoud Versender/Dienste"
+
+#. module: eq_shipcloud
+#: model:ir.model,name:eq_shipcloud.model_eq_shipcloud_deliverymethod
+msgid "Shiplcoud Delivery method"
+msgstr "Shiplcoud Versandmethoden"
+
+#. module: eq_shipcloud
+#: selection:stock.picking,eq_state:0
+msgid "Shipment Error"
+msgstr "Versand-Fehler"
+
+#. module: eq_shipcloud
+#: code:addons/eq_shipcloud/models/eq_stock_move.py:40
+#: code:addons/eq_shipcloud/models/eq_stock_move.py:44
+#, python-format
+msgid "Shipment Error!"
+msgstr "Fehler beim Versand!"
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud,eq_id:0
+msgid "Shipment ID"
+msgstr "Versand-ID"
+
+#. module: eq_shipcloud
+#: field:stock.picking,eq_state:0
+msgid "Shipment State"
+msgstr "Versand Status"
+
+#. module: eq_shipcloud
+#: model:ir.actions.act_window,name:eq_shipcloud.eq_shicloud_action
+#: model:ir.ui.menu,name:eq_shipcloud.eq_shipcloud_menu
+msgid "Shipments"
+msgstr "Sendungen"
+
+#. module: eq_shipcloud
+#: sql_constraint:eq.shipcloud:0
+msgid "Shipments ID and Package must be unique!"
+msgstr "Sendungen-ID und das Paket muss eindeutig sein!"
+
+#. module: eq_shipcloud
+#: view:stock.quant.package:eq_shipcloud.eq_view_quant_package_form_inherit1
+msgid "Source Package"
+msgstr "Verpackungsquelle"
+
+#. module: eq_shipcloud
+#: view:stock.quant.package:eq_shipcloud.eq_view_quant_package_form_inherit1
+#: field:stock.quant.package,eq_source_pack_delivery:0
+msgid "Source Package Delivery"
+msgstr "Verpackungsquelle Verpackungsvorgänge"
+
+#. module: eq_shipcloud
+#: model:ir.model,name:eq_shipcloud.model_stock_move
+msgid "Stock Move"
+msgstr "Lagerbuchung"
+
+#. module: eq_shipcloud
+#: help:eq.shipcloud.service,eq_default:0
+msgid "The default service for the selected carrier."
+msgstr "Der Standard-Dienst für den ausgewählten Spediteur."
+
+#. module: eq_shipcloud
+#: help:eq.shipcloud.service,eq_name:0
+msgid "The service that should be used for the shipment"
+msgstr "Der Dienst wird für den Versand verwendet"
+
+#. module: eq_shipcloud
+#: model:ir.model,name:eq_shipcloud.model_eq_shipcloud
+msgid "This module helps to integrate Odoo with shipcloud api"
+msgstr "Dieses Modul hilft Odoo Integration mit Shipcloud api"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:16
+#, python-format
+msgid "To"
+msgstr "An"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:13
+#, python-format
+msgid "Todo"
+msgstr "Zu erledigen"
+
+#. module: eq_shipcloud
+#: view:eq.shipcloud:eq_shipcloud.eq_shipcloud_tree
+msgid "Tracking Number"
+msgstr "Sendungsnachverfolgungsnummer"
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud,eq_tracking_url:0
+msgid "Tracking URL"
+msgstr "Sendungsnachverfolgungsadresse"
+
+#. module: eq_shipcloud
+#: field:stock.quant.package,eq_gross_weight_changed:0
+msgid "Updated Gross weight"
+msgstr "Aktualisierte Bruttogewicht"
+
+#. module: eq_shipcloud
+#: field:eq.shipcloud.config,eq_is_sandbox_apikey:0
+msgid "Use sandbox API Key"
+msgstr "Verwende Sandbox-API Schlüssel"
+
+#. module: eq_shipcloud
+#. openerp-web
+#: code:addons/eq_shipcloud/static/src/xml/picking.xml:148
+#, python-format
+msgid "Value:"
+msgstr "Wert:"
+
+#. module: eq_shipcloud
+#: code:addons/eq_shipcloud/models/eq_res_config.py:62
+#, python-format
+msgid "You provided API key is not valid."
+msgstr "Der von Ihnen angegebene Schlüssel ist ungültig."
+
+#. module: eq_shipcloud
+#: code:addons/eq_shipcloud/models/eq_res_config.py:82
+#, python-format
+msgid "You provided Sandbox API key is not valid."
+msgstr "Der von Ihnen angegebene  Sandbox-API Schlüssel ist ungültig."
+
+#. module: eq_shipcloud
+#: view:eq.shipcloud.config:eq_shipcloud.eq_shipcloud_config_settings
+msgid "or"
+msgstr "oder"
+
+#. module: eq_shipcloud
+#: help:eq.shipcloud,eq_tracking_url:0
+msgid "shipments tracking URL"
+msgstr "Sendungsnachverfolgungsadresse"
+
+#. module: eq_shipcloud
+#: help:eq.shipcloud,eq_carrier_tracking_no:0
+msgid "shipments tracking nos"
+msgstr "Sendungsnachverfolgungsnummern"
+
+#. module: eq_shipcloud
+#: view:stock.picking:eq_shipcloud.eq_view_picking_form_inherit
+msgid "{'invisible': [('eq_state', '=', 'eq_shipment_error')]}"
+msgstr "{'invisible': [('eq_state', '=', 'eq_shipment_error')]}"
+
+#. module: eq_shipcloud
+#: view:product.ul:eq_shipcloud.eq_product_ul_form_view_inherit
+#: view:stock.quant.package:eq_shipcloud.eq_view_quant_package_form_inherit1
+msgid "{'required': True}"
+msgstr "{'required': True}"

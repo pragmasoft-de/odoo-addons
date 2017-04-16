@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+		<record id="eq_shipcloud_config_settings" model="ir.ui.view">
+            <field name="name">shipcloud settings</field>
+            <field name="model">eq.shipcloud.config</field>
+            <field name="arch" type="xml">
+                <form string="Configure Shipcloud" class="oe_form_configuration">
+                    <header>
+                        <button string="Apply" type="object" name="execute" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" type="object" name="cancel" class="oe_link"/>
+                    </header>
+                    <separator string="Shipcloud Configuration"/>
+                    <group>
+                        <label for="id" string="General"/>
+                        <div>
+                            <div>
+                                <label for="eq_shipcloud_service_url"/>
+                                <field name="eq_shipcloud_service_url" class="oe_inline"/>
+                            </div>
+                            <div>
+                                <label for="eq_shipcloud_apikey"/>
+                                <field name="eq_shipcloud_apikey" class="oe_inline" attrs="{'required':[('eq_is_sandbox_apikey','=',False)]}"/>
+                            </div>
+                            <div>
+                                <label for="eq_shipcloud_sandbox_apikey"/>
+                                <field name="eq_shipcloud_sandbox_apikey" class="oe_inline" attrs="{'required':[('eq_is_sandbox_apikey','=',True)]}"/>
+                            </div>
+                             <div>
+                                 <label for="eq_is_sandbox_apikey"/>
+                                <field name="eq_is_sandbox_apikey" class="oe_inline"/>
+                            </div>
+                        </div>  
+                         <label for="id" string="Mapping"/>
+                         <div>
+	                         <div name="Delivery Method">
+	                         <div class="oe_bold">
+	                         	<p>Delivery Methods</p>
+	                         </div>
+	                              <button type="action"
+	                                   name="%(eq_shipcloud_deliverymethods_action)d"
+	                                   string="Assign delivery methods to carrier and service" class="oe_link"/>
+	                        </div>
+                        </div> 
+                        <label for="id" string="Default logistic unit"/>
+                        <div>
+                        	<div>
+                                <field name="eq_def_logistic_unit" class="oe_inline"/>
+                        	</div>
+                        </div>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_eq_shipcloud_config_settings" model="ir.actions.act_window">
+            <field name="name">Configure Shipcloud</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">eq.shipcloud.config</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+
+        <menuitem id="menu_eq_shipcloud_config_settings" name="Shipcloud" parent="base.menu_config"
+            sequence="2" action="action_eq_shipcloud_config_settings"/>
+        
+	</data>
+</openerp>

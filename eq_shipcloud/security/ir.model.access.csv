@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_eq_shipcloud_manager,eq.shipcloud.operation manager,eq_shipcloud.model_eq_shipcloud,stock.group_stock_manager,1,1,1,1
+access_eq_shipcloud_user,eq.shipcloud.operation user,eq_shipcloud.model_eq_shipcloud,stock.group_stock_user,1,1,1,0
+access_eq_shipcloud_deliverymethod_manager,eq.shipcloud.deliverymethod.operation manager,eq_shipcloud.model_eq_shipcloud_deliverymethod,stock.group_stock_manager,1,1,1,1
+access_eq_shipcloud_deliverymethod_user,eq.shipcloud.deliverymethod.operation user,eq_shipcloud.model_eq_shipcloud_deliverymethod,stock.group_stock_user,1,1,1,0
+access_eq_shipcloud_service_manager,eq_shipcloud_service.operation manager,eq_shipcloud.model_eq_shipcloud_service,stock.group_stock_manager,1,1,1,1
+access_eq_shipcloud_service_user,eq_shipcloud_service.operation user,eq_shipcloud.model_eq_shipcloud_service,stock.group_stock_user,1,1,1,0
+access_eq_shipdefault_logisticunit_manager,eq_shipdefaul_logisticunit.manager,eq_shipcloud.model_eq_shipdefault_logistic_unit,stock.group_stock_manager,1,1,1,1
+access_eq_shipdefault_logisticunit_user,eq_shipdefaul_logisticunit.user,eq_shipcloud.model_eq_shipdefault_logistic_unit,stock.group_stock_user,1,1,1,0

@@ -1,0 +1,127 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* eq_agorum
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-08-04 14:45+0000\n"
+"PO-Revision-Date: 2015-08-04 14:45+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: eq_agorum
+#: model:ir.ui.menu,name:eq_agorum.menu_eq_agorum_config_settings
+msgid "Agorum"
+msgstr "Agorum"
+
+#. module: eq_agorum
+#: view:eq.agorum.config:eq_agorum.eq_agorum_config_settings
+msgid "Agorum Configuration"
+msgstr "Agorum Konfiguration"
+
+#. module: eq_agorum
+#: field:eq.agorum.config,eq_agorum_host:0
+msgid "Agorum Host"
+msgstr "Agorumserver"
+
+#. module: eq_agorum
+#: field:eq.agorum.config,eq_agorum_pw:0
+#: view:res.users:eq_agorum.eq_view_user_form_agorum
+#: field:res.users,eq_agorum_password:0
+msgid "Agorum Password"
+msgstr "Passwort"
+
+#. module: eq_agorum
+#: field:eq.agorum.config,eq_agorum_token:0
+msgid "Agorum Token"
+msgstr "Agorum Token"
+
+#. module: eq_agorum
+#: field:ir.attachment,agorum_uuid:0
+msgid "Agorum UUID"
+msgstr "Agorum UUID"
+
+#. module: eq_agorum
+#: field:eq.agorum.config,eq_agorum_user:0
+#: view:res.users:eq_agorum.eq_view_user_form_agorum
+#: field:res.users,eq_agorum_user:0
+msgid "Agorum User"
+msgstr "Benutzer"
+
+#. module: eq_agorum
+#: field:eq.agorum.config,eq_agorum_object_service:0
+msgid "Agorum object service"
+msgstr "Agorum Object Service"
+
+#. module: eq_agorum
+#: field:eq.agorum.config,eq_agorum_session_service:0
+msgid "Agorum session service"
+msgstr "Agorum Session Service"
+
+#. module: eq_agorum
+#: field:eq.agorum.config,eq_agorum_target_directory:0
+msgid "Agorum target folder"
+msgstr "Zielordner in Agorum"
+
+#. module: eq_agorum
+#: view:eq.agorum.config:eq_agorum.eq_agorum_config_settings
+msgid "Apply"
+msgstr "OK"
+
+#. module: eq_agorum
+#: view:eq.agorum.config:eq_agorum.eq_agorum_config_settings
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: eq_agorum
+#: view:eq.agorum.config:eq_agorum.eq_agorum_config_settings
+#: model:ir.actions.act_window,name:eq_agorum.action_eq_agorum_config_settings
+msgid "Configure Agorum"
+msgstr "Configure Agorum"
+
+#. module: eq_agorum
+#: field:eq.agorum.config,create_uid:0
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: eq_agorum
+#: field:eq.agorum.config,create_date:0
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: eq_agorum
+#: view:eq.agorum.config:eq_agorum.eq_agorum_config_settings
+msgid "General"
+msgstr "Allgemein"
+
+#. module: eq_agorum
+#: field:eq.agorum.config,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: eq_agorum
+#: field:eq.agorum.config,write_uid:0
+msgid "Last Updated by"
+msgstr "Zuletzt geändert von"
+
+#. module: eq_agorum
+#: field:eq.agorum.config,write_date:0
+msgid "Last Updated on"
+msgstr "Zuletzt geändert am"
+
+#. module: eq_agorum
+#: model:ir.model,name:eq_agorum.model_res_users
+msgid "Users"
+msgstr "Benutzer"
+
+#. module: eq_agorum
+#: view:eq.agorum.config:eq_agorum.eq_agorum_config_settings
+msgid "or"
+msgstr "or"
+

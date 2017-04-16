@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+        <!-- Shipcloud Service Form View -->
+        <record id="eq_shipcloud_service_form" model="ir.ui.view">
+            <field name="name">Shipcloud service</field>
+            <field name="model">eq.shipcloud.service</field>
+            <field name="arch" type="xml">
+                <form string="Shipcloud Service">
+                <sheet>
+                    <group>
+	                    <field name="eq_shipcloud_carrier" required = "1"/>
+	                    <field name="eq_name" required="1"/>
+	                    <field name="eq_default" />
+	                    <field name="eq_comments"/>
+                   </group>
+                </sheet>
+                </form>
+            </field>
+         </record>
+	</data>
+</openerp>
