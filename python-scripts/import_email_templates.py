@@ -22,9 +22,9 @@ import xmlrpclib, os
 from datetime import datetime, timedelta
 
 username = "admin"
-pwd = "test"
-dbname = "dbname"
-baseurl = "localhost:8069"
+pwd = "odoo"
+dbname = "testmyodoo"
+baseurl = "http://localhost:8069"
 
 version_number = 1
 
