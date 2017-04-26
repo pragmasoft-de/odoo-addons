@@ -17,6 +17,12 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 26.04.2017
+### Version 1.1.151
+#### FIX
+- Ticket 3846/4120 Anapssung des SQL-Statements entsprechend der Änderungen in dem Modul eq_manufacture_from_sale.
+
+
 #### 13.04.2017
 ### Version 1.1.150
 #### FIX
