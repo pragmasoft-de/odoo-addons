@@ -18,13 +18,6 @@
         % endif
     </p>
 
-    % if object.paypal_url:
-    <br>
-    <p>Sie können die Rechnung per PayPal bezahlen:</p>
-        <a style="margin-left: 0px;" href="${object.paypal_url}">
-            <img class="oe_edi_paypal_button" src="https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif">
-        </a>
-    % endif
     <br>
     <br>
     <br>
