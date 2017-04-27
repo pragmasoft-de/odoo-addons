@@ -128,19 +128,37 @@
 							<!--<span><strong>Customer Address:</strong></span> -->
 						</div>
 						<div t-if="o.partner_id" name="partner_header" style="clear:left;">
+							<!-- Neue Abfrage für die Absenderadresse, enthält kombination von: ist company, ist kontakt, und ist kontakt ohne company -->
+							<div t-if="o.partner_id.is_company == True">
+								<span t-field="o.partner_id.name" style="clear:left;" />
+								<div t-if="o.partner_id.eq_name2" t-field="o.partner_id.eq_name2" style="clear:left;" />
+								<div t-if="o.partner_id.eq_name3" t-field="o.partner_id.eq_name3" style="clear:left;" />
+							</div>
+							<div t-if="o.partner_id.is_company == False">
+								<!-- company daten sind parent_id und werden gedruckt wenn vorhanden, ebenso das C/O -->
+								<span t-if="o.partner_id.parent_id.name" t-field="o.partner_id.parent_id.name" style="clear:left;" />
+								<div t-if="o.partner_id.parent_id.eq_name2" t-field="o.partner_id.parent_id.eq_name2" style="clear:left;" />
+								<div t-if="o.partner_id.parent_id.eq_name3" t-field="o.partner_id.parent_id.eq_name3" style="clear:left;" />
+								<div style="clear:left;"><span t-if="o.partner_id.parent_id.name">c/o </span><span t-if="o.partner_id.title.name" t-field="o.partner_id.title.name"  /> <span t-if="o.partner_id.eq_firstname" t-field="o.partner_id.eq_firstname" /> <span t-field="o.partner_id.name"/></div>
+							</div>
+
+
+
+
+
 							<!--<div t-if="o.partner_id.is_company == false">
 								<span t-field="o.partner_id.title.name" />
 								<span t-field="o.partner_id.eq_firstname" style="clear:left;" />
 							</div>-->
-							<div  style="clear:left;">
+							<!--<div  style="clear:left;">
 								<h t-if="o.partner_id.title.name" t-field="o.partner_id.title.name"  />
 								<h t-if="o.partner_id.eq_firstname" t-field="o.partner_id.eq_firstname" />
 								<h t-field="o.partner_id.name" />
-							</div>
+							</div>-->
 							<!--<span t-field="o.partner_id.name" style="clear:left;" />-->
-							<div t-if="o.partner_id.eq_name2" t-field="o.partner_id.eq_name2" style="clear:left;" />
+							<!--<div t-if="o.partner_id.eq_name2" t-field="o.partner_id.eq_name2" style="clear:left;" />
 							<div t-if="o.partner_id.eq_name3" t-field="o.partner_id.eq_name3" style="clear:left;" />
-							<div style="clear:left;" t-if="o.partner_id.parent_id.name"><span>c/o</span> <span t-field="o.partner_id.parent_id.name"/></div>
+							<div style="clear:left;" t-if="o.partner_id.parent_id.name"><span>c/o</span> <span t-field="o.partner_id.parent_id.name"/></div>-->
 							<div>
 								<span t-field="o.partner_id.street" />
 								<span t-if="o.partner_id.eq_house_no" t-field="o.partner_id.eq_house_no" />

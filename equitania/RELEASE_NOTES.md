@@ -16,6 +16,10 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+#### 27.04.2017
+### Version 1.1.152
+#### FIX
+- Liefer-Report: Anschrift erweitert für 3 Anschriftmöglichkeiten: Firma, Kontakt einer Firma, Kontakt ohne Firma
 
 #### 26.04.2017
 ### Version 1.1.151
