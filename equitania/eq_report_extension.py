@@ -304,7 +304,10 @@ class eq_report_extension_sale_order_line(osv.osv):
                 Hier ist es:
                 <div class="text-muted" t-esc="'\n'.join(line.name.splitlines()[1:])"/>
                 """
-                result = "\n" + attribute_string
+
+                # result = "\n" + attribute_string
+                # Anpassung für Ticket 4086: unnötige Leerzeile vermeiden
+                result = attribute_string
             else:
                 result = ' '
 

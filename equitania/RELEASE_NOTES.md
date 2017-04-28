@@ -16,6 +16,13 @@ Vorgehensweise unter Debian:
 
 `fc-cache -f -v`
 
+
+#### 28.04.2017
+### Version 1.1.153
+#### CHG
+- Ticket 4086: unnötige Leerzeile in Produkttexten der Bestellpositionen entfernt
+
+
 #### 27.04.2017
 ### Version 1.1.152
 #### FIX
