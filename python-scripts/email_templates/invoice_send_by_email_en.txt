@@ -18,14 +18,7 @@
        % endif
     </p>  
     
-    % if object.paypal_url:
-    <br>
-    <p>It is also possible to directly pay with Paypal:</p>
-        <a style="margin-left: 0px;" href="${object.paypal_url}">
-            <img class="oe_edi_paypal_button" src="/account/static/src/img/btn_paynowcc_lg.gif">
-        </a>
-    % endif
-    
+
     <br>
     <p>If you have any question, do not hesitate to contact us.</p>
     <p>Thank you for choosing ${object.company_id.name or 'us'}!</p>

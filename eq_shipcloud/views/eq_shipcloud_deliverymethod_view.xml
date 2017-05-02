@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+		<!-- Shipcloud Delivery methods Tree view-->
+        <record id="eq_shipcloud_deliverymethods_tree" model="ir.ui.view">
+            <field name="name">Delivery methods mapping</field>
+            <field name="model">eq.shipcloud.deliverymethod</field>
+            <field name="arch" type="xml">
+                <tree string="Shipcloud delivery method">
+                    <field name="eq_deliverymethod_id" />
+                    <field name="eq_sc_carrier" />
+                    <field name="eq_sc_service_id" />
+                    <field name="eq_create_shipping_label" />
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Shipcloud Delivery methods Form View -->
+        <record id="eq_shipcloud_deliverymethods_form" model="ir.ui.view">
+            <field name="name">Delivery methods mapping</field>
+            <field name="model">eq.shipcloud.deliverymethod</field>
+            <field name="arch" type="xml">
+                <form string="Shipcloud delivery method">
+                <sheet>
+                    <group col="2">
+                    <field name="eq_deliverymethod_id" />
+                    <field name="eq_create_shipping_label" />
+                    <field name="eq_sc_carrier" />
+                    <field name="eq_sc_service_id" domain="[('eq_shipcloud_carrier','=',eq_sc_carrier)]"/>
+                   </group>
+                </sheet>
+                </form>
+            </field>
+         </record>
+         
+         <!-- Shipcloud Delivery methods Action -->
+         <record id="eq_shipcloud_deliverymethods_action" model="ir.actions.act_window">
+            <field name="name">Delivery methods mapping</field>
+            <field name="res_model">eq.shipcloud.deliverymethod</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    So far you don't have any Shipcloud delivery methods created!
+                </p>
+            </field>
+        </record>
+        
+	</data>
+</openerp>

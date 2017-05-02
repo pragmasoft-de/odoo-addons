@@ -4,6 +4,7 @@
 <div>
 <p> Im System ist eine Bestellung eingegangen von</p>
 <p><strong>Kunde: ${object.partner_id.name}</strong></p>
+<p><strong>Bestellung: ${object.name}</strong></p>
 </div>
 <br>
 <br>

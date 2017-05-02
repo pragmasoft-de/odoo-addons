@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+		<!-- Shipcloud Tree view-->
+        <record id="eq_shipcloud_tree" model="ir.ui.view">
+            <field name="name">Shipcloud</field>
+            <field name="model">eq.shipcloud</field>
+            <field name="arch" type="xml">
+                <tree string="Shipcloud">
+                    	<field name="create_date"/>
+                    <field name="eq_id" />
+                    <field name="eq_carrier_tracking_no" string="Tracking Number"/>
+                    <field name="eq_tracking_url" />
+                    <field name="eq_label_url" />
+                    <field name="eq_price"/>
+                    <field name="eq_package"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Shipcloud Form View -->
+        <record id="eq_shipcloud_form" model="ir.ui.view">
+            <field name="name">Shipcloud</field>
+            <field name="model">eq.shipcloud</field>
+            <field name="arch" type="xml">
+                <form string="Shipcloud">
+                 <header>
+ 						<button name="eq_opentrack_url" string="Go to tracking" type="object" class="oe_highlight" attrs="{'invisible': [('eq_tracking_url', '=', False )]}"/>
+ 						<button name="eq_openlabel_url" string="Go to Label" type="object" class="oe_highlight" attrs="{'invisible': [('eq_label_url', '=', False )]}"/>
+ 				</header>
+                <sheet>
+                    <group>
+	                    <field name="eq_id" />
+	                    <field name="eq_carrier_tracking_no" />
+	                    <field name="eq_tracking_url" widget="url"/>
+	                    <field name="eq_label_url" widget="url"/>
+	                    <field name="eq_price"/>
+	                    <field name="eq_package"/>
+	                    <field name="create_date" string="Create Date"/>
+	                    <field name="write_date" string="Modify Date"/>
+                   </group>
+                </sheet>
+                </form>
+            </field>
+         </record>
+         
+         <!-- Shipcloud Action -->
+         <record id="eq_shicloud_action" model="ir.actions.act_window">
+            <field name="name">Shipments</field>
+            <field name="res_model">eq.shipcloud</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    So far you don't have any Shipments created!
+                </p>
+            </field>
+        </record>
+        
+         <!-- Shipcloud menu -->
+         <menuitem id="eq_shipcloud_menu" action="eq_shicloud_action" name="Shipments" parent="stock.menu_stock_product"
+           sequence="11"/>
+        
+	</data>
+</openerp>

@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<openerp>
+
+       <data noupdate="1">
+       
+       
+       <!-- Carrier - Service for DHL -->
+        <record id="eq_dhl_standard" model="eq.shipcloud.service">
+            <field name="eq_name">standard</field>
+            <field name="eq_shipcloud_carrier">dhl</field>
+            <field name="eq_default">True</field>
+            <field name="eq_comments">The standard (ground) service for each carrier</field>
+        </record>
+        
+        <record id="eq_dhl_returns" model="eq.shipcloud.service">
+            <field name="eq_name">returns</field>
+            <field name="eq_shipcloud_carrier">dhl</field>
+            <field name="eq_comments">Returns service</field>
+        </record>
+        
+        <record id="eq_dhl_one_day" model="eq.shipcloud.service">
+            <field name="eq_name">one_day</field>
+            <field name="eq_shipcloud_carrier">dhl</field>
+            <field name="eq_comments">express delivery</field>
+        </record>
+        
+        <record id="eq_dhl_one_day_early" model="eq.shipcloud.service">
+            <field name="eq_name">one_day_early</field>
+            <field name="eq_shipcloud_carrier">dhl</field>
+            <field name="eq_comments">express delivery until 10am.</field>
+        </record>
+        
+        
+         <!-- Carrier - Service for DPD -->
+        <record id="eq_dpd_standard" model="eq.shipcloud.service">
+            <field name="eq_name">standard</field>
+            <field name="eq_shipcloud_carrier">dpd</field>
+            <field name="eq_default">True</field>
+            <field name="eq_comments">The standard (ground) service for each carrier</field>
+        </record>
+        
+        <record id="eq_dpd_returns" model="eq.shipcloud.service">
+            <field name="eq_name">returns</field>
+            <field name="eq_shipcloud_carrier">dpd</field>
+            <field name="eq_comments">Returns service</field>
+        </record>
+        
+        <record id="eq_dpd_one_day" model="eq.shipcloud.service">
+            <field name="eq_name">one_day</field>
+            <field name="eq_shipcloud_carrier">dpd</field>
+            <field name="eq_comments">express delivery</field>
+        </record>
+        
+        <record id="eq_dpd_one_day_early" model="eq.shipcloud.service">
+            <field name="eq_name">one_day_early</field>
+            <field name="eq_shipcloud_carrier">dpd</field>
+            <field name="eq_comments">express delivery until 10am.</field>
+        </record>
+        
+        
+        
+         <!-- Carrier - Service for FEDEX -->
+        <record id="eq_fedex_standard" model="eq.shipcloud.service">
+            <field name="eq_name">standard</field>
+            <field name="eq_shipcloud_carrier">fedex</field>
+            <field name="eq_default">True</field>
+            <field name="eq_comments">The standard (ground) service for each carrier</field>
+        </record>
+        
+        <record id="eq_fedex_returns" model="eq.shipcloud.service">
+            <field name="eq_name">returns</field>
+            <field name="eq_shipcloud_carrier">fedex</field>
+            <field name="eq_comments">Returns service</field>
+        </record>
+        
+        <record id="eq_fedex_one_day" model="eq.shipcloud.service">
+            <field name="eq_name">one_day</field>
+            <field name="eq_shipcloud_carrier">fedex</field>
+            <field name="eq_comments">express delivery</field>
+        </record>
+        
+        <record id="eq_fedex_one_day_early" model="eq.shipcloud.service">
+            <field name="eq_name">one_day_early</field>
+            <field name="eq_shipcloud_carrier">fedex</field>
+            <field name="eq_comments">express delivery until 10am.</field>
+        </record>
+        
+        
+         <!-- Carrier - Service for GLS -->
+        <record id="eq_gls_standard" model="eq.shipcloud.service">
+            <field name="eq_name">standard</field>
+            <field name="eq_shipcloud_carrier">gls</field>
+            <field name="eq_default">True</field>
+            <field name="eq_comments">The standard (ground) service for each carrier</field>
+        </record>
+        
+        <record id="eq_gls_returns" model="eq.shipcloud.service">
+            <field name="eq_name">returns</field>
+            <field name="eq_shipcloud_carrier">gls</field>
+            <field name="eq_comments">Returns service</field>
+        </record>
+        
+        <record id="eq_gls_one_day" model="eq.shipcloud.service">
+            <field name="eq_name">one_day</field>
+            <field name="eq_shipcloud_carrier">gls</field>
+            <field name="eq_comments">express delivery</field>
+        </record>
+        
+        <record id="eq_gls_one_day_early" model="eq.shipcloud.service">
+            <field name="eq_name">one_day_early</field>
+            <field name="eq_shipcloud_carrier">gls</field>
+            <field name="eq_comments">express delivery until 10am.</field>
+        </record>
+        
+                
+        <!-- Carrier - Service for Hermes -->
+        <record id="eq_hermes_standard" model="eq.shipcloud.service">
+            <field name="eq_name">standard</field>
+            <field name="eq_shipcloud_carrier">hermes</field>
+            <field name="eq_default">True</field>
+            <field name="eq_comments">The standard (ground) service for each carrier</field>
+        </record>
+        
+        <record id="eq_hermes_returns" model="eq.shipcloud.service">
+            <field name="eq_name">returns</field>
+            <field name="eq_shipcloud_carrier">hermes</field>
+            <field name="eq_comments">Returns service</field>
+        </record>
+        
+        <record id="eq_hermes_one_day" model="eq.shipcloud.service">
+            <field name="eq_name">one_day</field>
+            <field name="eq_shipcloud_carrier">hermes</field>
+            <field name="eq_comments">express delivery</field>
+        </record>
+        
+        <record id="eq_hermes_one_day_early" model="eq.shipcloud.service">
+            <field name="eq_name">one_day_early</field>
+            <field name="eq_shipcloud_carrier">hermes</field>
+            <field name="eq_comments">express delivery until 10am.</field>
+        </record>
+        
+        
+         <!-- Carrier - Service for Iloxx -->
+        <record id="eq_iloxx_standard" model="eq.shipcloud.service">
+            <field name="eq_name">standard</field>
+            <field name="eq_shipcloud_carrier">iloxx</field>
+            <field name="eq_default">True</field>
+            <field name="eq_comments">The standard (ground) service for each carrier</field>
+        </record>
+        
+        <record id="eq_iloxx_returns" model="eq.shipcloud.service">
+            <field name="eq_name">returns</field>
+            <field name="eq_shipcloud_carrier">iloxx</field>
+            <field name="eq_comments">Returns service</field>
+        </record>
+        
+        <record id="eq_iloxx_one_day" model="eq.shipcloud.service">
+            <field name="eq_name">one_day</field>
+            <field name="eq_shipcloud_carrier">iloxx</field>
+            <field name="eq_comments">express delivery</field>
+        </record>
+        
+        <record id="eq_iloxx_one_day_early" model="eq.shipcloud.service">
+            <field name="eq_name">one_day_early</field>
+            <field name="eq_shipcloud_carrier">iloxx</field>
+            <field name="eq_comments">express delivery until 10am.</field>
+        </record>
+        
+        
+       <!-- Carrier - Service for Liefery -->
+        <record id="eq_liefery_standard" model="eq.shipcloud.service">
+            <field name="eq_name">standard</field>
+            <field name="eq_shipcloud_carrier">liefery</field>
+            <field name="eq_default">True</field>
+            <field name="eq_comments">The standard (ground) service for each carrier</field>
+        </record>
+        
+        <record id="eq_liefery_returns" model="eq.shipcloud.service">
+            <field name="eq_name">returns</field>
+            <field name="eq_shipcloud_carrier">liefery</field>
+            <field name="eq_comments">Returns service</field>
+        </record>
+        
+        <record id="eq_liefery_one_day" model="eq.shipcloud.service">
+            <field name="eq_name">one_day</field>
+            <field name="eq_shipcloud_carrier">liefery</field>
+            <field name="eq_comments">express delivery</field>
+        </record>
+        
+        <record id="eq_liefery_one_day_early" model="eq.shipcloud.service">
+            <field name="eq_name">one_day_early</field>
+            <field name="eq_shipcloud_carrier">liefery</field>
+            <field name="eq_comments">express delivery until 10am.</field>
+        </record>
+        
+        
+        
+        <!-- Carrier - Service for UPS -->
+        <record id="eq_ups_standard" model="eq.shipcloud.service">
+            <field name="eq_name">standard</field>
+            <field name="eq_shipcloud_carrier">ups</field>
+            <field name="eq_default">True</field>
+            <field name="eq_comments">The standard (ground) service for each carrier</field>
+        </record>
+        
+        <record id="eq_ups_returns" model="eq.shipcloud.service">
+            <field name="eq_name">returns</field>
+            <field name="eq_shipcloud_carrier">ups</field>
+            <field name="eq_comments">Returns service</field>
+        </record>
+        
+        <record id="eq_ups_one_day" model="eq.shipcloud.service">
+            <field name="eq_name">one_day</field>
+            <field name="eq_shipcloud_carrier">ups</field>
+            <field name="eq_comments">express delivery</field>
+        </record>
+        
+        <record id="eq_ups_one_day_early" model="eq.shipcloud.service">
+            <field name="eq_name">one_day_early</field>
+            <field name="eq_shipcloud_carrier">ups</field>
+            <field name="eq_comments">express delivery until 10am.</field>
+        </record>
+        
+<!--         Shipcloud Default logistic unit  -->
+        <record id ="eq_shipdefault_logistic_unit" model="eq.shipdefault.logistic.unit">
+        	<field name="eq_description">Shipcloud Default Logistic Unit</field>
+        </record>
+        
+    </data>
+
+</openerp>

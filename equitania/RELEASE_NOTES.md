@@ -17,6 +17,41 @@ Vorgehensweise unter Debian:
 `fc-cache -f -v`
 
 
+#### 28.04.2017
+### Version 1.1.153
+#### CHG
+- Ticket 4086: unnötige Leerzeile in Produkttexten der Bestellpositionen entfernt
+
+
+#### 27.04.2017
+### Version 1.1.152
+#### FIX
+- Liefer-Report: Anschrift erweitert für 3 Anschriftmöglichkeiten: Firma, Kontakt einer Firma, Kontakt ohne Firma
+
+#### 26.04.2017
+### Version 1.1.151
+#### FIX
+- Ticket 3846/4120 Anapssung des SQL-Statements entsprechend der Änderungen in dem Modul eq_manufacture_from_sale.
+
+
+#### 13.04.2017
+### Version 1.1.150
+#### FIX
+- Fix für Bug: https://github.com/odoo/odoo/issues/1892
+- Fix für Bug: https://bugs.launchpad.net/openobject-addons/+bug/1202127
+- Fix für Bug: https://github.com/odoo/odoo/issues/6251
+
+#### 13.04.2017
+### Version 1.1.149
+#### CHG
+- Lieferschein Report: doppeltes Gewichtsfeld entfernt
+
+#### 12.04.2017
+### Version 1.1.148
+#### FIX
+- Kleiner Reportfix für das Label der Kontaktperson
+
+
 #### 28.03.2017
 ### Version 1.1.147
 #### CHG

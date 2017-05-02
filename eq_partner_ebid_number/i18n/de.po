@@ -1,0 +1,400 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* partner_ebid_number
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-12 08:42+0000\n"
+"PO-Revision-Date: 2015-05-12 08:42+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.config,eq_ebid_acceptance_rate:0
+msgid "Acceptance rate"
+msgstr "Mindestwert für Suchergebnis"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll,eq_res_id:0
+msgid "Address"
+msgstr "Adresse"
+
+#. module: partner_ebid_number
+#: view:eq.ebid.config:partner_ebid_number.eq_ebid_config_settings
+msgid "Apply"
+msgstr "Speichern"
+
+#. module: partner_ebid_number
+#: view:eq.ebid.config:partner_ebid_number.eq_ebid_config_settings
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: partner_ebid_number
+#: view:res.partner:partner_ebid_number.eq_view_partner_form_ebid
+msgid "Check"
+msgstr "Überprüfen"
+
+#. module: partner_ebid_number
+#: code:addons/partner_ebid_number/models/eq_ebid_protocoll.py:172
+#: code:addons/partner_ebid_number/models/partner.py:137
+#: code:addons/partner_ebid_number/models/partner.py:217
+#: code:addons/partner_ebid_number/models/partner.py:233
+#, python-format
+msgid "Check the configuration for EBID"
+msgstr "Überprüfen Sie die Konfiguration für EBID"
+
+#. module: partner_ebid_number
+#: view:eq.ebid.protocoll:partner_ebid_number.eq_ebid_protocol_search
+msgid "Checked"
+msgstr "Überprüfung durchgeführt"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll.position,eq_city:0
+msgid "City"
+msgstr "Stadt"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll.position,eq_city_part:0
+msgid "City part"
+msgstr "Stadtteil"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll.position,eq_company_name:0
+msgid "Company name"
+msgstr "Firmenname"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.config,eq_ebid_service_company_url:0
+msgid "Company service"
+msgstr "Company Service"
+
+#. module: partner_ebid_number
+#: view:eq.ebid.config:partner_ebid_number.eq_ebid_config_settings
+#: model:ir.actions.act_window,name:partner_ebid_number.action_eq_ebid_config_settings
+msgid "Configure Ebid"
+msgstr "Konfiguriere Ebid"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll.position,eq_country:0
+msgid "Country"
+msgstr "Land"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.config,create_uid:0
+#: field:eq.ebid.protocoll,create_uid:0
+#: field:eq.ebid.protocoll.position,create_uid:0
+#: field:eq_message,create_uid:0
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.config,create_date:0
+#: field:eq.ebid.protocoll,create_date:0
+#: field:eq.ebid.protocoll.position,create_date:0
+#: field:eq_message,create_date:0
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll.position,eq_email:0
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#. module: partner_ebid_number
+#: field:res.partner,eq_ebid_no:0
+msgid "EBID Number"
+msgstr "EBID Nummer"
+
+#. module: partner_ebid_number
+#: view:eq.ebid.protocoll:partner_ebid_number.eq_ebid_protocol_form_view
+#: view:eq.ebid.protocoll:partner_ebid_number.eq_ebid_protocol_tree_view
+#: view:eq.ebid.protocoll.position:partner_ebid_number.eq_ebid_protocoll_pos_form_view
+#: model:ir.actions.act_window,name:partner_ebid_number.eq_ebid_protocol_action
+#: model:ir.ui.menu,name:partner_ebid_number.eq_ebid_protocoll_menu
+msgid "EBID Protocol"
+msgstr "EBID Protokoll"
+
+#. module: partner_ebid_number
+#: view:eq.ebid.protocoll.position:partner_ebid_number.eq_ebid_protocoll_pos_tree_view
+msgid "EBID Protocol Positions"
+msgstr "EBID Protokollpositionen"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll,eq_protocoll_positions:0
+msgid "EBID Protocoll"
+msgstr "EBID Protokoll"
+
+#. module: partner_ebid_number
+#: code:addons/partner_ebid_number/models/partner.py:266
+#, python-format
+msgid "EBID could not be found for this address"
+msgstr "Für diese Adresse konnte keine EBID-Nummer ermittelt werden."
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll.position,ebid_no:0
+msgid "EBID-No"
+msgstr "EBID-Nummer"
+
+#. module: partner_ebid_number
+#: view:res.partner:partner_ebid_number.eq_view_partner_form_ebid
+msgid "EBID-Number"
+msgstr "EBID-Nummer"
+
+#. module: partner_ebid_number
+#: field:res.partner,eq_ebid_was_checked:0
+msgid "EBID-Suche wurde durchgeführt"
+msgstr "EBID-Suche wurde durchgeführt"
+
+#. module: partner_ebid_number
+#: model:ir.ui.menu,name:partner_ebid_number.menu_eq_ebid_config_settings
+msgid "Ebid"
+msgstr "EBID"
+
+#. module: partner_ebid_number
+#: view:eq.ebid.config:partner_ebid_number.eq_ebid_config_settings
+msgid "Ebid Configuration"
+msgstr "EBID Konfiguration"
+
+#. module: partner_ebid_number
+#: code:addons/partner_ebid_number/models/eq_ebid_protocoll.py:172
+#: code:addons/partner_ebid_number/models/partner.py:137
+#: code:addons/partner_ebid_number/models/partner.py:217
+#: code:addons/partner_ebid_number/models/partner.py:233
+#, python-format
+msgid "Error"
+msgstr "Fehler"
+
+#. module: partner_ebid_number
+#: code:addons/partner_ebid_number/models/partner.py:291
+#: code:addons/partner_ebid_number/models/partner.py:325
+#, python-format
+msgid "Error: "
+msgstr "Fehler: "
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll.position,eq_fax:0
+msgid "Fax"
+msgstr "Fax"
+
+#. module: partner_ebid_number
+#: view:eq.ebid.config:partner_ebid_number.eq_ebid_config_settings
+msgid "General"
+msgstr "Allgemein"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll.position,eq_url:0
+msgid "Homepage"
+msgstr "Homepage"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.config,eq_ebid_homepage:0
+msgid "Homepage Unternehmensverzeichnis"
+msgstr "Homepage Unternehmensverzeichnis"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll.position,eq_house_no:0
+msgid "House No"
+msgstr "Hausnummer"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.config,id:0
+#: field:eq.ebid.protocoll,id:0
+#: field:eq.ebid.protocoll.position,id:0
+#: field:eq_message,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: partner_ebid_number
+#: view:eq_message:partner_ebid_number.eq_message
+#: field:eq_message,eq_info:0
+msgid "Info"
+msgstr "Info"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.config,write_uid:0
+#: field:eq.ebid.protocoll,write_uid:0
+#: field:eq.ebid.protocoll.position,write_uid:0
+#: field:eq_message,write_uid:0
+msgid "Last Updated by"
+msgstr "Zuletzt bearbeitet von"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.config,write_date:0
+#: field:eq.ebid.protocoll,write_date:0
+#: field:eq.ebid.protocoll.position,write_date:0
+#: field:eq_message,write_date:0
+msgid "Last Updated on"
+msgstr "Zuletzt bearbeitet am"
+
+#. module: partner_ebid_number
+#: view:eq.ebid.protocoll.position:partner_ebid_number.eq_ebid_protocoll_pos_form_view
+msgid "Load data from Unternehmensverzeichnis.org"
+msgstr "Adressdaten aus Unternehmensverzeichnis.org laden"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.config,eq_ebid_service_match_url:0
+msgid "Match service"
+msgstr "Match Service"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll,eq_message:0
+#: help:eq.ebid.protocoll,eq_message:0
+#: view:eq_message:partner_ebid_number.eq_message
+#: field:eq_message,eq_message_text:0
+msgid "Message"
+msgstr "Nachricht"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll.position,eq_mobile:0
+msgid "Mobile"
+msgstr "Mobil"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll,eq_model:0
+msgid "Model"
+msgstr "Model"
+
+#. module: partner_ebid_number
+#: code:addons/partner_ebid_number/models/partner.py:310
+#, python-format
+msgid "More than one EBID-Number were found for this address. Check the EBID protocol."
+msgstr "Für diese Adresse wurden mehrere EBID-Nummern ermittelt. Bitte überprüfen Sie das Ergebnis im EBID-Protokoll."
+
+#. module: partner_ebid_number
+#: code:addons/partner_ebid_number/models/partner.py:308
+#: code:addons/partner_ebid_number/models/partner.py:327
+#, python-format
+msgid "No EBID-Number could be found for this address"
+msgstr "Für diese Adresse konnte keine EBID-Nummer ermittelt werden."
+
+#. module: partner_ebid_number
+#: view:eq.ebid.protocoll.position:partner_ebid_number.eq_ebid_protocoll_pos_form_view
+msgid "Open Unternehmensverzeichnis.org"
+msgstr "Zu Unternehmensverzeichnis.org springen"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll.position,eq_ebid_protocoll_id:0
+msgid "Parent Protocoll"
+msgstr "Parent Protocoll"
+
+#. module: partner_ebid_number
+#: model:ir.model,name:partner_ebid_number.model_res_partner
+msgid "Partner"
+msgstr "Partner"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.config,eq_ebid_pw:0
+msgid "Password"
+msgstr "Passwort"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll.position,eq_phone:0
+msgid "Phone"
+msgstr "Telefonnr"
+
+#. module: partner_ebid_number
+#: field:eq_message,eq_res_id:0
+msgid "Protocol"
+msgstr "Protokoll"
+
+#. module: partner_ebid_number
+#: view:eq.ebid.protocoll:partner_ebid_number.eq_ebid_protocol_form_view
+#: field:eq.ebid.protocoll,eq_request:0
+#: help:eq.ebid.protocoll,eq_request:0
+msgid "Request"
+msgstr "Suchparameter"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll,eq_request_type:0
+msgid "Request type"
+msgstr "Anfragetyp"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll,eq_response:0
+#: help:eq.ebid.protocoll,eq_response:0
+#: field:eq.ebid.protocoll.position,eq_response:0
+#: help:eq.ebid.protocoll.position,eq_response:0
+msgid "Response"
+msgstr "Response"
+
+#. module: partner_ebid_number
+#: view:eq.ebid.protocoll:partner_ebid_number.eq_ebid_protocol_search
+#: field:eq.ebid.protocoll,eq_checked:0
+msgid "Result checked"
+msgstr "Überprüfung durchgeführt"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll,eq_result_count:0
+msgid "Result count"
+msgstr "Treffer"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll,eq_rate:0
+#: field:eq.ebid.protocoll.position,eq_rate:0
+msgid "Seach rate"
+msgstr "Trefferquote"
+
+#. module: partner_ebid_number
+#: view:eq.ebid.protocoll:partner_ebid_number.eq_ebid_protocol_search
+msgid "Search"
+msgstr "Suche"
+
+#. module: partner_ebid_number
+#: code:addons/partner_ebid_number/models/partner.py:221
+#, python-format
+msgid "Search for EBID"
+msgstr "Ermittlung der EBID-Nummer"
+
+#. module: partner_ebid_number
+#: code:addons/partner_ebid_number/models/partner.py:289
+#: code:addons/partner_ebid_number/models/partner.py:323
+#, python-format
+msgid "Search of EBID for address was not successful"
+msgstr "Für diese Adresse konnte keine EBID-Nummer ermittelt werden."
+
+#. module: partner_ebid_number
+#: view:eq.ebid.protocoll.position:partner_ebid_number.eq_ebid_protocoll_pos_form_view
+msgid "Set data for company"
+msgstr "Daten in Odoo-Adresse übernehmen"
+
+#. module: partner_ebid_number
+#: view:res.partner:partner_ebid_number.eq_view_partner_form_ebid
+msgid "Show address"
+msgstr "Unternehmensverzeichnis.org"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll.position,eq_street:0
+msgid "Street"
+msgstr "Straße"
+
+#. module: partner_ebid_number
+#: view:eq.ebid.protocoll.position:partner_ebid_number.eq_ebid_protocoll_pos_form_view
+msgid "Use this EBID-No for the company"
+msgstr "EBID-Nummer für Adresse setzen"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.config,eq_ebid_user:0
+msgid "User"
+msgstr "Benutzer"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll.position,eq_ustid_nr:0
+msgid "UstidNr"
+msgstr "UstidNr"
+
+#. module: partner_ebid_number
+#: field:eq.ebid.protocoll.position,eq_zip:0
+msgid "Zip"
+msgstr "Plz"
+
+#. module: partner_ebid_number
+#: view:eq.ebid.config:partner_ebid_number.eq_ebid_config_settings
+msgid "or"
+msgstr "or"
+

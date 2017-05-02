@@ -22,8 +22,8 @@ import xmlrpclib, os
 from datetime import datetime, timedelta
 
 username = "admin"
-pwd = "pwd"
-dbname = "dbname"
+pwd = "odoo"
+dbname = "testmyodoo"
 baseurl = "http://localhost:8069"
 
 version_number = 1
@@ -36,7 +36,7 @@ uid = sock_common.login(dbname, username, pwd)
 
 sock = xmlrpclib.ServerProxy(baseurl + "/xmlrpc/object")
 
-list_id = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("eq_email_template_version","=",False)])
+list_id = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("eq_email_template_version","=",0)])
 #list_id = sock.execute(dbname, uid, pwd, 'email.template', 'search', ["|",("eq_email_template_version","=",0),("eq_email_template_version","<",version_number)])
 
 dict = sock.execute(dbname, uid, pwd, 'email.template', 'read', list_id,['display_name'])
@@ -1012,5 +1012,62 @@ if template_name == [] and template_name_de == []:
 
     template_id = sock.execute(dbname, uid, pwd, 'email.template', 'write', template_id, Email_Template_de,{'lang': 'de_DE'})
     print "Email-Template erstellt: Order - Confirmation_de"
+
+#############33. Neuregistrierung eq en ###################################################
+########################################################################################
+
+bestell_model_id = sock.execute(dbname, uid, pwd, 'ir.model', 'search', [("model", "=", "res.partner")])
+template_name = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name", "=", "New Registration")])
+template_name_de = sock.execute(dbname, uid, pwd, 'email.template', 'search', [("name", "=", "Neuregistrierung")])
+
+if template_name == [] and template_name_de == []:
+    email_temp_file = open(mypath + "/email_templates/registration_info_en.txt", "r")
+    body_html = email_temp_file.read()
+
+    Email_Template_en = {
+        'name': 'New registration',
+        'eq_email_template_version': version_number,
+        'model_id': bestell_model_id[0],
+        'subject': "New registration in your shop",
+        'body_html': body_html,
+        'email_from': "${(object.company_id.email or '')|safe}",
+        'partner_to': '',
+        'lang': '${object.partner_id.lang}',
+        'auto_delete': True,
+    }
+
+    template_id = sock.execute(dbname, uid, pwd, 'email.template', 'create', Email_Template_en, {})
+    print "Email-Template erstellt: Neuregistrierung_en"
+
+
+##############34. Neuregistrierung eq de ###################################################
+#########################################################################################
+
+
+    email_temp_file = open(mypath + "/email_templates/registration_info_de.txt", "r")
+    body_html = email_temp_file.read()
+
+    Email_Template_de = {
+        'name': 'Neuregistrierung',
+        'eq_email_template_version': version_number,
+        'model_id': bestell_model_id[0],
+        'subject': "Neuregistrierung im Shop",
+        'body_html': body_html,
+        'email_from': "${(object.company_id.email or '')|safe}",
+        'partner_to': '',
+        'lang': '${object.partner_id.lang}',
+        'auto_delete': True,
+    }
+
+    template_id = sock.execute(dbname, uid, pwd, 'email.template', 'write', template_id, Email_Template_de,{'lang': 'de_DE'})
+    print "Email-Template erstellt: Neuregistrierung_de"
+
+    # ir_model_data = {
+    #     'module': 'calendar',
+    #     'name': 'calendar_template_meeting_changedate',
+    #     'model': 'email.template',
+    #     'res_id': template_id,
+    # }
+    # identificator_id = sock.execute(dbname, uid, pwd, 'ir.model.data', 'create', ir_model_data)
 
 print "Email-Template Import ist beendet!"

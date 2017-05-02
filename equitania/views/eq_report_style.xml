@@ -5,7 +5,7 @@
      
     body {
         color: #000 !important;
-        font-size:8pt;
+        font-size:10pt; /* alter Wert vor falschskalierung: 8pt */
 		font-family: "Open Sans", Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
         
     }
@@ -53,7 +53,7 @@
 	    margin:0;
 	    padding:0;
 	    text-align:left;
-	    font-size:6pt;
+	    font-size:7.5pt;/* alter Wert vor falschskalierung: 6pt*/
 	    border: none;
 		background-color:none;
 	}
@@ -62,32 +62,33 @@
 	    margin:0 0 0 -15px;
 	    padding:0;
         display: none;
-	    font-size:4pt;
+	    font-size:5pt;/* alter Wert vor falschskalierung: 4pt*/
 	    background-color:none;
 	    transform: rotate(-90deg);
 	    -webkit-transform:rotate(-90deg); /* Opera, Chrome, and Safari */
 	}
 
 	#logo img {
-		max-width:6.5cm;
-		max-height:3.5cm;
+		max-width:7.8cm; /* alter Wert vor falschskalierung: 6.5cm */
+		max-height:4.2cm; /* alter Wert vor falschskalierung: 3.5cm */
 		float:right;
 	}
     
     .header img {
-    	max-width:6.4cm;
-		max-height:3.2cm;
+    	max-width:7.1cm; /* alter Wert vor falschskalierung: 6.4 */
+		max-height:3.9cm; /* alter Wert vor falschskalierung: 3.2 */
 		float:right;
 	}
 
-	.contactpersonheader { margin-top:4mm; display:inline-block;}
+	.contactpersonheader { margin-top:4mm; display:inline-block;
+	margin:0; padding:0; width:100%;}
 
     .addressmargin {
         margin-top:0.1cm;
         height: 4.8cm;
     }
 	.returnaddress {
-			font-size:7pt;
+			font-size:8.5pt; /* alter Wert vor falschskalierung: 7pt */
 			/*border-bottom:0.8pt solid #999;*/
             text-decoration: underline;
             margin-bottom:0.2cm;
@@ -95,7 +96,7 @@
     .referencecontainer {
     /* keeps the reference to maximum height of 2 lines */
         text-overflow: clip;
-        max-height:27px;
+        max-height:35px;
         overflow: hidden;
     }
 	/* Removes the website content box for the reports */

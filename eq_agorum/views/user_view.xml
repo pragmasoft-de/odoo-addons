@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="eq_view_user_form_agorum" model="ir.ui.view">
+            <field name="name">res.users.form.agorum</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">            
+                 <field name="partner_id" position="before">          
+					<field name="eq_agorum_user" string="Agorum User"/>
+					<field name="eq_agorum_password" string="Agorum Password" password="True" /> 
+				  </field> 
+          	</field>
+        </record>
+    </data>
+</openerp>

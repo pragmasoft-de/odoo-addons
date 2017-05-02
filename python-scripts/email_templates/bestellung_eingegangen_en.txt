@@ -2,6 +2,7 @@
 <div>
 <p> You received a order of</p>
 <p><strong>customer: ${object.partner_id.name}</strong></p>
+<p><strong>order: ${object.name}</strong></p>
 </div>
 <br>
 <br>
